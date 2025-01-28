@@ -1,6 +1,11 @@
 node_modules
 *.swp
 
+# Editors
+.idea
+*.iml
+.vscode
+
 # Output
 .output
 /.svelte-kit
