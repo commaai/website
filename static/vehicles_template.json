@@ -1,0 +1,25 @@
+{
+  {% for make, cars in group_by_make(all_car_docs).items() %}
+  "{{ make }}": [
+    {% for car in cars %}
+    {
+      "name": "{{ car.name }}",
+      "model": "{{ car.model }}",
+      "years": "{{ car.years }}",
+      "year_list": "{{ car.year_list | join(', ') }}",
+      "package": "{{ car.package }}",
+      "angled_mount": {{ (Device.threex_angled_mount in car.car_parts.parts) | tojson }},
+      "video_link": "{{ car.video_link or "" }}",
+      {% set harness_connector = car.car_parts.parts | selectattr('part_type', 'eq', PartType.connector) | first %}
+      "harness_connector": "{{ harness_connector.value.name.replace(' connector','') if harness_connector else "" }}",
+      "detail_sentence": "{{ car.detail_sentence }}",
+      "footnotes": [
+        {% for footnote in car.footnotes if not footnote.value.docs_only %}
+        {{ footnote.value.text | tojson }}{{ "" if loop.last else "," }}
+        {% endfor %}
+      ]
+    }{{ "" if loop.last else "," }}
+    {% endfor %}
+  ]{{ "" if loop.last else "," }}
+  {% endfor %}
+}

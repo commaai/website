@@ -1,0 +1,16 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M36 12H12V36H36V12ZM34 14H14V34H34V14Z" fill="currentColor"/>
+<rect x="18" y="18" width="12" height="12" fill="currentColor" stroke="black" stroke-width="2"/>
+<rect x="17" y="8" width="2" height="4" fill="currentColor"/>
+<rect x="17" y="36" width="2" height="4" fill="currentColor"/>
+<rect x="23" y="8" width="2" height="4" fill="currentColor"/>
+<rect x="23" y="36" width="2" height="4" fill="currentColor"/>
+<rect x="29" y="8" width="2" height="4" fill="currentColor"/>
+<rect x="29" y="36" width="2" height="4" fill="currentColor"/>
+<rect x="36" y="17" width="4" height="2" fill="currentColor"/>
+<rect x="36" y="23" width="4" height="2" fill="currentColor"/>
+<rect x="36" y="29" width="4" height="2" fill="currentColor"/>
+<rect x="8" y="17" width="4" height="2" fill="currentColor"/>
+<rect x="8" y="23" width="4" height="2" fill="currentColor"/>
+<rect x="8" y="29" width="4" height="2" fill="currentColor"/>
+</svg>

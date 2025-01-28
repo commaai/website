@@ -1,0 +1,366 @@
+<html>
+
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+<title>comma.ai — leaderboard</title>
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAADzSURBVHgB7ZZbEcIwEEUvGAAcRAIS6gAJ1EklgAOKAkBBcVAcdFBQHJTNFGaSfLS7zCb85Mycrz528+hNgUxGxpqsyIYcPrbknjSIjCE7p3CovbZFRKaKf+1jNVEyirtLok4raMC6gzKD0CuUkTbQQxnpEgzcFy+Z990gx0ARG0AdZDNgoIyZaKLHj0uwgJwSY9isyAd5Jgvy4tzzIjdISAF/9A33Qe4mnCOMX/amjdWAehDN4W5O9vRrUcJf/6hHckiYDyckpob/Q7JGQg5BcYNE2FE2/ypewY/dIxJOew3/UyuggOQssFn/xBgyd2QySrwBMPGV3eNmgPcAAAAASUVORK5CYII=" sizes="32x32">
+
+<script defer data-domain="comma.ai" src="https://plausible.io/js/script.js"></script>
+
+<style>
+  body {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: monospace;
+  }
+  p, pre {
+    font-size: 1.2em;
+  }
+  a, a:visited {
+    color: #000;
+    text-decoration: none;
+    border-bottom: 1px solid #51ff00;
+  }
+  a:hover {
+    background-color: #51ff0033;
+  }
+  pre {
+    white-space: pre-wrap;
+  }
+  table {
+    border: none;
+    border-collapse: collapse;
+    counter-reset: rowNumber;
+  }
+  .ranked tr {
+    counter-increment: row-number;
+  }
+  .ranked tr td:first-child::before {
+    content: counter(row-number);
+  }
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border: none;
+  }
+  th {
+    background-color: #f2f2f2;
+  }
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  tr:nth-child(odd) {
+    background-color: #ffffff;
+  }
+  .divider {
+    border-top: 1px solid #000;
+    margin: 20px 0;
+  }
+  .tag-green {
+    margin: 0;
+    padding: 5px;
+    font-weight: bold;
+    font-size: 0.75em;
+    width: fit-content;
+    display: inline-block;
+    background-color: #51ff00;
+  }
+  .tag-grey {
+    margin: 0;
+    padding: 5px;
+    font-weight: bold;
+    font-size: 0.75em;
+    width: fit-content;
+    display: inline-block;
+    background-color: #f1f1f1;
+  }
+  .highlight-green {
+    display: inline;
+    border-bottom: 4px solid #51ff0066;
+    background-image: linear-gradient(145deg,#51ff0000,#51ff0066);
+  }
+
+  .table-container {
+    max-height: 160px;
+    overflow-y: auto;
+    position: relative;
+    margin: 0 auto;
+    border-right: none;
+    display: inline-block;
+  }
+  .table-container thead {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: #f2f2f2;
+  }
+  th {
+    background-color: #f2f2f2;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+  .icon-comma {
+    width: 20px;
+    height: 10px;
+    display: inline-block;
+    background: currentColor;
+    mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 42' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.2265 42C3.2265 41.0282 3.15054 40.2141 3.26228 39.4294C3.3099 39.0948 3.70043 38.7365 4.01893 38.5344C5.57173 37.5489 7.25857 36.7621 8.70427 35.6319C13.387 31.9708 16.1628 27.1512 16.3145 20.8905C16.3574 19.1128 15.7039 18.6687 14.2108 19.3612C9.90092 21.3604 5.26623 20.1883 2.79277 16.4731C0.0953566 12.421 0.475192 7.0259 3.70716 3.4862C7.83541 -1.03482 14.6281 -1.1701 19.3123 3.14764C22.1182 5.73404 23.4514 9.07362 23.7839 12.8722C24.8985 25.598 18.5156 36.0872 6.89848 40.695C5.74875 41.1508 4.56975 41.5252 3.2265 42Z'/%3E%3C/svg%3E") no-repeat center;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 42' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.2265 42C3.2265 41.0282 3.15054 40.2141 3.26228 39.4294C3.3099 39.0948 3.70043 38.7365 4.01893 38.5344C5.57173 37.5489 7.25857 36.7621 8.70427 35.6319C13.387 31.9708 16.1628 27.1512 16.3145 20.8905C16.3574 19.1128 15.7039 18.6687 14.2108 19.3612C9.90092 21.3604 5.26623 20.1883 2.79277 16.4731C0.0953566 12.421 0.475192 7.0259 3.70716 3.4862C7.83541 -1.03482 14.6281 -1.1701 19.3123 3.14764C22.1182 5.73404 23.4514 9.07362 23.7839 12.8722C24.8985 25.598 18.5156 36.0872 6.89848 40.695C5.74875 41.1508 4.56975 41.5252 3.2265 42Z'/%3E%3C/svg%3E") no-repeat center;
+  }
+</style>
+
+</head>
+
+<body>
+<h1>comma.ai leaderboard</h1>
+
+<h3>
+  <a href="https://comma.ai">home</a> ·
+  <a href="https://comma.ai/jobs">jobs</a> ·
+  <a href="https://comma.ai/bounties">bounties</a> ·
+  <a href="https://discord.comma.ai">Discord</a> ·
+  <a href="https://x.com/comma_ai">X</a>
+</h3>
+
+<div class="divider"></div>
+<p style="white-space: pre-wrap;">We designed these challenges around real problems we've faced while building and shipping <a href="https://github.com/commaai/openpilot">openpilot</a>. We hope you enjoy them.
+
+* Submit your solution <a href="https://forms.gle/US88Hg7UR6bBuW3BA">here</a>
+* Multiple submissions are allowed
+* Non-competitive scores will not be published
+* 👑 is a cash prize winner
+* <span class="icon-comma"></span> is an employee or intern score
+* Active challenges are still expected to be difficult
+* Archived challenges are largely solved problems
+
+If you find these fun and score well, you'll probably be a good fit for a <a href="https://comma.ai/jobs">job</a> here.
+</p>
+
+<div class="divider"></div>
+<h2>
+  <a href="https://github.com/commaai/harness_tester_challenge">hardware challenge</a>
+  &nbsp;<p class="tag-green">ACTIVE</p>
+</h2>
+<h4>find as many bugs as you can in our custom wire harness tester</h4>
+<pre>
+cash prizes:
+* $750 for the first score >=20
+* $500 for the highest score, October 1 - November 1, 2024
+</pre>
+<div class="table-container">
+<table class="ranked">
+  <thead><tr>
+      <th></th> <th>bugs</th> <th>name</th>
+  </tr></thead>
+  <tbody>
+    <tr> <td></td> <td>21</td> <td><a href="https://github.com/leosteinberg">leosteinberg</a>&nbsp;👑 </td> </tr>
+    <tr> <td></td> <td>20</td> <td><a href="https://github.com/probablyanasian">probablyanasian</a> </td> </tr>
+    <tr> <td></td> <td>18</td> <td><a href="https://github.com/MastroGippo">MastroGippo</a> </td> </tr>
+    <tr> <td></td> <td>18</td> <td><a href="https://github.com/dzid26">dzid26</a> <span class="icon-comma"></span></td> </tr>
+    <tr> <td></td> <td>16</td> <td><a href="https://github.com/ruselec">ruselec</a>&nbsp;👑</td> </tr>
+    <tr> <td></td> <td>16</td> <td><a href="https://github.com/soul350">ashrey</a></td> </tr>
+    <tr> <td></td> <td>14</td> <td><a href="https://github.com/1art">1art</a></td> </tr>
+    <tr> <td></td> <td>13</td> <td><a href="https://github.com/lukasloetkolben">lukasloetkolben</a> <span class="icon-comma"></span></td> </tr>
+    <tr> <td></td> <td>13</td> <td><a href="https://github.com/quantizr">Quantizr</a> <span class="icon-comma"></span></td> </tr>
+    <tr> <td></td> <td>13</td> <td><a href="https://github.com/kostas1507">kostas1507</a></td> </tr>
+    <tr> <td></td> <td>13</td> <td><a href="https://github.com/avangerp">avangerp</a></td> </tr>
+    <tr> <td></td> <td>11</td> <td><a href="https://github.com/duong999123">duong999123</a></td> </tr>
+    <tr> <td></td> <td>11</td> <td><a href="https://github.com/Ans1S">Ans1S</a></td> </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="divider"></div>
+<h2>
+  <a href="https://github.com/commaai/controls_challenge">controls challenge v2</a>
+  &nbsp;<p class="tag-green">ACTIVE</p>
+</h2>
+<h4>design a controller to steer a (simulated) car</h4>
+<p>
+  cash prize: $500 for lowest non-employee score, August 1 - September 1, 2024</p>
+</p>
+
+<div class="table-container">
+<table class="ranked">
+  <thead><tr>
+     <th></th> <th>score</th> <th>name</th> <th>method</th>
+  </tr></thead>
+  <tbody>
+    <tr> <td></td> <td>45.756</td> <td><a href="https://github.com/bheijden">bheijden</a>&nbsp;👑<td>PPO</td> </tr>
+    <tr> <td></td> <td>48.08</td> <td><a href="https://github.com/ellenjxu">ellenjxu</a> <span class="icon-comma"></span></td> <td>custom feedback controller + evolution</td> </tr>
+    <tr> <td></td> <td>48.57</td> <td><a href="https://github.com/Quantizr">Quantizr</a> <span class="icon-comma"></span></td> <td>custom feedback controller</td> </tr>
+    <tr> <td></td> <td>50.192</td> <td><a href="https://github.com/truefit-ai">truefit-ai</a> <td>custom PID + evolution</td> </tr>
+    <tr> <td></td> <td>50.633</td> <td><a href="https://github.com/jonoomph">jonoomph</a> <td>ML PID</td> </tr>
+    <tr> <td></td> <td>50.716</td> <td><a href="https://github.com/felsager">felsager</a>&nbsp;👑</td> <td>custom feedback controller</td> </tr>
+    <tr> <td></td> <td>52.506</td> <td><a href="https://github.com/izzunnafis">izzunnafis</a></td> <td>custom feedback controller</td> </tr>
+    <tr> <td></td> <td>54.709</td> <td><a href="https://github.com/freeklinssen">freeklinssen</a></td> <td>adaptive PID</td> </tr>
+    <tr> <td></td> <td>55.485</td> <td><a href="https://github.com/garrettpall">garrettpall</a></td> <td>custom feedback controller</td> </tr>
+    <tr> <td></td> <td>57.670</td> <td><a href="https://github.com/YasinSonmez">YasinSonmez</a></td> <td>PID w FF</td> </tr>
+    <tr> <td></td> <td>58.57</td> <td><a href="https://github.com/YashDYD">YashDYD</a></td> <td>custom feedback controller</td> </tr>
+    <tr> <td></td> <td>59.811</td> <td><a href="https://github.com/avangerp">avangerp</a></td> <td>custom feedback controller</td> </tr>
+    <tr> <td></td> <td>59.853</td> <td><a href="https://github.com/haraschax">haraschax</a> <span class="icon-comma"></span></td> <td>custom feedback controller</td> </tr>
+    <tr> <td></td> <td>61.783</td> <td><a href="https://github.com/xfqbuaa">xfqbuaa</a></td> <td>custom PID</td> </tr>
+    <tr> <td></td> <td>62.462</td> <td><a href="https://github.com/0xmmo">0xmmo</a></td> <td>genetic algorithm</td> </tr>
+    <tr> <td></td> <td>63.793</td> <td><a href="https://github.com/fabP258">fabP258</a></td> <td>DOBC</td> </tr>
+    <tr> <td></td> <td>68.055</td> <td><a href="https://github.com/matthiaspetry">matthiaspetry</a></td> <td>custom feedback controller</td> </tr>
+    <tr> <td></td> <td>74.440</td> <td><a href="https://github.com/diegoruizpon">diegoruizpon</a></td> <td>custom feedback controller</td> </tr>
+    <tr> <td></td> <td>75.688</td> <td><a href="https://github.com/Sanjit1">Sanjit1</a></td> <td>custom feedback controller</td> </tr>
+    <tr> <td></td> <td>77.411</td> <td><a href="https://github.com/utkarshgill">utkarshgill</a></td> <td>custom feedback controller</td> </tr>
+    <tr> <td></td> <td>78.590</td> <td><a href="https://github.com/hpoonawala">hpoonawala</a></td> <td>PID w FF</td> </tr>
+    <tr> <td></td> <td>78.868</td> <td><a href="https://github.com/yiannisha">yiannisha</a></td> <td>bayesian optimization</td> </tr>
+    <tr> <td></td> <td>80.828</td> <td><a href="https://github.com/donymorph">donymorph</a></td> <td>custom PID</td> </tr>
+    <tr> <td></td> <td>83.568</td> <td><a href="https://github.com/jonoomph">jonoomph8</a></td> <td>custom PID</td> </tr>
+    <tr> <td></td> <td>91.130</td> <td><a href="https://github.com/integ01">integ01</a></td> <td>MPC</td> </tr>
+    <tr> <td></td> <td>95.724</td> <td><a href="https://github.com/adhintz">adhintz</a></td> <td>auto-tuned PID</td> </tr>
+    <tr> <td></td> <td>98.703</td> <td><a href="https://github.com/QuangTran1608a">QuangTran1608</a></td> <td>slsqp</td> </tr>
+    <tr> <td></td> <td>100.445</td> <td><a href="https://github.com/pau-mensa">pau-mensa</a></td> <td>bayesian optimization</td> </tr>
+    <tr> <td></td> <td>102.184</td> <td><a href="https://github.com/NikhilGangaram">NikhilGangaram</a></td> <td>custom PID</td> </tr>
+    <tr> <td></td> <td>111.325</td> <td><a href="https://github.com/Mehul0x">Mehul0x</a></td> <td>custom</td> </tr>
+    <tr> <td></td> <td>117.877</td> <td><a href="https://github.com/SamuelPCarter/">SamuelPCarter</a></td> <td>PID</td> </tr>
+    <tr> <td></td> <td>125.274</td> <td><a href="https://github.com/koushik-sss/">koushik-sss</a></td> <td>fuzzy logic controller</td> </tr>
+    <tr> <td></td> <td>132.178</td> <td><a href="https://github.com/userdarius/">userdarius</a></td> <td>custom PID</td> </tr>
+    <tr> <td></td> <td>141.308</td> <td><a href="https://github.com/commaai/controls_challenge/blob/master/controllers/pid.py">baseline</a></td> <td>PID</td> </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="divider"></div>
+<h2>
+  <a href="https://github.com/commaai/commavq">compression challenge</a>
+  &nbsp;<p class="tag-green">ACTIVE</p>
+</h2>
+<h4>losslessly compress 5,000 minutes of driving data</h4>
+<p>
+  cash prize: $500 highest compression rate, June 1 - July 1, 2024</p>
+</p>
+
+<div class="table-container">
+<table class="ranked">
+  <thead><tr>
+      <th></th> <th>score</th> <th>name</th> <th>method</th>
+  </tr></thead>
+  <tbody>
+    <tr> <td></td> <td>3.4</td> <td><a href="https://github.com/szabolcs-cs">szabolcs-cs</a></td> <td>self-compressing neural network</td> </tr>
+    <tr> <td></td> <td>2.6</td> <td><a href="https://github.com/pkourouklidis">pkourouklidis</a>&nbsp;👑</td> <td>arithmetic coding with GPT</td> </tr>
+    <tr> <td></td> <td>2.3</td> <td>anonymous</td> <td>zpaq</td> </tr>
+    <tr> <td></td> <td>2.3</td> <td><a href="https://github.com/rostislav">rostislav</a></td> <td>zpaq</td> </tr>
+    <tr> <td></td> <td>2.2</td> <td>anonymous</td> <td>zpaq</td> </tr>
+    <tr> <td></td> <td>2.2</td> <td>anonymous</td> <td>zpaq</td> </tr>
+    <tr> <td></td> <td>2.2</td> <td><a href="https://github.com/0x41head">0x41head</a></td> <td>zpaq</td> </tr>
+    <tr> <td></td> <td>2.2</td> <td><a href="https://github.com/tillinf">tillinf</a></td> <td>zpaq</td> </tr>
+    <tr> <td></td> <td>1.6</td> <td>baseline</td> <td>lzma</td> </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="divider"></div>
+<h2>
+  <a href="https://comma.ai/bounties">openpilot bounties</a>
+  &nbsp;<p class="tag-green">ACTIVE</p>
+</h2>
+<h4>a shoutout for our contributors who've claimed >$1k in bounties</h4>
+<table>
+  <thead><tr>
+     <th></th> <th>name</th>
+  </tr></thead>
+  <tbody>
+    <tr> <td></td> <td><a href="https://github.com/bongbui321">bongbui321</a></td> </tr>
+    <tr> <td></td> <td><a href="https://github.com/andiradulescu">andiradulescu</a></td> </tr>
+  </tbody>
+</table>
+
+<div class="divider"></div>
+<h2>
+  <a href="https://raw.githubusercontent.com/commaai/jobs/refs/heads/master/design.md">design challenge</a>
+  &nbsp;<p class="tag-green">ACTIVE</p>
+</h2>
+<h4>design a UI to communicate openpilot's confidence to the user</h4>
+<table>
+  <thead><tr>
+      <th>name</th> <th>design</th>
+  </tr></thead>
+  <tbody>
+    <tr> <td><a href="https://github.com/ugtthis">davidcalifornia</a></td> <td><a href="https://publish.obsidian.md/typedbyhumans/comma/Driver+Alert+Dial+aka+DAD">design</a></td> </tr>
+    <tr> <td><a href="https://github.com/utkarshgill">utkarshgill</a></td> <td><a href="https://www.figma.com/design/JpgZUyEQHtRSTsQKRPJI4m/comma?node-id=639-266&t=TegDnviRtLE3qfAX-1">design</a></td> </tr>
+    <tr> <td><a href="https://github.com/hyusap">hyusap</a></td> <td><a href="https://comma.ayush.digital/">design</a></td> </tr>
+    <tr> <td><a href="https://github.com/salfolio">salfolio</a></td> <td><a href="https://www.salfolio.com/projects/comma/comma_design_challenge_SK.pdf">design</a></td> </tr>
+  </tbody>
+</table>
+
+<div class="divider"></div>
+<h2>
+  <a href="https://github.com/commaai/calib_challenge">calibration challenge</a>
+  &nbsp;<p class="tag-grey">ARCHIVED</p>
+</h2>
+<h4>predict the direction of travel (in camera frame) from provided dashcam video</h4>
+<div class="table-container">
+<table class="ranked">
+  <thead><tr>
+      <th></th> <th>score</th> <th>name</th>
+  </tr></thead>
+  <tbody>
+    <tr> <td></td> <td>5.33%</td> <td><a href="https://github.com/fredyshox">fredyshox</a> <span class="icon-comma"></span></td> </tr>
+    <tr> <td></td> <td>9.4%</td> <td><a href="https://github.com/">Boris</a></td> </tr>
+    <tr> <td></td> <td>10.0%</td> <td><a href="https://github.com/krikarls">krikarls</a></td> </tr>
+    <tr> <td></td> <td>11.4%</td> <td><a href="https://github.com/">Ritam</a></td> </tr>
+    <tr> <td></td> <td>18.5%</td> <td><a href="https://github.com/bongbui321">bongbui321</a></td> </tr>
+    <tr> <td></td> <td>18.7%</td> <td><a href="https://github.com/">Nathan</a></td> </tr>
+    <tr> <td></td> <td>19.0%</td> <td><a href="https://github.com/MartinEthier">MartinEthier</a></td> </tr>
+    <tr> <td></td> <td>19.0%</td> <td><a href="https://github.com/louislva">louislva</a></td> </tr>
+    <tr> <td></td> <td>19.6%</td> <td><a href="https://github.com/arshsinghal6">arshsinghal6</a></td> </tr>
+    <tr> <td></td> <td>19.6%</td> <td><a href="https://github.com/">Yasin</a></td> </tr>
+    <tr> <td></td> <td>20.0%</td> <td><a href="https://github.com/RoyVorster">RoyVorster</a></td> </tr>
+    <tr> <td></td> <td>20.0%</td> <td><a href="https://github.com/">Roman</a></td> </tr>
+    <tr> <td></td> <td>20.22%</td> <td><a href="https://github.com/Armandpl">Armandpl</a> <span class="icon-comma"></span></td> </tr>
+    <tr> <td></td> <td>20.5%</td> <td><a href="https://github.com">Herman</a></td> </tr>
+    <tr> <td></td> <td>24.8%</td> <td><a href="https://github.com/gijskoning">gijskoning</a> <span class="icon-comma"></span></td> </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="divider"></div>
+<h2 id="mystery-prize">mystery prize</h2>
+<p>Mystery prizes are for the best of the best. Mystery prizes are rare, and beyond knowing you're the best, they get you admission to all future <a href="https://commacon.splashthat.com/">comma</a> <a href="https://blog.comma.ai/comma-hack-5/">events</a>.</p>
+<div style="display: flex; flex-wrap: wrap;">
+  <pre style="margin-right: 20px;">
+* controls: score less than 55 total cost
+* compression: score better than 2.6
+* calibration: score less than 9%
+* hardware: find more than 18 bugs
+* design: make something elegant and beautiful
+  </pre>
+  <img src="/mystery-prize.png" style="width: 300px;"></img>
+</div>
+
+<script>
+  const el = document.getElementById('countdown');
+  const countdownDate = new Date(el.innerText).getTime();
+
+  function countdown() {
+    const now = new Date().getTime();
+    const distance = countdownDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    el.innerHTML = days + ' days, ' +
+                   hours.toString().padStart(2, '0') + ':' +
+                   minutes.toString().padStart(2, '0') + ':' +
+                   seconds.toString().padStart(2, '0');
+
+    if (distance < 0) {
+      document.getElementById('countdown').innerHTML = 'DONE';
+    }
+  }
+
+  countdown();
+  const timer = setInterval(countdown, 1000);
+</script>
+
+</body>
+</html>

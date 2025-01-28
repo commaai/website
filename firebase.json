@@ -1,0 +1,419 @@
+{
+  "hosting": {
+    "trailingSlash": false,
+    "public": "build",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "cleanUrls": true,
+    "redirects": [
+      {
+        "source": "/bounties",
+        "destination": "https://github.com/orgs/commaai/projects/26/views/1?pane=info",
+        "type": 302
+      },
+      {
+        "source": "/shop/products/eon-dashcam-devkit",
+        "destination": "/shop/comma-3x",
+        "type": 301
+      },
+      {
+        "source": "/shop/products/two",
+        "destination": "/shop/comma-3x",
+        "type": 301
+      },
+      {
+        "source": "/shop/products/car-harness",
+        "destination": "/shop/car-harness",
+        "type": 301
+      },
+      {
+        "source": "/shop/products/panda-obd-ii-dongle",
+        "destination": "/shop/panda",
+        "type": 301
+      },
+      {
+        "source": "/shop/products/giraffe",
+        "destination": "/shop/car-harness",
+        "type": 301
+      },
+      {
+        "source": "/shop/panda-obd-ii-dongle",
+        "destination": "/shop/panda",
+        "type": 301
+      },
+      {
+        "source": "/positions",
+        "destination": "/jobs",
+        "type": 301
+      },
+      {
+        "source": "/hiring",
+        "destination": "/jobs",
+        "type": 301
+      },
+      {
+        "source": "/faqs",
+        "destination": "/support",
+        "type": 301
+      },
+      {
+        "source": "/faq",
+        "destination": "/support",
+        "type": 301
+      },
+      {
+        "source": "/hack",
+        "destination": "https://blog.comma.ai/comma_hack/",
+        "type": 302
+      },
+      {
+        "source": "/hyundai-guide",
+        "destination": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis#harness-guide",
+        "type": 302
+      },
+      {
+        "source": "/nissan-locations",
+        "destination": "https://github.com/commaai/openpilot/wiki/Nissan#install-locations",
+        "type": 302
+      },
+      {
+        "source": "/setup/two",
+        "destination": "/setup",
+        "type": 301
+      },
+      {
+        "source": "/shop/two",
+        "destination": "/shop/comma-3x",
+        "type": 301
+      },
+      {
+        "source": "/shop/three",
+        "destination": "/shop/comma-3x",
+        "type": 301
+      },
+      {
+        "source": "/shop/harness",
+        "destination": "/shop/car-harness",
+        "type": 301
+      },
+      {
+        "source": "/shop/products/eon-gold-dashcam-devkit",
+        "destination": "/shop/comma-3x",
+        "type": 301
+      },
+      {
+        "source": "/shop/products/comma-two-devkit",
+        "destination": "/shop/comma-3x",
+        "type": 301
+      },
+      {
+        "source": "/vehicles/**",
+        "destination": "/vehicles",
+        "type": 302
+      },
+      {
+        "source": "/returns",
+        "destination": "https://shop.comma.ai/a/returns",
+        "type": 302
+      },
+      {
+        "source": "/news",
+        "destination": "https://blog.comma.ai",
+        "type": 302
+      },
+      {
+        "source": "/about",
+        "destination": "/",
+        "type": 302
+      },
+      {
+        "source": "/compare",
+        "destination": "/shop/comma-3x",
+        "type": 301
+      },
+      {
+        "source": "/body",
+        "destination": "/setup/comma-body",
+        "type": 302
+      },
+      {
+        "source": "/shop/products/comma-three-upgrade",
+        "destination": "/shop/comma-3x",
+        "type": 301
+      },
+      {
+        "source": "/shop/products/comma-body",
+        "destination": "/shop/body",
+        "type": 301
+      },
+      {
+        "source": "/shop/products/comma-car-harness",
+        "destination": "/shop/car-harness",
+        "type": 301
+      },
+      {
+        "source": "/shop/comma-car-harness",
+        "destination": "/shop/car-harness",
+        "type": 301
+      },
+      {
+        "source": "/shop/products/harness-connector",
+        "destination": "/shop/harness-connector",
+        "type": 301
+      },
+      {
+        "source": "/shop/products/panda",
+        "destination": "/shop/panda",
+        "type": 301
+      },
+      {
+        "source": "/shop/products/comma-serial",
+        "destination": "/shop/comma-serial",
+        "type": 301
+      },
+      {
+        "source": "/shop/products/body",
+        "destination": "/shop/body",
+        "type": 301
+      },
+      {
+        "source": "/shop/products/comma-two-replacement-mounts",
+        "destination": "/shop/replacement-mounts",
+        "type": 301
+      },
+      {
+        "source": "/shop/products/power",
+        "destination": "/shop/comma-power",
+        "type": 301
+      },
+      {
+        "source": "/shop/products/harness-box",
+        "destination": "/shop/harness-box",
+        "type": 301
+      },
+      {
+        "source": "/shop/products/comma-usb-c-cable",
+        "destination": "/shop/obd-c-cable",
+        "type": 301
+      },
+      {
+        "source": "/shop/products/panda-jungle",
+        "destination": "/shop/panda-jungle",
+        "type": 301
+      },
+      {
+        "source": "/shop/products/comma-key",
+        "destination": "/shop/comma-key",
+        "type": 301
+      },
+      {
+        "source": "/shop/products/panda-paw",
+        "destination": "/shop/panda-paw",
+        "type": 301
+      },
+      {
+        "source": "/shop/products/comma-prime-sim-card",
+        "destination": "/shop/comma-prime-sim",
+        "type": 301
+      },
+      {
+        "source": "/shop/products/comma-ai-hoodie",
+        "destination": "/shop/comma-hoodie",
+        "type": 301
+      },
+      {
+        "source": "/shop/products/comma-beanie",
+        "destination": "/shop/comma-beanie",
+        "type": 301
+      },
+      {
+        "source": "/shop/products/comma-ai-t-shirt",
+        "destination": "/shop/comma-t-shirt",
+        "type": 301
+      },
+      {
+        "source": "/shop/products/three",
+        "destination": "/shop/comma-3x",
+        "type": 301
+      },
+      {
+        "source": "/shop/comma-three",
+        "destination": "/shop/comma-3x",
+        "type": 301
+      },
+      {
+        "source": "/shop/comma-three.html",
+        "destination": "/shop/comma-3x",
+        "type": 301
+      },
+      {
+        "source": "/parts",
+        "destination": "/shop",
+        "type": 301
+      },
+      {
+        "source": "/shop/products/comma-three-logic-board",
+        "destination": "/shop/comma-three-logic-board",
+        "type": 301
+      },
+      {
+        "source": "/shop/products/comma-three-heatsink",
+        "destination": "/shop/comma-heatsink",
+        "type": 301
+      },
+      {
+        "source": "/shop/products/comma-three-camera",
+        "destination": "/shop/comma-three-camera",
+        "type": 301
+      },
+      {
+        "source": "/shop/products/comma-three-logic-board",
+        "destination": "/shop/comma-three-logic-board",
+        "type": 301
+      },
+      {
+        "source": "/shop/products/comma-three-gps-module",
+        "destination": "/shop/comma-three-gps-module",
+        "type": 301
+      },
+      {
+        "source": "/shop/products/comma-three-back-case",
+        "destination": "/shop/comma-three-back-case",
+        "type": 301
+      },
+      {
+        "source": "/shop/products/comma-three-display",
+        "destination": "/shop/comma-device-screen",
+        "type": 301
+      },
+      {
+        "source": "/shop/comma-three-screen",
+        "destination": "/shop/comma-device-screen",
+        "type": 301
+      },
+      {
+        "source": "/blog",
+        "destination": "https://blog.comma.ai",
+        "type": 302
+      },
+      {
+        "source": "/cars",
+        "destination": "/vehicles",
+        "type": 302
+      },
+      {
+        "source": "/prime",
+        "destination": "/connect",
+        "type": 302
+      },
+      {
+        "source": "/privacy",
+        "destination": "/terms",
+        "type": 302
+      },
+      {
+        "source": "/press",
+        "destination": "/media",
+        "type": 302
+      },
+      {
+        "source": "/services{,/**}",
+        "destination": "/shop#services",
+        "type": 302
+      },
+      {
+        "source": "/services/meetings",
+        "destination": "/shop",
+        "type": 302
+      },
+      {
+        "source": "/shop/products/vote",
+        "destination": "/shop#toyota-security",
+        "type": 302
+      },
+      {
+        "source": "/SHOP",
+        "destination": "/shop",
+        "type": 302
+      },
+      {
+        "source": "/SETUP",
+        "destination": "/setup",
+        "type": 302
+      },
+      {
+        "source": "/BLOG",
+        "destination": "/blog",
+        "type": 302
+      },
+      {
+        "source": "/CONNECT",
+        "destination": "/connect",
+        "type": 302
+      },
+      {
+        "source": "/PRIME",
+        "destination": "/prime",
+        "type": 302
+      },
+      {
+        "source": "/BODY",
+        "destination": "/body",
+        "type": 302
+      },
+      {
+        "source": "/JOBS",
+        "destination": "/jobs",
+        "type": 302
+      },
+      {
+        "source": "/TERMS",
+        "destination": "/terms",
+        "type": 302
+      },
+      {
+        "source": "/SERVICES",
+        "destination": "/services",
+        "type": 302
+      },
+      {
+        "source": "/PRIVACY",
+        "destination": "/privacy",
+        "type": 302
+      },
+      {
+        "source": "/MEDIA",
+        "destination": "/media",
+        "type": 302
+      },
+      {
+        "source": "/FAQ",
+        "destination": "/support",
+        "type": 302
+      },
+      {
+        "source": "/PARTS",
+        "destination": "/parts",
+        "type": 302
+      },
+      {
+        "source": "/SHIPPING",
+        "destination": "/shipping",
+        "type": 302
+      },
+      {
+        "source": "/VEHICLES",
+        "destination": "/vehicles",
+        "type": 302
+      },
+      {
+        "source": "/SUPPORT",
+        "destination": "/support",
+        "type": 302
+      }
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+name: Spellcheck
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+jobs:
+  spellcheck:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v4
+        - uses: codespell-project/actions-codespell@bcf481f4d5cce7b92b65f05aebe8f552d4f1442c
+          with:
+            ignore_words_list: hda,som,tge
+            path: src

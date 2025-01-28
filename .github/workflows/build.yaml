@@ -1,0 +1,64 @@
+name: deploy production
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.ref }}-${{ github.workflow }}-${{ github.event_name }}
+  cancel-in-progress: true
+
+permissions:
+  checks: write
+  contents: read
+  pull-requests: write
+
+jobs:
+  production:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install --frozen-lockfile
+      - name: Cache imagetools directory
+        uses: actions/cache@v4
+        with:
+          path: ./node_modules/.cache/imagetools
+          key: imagetools-${{ hashFiles('**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.gif') }}
+          restore-keys: |
+            imagetools-
+      - run: bun run build
+        env:
+          VITE_SHOPIFY_STOREFRONT_API_TOKEN: ${{ secrets.VITE_SHOPIFY_STOREFRONT_API_TOKEN }}
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_COMMA_WEB }}
+          channelId: live
+          projectId: comma-web
+
+  preview:
+    if: ${{ github.event.pull_request.head.repo.full_name == github.repository }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install --frozen-lockfile
+      - name: Cache imagetools directory
+        uses: actions/cache@v4
+        with:
+          path: ./node_modules/.cache/imagetools
+          key: imagetools-${{ hashFiles('**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.gif') }}
+          restore-keys: |
+            imagetools-
+      - run: bun run build
+        env:
+          VITE_SHOPIFY_STOREFRONT_API_TOKEN: ${{ secrets.VITE_SHOPIFY_STOREFRONT_API_TOKEN }}
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_COMMA_WEB }}
+          projectId: comma-web
