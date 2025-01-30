@@ -768,14 +768,9 @@
             If your order is via USPS, please note that we will respond to your support ticket 3-4 days after to see if the order has finally shown up. Most delayed USPS orders do eventually arrive within a few days. If this is UPS and the device was signed for, there is little we can do on our end as this is considered a closed matter. If your UPS package was not delivered, please check tracking to see if your order may be at a UPS pickup location. If the order is shown as being returned to the comma warehouse, we will refund it and we recommend that you place a new order.
           `
         }, {
-          question: 'Why do you charge a $100 deposit to troubleshoot my device running a fork?',
-          answer: `
-            comma support is for warranty against defects, shop order issues, and repairs. We have seen an increase of customer support messages with issues caused by software. If your device is having issues we recommend first trying to reflash it at <a href="https://flash.comma.ai">flash.comma.ai</a>. We can reflash it for you for a $100 repair fee which includes shipping both ways. We do our best to diagnose this remotely; if the issue turns out to be defective hardware then we refund you this $100.
-          `
-        }, {
           question: 'Do you offer a warranty?',
           answer: `
-            We offer a 1-year limited warranty against hardware defects. Our policy is to verify hardware issues over email before making a billable repair. If you believe your hardware is defective, please fill out a support request on the <a href="https://comma.ai/support">comma.ai/support</a>. Direct emails to comma are not monitored. We cannot provide shipping return labels for international devices with warranty issues.
+            We offer a 1-year limited warranty against hardware defects. Our policy is to verify hardware issues over email before making a billable repair. If you believe your hardware is defective, please fill out a support request on the <a href="https://comma.ai/support">comma.ai/support</a>. We cannot provide shipping return labels for international devices with warranty issues.
           `
         }, {
           question: 'What is the return policy?',

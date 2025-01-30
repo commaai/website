@@ -101,6 +101,10 @@
     <NoteCard title="Upgrading from another comma device?">
       You do not need a new car harness.
     </NoteCard>
+    <NoteCard title="Shipping">
+      Use rush shipping for next business day fulfillment.
+      Otherwise, orders ship within 5 business days unless otherwise noted.
+    </NoteCard>
   </span>
 
   <div slot="notes"></div>
