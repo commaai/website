@@ -23,6 +23,17 @@
 
 <Product {product}>
   <div slot="description">
+    <strong>Description</strong>
+    <p>
+      Dropped your device and broke the screen?
+      Having issues outside the warranty period?
+
+      <b>All out-of-warranty comma 3X repairs are covered under the same flat-rate.</b>
+
+      Ship us your original comma 3X, and for the flat rate, we'll send you your repaired comma 3X.
+    </p>
+
+    <hr>
     <strong>Instructions</strong>
     <p>
       1. Purchase this product.
@@ -51,6 +62,9 @@
     </p>
     <p>
       -> We are not responsible for lost or damaged packages. Please be sure to have tracking on your package. Ship your device according to local laws and regulations.
+    </p>
+    <p>
+      -> No warranty except DOA.
     </p>
   </div>
 </Product>
