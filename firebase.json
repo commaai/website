@@ -170,11 +170,6 @@
         "type": 301
       },
       {
-        "source": "/shop/products/comma-serial",
-        "destination": "/shop/comma-serial",
-        "type": 301
-      },
-      {
         "source": "/shop/products/body",
         "destination": "/shop/body",
         "type": 301

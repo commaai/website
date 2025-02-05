@@ -16,7 +16,6 @@ const componentOrder = [
   'obd-c-cable',
   'comma-power',
   'comma-prime-sim',
-  'comma-serial',
   'panda-jungle',
   'panda-paw',
   'comma-ai-hoodie',
