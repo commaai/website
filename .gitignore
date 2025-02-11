@@ -4,7 +4,8 @@ node_modules
 # Editors
 .idea
 *.iml
-.vscode
+.vscode/*
+!.vscode/extensions.json
 
 # Output
 .output
