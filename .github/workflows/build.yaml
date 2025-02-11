@@ -31,8 +31,6 @@ jobs:
           restore-keys: |
             imagetools-
       - run: bun run build
-        env:
-          VITE_SHOPIFY_STOREFRONT_API_TOKEN: ${{ secrets.VITE_SHOPIFY_STOREFRONT_API_TOKEN }}
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
@@ -55,8 +53,6 @@ jobs:
           restore-keys: |
             imagetools-
       - run: bun run build
-        env:
-          VITE_SHOPIFY_STOREFRONT_API_TOKEN: ${{ secrets.VITE_SHOPIFY_STOREFRONT_API_TOKEN }}
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
