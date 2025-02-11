@@ -19,9 +19,8 @@ firebase-debug.log
 Thumbs.db
 
 # Env
-.env*
-!.env.example
-!.env.test
+.env.local
+.env.production
 
 # Vite
 vite.config.js.timestamp-*
