@@ -84,6 +84,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Deploy preview
+        id: deploy
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
@@ -97,7 +98,7 @@ jobs:
           message: |
             <!-- _(run_id **${{ github.run_id }}**)_ -->
 
-            # deployed preview: https://comma-web--pr${{ needs.pr.outputs.number }}.web.app
+            # deployed preview: ${{ steps.deploy.output.details_url }}
 
             Welcome! Make sure to:
             * read the contributing guidelines
