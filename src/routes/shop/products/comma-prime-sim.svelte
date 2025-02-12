@@ -31,7 +31,7 @@
   <div slot="description">
     <strong>Description</strong>
     <p>
-      This is a replacement for the SIM that ships with your comma 3/3X to support <a href="/connect">comma prime</a>.
+      This is a replacement for the SIM that ships with the comma 3X to support <a href="/connect">comma prime</a>.
     </p>
     <p>
       See how to replace the SIM card in a comma 3/3X
