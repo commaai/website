@@ -40,7 +40,6 @@
       <li>See your vehicles last location in comma connect</li>
       <li>Upload drive summaries in real time</li>
       <li>Your drives are stored for 1 year (only 3 days without prime)</li>
-      <li>Turn-by-turn navigation</li>
     </ul>
     <p>
       See how to replace the SIM card in a comma 3/3X

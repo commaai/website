@@ -51,7 +51,7 @@
     <span class="badge-prefix muted">connect</span><Badge style="dark" display="inline">subscription</Badge>
     <Grid rowGap="0" templateColumns="1.25fr 1fr">
       <h1>Access premium features with connect subscription.</h1>
-      <p>Get a connect subscription for navigation, live car tracking, and cloud storage of your drives for 1 year.</p>
+      <p>Get a connect subscription for live car tracking, and cloud storage of your drives for 1 year.</p>
     </Grid>
 
     <div id="features-table">

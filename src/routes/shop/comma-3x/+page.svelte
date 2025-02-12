@@ -101,7 +101,7 @@
         <p>
           comma 3X includes one free month of comma prime.
           To claim your free prime trial, log into <a href="https://connect.comma.ai/" target="_blank" class="highlight">comma connect</a>.
-          Once paired, you can see your recorded drives, set navigation destinations, and more.
+          Once paired, you can see your recorded drives, SSH into your device from anywhere, and more.
         </p>
       </div>
     </Grid>

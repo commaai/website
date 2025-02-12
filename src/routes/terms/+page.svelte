@@ -46,7 +46,7 @@
         <p>
           openpilot does not make your vehicle “autonomous” or capable of operation without the active monitoring of a licensed driver.
           It is designed to assist a licensed driver.
-          A licensed driver must pay attention to the road, remain aware of navigation at all times, and be prepared to take immediate action.
+          A licensed driver must pay attention to the road and be prepared to take immediate action.
           Failure to do so can cause damage, injury, or death.
         </p>
 
