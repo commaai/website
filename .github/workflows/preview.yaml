@@ -98,7 +98,7 @@ jobs:
           message: |
             <!-- _(run_id **${{ github.run_id }}**)_ -->
 
-            # deployed preview: ${{ steps.deploy.output.details_url }}
+            # deployed preview: ${{ steps.deploy.outputs.details_url }}
 
             Welcome! Make sure to:
             * read the contributing guidelines
