@@ -36,7 +36,7 @@ jobs:
 
       - run: bun run build
         env:
-          VITE_SHOPIFY_STOREFRONT_API_TOKEN: ${{ secrets.VITE_SHOPIFY_STOREFRONT_API_TOKEN }}
+          VITE_SHOPIFY_STOREFRONT_API_TOKEN: ${{ github.event_name == 'push' && secrets.VITE_SHOPIFY_STOREFRONT_API_TOKEN || '' }}
 
       - name: Upload built project
         uses: actions/upload-artifact@v4
