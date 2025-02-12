@@ -47,6 +47,7 @@ jobs:
 
   preview:
     if: github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'pull_request'
+    name: Deploy preview
     needs: pr
     runs-on: ubuntu-latest
     timeout-minutes: 2
@@ -108,6 +109,7 @@ jobs:
 
   update_pr_check:
     if: always() && github.event.workflow_run.event == 'pull_request'
+    name: Update PR Check
     needs: preview
     runs-on: ubuntu-latest
     timeout-minutes: 1
