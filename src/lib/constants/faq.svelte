@@ -300,7 +300,7 @@
               subscription).
             </p>
             <p>
-              connect provides other features such as battery voltage, and remote snapshots.
+              connect provides other features such as battery voltage and remote snapshots.
             </p>
           `
         }, {
