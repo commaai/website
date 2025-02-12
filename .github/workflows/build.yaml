@@ -38,6 +38,14 @@ jobs:
         env:
           VITE_SHOPIFY_STOREFRONT_API_TOKEN: ${{ secrets.VITE_SHOPIFY_STOREFRONT_API_TOKEN }}
 
+      - name: Upload built project
+        uses: actions/upload-artifact@v4
+        with:
+          path: ./build
+          overwrite: true
+          retention-days: 1
+          name: build-artifacts-${{ github.run_id }}
+
       - name: Deploy to prod
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         uses: FirebaseExtended/action-hosting-deploy@v0
@@ -45,12 +53,4 @@ jobs:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_COMMA_WEB }}
           channelId: live
-          projectId: comma-web
-
-      - name: Deploy preview
-        if: github.event.pull_request.head.repo.full_name == github.repository
-        uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_COMMA_WEB }}
           projectId: comma-web
