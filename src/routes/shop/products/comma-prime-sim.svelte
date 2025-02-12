@@ -31,16 +31,8 @@
   <div slot="description">
     <strong>Description</strong>
     <p>
-      Give your comma 3/3X a SIM card and internet connectivity. The comma prime SIM card (plus a <a
-        href="/connect">comma prime subscription</a
-      >) gives you the ability to:
+      This is a replacement for the SIM that ships with your comma 3/3X to support <a href="/connect">comma prime</a>.
     </p>
-    <ul>
-      <li>Access your device remotely from anywhere via SSH</li>
-      <li>See your vehicles last location in comma connect</li>
-      <li>Upload drive summaries in real time</li>
-      <li>Your drives are stored for 1 year (only 3 days without prime)</li>
-    </ul>
     <p>
       See how to replace the SIM card in a comma 3/3X
       <a href="/support#how-do-you-replace-the-sim-card-in-a-comma-3x" target="_blank">here</a>.
