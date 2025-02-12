@@ -109,7 +109,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
   update_pr_check:
-    if: always() && github.event.workflow_run.event == 'pull_request'
+    if: always() && github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'pull_request'
     name: Update PR Check
     needs: preview
     runs-on: ubuntu-latest
