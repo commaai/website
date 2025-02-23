@@ -379,6 +379,45 @@
       ]
     },
     {
+      "name": "Ford F-150 2022-23",
+      "model": "F-150",
+      "years": "2022-23",
+      "year_list": "2022, 2023",
+      "package": "Co-Pilot360 Assist 2.0",
+      "angled_mount": true,
+      "video_link": "",
+      "harness_connector": "Ford Q4",
+      "detail_sentence": "openpilot upgrades your <strong>Ford F-150</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
+      "footnotes": [
+      ]
+    },
+    {
+      "name": "Ford F-150 Hybrid 2022-23",
+      "model": "F-150 Hybrid",
+      "years": "2022-23",
+      "year_list": "2022, 2023",
+      "package": "Co-Pilot360 Assist 2.0",
+      "angled_mount": true,
+      "video_link": "",
+      "harness_connector": "Ford Q4",
+      "detail_sentence": "openpilot upgrades your <strong>Ford F-150 Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
+      "footnotes": [
+      ]
+    },
+    {
+      "name": "Ford F-150 Lightning 2022-23",
+      "model": "F-150 Lightning",
+      "years": "2022-23",
+      "year_list": "2022, 2023",
+      "package": "Co-Pilot360 Assist 2.0",
+      "angled_mount": true,
+      "video_link": "",
+      "harness_connector": "Ford Q4",
+      "detail_sentence": "openpilot upgrades your <strong>Ford F-150 Lightning</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
+      "footnotes": [
+      ]
+    },
+    {
       "name": "Ford Focus 2018",
       "model": "Focus",
       "years": "2018",
@@ -494,6 +533,32 @@
       "video_link": "",
       "harness_connector": "Ford Q3",
       "detail_sentence": "openpilot upgrades your <strong>Ford Maverick Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "footnotes": [
+      ]
+    },
+    {
+      "name": "Ford Mustang Mach-E 2021-23",
+      "model": "Mustang Mach-E",
+      "years": "2021-23",
+      "year_list": "2021, 2022, 2023",
+      "package": "All",
+      "angled_mount": false,
+      "video_link": "",
+      "harness_connector": "Ford Q4",
+      "detail_sentence": "openpilot upgrades your <strong>Ford Mustang Mach-E</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
+      "footnotes": [
+      ]
+    },
+    {
+      "name": "Ford Ranger 2024",
+      "model": "Ranger",
+      "years": "2024",
+      "year_list": "2024",
+      "package": "Adaptive Cruise Control with Lane Centering",
+      "angled_mount": false,
+      "video_link": "",
+      "harness_connector": "Ford Q4",
+      "detail_sentence": "openpilot upgrades your <strong>Ford Ranger</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
       ]
     }
@@ -662,10 +727,10 @@
       ]
     },
     {
-      "name": "Genesis GV70 Electrified (with HDA II) 2023",
+      "name": "Genesis GV70 Electrified (with HDA II) 2023-24",
       "model": "GV70 Electrified (with HDA II)",
-      "years": "2023",
-      "year_list": "2023",
+      "years": "2023-24",
+      "year_list": "2023, 2024",
       "package": "Highway Driving Assist II",
       "angled_mount": false,
       "video_link": "",
