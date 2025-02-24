@@ -379,10 +379,10 @@
       ]
     },
     {
-      "name": "Ford F-150 2022-23",
+      "name": "Ford F-150 2021-23",
       "model": "F-150",
-      "years": "2022-23",
-      "year_list": "2022, 2023",
+      "years": "2021-23",
+      "year_list": "2021, 2022, 2023",
       "package": "Co-Pilot360 Assist 2.0",
       "angled_mount": true,
       "video_link": "",
@@ -392,10 +392,10 @@
       ]
     },
     {
-      "name": "Ford F-150 Hybrid 2022-23",
+      "name": "Ford F-150 Hybrid 2021-23",
       "model": "F-150 Hybrid",
-      "years": "2022-23",
-      "year_list": "2022, 2023",
+      "years": "2021-23",
+      "year_list": "2021, 2022, 2023",
       "package": "Co-Pilot360 Assist 2.0",
       "angled_mount": true,
       "video_link": "",
@@ -672,10 +672,10 @@
       ]
     },
     {
-      "name": "Genesis GV70 (2.5T Trim, without HDA II) 2022-23",
+      "name": "Genesis GV70 (2.5T Trim, without HDA II) 2022-24",
       "model": "GV70 (2.5T Trim, without HDA II)",
-      "years": "2022-23",
-      "year_list": "2022, 2023",
+      "years": "2022-24",
+      "year_list": "2022, 2023, 2024",
       "package": "All",
       "angled_mount": false,
       "video_link": "",
@@ -1325,6 +1325,19 @@
       ]
     },
     {
+      "name": "Hyundai Kona 2022",
+      "model": "Kona",
+      "years": "2022",
+      "year_list": "2022",
+      "package": "Smart Cruise Control (SCC)",
+      "angled_mount": false,
+      "video_link": "",
+      "harness_connector": "Hyundai O",
+      "detail_sentence": "openpilot upgrades your <strong>Hyundai Kona</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
+      "footnotes": [
+      ]
+    },
+    {
       "name": "Hyundai Kona Electric 2018-21",
       "model": "Kona Electric",
       "years": "2018-21",
@@ -1374,6 +1387,19 @@
       "video_link": "",
       "harness_connector": "Hyundai I",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Kona Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
+      "footnotes": [
+      ]
+    },
+    {
+      "name": "Hyundai Nexo 2021",
+      "model": "Nexo",
+      "years": "2021",
+      "year_list": "2021",
+      "package": "All",
+      "angled_mount": false,
+      "video_link": "",
+      "harness_connector": "Hyundai H",
+      "detail_sentence": "openpilot upgrades your <strong>Hyundai Nexo</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
       ]
     },
