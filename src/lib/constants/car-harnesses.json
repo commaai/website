@@ -154,5 +154,17 @@
   {
     "id": "gid://shopify/ProductVariant/39779242377279",
     "title": "Ford Q4"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/41514846519359",
+    "title": "Rivian A (Gen 1)"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/41514848944191",
+    "title": "Tesla A (HW3)"
+  },
+  {
+    "id": "gid://shopify/ProductVariant/41514846814271",
+    "title": "Tesla B (HW4)"
   }
 ]
