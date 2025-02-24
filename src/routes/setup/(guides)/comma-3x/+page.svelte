@@ -109,7 +109,7 @@
         <ul>
           <li>Plug the right-angle OBD-C cable into the harness box – Ensure the cable is fully seated. Ensure the straight end is connected to the harness box.</li>
           <li>Clean all three lenses with a microfiber cloth.</li>
-          <li>Plug in OBD-C and mount the device – Plug the OBD-C cable into the back of the comma device. Make sure the cable is all the way in.</li>
+          <li>Plug in OBD-C and mount the device – Plug the OBD-C cable into the upper port on the back of the comma device. Make sure the cable is all the way in.</li>
         </ul>
       </Grid>
     </div>
