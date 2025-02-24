@@ -18,6 +18,7 @@
   export let previousPrice = null;
   export let sale = false;
   export let backordered = false;
+  export let backorderedNote = null;
 
   export let VariantSelector = null;
   function handleVariantSelection(variant) {
@@ -65,7 +66,7 @@
     if (product.forceOutOfStock || (selectedVariant && !selectedVariant.availableForSale)) {
       addToCartLabel = "Out of stock";
     } else if (backordered) {
-      addToCartLabel = "Add to cart (ships in 1-4 weeks)";
+      addToCartLabel = `Add to cart (${backorderedNote})`;
     } else {
       addToCartLabel = "Add to cart";
     }
