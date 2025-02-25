@@ -158,17 +158,17 @@
   {
     "id": "gid://shopify/ProductVariant/41514846519359",
     "title": "Rivian A",
-    "backordered_note": "ships in 4-6 weeks"
+    "backordered": "4-6 weeks"
   },
   {
     "id": "gid://shopify/ProductVariant/41514848944191",
     "title": "Tesla A",
-    "backordered_note": "ships in 4-6 weeks"
+    "backordered": "4-6 weeks"
   },
   {
     "id": "gid://shopify/ProductVariant/41514846814271",
     "title": "Tesla B",
-    "backordered_note": "ships in 4-8 weeks"
+    "backordered": "4-8 weeks"
   }
 ]
-d
+

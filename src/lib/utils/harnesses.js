@@ -37,7 +37,7 @@ async function initializeHarnesses() {
         car: model.name,
         package: model.package,
         angledMount: model.angled_mount,
-        backorderedNote: null,
+        backordered: null,
       };
     }).filter(Boolean);
   });
@@ -48,7 +48,7 @@ async function initializeHarnesses() {
       ...harnessInfo[harness.id],
       car: harness.title,
       id: harness.id,
-      backorderedNote: harness.backordered_note,
+      backordered: harness.backordered,
     };
   }));
 

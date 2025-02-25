@@ -17,13 +17,12 @@
   export let getCartNote = null;
   export let previousPrice = null;
   export let sale = false;
-  export let backordered = false;
-  export let backorderedNote = null;
+  export let backordered = null;
 
   export let VariantSelector = null;
   function handleVariantSelection(variant) {
     selectedVariantId = variant?.id || null;
-    backordered = variant?.currentlyNotInStock || false;
+    backordered = variant?.currentlyNotInStock ? '1-4 weeks' : null;
   }
 
   let currentImageIndex = 0;
@@ -66,7 +65,7 @@
     if (product.forceOutOfStock || (selectedVariant && !selectedVariant.availableForSale)) {
       addToCartLabel = "Out of stock";
     } else if (backordered) {
-      addToCartLabel = `Add to cart (${backorderedNote})`;
+      addToCartLabel = `Add to cart (ships in ${backordered})`;
     } else {
       addToCartLabel = "Add to cart";
     }

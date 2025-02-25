@@ -45,7 +45,7 @@
     if (selectedHarness?.car) {
       // TODO: support car harness and harness connector page (latter won't have a car attribute)
       const vehicle_note = `Vehicle: ${selectedHarness.car}`;
-      const backordered_note = backordered ? '1-4 weeks backordered' : 'in stock';
+      const backordered_note = backordered ? `${backordered} backordered` : 'in stock';
       const mount_note = selectedHarness.angledMount ? '8 degree mount' : 'standard mount';
 
       return `${vehicle_note} (${backordered_note}, ${mount_note})`;
@@ -55,24 +55,31 @@
 
   let selectedHarness = null;
 
-  let backordered = false;
-  let backorderedNote = null;
+  let backordered = null;
   const handleHarnessSelection = (value) => {
     selectedHarness = value;
     console.log("selectedHarness", selectedHarness);
     if (value) {
       additionalProductIds = [value?.id]
-      backordered = value.currentlyNotInStock;
-      backorderedNote = backordered ? (selectedHarness.backorderedNote ? selectedHarness.backorderedNote : '1-4 weeks backordered') : null;
+      // backordered = value.currentlyNotInStock;
+      // backordered = value.currentlyNotInStock ? '1-4 weeks' : null;
+      // backordered = value.currentlyNotInStock ? (selectedHarness.backordered ? `ships in ${selectedHarness.backordered}` : 'ships in 1-4 weeks') : null;
+      if (value.currentlyNotInStock) {
+        console.log("selectedHarness.backordered", selectedHarness.backordered);
+        backordered = selectedHarness.backordered || '1-4 weeks';
+      } else {
+        backordered = null;
+      }
+
     } else {
       additionalProductIds = [];
-      backordered = false;
-      backorderedNote = '';
+      backordered = null;
+      // backorderedNote = '';
     }
   }
 </script>
 
-<Product {product} {additionalProductIds} {backordered} {backorderedNote} {beforeAddToCart} {getCartNote} previousPrice={THREEX_STRIKETHROUGH_PRICE} sale={THREEX_SALE}>
+<Product {product} {additionalProductIds} {backordered} {beforeAddToCart} {getCartNote} previousPrice={THREEX_STRIKETHROUGH_PRICE} sale={THREEX_SALE}>
   <div slot="shipping"></div>
 
   <span slot="price-accessory">
@@ -161,7 +168,7 @@
   onPrimaryClick={onProceed}
   onClose={() => showDisclaimerModal = false}
   bind:show={showDisclaimerModal}
-  primaryButtonText={backordered ? `Add to cart (${backorderedNote})` : "Add to cart"}
+  primaryButtonText={backordered ? `Add to cart (ships in ${backordered})` : "Add to cart"}
 >
   {#if additionalProductIds.length === 0}
     <p class="disclaimer">
