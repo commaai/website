@@ -157,17 +157,17 @@
   },
   {
     "id": "gid://shopify/ProductVariant/41514846519359",
-    "title": "Rivian A (Gen 1)",
+    "title": "Rivian A",
     "backordered_note": "ships in 4-6 weeks"
   },
   {
     "id": "gid://shopify/ProductVariant/41514848944191",
-    "title": "Tesla A (HW3)",
+    "title": "Tesla A",
     "backordered_note": "ships in 4-6 weeks"
   },
   {
     "id": "gid://shopify/ProductVariant/41514846814271",
-    "title": "Tesla B (HW4)",
+    "title": "Tesla B",
     "backordered_note": "ships in 4-8 weeks"
   }
 ]
