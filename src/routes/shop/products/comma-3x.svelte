@@ -45,7 +45,7 @@
     if (selectedHarness?.car) {
       // TODO: support car harness and harness connector page (latter won't have a car attribute)
       const vehicle_note = `Vehicle: ${selectedHarness.car}`;
-      const backordered_note = backordered ? '1-4 weeks backordered' : 'in stock';
+      const backordered_note = backordered ? `${backordered} backordered` : 'in stock';
       const mount_note = selectedHarness.angledMount ? '8 degree mount' : 'standard mount';
 
       return `${vehicle_note} (${backordered_note}, ${mount_note})`;
@@ -55,15 +55,15 @@
 
   let selectedHarness = null;
 
-  let backordered = false;
+  let backordered = null;
   const handleHarnessSelection = (value) => {
     selectedHarness = value;
     if (value) {
       additionalProductIds = [value?.id]
-      backordered = value.currentlyNotInStock;
+      backordered = value.currentlyNotInStock ? (value.backordered || '1-4 weeks') : null;
     } else {
       additionalProductIds = [];
-      backordered = false;
+      backordered = null;
     }
   }
 </script>
@@ -157,7 +157,7 @@
   onPrimaryClick={onProceed}
   onClose={() => showDisclaimerModal = false}
   bind:show={showDisclaimerModal}
-  primaryButtonText={backordered ? "Add to cart (ships in 1-4 weeks)" : "Add to cart"}
+  primaryButtonText={backordered ? `Add to cart (ships in ${backordered})` : "Add to cart"}
 >
   {#if additionalProductIds.length === 0}
     <p class="disclaimer">
