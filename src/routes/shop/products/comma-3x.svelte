@@ -58,14 +58,9 @@
   let backordered = null;
   const handleHarnessSelection = (value) => {
     selectedHarness = value;
-    console.log("selectedHarness", selectedHarness);
     if (value) {
       additionalProductIds = [value?.id]
-      // backordered = value.currentlyNotInStock;
-      // backordered = value.currentlyNotInStock ? '1-4 weeks' : null;
-      // backordered = value.currentlyNotInStock ? (selectedHarness.backordered ? `ships in ${selectedHarness.backordered}` : 'ships in 1-4 weeks') : null;
       if (value.currentlyNotInStock) {
-        console.log("selectedHarness.backordered", selectedHarness.backordered);
         backordered = selectedHarness.backordered || '1-4 weeks';
       } else {
         backordered = null;
@@ -74,7 +69,6 @@
     } else {
       additionalProductIds = [];
       backordered = null;
-      // backorderedNote = '';
     }
   }
 </script>
