@@ -37,7 +37,7 @@
     </div>
 
     <div class="features-banner">
-      <Grid columns={6} columnGap="2rem" size="medium">
+      <Grid columns={5} columnGap="2rem" size="medium">
         <div class="icon">{@html RecordingsIcon}</div>
         <div class="icon"><img src={TwentyFourSevenIcon} loading="lazy" alt=""></div>
         <div class="icon"><img src={MarkerIcon} loading="lazy" alt=""></div>
