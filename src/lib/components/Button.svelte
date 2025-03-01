@@ -35,11 +35,28 @@
     transition: all 0.2s;
 
     @media (hover: hover) and (pointer: fine) {
-      &:hover:not(.disabled) {
+      &.primary:hover:not(.disabled) {
+        opacity: 0.75;
+      }
+
+      &.secondary:hover:not(.disabled) {
+        opacity: 0.8;
+      }
+
+      &.accent:hover:not(.disabled) {
         background-color: var(--color-accent-hover);
       }
     }
-    &:active:not(.disabled) {
+
+    &.primary:active:not(.disabled) {
+      opacity: 0.75;
+    }
+
+    &.secondary:active:not(.disabled) {
+      opacity: 0.8;
+    }
+
+    &.accent:active:not(.disabled) {
       background-color: var(--color-accent-hover);
     }
   }
