@@ -154,7 +154,6 @@
       <ul class="checkmark-list">
         <li>24/7 connectivity</li>
         <li>Live GPS tracking</li>
-        <li>Turn-by-turn navigation</li>
         <li>Take pictures remotely</li>
         <li>1 year storage of drive videos</li>
         <li>Simple SSH for developers</li>
