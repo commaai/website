@@ -16,11 +16,14 @@
 
   export let onChange;
 
-  export let label = "Select vehicle";
-  export let accessoryLabel = null;
   export let showPackageSupportCard = true; // If true, shows the note card that shows below with information about how the selected car is supported
   export let showVehicleHarnesses = true; // If true, includes the harnesses by each vehicle model
   export let showGenericHarnesses = true; // If true, includes the generic/developer harnesses
+
+  export let accessoryLabel = null; // Used to show the price of the selected harness when browsing accessories
+  export let label = "Select vehicle";
+  export let searchLabel = "Search for a vehicle or harness";
+  export let noResultsLabel = "No matching vehicles";
 
   let selection;
 
@@ -104,7 +107,7 @@
       <button class="clear" on:click={handleClear}>{@html CloseIcon}</button>
       <input
         type="text"
-        placeholder="Search for a vehicle or harness"
+        placeholder={searchLabel}
         autocomplete="off"
         class="search-input"
         bind:value={inputValue}
@@ -140,7 +143,7 @@
           <DropdownItem value={item} on:click={() => handleOptionClick(item)} on:keydown={(e) => handleOptionKeyDown(e, item)} />
         {/each}
       {:else}
-        <DropdownItem value={{ car: 'No matching vehicles' }} />
+        <DropdownItem value={{ car: noResultsLabel }} />
       {/if}
     {:else}
       {#each $harnesses as item}
