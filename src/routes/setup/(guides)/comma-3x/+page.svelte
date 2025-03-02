@@ -46,10 +46,11 @@
         label="Select a vehicle to view additional setup notes"
         onChange={handleHarnessSelection}
         showPackageSupportCard={false}
+        showGenericHarnesses={false}
       />
       {#if selectedVehicleHarness}
         <NoteCard title={`${selectedVehicleHarness.car} Setup Notes`}>
-          <p>{@html vehicleNote || "The selected vehicle or harness does not require additional setup instructions. Follow the setup guide below."}</p>
+          <p>{@html vehicleNote || "The selected vehicle does not require additional setup instructions. Follow the setup guide below."}</p>
         </NoteCard>
       {/if}
     </div>
