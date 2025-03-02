@@ -29,11 +29,14 @@
   }
 
   function updateQueryParams(selectedHarness) {
-    const searchParams = new URLSearchParams();
+    const searchParams = new URLSearchParams(window.location.search);
     if (selectedHarness) {
       const [make, ...model] = selectedHarness.name.split(' ') || [];
       if (make) searchParams.set("make", encodeURIComponent(make));
       if (model.length > 0) searchParams.set("model", encodeURIComponent(model.join(' ')));
+    } else {
+      searchParams.delete("make");
+      searchParams.delete("model");
     }
     goto(`?${searchParams.toString()}`, { keepfocus: true, replaceState: true, noScroll: true });
   }
