@@ -130,7 +130,7 @@
           <DropdownItem value={item} on:click={() => handleOptionClick(item)} on:keydown={(e) => handleOptionKeyDown(e, item)} />
         {/each}
       {:else}
-        <DropdownItem value={{ car: 'No matching vehicles' }} />
+        <DropdownItem value={{ name: 'No matching vehicles' }} />
       {/if}
     {:else}
       {#each $harnesses as item}
