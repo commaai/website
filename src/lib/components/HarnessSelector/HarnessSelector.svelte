@@ -70,6 +70,7 @@
 
   const handleClear = () => {
     // clear search input
+    const clearedInput = inputValue !== "";
     inputValue = "";
     handleInput();
     inputRef?.focus();
@@ -77,8 +78,10 @@
     selection = null;
     onChange(null);
     updateQueryParams(null);
-    // also close the dropdown if it's open
-    menuOpen = false;
+    // close the dropdown if it's open and we didn't clear the search input
+    if (menuOpen && !clearedInput) {
+      menuOpen = false;
+    }
   }
 
   /* Dropdown Options */
