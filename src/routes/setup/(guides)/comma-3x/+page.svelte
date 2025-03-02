@@ -45,7 +45,7 @@
       <HarnessSelector
         label="Select a vehicle to view additional setup notes"
         onChange={handleHarnessSelection}
-        hidePackageSupportCard={true}
+        showPackageSupportCard={false}
       />
       {#if selectedVehicleHarness}
         <NoteCard title={`${selectedVehicleHarness.car} Setup Notes`}>

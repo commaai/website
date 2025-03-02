@@ -18,7 +18,7 @@
 
   export let label = "Select vehicle";
   export let accessoryLabel = null;
-  export let hidePackageSupportCard = false;
+  export let showPackageSupportCard = true; // If true, shows the note card that shows below with information about how the selected car is supported
 
   let selection;
 
@@ -146,7 +146,7 @@
   </div>
 </div>
 
-{#if !hidePackageSupportCard && selection && selection.package}
+{#if showPackageSupportCard && selection && selection.package}
   <NoteCard title="Support" icon={CarIcon}>
     {@html selection.package === 'All' ?
       'openpilot will work with <strong>all packages and trims</strong> of this car.' :
