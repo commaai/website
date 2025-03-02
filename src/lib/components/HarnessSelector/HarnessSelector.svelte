@@ -29,7 +29,7 @@
   }
 
   function updateQueryParams(selectedHarness) {
-    const searchParams = new URLSearchParams(window.location.search);
+    const searchParams = $page.url.searchParams;
     if (selectedHarness) {
       const [make, ...model] = selectedHarness.car.split(' ') || [];
       if (make) searchParams.set("make", encodeURIComponent(make));
