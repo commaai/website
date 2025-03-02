@@ -192,7 +192,7 @@
 }
 
 .dropdown-content {
-  display: none !important; /* hidden by default (!important is needed to hide when inside a card, since the card overrides display) */
+  display: none; /* hidden by default */
   position: absolute;
   border: 1px solid #ddd;
   z-index: 1;
@@ -202,7 +202,7 @@
 }
 
 .dropdown-content.show {
-  display:block !important;
+  display:block
 }
 
 .search-input {
