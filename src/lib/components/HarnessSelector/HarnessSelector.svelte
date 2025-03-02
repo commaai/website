@@ -73,17 +73,25 @@
 
   const handleClear = () => {
     // clear search input
-    const clearedInput = inputValue !== "";
-    inputValue = "";
-    handleInput();
-    inputRef?.focus();
-    // clear harness selection
-    selection = null;
-    onChange(null);
-    updateQueryParams(null);
-    // close the dropdown if it's open and we didn't clear the search input
-    if (menuOpen && !clearedInput) {
-      menuOpen = false;
+    let clearedInput = false;
+    if (inputValue) {
+      inputValue = "";
+      clearedInput = true;
+      handleInput();
+      inputRef?.focus();
+    }
+    // clear harness selection and close if we weren't clearing the search input
+    if (!clearedInput) {
+      // clear harness selection
+      if (selection) {
+        selection = null;
+        onChange(null);
+        updateQueryParams(null); // NOTE: Doing this causes a soft reload which removes the focus from the input
+      }
+      // close the dropdown if it's open
+      if (menuOpen) {
+        menuOpen = false;
+      }
     }
   }
 
