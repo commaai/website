@@ -70,6 +70,8 @@
     selection = null;
     onChange(null);
     updateQueryParams(null);
+    // also close the dropdown if it's open
+    menuOpen = false;
   }
 
   /* Dropdown Options */
