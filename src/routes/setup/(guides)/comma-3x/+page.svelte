@@ -32,7 +32,7 @@
   function handleHarnessSelection(selection) {
     selectedVehicleHarness = selection;
     if (selection) {
-      vehicleNote = selection ? vehicles[selection.make]?.find(model => model.name === selection.name)?.setup_notes : null;
+      vehicleNote = selection ? vehicles[selection.make]?.find(model => model.name === selection.car)?.setup_notes : null;
     } else {
       vehicleNote = null;
     }
@@ -48,7 +48,7 @@
         hidePackageSupportCard={true}
       />
       {#if selectedVehicleHarness}
-        <NoteCard title={`${selectedVehicleHarness.name} Setup Notes`}>
+        <NoteCard title={`${selectedVehicleHarness.car} Setup Notes`}>
           <p>{@html vehicleNote || "The selected vehicle or harness does not require additional setup instructions. Follow the setup guide below."}</p>
         </NoteCard>
       {/if}

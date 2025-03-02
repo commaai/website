@@ -42,9 +42,9 @@
   }
 
   let getCartNote = () => {
-    if (selectedHarness?.name) {
+    if (selectedHarness?.car) {
       // TODO: support car harness and harness connector page (latter won't have a car attribute)
-      const vehicle_note = `Vehicle: ${selectedHarness.name}`;
+      const vehicle_note = `Vehicle: ${selectedHarness.car}`;
       const backordered_note = backordered ? `${backordered} backordered` : 'in stock';
       const mount_note = selectedHarness.angledMount ? '8 degree mount' : 'standard mount';
 

@@ -31,7 +31,7 @@
   function updateQueryParams(selectedHarness) {
     const searchParams = new URLSearchParams(window.location.search);
     if (selectedHarness) {
-      const [make, ...model] = selectedHarness.name.split(' ') || [];
+      const [make, ...model] = selectedHarness.car.split(' ') || [];
       if (make) searchParams.set("make", encodeURIComponent(make));
       if (model.length > 0) searchParams.set("model", encodeURIComponent(model.join(' ')));
     } else {
@@ -49,7 +49,7 @@
       const model = $page.url.searchParams.get('model');
       if (model) harnessName += ` ${decodeURIComponent(model)}`;
 
-      selection = $harnesses.find(harness => harness.name === harnessName) ?? null;
+      selection = $harnesses.find(harness => harness.car === harnessName) ?? null;
     }
   }
 
@@ -58,7 +58,7 @@
   let inputRef;
 
   const handleInput = () => {
-    return filteredItems = $harnesses.filter(item => item.name.toLowerCase().match(inputValue.toLowerCase()));
+    return filteredItems = $harnesses.filter(item => item.car.toLowerCase().match(inputValue.toLowerCase()));
   }
 
   const handleClear = () => {
@@ -136,7 +136,7 @@
           <DropdownItem value={item} on:click={() => handleOptionClick(item)} on:keydown={(e) => handleOptionKeyDown(e, item)} />
         {/each}
       {:else}
-        <DropdownItem value={{ name: 'No matching vehicles' }} />
+        <DropdownItem value={{ car: 'No matching vehicles' }} />
       {/if}
     {:else}
       {#each $harnesses as item}
@@ -150,7 +150,7 @@
   <NoteCard title="Support" icon={CarIcon}>
     {@html selection.package === 'All' ?
       'openpilot will work with <strong>all packages and trims</strong> of this car.' :
-      `openpilot requires <strong>${selection.name}</strong> to come equipped with <strong>${selection.package}</strong>.`
+      `openpilot requires <strong>${selection.car}</strong> to come equipped with <strong>${selection.package}</strong>.`
     }
   </NoteCard>
 {/if}

@@ -35,7 +35,7 @@ async function initializeHarnesses() {
         ...harnessInfo[harness.id],
         ...harness,
         make,
-        name: model.name,
+        car: model.name,
         package: model.package,
         angledMount: model.angled_mount,
         backordered: harness?.backordered,  // these overrides are only shown if the harness is out of stock in Shopify
@@ -47,7 +47,7 @@ async function initializeHarnesses() {
   harnessList.push(...CarHarnesses.map(harness => {
     return {
       ...harnessInfo[harness.id],
-      name: harness.title,
+      car: harness.title,
       id: harness.id,
       backordered: harness.backordered,
     };
