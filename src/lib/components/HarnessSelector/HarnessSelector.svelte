@@ -5,7 +5,7 @@
 
   import { tick } from 'svelte';
   import { clickOutside } from '$lib/utils/clickOutside';
-  import { harnesses } from '$lib/utils/harnesses';
+  import { allHarnesses, vehicleHarnesses, genericHarnesses } from '$lib/utils/harnesses';
 
   import NoteCard from '$lib/components/NoteCard.svelte';
   import DropdownItem from './HarnessDropdownItem.svelte';
@@ -19,9 +19,13 @@
   export let label = "Select vehicle";
   export let accessoryLabel = null;
   export let showPackageSupportCard = true; // If true, shows the note card that shows below with information about how the selected car is supported
+  export let showVehicleHarnesses = true; // If true, includes the harnesses by each vehicle model
+  export let showGenericHarnesses = true; // If true, includes the generic/developer harnesses
 
   let selection;
 
+  // Load harnesses based on the options
+  $: harnesses = showVehicleHarnesses && showGenericHarnesses ? allHarnesses : showVehicleHarnesses ? vehicleHarnesses : genericHarnesses;
   $: browser && $harnesses.length > 0, setInitialSelection();
   $: if (selection) {
     onChange(selection);
