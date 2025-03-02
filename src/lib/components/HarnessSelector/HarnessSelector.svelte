@@ -37,12 +37,15 @@
 
   function updateQueryParams(selectedHarness) {
     const searchParams = $page.url.searchParams;
-    if (selectedHarness) {
-      const [make, ...model] = selectedHarness.car.split(' ') || [];
-      if (make) searchParams.set("make", encodeURIComponent(make));
-      if (model.length > 0) searchParams.set("model", encodeURIComponent(model.join(' ')));
+    const [make, ...model] = selectedHarness?.car?.split(' ') || [];
+    if (make) {
+      searchParams.set("make", encodeURIComponent(make));
     } else {
       searchParams.delete("make");
+    }
+    if (model?.length > 0) {
+      searchParams.set("model", encodeURIComponent(model.join(' ')));
+    } else {
       searchParams.delete("model");
     }
     goto(`?${searchParams.toString()}`, { keepfocus: true, replaceState: true, noScroll: true });
