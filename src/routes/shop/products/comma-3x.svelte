@@ -54,7 +54,6 @@
   }
 
   let selectedHarness = null;
-
   let backordered = null;
   const handleHarnessSelection = (value) => {
     selectedHarness = value;

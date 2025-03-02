@@ -1,8 +1,10 @@
 <script>
   import Badge from "$lib/components/Badge.svelte";
-  import Grid from "$lib/components/Grid.svelte";
-  import LinkButton from "$lib/components/LinkButton.svelte";
   import Faq from "$lib/components/Faq.svelte";
+  import Grid from "$lib/components/Grid.svelte";
+  import HarnessSelector from "$lib/components/HarnessSelector/HarnessSelector.svelte";
+  import LinkButton from "$lib/components/LinkButton.svelte";
+  import NoteCard from "$lib/components/NoteCard.svelte";
 
   import { faq } from "$lib/constants/faq.svelte";
 
@@ -22,10 +24,37 @@
   import StepSixImage from "$lib/images/setup/comma-3x/step-6.jpeg";
   import StepSevenImage from "$lib/images/setup/comma-3x/step-7.jpeg";
   import CommaPowerImage from "$lib/images/products/comma-power/comma-power.jpg";
+
+  import vehicles from '$lib/vehicles.json';
+
+  let selectedVehicleHarness = null;
+  let vehicleNote = null
+  function handleHarnessSelection(selection) {
+    selectedVehicleHarness = selection;
+    if (selection) {
+      vehicleNote = selection ? vehicles[selection.make]?.find(model => model.name === selection.name)?.setup_notes : null;
+    } else {
+      vehicleNote = null;
+    }
+  }
 </script>
 
 <section class="light" id="guide">
   <div class="container">
+    <div class="car-notes">
+      <HarnessSelector
+        label="Select a vehicle to view additional setup notes"
+        onChange={handleHarnessSelection}
+        hidePackageSupportCard={true}
+      />
+      {#if selectedVehicleHarness}
+        <NoteCard title={`${selectedVehicleHarness.name} Setup Notes`}>
+          <p>{@html vehicleNote || "The selected vehicle or harness does not require additional setup instructions. Follow the setup guide below."}</p>
+        </NoteCard>
+      {/if}
+    </div>
+    <br />
+
     <div class="card">
       <div class="header">Setup Diagram:</div>
       <div class="contents">
