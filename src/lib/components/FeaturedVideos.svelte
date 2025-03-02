@@ -12,7 +12,7 @@
 
   const videos = [
     { poster: VideoThumbnail1Image, duration: "00:19:24", videoUrl: "https://www.youtube.com/watch?v=VxiR4iyBruo" },
-    { poster: VideoThumbnail2Image, duration: "00:17:26", videoUrl: "https://www.youtube.com/watch?v=NmBfgOanCyk&t=2s" },
+    { poster: VideoThumbnail2Image, duration: "00:17:26", videoUrl: "https://www.youtube.com/watch?v=NmBfgOanCyk" },
     { poster: VideoThumbnail3Image, duration: "00:05:14", videoUrl: "https://www.youtube.com/watch?v=-IkImTe1NYE" },
     { poster: VideoThumbnail4Image, duration: "00:21:33", videoUrl: "https://www.youtube.com/watch?v=wJxjDd42gGA" },
     { poster: VideoThumbnail5Image, duration: "00:01:07", videoUrl: "https://www.youtube.com/watch?v=Ebxt_EPovE8" },
