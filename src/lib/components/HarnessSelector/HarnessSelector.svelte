@@ -28,10 +28,12 @@
   }
 
   function updateQueryParams(selectedHarness) {
-    const [make, ...model] = selectedHarness.car.split(' ');
     const searchParams = new URLSearchParams();
-    searchParams.set("make", encodeURIComponent(make));
-    if (model.length > 0) searchParams.set("model", encodeURIComponent(model.join(' ')));
+    if (selectedHarness) {
+      const [make, ...model] = selectedHarness.car.split(' ') || [];
+      if (make) searchParams.set("make", encodeURIComponent(make));
+      if (model.length > 0) searchParams.set("model", encodeURIComponent(model.join(' ')));
+    }
     goto(`?${searchParams.toString()}`, { keepfocus: true, replaceState: true, noScroll: true });
   }
 
@@ -60,10 +62,10 @@
     inputValue = "";
     handleInput();
     inputRef?.focus();
-
-     // clear harness selection
-     selection = null;
-     onChange(null);
+    // clear harness selection
+    selection = null;
+    onChange(null);
+    updateQueryParams(null);
   }
 
   /* Dropdown Options */
@@ -157,7 +159,7 @@
 }
 
 .dropdown-content {
-  display: none;
+  display: none !important; /* hidden by default (!important is needed to hide when inside a card, since the card overrides display) */
   position: absolute;
   border: 1px solid #ddd;
   z-index: 1;
@@ -166,8 +168,8 @@
   overflow-y: auto;
 }
 
-.show {
-  display:block;
+.dropdown-content.show {
+  display:block !important;
 }
 
 .search-input {
