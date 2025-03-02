@@ -17,7 +17,8 @@
         {% for footnote in car.footnotes if not footnote.value.docs_only %}
         {{ footnote.value.text | tojson }}{{ "" if loop.last else "," }}
         {% endfor %}
-      ]
+      ],
+      "setup_notes": "" // TODO: add setup notes
     }{{ "" if loop.last else "," }}
     {% endfor %}
   ]{{ "" if loop.last else "," }}
