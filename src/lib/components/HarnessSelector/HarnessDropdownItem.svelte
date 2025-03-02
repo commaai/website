@@ -7,7 +7,7 @@
 <div class="dropdown-item" role="option" aria-selected={selected} on:click on:keydown tabindex="0">
   <div class="item-info">
     <div class="title">
-      {value?.car}
+      {value?.name}
     </div>
     {#if value?.title}
       <div class="subtitle">
