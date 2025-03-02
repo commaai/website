@@ -68,6 +68,7 @@
       <h2>Remove the rearview mirror cover trim</h2>
       <Grid templateColumns="1.25fr 0.75fr">
         <img src={StepOneImage} loading="lazy" alt="remove the rearview mirror cover trim" />
+        <!-- TODO: Some of this could be moved to vehicle specific notes or otherwise show based on selected car make -->
         <p>
           Removal method varies by car.
           The durable plastic often requires a strong tug to pop it off on Hondas.
