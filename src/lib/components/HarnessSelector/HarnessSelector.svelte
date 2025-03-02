@@ -19,16 +19,22 @@
   export let showPackageSupportCard = true; // If true, shows the note card that shows below with information about how the selected car is supported
   export let showVehicleHarnesses = true; // If true, includes the harnesses by each vehicle model
   export let showGenericHarnesses = true; // If true, includes the generic/developer harnesses
+  let showAllHarnesses = showVehicleHarnesses && showGenericHarnesses;
 
   export let accessoryLabel = null; // Used to show the price of the selected harness when browsing accessories
-  export let label = "Select vehicle";
-  export let searchLabel = "Search for a vehicle or harness";
-  export let noResultsLabel = "No matching vehicles";
+ 
+  const resourceName = {
+    singular: showAllHarnesses ? "vehicle or harness" : showVehicleHarnesses ? "vehicle" : "harness",
+    plural: showAllHarnesses ? "vehicles or harnesses" : showVehicleHarnesses ? "vehicles" : "harnesses",
+  }
+  export let label = `Select ${resourceName.singular}`;
+  export let searchLabel = `Search for a ${resourceName.singular}`;
+  export let noResultsLabel = `No matching ${resourceName.plural}`;
 
   let selection;
 
   // Load harnesses based on the options
-  $: harnesses = showVehicleHarnesses && showGenericHarnesses ? allHarnesses : showVehicleHarnesses ? vehicleHarnesses : genericHarnesses;
+  $: harnesses = showAllHarnesses ? allHarnesses : showVehicleHarnesses ? vehicleHarnesses : genericHarnesses;
   $: browser && $harnesses.length > 0, setInitialSelection();
   $: if (selection) {
     onChange(selection);
