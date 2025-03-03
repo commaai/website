@@ -22,6 +22,7 @@
 
   import YoutubeIcon from "$lib/icons/social/youtube.svg?raw";
   import XIcon from "$lib/icons/social/x.svg?raw";
+  import { vehicleCountText } from '$lib/constants/vehicles.js';
 
   export let data;
 </script>
@@ -54,7 +55,7 @@
       <h1>
         openpilot is an
         <a class="highlight" href="https://github.com/commaai/openpilot" target="_blank">open source</a>
-        advanced driver assistance system that works on 275+ car models of Toyota,
+        advanced driver assistance system that works on {vehicleCountText} car models of Toyota,
         Hyundai, Honda, and many other brands.
       </h1>
       <ul>
