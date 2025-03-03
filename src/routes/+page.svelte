@@ -5,6 +5,7 @@
   import FeaturedTweets from "$lib/components/FeaturedTweets.svelte";
   import SectionHeader from "../lib/components/SectionHeader.svelte";
   import Grid from "$lib/components/Grid.svelte";
+  import { vehicleCountText } from '$lib/constants/vehicles.js';
 
   import DeviceImage from "$lib/images/device-glow.png";
   import LaneCenteringIcon from "$lib/icons/features/lane-centering.svg?raw";
@@ -76,13 +77,13 @@
     <h1 class="mb-7 sm-mb-3">openpilot can drive for hours without driver action.</h1>
     <Grid columns={2} rowGap="3rem">
       <h1>
-        It works on 275+ car models
+        It works on {vehicleCountText} car models
         <span class="muted">from Toyota, Hyundai, Honda, and more.</span>
       </h1>
       <div>
         <FeaturedCarsList />
         <LinkButton href="/vehicles" style="primary" fullWidth={true}>
-          View all 275+ cars
+          View all {vehicleCountText} cars
         </LinkButton>
       </div>
     </Grid>
