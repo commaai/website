@@ -36,110 +36,102 @@
       </p>
     </div>
 
-    <div class="features-banner">
-      <Grid columns={5} columnGap="2rem" size="medium">
-        <div class="icon">{@html RecordingsIcon}</div>
-        <div class="icon"><img src={TwentyFourSevenIcon} loading="lazy" alt=""></div>
-        <div class="icon"><img src={MarkerIcon} loading="lazy" alt=""></div>
-        <div class="icon"><img src={SnapshotIcon} loading="lazy" alt=""></div>
-        <div class="icon">{@html CommandLineIcon}</div>
+    <div class="features-section">
+      <span class="badge-prefix muted">connect</span><Badge style="dark" display="inline">subscription</Badge>
+      <Grid rowGap="0" templateColumns="1.25fr 1fr">
+        <h1>Access premium features with connect subscription.</h1>
+        <p>Get a connect subscription for live car tracking and cloud storage of your drives for 1 year.</p>
       </Grid>
-    </div>
 
-    <span class="badge-prefix muted">connect</span><Badge style="dark" display="inline">subscription</Badge>
-    <Grid rowGap="0" templateColumns="1.25fr 1fr">
-      <h1>Access premium features with connect subscription.</h1>
-      <p>Get a connect subscription for live car tracking and cloud storage of your drives for 1 year.</p>
-    </Grid>
-
-    <div id="features-table">
-      <div class="row header">
-        <div class="title">Features</div>
-        <div class="content badge">
-          <span class="badge-prefix muted">connect</span><Badge style="dark" display="inline">prime & lite subscription</Badge>
-        </div>
-        <div class="content badge">
-          <span class="badge-prefix muted">connect</span><Badge style="dark" display="inline">free</Badge>
-        </div>
-      </div>
-      <div class="row">
-        <div class="feature-overview">
-          <div class="icon">{@html RecordingsIcon}</div>
-          <div>
-            <hgroup>
-              <div>Cloud storage of drive videos</div>
-              <span class="muted">Review your driving history, access routes, and watch videos of past drives.</span>
-            </hgroup>
-            <div class="mobile-badge"><Badge style="dark" display="inline-flex"><span class="check">{@html CheckmarkIcon}</span> 1 year of storage</Badge></div>
+      <div id="features-table">
+        <div class="row header">
+          <div class="title">Features</div>
+          <div class="content badge">
+            <span class="badge-prefix muted">connect</span><Badge style="dark" display="inline">prime & lite subscription</Badge>
+          </div>
+          <div class="content badge">
+            <span class="badge-prefix muted">connect</span><Badge style="dark" display="inline">free</Badge>
           </div>
         </div>
-        <div class="content">
-          <div class="check">{@html CheckmarkIcon}</div>
-          <div>1 year of storage</div>
+        <div class="row">
+          <div class="feature-overview">
+            <div class="icon">{@html RecordingsIcon}</div>
+            <div>
+              <hgroup>
+                <div>Cloud storage of drive videos</div>
+                <span class="muted">Review your driving history, access routes, and watch videos of past drives.</span>
+              </hgroup>
+              <div class="mobile-badge"><Badge style="dark" display="inline-flex"><span class="check">{@html CheckmarkIcon}</span> 1 year of storage</Badge></div>
+            </div>
+          </div>
+          <div class="content">
+            <div class="check">{@html CheckmarkIcon}</div>
+            <div>1 year of storage</div>
+          </div>
+          <div class="content">
+            <div class="check">{@html CheckmarkIcon}</div>
+            <div>3 days of storage</div>
+          </div>
         </div>
-        <div class="content">
-          <div class="check">{@html CheckmarkIcon}</div>
-          <div>3 days of storage</div>
+        <div class="row">
+          <div class="feature-overview">
+            <div class="icon"><img src={TwentyFourSevenIcon} loading="lazy" alt=""></div>
+            <hgroup>
+              <div>24/7 connectivity</div>
+              <span class="muted">Always-on. Always LTE connected.</span>
+            </hgroup>
+          </div>
+          <div class="content">
+            <div class="check">{@html CheckmarkIcon}</div>
+          </div>
+          <div class="content">
+            <div class="cross">{@html CloseIcon}</div>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="feature-overview">
-          <div class="icon"><img src={TwentyFourSevenIcon} loading="lazy" alt=""></div>
-          <hgroup>
-            <div>24/7 connectivity</div>
-            <span class="muted">Always-on. Always LTE connected.</span>
-          </hgroup>
+        <div class="row">
+          <div class="feature-overview">
+            <div class="icon"><img src={MarkerIcon} loading="lazy" alt=""></div>
+            <hgroup>
+              <div>Live GPS tracking</div>
+              <span class="muted">Always know your vehicle’s location with a live map view.</span>
+            </hgroup>
+          </div>
+          <div class="content">
+            <div class="check">{@html CheckmarkIcon}</div>
+          </div>
+          <div class="content">
+            <div class="cross">{@html CloseIcon}</div>
+          </div>
         </div>
-        <div class="content">
-          <div class="check">{@html CheckmarkIcon}</div>
+        <div class="row">
+          <div class="feature-overview">
+            <div class="icon"><img src={SnapshotIcon} loading="lazy" alt=""></div>
+            <hgroup>
+              <div>Take pictures remotely</div>
+              <span class="muted">Know what's going on around your car. comma 3X features HD road-facing and night-vision-enabled cabin cameras.</span>
+            </hgroup>
+          </div>
+          <div class="content">
+            <div class="check">{@html CheckmarkIcon}</div>
+          </div>
+          <div class="content">
+            <div class="cross">{@html CloseIcon}</div>
+          </div>
         </div>
-        <div class="content">
-          <div class="cross">{@html CloseIcon}</div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="feature-overview">
-          <div class="icon"><img src={MarkerIcon} loading="lazy" alt=""></div>
-          <hgroup>
-            <div>Live GPS tracking</div>
-            <span class="muted">Always know your vehicle’s location with a live map view.</span>
-          </hgroup>
-        </div>
-        <div class="content">
-          <div class="check">{@html CheckmarkIcon}</div>
-        </div>
-        <div class="content">
-          <div class="cross">{@html CloseIcon}</div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="feature-overview">
-          <div class="icon"><img src={SnapshotIcon} loading="lazy" alt=""></div>
-          <hgroup>
-            <div>Take pictures remotely</div>
-            <span class="muted">Know what's going on around your car. comma 3X features HD road-facing and night-vision-enabled cabin cameras.</span>
-          </hgroup>
-        </div>
-        <div class="content">
-          <div class="check">{@html CheckmarkIcon}</div>
-        </div>
-        <div class="content">
-          <div class="cross">{@html CloseIcon}</div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="feature-overview">
-          <div class="icon">{@html CommandLineIcon}</div>
-          <hgroup>
-            <div>Simple SSH for developers</div>
-            <span class="muted">Easy way to connect and deploy code to your comma device.</span>
-          </hgroup>
-        </div>
-        <div class="content">
-          <div class="check">{@html CheckmarkIcon}</div>
-        </div>
-        <div class="content">
-          <div class="cross">{@html CloseIcon}</div>
+        <div class="row">
+          <div class="feature-overview">
+            <div class="icon">{@html CommandLineIcon}</div>
+            <hgroup>
+              <div>Simple SSH for developers</div>
+              <span class="muted">Easy way to connect and deploy code to your comma device.</span>
+            </hgroup>
+          </div>
+          <div class="content">
+            <div class="check">{@html CheckmarkIcon}</div>
+          </div>
+          <div class="content">
+            <div class="cross">{@html CloseIcon}</div>
+          </div>
         </div>
       </div>
     </div>
@@ -255,29 +247,15 @@
       }
     }
 
-    & .features-banner {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-
-      margin: 6rem 0;
-      padding: 8.25rem 0rem;
-
-      background-image: radial-gradient(circle, #f8fff5, #ccffb4);
-
-      @media screen and (max-width: 768px) {
-        & {
-          margin: 3rem 0;
-        }
-      }
-    }
-
     & .badge-prefix {
       font-family: JetBrains Mono, monospace;
       text-transform: uppercase;
       margin-bottom: 0.5rem;
       margin-right: 0.5rem;
+    }
+
+    & .features-section {
+      margin-top: 6rem;
     }
 
     & #features-table {
