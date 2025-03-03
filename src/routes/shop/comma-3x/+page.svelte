@@ -25,6 +25,7 @@
   import MoonIcon from "$lib/icons/features/moon.svg?raw";
   import DisplayIcon from "$lib/icons/features/display.svg?raw";
   import CableIcon from "$lib/icons/features/cable.svg?raw";
+  import { vehicleCountText } from '$lib/constants/vehicles.js';
 
   export let data;
 </script>
@@ -209,13 +210,13 @@
         <div>
           <hgroup>
             <span>Car harness</span>
-            <h2>comma 3X is compatible with 275+ cars</h2>
+            <h2>comma 3X is compatible with {vehicleCountText} cars</h2>
           </hgroup>
           <p>
             A supported vehicle is one that just works when you install a comma device.
             All supported cars provide a better experience than any stock system.
           </p>
-          <LinkButton href="/vehicles" style="secondary" fullWidth={false}>View all 275+ cars</LinkButton>
+          <LinkButton href="/vehicles" style="secondary" fullWidth={false}>View all {vehicleCountText} cars</LinkButton>
         </div>
         <img src={CarBrandCollageImage} loading="lazy" alt="collage of some supported car brands" />
       </Grid>

@@ -23,6 +23,7 @@
   import InfoIcon from "$lib/icons/ui/info.svg?raw";
 
   import { THREEX_PRICE, THREEX_AFFIRM_PRICE, THREEX_SALE, THREEX_STRIKETHROUGH_PRICE } from '$lib/constants/prices.js';
+  import { vehicleCountText } from '$lib/constants/vehicles.js';
 
   import { addToCart } from "../../store";
   import { accessoriesList } from "./productsList";
@@ -51,7 +52,7 @@
               Buy now
             </LinkButton>
             <p>
-              Works with 275+ cars.
+              Works with {vehicleCountText} cars.
               <a class="highlight muted" href="/vehicles" target="_blank">Check compatibility</a>.
             </p>
           </div>
