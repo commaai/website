@@ -1,4 +1,6 @@
 <script>
+  import {marked} from 'marked';
+
   import Badge from "$lib/components/Badge.svelte";
   import Faq from "$lib/components/Faq.svelte";
   import Grid from "$lib/components/Grid.svelte";
@@ -27,12 +29,27 @@
 
   import vehicles from '$lib/vehicles.json';
 
+  // Custom markdown renderer
+  const renderer = new marked.Renderer();
+  renderer.link = function(href, title, text) {
+    const link = marked.Renderer.prototype.link.call(this, href, title, text);
+    return link.replace('<a ', '<a target="_blank" rel="noopener noreferrer" '); // open links in new tab
+  };
+  marked.setOptions({ renderer });
+
+  // Handle vehicle selection and custom setup notes
   let selectedVehicleHarness = null;
   let vehicleNote = null
   function handleHarnessSelection(selection) {
     selectedVehicleHarness = selection;
     if (selection) {
-      vehicleNote = selection ? vehicles[selection.make]?.find(model => model.name === selection.car)?.setup_notes : null;
+      const setupNotes = vehicles[selection.make]?.find(model => model.name === selection.car)?.setup_notes;
+      try {
+        vehicleNote = setupNotes ? marked.parse(setupNotes) : null;
+      } catch (e) {
+        console.error(`Error parsing setup note markdown for ${selection.make} ${selection.car}:`, e);
+        vehicleNote = "Error parsing the setup notes for this vehicle.";
+      }
     } else {
       vehicleNote = null;
     }
@@ -41,7 +58,7 @@
 
 <section class="light" id="guide">
   <div class="container">
-    <div class="car-notes">
+    <div>
       <HarnessSelector
         label="Select a vehicle to view additional setup notes"
         onChange={handleHarnessSelection}
@@ -50,7 +67,7 @@
       />
       {#if selectedVehicleHarness}
         <NoteCard title={`${selectedVehicleHarness.car} Setup Notes`}>
-          <p>{@html vehicleNote || "The selected vehicle does not require additional setup instructions. Follow the setup guide below."}</p>
+          <div>{@html vehicleNote || "<p>The selected vehicle does not require additional setup instructions. Follow the setup guide below.</p>"}</div>
         </NoteCard>
       {/if}
     </div>
