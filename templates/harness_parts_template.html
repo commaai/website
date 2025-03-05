@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <title>Harness Parts</title>
+  </head>
+
+  <body>
+    <p>This page contains car entries only for non-standard car parts as <a href="https://github.com/commaai/opendbc/blob/master/opendbc/car/docs_definitions.py">documented by opendbc.</a></p>
+
+    {% for make, cars in group_by_make(all_car_docs).items() %}
+    <h1>{{ make }}</h1>
+    <br>
+      {% for car in cars %}
+        {% set non_standard_device_parts = Device.threex not in car.car_parts.parts %}
+        {% set harness_connector = car.car_parts.parts | selectattr('part_type', 'eq', PartType.connector) | first %}
+        {% set non_standard_harness_parts = BaseCarHarness("").parts != harness_connector.parts if harness_connector else True  %}
+        <p>Non-standard device: {{ non_standard_device_parts }}</p>
+        <p>Non-standard harness: {{ non_standard_harness_parts }}</p>
+        <p>BaseCarHarness("").parts: {{BaseCarHarness("").parts | list}}</p>
+        <p>harness_connector.parts: {{(harness_connector.parts | list) if harness_connector else None}}</p>
+        <p>harness_connector: {{harness_connector}}</p>
+
+        <h2>{{ car.name }}</h2>
+        <h3>Angled mount: {{ "Yes" if Device.threex_angled_mount in car.car_parts.parts else "No" }}</h3>
+        <h3>Harness parts:</h3>
+        <ul>
+        {% for part in car.car_parts.parts %}
+          <li><h4>{{ part.value.name }}</h4></li>
+          {% for subpart in part.value.parts %}
+            <dd>{{ subpart.value.name }}</dd>
+          {% endfor %}
+        {% endfor %}
+        </ul>
+        {#
+        {% set harness_connector = car.car_parts.parts | selectattr('part_type', 'eq', PartType.connector) | first %}
+        "harness_connector": "{{ harness_connector.value.name.replace(' connector','') if harness_connector else "" }}",
+        #}
+      <br>
+      {% endfor %}
+    <br>
+    {% endfor %}
+  </body>
+</html>
