@@ -50,12 +50,13 @@
         <td>{{ car.name }}</td>
         <td>{{ "Yes" if angled_mount else "No" }}</td>
         <td>
-        {% for part in car.car_parts.parts | sort(attribute='name') %}
-        <li>{{ part.value.name }}:</li>
-        {% for subpart in part.value.parts %}
-          <dd><li>{{ subpart.value.name }}</li></dd>
-        {% endfor %}
-        {% endfor %}
+          {% for part in car.car_parts.parts | sort(attribute='name') %}
+          <li>{{ part.value.name }}:</li>
+          {% for subpart in part.value.parts %}
+            <dd><li>{{ subpart.value.name }}</li></dd>
+          {% endfor %}
+          <br>
+          {% endfor %}
         </td>
       </tr>
       {% endif %}
