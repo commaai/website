@@ -264,7 +264,7 @@
       "angled_mount": false,
       "video_link": "",
       "harness_connector": "",
-      "detail_sentence": "The body is a robotics dev kit that can run openpilot. <a href='https://www.commabody.com'>Learn more.</a>",
+      "detail_sentence": "The body is a robotics dev kit that can run openpilot. <a href='https://www.commabody.com' target='_blank' class='highlight'>Learn more.</a>",
       "footnotes": [
       ]
     }
