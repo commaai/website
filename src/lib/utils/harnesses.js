@@ -16,16 +16,19 @@ async function fetchHarnessVariants() {
   }, {});
 }
 
-const harnesses = writable([]);
 let initialized = false;
+const vehicleHarnesses = writable([]); // List of vehicle model harnesses, excluding developer and generic make harnesses
+const genericHarnesses = writable([]); // List of developer and generic make harnesses
+const allHarnesses = writable([]); // List of all vehicle model harnesses, including developer and generic make harnesses
 
 async function initializeHarnesses() {
   if (initialized) return;
 
   const harnessInfo = await fetchHarnessVariants();
 
-  let harnessList = Object.values(Vehicles).flatMap(make => {
-    return make.map(model => {
+  // Add harnesses for vehicles
+  let vehiclesHarnessList = Object.entries(Vehicles).flatMap(([make, models]) => {
+    return models.map(model => {
       if (model.name === 'comma body') return false;
       const harness = CarHarnesses.find(harness => harness.title === model.harness_connector);
       if (!harness) {
@@ -34,6 +37,7 @@ async function initializeHarnesses() {
       return {
         ...harnessInfo[harness.id],
         ...harness,
+        make,
         car: model.name,
         package: model.package,
         angledMount: model.angled_mount,
@@ -41,21 +45,26 @@ async function initializeHarnesses() {
       };
     }).filter(Boolean);
   });
+  vehicleHarnesses.set(vehiclesHarnessList);
 
-  // add developer harnesses
-  harnessList.push(...CarHarnesses.map(harness => {
+  // Add developer and generic make harnesses
+  let genericHarnessList = CarHarnesses.map(harness => {
     return {
       ...harnessInfo[harness.id],
       car: harness.title,
       id: harness.id,
       backordered: harness.backordered,
     };
-  }));
+  });
+  genericHarnesses.set(genericHarnessList);
 
-  harnesses.set(harnessList);
+  // Combine the two lists
+  let allHarnessList = vehiclesHarnessList.concat(genericHarnessList);
+  allHarnesses.set(allHarnessList);
+
   initialized = true;
 }
 
 initializeHarnesses();
 
-export { harnesses };
+export { allHarnesses, vehicleHarnesses, genericHarnesses };

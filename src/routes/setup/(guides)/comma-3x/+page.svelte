@@ -1,8 +1,12 @@
 <script>
+  import {marked} from 'marked';
+
   import Badge from "$lib/components/Badge.svelte";
-  import Grid from "$lib/components/Grid.svelte";
-  import LinkButton from "$lib/components/LinkButton.svelte";
   import Faq from "$lib/components/Faq.svelte";
+  import Grid from "$lib/components/Grid.svelte";
+  import HarnessSelector from "$lib/components/HarnessSelector/HarnessSelector.svelte";
+  import LinkButton from "$lib/components/LinkButton.svelte";
+  import NoteCard from "$lib/components/NoteCard.svelte";
 
   import { faq } from "$lib/constants/faq.svelte";
 
@@ -22,10 +26,53 @@
   import StepSixImage from "$lib/images/setup/comma-3x/step-6.jpeg";
   import StepSevenImage from "$lib/images/setup/comma-3x/step-7.jpeg";
   import CommaPowerImage from "$lib/images/products/comma-power/comma-power.jpg";
+
+  import vehicles from '$lib/vehicles.json';
+
+  // Custom markdown renderer
+  const renderer = new marked.Renderer();
+  renderer.link = function(href, title, text) {
+    const link = marked.Renderer.prototype.link.call(this, href, title, text);
+    return link.replace('<a ', '<a target="_blank" rel="noopener noreferrer" '); // open links in new tab
+  };
+  marked.setOptions({ renderer });
+
+  // Handle vehicle selection and custom setup notes
+  let selectedVehicleHarness = null;
+  let vehicleNote = null
+  function handleHarnessSelection(selection) {
+    selectedVehicleHarness = selection;
+    if (selection) {
+      const setupNotes = vehicles[selection.make]?.find(model => model.name === selection.car)?.setup_notes;
+      try {
+        vehicleNote = setupNotes ? marked.parse(setupNotes) : null;
+      } catch (e) {
+        console.error(`Error parsing setup note markdown for ${selection.make} ${selection.car}:`, e);
+        vehicleNote = "Error parsing the setup notes for this vehicle.";
+      }
+    } else {
+      vehicleNote = null;
+    }
+  }
 </script>
 
 <section class="light" id="guide">
   <div class="container">
+    <div>
+      <HarnessSelector
+        label="Select a vehicle to view additional setup notes"
+        onChange={handleHarnessSelection}
+        showPackageSupportCard={false}
+        showGenericHarnesses={false}
+      />
+      {#if selectedVehicleHarness}
+        <NoteCard title={`${selectedVehicleHarness.car} Setup Notes`}>
+          <div>{@html vehicleNote || "<p>The selected vehicle does not require additional setup instructions. Follow the setup guide below.</p>"}</div>
+        </NoteCard>
+      {/if}
+    </div>
+    <br />
+
     <div class="card">
       <div class="header">Setup Diagram:</div>
       <div class="contents">
@@ -38,6 +85,7 @@
       <h2>Remove the rearview mirror cover trim</h2>
       <Grid templateColumns="1.25fr 0.75fr">
         <img src={StepOneImage} loading="lazy" alt="remove the rearview mirror cover trim" />
+        <!-- TODO: Some of this could be moved to vehicle specific notes or otherwise show based on selected car make -->
         <p>
           Removal method varies by car.
           The durable plastic often requires a strong tug to pop it off on Hondas.
@@ -66,7 +114,7 @@
       </Grid>
     </div>
     <hr />
-    <div class="step" id="step-4">
+    <div class="step" id="step-3">
       <Badge style="dark">Step 3 <span class="muted">of 5</span></Badge>
       <h2>Place mount high and centered on the windshield</h2>
       <Grid templateColumns="1.25fr 0.75fr">
@@ -97,7 +145,7 @@
       </Grid>
     </div>
     <hr />
-    <div class="step" id="step-5">
+    <div class="step" id="step-4">
       <Badge style="dark">Step 4 <span class="muted">of 5</span></Badge>
       <h2>Plug in OBD-C and mount the device</h2>
       <Grid templateColumns="1.25fr 0.75fr">
@@ -114,7 +162,7 @@
       </Grid>
     </div>
     <hr />
-    <div class="step" id="step-7">
+    <div class="step" id="step-5">
       <Badge style="dark">Step 5 <span class="muted">of 5</span></Badge>
       <h2>Reinstall the rearview mirror cover trim</h2>
       <Grid templateColumns="1.25fr 0.75fr">
