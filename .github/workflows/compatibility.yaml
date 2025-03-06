@@ -6,7 +6,6 @@ on:
 
   # Allows you to manually run this workflow from the Actions tab
   workflow_dispatch:
-  push:
 
 env:
   PR_BRANCH: update-vehicles
