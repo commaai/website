@@ -25,6 +25,8 @@ jobs:
         run: |
           pwd
           ls -lah
+          cd opendbc
+          ls -lah
           (cd opendbc && source setup.sh && scons -j8)
           python scripts/compatibility.py
           rm -rf opendbc
