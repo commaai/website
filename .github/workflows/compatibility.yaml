@@ -21,12 +21,11 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: commaai/opendbc
-          path: opendbc
-
+          path: /opendbc
       - name: Update vehicles and harness information
         run: |
-          ls -lah
-          cd opendbc
+          pwd
+          cd /opendbc
           source setup.sh
           scons -j8
           python ../scripts/compatibility.py
