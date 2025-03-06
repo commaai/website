@@ -26,9 +26,10 @@ jobs:
         run: |
           pwd
           ls -lah
-          (cd opendbc && source setup.sh && scons -j8)
-          uv run python scripts/compatibility.py
-          rm -rf opendbc
+          cd opendbc
+          source setup.sh
+          scons -j8
+          python ../scripts/compatibility.py
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@af7c021bb9c41362d0986422bd244ce51a3bf52f
         with:
