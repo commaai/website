@@ -23,7 +23,6 @@ jobs:
           repository: commaai/opendbc
       - name: Update vehicles and harness information
         run: |
-          pwd
           ls -lah
           cd opendbc
           source setup.sh
