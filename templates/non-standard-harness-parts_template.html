@@ -1,0 +1,8 @@
+{% for name, parts in non_standard_harness_parts.items() %}
+<strong>{{ name }}</strong>
+<ul>
+  {% for part in parts | sort(attribute='name') %}
+  <li>{{ part.value.name }}</li>
+  {% endfor %}
+</ul>
+{% endfor %}
