@@ -356,15 +356,15 @@
     border-collapse: collapse;
     font-size: 1rem;
     margin-top: 1rem;
-    display: block; /* Change to block for scrolling */
-    max-height: 500px; /* Set a max height to enable scrolling; adjust as needed */
-    overflow-y: auto; /* Enable vertical scrolling */
+    display: block;
+    max-height: 500px;
+    overflow-y: auto;
   }
 
   .compatibility-table thead {
     position: sticky;
     top: 0;
-    z-index: 1; /* Ensure header stays above body content */
+    z-index: 1;
   }
 
   .compatibility-table thead th {
@@ -374,7 +374,7 @@
     border-bottom: 2px solid #ddd;
     text-align: left;
     position: sticky;
-    top: 0; /* Stick to the top of the container */
+    top: 0;
   }
 
   .compatibility-table tbody td {
@@ -383,47 +383,45 @@
     vertical-align: top;
   }
 
-  /* Column widths */
   .compatibility-table th:nth-child(1),
   .compatibility-table td:nth-child(1) {
-    width: 18%; /* Harness Configuration */
+    width: 18%;
   }
 
   .compatibility-table th:nth-child(2),
   .compatibility-table td:nth-child(2) {
-    width: 8%; /* Angled mount */
+    width: 8%;
   }
 
   .compatibility-table th:nth-child(3),
   .compatibility-table td:nth-child(3) {
-    width: 19%; /* Parts */
+    width: 19%;
   }
 
   .compatibility-table th:nth-child(4),
   .compatibility-table td:nth-child(4) {
-    width: 55%; /* Compatible Cars */
+    width: 55%;
   }
 
-  /* Normalize text size in Parts column */
   .compatibility-table li {
     margin: 0.25rem 0;
-    font-size: 1rem; /* Ensure top-level <li> matches table */
+    font-size: 1rem;
   }
 
   .compatibility-table dd {
     margin-left: 1.5rem;
-    font-size: 0.875rem; /* Slightly smaller for nested items */
+    font-size: 0.875rem;
   }
 
   .compatibility-table dd li {
-    font-size: 0.875rem; /* Match <dd> size for consistency */
+    font-size: 0.875rem;
   }
 
   /* Responsive adjustments */
   @media (max-width: 768px) {
     .compatibility-table {
       font-size: 0.875rem;
-      max-height: 300px; /* Smaller height on mobile; adjust as needed */
+      max-height: 300px;
     }
 
     .compatibility-table th,
@@ -431,7 +429,6 @@
       padding: 0.5rem;
     }
 
-    /* Stack columns on small screens */
     .compatibility-table th:nth-child(1),
     .compatibility-table td:nth-child(1),
     .compatibility-table th:nth-child(2),
@@ -443,7 +440,6 @@
       width: auto;
     }
 
-    /* Adjust list sizes for mobile */
     .compatibility-table li {
       font-size: 0.875rem;
     }
