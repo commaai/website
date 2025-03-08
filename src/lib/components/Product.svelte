@@ -149,6 +149,7 @@
       </div>
     </div>
   </Grid>
+  <slot name="harnessProducts"></slot>
 {/if}
 
 {#if showLightbox && product?.images?.length > 1}
