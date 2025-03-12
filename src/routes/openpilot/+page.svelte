@@ -146,7 +146,7 @@
     <article>
       <hgroup>
         <p>05</p>
-        <h2>Try openpilot on the comma 3X</h2>
+        <h2>Try openpilot on the comma <span style="text-transform: none;">3X</span></h2>
       </hgroup>
       <p>
         Love it or return it. Every comma 3X comes with a 30-day money back

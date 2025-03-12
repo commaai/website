@@ -1,16 +1,28 @@
 import { get } from 'svelte/store';
 import { cartId, cartCreatedAt, checkoutUrl, cartTotalQuantity } from '../../store';
 
+// GraphQL fragments for error handling
+const USER_ERRORS_GQL = `userErrors { code field message }`;
+const WARNINGS_GQL = `warnings { code message target }`;
+
 export async function shopifyFetch({ query, variables }) {
-  const endpoint = import.meta.env.VITE_SHOPIFY_STOREFRONT_API_ENDPOINT;
-  const token = import.meta.env.VITE_SHOPIFY_STOREFRONT_API_TOKEN;
+  const apiToken = import.meta.env.VITE_SHOPIFY_STOREFRONT_API_TOKEN;
+  const storeUrl = import.meta.env.VITE_SHOPIFY_STORE_URL;
+  const apiVersion = import.meta.env.VITE_SHOPIFY_API_VERSION || 'unstable';
+  const endpoint = `https://${storeUrl}/api/${apiVersion}/graphql.json`;
+
+  if (apiVersion === 'unstable') {
+    console.warn(
+      'Using an unstable Shopify API version. Please ensure the API version is specified in your .env file.'
+    );
+  }
 
   try {
     const result = await fetch(endpoint, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'X-Shopify-Storefront-Access-Token': token
+        'X-Shopify-Storefront-Access-Token': apiToken
       },
       body: { query, variables } && JSON.stringify({ query, variables })
     });
@@ -20,7 +32,7 @@ export async function shopifyFetch({ query, variables }) {
       body: await result.json()
     };
   } catch (error) {
-    console.error('Error:', error);
+    console.error('Error making Shopify Storefront API request:', error);
     return {
       status: 500,
       error: 'Error receiving data'
@@ -180,10 +192,8 @@ export async function updateCart({ cartId, lineId, variantId, quantity }) {
     query: /* graphql */ `
       mutation cartLinesUpdate($cartId: ID!, $lines: [CartLineUpdateInput!]!) {
         cartLinesUpdate(cartId: $cartId, lines: $lines) {
-          userErrors {
-            field
-            message
-          }
+          ${USER_ERRORS_GQL}
+          ${WARNINGS_GQL}
         }
       }
     `,
@@ -223,10 +233,8 @@ export async function addToCart({ cartId, variantId, additionalProductIds = [], 
               }
             }
           }
-          userErrors {
-            field
-            message
-          }
+          ${USER_ERRORS_GQL}
+          ${WARNINGS_GQL}
         }
       }
     `,
@@ -243,8 +251,11 @@ export async function addToCart({ cartId, variantId, additionalProductIds = [], 
     }
   });
 
-  if (cartLinesResponse.errors || cartLinesResponse.data?.cartLinesAdd?.userErrors?.length) {
-    console.error("Error adding items to cart:", cartLinesResponse.errors || cartLinesResponse.data.cartLinesAdd.userErrors);
+  const { errors, data } = cartLinesResponse;
+  const { cartLinesAdd } = data || {};
+  const cartLinesErrors = errors || cartLinesAdd?.userErrors || cartLinesAdd?.warnings;
+  if (errors || cartLinesErrors?.length) {
+    console.error("Error adding items to cart:", cartLinesErrors);
     return cartLinesResponse;
   }
 
@@ -258,10 +269,8 @@ export async function addToCart({ cartId, variantId, additionalProductIds = [], 
               id
               note
             }
-            userErrors {
-              field
-              message
-            }
+            ${USER_ERRORS_GQL}
+            ${WARNINGS_GQL}
           }
         }
       `,
@@ -271,8 +280,11 @@ export async function addToCart({ cartId, variantId, additionalProductIds = [], 
       },
     });
 
-    if (cartNoteResponse.errors || cartNoteResponse.data?.cartNoteUpdate?.userErrors?.length) {
-      console.error("Error updating cart note:", cartNoteResponse.errors || cartNoteResponse.data.cartNoteUpdate.userErrors);
+    const { errors, data } = cartNoteResponse;
+    const { cartNoteUpdate } = data || {};
+    const cartNoteErrors = errors || cartNoteUpdate?.userErrors || cartNoteUpdate?.warnings;
+    if (errors || cartNoteErrors?.length) {
+      console.error("Error updating cart note:", cartNoteErrors);
     }
 
     return {

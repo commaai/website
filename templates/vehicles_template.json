@@ -1,7 +1,7 @@
 {
   {% for make, cars in group_by_make(all_car_docs).items() %}
   "{{ make }}": [
-    {% for car in cars %}
+    {% for car in cars | selectattr('support_type', 'eq', SupportType.UPSTREAM) %}
     {
       "name": "{{ car.name }}",
       "model": "{{ car.model }}",

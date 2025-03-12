@@ -14,6 +14,7 @@
   import ThreeSixtyVisionIcon from "$lib/icons/features/360-vision.svg?raw";
   import LocationIcon from "$lib/icons/features/location.svg?raw";
   import RecordingsIcon from "$lib/icons/features/recordings.svg?raw";
+  import GitHubRepo from "$lib/repo-data.json";
 </script>
 
 <svelte:head>
@@ -95,7 +96,7 @@
     <SectionHeader leftLabel="comma" rightLabel="is real" />
     <h1>
       100+ million miles driven and 10k users. Our GitHub repo has
-      <a href="https://github.com/commaai/openpilot" target="_blank" class="highlight">40k stars</a>.
+      <a href="https://github.com/commaai/openpilot" target="_blank" class="highlight">{Math.floor(GitHubRepo["stargazers_count"] / 10000) * 10}k stars</a>.
     </h1>
     <FeaturedArticles />
     <h1>

@@ -17,6 +17,16 @@ permissions:
   pull-requests: write
 
 jobs:
+  test:
+    name: Run tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+
+      - run: bun install --frozen-lockfile
+      - run: bun test
+
   build:
     name: Build site
     runs-on: ubuntu-latest

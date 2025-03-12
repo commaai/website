@@ -8,7 +8,6 @@ on:
   workflow_dispatch:
 
 env:
-  OPENPILOT_DOCKER: ghcr.io/commaai/openpilot-prebuilt:latest
   PR_BRANCH: update-vehicles
 
 jobs:
@@ -18,9 +17,15 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: commaai/opendbc
+          path: opendbc
       - name: Update vehicles and harness information
         run: |
-          docker run --rm -v $GITHUB_WORKSPACE:/app $OPENPILOT_DOCKER python /app/scripts/compatibility.py
+          cd opendbc && source setup.sh && scons -j8
+          python ../scripts/compatibility.py
+          cd .. && rm -rf opendbc
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@af7c021bb9c41362d0986422bd244ce51a3bf52f
         with:
