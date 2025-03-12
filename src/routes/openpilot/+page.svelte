@@ -24,6 +24,8 @@
   import XIcon from "$lib/icons/social/x.svg?raw";
   import { vehicleCountText } from '$lib/constants/vehicles.js';
 
+  import GitHubRepo from "$lib/repo-data.json";
+
   export let data;
 </script>
 
@@ -47,7 +49,7 @@
       </div>
       <div class="stats-item">
         <div>{@html PeopleIcon}</div>
-        <span>450+</span>
+        <span>{Math.floor(GitHubRepo["contributors_count"] / 10) * 10}+</span>
         <span>Contributors</span>
       </div>
     </Grid>
