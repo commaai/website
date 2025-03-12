@@ -1,6 +1,6 @@
 import { writeFile } from "fs/promises";
 
-// this is added to the deployed bundle automatically, so there isn't a need to run this when committing
+// the output file is updated in the deployed bundle automatically, so there isn't a need to run this when committing
 async function fetchData() {
   console.log("Fetching GitHub repo data...");
   try {
