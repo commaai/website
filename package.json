@@ -7,7 +7,7 @@
   },
   "private": true,
   "scripts": {
-    "dev": "bun run prebuild && vite dev",
+    "dev": "vite dev",
     "prebuild": "bun run fetch-repo-data",
     "build": "vite build",
     "preview": "vite preview",
