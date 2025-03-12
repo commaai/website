@@ -1,0 +1,5 @@
+[test]
+preload = [
+  "./test/happydom.js",
+  "./test/svelte-loader.js",
+]
