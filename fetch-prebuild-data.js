@@ -1,6 +1,7 @@
 import { writeFile } from "fs/promises";
 
 async function fetchData() {
+  console.log("Fetching GitHub repo data...");
   try {
     const response = await fetch("https://api.github.com/repos/commaai/openpilot");
     const data = await response.json();
