@@ -95,7 +95,7 @@
     <SectionHeader leftLabel="comma" rightLabel="is real" />
     <h1>
       100+ million miles driven and 10k users. Our GitHub repo has
-      <a href="https://github.com/commaai/openpilot" target="_blank" class="highlight">40k stars</a>.
+      <a href="https://github.com/commaai/openpilot" target="_blank" class="highlight">50k stars</a>.
     </h1>
     <FeaturedArticles />
     <h1>
