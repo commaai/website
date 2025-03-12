@@ -8,7 +8,7 @@
   "private": true,
   "scripts": {
     "dev": "vite dev",
-    "prebuild": "bun run fetch-repo-data",
+    "prebuild": "bun run fetch-prebuild-data",
     "build": "vite build",
     "preview": "vite preview",
     "deploy": "bunx firebase deploy",
