@@ -53,7 +53,7 @@
         If you don't see your car, it means that it is not currently supported.
       </p>
       <p>
-        If you have a modern car and some programing skills, you can likely add support for your car.
+        If you have a modern car and some programming skills, you can likely add support for your car.
       </p>
       <p>
         Watch
