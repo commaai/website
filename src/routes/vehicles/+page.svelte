@@ -70,7 +70,7 @@
         <p>Generally, newer Hyundai and Toyota models are great choices. These are some of our favorites:</p>
       </hgroup>
       <div class="recommended-car-columns">
-        <Grid columns="4" size="large" wrapMode="single">
+        <Grid columns={4} size="large" wrapMode="single">
           <div class="recommended-car-stack">
             <strong>EV</strong>
             <div>Kia EV6</div>
