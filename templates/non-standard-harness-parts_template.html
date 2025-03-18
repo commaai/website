@@ -1,0 +1,8 @@
+{% for name, parts in non_standard_harness_parts.items() %}
+<strong>{{ name }}</strong>
+<ul>
+  {% for part in parts %}
+  <li>{{ part }}</li>
+  {% endfor %}
+</ul>
+{% endfor %}
