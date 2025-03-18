@@ -5,7 +5,7 @@
 
   import { tick } from 'svelte';
   import { clickOutside } from '$lib/utils/clickOutside';
-  import { harnesses } from '$lib/utils/harnesses';
+  import { allHarnesses, vehicleHarnesses, genericHarnesses } from '$lib/utils/harnesses';
 
   import NoteCard from '$lib/components/NoteCard.svelte';
   import DropdownItem from './HarnessDropdownItem.svelte';
@@ -16,11 +16,25 @@
 
   export let onChange;
 
-  export let label = "Select vehicle";
-  export let accessoryLabel = null;
+  export let showPackageSupportCard = true; // If true, shows the note card that shows below with information about how the selected car is supported
+  export let showVehicleHarnesses = true; // If true, includes the harnesses by each vehicle model
+  export let showGenericHarnesses = true; // If true, includes the generic/developer harnesses
+  let showAllHarnesses = showVehicleHarnesses && showGenericHarnesses;
+
+  export let accessoryLabel = null; // Used to show the price of the selected harness when browsing accessories
+ 
+  const resourceName = {
+    singular: showAllHarnesses ? "vehicle or harness" : showVehicleHarnesses ? "vehicle" : "harness",
+    plural: showAllHarnesses ? "vehicles or harnesses" : showVehicleHarnesses ? "vehicles" : "harnesses",
+  }
+  export let label = `Select ${resourceName.singular}`;
+  export let searchLabel = `Search for a ${resourceName.singular}`;
+  export let noResultsLabel = `No matching ${resourceName.plural}`;
 
   let selection;
 
+  // Load harnesses based on the options
+  $: harnesses = showAllHarnesses ? allHarnesses : showVehicleHarnesses ? vehicleHarnesses : genericHarnesses;
   $: browser && $harnesses.length > 0, setInitialSelection();
   $: if (selection) {
     onChange(selection);
@@ -28,10 +42,18 @@
   }
 
   function updateQueryParams(selectedHarness) {
-    const [make, ...model] = selectedHarness.car.split(' ');
-    const searchParams = new URLSearchParams();
-    searchParams.set("make", encodeURIComponent(make));
-    if (model.length > 0) searchParams.set("model", encodeURIComponent(model.join(' ')));
+    const searchParams = $page.url.searchParams;
+    const [make, ...model] = selectedHarness?.car?.split(' ') || [];
+    if (make) {
+      searchParams.set("make", encodeURIComponent(make));
+    } else {
+      searchParams.delete("make");
+    }
+    if (model?.length > 0) {
+      searchParams.set("model", encodeURIComponent(model.join(' ')));
+    } else {
+      searchParams.delete("model");
+    }
     goto(`?${searchParams.toString()}`, { keepfocus: true, replaceState: true, noScroll: true });
   }
 
@@ -57,13 +79,26 @@
 
   const handleClear = () => {
     // clear search input
-    inputValue = "";
-    handleInput();
-    inputRef?.focus();
-
-     // clear harness selection
-     selection = null;
-     onChange(null);
+    let clearedInput = false;
+    if (inputValue) {
+      inputValue = "";
+      clearedInput = true;
+      handleInput();
+      inputRef?.focus();
+    }
+    // clear harness selection and close if we weren't clearing the search input
+    if (!clearedInput) {
+      // clear harness selection
+      if (selection) {
+        selection = null;
+        onChange(null);
+        updateQueryParams(null); // NOTE: Doing this causes a soft reload which removes the focus from the input
+      }
+      // close the dropdown if it's open
+      if (menuOpen) {
+        menuOpen = false;
+      }
+    }
   }
 
   /* Dropdown Options */
@@ -92,7 +127,7 @@
       <button class="clear" on:click={handleClear}>{@html CloseIcon}</button>
       <input
         type="text"
-        placeholder="Search for a vehicle or harness"
+        placeholder={searchLabel}
         autocomplete="off"
         class="search-input"
         bind:value={inputValue}
@@ -128,7 +163,7 @@
           <DropdownItem value={item} on:click={() => handleOptionClick(item)} on:keydown={(e) => handleOptionKeyDown(e, item)} />
         {/each}
       {:else}
-        <DropdownItem value={{ car: 'No matching vehicles' }} />
+        <DropdownItem value={{ car: noResultsLabel }} />
       {/if}
     {:else}
       {#each $harnesses as item}
@@ -138,7 +173,7 @@
   </div>
 </div>
 
-{#if selection && selection.package}
+{#if showPackageSupportCard && selection && selection.package}
   <NoteCard title="Support" icon={CarIcon}>
     {@html selection.package === 'All' ?
       'openpilot will work with <strong>all packages and trims</strong> of this car.' :
@@ -157,7 +192,7 @@
 }
 
 .dropdown-content {
-  display: none;
+  display: none; /* hidden by default */
   position: absolute;
   border: 1px solid #ddd;
   z-index: 1;
@@ -166,8 +201,8 @@
   overflow-y: auto;
 }
 
-.show {
-  display:block;
+.dropdown-content.show {
+  display:block
 }
 
 .search-input {

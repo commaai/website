@@ -16,7 +16,8 @@
   },
   "dependencies": {
     "@fontsource/inter": "^5.0.20",
-    "@fontsource/jetbrains-mono": "^5.0.21"
+    "@fontsource/jetbrains-mono": "^5.0.21",
+    "marked": "^15.0.7"
   },
   "devDependencies": {
     "@happy-dom/global-registrator": "^17.3.0",
