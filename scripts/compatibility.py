@@ -16,15 +16,11 @@ def generate_cars_md(all_car_docs: list[CarDocs], template_fn: str) -> str:
   standard_harness_parts = [*base_harness_parts, "harness connector"]
 
   non_standard_harness_parts = {}
-  for car in upstream_car_docs:
+  for car in all_car_docs:
     harness_connector = next((part for part in car.car_parts.parts if part.part_type == PartType.connector), None)
-    if not harness_connector:
-      print("skipping", car)
-      continue
+    if not harness_connector: continue
     parts = frozenset({ part.value.name for part in harness_connector.value.parts })
-    if base_harness_parts == parts:
-      print("skipping", harness_connector.value.name, "same as base parts")
-      continue
+    if base_harness_parts == parts: continue
     if harness_connector.value.has_connector:
       parts = frozenset({ *parts, "harness connector" })
     if parts not in non_standard_harness_parts:
