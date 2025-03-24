@@ -23,13 +23,13 @@ def generate_cars_md(all_car_docs: list[CarDocs], template_fn: str) -> str:
   standard_harness_parts = [*base_harness_parts, "harness connector"]
 
   with open(CAR_HARNESSES_JSON) as f:
-    store_car_harness_names = [product["title"] for product in json.load(f)]
+    shop_car_harness_names = [product["title"] for product in json.load(f)]
 
   # group harnesses with identical part lists
   non_standard_harness_parts = {}
   for harness in CarHarness:
-    if harness.value.name.replace(" connector", "") not in store_car_harness_names:
-      print("skipping not in store", harness)
+    if harness.value.name.replace(" connector", "") not in shop_car_harness_names:
+      print("skipping not in shop", harness)
       continue
     parts = frozenset({ part.value.name for part in harness.value.parts })
     if base_harness_parts == parts: continue
