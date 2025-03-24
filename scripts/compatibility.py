@@ -5,9 +5,6 @@ from opendbc.car.docs import get_all_car_docs, get_all_footnotes, group_by_make
 from opendbc.car.docs_definitions import BaseCarHarness, CarDocs, CarHarness, Column, Device, ExtraCarsColumn, PartType, SupportType
 
 WEB4_DIR = os.path.abspath(os.path.join(os.path.dirname(os.path.realpath(__file__)), ".."))
-VEHICLES_OUT_FILE = os.path.join(WEB4_DIR, "src/lib/vehicles.json")
-HARNESS_PARTS_OUT_FILE = os.path.join(WEB4_DIR, "static/harness-parts.html")
-HARNESS_CONNECTOR_PARTS_OUT_FILE = os.path.join(WEB4_DIR, "src/lib/non-standard-harness-parts.html")
 
 def generate_cars_md(all_car_docs: list[CarDocs], template_fn: str) -> str:
   with open(template_fn) as f:
@@ -44,10 +41,11 @@ def generate_cars_md(all_car_docs: list[CarDocs], template_fn: str) -> str:
                          BaseCarHarness=BaseCarHarness, upstream_car_docs=upstream_car_docs)
 
 if __name__ == '__main__':
-  for out_file, template_file in ((VEHICLES_OUT_FILE, "templates/vehicles_template.json"),
-                                  (HARNESS_PARTS_OUT_FILE, "templates/harness-parts_template.html"),
-                                  (HARNESS_CONNECTOR_PARTS_OUT_FILE, "templates/non-standard-harness-parts_template.html")):
-    content = generate_cars_md(get_all_car_docs(), os.path.join(WEB4_DIR, template_file))
-    with open(out_file, "w") as f:
+  for template_file, out_file in (("vehicles_template.json", "src/lib/vehicles.json"),
+                                  ("harness-parts_template.html", "static/harness-parts.html"),
+                                  ("non-standard-harness-parts_template.html", "src/lib/non-standard-harness-parts.html"),
+                                  ("standard-harness-parts_template.html", "src/lib/standard-harness-parts.html")):
+    content = generate_cars_md(get_all_car_docs(), os.path.join(WEB4_DIR, "templates", template_file))
+    with open(os.path.join(WEB4_DIR, out_file), "w") as f:
       f.write(content)
     print(f"Generated and written to {out_file}")
