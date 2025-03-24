@@ -34,11 +34,14 @@ def generate_cars_md(all_car_docs: list[CarDocs], template_fn: str) -> str:
     non_standard_harness_parts_by_name[name] = sorted(parts, key=str.casefold)
 
   footnotes = [fn.value.text for fn in get_all_footnotes()]
+
+  upstream_car_docs = [car for car in all_car_docs if car.support_type == SupportType.UPSTREAM]
+
   return template.render(all_car_docs=all_car_docs, PartType=PartType,
                          group_by_make=group_by_make, footnotes=footnotes,
                          non_standard_harness_parts=non_standard_harness_parts_by_name,
                          Device=Device, Column=Column, ExtraCarsColumn=ExtraCarsColumn,
-                         BaseCarHarness=BaseCarHarness, SupportType=SupportType)
+                         BaseCarHarness=BaseCarHarness, upstream_car_docs=upstream_car_docs)
 
 if __name__ == '__main__':
   for out_file, template_file in ((VEHICLES_OUT_FILE, "templates/vehicles_template.json"),
