@@ -24,8 +24,8 @@ async function initializeHarnesses() {
 
   const harnessInfo = await fetchHarnessVariants();
 
-  let harnessList = Object.values(Vehicles).flatMap(make => {
-    return make.map(model => {
+  let harnessList = Object.entries(Vehicles).flatMap(([make, models]) => {
+    return models.map(model => {
       if (model.name === 'comma body') return false;
       const harness = CarHarnesses.find(harness => harness.title === model.harness_connector);
       if (!harness) {
@@ -34,6 +34,7 @@ async function initializeHarnesses() {
       return {
         ...harnessInfo[harness.id],
         ...harness,
+        make,
         car: model.name,
         package: model.package,
         angledMount: model.angled_mount,
