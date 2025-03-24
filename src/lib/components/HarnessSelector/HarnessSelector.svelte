@@ -28,10 +28,12 @@
   }
 
   function updateQueryParams(selectedHarness) {
-    const [make, ...model] = selectedHarness.car.split(' ');
     const searchParams = new URLSearchParams();
-    searchParams.set("make", encodeURIComponent(make));
-    if (model.length > 0) searchParams.set("model", encodeURIComponent(model.join(' ')));
+    if (selectedHarness) {
+      const [make, ...model] = selectedHarness.car.split(' ') || [];
+      if (make) searchParams.set("make", encodeURIComponent(make));
+      if (model.length > 0) searchParams.set("model", encodeURIComponent(model.join(' ')));
+    }
     goto(`?${searchParams.toString()}`, { keepfocus: true, replaceState: true, noScroll: true });
   }
 
@@ -60,10 +62,10 @@
     inputValue = "";
     handleInput();
     inputRef?.focus();
-
-     // clear harness selection
-     selection = null;
-     onChange(null);
+    // clear harness selection
+    selection = null;
+    onChange(null);
+    updateQueryParams(null);
   }
 
   /* Dropdown Options */
