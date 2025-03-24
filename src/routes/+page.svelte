@@ -2,7 +2,6 @@
   import LinkButton from "$lib/components/LinkButton.svelte";
   import FeaturedCarsList from "$lib/components/FeaturedCarsList.svelte";
   import FeaturedArticles from "$lib/components/FeaturedArticles.svelte";
-  import FeaturedTweets from "$lib/components/FeaturedTweets.svelte";
   import SectionHeader from "../lib/components/SectionHeader.svelte";
   import Grid from "$lib/components/Grid.svelte";
   import { vehicleCountText } from '$lib/constants/vehicles.js';
@@ -103,7 +102,6 @@
       Follow us on 𝕏
       <a href="https://twitter.com/comma_ai" target="_blank" class="highlight">@comma_ai</a>.
     </h1>
-    <FeaturedTweets />
   </div>
 </section>
 

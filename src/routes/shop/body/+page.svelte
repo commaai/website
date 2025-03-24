@@ -114,7 +114,7 @@
     <div class="technical-specs">
       <h1>Technical Specs</h1>
       <div class="chart">
-        <Grid columns={3}>
+        <Grid columns={3} wrapMode="single"> 
           <div class="body-assembly">
             <img src={CommaBodyAssemblyImage} loading="lazy" alt="comma body assembly" width="70%" />
           </div>

@@ -1,7 +1,7 @@
-<a href="/shop/comma-3x" target="_blank" class="banner">
+<a href="/jobs.html" target="_blank" class="banner">
   <div class="wrapper">
     <strong class="headline">
-      NEW LOW PRICE! - IT DRIVES YOUR CAR FOR $999
+      We're hiring! Come build the future of self-driving cars.
     </strong>
   </div>
 </a>
