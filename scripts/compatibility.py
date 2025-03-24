@@ -10,33 +10,43 @@ def generate_cars_md(all_car_docs: list[CarDocs], template_fn: str) -> str:
   with open(template_fn) as f:
     template = jinja2.Template(f.read(), trim_blocks=True, lstrip_blocks=True)
 
-  non_standard_harness_parts = {}
+  upstream_car_docs = [car for car in all_car_docs if car.support_type == SupportType.UPSTREAM]
+
   base_harness_parts = frozenset({ part.value.name for part in BaseCarHarness("").parts })
-  for harness in CarHarness:
-    parts = frozenset({ part.value.name for part in harness.value.parts })
-    if base_harness_parts == frozenset(parts): continue
-    if harness.value.has_connector:
+  standard_harness_parts = [*base_harness_parts, "harness connector"]
+
+  non_standard_harness_parts = {}
+  for car in upstream_car_docs:
+    harness_connector = next((part for part in car.car_parts.parts if part.part_type == PartType.connector), None)
+    if not harness_connector:
+      print("skipping", car)
+      continue
+    parts = frozenset({ part.value.name for part in harness_connector.value.parts })
+    if base_harness_parts == parts:
+      print("skipping", harness_connector.value.name, "same as base parts")
+      continue
+    if harness_connector.value.has_connector:
       parts = frozenset({ *parts, "harness connector" })
     if parts not in non_standard_harness_parts:
       non_standard_harness_parts[parts] = set()
-    non_standard_harness_parts[parts].add(harness.value.name.replace(" connector", ""))
+    non_standard_harness_parts[parts].add(harness_connector.value.name.replace(" connector", ""))
 
   non_standard_harness_parts_by_name = {}
   for parts, harness_names in non_standard_harness_parts.items():
+    harness_names = sorted(harness_names, reverse=True)
+    name = harness_names.pop()
+    while len(harness_names) > 1:
+      name = "{}, {}".format(name, harness_names.pop())
     if len(harness_names) == 1:
-      name = harness_names.pop()
-    else:
-      harness_names = sorted(harness_names)
-      name = "{}, and {}".format(", ".join(harness_names[:-1]), harness_names[-1])
+      name = "{} and {}".format(name, harness_names.pop())
     non_standard_harness_parts_by_name[name] = sorted(parts, key=str.casefold)
 
   footnotes = [fn.value.text for fn in get_all_footnotes()]
 
-  upstream_car_docs = [car for car in all_car_docs if car.support_type == SupportType.UPSTREAM]
-
   return template.render(all_car_docs=all_car_docs, PartType=PartType,
                          group_by_make=group_by_make, footnotes=footnotes,
                          non_standard_harness_parts=non_standard_harness_parts_by_name,
+                         standard_harness_parts=standard_harness_parts,
                          Device=Device, Column=Column, ExtraCarsColumn=ExtraCarsColumn,
                          BaseCarHarness=BaseCarHarness, upstream_car_docs=upstream_car_docs)
 

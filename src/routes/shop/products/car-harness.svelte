@@ -9,6 +9,7 @@
   import OBDIIImage from "$lib/images/products/car-harness/OBD-II.png";
 
   import { CAR_HARNESS_PRICE } from "$lib/constants/prices.js";
+  import StandardHarnessParts from "$lib/standard-harness-parts.html?raw";
   import NonStandardHarnessParts from "$lib/non-standard-harness-parts.html?raw";
 
   export const productInfo = {
@@ -75,11 +76,7 @@
       Each vehicle has a specific harness based on make, model and year. Each
       kit includes the following:
     </p>
-    <ul>
-      <li>comma power</li>
-      <li>harness connector</li>
-      <li>harness box</li>
-    </ul>
+    {@html StandardHarnessParts}
     <p>Exceptions to the above include:</p>
     {@html NonStandardHarnessParts}
   </div>
