@@ -137,7 +137,7 @@ export async function getProduct(id) {
               currencyCode
             }
           }
-          variants(first: 250) {
+          variants(first: 100) {
             nodes {
               id
               title
