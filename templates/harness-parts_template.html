@@ -37,8 +37,8 @@
         <th>Angled mount</th>
         <th>Parts</th>
       </tr>
-      {% for make, cars in group_by_make(upstream_car_docs).items() %}
-      {% for car in cars -%}
+      {% for make, cars in group_by_make(all_car_docs).items() %}
+      {% for car in cars | selectattr('support_type', 'eq', SupportType.UPSTREAM) -%}
 
       {% set non_standard_device_parts = Device.threex not in car.car_parts.parts %}
       {% set harness_connector = car.car_parts.parts | selectattr('part_type', 'eq', PartType.connector) | first %}

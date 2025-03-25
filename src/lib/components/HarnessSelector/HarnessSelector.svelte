@@ -31,29 +31,23 @@
   export let searchLabel = `Search for a ${resourceName.singular}`;
   export let noResultsLabel = `No matching ${resourceName.plural}`;
 
-  let selection;
+  let selection = null
 
   // Load harnesses based on the options
   $: harnesses = showAllHarnesses ? allHarnesses : showVehicleHarnesses ? vehicleHarnesses : genericHarnesses;
   $: browser && $harnesses.length > 0, setInitialSelection();
-  $: if (selection) {
+  $: {
     onChange(selection);
-    updateQueryParams(selection);
+    if (selection) {
+      updateQueryParams(selection);
+    }
   }
 
   function updateQueryParams(selectedHarness) {
-    const searchParams = $page.url.searchParams;
-    const [make, ...model] = selectedHarness?.car?.split(' ') || [];
-    if (make) {
-      searchParams.set("make", encodeURIComponent(make));
-    } else {
-      searchParams.delete("make");
-    }
-    if (model?.length > 0) {
-      searchParams.set("model", encodeURIComponent(model.join(' ')));
-    } else {
-      searchParams.delete("model");
-    }
+    const [make, ...model] = selectedHarness.car.split(' ');
+    const searchParams = new URLSearchParams();
+    searchParams.set("make", encodeURIComponent(make));
+    if (model.length > 0) searchParams.set("model", encodeURIComponent(model.join(' ')));
     goto(`?${searchParams.toString()}`, { keepfocus: true, replaceState: true, noScroll: true });
   }
 
@@ -73,32 +67,19 @@
   let inputValue = "";
   let inputRef;
 
-  const handleInput = () => {
-    return filteredItems = $harnesses.filter(item => item.car.toLowerCase().match(inputValue.toLowerCase()));
-  }
+  $: filteredItems = $harnesses.filter(item => item.car.toLowerCase().match(inputValue.toLowerCase()));
 
   const handleClear = () => {
-    // clear search input
-    let clearedInput = false;
-    if (inputValue) {
+    // clear search input or close menu
+    if (!inputValue) {
+      menuOpen = false;
+    } else {
       inputValue = "";
-      clearedInput = true;
-      handleInput();
       inputRef?.focus();
     }
-    // clear harness selection and close if we weren't clearing the search input
-    if (!clearedInput) {
-      // clear harness selection
-      if (selection) {
-        selection = null;
-        onChange(null);
-        updateQueryParams(null); // NOTE: Doing this causes a soft reload which removes the focus from the input
-      }
-      // close the dropdown if it's open
-      if (menuOpen) {
-        menuOpen = false;
-      }
-    }
+
+    // clear harness selection
+    selection = null;
   }
 
   /* Dropdown Options */
@@ -132,7 +113,6 @@
         class="search-input"
         bind:value={inputValue}
         bind:this={inputRef}
-        on:input={handleInput}
         on:click={() => menuOpen = true}
         on:focus={() => menuOpen = true}
         style={menuOpen ? 'padding: 14px 3rem' : ''}
