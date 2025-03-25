@@ -68,6 +68,7 @@
     // clear harness selection
     menuOpen = false;
     selection = null;
+    onChange(selection);
   }
 
   /* Dropdown Options */
