@@ -55,18 +55,18 @@
   let inputValue = "";
   let inputRef;
 
-  const handleInput = () => {
-    return filteredItems = $harnesses.filter(item => item.car.toLowerCase().match(inputValue.toLowerCase()));
-  }
+  $: filteredItems = $harnesses.filter(item => item.car.toLowerCase().match(inputValue.toLowerCase()));
 
   const handleClear = () => {
-    // clear search input
-    inputValue = "";
-    handleInput();
-    inputRef?.focus();
+    // clear search input or close menu
+    if (!inputValue) {
+      menuOpen = false;
+    } else {
+      inputValue = "";
+      inputRef?.focus();
+    }
 
     // clear harness selection
-    menuOpen = false;
     selection = null;
     onChange(selection);
   }
@@ -102,7 +102,6 @@
         class="search-input"
         bind:value={inputValue}
         bind:this={inputRef}
-        on:input={handleInput}
         on:click={() => menuOpen = true}
         on:focus={() => menuOpen = true}
         style={menuOpen ? 'padding: 14px 3rem' : ''}
