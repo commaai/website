@@ -9,6 +9,8 @@
   import OBDIIImage from "$lib/images/products/car-harness/OBD-II.png";
 
   import { CAR_HARNESS_PRICE } from "$lib/constants/prices.js";
+  import StandardHarnessParts from "$lib/standard-harness-parts.html?raw";
+  import NonStandardHarnessParts from "$lib/non-standard-harness-parts.html?raw";
 
   export const productInfo = {
     title: "car harness",
@@ -74,25 +76,8 @@
       Each vehicle has a specific harness based on make, model and year. Each
       kit includes the following:
     </p>
-    <ul>
-      <li>comma power</li>
-      <li>harness connector</li>
-      <li>harness box</li>
-    </ul>
+    {@html StandardHarnessParts}
     <p>Exceptions to the above include:</p>
-    <p><strong>OBD II</strong></p>
-    <ul>
-      <li>OBD-II connector</li>
-      <li>long OBD-C cable (9.5 ft)</li>
-      <li>USB-C coupler</li>
-    </ul>
-    <p><strong>Rivian A, Tesla A, Tesla B, Nissan, and J533</strong></p>
-    <ul>
-      <li>comma power</li>
-      <li>harness connector</li>
-      <li>harness box</li>
-      <li>long OBD-C cable (9.5 ft)</li>
-      <li>USB-C coupler</li>
-    </ul>
+    {@html NonStandardHarnessParts}
   </div>
 </Product>
