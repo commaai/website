@@ -32,7 +32,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: Update vehicles and harness information
           title: 'Update vehicles and harness information'
-          labels: compatibility
+          labels: bot
           branch: ${{ env.PR_BRANCH }}
           base: master
           delete-branch: true
