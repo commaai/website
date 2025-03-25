@@ -32,18 +32,10 @@
   }
 
   function updateQueryParams(selectedHarness) {
-    const searchParams = $page.url.searchParams;
-    const [make, ...model] = selectedHarness?.car?.split(' ') || [];
-    if (make) {
-      searchParams.set("make", encodeURIComponent(make));
-    } else {
-      searchParams.delete("make");
-    }
-    if (model?.length > 0) {
-      searchParams.set("model", encodeURIComponent(model.join(' ')));
-    } else {
-      searchParams.delete("model");
-    }
+    const [make, ...model] = selectedHarness.car.split(' ');
+    const searchParams = new URLSearchParams();
+    searchParams.set("make", encodeURIComponent(make));
+    if (model.length > 0) searchParams.set("model", encodeURIComponent(model.join(' ')));
     goto(`?${searchParams.toString()}`, { keepfocus: true, replaceState: true, noScroll: true });
   }
 
@@ -69,26 +61,13 @@
 
   const handleClear = () => {
     // clear search input
-    let clearedInput = false;
-    if (inputValue) {
-      inputValue = "";
-      clearedInput = true;
-      handleInput();
-      inputRef?.focus();
-    }
-    // clear harness selection and close if we weren't clearing the search input
-    if (!clearedInput) {
-      // clear harness selection
-      if (selection) {
-        selection = null;
-        onChange(null);
-        updateQueryParams(null); // NOTE: Doing this causes a soft reload which removes the focus from the input
-      }
-      // close the dropdown if it's open
-      if (menuOpen) {
-        menuOpen = false;
-      }
-    }
+    inputValue = "";
+    handleInput();
+    inputRef?.focus();
+
+     // clear harness selection
+     selection = null;
+     onChange(null);
   }
 
   /* Dropdown Options */
