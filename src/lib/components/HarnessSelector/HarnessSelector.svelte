@@ -26,11 +26,9 @@
   // Load harnesses based on the options
   $: harnesses = showVehicleHarnesses && showGenericHarnesses ? allHarnesses : showVehicleHarnesses ? vehicleHarnesses : genericHarnesses;
   $: browser && $harnesses.length > 0, setInitialSelection();
-  $: {
+  $: if (selection) {
     onChange(selection);
-    if (selection) {
-      updateQueryParams(selection);
-    }
+    updateQueryParams(selection);
   }
 
   function updateQueryParams(selectedHarness) {
