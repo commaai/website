@@ -32,20 +32,11 @@
   }
 
   function updateQueryParams(selectedHarness) {
-    console.log("selectedHarness", selectedHarness);
-    if (selectedHarness === undefined) {
-      const currentUrl = new URL(window.location.href);
-      currentUrl.search = ""; // remove all query params
-      // window.history.replaceState({}, "", currentUrl);
-      // goto(window.location.pathname, { keepfocus: true, replaceState: true, noScroll: true });
-    } else {
-      console.log("reading car?!", selectedHarness)
-      const [make, ...model] = selectedHarness.car.split(' ');
-      const searchParams = new URLSearchParams();
-      searchParams.set("make", encodeURIComponent(make));
-      if (model.length > 0) searchParams.set("model", encodeURIComponent(model.join(' ')));
-      goto(`?${searchParams.toString()}`, { keepfocus: true, replaceState: true, noScroll: true });
-    }
+    const [make, ...model] = selectedHarness.car.split(' ');
+    const searchParams = new URLSearchParams();
+    searchParams.set("make", encodeURIComponent(make));
+    if (model.length > 0) searchParams.set("model", encodeURIComponent(model.join(' ')));
+    goto(`?${searchParams.toString()}`, { keepfocus: true, replaceState: true, noScroll: true });
   }
 
   const setInitialSelection = () => {
@@ -69,7 +60,6 @@
   }
 
   const handleClear = () => {
-    console.log("here");
     // clear search input
     inputValue = "";
     handleInput();
