@@ -66,7 +66,7 @@
       </Grid>
     </div>
     <hr />
-    <div class="step" id="step-4">
+    <div class="step" id="step-3">
       <Badge style="dark">Step 3 <span class="muted">of 5</span></Badge>
       <h2>Place mount high and centered on the windshield</h2>
       <Grid templateColumns="1.25fr 0.75fr">
@@ -97,7 +97,7 @@
       </Grid>
     </div>
     <hr />
-    <div class="step" id="step-5">
+    <div class="step" id="step-4">
       <Badge style="dark">Step 4 <span class="muted">of 5</span></Badge>
       <h2>Plug in OBD-C and mount the device</h2>
       <Grid templateColumns="1.25fr 0.75fr">
@@ -114,7 +114,7 @@
       </Grid>
     </div>
     <hr />
-    <div class="step" id="step-7">
+    <div class="step" id="step-5">
       <Badge style="dark">Step 5 <span class="muted">of 5</span></Badge>
       <h2>Reinstall the rearview mirror cover trim</h2>
       <Grid templateColumns="1.25fr 0.75fr">
@@ -151,7 +151,6 @@
         </div>
         <div>
           <p>
-            Every comma 3X comes with a comma power.
             Installing the comma power is entirely optional and can be done at any time.
             Simply connect one end to your car's OBD-II port and the other to the harness box.
           </p>

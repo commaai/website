@@ -76,7 +76,7 @@ export async function _loadCart() {
               currencyCode
             }
           }
-          lines(first: 100) {
+          lines(first: 250) {
             edges {
               node {
                 id
@@ -137,7 +137,7 @@ export async function getProduct(id) {
               currencyCode
             }
           }
-          variants(first: 100) {
+          variants(first: 250) {
             nodes {
               id
               title
@@ -217,7 +217,7 @@ export async function addToCart({ cartId, variantId, additionalProductIds = [], 
         cartLinesAdd(cartId: $cartId, lines: $lines) {
           cart {
             id
-            lines(first: 100) {
+            lines(first: 250) {
               edges {
                 node {
                   id

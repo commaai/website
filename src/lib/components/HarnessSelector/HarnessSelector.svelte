@@ -5,7 +5,7 @@
 
   import { tick } from 'svelte';
   import { clickOutside } from '$lib/utils/clickOutside';
-  import { harnesses } from '$lib/utils/harnesses';
+  import { allHarnesses, vehicleHarnesses, genericHarnesses } from '$lib/utils/harnesses';
 
   import NoteCard from '$lib/components/NoteCard.svelte';
   import DropdownItem from './HarnessDropdownItem.svelte';
@@ -18,9 +18,13 @@
 
   export let label = "Select vehicle";
   export let accessoryLabel = null;
+  export let showVehicleHarnesses = true; // If true, includes the harnesses by each vehicle model
+  export let showGenericHarnesses = true; // If true, includes the generic/developer harnesses
 
   let selection;
 
+  // Load harnesses based on the options
+  $: harnesses = showVehicleHarnesses && showGenericHarnesses ? allHarnesses : showVehicleHarnesses ? vehicleHarnesses : genericHarnesses;
   $: browser && $harnesses.length > 0, setInitialSelection();
   $: if (selection) {
     onChange(selection);
@@ -28,10 +32,18 @@
   }
 
   function updateQueryParams(selectedHarness) {
-    const [make, ...model] = selectedHarness.car.split(' ');
-    const searchParams = new URLSearchParams();
-    searchParams.set("make", encodeURIComponent(make));
-    if (model.length > 0) searchParams.set("model", encodeURIComponent(model.join(' ')));
+    const searchParams = $page.url.searchParams;
+    const [make, ...model] = selectedHarness?.car?.split(' ') || [];
+    if (make) {
+      searchParams.set("make", encodeURIComponent(make));
+    } else {
+      searchParams.delete("make");
+    }
+    if (model?.length > 0) {
+      searchParams.set("model", encodeURIComponent(model.join(' ')));
+    } else {
+      searchParams.delete("model");
+    }
     goto(`?${searchParams.toString()}`, { keepfocus: true, replaceState: true, noScroll: true });
   }
 
@@ -57,13 +69,26 @@
 
   const handleClear = () => {
     // clear search input
-    inputValue = "";
-    handleInput();
-    inputRef?.focus();
-
-     // clear harness selection
-     selection = null;
-     onChange(null);
+    let clearedInput = false;
+    if (inputValue) {
+      inputValue = "";
+      clearedInput = true;
+      handleInput();
+      inputRef?.focus();
+    }
+    // clear harness selection and close if we weren't clearing the search input
+    if (!clearedInput) {
+      // clear harness selection
+      if (selection) {
+        selection = null;
+        onChange(null);
+        updateQueryParams(null); // NOTE: Doing this causes a soft reload which removes the focus from the input
+      }
+      // close the dropdown if it's open
+      if (menuOpen) {
+        menuOpen = false;
+      }
+    }
   }
 
   /* Dropdown Options */
