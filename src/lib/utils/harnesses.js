@@ -33,6 +33,7 @@ async function initializeHarnesses() {
       const harness = CarHarnesses.find(harness => harness.title === model.harness_connector);
       if (!harness) {
         console.error(`No harness found for car ${model.name}`);
+        return false;
       }
       return {
         ...harnessInfo[harness.id],
