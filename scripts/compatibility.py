@@ -32,10 +32,10 @@ if __name__ == "__main__":
     if parts == base_harness_parts: continue
     non_standard_harness_groups[frozenset(parts)].append(product_name)
 
-  non_standard_harnesses = {
+  non_standard_harnesses = dict(sorted({
     format_human_list(names): sorted(parts, key=str.casefold)
     for parts, names in non_standard_harness_groups.items()
-  }
+  }.items()))
 
   for template_path, out_path in TEMPLATES:
     content = generate_cars_md(all_car_docs, template_path, non_standard_harnesses=non_standard_harnesses)
