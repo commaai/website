@@ -38,28 +38,25 @@
   $: browser && $harnesses.length > 0, setInitialSelection();
   $: {
     onChange(selection);
-    if (selection) {
-      updateQueryParams(selection);
-    }
+    updateQueryParams(selection);
   }
 
   function updateQueryParams(selectedHarness) {
-    const [make, ...model] = selectedHarness.car.split(' ');
     const searchParams = new URLSearchParams();
-    searchParams.set("make", encodeURIComponent(make));
-    if (model.length > 0) searchParams.set("model", encodeURIComponent(model.join(' ')));
-    goto(`?${searchParams.toString()}`, { keepfocus: true, replaceState: true, noScroll: true });
+    if (selectedHarness) {
+      searchParams.set("harness", encodeURIComponent(selectedHarness.car));
+    }
+
+    // https://github.com/sveltejs/kit/discussions/3245#discussioncomment-1931570
+    if (browser) {
+      goto(`?${searchParams.toString()}`, { keepfocus: true, replaceState: true, noScroll: true });
+    }
   }
 
   const setInitialSelection = () => {
-    if ($harnesses.length > 0) {
-      if (!browser || !$page.url.searchParams.get('make')) return null;
-
-      let harnessName = decodeURIComponent($page.url.searchParams.get('make'));
-      const model = $page.url.searchParams.get('model');
-      if (model) harnessName += ` ${decodeURIComponent(model)}`;
-
-      selection = $harnesses.find(harness => harness.car === harnessName) ?? null;
+    if ($harnesses.length > 0 && browser) {
+      let carName = decodeURIComponent($page.url.searchParams.get('harness'));
+      selection = $harnesses.find(harness => harness.car === carName) ?? null;
     }
   }
 
