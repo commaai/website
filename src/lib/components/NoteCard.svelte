@@ -55,32 +55,34 @@
         }
       }
 
-      & h1, & h2, & h3, & h4, & h5, & h6 {
-        margin-block: 1rem;
-      }
-
       & h1 {
         font-size: 1.5rem;
+        margin-block: 1rem;
       }
 
       & h2 {
         font-size: 1.25rem;
+        margin-block: 1rem;
       }
 
       & h3 {
         font-size: 1.125rem;
+        margin-block: 1rem;
       }
 
       & h4 {
         font-size: 1rem;
+        margin-block: 1rem;
       }
 
       & h5 {
         font-size: 0.875rem;
+        margin-block: 1rem;
       }
 
       & h6 {
         font-size: 0.75rem;
+        margin-block: 1rem;
       }
 
       & li {
