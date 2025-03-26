@@ -1862,10 +1862,10 @@
       ]
     },
     {
-      "name": "Kia Niro EV 2023",
+      "name": "Kia Niro EV 2023-24",
       "model": "Niro EV",
-      "years": "2023",
-      "year_list": "2023",
+      "years": "2023-24",
+      "year_list": "2023, 2024",
       "package": "All",
       "angled_mount": false,
       "video_link": "",
