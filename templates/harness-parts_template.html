@@ -1,67 +1,8 @@
-<html>
-  <head>
-    <title>Harness Parts</title>
-
-    <style>
-      table {
-        font-family: arial, sans-serif;
-        border-collapse: collapse;
-        width: 100%;
-        max-width: 1000px;
-      }
-
-      td, th {
-        border: 1px solid #dddddd;
-        text-align: left;
-        padding: 8px;
-      }
-
-      tr:nth-child(even) {
-        background-color: #dddddd;
-      }
-
-      dd {
-        margin-left: 28px;
-      }
-    </style>
-
-  </head>
-
-  <body>
-    <h1>Harness Parts</h1>
-    <p>This page contains car entries only for non-standard car parts as <a href="https://github.com/commaai/opendbc/blob/master/opendbc/car/docs_definitions.py">documented by opendbc.</a></p>
-
-    <table>
-      <tr>
-        <th>Car</th>
-        <th>Angled mount</th>
-        <th>Parts</th>
-      </tr>
-      {% for make, cars in group_by_make(all_car_docs).items() %}
-      {% for car in cars | selectattr('support_type', 'eq', SupportType.UPSTREAM) -%}
-
-      {% set non_standard_device_parts = Device.threex not in car.car_parts.parts %}
-      {% set harness_connector = car.car_parts.parts | selectattr('part_type', 'eq', PartType.connector) | first %}
-      {% set non_standard_harness_parts = (BaseCarHarness("").parts != harness_connector.value.parts) if harness_connector else True %}
-      {% set angled_mount = Device.threex_angled_mount in car.car_parts.parts -%}
-
-      {% if non_standard_device_parts or non_standard_harness_parts or angled_mount %}
-      <tr>
-        <td>{{ car.name }}</td>
-        <td>{{ "Yes" if angled_mount else "No" }}</td>
-        <td>
-          {% for part in car.car_parts.parts | sort(attribute='name') %}
-          <li>{{ part.value.name }}:</li>
-          {% for subpart in part.value.parts %}
-            <dd><li>{{ subpart.value.name }}</li></dd>
-          {% endfor %}
-          <br>
-          {% endfor %}
-        </td>
-      </tr>
-      {% endif %}
-      {% endfor %}
-      {% endfor %}
-    </table>
-  </body>
-</html>
+{% for name, parts in non_standard_harnesses.items() %}
+<p><strong>{{ name }}</strong></p>
+<ul>
+  {% for part in parts %}
+  <li>{{ part }}</li>
+  {% endfor %}
+</ul>
+{% endfor %}
