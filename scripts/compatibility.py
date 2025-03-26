@@ -30,6 +30,8 @@ if __name__ == "__main__":
     parts = {part.value.name for part in harness.value.parts}
     if harness.value.has_connector:
       parts |= {"harness connector"}
+    if product_name == "OBD-II":
+      parts |= {"OBD-II connector"}
     if parts == base_harness_parts: continue
     non_standard_harness_groups[frozenset(parts)].append(product_name)
 
