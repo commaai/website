@@ -7,7 +7,9 @@ TEMPLATES = ((WEB4_DIR / "templates/vehicles_template.json", WEB4_DIR / "src/lib
              (WEB4_DIR / "templates/harness-parts_template.html", WEB4_DIR / "static/harness-parts.html"))
 
 if __name__ == "__main__":
+  all_car_docs = get_all_car_docs()
+
   for template_path, out_path in TEMPLATES:
-    content = generate_cars_md(get_all_car_docs(), template_path)
+    content = generate_cars_md(all_car_docs, template_path)
     out_path.write_text(content)
     print(f"Generated and written to {out_path}")
