@@ -34,22 +34,17 @@
   }
 
   function updateQueryParams(selectedHarness) {
-    const [make, ...model] = selectedHarness.car.split(' ');
     const searchParams = new URLSearchParams();
-    searchParams.set("make", encodeURIComponent(make));
-    if (model.length > 0) searchParams.set("model", encodeURIComponent(model.join(' ')));
+    searchParams.set("car", encodeURIComponent(selectedHarness.car));
     goto(`?${searchParams.toString()}`, { keepfocus: true, replaceState: true, noScroll: true });
   }
 
   const setInitialSelection = () => {
     if ($harnesses.length > 0) {
-      if (!browser || !$page.url.searchParams.get('make')) return null;
-
-      let harnessName = decodeURIComponent($page.url.searchParams.get('make'));
-      const model = $page.url.searchParams.get('model');
-      if (model) harnessName += ` ${decodeURIComponent(model)}`;
-
-      selection = $harnesses.find(harness => harness.car === harnessName) ?? null;
+      let carName = $page.url.searchParams.get('car');
+      console.log('carName', carName, decodeURIComponent(carName));
+      if (!browser || !carName) return null;
+      selection = $harnesses.find(harness => harness.car === decodeURIComponent(carName)) ?? null;
     }
   }
 
