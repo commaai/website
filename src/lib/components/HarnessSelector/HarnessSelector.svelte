@@ -21,24 +21,36 @@
   export let showVehicleHarnesses = true; // If true, includes the harnesses by each vehicle model
   export let showGenericHarnesses = true; // If true, includes the generic/developer harnesses
 
-  let selection = null
+  let selection = null;
 
   // Load harnesses based on the options
   $: harnesses = showVehicleHarnesses && showGenericHarnesses ? allHarnesses : showVehicleHarnesses ? vehicleHarnesses : genericHarnesses;
   $: browser && $harnesses.length > 0, setInitialSelection();
   $: {
     onChange(selection);
-    if (selection) {
+    console.log("onChange selection", selection);
+    // if (selection) {
       updateQueryParams(selection);
-    }
+    // }
   }
 
   function updateQueryParams(selectedHarness) {
-    const [make, ...model] = selectedHarness.car.split(' ');
     const searchParams = new URLSearchParams();
-    searchParams.set("make", encodeURIComponent(make));
-    if (model.length > 0) searchParams.set("model", encodeURIComponent(model.join(' ')));
-    goto(`?${searchParams.toString()}`, { keepfocus: true, replaceState: true, noScroll: true });
+    if (selectedHarness) {
+      const [make, ...model] = selectedHarness.car.split(' ');
+      searchParams.set("make", encodeURIComponent(make));
+      if (model.length > 0) searchParams.set("model", encodeURIComponent(model.join(' ')));
+    } else {
+      searchParams.delete("make");
+      searchParams.delete("model");
+    }
+    // console.log("make", make, "model", model);
+    // searchParams.delete("model");
+    console.log("searchParams", searchParams.toString());
+    // https://github.com/sveltejs/kit/discussions/3245#discussioncomment-1931570
+    if (browser) {
+      goto(`?${searchParams.toString()}`, { keepfocus: true, replaceState: true, noScroll: true });
+    }
   }
 
   const setInitialSelection = () => {
