@@ -71,16 +71,6 @@
     </ul>
     <hr />
     <strong>What's in the box?</strong>
-    <p>
-      Each vehicle has a specific harness based on make, model and year. Each
-      kit includes the following:
-    </p>
-    <ul>
-      <li>comma power</li>
-      <li>harness connector</li>
-      <li>harness box</li>
-    </ul>
-    <p>Exceptions to the above include:</p>
     {@html HarnessParts}
   </div>
 </Product>

@@ -21,6 +21,7 @@ if __name__ == "__main__":
 
   shop_harness_product_names = [product["title"] for product in json.loads(CAR_HARNESSES_JSON.read_text())]
   base_harness_parts = {part.value.name for part in BaseCarHarness("").parts} | {"harness connector"}
+  standard_harness_parts = sorted(base_harness_parts, key=str.casefold)
 
   non_standard_harness_groups = defaultdict(list)
   for harness in CarHarness:
@@ -38,6 +39,7 @@ if __name__ == "__main__":
   }.items()))
 
   for template_path, out_path in TEMPLATES:
-    content = generate_cars_md(all_car_docs, template_path, non_standard_harnesses=non_standard_harnesses)
+    content = generate_cars_md(all_car_docs, template_path, standard_harness_parts=standard_harness_parts,
+                               non_standard_harnesses=non_standard_harnesses)
     out_path.write_text(content)
     print(f"Generated and written to {out_path}")
