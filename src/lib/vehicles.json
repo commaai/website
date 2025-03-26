@@ -12,7 +12,7 @@
       "detail_sentence": "openpilot upgrades your <strong>Acura ILX</strong> with automated lane centering and adaptive cruise control <strong>while driving above 26 mph</strong>. This car may not be able to take tight turns on its own. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
       ],
-      "setup_notes": "<p>Here's an example of an HTML note with some <strong>bold text</strong> and a <a href='https://comma.ai' target='_blank'>link</a> or a <a href='https://comma.ai' target='_blank' class='highlight'>highlighted link</a>.</p><p>We can even include images:</p><img src='https://blog.comma.ai/img/097_release/cover.jpg' alt='comma logo' width='200' height='100' /><ul><li>And we can use</li><li>bullet points</li><li>to show steps</li></ul></p>"
+      "setup_notes": "<p>Here's an example of a note with some <strong>bold text</strong> and a <a href='https://comma.ai' target='_blank'>link</a> or a <a href='https://comma.ai' target='_blank' class='highlight'>highlighted link</a>.</p><p>We can even include images:</p><img src='https://blog.comma.ai/img/097_release/cover.jpg' alt='comma logo' width='200' height='100' /><p>"
     },
     {
       "name": "Acura RDX 2016-18",
@@ -26,7 +26,7 @@
       "detail_sentence": "openpilot upgrades your <strong>Acura RDX</strong> with automated lane centering and adaptive cruise control <strong>while driving above 26 mph</strong>. This car may not be able to take tight turns on its own. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
       ],
-      "setup_notes": "## Markdown header\n\nRegular text\n\n- Use **bold text** for emphasis\n- Include [links](https://comma.ai.com)\n- Add bullet points as needed\n\nOr include images:\n\n![comma](https://blog.comma.ai/img/097_release/cover.jpg)"
+      "setup_notes": "Here are some shorter demo notes."
     },
     {
       "name": "Acura RDX 2019-21",
@@ -39,8 +39,7 @@
       "harness_connector": "Honda Bosch A",
       "detail_sentence": "openpilot upgrades your <strong>Acura RDX</strong> with automated lane centering <strong>above 3 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. This car may not be able to take tight turns on its own.",
       "footnotes": [
-      ],
-      "setup_notes": "Here are some shorter demo notes with [a link](https://comma.ai)."
+      ]
     }
   ],
   "Audi": [

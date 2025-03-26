@@ -9,7 +9,7 @@
 <div class="card" class:elevated={style == "elevated"}>
   <div>{@html icon}</div>
   <hgroup>
-    <span class="title">{title}</span>
+    <span>{title}</span>
     <div>
       <slot></slot>
     </div>
@@ -29,7 +29,7 @@
       margin-left: 1rem;
       display: block !important;
 
-      & .title {
+      & span {
         font-family: JetBrains Mono, monospace;
         font-size: 0.875rem;
         font-weight: 400;
@@ -53,46 +53,6 @@
         &:hover {
           opacity: 0.8;
         }
-      }
-
-      & h1 {
-        font-size: 1.5rem;
-        margin-block: 1rem;
-      }
-
-      & h2 {
-        font-size: 1.25rem;
-        margin-block: 1rem;
-      }
-
-      & h3 {
-        font-size: 1.125rem;
-        margin-block: 1rem;
-      }
-
-      & h4 {
-        font-size: 1rem;
-        margin-block: 1rem;
-      }
-
-      & h5 {
-        font-size: 0.875rem;
-        margin-block: 1rem;
-      }
-
-      & h6 {
-        font-size: 0.75rem;
-        margin-block: 1rem;
-      }
-
-      & li {
-        font-size: 0.875rem;
-        margin-bottom: 0.5rem;
-      }
-
-      & ul, & ol {
-        padding-left: 1.5rem;
-        margin: 0.5rem 0;
       }
     }
   }
