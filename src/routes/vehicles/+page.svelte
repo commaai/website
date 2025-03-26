@@ -155,7 +155,7 @@
                       </hgroup>
                     </div>
                     <LinkButton
-                      href={`/shop/comma-3x?car=${car_info.name}`}
+                      href={`/shop/comma-3x?harness=${car_info.name}`}
                       style="primary"
                       fullWidth
                       thin

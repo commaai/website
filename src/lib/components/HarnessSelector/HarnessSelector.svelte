@@ -35,14 +35,13 @@
 
   function updateQueryParams(selectedHarness) {
     const searchParams = new URLSearchParams();
-    searchParams.set("car", encodeURIComponent(selectedHarness.car));
+    searchParams.set("harness", encodeURIComponent(selectedHarness.car));
     goto(`?${searchParams.toString()}`, { keepfocus: true, replaceState: true, noScroll: true });
   }
 
   const setInitialSelection = () => {
     if ($harnesses.length > 0) {
-      let carName = $page.url.searchParams.get('car');
-      console.log('carName', carName, decodeURIComponent(carName));
+      let carName = $page.url.searchParams.get('harness');
       if (!browser || !carName) return null;
       selection = $harnesses.find(harness => harness.car === decodeURIComponent(carName)) ?? null;
     }
