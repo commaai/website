@@ -40,10 +40,11 @@
   }
 
   const setInitialSelection = () => {
-    if ($harnesses.length > 0) {
+    if ($harnesses.length > 0 && browser) {
       let carName = $page.url.searchParams.get('harness');
-      if (!browser || !carName) return null;
-      selection = $harnesses.find(harness => harness.car === decodeURIComponent(carName)) ?? null;
+      if (carName) {
+        selection = $harnesses.find(harness => harness.car === decodeURIComponent(carName)) ?? null;
+      }
     }
   }
 
