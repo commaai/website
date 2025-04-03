@@ -20,6 +20,7 @@
   export let accessoryLabel = null;
   export let showVehicleHarnesses = true; // If true, includes the harnesses by each vehicle model
   export let showGenericHarnesses = true; // If true, includes the generic/developer harnesses
+  export let hideNoteCard = false; // If true, hides the Support note card
 
   let selection = null
   let isSelectionInitialized = false;
@@ -149,7 +150,7 @@
   </div>
 </div>
 
-{#if selection && selection.package}
+{#if selection && selection.package && !hideNoteCard}
   <NoteCard title="Support" icon={CarIcon}>
     {@html selection.package === 'All' ?
       'openpilot will work with <strong>all packages and trims</strong> of this car.' :
