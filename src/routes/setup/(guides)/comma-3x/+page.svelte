@@ -47,6 +47,7 @@
           label="Select your vehicle"
           onChange={handleHarnessSelection}
           showGenericHarnesses={false}
+          hideNoteCard={true}
         />
       </div>
     </div>
