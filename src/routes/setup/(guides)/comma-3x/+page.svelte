@@ -45,6 +45,7 @@
         <p>Select your vehicle to get customized installation notes for your specific car:</p>
         <HarnessSelector
           label="Select your vehicle"
+          placeholder="Search for your vehicle"
           onChange={handleHarnessSelection}
           showGenericHarnesses={false}
           hideSupportNoteCard={true}
