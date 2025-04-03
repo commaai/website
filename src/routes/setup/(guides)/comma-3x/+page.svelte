@@ -3,6 +3,7 @@
   import Grid from "$lib/components/Grid.svelte";
   import LinkButton from "$lib/components/LinkButton.svelte";
   import Faq from "$lib/components/Faq.svelte";
+  import HarnessSelector from "$lib/components/HarnessSelector/HarnessSelector.svelte";
 
   import { faq } from "$lib/constants/faq.svelte";
 
@@ -22,6 +23,11 @@
   import StepSixImage from "$lib/images/setup/comma-3x/step-6.jpeg";
   import StepSevenImage from "$lib/images/setup/comma-3x/step-7.jpeg";
   import CommaPowerImage from "$lib/images/products/comma-power/comma-power.jpg";
+
+  let selectedVehicle = null;
+  const handleHarnessSelection = (value) => {
+    selectedVehicle = value;
+  }
 </script>
 
 <section class="light" id="guide">
@@ -30,6 +36,18 @@
       <div class="header">Setup Diagram:</div>
       <div class="contents">
         <img src={InstallationDiagram} loading="lazy" alt="installation diagram" />
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="header">Customize Your Guide</div>
+      <div class="contents">
+        <p>Select your vehicle to get customized installation notes for your specific car:</p>
+        <HarnessSelector
+          label="Select your vehicle"
+          onChange={handleHarnessSelection}
+          showGenericHarnesses={false}
+        />
       </div>
     </div>
 
