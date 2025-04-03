@@ -16,15 +16,25 @@
 
   export let onChange;
 
-  export let label = "Select vehicle";
-  export let accessoryLabel = null;
+  export let showPackageSupportCard = true; // If true, shows the note card that shows below with information about how the selected car is supported
   export let showVehicleHarnesses = true; // If true, includes the harnesses by each vehicle model
   export let showGenericHarnesses = true; // If true, includes the generic/developer harnesses
+  let showAllHarnesses = showVehicleHarnesses && showGenericHarnesses;
+
+  export let accessoryLabel = null; // Used to show the price of the selected harness when browsing accessories
+ 
+  const resourceName = {
+    singular: showAllHarnesses ? "vehicle or harness" : showVehicleHarnesses ? "vehicle" : "harness",
+    plural: showAllHarnesses ? "vehicles or harnesses" : showVehicleHarnesses ? "vehicles" : "harnesses",
+  }
+  export let label = `Select ${resourceName.singular}`;
+  export let searchLabel = `Search for a ${resourceName.singular}`;
+  export let noResultsLabel = `No matching ${resourceName.plural}`;
 
   let selection = null
 
   // Load harnesses based on the options
-  $: harnesses = showVehicleHarnesses && showGenericHarnesses ? allHarnesses : showVehicleHarnesses ? vehicleHarnesses : genericHarnesses;
+  $: harnesses = showAllHarnesses ? allHarnesses : showVehicleHarnesses ? vehicleHarnesses : genericHarnesses;
   $: browser && $harnesses.length > 0, setInitialSelection();
   $: {
     onChange(selection);
@@ -95,7 +105,7 @@
       <button class="clear" on:click={handleClear}>{@html CloseIcon}</button>
       <input
         type="text"
-        placeholder="Search for a vehicle or harness"
+        placeholder={searchLabel}
         autocomplete="off"
         class="search-input"
         bind:value={inputValue}
@@ -130,7 +140,7 @@
           <DropdownItem value={item} on:click={() => handleOptionClick(item)} on:keydown={(e) => handleOptionKeyDown(e, item)} />
         {/each}
       {:else}
-        <DropdownItem value={{ car: 'No matching vehicles' }} />
+        <DropdownItem value={{ car: noResultsLabel }} />
       {/if}
     {:else}
       {#each $harnesses as item}
@@ -140,7 +150,7 @@
   </div>
 </div>
 
-{#if selection && selection.package}
+{#if showPackageSupportCard && selection && selection.package}
   <NoteCard title="Support" icon={CarIcon}>
     {@html selection.package === 'All' ?
       'openpilot will work with <strong>all packages and trims</strong> of this car.' :
@@ -159,7 +169,7 @@
 }
 
 .dropdown-content {
-  display: none;
+  display: none; /* hidden by default */
   position: absolute;
   border: 1px solid #ddd;
   z-index: 1;
@@ -168,8 +178,8 @@
   overflow-y: auto;
 }
 
-.show {
-  display:block;
+.dropdown-content.show {
+  display:block
 }
 
 .search-input {

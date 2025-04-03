@@ -1,8 +1,10 @@
 <script>
   import Badge from "$lib/components/Badge.svelte";
-  import Grid from "$lib/components/Grid.svelte";
-  import LinkButton from "$lib/components/LinkButton.svelte";
   import Faq from "$lib/components/Faq.svelte";
+  import Grid from "$lib/components/Grid.svelte";
+  import HarnessSelector from "$lib/components/HarnessSelector/HarnessSelector.svelte";
+  import LinkButton from "$lib/components/LinkButton.svelte";
+  import NoteCard from "$lib/components/NoteCard.svelte";
 
   import { faq } from "$lib/constants/faq.svelte";
 
@@ -22,10 +24,38 @@
   import StepSixImage from "$lib/images/setup/comma-3x/step-6.jpeg";
   import StepSevenImage from "$lib/images/setup/comma-3x/step-7.jpeg";
   import CommaPowerImage from "$lib/images/products/comma-power/comma-power.jpg";
+
+  import vehicles from '$lib/vehicles.json';
+
+  let selectedVehicleHarness = null;
+  let vehicleNote = null
+  function handleHarnessSelection(selection) {
+    selectedVehicleHarness = selection;
+    if (selection) {
+      vehicleNote = selection ? vehicles[selection.make]?.find(model => model.name === selection.car)?.setup_notes : null;
+    } else {
+      vehicleNote = null;
+    }
+  }
 </script>
 
 <section class="light" id="guide">
   <div class="container">
+    <div class="car-notes">
+      <HarnessSelector
+        label="Select a vehicle to view additional setup notes"
+        onChange={handleHarnessSelection}
+        showPackageSupportCard={false}
+        showGenericHarnesses={false}
+      />
+      {#if selectedVehicleHarness}
+        <NoteCard title={`${selectedVehicleHarness.car} Setup Notes`}>
+          <p>{@html vehicleNote || "The selected vehicle does not require additional setup instructions. Follow the setup guide below."}</p>
+        </NoteCard>
+      {/if}
+    </div>
+    <br />
+
     <div class="card">
       <div class="header">Setup Diagram:</div>
       <div class="contents">
@@ -38,6 +68,7 @@
       <h2>Remove the rearview mirror cover trim</h2>
       <Grid templateColumns="1.25fr 0.75fr">
         <img src={StepOneImage} loading="lazy" alt="remove the rearview mirror cover trim" />
+        <!-- TODO: Some of this could be moved to vehicle specific notes or otherwise show based on selected car make -->
         <p>
           Removal method varies by car.
           The durable plastic often requires a strong tug to pop it off on Hondas.

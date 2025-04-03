@@ -28,7 +28,7 @@ export async function load() {
     ],
     notes: [
       {
-        title: 'Note: Nissan & GM setup',
+        title: 'Note: Nissan & GM setup', // TODO: This should probably be moved to vehicle specific notes in vehicles.json ("setup_notes" field)
         content: `
           See more setup details:
           <a href="https://github.com/commaai/openpilot/wiki/nissan" target="_blank">Nissan</a> or

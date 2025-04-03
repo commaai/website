@@ -11,7 +11,8 @@
       "harness_connector": "Honda Nidec",
       "detail_sentence": "openpilot upgrades your <strong>Acura ILX</strong> with automated lane centering and adaptive cruise control <strong>while driving above 26 mph</strong>. This car may not be able to take tight turns on its own. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
-      ]
+      ],
+      "setup_notes": "<p>Here's an example of a note with some <strong>bold text</strong> and a <a href='https://comma.ai' target='_blank'>link</a> or a <a href='https://comma.ai' target='_blank' class='highlight'>highlighted link</a>.</p><p>We can even include images:</p><img src='https://blog.comma.ai/img/097_release/cover.jpg' alt='comma logo' width='200' height='100' /><p>"
     },
     {
       "name": "Acura RDX 2016-18",
@@ -24,7 +25,8 @@
       "harness_connector": "Honda Nidec",
       "detail_sentence": "openpilot upgrades your <strong>Acura RDX</strong> with automated lane centering and adaptive cruise control <strong>while driving above 26 mph</strong>. This car may not be able to take tight turns on its own. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
-      ]
+      ],
+      "setup_notes": "Here are some shorter demo notes."
     },
     {
       "name": "Acura RDX 2019-21",
