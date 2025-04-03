@@ -49,6 +49,23 @@
           showGenericHarnesses={false}
           hideNoteCard={true}
         />
+
+        {#if selectedVehicle}
+          <div class="vehicle-notes">
+            {#if selectedVehicle.footnotes && selectedVehicle.footnotes.length > 0}
+              <div class="setup-notes">
+                <p class="note-heading">Setup Notes:</p>
+                <ul>
+                  {#each selectedVehicle.footnotes as note}
+                    <li>{@html note}</li>
+                  {/each}
+                </ul>
+              </div>
+            {:else}
+              <p>No specific setup notes for this vehicle.</p>
+            {/if}
+          </div>
+        {/if}
       </div>
     </div>
 
@@ -245,5 +262,32 @@
 
   hr {
     margin: 2rem 0 3rem;
+  }
+
+  .vehicle-notes {
+    margin-top: 1rem;
+    font-size: 1.25rem;
+
+    @media screen and (max-width: 1024px) {
+      font-size: 1rem;
+    }
+
+    & .setup-notes {
+      margin: 1rem 0;
+
+      & .note-heading {
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+
+      & ul {
+        margin: 0;
+        padding-left: 1.5rem;
+      }
+
+      & li {
+        margin-bottom: 0.5rem;
+      }
+    }
   }
 </style>
