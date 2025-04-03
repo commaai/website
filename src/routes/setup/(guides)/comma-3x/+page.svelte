@@ -52,18 +52,18 @@
         />
 
         {#if selectedVehicle}
-          {#if selectedVehicle.footnotes && selectedVehicle.footnotes.length > 0}
-            <div class="setup-notes">
+          <div class="setup-notes">
+            {#if selectedVehicle.footnotes && selectedVehicle.footnotes.length > 0}
               <p class="note-heading">Setup Notes:</p>
               <ul>
                 {#each selectedVehicle.footnotes as note}
                   <li>{@html note}</li>
                 {/each}
               </ul>
-            </div>
-          {:else}
-            <p>No specific setup notes for this vehicle.</p>
-          {/if}
+            {:else}
+              <p>No specific setup notes for this vehicle.</p>
+            {/if}
+          </div>
         {/if}
       </div>
     </div>
