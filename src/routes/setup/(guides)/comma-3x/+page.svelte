@@ -47,7 +47,7 @@
           label="Select your vehicle"
           onChange={handleHarnessSelection}
           showGenericHarnesses={false}
-          hideNoteCard={true}
+          hideSupportNoteCard={true}
         />
 
         {#if selectedVehicle}
