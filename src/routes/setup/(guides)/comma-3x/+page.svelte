@@ -39,7 +39,7 @@
       </div>
     </div>
 
-    <div class="card">
+    <div class="card vehicle-notes">
       <div class="header">Customize Your Guide</div>
       <div class="contents">
         <p>Select your vehicle to get customized installation notes for your specific car:</p>
@@ -51,20 +51,18 @@
         />
 
         {#if selectedVehicle}
-          <div class="vehicle-notes">
-            {#if selectedVehicle.footnotes && selectedVehicle.footnotes.length > 0}
-              <div class="setup-notes">
-                <p class="note-heading">Setup Notes:</p>
-                <ul>
-                  {#each selectedVehicle.footnotes as note}
-                    <li>{@html note}</li>
-                  {/each}
-                </ul>
-              </div>
-            {:else}
-              <p>No specific setup notes for this vehicle.</p>
-            {/if}
-          </div>
+          {#if selectedVehicle.footnotes && selectedVehicle.footnotes.length > 0}
+            <div class="setup-notes">
+              <p class="note-heading">Setup Notes:</p>
+              <ul>
+                {#each selectedVehicle.footnotes as note}
+                  <li>{@html note}</li>
+                {/each}
+              </ul>
+            </div>
+          {:else}
+            <p>No specific setup notes for this vehicle.</p>
+          {/if}
         {/if}
       </div>
     </div>
@@ -272,8 +270,12 @@
       font-size: 1rem;
     }
 
+    & p {
+      margin: 0.25rem 0 0;
+    }
+
     & .setup-notes {
-      margin: 1rem 0;
+      margin: 1rem 0 0.5rem;
 
       & .note-heading {
         font-weight: 600;
@@ -287,6 +289,7 @@
 
       & li {
         margin-bottom: 0.5rem;
+        font-size: 1.25rem;
       }
     }
   }
