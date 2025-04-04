@@ -22,13 +22,16 @@
   export let showGenericHarnesses = true; // If true, includes the generic/developer harnesses
 
   let selection = null
+  let initialized = false;
 
   // Load harnesses based on the options
   $: harnesses = showVehicleHarnesses && showGenericHarnesses ? allHarnesses : showVehicleHarnesses ? vehicleHarnesses : genericHarnesses;
   $: browser && $harnesses.length > 0, setInitialSelection();
-  $: {
+  $: if (initialized) {
     onChange(selection);
     updateQueryParams(selection);
+  } else {
+    initialized = true;
   }
 
   function updateQueryParams(selectedHarness) {
