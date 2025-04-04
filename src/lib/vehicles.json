@@ -994,10 +994,10 @@
       ]
     },
     {
-      "name": "Honda Passport 2019-23",
+      "name": "Honda Passport 2019-25",
       "model": "Passport",
-      "years": "2019-23",
-      "year_list": "2019, 2020, 2021, 2022, 2023",
+      "years": "2019-25",
+      "year_list": "2019, 2020, 2021, 2022, 2023, 2024, 2025",
       "package": "All",
       "angled_mount": false,
       "video_link": "",
@@ -2959,10 +2959,10 @@
       ]
     },
     {
-      "name": "Tesla Model 3 (with HW4) 2024",
+      "name": "Tesla Model 3 (with HW4) 2024-25",
       "model": "Model 3 (with HW4)",
-      "years": "2024",
-      "year_list": "2024",
+      "years": "2024-25",
+      "year_list": "2024, 2025",
       "package": "All",
       "angled_mount": false,
       "video_link": "",
