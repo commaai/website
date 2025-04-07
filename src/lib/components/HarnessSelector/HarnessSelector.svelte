@@ -21,7 +21,7 @@
   export let accessoryLabel = null;
   export let showVehicleHarnesses = true; // If true, includes the harnesses by each vehicle model
   export let showGenericHarnesses = true; // If true, includes the generic/developer harnesses
-  export let hideSupportNoteCard = false; // If true, hides the Support note card
+  export let hideSupportNoteCard = false;
 
   let selection = null
   let isSelectionInitialized = false;
