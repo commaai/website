@@ -45,7 +45,6 @@ async function initializeHarnesses() {
         package: model.package,
         angledMount: model.angled_mount,
         backordered: harness?.backordered,  // these overrides are only shown if the harness is out of stock in Shopify
-        footnotes: model.footnotes,
         setup_notes: model.setup_notes,
       };
     }).filter(Boolean);
