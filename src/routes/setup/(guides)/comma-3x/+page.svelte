@@ -33,15 +33,15 @@
     const url = new URL(videoLink);
 
     let videoId, timestamp;
-    if (url.hostname === 'www.youtube.com') {
-      videoId = url.searchParams.get('v');
-      timestamp = url.searchParams.get('t');
-    } else if (url.hostname === 'youtu.be') {
+    if (url.hostname === "www.youtube.com") {
+      videoId = url.searchParams.get("v");
+      timestamp = url.searchParams.get("t");
+    } else if (url.hostname === "youtu.be") {
       videoId = url.pathname.slice(1);
-      timestamp = url.searchParams.get('t');
+      timestamp = url.searchParams.get("t");
     }
     if (!videoId) {
-      console.warn('Video not supported', videoLink);
+      console.warn("Video not supported", videoLink);
       return null;
     }
 
