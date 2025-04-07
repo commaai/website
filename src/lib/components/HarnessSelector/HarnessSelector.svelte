@@ -26,12 +26,10 @@
   // Load harnesses based on the options
   $: harnesses = showVehicleHarnesses && showGenericHarnesses ? allHarnesses : showVehicleHarnesses ? vehicleHarnesses : genericHarnesses;
   $: if (browser && $harnesses.length > 0) setInitialSelection();
-  $: {
+  $: if (selection !== undefined) {
     // Don't update w/ initial state
-    if (selection !== undefined) {
-      onChange(selection);
-      updateQueryParams(selection);
-    }
+    onChange(selection);
+    updateQueryParams(selection);
   }
 
   function updateQueryParams(selectedHarness) {
