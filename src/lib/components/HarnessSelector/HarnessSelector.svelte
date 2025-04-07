@@ -67,7 +67,6 @@
     }
 
     // clear harness selection
-    console.log("123 clearing")
     selection = null;
   }
 
@@ -85,7 +84,6 @@
 
   const handleOptionClick = (item) => {
     selection = item;
-    console.log("123 clicked")
     menuOpen = false;
   }
 
