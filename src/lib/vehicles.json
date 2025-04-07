@@ -8,6 +8,7 @@
       "package": "AcuraWatch Plus",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Honda Nidec",
       "detail_sentence": "openpilot upgrades your <strong>Acura ILX</strong> with automated lane centering and adaptive cruise control <strong>while driving above 26 mph</strong>. This car may not be able to take tight turns on its own. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -23,6 +24,7 @@
       "package": "AcuraWatch Plus",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Honda Nidec",
       "detail_sentence": "openpilot upgrades your <strong>Acura RDX</strong> with automated lane centering and adaptive cruise control <strong>while driving above 26 mph</strong>. This car may not be able to take tight turns on its own. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -38,6 +40,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Honda Bosch A",
       "detail_sentence": "openpilot upgrades your <strong>Acura RDX</strong> with automated lane centering <strong>above 3 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. This car may not be able to take tight turns on its own.",
       "footnotes": [
@@ -55,6 +58,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Audi A3</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -70,6 +74,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Audi A3 Sportback e-tron</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -85,6 +90,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Audi Q2</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -100,6 +106,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Audi Q3</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -115,6 +122,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Audi RS3</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -130,6 +138,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Audi S3</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -147,6 +156,7 @@
       "package": "Premier or Premier Redline Trim without Super Cruise Package",
       "angled_mount": false,
       "video_link": "https://youtu.be/xvwzGMUA210",
+      "setup_video_link": "",
       "harness_connector": "GM",
       "detail_sentence": "openpilot upgrades your <strong>Chevrolet Bolt EUV</strong> with automated lane centering <strong>above 6 mph</strong>, and adaptive cruise control <strong>while driving above 3 mph</strong>.",
       "footnotes": [
@@ -163,6 +173,7 @@
       "package": "2LT Trim with Adaptive Cruise Control Package",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "GM",
       "detail_sentence": "openpilot upgrades your <strong>Chevrolet Bolt EV</strong> with automated lane centering <strong>above 6 mph</strong>, and adaptive cruise control <strong>while driving above 3 mph</strong>.",
       "footnotes": [
@@ -179,6 +190,7 @@
       "package": "Adaptive Cruise Control (ACC)",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "GM",
       "detail_sentence": "openpilot upgrades your <strong>Chevrolet Equinox</strong> with automated lane centering <strong>above 6 mph</strong>, and adaptive cruise control <strong>while driving above 3 mph</strong>.",
       "footnotes": [
@@ -195,6 +207,7 @@
       "package": "Safety Package II",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "GM",
       "detail_sentence": "openpilot upgrades your <strong>Chevrolet Silverado 1500</strong> with automated lane centering <strong>above 6 mph</strong>, and adaptive cruise control.",
       "footnotes": [
@@ -211,6 +224,7 @@
       "package": "Adaptive Cruise Control (ACC)",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "GM",
       "detail_sentence": "openpilot upgrades your <strong>Chevrolet Trailblazer</strong> with automated lane centering <strong>above 6 mph</strong>, and adaptive cruise control <strong>while driving above 3 mph</strong>.",
       "footnotes": [
@@ -229,6 +243,7 @@
       "package": "Adaptive Cruise Control (ACC)",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "FCA",
       "detail_sentence": "openpilot upgrades your <strong>Chrysler Pacifica</strong> with automated lane centering <strong>above 9 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -244,6 +259,7 @@
       "package": "Adaptive Cruise Control (ACC)",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "FCA",
       "detail_sentence": "openpilot upgrades your <strong>Chrysler Pacifica</strong> with automated lane centering <strong>above 39 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -259,6 +275,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "FCA",
       "detail_sentence": "openpilot upgrades your <strong>Chrysler Pacifica</strong> with automated lane centering <strong>above 39 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -274,6 +291,7 @@
       "package": "Adaptive Cruise Control (ACC)",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "FCA",
       "detail_sentence": "openpilot upgrades your <strong>Chrysler Pacifica Hybrid</strong> with automated lane centering <strong>above 9 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -289,6 +307,7 @@
       "package": "Adaptive Cruise Control (ACC)",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "FCA",
       "detail_sentence": "openpilot upgrades your <strong>Chrysler Pacifica Hybrid</strong> with automated lane centering <strong>above 39 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -306,6 +325,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "",
       "detail_sentence": "The body is a robotics dev kit that can run openpilot. <a href='https://www.commabody.com' target='_blank' class='highlight'>Learn more.</a>",
       "footnotes": [
@@ -323,6 +343,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>CUPRA Ateca</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -340,6 +361,7 @@
       "package": "Adaptive Cruise Control (ACC)",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "FCA",
       "detail_sentence": "openpilot upgrades your <strong>Dodge Durango</strong> with automated lane centering <strong>above 39 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -357,6 +379,7 @@
       "package": "Co-Pilot360 Assist+",
       "angled_mount": true,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Ford Q3",
       "detail_sentence": "openpilot upgrades your <strong>Ford Bronco Sport</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -372,6 +395,7 @@
       "package": "Co-Pilot360 Assist+",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Ford Q3",
       "detail_sentence": "openpilot upgrades your <strong>Ford Escape</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -387,6 +411,7 @@
       "package": "Co-Pilot360 Assist+",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Ford Q3",
       "detail_sentence": "openpilot upgrades your <strong>Ford Escape Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -402,6 +427,7 @@
       "package": "Co-Pilot360 Assist+",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Ford Q3",
       "detail_sentence": "openpilot upgrades your <strong>Ford Escape Plug-in Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -417,6 +443,7 @@
       "package": "Co-Pilot360 Assist+",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Ford Q3",
       "detail_sentence": "openpilot upgrades your <strong>Ford Explorer</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -432,6 +459,7 @@
       "package": "Co-Pilot360 Assist+",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Ford Q3",
       "detail_sentence": "openpilot upgrades your <strong>Ford Explorer Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -447,6 +475,7 @@
       "package": "Co-Pilot360 Assist 2.0",
       "angled_mount": true,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Ford Q4",
       "detail_sentence": "openpilot upgrades your <strong>Ford F-150</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -462,6 +491,7 @@
       "package": "Co-Pilot360 Assist 2.0",
       "angled_mount": true,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Ford Q4",
       "detail_sentence": "openpilot upgrades your <strong>Ford F-150 Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -477,6 +507,7 @@
       "package": "Adaptive Cruise Control with Lane Centering",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Ford Q3",
       "detail_sentence": "openpilot upgrades your <strong>Ford Focus</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -493,6 +524,7 @@
       "package": "Adaptive Cruise Control with Lane Centering",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Ford Q3",
       "detail_sentence": "openpilot upgrades your <strong>Ford Focus Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -509,6 +541,7 @@
       "package": "Adaptive Cruise Control with Lane Centering",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Ford Q3",
       "detail_sentence": "openpilot upgrades your <strong>Ford Kuga</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -524,6 +557,7 @@
       "package": "Adaptive Cruise Control with Lane Centering",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Ford Q3",
       "detail_sentence": "openpilot upgrades your <strong>Ford Kuga Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -539,6 +573,7 @@
       "package": "Adaptive Cruise Control with Lane Centering",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Ford Q3",
       "detail_sentence": "openpilot upgrades your <strong>Ford Kuga Plug-in Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -554,6 +589,7 @@
       "package": "LARIAT Luxury",
       "angled_mount": true,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Ford Q3",
       "detail_sentence": "openpilot upgrades your <strong>Ford Maverick</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -569,6 +605,7 @@
       "package": "Co-Pilot360 Assist",
       "angled_mount": true,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Ford Q3",
       "detail_sentence": "openpilot upgrades your <strong>Ford Maverick</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -584,6 +621,7 @@
       "package": "LARIAT Luxury",
       "angled_mount": true,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Ford Q3",
       "detail_sentence": "openpilot upgrades your <strong>Ford Maverick Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -599,6 +637,7 @@
       "package": "Co-Pilot360 Assist",
       "angled_mount": true,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Ford Q3",
       "detail_sentence": "openpilot upgrades your <strong>Ford Maverick Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -614,6 +653,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Ford Q4",
       "detail_sentence": "openpilot upgrades your <strong>Ford Mustang Mach-E</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -629,6 +669,7 @@
       "package": "Adaptive Cruise Control with Lane Centering",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Ford Q4",
       "detail_sentence": "openpilot upgrades your <strong>Ford Ranger</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -646,6 +687,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai F",
       "detail_sentence": "openpilot upgrades your <strong>Genesis G70</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -661,6 +703,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai F",
       "detail_sentence": "openpilot upgrades your <strong>Genesis G70</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -676,6 +719,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai L",
       "detail_sentence": "openpilot upgrades your <strong>Genesis G70</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -691,6 +735,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai J",
       "detail_sentence": "openpilot upgrades your <strong>Genesis G80</strong> with automated lane centering <strong>above 37 mph</strong>, and adaptive cruise control <strong>while driving above 19 mph</strong>.",
       "footnotes": [
@@ -706,6 +751,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai H",
       "detail_sentence": "openpilot upgrades your <strong>Genesis G80</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -721,6 +767,7 @@
       "package": "Highway Driving Assist II",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai P",
       "detail_sentence": "openpilot upgrades your <strong>Genesis G80 (2.5T Advanced Trim, with HDA II)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -737,6 +784,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai C",
       "detail_sentence": "openpilot upgrades your <strong>Genesis G90</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -752,6 +800,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai A",
       "detail_sentence": "openpilot upgrades your <strong>Genesis GV60 (Advanced Trim)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -768,6 +817,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai K",
       "detail_sentence": "openpilot upgrades your <strong>Genesis GV60 (Performance Trim)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -784,6 +834,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai L",
       "detail_sentence": "openpilot upgrades your <strong>Genesis GV70 (2.5T Trim, without HDA II)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -800,6 +851,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai M",
       "detail_sentence": "openpilot upgrades your <strong>Genesis GV70 (3.5T Trim, without HDA II)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -816,6 +868,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai Q",
       "detail_sentence": "openpilot upgrades your <strong>Genesis GV70 Electrified (Australia Only)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -832,6 +885,7 @@
       "package": "Highway Driving Assist II",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai Q",
       "detail_sentence": "openpilot upgrades your <strong>Genesis GV70 Electrified (with HDA II)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -848,6 +902,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai M",
       "detail_sentence": "openpilot upgrades your <strong>Genesis GV80</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -866,6 +921,7 @@
       "package": "Driver Alert Package II",
       "angled_mount": false,
       "video_link": "https://youtu.be/5HbNoBLzRwE",
+      "setup_video_link": "",
       "harness_connector": "GM",
       "detail_sentence": "openpilot upgrades your <strong>GMC Sierra 1500</strong> with automated lane centering <strong>above 6 mph</strong>, and adaptive cruise control.",
       "footnotes": [
@@ -884,6 +940,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "https://www.youtube.com/watch?v=mrUwlj3Mi58",
+      "setup_video_link": "",
       "harness_connector": "Honda Bosch A",
       "detail_sentence": "openpilot upgrades your <strong>Honda Accord</strong> with automated lane centering <strong>above 3 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. This car may not be able to take tight turns on its own.",
       "footnotes": [
@@ -899,6 +956,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Honda Bosch A",
       "detail_sentence": "openpilot upgrades your <strong>Honda Accord Hybrid</strong> with automated lane centering <strong>above 3 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. This car may not be able to take tight turns on its own.",
       "footnotes": [
@@ -914,6 +972,7 @@
       "package": "Honda Sensing",
       "angled_mount": false,
       "video_link": "https://youtu.be/-IkImTe1NYE",
+      "setup_video_link": "",
       "harness_connector": "Honda Nidec",
       "detail_sentence": "openpilot upgrades your <strong>Honda Civic</strong> with automated lane centering <strong>above 12 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. This car may not be able to take tight turns on its own. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -929,6 +988,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "https://www.youtube.com/watch?v=4Iz1Mz5LGF8",
+      "setup_video_link": "",
       "harness_connector": "Honda Bosch A",
       "detail_sentence": "openpilot upgrades your <strong>Honda Civic</strong> with automated lane centering <strong>above 2 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. This car may not be able to take tight turns on its own.",
       "footnotes": [
@@ -945,6 +1005,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "https://youtu.be/ytiOT5lcp6Q",
+      "setup_video_link": "",
       "harness_connector": "Honda Bosch B",
       "detail_sentence": "openpilot upgrades your <strong>Honda Civic</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -960,6 +1021,7 @@
       "package": "Honda Sensing",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Honda Bosch A",
       "detail_sentence": "openpilot upgrades your <strong>Honda Civic Hatchback</strong> with automated lane centering <strong>above 12 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. This car may not be able to take tight turns on its own.",
       "footnotes": [
@@ -975,6 +1037,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "https://youtu.be/ytiOT5lcp6Q",
+      "setup_video_link": "",
       "harness_connector": "Honda Bosch B",
       "detail_sentence": "openpilot upgrades your <strong>Honda Civic Hatchback</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -990,6 +1053,7 @@
       "package": "Touring Trim",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Honda Nidec",
       "detail_sentence": "openpilot upgrades your <strong>Honda CR-V</strong> with automated lane centering and adaptive cruise control <strong>while driving above 26 mph</strong>. This car may not be able to take tight turns on its own. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -1005,6 +1069,7 @@
       "package": "Honda Sensing",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Honda Bosch A",
       "detail_sentence": "openpilot upgrades your <strong>Honda CR-V</strong> with automated lane centering <strong>above 12 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. This car may not be able to take tight turns on its own.",
       "footnotes": [
@@ -1020,6 +1085,7 @@
       "package": "Honda Sensing",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Honda Bosch A",
       "detail_sentence": "openpilot upgrades your <strong>Honda CR-V Hybrid</strong> with automated lane centering <strong>above 12 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. This car may not be able to take tight turns on its own.",
       "footnotes": [
@@ -1035,6 +1101,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Honda Bosch A",
       "detail_sentence": "openpilot upgrades your <strong>Honda e</strong> with automated lane centering <strong>above 3 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. This car may not be able to take tight turns on its own.",
       "footnotes": [
@@ -1050,6 +1117,7 @@
       "package": "Honda Sensing",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Honda Nidec",
       "detail_sentence": "openpilot upgrades your <strong>Honda Fit</strong> with automated lane centering and adaptive cruise control <strong>while driving above 26 mph</strong>. This car may not be able to take tight turns on its own. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -1065,6 +1133,7 @@
       "package": "Honda Sensing",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Honda Nidec",
       "detail_sentence": "openpilot upgrades your <strong>Honda Freed</strong> with automated lane centering and adaptive cruise control <strong>while driving above 26 mph</strong>. This car may not be able to take tight turns on its own. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -1080,6 +1149,7 @@
       "package": "Honda Sensing",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Honda Nidec",
       "detail_sentence": "openpilot upgrades your <strong>Honda HR-V</strong> with automated lane centering and adaptive cruise control <strong>while driving above 26 mph</strong>. This car may not be able to take tight turns on its own. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -1095,6 +1165,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Honda Bosch B",
       "detail_sentence": "openpilot upgrades your <strong>Honda HR-V</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -1110,6 +1181,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Honda Bosch A",
       "detail_sentence": "openpilot upgrades your <strong>Honda Insight</strong> with automated lane centering <strong>above 3 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. This car may not be able to take tight turns on its own.",
       "footnotes": [
@@ -1125,6 +1197,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Honda Bosch A",
       "detail_sentence": "openpilot upgrades your <strong>Honda Inspire</strong> with automated lane centering <strong>above 3 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. This car may not be able to take tight turns on its own.",
       "footnotes": [
@@ -1140,6 +1213,7 @@
       "package": "Honda Sensing",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Honda Nidec",
       "detail_sentence": "openpilot upgrades your <strong>Honda Odyssey</strong> with automated lane centering and adaptive cruise control <strong>while driving above 26 mph</strong>. This car may not be able to take tight turns on its own. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -1155,6 +1229,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Honda Nidec",
       "detail_sentence": "openpilot upgrades your <strong>Honda Passport</strong> with automated lane centering and adaptive cruise control <strong>while driving above 26 mph</strong>. This car may not be able to take tight turns on its own. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -1170,6 +1245,7 @@
       "package": "Honda Sensing",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Honda Nidec",
       "detail_sentence": "openpilot upgrades your <strong>Honda Pilot</strong> with automated lane centering and adaptive cruise control <strong>while driving above 26 mph</strong>. This car may not be able to take tight turns on its own. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -1185,6 +1261,7 @@
       "package": "Honda Sensing",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Honda Nidec",
       "detail_sentence": "openpilot upgrades your <strong>Honda Ridgeline</strong> with automated lane centering and adaptive cruise control <strong>while driving above 26 mph</strong>. This car may not be able to take tight turns on its own. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -1202,6 +1279,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai K",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Azera</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -1217,6 +1295,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai C",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Azera Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -1232,6 +1311,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai K",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Azera Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -1247,6 +1327,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai K",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Custin</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -1262,6 +1343,7 @@
       "package": "Smart Cruise Control (SCC)",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai B",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Elantra</strong> with automated lane centering <strong>above 32 mph</strong>, and adaptive cruise control <strong>while driving above 19 mph</strong>.",
       "footnotes": [
@@ -1277,6 +1359,7 @@
       "package": "Smart Cruise Control (SCC)",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai G",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Elantra</strong> with automated lane centering <strong>above 32 mph</strong>, and adaptive cruise control <strong>while driving above 19 mph</strong>.",
       "footnotes": [
@@ -1292,6 +1375,7 @@
       "package": "Smart Cruise Control (SCC)",
       "angled_mount": false,
       "video_link": "https://youtu.be/_EdYQtV52-c",
+      "setup_video_link": "",
       "harness_connector": "Hyundai K",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Elantra</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -1307,6 +1391,7 @@
       "package": "Smart Cruise Control (SCC)",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai E",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Elantra GT</strong> with automated lane centering <strong>above 32 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -1322,6 +1407,7 @@
       "package": "Smart Cruise Control (SCC)",
       "angled_mount": false,
       "video_link": "https://youtu.be/_EdYQtV52-c",
+      "setup_video_link": "",
       "harness_connector": "Hyundai K",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Elantra Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -1337,6 +1423,7 @@
       "package": "Smart Cruise Control (SCC)",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai J",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Genesis</strong> with automated lane centering <strong>above 37 mph</strong>, and adaptive cruise control <strong>while driving above 19 mph</strong>.",
       "footnotes": [
@@ -1352,6 +1439,7 @@
       "package": "Smart Cruise Control (SCC)",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai E",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai i30</strong> with automated lane centering <strong>above 32 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -1367,6 +1455,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai Q",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Ioniq 5 (Southeast Asia and Europe only)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -1383,6 +1472,7 @@
       "package": "Highway Driving Assist II",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai Q",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Ioniq 5 (with HDA II)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -1399,6 +1489,7 @@
       "package": "Highway Driving Assist",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai K",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Ioniq 5 (without HDA II)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -1415,6 +1506,7 @@
       "package": "Highway Driving Assist II",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai P",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Ioniq 6 (with HDA II)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -1431,6 +1523,7 @@
       "package": "Smart Cruise Control (SCC)",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai C",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Ioniq Electric</strong> with automated lane centering <strong>above 32 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -1446,6 +1539,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai H",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Ioniq Electric</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -1461,6 +1555,7 @@
       "package": "Smart Cruise Control (SCC)",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai C",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Ioniq Hybrid</strong> with automated lane centering <strong>above 32 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -1476,6 +1571,7 @@
       "package": "Smart Cruise Control (SCC)",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai H",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Ioniq Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -1491,6 +1587,7 @@
       "package": "Smart Cruise Control (SCC)",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai C",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Ioniq Plug-in Hybrid</strong> with automated lane centering <strong>above 32 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -1506,6 +1603,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai H",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Ioniq Plug-in Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -1521,6 +1619,7 @@
       "package": "Smart Cruise Control (SCC)",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai B",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Kona</strong> with automated lane centering and adaptive cruise control <strong>while driving above 6 mph</strong>.",
       "footnotes": [
@@ -1536,6 +1635,7 @@
       "package": "Smart Cruise Control (SCC)",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai O",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Kona</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -1551,6 +1651,7 @@
       "package": "Smart Cruise Control (SCC)",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai G",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Kona Electric</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -1566,6 +1667,7 @@
       "package": "Smart Cruise Control (SCC)",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai O",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Kona Electric</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -1581,6 +1683,7 @@
       "package": "Smart Cruise Control (SCC)",
       "angled_mount": false,
       "video_link": "https://www.youtube.com/watch?v=U2fOCmcQ8hw",
+      "setup_video_link": "",
       "harness_connector": "Hyundai R",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Kona Electric (with HDA II, Korea only)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -1597,6 +1700,7 @@
       "package": "Smart Cruise Control (SCC)",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai I",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Kona Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -1612,6 +1716,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai H",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Nexo</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -1627,6 +1732,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "https://youtu.be/TAnDqjF4fDY?t=456",
+      "setup_video_link": "",
       "harness_connector": "Hyundai H",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Palisade</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -1642,6 +1748,7 @@
       "package": "Smart Cruise Control (SCC)",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai N",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Santa Cruz</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -1658,6 +1765,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "https://youtu.be/bjDR0YjM__s",
+      "setup_video_link": "",
       "harness_connector": "Hyundai D",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Santa Fe</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -1673,6 +1781,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "https://youtu.be/VnHzSTygTS4",
+      "setup_video_link": "",
       "harness_connector": "Hyundai L",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Santa Fe</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -1688,6 +1797,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai L",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Santa Fe Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -1703,6 +1813,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai L",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Santa Fe Plug-in Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -1718,6 +1829,7 @@
       "package": "Smart Cruise Control (SCC)",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai E",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Sonata</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -1733,6 +1845,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "https://www.youtube.com/watch?v=ix63r9kE3Fw",
+      "setup_video_link": "",
       "harness_connector": "Hyundai A",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Sonata</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -1748,6 +1861,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai A",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Sonata Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -1763,6 +1877,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai K",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Staria</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -1779,6 +1894,7 @@
       "package": "Smart Cruise Control (SCC)",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai L",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Tucson</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>.",
       "footnotes": [
@@ -1794,6 +1910,7 @@
       "package": "Smart Cruise Control (SCC)",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai N",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Tucson</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -1810,6 +1927,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai N",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Tucson</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -1826,6 +1944,7 @@
       "package": "Smart Cruise Control (SCC)",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai L",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Tucson Diesel</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -1841,6 +1960,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai N",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Tucson Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -1857,6 +1977,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai N",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Tucson Plug-in Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -1873,6 +1994,7 @@
       "package": "Smart Cruise Control (SCC)",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai E",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Veloster</strong> with automated lane centering and adaptive cruise control <strong>while driving above 5 mph</strong>.",
       "footnotes": [
@@ -1890,6 +2012,7 @@
       "package": "Adaptive Cruise Control (ACC)",
       "angled_mount": false,
       "video_link": "https://www.youtube.com/watch?v=eLR9o2JkuRk",
+      "setup_video_link": "",
       "harness_connector": "FCA",
       "detail_sentence": "openpilot upgrades your <strong>Jeep Grand Cherokee</strong> with automated lane centering <strong>above 9 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -1905,6 +2028,7 @@
       "package": "Adaptive Cruise Control (ACC)",
       "angled_mount": false,
       "video_link": "https://www.youtube.com/watch?v=jBe4lWnRSu4",
+      "setup_video_link": "",
       "harness_connector": "FCA",
       "detail_sentence": "openpilot upgrades your <strong>Jeep Grand Cherokee</strong> with automated lane centering <strong>above 39 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -1922,6 +2046,7 @@
       "package": "Smart Cruise Control (SCC)",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai A",
       "detail_sentence": "openpilot upgrades your <strong>Kia Carnival</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -1938,6 +2063,7 @@
       "package": "Smart Cruise Control (SCC)",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai K",
       "detail_sentence": "openpilot upgrades your <strong>Kia Carnival (China only)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -1954,6 +2080,7 @@
       "package": "Smart Cruise Control (SCC)",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai E",
       "detail_sentence": "openpilot upgrades your <strong>Kia Ceed</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -1969,6 +2096,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai P",
       "detail_sentence": "openpilot upgrades your <strong>Kia EV6 (Southeast Asia only)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -1985,6 +2113,7 @@
       "package": "Highway Driving Assist II",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai P",
       "detail_sentence": "openpilot upgrades your <strong>Kia EV6 (with HDA II)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -2001,6 +2130,7 @@
       "package": "Highway Driving Assist",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai L",
       "detail_sentence": "openpilot upgrades your <strong>Kia EV6 (without HDA II)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -2017,6 +2147,7 @@
       "package": "Smart Cruise Control (SCC)",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai G",
       "detail_sentence": "openpilot upgrades your <strong>Kia Forte</strong> with automated lane centering and adaptive cruise control <strong>while driving above 6 mph</strong>.",
       "footnotes": [
@@ -2032,6 +2163,7 @@
       "package": "Smart Cruise Control (SCC)",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai E",
       "detail_sentence": "openpilot upgrades your <strong>Kia Forte</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -2047,6 +2179,7 @@
       "package": "Smart Cruise Control (SCC)",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai A",
       "detail_sentence": "openpilot upgrades your <strong>Kia K5</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -2062,6 +2195,7 @@
       "package": "Smart Cruise Control (SCC)",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai A",
       "detail_sentence": "openpilot upgrades your <strong>Kia K5 Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -2077,6 +2211,7 @@
       "package": "Highway Driving Assist II",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai Q",
       "detail_sentence": "openpilot upgrades your <strong>Kia K8 Hybrid (with HDA II)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -2093,6 +2228,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "https://www.youtube.com/watch?v=lT7zcG6ZpGo",
+      "setup_video_link": "",
       "harness_connector": "Hyundai H",
       "detail_sentence": "openpilot upgrades your <strong>Kia Niro EV</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -2108,6 +2244,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "https://www.youtube.com/watch?v=lT7zcG6ZpGo",
+      "setup_video_link": "",
       "harness_connector": "Hyundai F",
       "detail_sentence": "openpilot upgrades your <strong>Kia Niro EV</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -2123,6 +2260,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "https://www.youtube.com/watch?v=lT7zcG6ZpGo",
+      "setup_video_link": "",
       "harness_connector": "Hyundai C",
       "detail_sentence": "openpilot upgrades your <strong>Kia Niro EV</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -2138,6 +2276,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "https://www.youtube.com/watch?v=lT7zcG6ZpGo",
+      "setup_video_link": "",
       "harness_connector": "Hyundai H",
       "detail_sentence": "openpilot upgrades your <strong>Kia Niro EV</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -2153,6 +2292,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai A",
       "detail_sentence": "openpilot upgrades your <strong>Kia Niro EV</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -2169,6 +2309,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai C",
       "detail_sentence": "openpilot upgrades your <strong>Kia Niro Hybrid</strong> with automated lane centering <strong>above 32 mph</strong>, and adaptive cruise control <strong>while driving above 10 mph</strong>.",
       "footnotes": [
@@ -2184,6 +2325,7 @@
       "package": "Smart Cruise Control (SCC)",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai D",
       "detail_sentence": "openpilot upgrades your <strong>Kia Niro Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -2199,6 +2341,7 @@
       "package": "Smart Cruise Control (SCC)",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai F",
       "detail_sentence": "openpilot upgrades your <strong>Kia Niro Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -2214,6 +2357,7 @@
       "package": "Smart Cruise Control (SCC)",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai A",
       "detail_sentence": "openpilot upgrades your <strong>Kia Niro Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -2230,6 +2374,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai C",
       "detail_sentence": "openpilot upgrades your <strong>Kia Niro Plug-in Hybrid</strong> with automated lane centering <strong>above 32 mph</strong>, and adaptive cruise control <strong>while driving above 10 mph</strong>.",
       "footnotes": [
@@ -2245,6 +2390,7 @@
       "package": "Smart Cruise Control (SCC)",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai D",
       "detail_sentence": "openpilot upgrades your <strong>Kia Niro Plug-in Hybrid</strong> with automated lane centering <strong>above 32 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -2260,6 +2406,7 @@
       "package": "Smart Cruise Control (SCC)",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai D",
       "detail_sentence": "openpilot upgrades your <strong>Kia Niro Plug-in Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -2275,6 +2422,7 @@
       "package": "Smart Cruise Control (SCC)",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai F",
       "detail_sentence": "openpilot upgrades your <strong>Kia Niro Plug-in Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -2290,6 +2438,7 @@
       "package": "Advanced Smart Cruise Control",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai B",
       "detail_sentence": "openpilot upgrades your <strong>Kia Optima</strong> with automated lane centering <strong>above 32 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -2305,6 +2454,7 @@
       "package": "Smart Cruise Control (SCC)",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai G",
       "detail_sentence": "openpilot upgrades your <strong>Kia Optima</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -2320,6 +2470,7 @@
       "package": "Smart Cruise Control (SCC)",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai H",
       "detail_sentence": "openpilot upgrades your <strong>Kia Optima Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -2335,6 +2486,7 @@
       "package": "Smart Cruise Control (SCC)",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai A",
       "detail_sentence": "openpilot upgrades your <strong>Kia Seltos</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -2350,6 +2502,7 @@
       "package": "Advanced Smart Cruise Control & LKAS",
       "angled_mount": false,
       "video_link": "https://www.youtube.com/watch?v=Fkh3s6WHJz8",
+      "setup_video_link": "",
       "harness_connector": "Hyundai E",
       "detail_sentence": "openpilot upgrades your <strong>Kia Sorento</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -2365,6 +2518,7 @@
       "package": "Smart Cruise Control (SCC)",
       "angled_mount": false,
       "video_link": "https://www.youtube.com/watch?v=Fkh3s6WHJz8",
+      "setup_video_link": "",
       "harness_connector": "Hyundai E",
       "detail_sentence": "openpilot upgrades your <strong>Kia Sorento</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -2380,6 +2534,7 @@
       "package": "Smart Cruise Control (SCC)",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai K",
       "detail_sentence": "openpilot upgrades your <strong>Kia Sorento</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -2396,6 +2551,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai A",
       "detail_sentence": "openpilot upgrades your <strong>Kia Sorento Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -2412,6 +2568,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai A",
       "detail_sentence": "openpilot upgrades your <strong>Kia Sorento Plug-in Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -2428,6 +2585,7 @@
       "package": "Smart Cruise Control (SCC)",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai N",
       "detail_sentence": "openpilot upgrades your <strong>Kia Sportage</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -2444,6 +2602,7 @@
       "package": "Smart Cruise Control (SCC)",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai N",
       "detail_sentence": "openpilot upgrades your <strong>Kia Sportage Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -2460,6 +2619,7 @@
       "package": "Smart Cruise Control (SCC)",
       "angled_mount": false,
       "video_link": "https://www.youtube.com/watch?v=MJ94qoofYw0",
+      "setup_video_link": "",
       "harness_connector": "Hyundai C",
       "detail_sentence": "openpilot upgrades your <strong>Kia Stinger</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -2475,6 +2635,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai K",
       "detail_sentence": "openpilot upgrades your <strong>Kia Stinger</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -2490,6 +2651,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Hyundai H",
       "detail_sentence": "openpilot upgrades your <strong>Kia Telluride</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -2507,6 +2669,7 @@
       "package": "Lexus Safety System+",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Lexus CT Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -2523,6 +2686,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Lexus ES</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -2539,6 +2703,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Lexus ES</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -2554,6 +2719,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Lexus ES Hybrid</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -2570,6 +2736,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "https://youtu.be/BZ29osRVJeg?t=12",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Lexus ES Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -2585,6 +2752,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Lexus GS F</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>.",
       "footnotes": [
@@ -2600,6 +2768,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Lexus IS</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>.",
       "footnotes": [
@@ -2615,6 +2784,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Lexus IS</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -2630,6 +2800,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Lexus LC</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -2645,6 +2816,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Lexus NX</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -2661,6 +2833,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Lexus NX</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -2676,6 +2849,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Lexus NX Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -2692,6 +2866,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Lexus NX Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -2707,6 +2882,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Lexus RC</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>.",
       "footnotes": [
@@ -2722,6 +2898,7 @@
       "package": "Lexus Safety System+",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Lexus RX</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -2738,6 +2915,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Lexus RX</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -2754,6 +2932,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Lexus RX</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -2769,6 +2948,7 @@
       "package": "Lexus Safety System+",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Lexus RX Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -2785,6 +2965,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Lexus RX Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -2801,6 +2982,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Lexus RX Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -2816,6 +2998,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Lexus UX Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -2833,6 +3016,7 @@
       "package": "Co-Pilot360 Plus",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Ford Q3",
       "detail_sentence": "openpilot upgrades your <strong>Lincoln Aviator</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -2848,6 +3032,7 @@
       "package": "Co-Pilot360 Plus",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Ford Q3",
       "detail_sentence": "openpilot upgrades your <strong>Lincoln Aviator Plug-in Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -2865,6 +3050,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": true,
       "video_link": "https://youtu.be/4100gLeabmo",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>MAN eTGE</strong> with automated lane centering <strong>above 31 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -2880,6 +3066,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": true,
       "video_link": "https://youtu.be/4100gLeabmo",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>MAN TGE</strong> with automated lane centering <strong>above 31 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -2897,6 +3084,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Mazda",
       "detail_sentence": "openpilot upgrades your <strong>Mazda CX-5</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -2912,6 +3100,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "https://youtu.be/dA3duO4a0O4",
+      "setup_video_link": "",
       "harness_connector": "Mazda",
       "detail_sentence": "openpilot upgrades your <strong>Mazda CX-9</strong> with automated lane centering <strong>above 28 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -2929,6 +3118,7 @@
       "package": "ProPILOT Assist",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Nissan B",
       "detail_sentence": "openpilot upgrades your <strong>Nissan Altima</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control.",
       "footnotes": [
@@ -2945,6 +3135,7 @@
       "package": "ProPILOT Assist",
       "angled_mount": false,
       "video_link": "https://youtu.be/vaMbtAh_0cY",
+      "setup_video_link": "",
       "harness_connector": "Nissan A",
       "detail_sentence": "openpilot upgrades your <strong>Nissan Leaf</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control.",
       "footnotes": [
@@ -2961,6 +3152,7 @@
       "package": "ProPILOT Assist",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Nissan A",
       "detail_sentence": "openpilot upgrades your <strong>Nissan Rogue</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control.",
       "footnotes": [
@@ -2977,6 +3169,7 @@
       "package": "ProPILOT Assist",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Nissan A",
       "detail_sentence": "openpilot upgrades your <strong>Nissan X-Trail</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control.",
       "footnotes": [
@@ -2995,6 +3188,7 @@
       "package": "Adaptive Cruise Control (ACC)",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Ram",
       "detail_sentence": "openpilot upgrades your <strong>Ram 1500</strong> with automated lane centering <strong>above 32 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -3012,13 +3206,13 @@
       "package": "All",
       "angled_mount": true,
       "video_link": "",
+      "setup_video_link": "https://youtu.be/SKxizuv2Mk0",
       "harness_connector": "Rivian A",
       "detail_sentence": "openpilot upgrades your <strong>Rivian R1S</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
       ],
       "setup_notes": [
-      ],
-      "setup_video": "https://www.youtube.com/embed/hrA3czvBo2w?rel=0&amp;controls=1&amp;autoplay=0&amp;mute=0&amp;start=0"
+      ]
     },
     {
       "name": "Rivian R1T 2022-24",
@@ -3028,6 +3222,7 @@
       "package": "All",
       "angled_mount": true,
       "video_link": "",
+      "setup_video_link": "https://youtu.be/SKxizuv2Mk0",
       "harness_connector": "Rivian A",
       "detail_sentence": "openpilot upgrades your <strong>Rivian R1T</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -3045,6 +3240,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>SEAT Ateca</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -3060,6 +3256,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>SEAT Leon</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -3077,6 +3274,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Subaru A",
       "detail_sentence": "openpilot upgrades your <strong>Subaru Ascent</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control.",
       "footnotes": [
@@ -3094,6 +3292,7 @@
       "package": "EyeSight Driver Assistance",
       "angled_mount": false,
       "video_link": "https://youtu.be/Agww7oE1k-s?t=26",
+      "setup_video_link": "",
       "harness_connector": "Subaru A",
       "detail_sentence": "openpilot upgrades your <strong>Subaru Crosstrek</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control. This car may not be able to take tight turns on its own.",
       "footnotes": [
@@ -3111,6 +3310,7 @@
       "package": "EyeSight Driver Assistance",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Subaru A",
       "detail_sentence": "openpilot upgrades your <strong>Subaru Crosstrek</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control.",
       "footnotes": [
@@ -3128,6 +3328,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Subaru A",
       "detail_sentence": "openpilot upgrades your <strong>Subaru Forester</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control.",
       "footnotes": [
@@ -3145,6 +3346,7 @@
       "package": "EyeSight Driver Assistance",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Subaru A",
       "detail_sentence": "openpilot upgrades your <strong>Subaru Impreza</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control. This car may not be able to take tight turns on its own.",
       "footnotes": [
@@ -3162,6 +3364,7 @@
       "package": "EyeSight Driver Assistance",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Subaru A",
       "detail_sentence": "openpilot upgrades your <strong>Subaru Impreza</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control.",
       "footnotes": [
@@ -3179,6 +3382,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Subaru B",
       "detail_sentence": "openpilot upgrades your <strong>Subaru Legacy</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control.",
       "footnotes": [
@@ -3195,6 +3399,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Subaru B",
       "detail_sentence": "openpilot upgrades your <strong>Subaru Outback</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control.",
       "footnotes": [
@@ -3211,6 +3416,7 @@
       "package": "EyeSight Driver Assistance",
       "angled_mount": false,
       "video_link": "https://youtu.be/Agww7oE1k-s?t=26",
+      "setup_video_link": "",
       "harness_connector": "Subaru A",
       "detail_sentence": "openpilot upgrades your <strong>Subaru XV</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control. This car may not be able to take tight turns on its own.",
       "footnotes": [
@@ -3228,6 +3434,7 @@
       "package": "EyeSight Driver Assistance",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Subaru A",
       "detail_sentence": "openpilot upgrades your <strong>Subaru XV</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control.",
       "footnotes": [
@@ -3247,6 +3454,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Škoda Fabia</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -3264,6 +3472,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Škoda Kamiq</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -3282,6 +3491,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Škoda Karoq</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -3298,6 +3508,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Škoda Kodiaq</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -3314,6 +3525,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Škoda Octavia</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -3330,6 +3542,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Škoda Octavia RS</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -3346,6 +3559,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Škoda Octavia Scout</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -3362,6 +3576,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Škoda Scala</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -3379,6 +3594,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Škoda Superb</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -3397,6 +3613,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Tesla A",
       "detail_sentence": "openpilot upgrades your <strong>Tesla Model 3 (with HW3)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -3413,6 +3630,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Tesla B",
       "detail_sentence": "openpilot upgrades your <strong>Tesla Model 3 (with HW4)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -3429,6 +3647,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Tesla A",
       "detail_sentence": "openpilot upgrades your <strong>Tesla Model Y (with HW3)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -3445,6 +3664,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Tesla B",
       "detail_sentence": "openpilot upgrades your <strong>Tesla Model Y (with HW4)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -3463,6 +3683,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota Alphard</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -3478,6 +3699,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota Alphard Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -3493,6 +3715,7 @@
       "package": "Toyota Safety Sense P",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota Avalon</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -3509,6 +3732,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota Avalon</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -3525,6 +3749,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota Avalon</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -3541,6 +3766,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota Avalon</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -3556,6 +3782,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota Avalon Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -3572,6 +3799,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota Avalon Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -3587,6 +3815,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota C-HR</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control.",
       "footnotes": [
@@ -3602,6 +3831,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota C-HR</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -3617,6 +3847,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota C-HR Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control.",
       "footnotes": [
@@ -3632,6 +3863,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota C-HR Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -3647,6 +3879,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "https://www.youtube.com/watch?v=fkcjviZY9CM",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota Camry</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control.",
       "footnotes": [
@@ -3663,6 +3896,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota Camry</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -3679,6 +3913,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "https://www.youtube.com/watch?v=Q2DYY0AWKgk",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota Camry Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control.",
       "footnotes": [
@@ -3694,6 +3929,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota Camry Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -3709,6 +3945,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota Corolla</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -3725,6 +3962,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "https://www.youtube.com/watch?v=_66pXk0CBYA",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota Corolla</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -3740,6 +3978,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota Corolla Cross (Non-US only)</strong> with automated lane centering and adaptive cruise control <strong>while driving above 17 mph</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -3755,6 +3994,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota Corolla Cross Hybrid (Non-US only)</strong> with automated lane centering and adaptive cruise control <strong>while driving above 17 mph</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -3770,6 +4010,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "https://www.youtube.com/watch?v=_66pXk0CBYA",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota Corolla Hatchback</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -3785,6 +4026,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota Corolla Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -3800,6 +4042,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota Corolla Hybrid (South America only)</strong> with automated lane centering and adaptive cruise control <strong>while driving above 17 mph</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -3815,6 +4058,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "https://www.youtube.com/watch?v=0wS0wXSLzoo",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota Highlander</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -3831,6 +4075,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota Highlander</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -3846,6 +4091,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota Highlander Hybrid</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -3862,6 +4108,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota Highlander Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -3877,6 +4124,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota Mirai</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -3892,6 +4140,7 @@
       "package": "Toyota Safety Sense P",
       "angled_mount": false,
       "video_link": "https://www.youtube.com/watch?v=8zopPJI8XQ0",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota Prius</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -3908,6 +4157,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "https://www.youtube.com/watch?v=8zopPJI8XQ0",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota Prius</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -3924,6 +4174,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "https://www.youtube.com/watch?v=J58TvCpUd4U",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota Prius</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -3939,6 +4190,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "https://www.youtube.com/watch?v=8zopPJI8XQ0",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota Prius Prime</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -3955,6 +4207,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "https://www.youtube.com/watch?v=J58TvCpUd4U",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota Prius Prime</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -3970,6 +4223,7 @@
       "package": "Toyota Safety Sense P",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota Prius v</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -3986,6 +4240,7 @@
       "package": "Toyota Safety Sense P",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota RAV4</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -4002,6 +4257,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota RAV4</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -4018,6 +4274,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "https://www.youtube.com/watch?v=wJxjDd42gGA",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota RAV4</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -4033,6 +4290,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota RAV4</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -4048,6 +4306,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota RAV4</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -4063,6 +4322,7 @@
       "package": "Toyota Safety Sense P",
       "angled_mount": false,
       "video_link": "https://youtu.be/LhT5VzJVfNI?t=26",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota RAV4 Hybrid</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -4079,6 +4339,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "https://youtu.be/LhT5VzJVfNI?t=26",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota RAV4 Hybrid</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -4095,6 +4356,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota RAV4 Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -4110,6 +4372,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "https://youtu.be/U0nH9cnrFB0",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota RAV4 Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -4125,6 +4388,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "https://youtu.be/4eIsEq4L4Ng",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota RAV4 Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -4140,6 +4404,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "https://www.youtube.com/watch?v=q1UPOo4Sh68",
+      "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota Sienna</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -4158,6 +4423,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video_link": "https://youtu.be/FAomFKPFlDA",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Volkswagen Arteon</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -4173,6 +4439,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video_link": "https://youtu.be/FAomFKPFlDA",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Volkswagen Arteon eHybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -4188,6 +4455,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video_link": "https://youtu.be/FAomFKPFlDA",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Volkswagen Arteon R</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -4203,6 +4471,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video_link": "https://youtu.be/FAomFKPFlDA",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Volkswagen Arteon Shooting Brake</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -4218,6 +4487,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Volkswagen Atlas</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -4233,6 +4503,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Volkswagen Atlas Cross Sport</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -4248,6 +4519,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": true,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Volkswagen California</strong> with automated lane centering <strong>above 31 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -4263,6 +4535,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": true,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Volkswagen Caravelle</strong> with automated lane centering <strong>above 31 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -4278,6 +4551,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video_link": "https://youtu.be/FAomFKPFlDA",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Volkswagen CC</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -4293,6 +4567,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": true,
       "video_link": "https://youtu.be/4100gLeabmo",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Volkswagen Crafter</strong> with automated lane centering <strong>above 31 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -4308,6 +4583,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": true,
       "video_link": "https://youtu.be/4100gLeabmo",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Volkswagen e-Crafter</strong> with automated lane centering <strong>above 31 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -4323,6 +4599,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Volkswagen e-Golf</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -4338,6 +4615,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Volkswagen Golf</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control.",
       "footnotes": [
@@ -4353,6 +4631,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Volkswagen Golf Alltrack</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control.",
       "footnotes": [
@@ -4368,6 +4647,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Volkswagen Golf GTD</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -4383,6 +4663,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Volkswagen Golf GTE</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -4398,6 +4679,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Volkswagen Golf GTI</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control.",
       "footnotes": [
@@ -4413,6 +4695,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Volkswagen Golf R</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -4428,6 +4711,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Volkswagen Golf SportsVan</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -4443,6 +4727,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": true,
       "video_link": "https://youtu.be/4100gLeabmo",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Volkswagen Grand California</strong> with automated lane centering <strong>above 31 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -4458,6 +4743,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Volkswagen Jetta</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -4473,6 +4759,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Volkswagen Jetta GLI</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -4488,6 +4775,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Volkswagen Passat</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -4504,6 +4792,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Volkswagen Passat Alltrack</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -4519,6 +4808,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Volkswagen Passat GTE</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -4534,6 +4824,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Volkswagen Polo</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -4550,6 +4841,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Volkswagen Polo GTI</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -4566,6 +4858,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Volkswagen T-Cross</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -4582,6 +4875,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Volkswagen T-Roc</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -4597,6 +4891,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Volkswagen Taos</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -4612,6 +4907,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Volkswagen Teramont</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -4627,6 +4923,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Volkswagen Teramont Cross Sport</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -4642,6 +4939,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Volkswagen Teramont X</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -4657,6 +4955,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Volkswagen Tiguan</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -4672,6 +4971,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Volkswagen Tiguan eHybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -4687,6 +4987,7 @@
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video_link": "",
+      "setup_video_link": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Volkswagen Touran</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [

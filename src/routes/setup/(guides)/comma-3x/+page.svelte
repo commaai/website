@@ -28,6 +28,27 @@
   const handleHarnessSelection = (value) => {
     selectedVehicle = value;
   }
+
+  function getVideoEmbedSrc(videoLink) {
+    const url = new URL(videoLink);
+
+    let videoId, timestamp;
+    if (url.hostname === 'www.youtube.com') {
+      videoId = url.searchParams.get('v');
+      timestamp = url.searchParams.get('t');
+    } else if (url.hostname === 'youtu.be') {
+      videoId = url.pathname.slice(1);
+      timestamp = url.searchParams.get('t');
+    }
+    if (!videoId) {
+      console.warn('Video not supported', videoLink);
+      return null;
+    }
+
+    const newUrl = `https://www.youtube.com/embed/${videoId}?rel=0&controls=1&autoplay=0&mute=0`
+    if (timestamp) newUrl.searchParams.set("start", timestamp);
+    return newUrl.toString();
+  }
 </script>
 
 <section class="light" id="guide">
@@ -66,7 +87,7 @@
                 <p class="note-heading">Setup Video:</p>
                 <div class="media-container">
                   <iframe
-                    src={selectedVehicle.setupVideo}
+                    src={getVideoEmbedSrc(selectedVehicle.setupVideo)}
                     frameborder="0"
                     allow="autoplay; encrypted-media"
                     allowfullscreen=""
