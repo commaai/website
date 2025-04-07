@@ -27,8 +27,11 @@
   $: harnesses = showVehicleHarnesses && showGenericHarnesses ? allHarnesses : showVehicleHarnesses ? vehicleHarnesses : genericHarnesses;
   $: browser && $harnesses.length > 0, setInitialSelection();
   $: {
-    onChange(selection);
-    updateQueryParams(selection);
+    console.log("123 selected harness:", selection);
+    // if ($harnesses.length > 0) {
+      onChange(selection);
+      updateQueryParams(selection);
+    // }
   }
 
   function updateQueryParams(selectedHarness) {
@@ -37,8 +40,10 @@
       searchParams.set("harness", encodeURIComponent(selectedHarness.car));
     }
 
+    console.log("123 browser", browser)
     // https://github.com/sveltejs/kit/discussions/3245#discussioncomment-1931570
     if (browser) {
+      console.log("123 goto", searchParams.toString());
       goto(`?${searchParams.toString()}`, { keepfocus: true, replaceState: true, noScroll: true });
     }
   }
@@ -47,6 +52,7 @@
     if ($harnesses.length > 0 && browser) {
       let carName = decodeURIComponent($page.url.searchParams.get('harness'));
       selection = $harnesses.find(harness => harness.car === carName) ?? null;
+      console.log("123 initial selection", selection);
     }
   }
 
