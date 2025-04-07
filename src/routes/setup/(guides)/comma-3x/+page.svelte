@@ -292,6 +292,12 @@
         margin-bottom: 0.5rem;
         font-size: 1.25rem;
       }
+
+      & a {
+        color: #000;
+        border-bottom: 2px solid #86ff4e;
+        background-color: rgba(134, 255, 78, 0.15);
+      }
     }
   }
 </style>
