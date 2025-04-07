@@ -40,15 +40,15 @@
   }
 
   function updateQueryParams(selectedHarness) {
-    // https://github.com/sveltejs/kit/discussions/3245#discussioncomment-1931570
-    if (!browser) return;
-
     const searchParams = new URLSearchParams();
     if (selectedHarness) {
       searchParams.set("harness", encodeURIComponent(selectedHarness.car));
     }
 
-    goto(`?${searchParams.toString()}`, { keepfocus: true, replaceState: true, noScroll: true });
+    // https://github.com/sveltejs/kit/discussions/3245#discussioncomment-1931570
+    if (browser) {
+      goto(`?${searchParams.toString()}`, { keepfocus: true, replaceState: true, noScroll: true });
+    }
   }
 
   const setInitialSelection = () => {
