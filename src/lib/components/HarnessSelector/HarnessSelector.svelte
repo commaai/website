@@ -25,7 +25,7 @@
 
   // Load harnesses based on the options
   $: harnesses = showVehicleHarnesses && showGenericHarnesses ? allHarnesses : showVehicleHarnesses ? vehicleHarnesses : genericHarnesses;
-  $: browser && $harnesses.length > 0, setInitialSelection();
+  $: if (browser && $harnesses.length > 0) setInitialSelection();
   $: {
     onChange(selection);
     updateQueryParams(selection);
@@ -44,10 +44,8 @@
   }
 
   const setInitialSelection = () => {
-    if ($harnesses.length > 0 && browser) {
-      let carName = decodeURIComponent($page.url.searchParams.get('harness'));
-      selection = $harnesses.find(harness => harness.car === carName) ?? null;
-    }
+    let carName = decodeURIComponent($page.url.searchParams.get('harness'));
+    selection = $harnesses.find(harness => harness.car === carName) ?? null;
   }
 
   /* Filtered Dropdown */
