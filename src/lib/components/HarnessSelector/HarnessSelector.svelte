@@ -27,7 +27,6 @@
   $: harnesses = showVehicleHarnesses && showGenericHarnesses ? allHarnesses : showVehicleHarnesses ? vehicleHarnesses : genericHarnesses;
   $: browser && $harnesses.length > 0, setInitialSelection();
   $: {
-    console.log("123 selected harness:", selection);
     if ($harnesses.length > 0) {
       onChange(selection);
       updateQueryParams(selection);
