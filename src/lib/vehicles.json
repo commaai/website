@@ -132,6 +132,7 @@
       "harness_connector": "GM",
       "detail_sentence": "openpilot upgrades your <strong>Chevrolet Bolt EUV</strong> with automated lane centering <strong>above 6 mph</strong>, and adaptive cruise control <strong>while driving above 3 mph</strong>.",
       "footnotes": [
+        "See more setup details for \u003ca href=\"https://github.com/commaai/openpilot/wiki/gm\"\u003eGM\u003c/a\u003e."
       ]
     },
     {
@@ -145,6 +146,7 @@
       "harness_connector": "GM",
       "detail_sentence": "openpilot upgrades your <strong>Chevrolet Bolt EV</strong> with automated lane centering <strong>above 6 mph</strong>, and adaptive cruise control <strong>while driving above 3 mph</strong>.",
       "footnotes": [
+        "See more setup details for \u003ca href=\"https://github.com/commaai/openpilot/wiki/gm\"\u003eGM\u003c/a\u003e."
       ]
     },
     {
@@ -158,6 +160,7 @@
       "harness_connector": "GM",
       "detail_sentence": "openpilot upgrades your <strong>Chevrolet Equinox</strong> with automated lane centering <strong>above 6 mph</strong>, and adaptive cruise control <strong>while driving above 3 mph</strong>.",
       "footnotes": [
+        "See more setup details for \u003ca href=\"https://github.com/commaai/openpilot/wiki/gm\"\u003eGM\u003c/a\u003e."
       ]
     },
     {
@@ -171,6 +174,7 @@
       "harness_connector": "GM",
       "detail_sentence": "openpilot upgrades your <strong>Chevrolet Silverado 1500</strong> with automated lane centering <strong>above 6 mph</strong>, and adaptive cruise control.",
       "footnotes": [
+        "See more setup details for \u003ca href=\"https://github.com/commaai/openpilot/wiki/gm\"\u003eGM\u003c/a\u003e."
       ]
     },
     {
@@ -184,6 +188,7 @@
       "harness_connector": "GM",
       "detail_sentence": "openpilot upgrades your <strong>Chevrolet Trailblazer</strong> with automated lane centering <strong>above 6 mph</strong>, and adaptive cruise control <strong>while driving above 3 mph</strong>.",
       "footnotes": [
+        "See more setup details for \u003ca href=\"https://github.com/commaai/openpilot/wiki/gm\"\u003eGM\u003c/a\u003e."
       ]
     }
   ],
@@ -754,6 +759,7 @@
       "harness_connector": "GM",
       "detail_sentence": "openpilot upgrades your <strong>GMC Sierra 1500</strong> with automated lane centering <strong>above 6 mph</strong>, and adaptive cruise control.",
       "footnotes": [
+        "See more setup details for \u003ca href=\"https://github.com/commaai/openpilot/wiki/gm\"\u003eGM\u003c/a\u003e."
       ]
     }
   ],
@@ -2548,6 +2554,7 @@
       "harness_connector": "Nissan B",
       "detail_sentence": "openpilot upgrades your <strong>Nissan Altima</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control.",
       "footnotes": [
+        "See more setup details for \u003ca href=\"https://github.com/commaai/openpilot/wiki/nissan\"\u003eNissan\u003c/a\u003e."
       ]
     },
     {
@@ -2561,6 +2568,7 @@
       "harness_connector": "Nissan A",
       "detail_sentence": "openpilot upgrades your <strong>Nissan Leaf</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control.",
       "footnotes": [
+        "See more setup details for \u003ca href=\"https://github.com/commaai/openpilot/wiki/nissan\"\u003eNissan\u003c/a\u003e."
       ]
     },
     {
@@ -2574,6 +2582,7 @@
       "harness_connector": "Nissan A",
       "detail_sentence": "openpilot upgrades your <strong>Nissan Rogue</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control.",
       "footnotes": [
+        "See more setup details for \u003ca href=\"https://github.com/commaai/openpilot/wiki/nissan\"\u003eNissan\u003c/a\u003e."
       ]
     },
     {
@@ -2587,6 +2596,7 @@
       "harness_connector": "Nissan A",
       "detail_sentence": "openpilot upgrades your <strong>Nissan X-Trail</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control.",
       "footnotes": [
+        "See more setup details for \u003ca href=\"https://github.com/commaai/openpilot/wiki/nissan\"\u003eNissan\u003c/a\u003e."
       ]
     }
   ],
