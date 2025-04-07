@@ -26,15 +26,6 @@ export async function load() {
         contents: ['car harness (harness box & connector)', 'comma power']
       },
     ],
-    notes: [
-      {
-        title: 'Note: Nissan & GM setup',
-        content: `
-          See more setup details:
-          <a href="https://github.com/commaai/openpilot/wiki/nissan" target="_blank">Nissan</a> or
-          <a href="https://github.com/commaai/openpilot/wiki/GM" target="_blank">GM</a>.
-        `
-      }
-    ],
+    notes: [],
   }
 };
