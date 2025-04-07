@@ -291,8 +291,6 @@
     }
 
     & .setup-notes {
-      display: flex;
-      flex-flow: column;
       width: 100%;
       margin: 1rem 0 0.5rem;
 
@@ -318,10 +316,8 @@
       }
 
       & .media-container {
-        display: flex;
         position: relative;
         padding-bottom: 56.25%; /* 16:9 */
-        height: 0;
 
         & iframe {
           position: absolute;
