@@ -28,7 +28,7 @@
   $: harnesses = showVehicleHarnesses && showGenericHarnesses ? allHarnesses : showVehicleHarnesses ? vehicleHarnesses : genericHarnesses;
 
   // When harnesses are ready, set the initial selection
-  $: if (browser && $harnessesReady && $harnesses.length > 0 && !isSelectionInitialized) {
+  $: if (browser && $harnessesReady && !isSelectionInitialized) {
     setInitialSelection();
     isSelectionInitialized = true;
   }
