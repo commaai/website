@@ -17,6 +17,8 @@ async function fetchHarnessVariants() {
 }
 
 let initialized = false;
+const harnessesReady = writable(false);  // Track initialization status
+
 const vehicleHarnesses = writable([]); // List of vehicle model harnesses, excluding developer and generic make harnesses
 const genericHarnesses = writable([]); // List of developer and generic make harnesses
 const allHarnesses = writable([]); // List of all vehicle model harnesses, including developer and generic make harnesses
@@ -64,8 +66,9 @@ async function initializeHarnesses() {
   allHarnesses.set(allHarnessList);
 
   initialized = true;
+  harnessesReady.set(true);
 }
 
 initializeHarnesses();
 
-export { allHarnesses, vehicleHarnesses, genericHarnesses };
+export { harnessesReady, allHarnesses, vehicleHarnesses, genericHarnesses };
