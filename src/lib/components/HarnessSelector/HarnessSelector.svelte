@@ -21,13 +21,14 @@
   export let showVehicleHarnesses = true; // If true, includes the harnesses by each vehicle model
   export let showGenericHarnesses = true; // If true, includes the generic/developer harnesses
 
-  let selection = null
+  let selection = undefined
 
   // Load harnesses based on the options
   $: harnesses = showVehicleHarnesses && showGenericHarnesses ? allHarnesses : showVehicleHarnesses ? vehicleHarnesses : genericHarnesses;
-  $: browser && $harnesses.length > 0, setInitialSelection();
+  $: if (browser && $harnesses.length > 0) setInitialSelection();
   $: {
-    if ($harnesses.length > 0) {
+    // Don't update w/ initial state
+    if (selection !== undefined) {
       onChange(selection);
       updateQueryParams(selection);
     }
@@ -46,10 +47,8 @@
   }
 
   const setInitialSelection = () => {
-    if ($harnesses.length > 0 && browser) {
-      let carName = decodeURIComponent($page.url.searchParams.get('harness'));
-      selection = $harnesses.find(harness => harness.car === carName) ?? null;
-    }
+    let carName = decodeURIComponent($page.url.searchParams.get('harness'));
+    selection = $harnesses.find(harness => harness.car === carName) ?? null;
   }
 
   /* Filtered Dropdown */
@@ -68,6 +67,7 @@
     }
 
     // clear harness selection
+    console.log("123 clearing")
     selection = null;
   }
 
@@ -85,6 +85,7 @@
 
   const handleOptionClick = (item) => {
     selection = item;
+    console.log("123 clicked")
     menuOpen = false;
   }
 
