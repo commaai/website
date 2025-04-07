@@ -53,10 +53,10 @@
 
         {#if selectedVehicle}
           <div class="setup-notes">
-            {#if selectedVehicle.footnotes && selectedVehicle.footnotes.length > 0}
+            {#if selectedVehicle.setup_notes && selectedVehicle.setup_notes.length > 0}
               <p class="note-heading">Setup Notes:</p>
               <ul>
-                {#each selectedVehicle.footnotes as note}
+                {#each selectedVehicle.setup_notes as note}
                   <li>{@html note}</li>
                 {/each}
               </ul>
