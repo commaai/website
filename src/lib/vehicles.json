@@ -162,7 +162,6 @@
       "footnotes": [
       ],
       "setup_notes": [
-        "See more setup details for \u003ca href=\"https://github.com/commaai/openpilot/wiki/gm\"\u003eGM\u003c/a\u003e."
       ]
     },
     {
@@ -179,7 +178,6 @@
       "footnotes": [
       ],
       "setup_notes": [
-        "See more setup details for \u003ca href=\"https://github.com/commaai/openpilot/wiki/gm\"\u003eGM\u003c/a\u003e."
       ]
     },
     {
@@ -196,7 +194,6 @@
       "footnotes": [
       ],
       "setup_notes": [
-        "See more setup details for \u003ca href=\"https://github.com/commaai/openpilot/wiki/gm\"\u003eGM\u003c/a\u003e."
       ]
     },
     {
@@ -213,7 +210,6 @@
       "footnotes": [
       ],
       "setup_notes": [
-        "See more setup details for \u003ca href=\"https://github.com/commaai/openpilot/wiki/gm\"\u003eGM\u003c/a\u003e."
       ]
     },
     {
@@ -230,7 +226,6 @@
       "footnotes": [
       ],
       "setup_notes": [
-        "See more setup details for \u003ca href=\"https://github.com/commaai/openpilot/wiki/gm\"\u003eGM\u003c/a\u003e."
       ]
     }
   ],
@@ -927,7 +922,6 @@
       "footnotes": [
       ],
       "setup_notes": [
-        "See more setup details for \u003ca href=\"https://github.com/commaai/openpilot/wiki/gm\"\u003eGM\u003c/a\u003e."
       ]
     }
   ],
@@ -3124,7 +3118,7 @@
       "footnotes": [
       ],
       "setup_notes": [
-        "See more setup details for \u003ca href=\"https://github.com/commaai/openpilot/wiki/nissan\"\u003eNissan\u003c/a\u003e."
+        "See more setup details for \u003ca href=\"https://github.com/commaai/openpilot/wiki/nissan\" target=\"_blank\"\u003eNissan\u003c/a\u003e."
       ]
     },
     {
@@ -3141,7 +3135,7 @@
       "footnotes": [
       ],
       "setup_notes": [
-        "See more setup details for \u003ca href=\"https://github.com/commaai/openpilot/wiki/nissan\"\u003eNissan\u003c/a\u003e."
+        "See more setup details for \u003ca href=\"https://github.com/commaai/openpilot/wiki/nissan\" target=\"_blank\"\u003eNissan\u003c/a\u003e."
       ]
     },
     {
@@ -3158,7 +3152,7 @@
       "footnotes": [
       ],
       "setup_notes": [
-        "See more setup details for \u003ca href=\"https://github.com/commaai/openpilot/wiki/nissan\"\u003eNissan\u003c/a\u003e."
+        "See more setup details for \u003ca href=\"https://github.com/commaai/openpilot/wiki/nissan\" target=\"_blank\"\u003eNissan\u003c/a\u003e."
       ]
     },
     {
@@ -3175,7 +3169,7 @@
       "footnotes": [
       ],
       "setup_notes": [
-        "See more setup details for \u003ca href=\"https://github.com/commaai/openpilot/wiki/nissan\"\u003eNissan\u003c/a\u003e."
+        "See more setup details for \u003ca href=\"https://github.com/commaai/openpilot/wiki/nissan\" target=\"_blank\"\u003eNissan\u003c/a\u003e."
       ]
     }
   ],
@@ -3206,7 +3200,7 @@
       "package": "All",
       "angled_mount": true,
       "video_link": "",
-      "setup_video_link": "https://youtu.be/SKxizuv2Mk0",
+      "setup_video_link": "https://youtu.be/uaISd1j7Z4U",
       "harness_connector": "Rivian A",
       "detail_sentence": "openpilot upgrades your <strong>Rivian R1S</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -3222,7 +3216,7 @@
       "package": "All",
       "angled_mount": true,
       "video_link": "",
-      "setup_video_link": "https://youtu.be/SKxizuv2Mk0",
+      "setup_video_link": "https://youtu.be/uaISd1j7Z4U",
       "harness_connector": "Rivian A",
       "detail_sentence": "openpilot upgrades your <strong>Rivian R1T</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [

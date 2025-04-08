@@ -4,6 +4,7 @@
   import LinkButton from "$lib/components/LinkButton.svelte";
   import Faq from "$lib/components/Faq.svelte";
   import HarnessSelector from "$lib/components/HarnessSelector/HarnessSelector.svelte";
+  import CheckmarkIcon from "$lib/icons/ui/checkmark.svg?raw";
 
   import { faq } from "$lib/constants/faq.svelte";
 
