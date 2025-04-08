@@ -10,6 +10,7 @@
       "package": "{{ car.package }}",
       "angled_mount": {{ (Device.threex_angled_mount in car.car_parts.parts) | tojson }},
       "video_link": "{{ car.video_link or "" }}",
+      "setup_video_link": "{{ car.setup_video_link or "" }}",
       {% set harness_connector = car.car_parts.parts | selectattr('part_type', 'eq', PartType.connector) | first %}
       "harness_connector": "{{ harness_connector.value.name.replace(' connector','') if harness_connector else "" }}",
       "detail_sentence": "{{ car.detail_sentence }}",

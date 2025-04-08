@@ -5,7 +5,7 @@
 
   import { tick } from 'svelte';
   import { clickOutside } from '$lib/utils/clickOutside';
-  import { harnessesReady, allHarnesses, vehicleHarnesses, genericHarnesses } from '$lib/utils/harnesses';
+  import { allHarnesses, vehicleHarnesses, genericHarnesses } from '$lib/utils/harnesses';
 
   import NoteCard from '$lib/components/NoteCard.svelte';
   import DropdownItem from './HarnessDropdownItem.svelte';
@@ -23,20 +23,13 @@
   export let showGenericHarnesses = true; // If true, includes the generic/developer harnesses
   export let hideSupportNoteCard = false;
 
-  let selection = null
-  let isSelectionInitialized = false;
+  let selection = undefined
 
   // Load harnesses based on the options
   $: harnesses = showVehicleHarnesses && showGenericHarnesses ? allHarnesses : showVehicleHarnesses ? vehicleHarnesses : genericHarnesses;
-
-  // When harnesses are ready, set the initial selection
-  $: if (browser && $harnessesReady && !isSelectionInitialized) {
-    setInitialSelection();
-    isSelectionInitialized = true;
-  }
-
-  // When selection changes, notify parent and update URL
-  $: if (isSelectionInitialized) {
+  $: if (browser && $harnesses.length > 0) setInitialSelection();
+  $: if (selection !== undefined) {
+    // Don't update w/ initial state
     onChange(selection);
     updateQueryParams(selection);
   }
@@ -54,11 +47,8 @@
   }
 
   const setInitialSelection = () => {
-    const carParam = $page.url.searchParams.get('harness');
-    if (carParam) {
-      const carName = decodeURIComponent(carParam);
-      selection = $harnesses.find(harness => harness.car === carName) ?? null;
-    }
+    let carName = decodeURIComponent($page.url.searchParams.get('harness'));
+    selection = $harnesses.find(harness => harness.car === carName) ?? null;
   }
 
   /* Filtered Dropdown */

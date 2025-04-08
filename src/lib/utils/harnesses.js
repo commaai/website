@@ -17,8 +17,6 @@ async function fetchHarnessVariants() {
 }
 
 let initialized = false;
-const harnessesReady = writable(false);  // Track initialization status
-
 const vehicleHarnesses = writable([]); // List of vehicle model harnesses, excluding developer and generic make harnesses
 const genericHarnesses = writable([]); // List of developer and generic make harnesses
 const allHarnesses = writable([]); // List of all vehicle model harnesses, including developer and generic make harnesses
@@ -46,6 +44,7 @@ async function initializeHarnesses() {
         angledMount: model.angled_mount,
         backordered: harness?.backordered,  // these overrides are only shown if the harness is out of stock in Shopify
         setupNotes: model.setup_notes,
+        setupVideo: model.setup_video_link,
       };
     }).filter(Boolean);
   });
@@ -67,9 +66,8 @@ async function initializeHarnesses() {
   allHarnesses.set(allHarnessList);
 
   initialized = true;
-  harnessesReady.set(true);
 }
 
 initializeHarnesses();
 
-export { harnessesReady, allHarnesses, vehicleHarnesses, genericHarnesses };
+export { allHarnesses, vehicleHarnesses, genericHarnesses };
