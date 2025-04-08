@@ -78,7 +78,7 @@
                   </div>
                 </div>
               {/if}
-              {#if selectedVehicle.setupNotes && selectedVehicle.setupNotes.length > 0}
+              {#if selectedVehicle.setupNotes.length > 0}
                 <div>
                   <p class="note-heading">Setup Notes:</p>
                   <ul>
@@ -88,7 +88,7 @@
                   </ul>
                 </div>
               {/if}
-              {#if (!selectedVehicle.setupNotes || selectedVehicle.setupNotes.length === 0) && !selectedVehicle.setupVideo}
+              {#if (selectedVehicle.setupNotes.length === 0) && !selectedVehicle.setupVideo}
                 <div style="display: flex; align-items: center">
                   <div style="display: flex;">{@html CheckmarkIcon}</div>
                   <div style="margin-right: 0.5rem"/>
