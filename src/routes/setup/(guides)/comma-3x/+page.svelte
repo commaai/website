@@ -296,10 +296,6 @@
     margin-top: 1rem;
     font-size: 1.25rem;
 
-    @media screen and (max-width: 1024px) {
-      font-size: 1rem;
-    }
-
     & p {
       margin: 0.25rem 0 0;
     }
