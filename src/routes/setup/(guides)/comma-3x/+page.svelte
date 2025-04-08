@@ -90,7 +90,7 @@
                   src={getVideoEmbedSrc(selectedVehicle.setupVideo)}
                   frameborder="0"
                   allow="autoplay; encrypted-media"
-                  allowfullscreen=""
+                  allowfullscreen
                   title={`${selectedVehicle.car} setup guide`}
                 ></iframe>
               </div>
