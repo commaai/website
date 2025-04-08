@@ -89,7 +89,11 @@
                 </div>
               {/if}
               {#if (!selectedVehicle.setupNotes || selectedVehicle.setupNotes.length === 0) && !selectedVehicle.setupVideo}
-                <p>No specific setup notes for this vehicle.</p>
+                <div style="display: flex; align-items: center">
+                  <div style="display: flex;">{@html CheckmarkIcon}</div>
+                  <div style="margin-right: 0.5rem"/>
+                  <p>Follow the guide below. There are no specific setup notes for your vehicle.</p>
+                </div>
               {/if}
             </Grid>
           </div>
