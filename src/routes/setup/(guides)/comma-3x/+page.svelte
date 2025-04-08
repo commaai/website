@@ -53,7 +53,7 @@
     <div class="card vehicle-notes">
       <div class="header">Customize Your Guide</div>
       <div class="contents">
-        <p>Select your vehicle to get customized installation notes for your car:</p>
+        <p>Select your vehicle to get customized installation notes:</p>
         <HarnessSelector
           label="Select your vehicle"
           placeholder="Search for your vehicle"
@@ -92,7 +92,7 @@
                 <div style="display: flex; align-items: center">
                   <div style="display: flex;">{@html CheckmarkIcon}</div>
                   <div style="margin-right: 0.5rem"/>
-                  <p>Follow the guide below. There are no setup notes for your vehicle.</p>
+                  <p>Follow the guide below. There are no specific setup notes for your vehicle.</p>
                 </div>
               {/if}
             </Grid>
