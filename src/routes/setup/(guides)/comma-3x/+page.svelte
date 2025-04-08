@@ -28,6 +28,7 @@
   let selectedVehicle = null;
   const handleHarnessSelection = (value) => {
     selectedVehicle = value;
+    console.log('selectedVehicle', selectedVehicle);
   }
 </script>
 
