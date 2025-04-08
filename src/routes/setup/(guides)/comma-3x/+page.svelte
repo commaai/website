@@ -25,7 +25,7 @@
   import StepSevenImage from "$lib/images/setup/comma-3x/step-7.jpeg";
   import CommaPowerImage from "$lib/images/products/comma-power/comma-power.jpg";
 
-  let selectedVehicle = null;
+  let selectedVehicle = undefined;
   const handleHarnessSelection = (value) => {
     selectedVehicle = value;
   }
