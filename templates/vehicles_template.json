@@ -15,7 +15,12 @@
       "harness_connector": "{{ harness_connector.value.name.replace(' connector','') if harness_connector else "" }}",
       "detail_sentence": "{{ car.detail_sentence }}",
       "footnotes": [
-        {% for footnote in car.footnotes if not footnote.value.docs_only %}
+        {% for footnote in car.footnotes if not footnote.value.docs_only and not footnote.value.setup_note %}
+        {{ footnote.value.text | tojson }}{{ "" if loop.last else "," }}
+        {% endfor %}
+      ],
+      "setup_notes": [
+        {% for footnote in car.footnotes if footnote.value.setup_note %}
         {{ footnote.value.text | tojson }}{{ "" if loop.last else "," }}
         {% endfor %}
       ]
