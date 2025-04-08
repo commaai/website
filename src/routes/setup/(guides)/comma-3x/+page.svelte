@@ -64,7 +64,7 @@
               </ul>
             {:else}
               <div style="display: flex; align-items: center">
-                {@html CheckmarkIcon}<div style="margin-right: 0.5rem"/>
+                <div style="display: flex;">{@html CheckmarkIcon}</div><div style="margin-right: 0.5rem"/>
                 <p>Follow the guide below. There are no specific setup notes for your vehicle.</p>
               </div>
             {/if}
