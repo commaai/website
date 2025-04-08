@@ -63,45 +63,43 @@
 
     <div class="card vehicle-notes">
       <div class="header">Customize Your Guide</div>
-      <div class="contents-grid">
-        <div class="contents">
-          <p>Select your vehicle to get customized installation notes for your specific car:</p>
-          <HarnessSelector
-            label="Select your vehicle"
-            placeholder="Search for your vehicle"
-            onChange={handleHarnessSelection}
-            showGenericHarnesses={false}
-            hideSupportNoteCard={true}
-          />
+      <div class="contents">
+        <p>Select your vehicle to get customized installation notes for your specific car:</p>
+        <HarnessSelector
+          label="Select your vehicle"
+          placeholder="Search for your vehicle"
+          onChange={handleHarnessSelection}
+          showGenericHarnesses={false}
+          hideSupportNoteCard={true}
+        />
 
-          {#if selectedVehicle}
-            <div class="setup-notes">
-              {#if selectedVehicle.setupNotes && selectedVehicle.setupNotes.length > 0}
-                <p class="note-heading">Setup Notes:</p>
-                <ul>
-                  {#each selectedVehicle.setupNotes as note}
-                    <li>{@html note}</li>
-                  {/each}
-                </ul>
-              {/if}
-              {#if selectedVehicle.setupVideo}
-                <p class="note-heading">Setup Video:</p>
-                <div class="media-container">
-                  <iframe
-                    src={getVideoEmbedSrc(selectedVehicle.setupVideo)}
-                    frameborder="0"
-                    allow="autoplay; encrypted-media"
-                    allowfullscreen=""
-                    title={`${selectedVehicle.car} setup guide`}
-                  ></iframe>
-                </div>
-              {/if}
-              {#if (!selectedVehicle.setupNotes || selectedVehicle.setupNotes.length === 0) && !selectedVehicle.setupVideo}
-                <p>No specific setup notes for this vehicle.</p>
-              {/if}
-            </div>
-          {/if}
-        </div>
+        {#if selectedVehicle}
+          <div class="setup-notes">
+            {#if selectedVehicle.setupNotes && selectedVehicle.setupNotes.length > 0}
+              <p class="note-heading">Setup Notes:</p>
+              <ul>
+                {#each selectedVehicle.setupNotes as note}
+                  <li>{@html note}</li>
+                {/each}
+              </ul>
+            {/if}
+            {#if selectedVehicle.setupVideo}
+              <p class="note-heading">Setup Video:</p>
+              <div class="media-container">
+                <iframe
+                  src={getVideoEmbedSrc(selectedVehicle.setupVideo)}
+                  frameborder="0"
+                  allow="autoplay; encrypted-media"
+                  allowfullscreen=""
+                  title={`${selectedVehicle.car} setup guide`}
+                ></iframe>
+              </div>
+            {/if}
+            {#if (!selectedVehicle.setupNotes || selectedVehicle.setupNotes.length === 0) && !selectedVehicle.setupVideo}
+              <p>No specific setup notes for this vehicle.</p>
+            {/if}
+          </div>
+        {/if}
       </div>
     </div>
 
