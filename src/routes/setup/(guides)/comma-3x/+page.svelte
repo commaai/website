@@ -37,10 +37,6 @@
       return null;
     }
     const videoId = url.searchParams.get("v") || url.pathname.slice(1);
-    if (!videoId) {
-      console.warn("Video not supported", videoLink);
-      return null;
-    }
     return `https://www.youtube.com/embed/${videoId}?rel=0&controls=1&autoplay=0&mute=0`;
   }
 </script>
