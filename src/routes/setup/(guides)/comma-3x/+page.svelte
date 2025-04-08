@@ -32,23 +32,12 @@
 
   function getVideoEmbedSrc(videoLink) {
     const url = new URL(videoLink);
-
-    let videoId, timestamp;
-    if (url.hostname === "www.youtube.com") {
-      videoId = url.searchParams.get("v");
-      timestamp = url.searchParams.get("t");
-    } else if (url.hostname === "youtu.be") {
-      videoId = url.pathname.slice(1);
-      timestamp = url.searchParams.get("t");
-    }
+    const videoId = url.searchParams.get("v") || url.pathname.slice(1);
     if (!videoId) {
       console.warn("Video not supported", videoLink);
       return null;
     }
-
-    const newUrl = `https://www.youtube.com/embed/${videoId}?rel=0&controls=1&autoplay=0&mute=0`
-    if (timestamp) newUrl.searchParams.set("start", timestamp);
-    return newUrl.toString();
+    return `https://www.youtube.com/embed/${videoId}?rel=0&controls=1&autoplay=0&mute=0`;
   }
 </script>
 
