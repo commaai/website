@@ -32,6 +32,10 @@
 
   function getVideoEmbedSrc(videoLink) {
     const url = new URL(videoLink);
+    if (url.hostname !== "youtu.be" && url.hostname !== "www.youtube.com") {
+      console.warn("Video not supported", videoLink);
+      return null;
+    }
     const videoId = url.searchParams.get("v") || url.pathname.slice(1);
     if (!videoId) {
       console.warn("Video not supported", videoLink);
