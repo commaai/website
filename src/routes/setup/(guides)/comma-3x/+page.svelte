@@ -44,7 +44,7 @@
     <div class="card vehicle-notes">
       <div class="header">Customize Your Guide</div>
       <div class="contents">
-        <p>Select your vehicle to get customized installation notes for your specific car:</p>
+        <p>Select your vehicle to get customized installation notes for your car:</p>
         <HarnessSelector
           label="Select your vehicle"
           placeholder="Search for your vehicle"
