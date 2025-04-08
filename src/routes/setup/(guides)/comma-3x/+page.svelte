@@ -4,6 +4,7 @@
   import LinkButton from "$lib/components/LinkButton.svelte";
   import Faq from "$lib/components/Faq.svelte";
   import HarnessSelector from "$lib/components/HarnessSelector/HarnessSelector.svelte";
+  import CheckmarkIcon from "$lib/icons/ui/checkmark.svg?raw";
 
   import { faq } from "$lib/constants/faq.svelte";
 
@@ -61,7 +62,10 @@
                 {/each}
               </ul>
             {:else}
-              <p>No specific setup notes for this vehicle.</p>
+              <div style="display: flex; align-items: center">
+                {@html CheckmarkIcon}<div style="margin-right: 0.5rem"/>
+                <p>Follow the guide below. There are no specific setup notes for your vehicle.</p>
+              </div>
             {/if}
           </div>
         {/if}
