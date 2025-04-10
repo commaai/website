@@ -1040,6 +1040,38 @@
       ]
     },
     {
+      "name": "Honda Civic Hatchback Hybrid 2023 (Europe only)",
+      "model": "Civic Hatchback Hybrid 2023 (Europe only)",
+      "years": "",
+      "year_list": "",
+      "package": "All",
+      "angled_mount": false,
+      "video_link": "",
+      "setup_video_link": "",
+      "harness_connector": "Honda Bosch B",
+      "detail_sentence": "openpilot upgrades your <strong>Honda Civic Hatchback Hybrid 2023 (Europe only)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
+      "footnotes": [
+      ],
+      "setup_notes": [
+      ]
+    },
+    {
+      "name": "Honda Civic Hatchback Hybrid 2025",
+      "model": "Civic Hatchback Hybrid",
+      "years": "2025",
+      "year_list": "2025",
+      "package": "All",
+      "angled_mount": false,
+      "video_link": "",
+      "setup_video_link": "",
+      "harness_connector": "Honda Bosch B",
+      "detail_sentence": "openpilot upgrades your <strong>Honda Civic Hatchback Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
+      "footnotes": [
+      ],
+      "setup_notes": [
+      ]
+    },
+    {
       "name": "Honda CR-V 2015-16",
       "model": "CR-V",
       "years": "2015-16",
