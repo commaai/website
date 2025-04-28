@@ -1184,10 +1184,10 @@
       ]
     },
     {
-      "name": "Honda HR-V 2023",
+      "name": "Honda HR-V 2023-25",
       "model": "HR-V",
-      "years": "2023",
-      "year_list": "2023",
+      "years": "2023-25",
+      "year_list": "2023, 2024, 2025",
       "package": "All",
       "angled_mount": false,
       "video_link": "",
