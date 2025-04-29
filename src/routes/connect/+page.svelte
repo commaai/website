@@ -11,7 +11,6 @@
 
   import RecordingsIcon from "$lib/icons/features/recordings.svg?raw";
   import TwentyFourSevenIcon from "$lib/icons/features/twenty-four-seven.png";
-  import LocationIcon from "$lib/icons/features/location.svg?raw";
   import MarkerIcon from "$lib/icons/features/marker.png";
   import SnapshotIcon from "$lib/icons/features/snapshot.png";
   import CommandLineIcon from "$lib/icons/features/command-line.svg?raw";
@@ -38,10 +37,9 @@
     </div>
 
     <div class="features-banner">
-      <Grid columns={6} columnGap="2rem" size="medium">
+      <Grid columns={5} columnGap="2rem" size="medium">
         <div class="icon">{@html RecordingsIcon}</div>
         <div class="icon"><img src={TwentyFourSevenIcon} loading="lazy" alt=""></div>
-        <div class="icon">{@html LocationIcon}</div>
         <div class="icon"><img src={MarkerIcon} loading="lazy" alt=""></div>
         <div class="icon"><img src={SnapshotIcon} loading="lazy" alt=""></div>
         <div class="icon">{@html CommandLineIcon}</div>
@@ -90,21 +88,6 @@
           <hgroup>
             <div>24/7 connectivity</div>
             <span class="muted">Always-on. Always LTE connected.</span>
-          </hgroup>
-        </div>
-        <div class="content">
-          <div class="check">{@html CheckmarkIcon}</div>
-        </div>
-        <div class="content">
-          <div class="cross">{@html CloseIcon}</div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="feature-overview">
-          <div class="icon">{@html LocationIcon}</div>
-          <hgroup>
-            <div>Turn-by-turn navigation</div>
-            <span class="muted">Input an address on comma connect and get turn-by-turn directions displayed on your device.</span>
           </hgroup>
         </div>
         <div class="content">
@@ -171,7 +154,6 @@
       <ul class="checkmark-list">
         <li>24/7 connectivity</li>
         <li>Live GPS tracking</li>
-        <li>Turn-by-turn navigation</li>
         <li>Take pictures remotely</li>
         <li>1 year storage of drive videos</li>
         <li>Simple SSH for developers</li>
