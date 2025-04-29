@@ -35,11 +35,9 @@
   let onProceed;
   let beforeAddToCart = (addToCart) => {
     onProceed = () => {
-      console.log("onProceed");
       addToCart();
       showDisclaimerModal = false;
     }
-    console.log("additionalProductIds", additionalProductIds);
     if (additionalProductIds.length === 0 || backordered) {
       showDisclaimerModal = true;
     } else {
