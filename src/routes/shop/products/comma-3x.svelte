@@ -35,10 +35,16 @@
   let onProceed;
   let beforeAddToCart = (addToCart) => {
     onProceed = () => {
+      console.log("onProceed");
       addToCart();
       showDisclaimerModal = false;
     }
-    showDisclaimerModal = true;
+    console.log("additionalProductIds", additionalProductIds);
+    if (additionalProductIds.length === 0 || backordered) {
+      showDisclaimerModal = true;
+    } else {
+      addToCart();
+    }
   }
 
   let getCartNote = () => {
@@ -165,10 +171,6 @@
       You currently have no car harness selected.
     </p>
   {/if}
-  <p class="disclaimer">
-    The comma 3X does not ship with any software.
-    Once you have the device you will be able to install any software you choose at your own risk.
-  </p>
   {#if backordered}
     <p class="disclaimer warning">
       The car harness you have selected is currently backordered.
