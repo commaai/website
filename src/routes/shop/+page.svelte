@@ -62,7 +62,7 @@
         </Grid>
       </div>
       <div class="traits light">
-        <Grid columns={3} alignItems="stretch" columnGap="0" rowGap="0" wrapMode="single">
+        <Grid columns={3} alignItems="stretch" columnGap="0" rowGap="0">
           <div class="trait">
             <div>{@html RecordingsIcon}</div>
             <hgroup>

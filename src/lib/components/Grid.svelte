@@ -24,7 +24,7 @@
     --align-items: {alignItems};
     --column-gap: {columnGap};
     --row-gap: {rowGap};
-    --wrapped-columns: {wrapMode === 'single' ? 1 : (wrapMode === 'half' ? Math.ceil(columns / 2) : columns)};
+    --wrapped-columns: {wrapMode === 'single' ? 1 : (wrapMode === 'half' ? columns / 2 : columns)};
     --template-columns: {templateColumns};
 
     --lg-column-gap: {lgColumnGap ?? columnGap};
