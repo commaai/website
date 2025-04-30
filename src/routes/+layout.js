@@ -9,7 +9,7 @@ export async function load({ fetch }) {
     .then((str) => new XMLParser().parse(str))
     .then((data) => {
       const blogPosts = data.rss.channel.item
-        .map(({ title, guid, pubDate, readTime }) => {
+        .map(({ title, guid, pubDate, "cb:readTime": readTime }) => {
           const date = new Date(pubDate).toLocaleDateString("en-US", {
             year: "numeric",
             month: "long",
