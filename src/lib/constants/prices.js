@@ -1,7 +1,7 @@
 // for prices that are referenced on multiple pages
 
 // turns price red
-export const THREEX_SALE = true;
+export const THREEX_SALE = false;
 // set to previous price during sales
 export const THREEX_STRIKETHROUGH_PRICE = null;
 
