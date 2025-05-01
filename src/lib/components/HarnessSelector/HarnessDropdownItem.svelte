@@ -15,7 +15,7 @@
     {/if}
   </div>
   <div class="accessory-label">
-    <slot/>
+    <slot name="accessoryLabel"/>
   </div>
 </div>
 
