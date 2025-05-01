@@ -37,7 +37,7 @@
       <div class="product-display scenic-background">
         <Grid columns={2} alignItems="center" size="large">
           <div class="product-content">
-            <Badge style="accent">New low price!</Badge>
+            <Badge style="accent">$99 off with car harness!</Badge>
             <hgroup>
               <h1>comma 3X</h1>
               <span>

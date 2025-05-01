@@ -1,7 +1,7 @@
-<a href="/jobs.html" target="_blank" class="banner">
+<a href="/shop/comma-3x" class="banner">
   <div class="wrapper">
     <strong class="headline">
-      We're hiring! Come build the future of self-driving cars.
+      FLASH SALE: TAKE $99 OFF A COMMA 3X WITH CAR HARNESS
     </strong>
   </div>
 </a>
