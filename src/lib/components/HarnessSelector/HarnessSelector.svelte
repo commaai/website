@@ -117,7 +117,9 @@
     {:else}
       <div class="selection-placeholder" on:click={handleSelectClick} on:keydown={handleSelectKeyDown} role="button" tabindex="0">
         <div class="label">{label}</div>
-        <slot name="accessoryLabel"/>
+        <div class="accessory">
+          <slot name="accessoryLabel"/>
+        </div>
       </div>
     {/if}
     <span class="chevron">{@html ChevronIcon}</span>
