@@ -18,7 +18,6 @@
 
   export let label = "Select vehicle";
   export let placeholder = "Search for a vehicle or harness";
-  export let accessoryLabel = null;
   export let showVehicleHarnesses = true; // If true, includes the harnesses by each vehicle model
   export let showGenericHarnesses = true; // If true, includes the generic/developer harnesses
   export let hideSupportNoteCard = false;
@@ -112,14 +111,13 @@
         on:click={handleSelectClick}
         on:keydown={handleSelectKeyDown}
         selected={true}
-        accessoryLabel={accessoryLabel}
-      />
+      >
+        <slot name="accessoryLabel"/>
+      </DropdownItem>
     {:else}
       <div class="selection-placeholder" on:click={handleSelectClick} on:keydown={handleSelectKeyDown} role="button" tabindex="0">
         <div class="label">{label}</div>
-        {#if accessoryLabel}
-          <div class="accessory">{accessoryLabel}</div>
-        {/if}
+        <slot name="accessoryLabel"/>
       </div>
     {/if}
     <span class="chevron">{@html ChevronIcon}</span>

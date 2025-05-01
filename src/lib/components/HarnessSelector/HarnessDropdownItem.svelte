@@ -1,7 +1,6 @@
 <script>
   export let value;
   export let selected = false;
-  export let accessoryLabel = null;
 </script>
 
 <div class="dropdown-item" role="option" aria-selected={selected} on:click on:keydown tabindex="0">
@@ -15,11 +14,9 @@
       </div>
     {/if}
   </div>
-  {#if accessoryLabel}
-    <div class="accessory-label">
-      {accessoryLabel}
-    </div>
-  {/if}
+  <div class="accessory-label">
+    <slot/>
+  </div>
 </div>
 
 <style>
