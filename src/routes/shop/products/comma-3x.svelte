@@ -15,7 +15,7 @@
   import MoneyBackGuaranteeIcon from "$lib/icons/features/money-back-guarantee.svg?raw";
   import WarrantyIcon from "$lib/icons/features/warranty.svg?raw";
 
-  import { THREEX_PRICE, THREEX_AFFIRM_PRICE, THREEX_SALE, THREEX_STRIKETHROUGH_PRICE, CAR_HARNESS_PRICE } from '$lib/constants/prices.js';
+  import { THREEX_PRICE, THREEX_AFFIRM_PRICE, THREEX_SALE, THREEX_STRIKETHROUGH_PRICE, CAR_HARNESS_PRICE, CAR_HARNESS_SALE, CAR_HARNESS_STRIKETHROUGH_PRICE } from '$lib/constants/prices.js';
 
   export const productInfo = {
     title: "comma 3X",
@@ -99,9 +99,18 @@
     <strong>Select a harness to connect the comma 3X to your car.</strong>
     <HarnessSelector
       label="Add harness for your vehicle"
-      accessoryLabel="+${CAR_HARNESS_PRICE}"
       onChange={handleHarnessSelection}
-    />
+    >
+      <div slot="accessoryLabel" class="harness-price">
+        <div class="strikethrough-price">
+          +${CAR_HARNESS_STRIKETHROUGH_PRICE}
+        </div>
+        <div style="width: 0.75rem;"/>
+        <div class:sale-price={CAR_HARNESS_SALE}>
+          {CAR_HARNESS_PRICE}
+        </div>
+      </div>
+    </HarnessSelector>
     <NoteCard title="Upgrading from another comma device?">
       You do not need a new car harness.
     </NoteCard>
@@ -185,6 +194,10 @@
 
   .badge {
     margin: 1rem 0;
+  }
+
+  .harness-price {
+    display: flex;
   }
 
   .label {
