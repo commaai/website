@@ -633,7 +633,7 @@
         }, {
           question: 'Do you offer any upgrades or trade-in discounts for the comma two or three?',
           answer: `
-            comma three -> 3X trade-in details can be <a href="/shop/comma-three-3x-trade-in">found here</a>.
+            comma three -> 3X trade-in details can be <a href="/shop/comma-3x-trade-in">found here</a>.
           `
         }, {
           question: 'What do I need to know before making an international order?',

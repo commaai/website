@@ -23,7 +23,7 @@ const componentOrder = [
   'comma-ai-t-shirt',
   'comma-power-extender',
   'comma-device-screen',
-  'comma-three-3x-trade-in',
+  'comma-3x-trade-in',
   'comma-3x-out-of-warranty-repair',
 ];
 
