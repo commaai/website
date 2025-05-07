@@ -1,11 +1,27 @@
 {
   "Acura": [
     {
-      "name": "Acura ILX 2016-19",
+      "name": "Acura ILX 2016-18",
       "model": "ILX",
-      "years": "2016-19",
-      "year_list": "2016, 2017, 2018, 2019",
-      "package": "AcuraWatch Plus",
+      "years": "2016-18",
+      "year_list": "2016, 2017, 2018",
+      "package": "Technology Plus Package or AcuraWatch Plus",
+      "angled_mount": false,
+      "video_link": "",
+      "setup_video_link": "",
+      "harness_connector": "Honda Nidec",
+      "detail_sentence": "openpilot upgrades your <strong>Acura ILX</strong> with automated lane centering and adaptive cruise control <strong>while driving above 26 mph</strong>. This car may not be able to take tight turns on its own. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "footnotes": [
+      ],
+      "setup_notes": [
+      ]
+    },
+    {
+      "name": "Acura ILX 2019",
+      "model": "ILX",
+      "years": "2019",
+      "year_list": "2019",
+      "package": "All",
       "angled_mount": false,
       "video_link": "",
       "setup_video_link": "",
@@ -399,6 +415,22 @@
       ]
     },
     {
+      "name": "Ford Escape 2023-24",
+      "model": "Escape",
+      "years": "2023-24",
+      "year_list": "2023, 2024",
+      "package": "Co-Pilot360 Assist+",
+      "angled_mount": false,
+      "video_link": "",
+      "setup_video_link": "https://www.youtube.com/watch?v=uUGkH6C_EQU",
+      "harness_connector": "Ford Q4",
+      "detail_sentence": "openpilot upgrades your <strong>Ford Escape</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
+      "footnotes": [
+      ],
+      "setup_notes": [
+      ]
+    },
+    {
       "name": "Ford Escape Hybrid 2020-22",
       "model": "Escape Hybrid",
       "years": "2020-22",
@@ -415,6 +447,22 @@
       ]
     },
     {
+      "name": "Ford Escape Hybrid 2023-24",
+      "model": "Escape Hybrid",
+      "years": "2023-24",
+      "year_list": "2023, 2024",
+      "package": "Co-Pilot360 Assist+",
+      "angled_mount": false,
+      "video_link": "",
+      "setup_video_link": "https://www.youtube.com/watch?v=uUGkH6C_EQU",
+      "harness_connector": "Ford Q4",
+      "detail_sentence": "openpilot upgrades your <strong>Ford Escape Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
+      "footnotes": [
+      ],
+      "setup_notes": [
+      ]
+    },
+    {
       "name": "Ford Escape Plug-in Hybrid 2020-22",
       "model": "Escape Plug-in Hybrid",
       "years": "2020-22",
@@ -425,6 +473,22 @@
       "setup_video_link": "",
       "harness_connector": "Ford Q3",
       "detail_sentence": "openpilot upgrades your <strong>Ford Escape Plug-in Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "footnotes": [
+      ],
+      "setup_notes": [
+      ]
+    },
+    {
+      "name": "Ford Escape Plug-in Hybrid 2023-24",
+      "model": "Escape Plug-in Hybrid",
+      "years": "2023-24",
+      "year_list": "2023, 2024",
+      "package": "Co-Pilot360 Assist+",
+      "angled_mount": false,
+      "video_link": "",
+      "setup_video_link": "https://www.youtube.com/watch?v=uUGkH6C_EQU",
+      "harness_connector": "Ford Q4",
+      "detail_sentence": "openpilot upgrades your <strong>Ford Escape Plug-in Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
       ],
       "setup_notes": [
@@ -470,7 +534,7 @@
       "package": "Co-Pilot360 Assist 2.0",
       "angled_mount": true,
       "video_link": "",
-      "setup_video_link": "",
+      "setup_video_link": "https://www.youtube.com/watch?v=uUGkH6C_EQU",
       "harness_connector": "Ford Q4",
       "detail_sentence": "openpilot upgrades your <strong>Ford F-150</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -486,7 +550,7 @@
       "package": "Co-Pilot360 Assist 2.0",
       "angled_mount": true,
       "video_link": "",
-      "setup_video_link": "",
+      "setup_video_link": "https://www.youtube.com/watch?v=uUGkH6C_EQU",
       "harness_connector": "Ford Q4",
       "detail_sentence": "openpilot upgrades your <strong>Ford F-150 Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -529,10 +593,10 @@
       ]
     },
     {
-      "name": "Ford Kuga 2020-22",
+      "name": "Ford Kuga 2020-23",
       "model": "Kuga",
-      "years": "2020-22",
-      "year_list": "2020, 2021, 2022",
+      "years": "2020-23",
+      "year_list": "2020, 2021, 2022, 2023",
       "package": "Adaptive Cruise Control with Lane Centering",
       "angled_mount": false,
       "video_link": "",
@@ -545,10 +609,10 @@
       ]
     },
     {
-      "name": "Ford Kuga Hybrid 2020-22",
+      "name": "Ford Kuga Hybrid 2020-23",
       "model": "Kuga Hybrid",
-      "years": "2020-22",
-      "year_list": "2020, 2021, 2022",
+      "years": "2020-23",
+      "year_list": "2020, 2021, 2022, 2023",
       "package": "Adaptive Cruise Control with Lane Centering",
       "angled_mount": false,
       "video_link": "",
@@ -561,16 +625,48 @@
       ]
     },
     {
-      "name": "Ford Kuga Plug-in Hybrid 2020-22",
+      "name": "Ford Kuga Hybrid 2024",
+      "model": "Kuga Hybrid",
+      "years": "2024",
+      "year_list": "2024",
+      "package": "All",
+      "angled_mount": false,
+      "video_link": "",
+      "setup_video_link": "https://www.youtube.com/watch?v=uUGkH6C_EQU",
+      "harness_connector": "Ford Q4",
+      "detail_sentence": "openpilot upgrades your <strong>Ford Kuga Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
+      "footnotes": [
+      ],
+      "setup_notes": [
+      ]
+    },
+    {
+      "name": "Ford Kuga Plug-in Hybrid 2020-23",
       "model": "Kuga Plug-in Hybrid",
-      "years": "2020-22",
-      "year_list": "2020, 2021, 2022",
+      "years": "2020-23",
+      "year_list": "2020, 2021, 2022, 2023",
       "package": "Adaptive Cruise Control with Lane Centering",
       "angled_mount": false,
       "video_link": "",
       "setup_video_link": "",
       "harness_connector": "Ford Q3",
       "detail_sentence": "openpilot upgrades your <strong>Ford Kuga Plug-in Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "footnotes": [
+      ],
+      "setup_notes": [
+      ]
+    },
+    {
+      "name": "Ford Kuga Plug-in Hybrid 2024",
+      "model": "Kuga Plug-in Hybrid",
+      "years": "2024",
+      "year_list": "2024",
+      "package": "All",
+      "angled_mount": false,
+      "video_link": "",
+      "setup_video_link": "https://www.youtube.com/watch?v=uUGkH6C_EQU",
+      "harness_connector": "Ford Q4",
+      "detail_sentence": "openpilot upgrades your <strong>Ford Kuga Plug-in Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
       ],
       "setup_notes": [
@@ -648,7 +744,7 @@
       "package": "All",
       "angled_mount": false,
       "video_link": "",
-      "setup_video_link": "",
+      "setup_video_link": "https://www.youtube.com/watch?v=uUGkH6C_EQU",
       "harness_connector": "Ford Q4",
       "detail_sentence": "openpilot upgrades your <strong>Ford Mustang Mach-E</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -664,7 +760,7 @@
       "package": "Adaptive Cruise Control with Lane Centering",
       "angled_mount": false,
       "video_link": "",
-      "setup_video_link": "",
+      "setup_video_link": "https://www.youtube.com/watch?v=uUGkH6C_EQU",
       "harness_connector": "Ford Q4",
       "detail_sentence": "openpilot upgrades your <strong>Ford Ranger</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
@@ -2911,6 +3007,22 @@
       "setup_video_link": "",
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Lexus RC</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>.",
+      "footnotes": [
+      ],
+      "setup_notes": [
+      ]
+    },
+    {
+      "name": "Lexus RC 2023",
+      "model": "RC",
+      "years": "2023",
+      "year_list": "2023",
+      "package": "All",
+      "angled_mount": false,
+      "video_link": "",
+      "setup_video_link": "",
+      "harness_connector": "Toyota A",
+      "detail_sentence": "openpilot upgrades your <strong>Lexus RC</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
       ],
       "setup_notes": [
