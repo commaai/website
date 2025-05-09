@@ -2,10 +2,10 @@
   import Countdown from "$lib/components/Countdown.svelte";
 </script>
 
-<a href="/shop/comma-3x" class="banner">
+<a href="/jobs.html" target="_blank" class="banner">
   <div class="wrapper">
     <strong class="headline">
-      FLASH SALE: TAKE $99 OFF A COMMA 3X WITH CAR HARNESS
+      We're hiring! Come build the future of self-driving cars.
     </strong>
     <Countdown date="2025-05-10T07:59:00.000Z" let:remaining>
      <strong>

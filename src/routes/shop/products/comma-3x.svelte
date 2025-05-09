@@ -102,9 +102,11 @@
       onChange={handleHarnessSelection}
     >
       <div slot="accessoryLabel" class="harness-price">
-        <div class="strikethrough-price">
-          +${CAR_HARNESS_STRIKETHROUGH_PRICE}
-        </div>
+        {#if CAR_HARNESS_SALE}
+          <div class="strikethrough-price">
+            +${CAR_HARNESS_STRIKETHROUGH_PRICE}
+          </div>
+        {/if}
         <div style="width: 0.75rem;"/>
         <div class:sale-price={CAR_HARNESS_SALE}>
           {CAR_HARNESS_PRICE}

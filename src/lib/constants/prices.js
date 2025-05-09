@@ -8,6 +8,6 @@ export const THREEX_STRIKETHROUGH_PRICE = null;
 export const THREEX_PRICE = 999;
 export const THREEX_AFFIRM_PRICE = 91;  // $/month
 
-export const CAR_HARNESS_SALE = true;
-export const CAR_HARNESS_STRIKETHROUGH_PRICE = 99;
-export const CAR_HARNESS_PRICE = 'FREE';
+export const CAR_HARNESS_SALE = false;
+export const CAR_HARNESS_STRIKETHROUGH_PRICE = null;
+export const CAR_HARNESS_PRICE = '$99';
