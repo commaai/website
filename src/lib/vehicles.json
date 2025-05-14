@@ -2407,16 +2407,33 @@
       ]
     },
     {
-      "name": "Kia Niro EV 2023-24",
-      "model": "Niro EV",
-      "years": "2023-24",
-      "year_list": "2023, 2024",
+      "name": "Kia Niro EV (with HDA II) 2025",
+      "model": "Niro EV (with HDA II)",
+      "years": "2025",
+      "year_list": "2025",
+      "package": "Highway Driving Assist II",
+      "angled_mount": false,
+      "video": "",
+      "setup_video": "",
+      "harness_connector": "Hyundai R",
+      "detail_sentence": "openpilot upgrades your <strong>Kia Niro EV (with HDA II)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
+      "footnotes": [
+        "Requires a \u003ca href=\"https://comma.ai/shop/can-fd-panda-kit\" target=\"_blank\"\u003eCAN FD panda kit\u003c/a\u003e if not using comma 3X for this \u003ca href=\"https://en.wikipedia.org/wiki/CAN_FD\" target=\"_blank\"\u003eCAN FD car\u003c/a\u003e."
+      ],
+      "setup_notes": [
+      ]
+    },
+    {
+      "name": "Kia Niro EV (without HDA II) 2023-25",
+      "model": "Niro EV (without HDA II)",
+      "years": "2023-25",
+      "year_list": "2023, 2024, 2025",
       "package": "All",
       "angled_mount": false,
       "video": "",
       "setup_video": "",
       "harness_connector": "Hyundai A",
-      "detail_sentence": "openpilot upgrades your <strong>Kia Niro EV</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
+      "detail_sentence": "openpilot upgrades your <strong>Kia Niro EV (without HDA II)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
         "Requires a \u003ca href=\"https://comma.ai/shop/can-fd-panda-kit\" target=\"_blank\"\u003eCAN FD panda kit\u003c/a\u003e if not using comma 3X for this \u003ca href=\"https://en.wikipedia.org/wiki/CAN_FD\" target=\"_blank\"\u003eCAN FD car\u003c/a\u003e."
       ],
