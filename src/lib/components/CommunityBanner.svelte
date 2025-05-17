@@ -22,7 +22,7 @@
     <span>{@html GitHubIcon}</span>
     <span>Developer Resources</span>
     <p>
-      Check out the code behind the the comma 3X and openpilot.
+      Check out the code behind the comma 3X and openpilot.
       Review, fork, and contribute to the open source ecosystem.
     </p>
     <LinkButton href="https://github.com/commaai/openpilot" target="_blank" style="secondary" fullWidth>

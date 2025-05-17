@@ -296,7 +296,7 @@
         <p>
           Free US shipping; we ship with UPS and signature confirmation.
           This item cannot be shipped internationally, but hopefully this will change in the near future.
-          We do not currently offer expedited shipping. – Orders are typically fulfilled during the week of purchase.
+          We do not currently offer expedited shipping. Orders are typically fulfilled during the week of purchase.
         </p>
         <strong>Warranty</strong>
         <p>1-year limited warranty against hardware defects.</p>
