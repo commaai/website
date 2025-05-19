@@ -1,5 +1,6 @@
 <script>
   import vehicles from '$lib/vehicles.json'
+  import compatibilityMeta from '$lib/compatibility-meta.json'
   import Grid from '$lib/components/Grid.svelte';
   import Accordion from '$lib/components/Accordion.svelte';
   import CommunityBanner from '$lib/components/CommunityBanner.svelte';
@@ -63,6 +64,8 @@
         to learn more.
       </p>
     </hgroup>
+
+    <p class="last-updated">Last updated: {compatibilityMeta.last_updated}</p>
 
     <div class="recommended-cars">
       <hgroup>
@@ -292,11 +295,18 @@
       }
     }
 
+
     & .compatibility-make-name {
       text-align: center;
       margin-top: .5rem;
       line-height: 1.2;
     }
+  }
+
+  .last-updated {
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 1rem;
   }
 
   .recommended-cars {
