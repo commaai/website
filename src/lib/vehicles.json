@@ -424,7 +424,7 @@
       "video": "",
       "setup_video": "https://www.youtube.com/watch?v=uUGkH6C_EQU",
       "harness_connector": "Ford Q4",
-      "detail_sentence": "openpilot upgrades your <strong>Ford Escape</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "detail_sentence": "openpilot upgrades your <strong>Ford Escape</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
       ],
       "setup_notes": [
@@ -456,7 +456,7 @@
       "video": "",
       "setup_video": "https://www.youtube.com/watch?v=uUGkH6C_EQU",
       "harness_connector": "Ford Q4",
-      "detail_sentence": "openpilot upgrades your <strong>Ford Escape Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "detail_sentence": "openpilot upgrades your <strong>Ford Escape Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
       ],
       "setup_notes": [
@@ -488,7 +488,7 @@
       "video": "",
       "setup_video": "https://www.youtube.com/watch?v=uUGkH6C_EQU",
       "harness_connector": "Ford Q4",
-      "detail_sentence": "openpilot upgrades your <strong>Ford Escape Plug-in Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "detail_sentence": "openpilot upgrades your <strong>Ford Escape Plug-in Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
       ],
       "setup_notes": [
@@ -536,7 +536,7 @@
       "video": "",
       "setup_video": "https://www.youtube.com/watch?v=MewJc9LYp9M",
       "harness_connector": "Ford Q4",
-      "detail_sentence": "openpilot upgrades your <strong>Ford F-150</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "detail_sentence": "openpilot upgrades your <strong>Ford F-150</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
       ],
       "setup_notes": [
@@ -552,7 +552,7 @@
       "video": "",
       "setup_video": "https://www.youtube.com/watch?v=MewJc9LYp9M",
       "harness_connector": "Ford Q4",
-      "detail_sentence": "openpilot upgrades your <strong>Ford F-150 Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "detail_sentence": "openpilot upgrades your <strong>Ford F-150 Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
       ],
       "setup_notes": [
@@ -634,7 +634,7 @@
       "video": "",
       "setup_video": "https://www.youtube.com/watch?v=uUGkH6C_EQU",
       "harness_connector": "Ford Q4",
-      "detail_sentence": "openpilot upgrades your <strong>Ford Kuga Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "detail_sentence": "openpilot upgrades your <strong>Ford Kuga Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
       ],
       "setup_notes": [
@@ -666,7 +666,7 @@
       "video": "",
       "setup_video": "https://www.youtube.com/watch?v=uUGkH6C_EQU",
       "harness_connector": "Ford Q4",
-      "detail_sentence": "openpilot upgrades your <strong>Ford Kuga Plug-in Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "detail_sentence": "openpilot upgrades your <strong>Ford Kuga Plug-in Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
       ],
       "setup_notes": [
@@ -746,7 +746,7 @@
       "video": "",
       "setup_video": "https://www.youtube.com/watch?v=uUGkH6C_EQU",
       "harness_connector": "Ford Q4",
-      "detail_sentence": "openpilot upgrades your <strong>Ford Mustang Mach-E</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "detail_sentence": "openpilot upgrades your <strong>Ford Mustang Mach-E</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
       ],
       "setup_notes": [
@@ -762,7 +762,7 @@
       "video": "",
       "setup_video": "https://www.youtube.com/watch?v=uUGkH6C_EQU",
       "harness_connector": "Ford Q4",
-      "detail_sentence": "openpilot upgrades your <strong>Ford Ranger</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "detail_sentence": "openpilot upgrades your <strong>Ford Ranger</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
       ],
       "setup_notes": [
@@ -1744,22 +1744,6 @@
       "setup_video": "",
       "harness_connector": "Hyundai B",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Kona</strong> with automated lane centering and adaptive cruise control <strong>while driving above 6 mph</strong>.",
-      "footnotes": [
-      ],
-      "setup_notes": [
-      ]
-    },
-    {
-      "name": "Hyundai Kona 2022",
-      "model": "Kona",
-      "years": "2022",
-      "year_list": "2022",
-      "package": "Smart Cruise Control (SCC)",
-      "angled_mount": false,
-      "video": "",
-      "setup_video": "",
-      "harness_connector": "Hyundai O",
-      "detail_sentence": "openpilot upgrades your <strong>Hyundai Kona</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
       ],
       "setup_notes": [
