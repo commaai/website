@@ -495,6 +495,22 @@
       ]
     },
     {
+      "name": "Ford Expedition 2022-24",
+      "model": "Expedition",
+      "years": "2022-24",
+      "year_list": "2022, 2023, 2024",
+      "package": "Co-Pilot360 Assist 2.0",
+      "angled_mount": false,
+      "video": "",
+      "setup_video": "https://www.youtube.com/watch?v=MewJc9LYp9M",
+      "harness_connector": "Ford Q4",
+      "detail_sentence": "openpilot upgrades your <strong>Ford Expedition</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
+      "footnotes": [
+      ],
+      "setup_notes": [
+      ]
+    },
+    {
       "name": "Ford Explorer 2020-24",
       "model": "Explorer",
       "years": "2020-24",
