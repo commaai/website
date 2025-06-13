@@ -115,10 +115,10 @@
       ]
     },
     {
-      "name": "Audi Q3 2019-23",
+      "name": "Audi Q3 2019-24",
       "model": "Q3",
-      "years": "2019-23",
-      "year_list": "2019, 2020, 2021, 2022, 2023",
+      "years": "2019-24",
+      "year_list": "2019, 2020, 2021, 2022, 2023, 2024",
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video": "",
@@ -753,10 +753,10 @@
       ]
     },
     {
-      "name": "Ford Mustang Mach-E 2021-23",
+      "name": "Ford Mustang Mach-E 2021-24",
       "model": "Mustang Mach-E",
-      "years": "2021-23",
-      "year_list": "2021, 2022, 2023",
+      "years": "2021-24",
+      "year_list": "2021, 2022, 2023, 2024",
       "package": "All",
       "angled_mount": false,
       "video": "",
@@ -2835,10 +2835,10 @@
       ]
     },
     {
-      "name": "Lexus ES 2019-24",
+      "name": "Lexus ES 2019-25",
       "model": "ES",
-      "years": "2019-24",
-      "year_list": "2019, 2020, 2021, 2022, 2023, 2024",
+      "years": "2019-25",
+      "year_list": "2019, 2020, 2021, 2022, 2023, 2024, 2025",
       "package": "All",
       "angled_mount": false,
       "video": "",
@@ -2916,10 +2916,10 @@
       ]
     },
     {
-      "name": "Lexus IS 2022-23",
+      "name": "Lexus IS 2022-24",
       "model": "IS",
-      "years": "2022-23",
-      "year_list": "2022, 2023",
+      "years": "2022-24",
+      "year_list": "2022, 2023, 2024",
       "package": "All",
       "angled_mount": false,
       "video": "",
@@ -5043,10 +5043,10 @@
       ]
     },
     {
-      "name": "Volkswagen Taos 2022-23",
+      "name": "Volkswagen Taos 2022-24",
       "model": "Taos",
-      "years": "2022-23",
-      "year_list": "2022, 2023",
+      "years": "2022-24",
+      "year_list": "2022, 2023, 2024",
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video": "",
@@ -5107,10 +5107,10 @@
       ]
     },
     {
-      "name": "Volkswagen Tiguan 2018-23",
+      "name": "Volkswagen Tiguan 2018-24",
       "model": "Tiguan",
-      "years": "2018-23",
-      "year_list": "2018, 2019, 2020, 2021, 2022, 2023",
+      "years": "2018-24",
+      "year_list": "2018, 2019, 2020, 2021, 2022, 2023, 2024",
       "package": "Adaptive Cruise Control (ACC) & Lane Assist",
       "angled_mount": false,
       "video": "",
