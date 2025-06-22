@@ -26,7 +26,16 @@ jobs:
           cd opendbc && source setup.sh && scons -j8
           python ../scripts/compatibility.py
           cd .. && rm -rf opendbc
+      - name: Check for meaningful changes
+        id: changes
+        run: |
+          CHANGED_FILES="$(git diff --name-only)"
+          echo "$CHANGED_FILES"
+          if [ "$(echo "$CHANGED_FILES" | wc -l)" -eq 1 ] && grep -qx 'src/lib/compatibility-meta.json' <<< "$CHANGED_FILES"; then
+            echo "skip_pr=true" >> "$GITHUB_OUTPUT"
+          fi
       - name: Create Pull Request
+        if: steps.changes.outputs.skip_pr != 'true'
         uses: peter-evans/create-pull-request@af7c021bb9c41362d0986422bd244ce51a3bf52f
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
