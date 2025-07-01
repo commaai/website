@@ -16,6 +16,7 @@
   export let beforeAddToCart = null;
   export let getCartNote = null;
   export let previousPrice = null;
+  export let priceOverride = null;
   export let sale = false;
   export let backordered = null;
 
@@ -51,7 +52,9 @@
   }
 
   function getPriceLabel(_) {
-    if (selectedVariant) {
+    if (priceOverride) {
+      return formatCurrency({amount: priceOverride, currencyCode: "USD"}, 0);
+    } else if (selectedVariant) {
       return formatCurrency(selectedVariant.price, 0);
     } else if (product.priceRange.minVariantPrice.amount !== product.priceRange.maxVariantPrice.amount) {
       return `from ${formatCurrency(product.priceRange.minVariantPrice, 0)}`;
