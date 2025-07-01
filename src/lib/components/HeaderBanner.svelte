@@ -1,7 +1,7 @@
 <a href="/jobs.html" target="_blank" class="banner">
   <div class="wrapper">
     <strong class="headline">
-      We're hiring! Come build the future of self-driving cars.
+      🎇 4TH OF JULY SALE: TAKE $200 OFF A COMMA 3X 🎇
     </strong>
   </div>
 </a>
@@ -11,7 +11,7 @@
     display: block;
     text-decoration: none;
     color: black;
-    background-color: var(--color-accent);
+    background-color: var(--color-red);
   }
 
   .wrapper {
