@@ -16,7 +16,7 @@
 
   import Comma3XImage from '$lib/images/device.png';
 
-  import { THREEX_PRICE, CAR_HARNESS_PRICE } from '$lib/constants/prices.js';
+  import { THREEX_PRICE, CAR_HARNESS_PRICE, THREEX_STRIKETHROUGH_PRICE, THREEX_SALE } from '$lib/constants/prices.js';
   import { vehicleCountText } from '$lib/constants/vehicles.js';
 
   const brand_images = import.meta.glob('$lib/images/vehicles/brand-icons/*.png', { eager: true });
@@ -150,10 +150,17 @@
                       <img src={Comma3XImage} loading="lazy" alt="comma 3X device" />
                       <hgroup>
                         <strong>comma 3X</strong>
-                        <div>${THREEX_PRICE}</div>
+                        {#if THREEX_SALE}
+                          <div style="display: flex; align-items: center;">
+                            <div class="understated-price strikethrough-price">${THREEX_STRIKETHROUGH_PRICE}</div>
+                            <div class="red-price">${THREEX_PRICE}</div>
+                          </div>
+                        {:else}
+                          <div class="understated-price">${THREEX_PRICE}</div>
+                        {/if}
                         {#if car_info.harness_connector !== "" }
                           <strong>car harness: { car_info.harness_connector }</strong>
-                          <div>+${CAR_HARNESS_PRICE}</div>
+                          <div class="understated-price">+${CAR_HARNESS_PRICE}</div>
                         {/if}
                       </hgroup>
                     </div>
@@ -437,6 +444,16 @@
       display: flex;
       margin-bottom: 0.75rem;
 
+      & .strikethrough-price {
+        text-decoration: line-through;
+        margin-right: .5rem;
+      }
+
+      & .red-price {
+        color: var(--color-red);
+        font-weight: 700;
+      }
+
       & img {
         width: 64px;
         height: 64px;
@@ -456,8 +473,11 @@
           font-weight: 600;
         }
 
-        & div {
+        & .understated-price {
           opacity: .65;
+        }
+
+        & div {
           font-size: .875rem;
         }
       }
