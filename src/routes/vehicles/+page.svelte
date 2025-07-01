@@ -152,7 +152,9 @@
                         <strong>comma 3X</strong>
                         {#if THREEX_SALE}
                           <div style="display: flex; align-items: center;">
-                            <div class="understated-price strikethrough-price">${THREEX_STRIKETHROUGH_PRICE}</div>
+                            {#if THREEX_STRIKETHROUGH_PRICE}
+                              <div class="understated-price strikethrough-price">${THREEX_STRIKETHROUGH_PRICE}</div>
+                            {/if}
                             <div class="red-price">${THREEX_PRICE}</div>
                           </div>
                         {:else}
