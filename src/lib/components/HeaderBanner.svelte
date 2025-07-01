@@ -1,4 +1,4 @@
-<a href="/jobs.html" target="_blank" class="banner">
+<a href="/shop/comma-3x" target="_blank" class="banner">
   <div class="wrapper">
     <strong class="headline">
       🎇 4TH OF JULY SALE: TAKE $200 OFF A COMMA 3X 🎇
