@@ -1,7 +1,7 @@
-<a href="/shop/comma-3x" target="_blank" class="banner">
+<a href="/jobs.html" target="_blank" class="banner">
   <div class="wrapper">
     <strong class="headline">
-      🎇 4TH OF JULY SALE: TAKE $200 OFF A COMMA 3X 🎇
+      We're hiring! Come build the future of self-driving cars.
     </strong>
   </div>
 </a>
@@ -11,7 +11,7 @@
     display: block;
     text-decoration: none;
     color: black;
-    background-color: var(--color-red);
+    background-color: var(--color-accent);
   }
 
   .wrapper {

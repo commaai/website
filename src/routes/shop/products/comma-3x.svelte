@@ -72,7 +72,7 @@
   }
 </script>
 
-<Product {product} {additionalProductIds} {backordered} {beforeAddToCart} {getCartNote} previousPrice={THREEX_STRIKETHROUGH_PRICE} priceOverride={THREEX_PRICE} sale={THREEX_SALE}>
+<Product {product} {additionalProductIds} {backordered} {beforeAddToCart} {getCartNote} previousPrice={THREEX_STRIKETHROUGH_PRICE} sale={THREEX_SALE}>
   <div slot="shipping"></div>
 
   <span slot="price-accessory">
