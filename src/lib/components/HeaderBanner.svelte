@@ -52,8 +52,4 @@
   .headline {
     font-size: 1.25rem;
   }
-
-  .countdown {
-    font-size: 1rem;
-  }
 </style>
