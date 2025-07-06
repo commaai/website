@@ -1,8 +1,24 @@
+<script>
+  import Countdown from '$lib/components/Countdown.svelte';
+
+  // Monday 10am Pacific Time
+  const endDate = '2025-07-07T17:00:00.000Z';
+</script>
+
 <a href="/shop/comma-3x" target="_blank" class="banner">
   <div class="wrapper">
     <strong class="headline">
       🎇 4TH OF JULY SALE: TAKE $200 OFF A COMMA 3X 🎇
     </strong>
+    <Countdown date={endDate} let:remaining>
+      {#if !remaining.done}
+        <strong class="countdown">
+          SALE ENDS IN {remaining.days}d {remaining.hours}h {remaining.minutes}m {remaining.seconds}s
+        </strong>
+      {:else}
+        <strong class="countdown">SALE ENDED</strong>
+      {/if}
+    </Countdown>
   </div>
 </a>
 
@@ -38,5 +54,9 @@
 
   .headline {
     font-size: 1.25rem;
+  }
+
+  .countdown {
+    font-size: 1rem;
   }
 </style>
