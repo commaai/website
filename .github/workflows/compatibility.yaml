@@ -1,10 +1,7 @@
 name: Update compatibility
 on:
-  # Run every day at midnight
   schedule:
-    - cron: "0 0 * * *"
-
-  # Allows you to manually run this workflow from the Actions tab
+    - cron: '0 0 * * *'  # 4pm PST (midnight UTC)
   workflow_dispatch:
 
 env:
