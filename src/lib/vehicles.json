@@ -311,10 +311,10 @@
       ]
     },
     {
-      "name": "Chrysler Pacifica Hybrid 2019-24",
+      "name": "Chrysler Pacifica Hybrid 2019-25",
       "model": "Pacifica Hybrid",
-      "years": "2019-24",
-      "year_list": "2019, 2020, 2021, 2022, 2023, 2024",
+      "years": "2019-25",
+      "year_list": "2019, 2020, 2021, 2022, 2023, 2024, 2025",
       "package": "Adaptive Cruise Control (ACC)",
       "angled_mount": false,
       "video": "",
@@ -1178,6 +1178,22 @@
       "setup_video": "",
       "harness_connector": "Honda Bosch B",
       "detail_sentence": "openpilot upgrades your <strong>Honda Civic Hatchback Hybrid (Europe only)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
+      "footnotes": [
+      ],
+      "setup_notes": [
+      ]
+    },
+    {
+      "name": "Honda Civic Hybrid 2025",
+      "model": "Civic Hybrid",
+      "years": "2025",
+      "year_list": "2025",
+      "package": "All",
+      "angled_mount": false,
+      "video": "",
+      "setup_video": "",
+      "harness_connector": "Honda Bosch B",
+      "detail_sentence": "openpilot upgrades your <strong>Honda Civic Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
       ],
       "setup_notes": [
