@@ -1225,7 +1225,7 @@
       "video": "",
       "setup_video": "",
       "harness_connector": "Honda Bosch A",
-      "detail_sentence": "openpilot upgrades your <strong>Honda CR-V</strong> with automated lane centering <strong>above 12 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. This car may not be able to take tight turns on its own.",
+      "detail_sentence": "openpilot upgrades your <strong>Honda CR-V</strong> with automated lane centering <strong>above 15 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. This car may not be able to take tight turns on its own.",
       "footnotes": [
       ],
       "setup_notes": [
