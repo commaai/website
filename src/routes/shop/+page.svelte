@@ -34,7 +34,7 @@
 <section class="dark" id="devices">
   <div class="container">
     <article>
-      <div class="product-display scenic-background">
+      <div class="product-display gradient-bg">
         <Grid columns={2} alignItems="center" size="large">
           <div class="product-content">
             <Badge style="accent">New low price!</Badge>
@@ -343,25 +343,13 @@
       }
     }
 
-    & .scenic-background {
-      background-image: linear-gradient(
-          to right,
-          rgba(0, 0, 0, 0.8),
-          rgba(255, 255, 255, 0) 72%
-        ), url("$lib/images/device-backdrop.jpg"),
-        linear-gradient(145deg, rgba(81, 255, 0, 0), rgba(81, 255, 0, 0.25));
+    & .gradient-bg {
+      background: linear-gradient(135deg, #000, #111 50%, #014208), linear-gradient(45deg, rgba(81, 255, 0, 0.08), transparent 50%, rgba(81, 255, 0, 0.08));
     }
 
     & .product-display {
       padding: 6rem;
       background-color: black;
-
-      background-position:
-        0 0,
-        40% 42%,
-        40% 30%,
-        0 0;
-      background-size: auto, 3200px, 3000px, auto;
 
       & hgroup {
         margin-bottom: 2rem;
@@ -432,16 +420,6 @@
         padding: 2.5rem 0 0;
       }
 
-      & .scenic-background {
-        background-image: linear-gradient(
-          to top,
-          rgba(0, 0, 0, .8) 20%,
-          rgba(0, 0, 0, 0) 82%
-        ), url("$lib/images/device-backdrop.jpg");
-        background-position: 0 0, 50% 47% !important;
-        background-size: auto, 2700px !important;
-        padding: 2rem;
-      }
 
       & .product-display {
         padding: 2rem;
