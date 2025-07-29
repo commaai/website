@@ -344,7 +344,7 @@
     }
 
     & .gradient-bg {
-      background: linear-gradient(135deg, #000, #111 50%, #014208), linear-gradient(45deg, rgba(81, 255, 0, 0.08), transparent 50%, rgba(81, 255, 0, 0.08));
+      background: linear-gradient(135deg, #111 50%, #023807);
     }
 
     & .product-display {
