@@ -2804,7 +2804,7 @@
       "years": "2020-22",
       "year_list": "2020, 2021, 2022",
       "package": "All",
-      "angled_mount": false,
+      "angled_mount": true,
       "video": "",
       "setup_video": "",
       "harness_connector": "Hyundai H",
