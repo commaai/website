@@ -374,43 +374,15 @@
       image: CommaThreeImage,
       questions: [
         {
-          question: 'How and where do I buy a comma device?',
-          answer: `
-            <p>
-              The comma shop is the only official retailer of comma devices (the comma two,
-              comma three, and comma 3X). The comma shop accepts all major credit cards. We
-              offer free shipping in the US and $30 flat rate international shipping.
-            </p>
-            <p>
-              Buy the <a href="/shop/comma-3x">comma 3X here</a>.
-            </p>
-          `
-        }, {
           question: 'Do I need a comma prime monthly subscription to use the device?',
           answer: `
             No. comma prime is completely optional and is not needed for any core functionality. comma prime can be activated, cancelled, and re-activated at any time.
           `
         }, {
-          question: 'I ordered a comma device! Now what?',
-          answer: `
-            <p>
-              Congratulations! Get started by watching the Installation Guide on our
-              <a  href="/setup">setup page</a>. We find on average the installation process takes 15-30
-              minutes.
-            </p>
-            <p>
-              If you encounter an issue, we recommend you join our <a href="https://discord.comma.ai/">Discord</a>
-              where hundreds of active users are available to help troubleshoot.
-            </p>
-            <p>
-              You can cancel your order for a full refund up until it ships through your order page.
-            </p>
-          `
-        }, {
           question: 'Does installing a comma device require permanent modifications to the car?',
           answer: `
             Installing a comma device does not require any permanent modifications to
-            your car. With the car harness, most car trims remain in place.
+            your car. Removing the comma device leaves your car in the same state as before the installation.
           `
         }, {
           question: 'How do I mount my comma device?',
@@ -457,7 +429,7 @@
             </p>
           `
         }, {
-          question: 'I am upgrading from a comma two to a comma 3X do I need to order another harness?',
+          question: 'I am upgrading from a previous generation comma to a comma 3X do I need to order another harness?',
           answer: `
             No, existing comma harnesses work with these devices.
           `
@@ -542,7 +514,7 @@
         }, {
           question: 'How do I return my comma 3X?',
           answer: `
-            To return your device, please request a return at: <a href="https://comma.ai/returns">comma.ai/returns</a>. A prepaid return label (or return instructions if not in the US) will be automatically sent to you. $9.99 will be deducted from your refund if you choose to use this label.
+            To return your device, please request a return at <a href="https://comma.ai/returns">comma.ai/returns</a>. A prepaid return label (or return instructions if not in the US) will be automatically sent to you. $9.99 will be deducted from your refund if you choose to use this label.
           `
         }, {
           question: 'Are international orders eligible for the trial?',
@@ -565,12 +537,6 @@
           question: 'I would like to match a price change.',
           answer: `
             We do not offer price matching. Returns can be made at <a href="https://comma.ai/returns">comma.ai/returns</a> within 30 days of receiving the order.
-          `
-        }, {
-          question: 'Do you sell parts?',
-          answer: `
-            We do our best to offer replacement parts for your comma two, three,
-            and 3X. Please check out our shop for our current offering.
           `
         }, {
           question: 'Is the 1-year hardware warranty transferable?',
@@ -739,19 +705,14 @@
             We ship to the entire US and most countries. We ship internationally with a flat rate of $30. We do not ship to PO Boxes (with an exception for Military). If you reject an international package we will deduct any additional fees from your return. All US deliveries require signature confirmation at this time though subject to change.
           `
         }, {
-          question: 'How much is shipping?',
-          answer: `
-            <p>
-              Shipping is free for US addresses including Alaska, Hawaii, and US Territories. We offer a domestic UPS 2nd Day Air shipping option for $25.
-            </p>
-            <p>
-              International shipping is flat rate and costs $30. Note that international shipping times can vary widely, so please be patient.
-            </p>
-          `
-        }, {
           question: 'What do I do if my device arrives damaged?',
           answer: `
-            Please alert us to any issues with your order within 3 days of delivery. We may not be responsible for damages if we are not notified within this window. If you damage your screen we offer repairs for $200 or you can purchase a replacement screen in our shop for $100 (DIY at your own risk). If we receive a damaged device returned to us we will deduct the cost of the repair from your return. We are not responsible for lost or damaged items mailed back to us and recommend using the original packaging to make a return or carefully padding your device when sending it back.
+            <p>
+            Please alert us to any issues with your order within 3 days of delivery by opening a <a href="https://commasupport.zendesk.com/hc/en-us/requests/new?ticket_form_id=29233377161623">support ticket here</a> and including pictures of both the product and packaging. We may not be responsible for damages if we are not notified within this window.
+            </p>
+            <p>
+            If we receive a damaged device returned to us, we will deduct the cost of the repair from your return. We are not responsible for lost or damaged items mailed back to us and recommend using the original packaging to make a return or carefully padding your device when sending it back.
+            <p>
           `
         }, {
           question: 'My order has no recent tracking activity and is past the delivery date. What should I do?',
@@ -885,25 +846,6 @@
             We recommend first trying to reflash your device at <a href="https://flash.comma.ai">flash.comma.ai</a> and to reseat all the cable connections. comma support is only able to look into issues on stock with a route where the issue occurs. If you are running a fork, we are unable to diagnose defective hardware without a route on stock. Once you have a route, please open a ticket at <a href="https://comma.ai/support">comma.ai/support</a>. Pictures, videos, and uploading logs via wi-fi are very helpful and often expedite the resolution process. Please also include any troubleshooting steps you have already taken. We also recommend reviewing the community <a href="https://github.com/commaai/openpilot/wiki">GitHub wiki</a> and <a href="https://discord.comma.ai">discord.comma.ai</a> for other troubleshooting.
           `
         }, {
-          question: 'My comma three is having issues. What should I do?',
-          answer: `
-            <p>
-              comma three has supercapacitors. When unplugged, allow them to fully drain for 30 seconds before plugging the device back in.
-            </p>
-            <p>
-              Still nothing? <a href="https://flash.comma.ai">Reflash AGNOS</a>.
-            </p>
-            <p>
-            While we are no longer able to repair comma three, we offer a <a href="/shop/comma-3x-trade-in">trade-in for the comma 3X</a>.
-            </p>
-          `
-        }, {
-          question: 'My comma two/EON is having issues?',
-          answer: `
-            While we are no longer able to repair EON and comma two, we offer a <a href="/shop/comma-3x-trade-in">trade-in for the comma 3X</a>.
-
-            Otherwise, we recommend checking out the <a href="https://discord.comma.ai">discord.comma.ai</a> for DIY repair options.          `
-        }, {
           question: 'My J533/Hyundai/Kia harness does not fit?',
           answer: `
             Reference Hyundai/Kia harness diagrams <a href="https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis#harness-guide">here</a>. Reference J533 install details <a href="https://github.com/commaai/openpilot/wiki/VW-J533-(Gateway)-Cable">here</a>.
@@ -952,9 +894,6 @@
           answer: `
             <p>
               comma support is for comma shop order and warranty related issues. Our inbox is not monitored; please open a support ticket on our <a href="https://comma.ai/support">comma.ai/support</a> and provide the requested information.
-            </p>
-            <p>
-              For car compatibility questions please see <a https://comma.ai/vehicles>comma.ai/vehicles</a>. Don’t see your car, then it’s probably not supported.
             </p>
             <p>
               comma does not provide support for openpilot. We recommend the <a https://discord.comma.ai>community Discord</a> or open an issue on openpilot’s GitHub.

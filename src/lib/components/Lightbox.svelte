@@ -1,4 +1,5 @@
 <script>
+  import { onMount, onDestroy } from 'svelte';
   import Slideshow from "$lib/components/Slideshow.svelte";
 
   import CloseIcon from "$lib/icons/ui/close.svg?raw";
@@ -13,6 +14,13 @@
       onClose();
     }
   }
+
+  function toggleBodyScroll(enable) {
+    document.body.classList.toggle('no-scroll', !enable);
+  }
+  
+  onMount(() => toggleBodyScroll(false));
+  onDestroy(() => toggleBodyScroll(true));
 </script>
 
 <div class="lightbox" role="dialog" aria-modal="true" aria-label="product preview">
@@ -55,7 +63,7 @@
     height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     flex-direction: column;
   }
 
@@ -75,13 +83,20 @@
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;
-    height: 120px;
-    margin-bottom: 3rem;
+    height: 90px;
+    padding-top: 1rem;
     margin-right: 0.5rem;
+
+    /* Hide scrollbar */
+    &::-webkit-scrollbar {
+      display: none; /* Chrome, Safari */
+    }
+    -ms-overflow-style: none; /* IE */
+    scrollbar-width: none; /* Firefox */
   }
 
   .variant {
-    height: 120px;
+    height: 90px;
     cursor: pointer;
     background-color: transparent;
     border: none;
@@ -103,4 +118,7 @@
     }
   }
 
+  :global(.no-scroll) {
+    overflow: hidden;
+  }
 </style>
