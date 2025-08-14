@@ -33,6 +33,22 @@
       ]
     },
     {
+      "name": "Acura MDX 2025",
+      "model": "MDX",
+      "years": "2025",
+      "year_list": "2025",
+      "package": "All except Type S",
+      "angled_mount": false,
+      "video": "",
+      "setup_video": "",
+      "harness_connector": "Honda Bosch C",
+      "detail_sentence": "openpilot upgrades your <strong>Acura MDX</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "footnotes": [
+      ],
+      "setup_notes": [
+      ]
+    },
+    {
       "name": "Acura RDX 2016-18",
       "model": "RDX",
       "years": "2016-18",
@@ -1055,10 +1071,10 @@
       ]
     },
     {
-      "name": "Honda Accord 2023",
+      "name": "Honda Accord 2023-25",
       "model": "Accord",
-      "years": "2023",
-      "year_list": "2023",
+      "years": "2023-25",
+      "year_list": "2023, 2024, 2025",
       "package": "All",
       "angled_mount": false,
       "video": "",
@@ -1081,6 +1097,22 @@
       "setup_video": "",
       "harness_connector": "Honda Bosch A",
       "detail_sentence": "openpilot upgrades your <strong>Honda Accord Hybrid</strong> with automated lane centering <strong>above 3 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. This car may not be able to take tight turns on its own.",
+      "footnotes": [
+      ],
+      "setup_notes": [
+      ]
+    },
+    {
+      "name": "Honda Accord Hybrid 2023-25",
+      "model": "Accord Hybrid",
+      "years": "2023-25",
+      "year_list": "2023, 2024, 2025",
+      "package": "All",
+      "angled_mount": false,
+      "video": "",
+      "setup_video": "",
+      "harness_connector": "Honda Bosch C",
+      "detail_sentence": "openpilot upgrades your <strong>Honda Accord Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
       ],
       "setup_notes": [
@@ -1418,6 +1450,22 @@
       "setup_video": "",
       "harness_connector": "Honda Nidec",
       "detail_sentence": "openpilot upgrades your <strong>Honda Pilot</strong> with automated lane centering and adaptive cruise control <strong>while driving above 26 mph</strong>. This car may not be able to take tight turns on its own. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "footnotes": [
+      ],
+      "setup_notes": [
+      ]
+    },
+    {
+      "name": "Honda Pilot 2023-25",
+      "model": "Pilot",
+      "years": "2023-25",
+      "year_list": "2023, 2024, 2025",
+      "package": "All",
+      "angled_mount": true,
+      "video": "",
+      "setup_video": "",
+      "harness_connector": "Honda Bosch C",
+      "detail_sentence": "openpilot upgrades your <strong>Honda Pilot</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
       ],
       "setup_notes": [
