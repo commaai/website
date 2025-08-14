@@ -2,7 +2,7 @@
   import Product from "$lib/components/Product.svelte";
   import NoteCard from "$lib/components/NoteCard.svelte";
 
-  import CommaThreeBackCaseImage from "$lib/images/products/comma-three-back-case/comma-three-back-case.jpeg";
+  import CommaThreeBackCaseImage from "$lib/images/products/comma-3x-back-case/comma-3x-back-case.jpg";
 
   export const productInfo = {
     title: "comma 3X back case",
@@ -31,6 +31,7 @@
     <strong>comma 3X back case</strong>
     <ul>
       <li>comma 3X back case</li>
+      <li>Includes screws</li>
     </ul>
   </div>
 </Product>
