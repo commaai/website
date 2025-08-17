@@ -131,9 +131,9 @@
                   <div>
                     <div class="car-detail-tier">{@html car_info.detail_sentence }</div>
                     <div class="cards">
-                      <NoteCard title="Support" icon={CarIcon} style="elevated">
+                      <NoteCard title="Required Package" icon={CarIcon} style="elevated">
                         {#if car_info.package !== 'All'}
-                          openpilot requires the car to come equipped with <b>{car_info.package}</b>.
+                          {car_info.package}
                         {:else}
                           openpilot will work with <b>all packages and trims</b> of this car.
                         {/if}
