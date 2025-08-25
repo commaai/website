@@ -436,65 +436,6 @@
         }
       ]
     },
-    body: {
-      title: 'comma body',
-      image: BodyImage,
-      questions: [
-        {
-          question: 'What is the body?',
-          answer: `
-            <p>
-              comma body is “the future of people.” You buy a comma body, buy a comma
-              3X (the head), attach the comma 3X to the body, and watch it come
-              to life.
-            </p>
-            <p>
-              We believe that in order to solve AI, for most people’s definition, you
-              must be embedded in the real world. We define AI as a machine that can
-              do every task at least as well as a human. And in order to do human
-              tasks, it helps a lot to have a human like body. The comma body is the
-              beginning of that journey.
-            </p>
-            <p>
-              Today it’s a mobile platform for the comma 3X, but we will be
-              building a knee and arms for it. Like everything we do, we try to
-              distill the problem down to its essence, so unlike some companies, we
-              aren’t focused on the humanoid shape. Wheels are a fine form of
-              locomotion for cooking and cleaning, the dream tasks of the comma body.
-              Two arms, a knee, and a comma 3X should complete a comma person (sold
-              separately, knee and arm coming in 2023).
-            </p>
-          `
-        }, {
-          question: 'What software does it run?',
-          answer: `
-            <p>
-              The comma body runs openpilot! From openpilot's perspective, the comma
-              body is a car. It runs the same camera and logging software, so we'll
-              be able to learn from the fleet of bodies in the same way we learn from
-              our fleet of cars.
-            </p>
-            <p>
-              At launch, the software will balance the body (using the same localizer
-              as the car!) and allow you to drive it around via web interface. Shortly
-              we’ll add video streaming to that web interface, allowing you to drive
-              your body outside line of sight. We’d also like to add a VR app to drive
-              the body from a first person view, this will be needed by the time we
-              ship the arms.
-            </p>
-            <p>
-              Once we start getting data back from our body fleet, we can train
-              models. The first model we will train (jointly with the driving model!)
-              is a posenet, allowing inside out position tracking. When this model is
-              shipped, the localizer will change from 3-DoF to 6-DoF. And once the
-              dead reckoning is similar quality to what we have on the cars, adding a
-              SLAM system will be very simple to allow drift free localization in
-              your environment.
-            </p>
-          `,
-        }
-      ]
-    },
     trial: {
       title: 'Money-back trial',
       image: ReturnPolicyImage,
@@ -786,7 +727,7 @@
           question: 'How do you replace the SIM card in a comma 3X?',
           answer: `
             <p>
-              All comma 3Xs (shipped in the US) come with a SIM card. The SIM slot is a
+              All comma 3Xs come with a SIM card. The SIM slot is a
               push/pull mechanism, where you must push on the card to release it and then
               guide it out.
 
@@ -846,11 +787,6 @@
             We recommend first trying to reflash your device at <a href="https://flash.comma.ai">flash.comma.ai</a> and to reseat all the cable connections. comma support is only able to look into issues on stock with a route where the issue occurs. If you are running a fork, we are unable to diagnose defective hardware without a route on stock. Once you have a route, please open a ticket at <a href="https://comma.ai/support">comma.ai/support</a>. Pictures, videos, and uploading logs via wi-fi are very helpful and often expedite the resolution process. Please also include any troubleshooting steps you have already taken. We also recommend reviewing the community <a href="https://github.com/commaai/openpilot/wiki">GitHub wiki</a> and <a href="https://discord.comma.ai">discord.comma.ai</a> for other troubleshooting.
           `
         }, {
-          question: 'My J533/Hyundai/Kia harness does not fit?',
-          answer: `
-            Reference Hyundai/Kia harness diagrams <a href="https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis#harness-guide">here</a>. Reference J533 install details <a href="https://github.com/commaai/openpilot/wiki/VW-J533-(Gateway)-Cable">here</a>.
-          `
-        }, {
           question: 'Performing a Factory Reset',
           answer: `
             <p>
@@ -893,7 +829,7 @@
           question: 'Why haven\'t I heard back from support?',
           answer: `
             <p>
-              comma support is for comma shop order and warranty related issues. Our inbox is not monitored; please open a support ticket on our <a href="https://comma.ai/support">comma.ai/support</a> and provide the requested information.
+              comma support is for comma shop order and warranty related issues. Our inbox is not monitored; please open a support ticket on our <a href="https://comma.ai/support">comma.ai/support</a>.
             </p>
             <p>
               comma does not provide support for openpilot. We recommend the <a https://discord.comma.ai>community Discord</a> or open an issue on openpilot’s GitHub.
