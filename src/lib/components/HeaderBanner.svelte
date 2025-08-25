@@ -1,7 +1,7 @@
 <a href="/jobs.html" target="_blank" class="banner">
   <div class="wrapper">
     <strong class="headline">
-      We're hiring! Come build the future of self-driving cars.
+      comma 3X is 10% off for openpilot 0.10!
     </strong>
   </div>
 </a>
