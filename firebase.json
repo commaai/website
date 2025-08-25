@@ -136,7 +136,7 @@
       },
       {
         "source": "/body",
-        "destination": "/setup/comma-body",
+        "destination": "/shop/body",
         "type": 302
       },
       {

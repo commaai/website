@@ -5,11 +5,9 @@
   import Badge from "$lib/components/Badge.svelte";
   import MailingListForm from "$lib/components/MailingListForm.svelte";
   import NoteCard from "$lib/components/NoteCard.svelte";
-  import SetupGuide from "$lib/components/SetupGuide.svelte";
   import CommunityBanner from "$lib/components/CommunityBanner.svelte";
   import Slideshow from "$lib/components/Slideshow.svelte";
 
-  import CommaBodyImage from "$lib/images/comma-body.png";
   import CommaBodyHeightImage from "$lib/images/comma-body-height.png";
   import CommaBodyWinkImage from "$lib/images/comma-body-wink.gif";
   import CommaBodyScreenImage from "$lib/images/comma-body-screen.jpg";
@@ -302,15 +300,6 @@
         <p>1-year limited warranty against hardware defects.</p>
       </div>
     </Grid>
-    <hr />
-    <SetupGuide
-      productName="comma body"
-      title="Assembly Instructions"
-      stepCount={8}
-      estimatedMinutes={40}
-      link="/setup/comma-body"
-      image={CommaBodyImage}
-    />
   </div>
 </section>
 
