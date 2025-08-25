@@ -48,6 +48,10 @@
         <Faq topic={faq[key]} />
       </div>
     {/each}
+    <div class="contact-card">
+      <h2>Can’t find what you are looking for?</h2>
+      <span>Check out the <a href="https://discord.comma.ai" target="_blank" class="highlight">community Discord</a>.</span>
+    </div>
   </div>
 </section>
 

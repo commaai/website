@@ -49,10 +49,8 @@
         { 
           question: "Support for a comma prime subscription",
           answer: `
-            First ensure your device is running the latest stock openpilot release.
-            We cannot look into issues while running forks or other software; see <a href="/support#why-is-a-stock-route-required-to-open-a-hardware-support-ticket">here</a> for why.
-            <br></br>
 
+            If you're having an issue with your prime service, first ensure your device is running the latest stock openpilot release.
             Use <a href="https://connect.comma.ai">connect.comma.ai</a> to manage and cancel your subscription.
             </br></br>
             If you still have issues, open a <a href="https://commasupport.zendesk.com/hc/en-us/requests/new?ticket_form_id=29233366516631">ticket</a> with support.
@@ -84,6 +82,12 @@
           question: "I broke my device's screen.",
           answer: `
             We offer <a href="/shop/comma-device-screen">replacement screens</a> on the shop.
+          `
+        },
+        {
+          question: "I just have a question.",
+          answer: `
+            Check out our <a href="https://discord.comma.ai">community Discord</a>.
           `
         },
         {
