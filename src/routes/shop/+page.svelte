@@ -33,7 +33,7 @@
       <div class="product-display gradient-bg">
         <Grid columns={2} alignItems="center" size="large">
           <div class="product-content">
-            <Badge style="accent">New low price!</Badge>
+            <Badge style="accent">FLASH SALE</Badge>
             <hgroup>
               <h1>comma 3X</h1>
               <span>
