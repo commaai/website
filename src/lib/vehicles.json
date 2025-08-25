@@ -1119,6 +1119,22 @@
       ]
     },
     {
+      "name": "Honda City (Brazil only) 2023",
+      "model": "City (Brazil only)",
+      "years": "2023",
+      "year_list": "2023",
+      "package": "All",
+      "angled_mount": false,
+      "video": "",
+      "setup_video": "",
+      "harness_connector": "Honda Bosch B",
+      "detail_sentence": "openpilot upgrades your <strong>Honda City (Brazil only)</strong> with automated lane centering <strong>above 14 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
+      "footnotes": [
+      ],
+      "setup_notes": [
+      ]
+    },
+    {
       "name": "Honda Civic 2016-18",
       "model": "Civic",
       "years": "2016-18",
@@ -1168,11 +1184,27 @@
       ]
     },
     {
-      "name": "Honda Civic Hatchback 2017-21",
+      "name": "Honda Civic Hatchback 2017-18",
       "model": "Civic Hatchback",
-      "years": "2017-21",
-      "year_list": "2017, 2018, 2019, 2020, 2021",
+      "years": "2017-18",
+      "year_list": "2017, 2018",
       "package": "Honda Sensing",
+      "angled_mount": false,
+      "video": "",
+      "setup_video": "",
+      "harness_connector": "Honda Bosch A",
+      "detail_sentence": "openpilot upgrades your <strong>Honda Civic Hatchback</strong> with automated lane centering <strong>above 12 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. This car may not be able to take tight turns on its own.",
+      "footnotes": [
+      ],
+      "setup_notes": [
+      ]
+    },
+    {
+      "name": "Honda Civic Hatchback 2019-21",
+      "model": "Civic Hatchback",
+      "years": "2019-21",
+      "year_list": "2019, 2020, 2021",
+      "package": "All",
       "angled_mount": false,
       "video": "",
       "setup_video": "",
@@ -3445,6 +3477,8 @@
         "See more setup details for \u003ca href=\"https://github.com/commaai/openpilot/wiki/nissan\" target=\"_blank\"\u003eNissan\u003c/a\u003e."
       ]
     }
+  ],
+  "Peugeot": [
   ],
   "Ram": [
     {
