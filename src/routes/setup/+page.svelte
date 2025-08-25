@@ -15,7 +15,6 @@
       link="/setup/comma-3x"
       image={Comma3XImage}
     />
-    <hr />
   </div>
 </section>
 
