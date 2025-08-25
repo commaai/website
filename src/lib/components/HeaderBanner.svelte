@@ -1,7 +1,7 @@
 <a href="/jobs.html" target="_blank" class="banner">
   <div class="wrapper">
     <strong class="headline">
-      FLASH SALE: take 10% off comma 3X for openpilot 0.10!
+      FLASH SALE: Take 10% off comma 3X for openpilot 0.10!
     </strong>
   </div>
 </a>
