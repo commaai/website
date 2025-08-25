@@ -1,4 +1,4 @@
-<a href="/jobs.html" target="_blank" class="banner">
+<a href="/shop/comma-3x" class="banner">
   <div class="wrapper">
     <strong class="headline">
       FLASH SALE: Take 10% off comma 3X for openpilot 0.10!
