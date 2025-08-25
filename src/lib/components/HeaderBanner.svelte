@@ -1,7 +1,7 @@
 <a href="/jobs.html" target="_blank" class="banner">
   <div class="wrapper">
     <strong class="headline">
-      comma 3X is 10% off for openpilot 0.10!
+      FLASH SALE: comma 3X is 10% off for openpilot 0.10!
     </strong>
   </div>
 </a>
@@ -11,7 +11,7 @@
     display: block;
     text-decoration: none;
     color: black;
-    background-color: var(--color-accent);
+    background-color: var(--color-red);
   }
 
   .wrapper {
