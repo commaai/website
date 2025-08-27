@@ -30,7 +30,7 @@
 <section class="dark" id="devices">
   <div class="container">
     <article>
-      <div class="product-display gradient-bg">
+      <div class="product-display flowers-in-space-bg">
         <Grid columns={2} alignItems="center" size="large">
           <div class="product-content">
             <Badge style="accent">FLASH SALE</Badge>
@@ -339,8 +339,10 @@
       }
     }
 
-    & .gradient-bg {
-      background: linear-gradient(135deg, #111 50%, #023807);
+    & .flowers-in-space-bg {
+      background:
+        linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
+        url("$lib/images/device-backdrop.jpg") center / cover;
     }
 
     & .product-display {
