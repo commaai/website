@@ -38,13 +38,18 @@
     </Grid>
 
     <div class="compatibility-make-links">
-      {#each Object.keys(vehicles) as brand}
+      {#each Object.entries(vehicles) as [brand, cars]}
+        {#if cars.length !== 0}
+        {@const brand_img_path = `/src/lib/images/vehicles/brand-icons/Logo-${brand}.png`}
         <div class="compatibility-make-element">
           <a href="#{brand.toLowerCase()}" class="compatibility-make-anchor-link">
-            <img src={brand_images[`/src/lib/images/vehicles/brand-icons/Logo-${brand}.png`].default} loading="eager" alt="{brand} car brand" />
+            {#if brand_images[brand_img_path]}
+              <img src={brand_images[brand_img_path].default} loading="eager" alt="{brand} car brand" />
+            {/if}
           </a>
           <div class="compatibility-make-name">{brand}</div>
         </div>
+        {/if}
       {/each}
     </div>
 
@@ -104,8 +109,12 @@
 <section class="light" id="compatibility-chart">
   <div class="container" style="width:85%; max-width: 60rem">
     {#each Object.entries(vehicles) as [make, cars]}
+      {#if cars.length !== 0}
+      {@const brand_img_path = `/src/lib/images/vehicles/brand-icons/Logo-${make}.png`}
       <div id={make.toLowerCase()} class="car-make-header">
-        <img src={brand_images[`/src/lib/images/vehicles/brand-icons/Logo-${make}.png`].default} alt="{make} car brand" />
+        {#if brand_images[brand_img_path]}
+          <img src={brand_images[brand_img_path].default} alt="{make} car brand" />
+        {/if}
         <h3>{make} <span class="muted">({cars.length})</span></h3>
       </div>
 
@@ -185,6 +194,7 @@
           </Accordion>
         </div>
       {/each}
+      {/if}
     {/each}
   </div>
 </section>
