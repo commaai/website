@@ -5,20 +5,15 @@
 
   export let topic;
   export let title = null;
+  export let activehash = "";
 
   const handleExpand = (id) => {
     history.replaceState(null, null, `#${id}`);
   }
 
   onMount(() => {
-    const hash = window.location.hash;
-    if (hash) {
-      const label = document.querySelector(hash);
-      if (label) {
-        label.click();
-      }
-    }
-  });
+    activehash = window.location.hash.slice(1);
+  })
 </script>
 
 <div>
@@ -33,7 +28,7 @@
   <div class="questions">
     {#each topic.questions as entry}
       {@const id = entry.question.toLowerCase().replace(/[^\w\s]/g, '').replaceAll(' ', '-')}
-      <Accordion on:click={() => handleExpand(id)} {id}>
+      <Accordion checked={id === activehash ? true : false} on:click={() => handleExpand(id)} {id}>
         <div slot="label" class="label">
           <span>{entry.question}</span>
         </div>
