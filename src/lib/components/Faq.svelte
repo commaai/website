@@ -1,7 +1,7 @@
 <script>
-  import { onMount } from "svelte";
-  import Accordion from "./Accordion.svelte";
-  import Grid from "./Grid.svelte";
+  import { onMount } from 'svelte';
+  import Accordion from './Accordion.svelte';
+  import Grid from './Grid.svelte';
 
   export let topic;
   export let title = null;
@@ -9,43 +9,26 @@
 
   const handleExpand = (id) => {
     history.replaceState(null, null, `#${id}`);
-  };
+  }
 
   onMount(() => {
     activehash = window.location.hash.slice(1);
-  });
+  })
 </script>
 
 <div>
-  <div
-    class="header"
-    id={(title ?? topic.title)
-      .toLowerCase()
-      .replace(/[^\w\s]/g, "")
-      .replaceAll(" ", "-")}
-  >
+  <div class="header" id={(title ?? topic.title).toLowerCase().replace(/[^\w\s]/g, '').replaceAll(' ', '-')}>
     <Grid columns={2} alignItems="center" rowGap="0" size="small">
       <h1>{title ?? topic.title}</h1>
       <div class="mobile-first">
-        <img
-          src={topic.image}
-          loading="eager"
-          alt="{title ?? topic.title} banner"
-        />
+        <img src={topic.image} loading="eager" alt="{title ?? topic.title} banner" />
       </div>
     </Grid>
   </div>
   <div class="questions">
     {#each topic.questions as entry}
-      {@const id = entry.question
-        .toLowerCase()
-        .replace(/[^\w\s]/g, "")
-        .replaceAll(" ", "-")}
-      <Accordion
-        checked={id === activehash ? true : false}
-        on:click={() => handleExpand(id)}
-        {id}
-      >
+      {@const id = entry.question.toLowerCase().replace(/[^\w\s]/g, '').replaceAll(' ', '-')}
+      <Accordion checked={id === activehash ? true : false} on:click={() => handleExpand(id)} {id}>
         <div slot="label" class="label">
           <span>{entry.question}</span>
         </div>
