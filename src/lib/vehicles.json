@@ -1232,10 +1232,10 @@
       ]
     },
     {
-      "name": "Honda Civic Hatchback Hybrid 2025",
+      "name": "Honda Civic Hatchback Hybrid 2025-26",
       "model": "Civic Hatchback Hybrid",
-      "years": "2025",
-      "year_list": "2025",
+      "years": "2025-26",
+      "year_list": "2025, 2026",
       "package": "All",
       "angled_mount": false,
       "video": "",
@@ -3961,10 +3961,10 @@
       ]
     },
     {
-      "name": "Tesla Model Y (with HW4) 2024",
+      "name": "Tesla Model Y (with HW4) 2024-25",
       "model": "Model Y (with HW4)",
-      "years": "2024",
-      "year_list": "2024",
+      "years": "2024-25",
+      "year_list": "2024, 2025",
       "package": "All",
       "angled_mount": false,
       "video": "",
