@@ -1536,6 +1536,22 @@
       ]
     },
     {
+      "name": "Honda Passport 2026",
+      "model": "Passport",
+      "years": "2026",
+      "year_list": "2026",
+      "package": "All",
+      "angled_mount": false,
+      "video": "",
+      "setup_video": "",
+      "harness_connector": "Honda Bosch C",
+      "detail_sentence": "openpilot upgrades your <strong>Honda Passport</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "footnotes": [
+      ],
+      "setup_notes": [
+      ]
+    },
+    {
       "name": "Honda Pilot 2016-22",
       "model": "Pilot",
       "years": "2016-22",
