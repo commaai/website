@@ -79,6 +79,22 @@
       ],
       "setup_notes": [
       ]
+    },
+    {
+      "name": "Acura TLX 2021",
+      "model": "TLX",
+      "years": "2021",
+      "year_list": "2021",
+      "package": "All",
+      "angled_mount": false,
+      "video": "",
+      "setup_video": "",
+      "harness_connector": "Honda Bosch A",
+      "detail_sentence": "openpilot upgrades your <strong>Acura TLX</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
+      "footnotes": [
+      ],
+      "setup_notes": [
+      ]
     }
   ],
   "Audi": [
