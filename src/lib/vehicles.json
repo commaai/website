@@ -910,7 +910,6 @@
       "harness_connector": "Hyundai P",
       "detail_sentence": "openpilot upgrades your <strong>Genesis G80 (2.5T Advanced Trim, with HDA II)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
-        "Requires a \u003ca href=\"https://comma.ai/shop/can-fd-panda-kit\" target=\"_blank\"\u003eCAN FD panda kit\u003c/a\u003e if not using comma 3X for this \u003ca href=\"https://en.wikipedia.org/wiki/CAN_FD\" target=\"_blank\"\u003eCAN FD car\u003c/a\u003e."
       ],
       "setup_notes": [
       ]
@@ -943,7 +942,6 @@
       "harness_connector": "Hyundai A",
       "detail_sentence": "openpilot upgrades your <strong>Genesis GV60 (Advanced Trim)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
-        "Requires a \u003ca href=\"https://comma.ai/shop/can-fd-panda-kit\" target=\"_blank\"\u003eCAN FD panda kit\u003c/a\u003e if not using comma 3X for this \u003ca href=\"https://en.wikipedia.org/wiki/CAN_FD\" target=\"_blank\"\u003eCAN FD car\u003c/a\u003e."
       ],
       "setup_notes": [
       ]
@@ -960,7 +958,6 @@
       "harness_connector": "Hyundai K",
       "detail_sentence": "openpilot upgrades your <strong>Genesis GV60 (Performance Trim)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
-        "Requires a \u003ca href=\"https://comma.ai/shop/can-fd-panda-kit\" target=\"_blank\"\u003eCAN FD panda kit\u003c/a\u003e if not using comma 3X for this \u003ca href=\"https://en.wikipedia.org/wiki/CAN_FD\" target=\"_blank\"\u003eCAN FD car\u003c/a\u003e."
       ],
       "setup_notes": [
       ]
@@ -977,7 +974,6 @@
       "harness_connector": "Hyundai L",
       "detail_sentence": "openpilot upgrades your <strong>Genesis GV70 (2.5T Trim, without HDA II)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
-        "Requires a \u003ca href=\"https://comma.ai/shop/can-fd-panda-kit\" target=\"_blank\"\u003eCAN FD panda kit\u003c/a\u003e if not using comma 3X for this \u003ca href=\"https://en.wikipedia.org/wiki/CAN_FD\" target=\"_blank\"\u003eCAN FD car\u003c/a\u003e."
       ],
       "setup_notes": [
       ]
@@ -994,7 +990,6 @@
       "harness_connector": "Hyundai M",
       "detail_sentence": "openpilot upgrades your <strong>Genesis GV70 (3.5T Trim, without HDA II)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
-        "Requires a \u003ca href=\"https://comma.ai/shop/can-fd-panda-kit\" target=\"_blank\"\u003eCAN FD panda kit\u003c/a\u003e if not using comma 3X for this \u003ca href=\"https://en.wikipedia.org/wiki/CAN_FD\" target=\"_blank\"\u003eCAN FD car\u003c/a\u003e."
       ],
       "setup_notes": [
       ]
@@ -1011,7 +1006,6 @@
       "harness_connector": "Hyundai Q",
       "detail_sentence": "openpilot upgrades your <strong>Genesis GV70 Electrified (Australia Only)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
-        "Requires a \u003ca href=\"https://comma.ai/shop/can-fd-panda-kit\" target=\"_blank\"\u003eCAN FD panda kit\u003c/a\u003e if not using comma 3X for this \u003ca href=\"https://en.wikipedia.org/wiki/CAN_FD\" target=\"_blank\"\u003eCAN FD car\u003c/a\u003e."
       ],
       "setup_notes": [
       ]
@@ -1028,7 +1022,6 @@
       "harness_connector": "Hyundai Q",
       "detail_sentence": "openpilot upgrades your <strong>Genesis GV70 Electrified (with HDA II)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
-        "Requires a \u003ca href=\"https://comma.ai/shop/can-fd-panda-kit\" target=\"_blank\"\u003eCAN FD panda kit\u003c/a\u003e if not using comma 3X for this \u003ca href=\"https://en.wikipedia.org/wiki/CAN_FD\" target=\"_blank\"\u003eCAN FD car\u003c/a\u003e."
       ],
       "setup_notes": [
       ]
@@ -1045,7 +1038,6 @@
       "harness_connector": "Hyundai M",
       "detail_sentence": "openpilot upgrades your <strong>Genesis GV80</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
-        "Requires a \u003ca href=\"https://comma.ai/shop/can-fd-panda-kit\" target=\"_blank\"\u003eCAN FD panda kit\u003c/a\u003e if not using comma 3X for this \u003ca href=\"https://en.wikipedia.org/wiki/CAN_FD\" target=\"_blank\"\u003eCAN FD car\u003c/a\u003e."
       ],
       "setup_notes": [
       ]
@@ -1805,7 +1797,6 @@
       "harness_connector": "Hyundai Q",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Ioniq 5 (Southeast Asia and Europe only)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
-        "Requires a \u003ca href=\"https://comma.ai/shop/can-fd-panda-kit\" target=\"_blank\"\u003eCAN FD panda kit\u003c/a\u003e if not using comma 3X for this \u003ca href=\"https://en.wikipedia.org/wiki/CAN_FD\" target=\"_blank\"\u003eCAN FD car\u003c/a\u003e."
       ],
       "setup_notes": [
       ]
@@ -1822,7 +1813,6 @@
       "harness_connector": "Hyundai Q",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Ioniq 5 (with HDA II)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
-        "Requires a \u003ca href=\"https://comma.ai/shop/can-fd-panda-kit\" target=\"_blank\"\u003eCAN FD panda kit\u003c/a\u003e if not using comma 3X for this \u003ca href=\"https://en.wikipedia.org/wiki/CAN_FD\" target=\"_blank\"\u003eCAN FD car\u003c/a\u003e."
       ],
       "setup_notes": [
       ]
@@ -1839,7 +1829,6 @@
       "harness_connector": "Hyundai K",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Ioniq 5 (without HDA II)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
-        "Requires a \u003ca href=\"https://comma.ai/shop/can-fd-panda-kit\" target=\"_blank\"\u003eCAN FD panda kit\u003c/a\u003e if not using comma 3X for this \u003ca href=\"https://en.wikipedia.org/wiki/CAN_FD\" target=\"_blank\"\u003eCAN FD car\u003c/a\u003e."
       ],
       "setup_notes": [
       ]
@@ -1856,7 +1845,6 @@
       "harness_connector": "Hyundai P",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Ioniq 6 (with HDA II)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
-        "Requires a \u003ca href=\"https://comma.ai/shop/can-fd-panda-kit\" target=\"_blank\"\u003eCAN FD panda kit\u003c/a\u003e if not using comma 3X for this \u003ca href=\"https://en.wikipedia.org/wiki/CAN_FD\" target=\"_blank\"\u003eCAN FD car\u003c/a\u003e."
       ],
       "setup_notes": [
       ]
@@ -2017,7 +2005,6 @@
       "harness_connector": "Hyundai R",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Kona Electric (with HDA II, Korea only)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
-        "Requires a \u003ca href=\"https://comma.ai/shop/can-fd-panda-kit\" target=\"_blank\"\u003eCAN FD panda kit\u003c/a\u003e if not using comma 3X for this \u003ca href=\"https://en.wikipedia.org/wiki/CAN_FD\" target=\"_blank\"\u003eCAN FD car\u003c/a\u003e."
       ],
       "setup_notes": [
       ]
@@ -2082,7 +2069,6 @@
       "harness_connector": "Hyundai N",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Santa Cruz</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
-        "Requires a \u003ca href=\"https://comma.ai/shop/can-fd-panda-kit\" target=\"_blank\"\u003eCAN FD panda kit\u003c/a\u003e if not using comma 3X for this \u003ca href=\"https://en.wikipedia.org/wiki/CAN_FD\" target=\"_blank\"\u003eCAN FD car\u003c/a\u003e."
       ],
       "setup_notes": [
       ]
@@ -2211,7 +2197,6 @@
       "harness_connector": "Hyundai K",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Staria</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
-        "Requires a \u003ca href=\"https://comma.ai/shop/can-fd-panda-kit\" target=\"_blank\"\u003eCAN FD panda kit\u003c/a\u003e if not using comma 3X for this \u003ca href=\"https://en.wikipedia.org/wiki/CAN_FD\" target=\"_blank\"\u003eCAN FD car\u003c/a\u003e."
       ],
       "setup_notes": [
       ]
@@ -2244,7 +2229,6 @@
       "harness_connector": "Hyundai N",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Tucson</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
-        "Requires a \u003ca href=\"https://comma.ai/shop/can-fd-panda-kit\" target=\"_blank\"\u003eCAN FD panda kit\u003c/a\u003e if not using comma 3X for this \u003ca href=\"https://en.wikipedia.org/wiki/CAN_FD\" target=\"_blank\"\u003eCAN FD car\u003c/a\u003e."
       ],
       "setup_notes": [
       ]
@@ -2261,7 +2245,6 @@
       "harness_connector": "Hyundai N",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Tucson</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
-        "Requires a \u003ca href=\"https://comma.ai/shop/can-fd-panda-kit\" target=\"_blank\"\u003eCAN FD panda kit\u003c/a\u003e if not using comma 3X for this \u003ca href=\"https://en.wikipedia.org/wiki/CAN_FD\" target=\"_blank\"\u003eCAN FD car\u003c/a\u003e."
       ],
       "setup_notes": [
       ]
@@ -2294,7 +2277,6 @@
       "harness_connector": "Hyundai N",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Tucson Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
-        "Requires a \u003ca href=\"https://comma.ai/shop/can-fd-panda-kit\" target=\"_blank\"\u003eCAN FD panda kit\u003c/a\u003e if not using comma 3X for this \u003ca href=\"https://en.wikipedia.org/wiki/CAN_FD\" target=\"_blank\"\u003eCAN FD car\u003c/a\u003e."
       ],
       "setup_notes": [
       ]
@@ -2311,7 +2293,6 @@
       "harness_connector": "Hyundai N",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Tucson Plug-in Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
-        "Requires a \u003ca href=\"https://comma.ai/shop/can-fd-panda-kit\" target=\"_blank\"\u003eCAN FD panda kit\u003c/a\u003e if not using comma 3X for this \u003ca href=\"https://en.wikipedia.org/wiki/CAN_FD\" target=\"_blank\"\u003eCAN FD car\u003c/a\u003e."
       ],
       "setup_notes": [
       ]
@@ -2380,7 +2361,6 @@
       "harness_connector": "Hyundai A",
       "detail_sentence": "openpilot upgrades your <strong>Kia Carnival</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
-        "Requires a \u003ca href=\"https://comma.ai/shop/can-fd-panda-kit\" target=\"_blank\"\u003eCAN FD panda kit\u003c/a\u003e if not using comma 3X for this \u003ca href=\"https://en.wikipedia.org/wiki/CAN_FD\" target=\"_blank\"\u003eCAN FD car\u003c/a\u003e."
       ],
       "setup_notes": [
       ]
@@ -2397,7 +2377,6 @@
       "harness_connector": "Hyundai K",
       "detail_sentence": "openpilot upgrades your <strong>Kia Carnival (China only)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
-        "Requires a \u003ca href=\"https://comma.ai/shop/can-fd-panda-kit\" target=\"_blank\"\u003eCAN FD panda kit\u003c/a\u003e if not using comma 3X for this \u003ca href=\"https://en.wikipedia.org/wiki/CAN_FD\" target=\"_blank\"\u003eCAN FD car\u003c/a\u003e."
       ],
       "setup_notes": [
       ]
@@ -2430,7 +2409,6 @@
       "harness_connector": "Hyundai P",
       "detail_sentence": "openpilot upgrades your <strong>Kia EV6 (Southeast Asia only)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
-        "Requires a \u003ca href=\"https://comma.ai/shop/can-fd-panda-kit\" target=\"_blank\"\u003eCAN FD panda kit\u003c/a\u003e if not using comma 3X for this \u003ca href=\"https://en.wikipedia.org/wiki/CAN_FD\" target=\"_blank\"\u003eCAN FD car\u003c/a\u003e."
       ],
       "setup_notes": [
       ]
@@ -2447,7 +2425,6 @@
       "harness_connector": "Hyundai P",
       "detail_sentence": "openpilot upgrades your <strong>Kia EV6 (with HDA II)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
-        "Requires a \u003ca href=\"https://comma.ai/shop/can-fd-panda-kit\" target=\"_blank\"\u003eCAN FD panda kit\u003c/a\u003e if not using comma 3X for this \u003ca href=\"https://en.wikipedia.org/wiki/CAN_FD\" target=\"_blank\"\u003eCAN FD car\u003c/a\u003e."
       ],
       "setup_notes": [
       ]
@@ -2464,7 +2441,6 @@
       "harness_connector": "Hyundai L",
       "detail_sentence": "openpilot upgrades your <strong>Kia EV6 (without HDA II)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
-        "Requires a \u003ca href=\"https://comma.ai/shop/can-fd-panda-kit\" target=\"_blank\"\u003eCAN FD panda kit\u003c/a\u003e if not using comma 3X for this \u003ca href=\"https://en.wikipedia.org/wiki/CAN_FD\" target=\"_blank\"\u003eCAN FD car\u003c/a\u003e."
       ],
       "setup_notes": [
       ]
@@ -2545,7 +2521,6 @@
       "harness_connector": "Hyundai Q",
       "detail_sentence": "openpilot upgrades your <strong>Kia K8 Hybrid (with HDA II)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
-        "Requires a \u003ca href=\"https://comma.ai/shop/can-fd-panda-kit\" target=\"_blank\"\u003eCAN FD panda kit\u003c/a\u003e if not using comma 3X for this \u003ca href=\"https://en.wikipedia.org/wiki/CAN_FD\" target=\"_blank\"\u003eCAN FD car\u003c/a\u003e."
       ],
       "setup_notes": [
       ]
@@ -2626,7 +2601,6 @@
       "harness_connector": "Hyundai R",
       "detail_sentence": "openpilot upgrades your <strong>Kia Niro EV (with HDA II)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
-        "Requires a \u003ca href=\"https://comma.ai/shop/can-fd-panda-kit\" target=\"_blank\"\u003eCAN FD panda kit\u003c/a\u003e if not using comma 3X for this \u003ca href=\"https://en.wikipedia.org/wiki/CAN_FD\" target=\"_blank\"\u003eCAN FD car\u003c/a\u003e."
       ],
       "setup_notes": [
       ]
@@ -2643,7 +2617,6 @@
       "harness_connector": "Hyundai A",
       "detail_sentence": "openpilot upgrades your <strong>Kia Niro EV (without HDA II)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
-        "Requires a \u003ca href=\"https://comma.ai/shop/can-fd-panda-kit\" target=\"_blank\"\u003eCAN FD panda kit\u003c/a\u003e if not using comma 3X for this \u003ca href=\"https://en.wikipedia.org/wiki/CAN_FD\" target=\"_blank\"\u003eCAN FD car\u003c/a\u003e."
       ],
       "setup_notes": [
       ]
@@ -2708,7 +2681,6 @@
       "harness_connector": "Hyundai A",
       "detail_sentence": "openpilot upgrades your <strong>Kia Niro Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
-        "Requires a \u003ca href=\"https://comma.ai/shop/can-fd-panda-kit\" target=\"_blank\"\u003eCAN FD panda kit\u003c/a\u003e if not using comma 3X for this \u003ca href=\"https://en.wikipedia.org/wiki/CAN_FD\" target=\"_blank\"\u003eCAN FD car\u003c/a\u003e."
       ],
       "setup_notes": [
       ]
@@ -2885,7 +2857,6 @@
       "harness_connector": "Hyundai K",
       "detail_sentence": "openpilot upgrades your <strong>Kia Sorento</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
-        "Requires a \u003ca href=\"https://comma.ai/shop/can-fd-panda-kit\" target=\"_blank\"\u003eCAN FD panda kit\u003c/a\u003e if not using comma 3X for this \u003ca href=\"https://en.wikipedia.org/wiki/CAN_FD\" target=\"_blank\"\u003eCAN FD car\u003c/a\u003e."
       ],
       "setup_notes": [
       ]
@@ -2902,7 +2873,6 @@
       "harness_connector": "Hyundai A",
       "detail_sentence": "openpilot upgrades your <strong>Kia Sorento Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
-        "Requires a \u003ca href=\"https://comma.ai/shop/can-fd-panda-kit\" target=\"_blank\"\u003eCAN FD panda kit\u003c/a\u003e if not using comma 3X for this \u003ca href=\"https://en.wikipedia.org/wiki/CAN_FD\" target=\"_blank\"\u003eCAN FD car\u003c/a\u003e."
       ],
       "setup_notes": [
       ]
@@ -2919,7 +2889,6 @@
       "harness_connector": "Hyundai A",
       "detail_sentence": "openpilot upgrades your <strong>Kia Sorento Plug-in Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
-        "Requires a \u003ca href=\"https://comma.ai/shop/can-fd-panda-kit\" target=\"_blank\"\u003eCAN FD panda kit\u003c/a\u003e if not using comma 3X for this \u003ca href=\"https://en.wikipedia.org/wiki/CAN_FD\" target=\"_blank\"\u003eCAN FD car\u003c/a\u003e."
       ],
       "setup_notes": [
       ]
@@ -2936,7 +2905,6 @@
       "harness_connector": "Hyundai N",
       "detail_sentence": "openpilot upgrades your <strong>Kia Sportage</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
-        "Requires a \u003ca href=\"https://comma.ai/shop/can-fd-panda-kit\" target=\"_blank\"\u003eCAN FD panda kit\u003c/a\u003e if not using comma 3X for this \u003ca href=\"https://en.wikipedia.org/wiki/CAN_FD\" target=\"_blank\"\u003eCAN FD car\u003c/a\u003e."
       ],
       "setup_notes": [
       ]
@@ -2953,7 +2921,6 @@
       "harness_connector": "Hyundai N",
       "detail_sentence": "openpilot upgrades your <strong>Kia Sportage Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
-        "Requires a \u003ca href=\"https://comma.ai/shop/can-fd-panda-kit\" target=\"_blank\"\u003eCAN FD panda kit\u003c/a\u003e if not using comma 3X for this \u003ca href=\"https://en.wikipedia.org/wiki/CAN_FD\" target=\"_blank\"\u003eCAN FD car\u003c/a\u003e."
       ],
       "setup_notes": [
       ]
