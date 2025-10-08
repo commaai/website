@@ -1,5 +1,5 @@
 <script>
-  import { onMount } from 'svelte';
+  import { page } from '$app/stores';
   import Accordion from './Accordion.svelte';
   import Grid from './Grid.svelte';
 
@@ -10,15 +10,7 @@
     history.replaceState(null, null, `#${id}`);
   }
 
-  onMount(() => {
-    const hash = window.location.hash;
-    if (hash) {
-      const label = document.querySelector(hash);
-      if (label) {
-        label.click();
-      }
-    }
-  });
+  $: activehash = $page.url.hash.slice(1)
 </script>
 
 <div>
@@ -33,7 +25,7 @@
   <div class="questions">
     {#each topic.questions as entry}
       {@const id = entry.question.toLowerCase().replace(/[^\w\s]/g, '').replaceAll(' ', '-')}
-      <Accordion on:click={() => handleExpand(id)} {id}>
+      <Accordion checked={id === activehash} on:click={() => handleExpand(id)} {id}>
         <div slot="label" class="label">
           <span>{entry.question}</span>
         </div>
