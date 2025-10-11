@@ -1,7 +1,8 @@
-<a href="/jobs.html" target="_blank" class="banner">
+<a href="https://tickets.comma-con.com/events/comma/1859964" target="_blank" class="banner">
   <div class="wrapper">
     <strong class="headline">
-      We're hiring! Come build the future of self-driving cars.
+      COMMA_CON 2025 is Nov 8th in San Diego, CA!
+      Get your ticket now.
     </strong>
   </div>
 </a>
