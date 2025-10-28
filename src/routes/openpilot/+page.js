@@ -1,7 +1,7 @@
 import { XMLParser } from 'fast-xml-parser';
 
 // TODO: use release RSS feed, https://github.com/commaai/blog/issues/86
-const OPENPILOT_RELEASE_PATTERN = "openpilot \\d\\.\\d\\.\\d";
+const OPENPILOT_RELEASE_PATTERN = "\\bopenpilot\\s+\\d+\\.\\d+(?:\\.\\d+)?\\b";
 
 /** @type {import('./$types').PageLoad} */
 export async function load({ fetch }) {
