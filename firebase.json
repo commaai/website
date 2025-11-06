@@ -408,6 +408,11 @@
         "source": "/SUPPORT",
         "destination": "/support",
         "type": 302
+      },
+      {
+        "source": "/hack",
+        "destination": "https://forms.gle/tRAGiwuAXXms3dxAA",
+        "type": 302
       }
     ]
   }
