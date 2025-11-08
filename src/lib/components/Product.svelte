@@ -3,7 +3,6 @@
   import Button from "$lib/components/Button.svelte";
   import Select from "$lib/components/Select.svelte";
   import NoteCard from "$lib/components/NoteCard.svelte";
-  import Lightbox from "$lib/components/Lightbox.svelte";
 
   import ShippingIcon from "$lib/icons/features/shipping.svg?raw";
 
@@ -15,9 +14,6 @@
   export let autoSelectFirstVariant = true;
   export let beforeAddToCart = null;
   export let getCartNote = null;
-  export let previousPrice = null;
-  export let priceOverride = null;
-  export let sale = false;
   export let backordered = null;
   export let forceOutOfStock = false;
 
@@ -53,9 +49,7 @@
   }
 
   function getPriceLabel(_) {
-    if (priceOverride) {
-      return formatCurrency({amount: priceOverride, currencyCode: "USD"}, 0);
-    } else if (selectedVariant) {
+    if (selectedVariant) {
       return formatCurrency(selectedVariant.price, 0);
     } else if (product.priceRange.minVariantPrice.amount !== product.priceRange.maxVariantPrice.amount) {
       return `from ${formatCurrency(product.priceRange.minVariantPrice, 0)}`;
@@ -77,20 +71,12 @@
       addToCartLabel = "Add to cart";
     }
   }
-
-  let showLightbox = false;
-
-  function keydownLightbox(e) {
-    if (e.key === 'Enter' || e.key === ' ') {
-      showLightbox = true;
-    }
-  }
 </script>
 
 {#if product}
   <Grid columns={2} rowGap="0" columnGap="6rem" templateColumns="1.25fr 0.75fr" lgTemplateColumns="1fr 1fr" lgColumnGap="2rem">
     <div>
-      <div class="preview" role="button" tabindex="0" aria-label="open product preview" on:click={() => showLightbox = true} on:keydown={keydownLightbox}>
+      <div class="preview">
         <img src={highlightedImageSrc} alt="product preview" />
       </div>
       {#if product?.images?.length > 1}
@@ -115,10 +101,7 @@
       <div>
         <div class="variant-selector">
           <h1>{product?.title}</h1>
-          {#if previousPrice}
-            <div class="price strikethrough-price">${previousPrice}</div>
-          {/if}
-          <div class="price" class:sale-price={sale}>{priceLabel}</div>
+          <div class="price">{priceLabel}</div>
           <slot name="price-accessory"></slot>
           {#if VariantSelector}
             <svelte:component this={VariantSelector} onChange={handleVariantSelection} />
@@ -158,10 +141,6 @@
   </Grid>
 {/if}
 
-{#if showLightbox && product?.images?.length > 1}
-  <Lightbox images={product.images} onClose={() => showLightbox = false} selectedIndex={currentImageIndex} />
-{/if}
-
 <style>
   h1 {
     font-size: 2.5rem;
@@ -170,7 +149,6 @@
 
   .preview {
     border: 1px solid rgba(0, 0, 0, 0.12);
-    cursor: pointer;
 
     & img {
       display: block;
@@ -209,14 +187,6 @@
       font-size: 1.5rem;
     }
 
-    & .strikethrough-price {
-      text-decoration: line-through;
-    }
-
-    & .sale-price {
-      font-weight: 700;
-      color: var(--color-red);
-    }
 
     & img {
       width: 120px;

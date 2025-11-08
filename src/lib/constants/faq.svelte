@@ -1,8 +1,6 @@
 <script context="module">
   import OpenpilotImage from '$lib/images/faq/openpilot.svg';
   import ConnectImage from '$lib/images/faq/connect.svg';
-  import CommaThreeImage from '$lib/images/faq/comma-three.svg';
-  import BodyImage from '$lib/images/faq/body.svg';
   import ReturnPolicyImage from '$lib/images/faq/30-day.svg';
   import ShopImage from '$lib/images/faq/shop.svg';
   import ShippingImage from '$lib/images/faq/shipping.svg';
@@ -53,7 +51,7 @@
           question: 'Is my car compatible with openpilot?',
           answer: `
             A complete list of compatible vehicles can be found on our
-            <a href="/vehicles">Compatibility page</a>.
+            <a href="https://github.com/commaai/openpilot/blob/master/docs/CARS.md" target="_blank">Compatibility page</a>.
           `
         }, {
           question: 'What should I buy to run openpilot in my car?',
@@ -279,7 +277,7 @@
           answer: `
             <p>
               Sign up for prime in <a href="https://connect.comma.ai/">comma connect</a>. With a
-              purchase of a comma 3X, you get a free month of comma prime, in which you
+              purchase of a comma four, you get a free month of comma prime, in which you
               can cancel at any time. After that, you will be charged $24 a month
               (domestic only).
             </p>
@@ -371,7 +369,7 @@
     },
     devices: {
       title: 'comma devices',
-      image: CommaThreeImage,
+      image: OtherTopicsImage,
       questions: [
         {
           question: 'Do I need a comma prime monthly subscription to use the device?',
@@ -428,11 +426,6 @@
               rejecting coverage to comma hardware users.
             </p>
           `
-        }, {
-          question: 'I am upgrading from a previous generation comma to a comma 3X do I need to order another harness?',
-          answer: `
-            No, existing comma harnesses work with these devices.
-          `
         }
       ]
     },
@@ -444,16 +437,16 @@
           question: 'What is the 30-day money-back trial?',
           answer: `
             <p>
-              Every vehicle is a little different and the experience can be hard to describe which is why we offer this trial. If you don’t love the comma 3X, you can return it for a refund–no questions asked. All refunds must be initiated through <a href="https://comma.ai/returns">comma.ai/returns</a> within 30 calendar days of receiving your order.
+              Every vehicle is a little different and the experience can be hard to describe which is why we offer this trial. If you don’t love the comma four, you can return it for a refund–no questions asked. All refunds must be initiated through <a href="https://comma.ai/returns">comma.ai/returns</a> within 30 calendar days of receiving your order.
             </p>
           `
         }, {
           question: 'When does the 30-day money-back trial start?',
           answer: `
-            The 30-day money-back trial starts the day your comma 3X is delivered (signature confirmation required for delivery). If you do decide to return your device, we ask that you get the return device in the mail within 30 days of receiving it.
+            The 30-day money-back trial starts the day your comma four is delivered (signature confirmation required for delivery). If you do decide to return your device, we ask that you get the return device in the mail within 30 days of receiving it.
           `
         }, {
-          question: 'How do I return my comma 3X?',
+          question: 'How do I return my comma four?',
           answer: `
             To return your device, please request a return at <a href="https://comma.ai/returns">comma.ai/returns</a>. A prepaid return label (or return instructions if not in the US) will be automatically sent to you. $9.99 will be deducted from your refund if you choose to use this label.
           `
@@ -546,7 +539,7 @@
           question: 'What do I need to know before making an international order?',
           answer: `
             <p>
-              We recommend verifying that your car is supported at <a href="/vehicles">comma.ai/vehicles</a>. All support is for US cars unless specified otherwise.
+              We recommend verifying that your car is supported at <a href="https://github.com/commaai/openpilot/blob/master/docs/CARS.md" target="_blank">the openpilot compatibility page</a>. All support is for US cars unless specified otherwise.
             </p>
             <p>
               Our prices do not include customs duties and taxes that may apply when shipping to your country. These charges are typically determined by your local customs authority and are your responsibility to pay. The fees often range from $150-350 for a 3X and harness, but they can be more depending on your government. The 3X HS Code is 8525.81. If you refuse to pay these fees, comma is forced to cover them to receive the device back and they will be subtracted from the cost of your return refund.
@@ -705,7 +698,7 @@
     },
     troubleshooting: {
       title: 'Hardware Troubleshooting',
-      image: CommaThreeImage,
+      image: OtherTopicsImage,
       questions: [
         {
           question: 'Why is a stock route required to open a hardware support ticket?',
@@ -782,7 +775,7 @@
             </p>
           `
         }, {
-          question: 'My comma 3X is having issues. What should I do?',
+          question: 'My comma four is having issues. What should I do?',
           answer: `
             We recommend first trying to reflash your device at <a href="https://flash.comma.ai">flash.comma.ai</a> and to reseat all the cable connections. comma support is only able to look into issues on stock with a route where the issue occurs. If you are running a fork, we are unable to diagnose defective hardware without a route on stock. Once you have a route, please open a ticket at <a href="https://comma.ai/support">comma.ai/support</a>. Pictures, videos, and uploading logs via wi-fi are very helpful and often expedite the resolution process. Please also include any troubleshooting steps you have already taken. We also recommend reviewing the community <a href="https://github.com/commaai/openpilot/wiki">GitHub wiki</a> and <a href="https://discord.comma.ai">discord.comma.ai</a> for other troubleshooting.
           `
@@ -812,7 +805,7 @@
         }, {
           question: 'Can I get a review device? (I am a Reviewer / Media / YouTuber)',
           answer: `
-            We have a 30-day no questions asked return policy if you would like to experience a comma 3X for yourself.
+            We have a 30-day no questions asked return policy if you would like to experience a comma four for yourself.
           `
         }, {
           question: 'I\'d like to partner with comma.',

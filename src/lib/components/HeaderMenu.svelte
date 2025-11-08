@@ -25,30 +25,12 @@
     tabindex="-1"
   >
     <div class="section-links">
-      <a href="/openpilot">openpilot</a>
       <a href="/shop/comma-3x">comma 3X</a>
       <a href="/shop">shop</a>
-      <a href="/connect">connect</a>
-      <a href="/vehicles">compatibility</a>
-      <a href="/setup">setup guides</a>
+      <a href="/setup">setup guide</a>
       <a href="/support">support & FAQs</a>
       <a href="https://blog.comma.ai">blog</a>
-      <a href="/jobs.html">jobs - we're hiring!</a>
-    </div>
-    <div class="news-feed">
-      <div class="blog">
-        <div class="title">Latest from the blog:</div>
-        {#each $page.data.blogPosts as blogPost}
-          <div class="entry">
-            <a href={blogPost.link}>{blogPost.title}</a>
-            <div>{blogPost.date} - {blogPost.readTime}</div>
-          </div>
-        {/each}
-      </div>
-      <div class="social-links">
-        <div class="title">Social</div>
-        <SocialIcons size="2rem" />
-      </div>
+      <a href="/jobs">jobs</a>
     </div>
   </div>
 </nav>
@@ -142,38 +124,6 @@
     }
   }
 
-  .news-feed {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 32%;
-    border-left: 1px solid rgba(255, 255, 255, 0.25);
-    padding: 4rem 0 4rem 4rem;
-
-    & .title {
-      color: rgba(255, 255, 255, 0.45);
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-      font-size: 0.875rem;
-    }
-
-    & .entry {
-      margin-top: 1rem;
-      margin-bottom: 2rem;
-
-      & a {
-        font-size: 1.5rem;
-        text-decoration: none;
-      }
-
-      & div {
-        color: rgba(255, 255, 255, 0.65);
-        font-size: 0.875rem;
-      }
-    }
-  }
-
   @media only screen and (max-width: 768px) {
     .menu-container {
       flex-flow: column nowrap;
@@ -189,10 +139,6 @@
 
     .section-links a {
       font-size: 1.5rem;
-    }
-
-    .news-feed {
-      display: none;
     }
   }
 </style>

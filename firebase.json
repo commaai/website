@@ -10,6 +10,16 @@
     "cleanUrls": true,
     "redirects": [
       {
+        "source": "/four",
+        "destination": "/shop/comma-four",
+        "type": 302
+      },
+      {
+        "source": "/shop/comma-3x",
+        "destination": "/four",
+        "type": 302
+      },
+      {
         "source": "/bounties",
         "destination": "https://github.com/orgs/commaai/projects/26/views/1?pane=info",
         "type": 302
@@ -402,6 +412,26 @@
       {
         "source": "/SUPPORT",
         "destination": "/support",
+        "type": 302
+      },
+      {
+        "source": "/vehicles",
+        "destination": "/",
+        "type": 302
+      },
+      {
+        "source": "/openpilot",
+        "destination": "https://github.com/commaai/openpilot",
+        "type": 302
+      },
+      {
+        "source": "/connect",
+        "destination": "https://connect.comma.ai",
+        "type": 302
+      },
+      {
+        "source": "/shipping",
+        "destination": "/faq",
         "type": 302
       },
       {

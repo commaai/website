@@ -1,7 +1,5 @@
 <script>
-  import { browser } from '$app/environment';
   import { page } from '$app/stores';
-  import { goto } from '$app/navigation';
 
   import Grid from "$lib/components/Grid.svelte";
   import Faq from '$lib/components/Faq.svelte';
@@ -11,13 +9,20 @@
   import { faq } from '$lib/constants/faq.svelte';
 </script>
 
+<section class="light" id="faq">
+  <div class="container">
+    <h1>FAQs</h1>
+    {#each Object.keys(faq) as key}
+      <div class="faq-card">
+        <Faq topic={faq[key]} />
+      </div>
+    {/each}
+  </div>
+</section>
+
 <section class="light" id="support">
   <div class="container">
-    <h1>Support & FAQs</h1>
-
     <!-- <hr> -->
-    <br>
-    <br>
     <h1>comma support</h1>
     <div class="faq-sections">
       {#each Object.values(supportFaqs) as section}
@@ -37,17 +42,6 @@
         </div>
       {/each}
     </div>
-  </div>
-</section>
-
-<section class="light" id="faq">
-  <div class="container">
-    <h1>FAQs</h1>
-    {#each Object.keys(faq) as key}
-      <div class="faq-card">
-        <Faq topic={faq[key]} />
-      </div>
-    {/each}
   </div>
 </section>
 
@@ -192,15 +186,9 @@
   .faq-sections {
     margin: 2rem 0;
   }
-  
+
   .faq-section {
     margin-bottom: 3rem;
-  }
-
-  h3 {
-    font-size: 2rem;
-    font-weight: 600;
-    margin-bottom: 2rem;
   }
 
   .label {

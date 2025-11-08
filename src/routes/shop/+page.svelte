@@ -1,13 +1,11 @@
 <script>
   import LinkButton from "$lib/components/LinkButton.svelte";
   import Grid from "$lib/components/Grid.svelte";
-  import Badge from "$lib/components/Badge.svelte";
   import ProductCard from "$lib/components/ProductCard.svelte";
   import Accordion from "$lib/components/Accordion.svelte";
   import Button from "$lib/components/Button.svelte";
 
-  import DeviceImage from "$lib/images/device.png";
-  import BodyImage from "$lib/images/comma-body.png";
+  import FourImage from "$lib/images/products/comma-four/four_screen_on.png";
 
   import RecordingsIcon from "$lib/icons/features/recordings.svg?raw";
   import CalendarIcon from "$lib/icons/features/calendar.svg?raw";
@@ -18,13 +16,31 @@
   import AdaptiveCruiseIcon from "$lib/icons/features/adaptive-cruise.svg?raw";
   import LaneCenteringIcon from "$lib/icons/features/lane-centering.svg?raw";
 
-  import { THREEX_PRICE, THREEX_AFFIRM_PRICE, THREEX_SALE, THREEX_STRIKETHROUGH_PRICE } from '$lib/constants/prices.js';
+  import { THREEX_PRICE, THREEX_AFFIRM_PRICE } from '$lib/constants/prices.js';
   import { vehicleCountText } from '$lib/constants/vehicles.js';
 
   import { addToCart } from "../../store";
-  import { accessoriesList } from "./productsList";
+  import productsData from '$lib/data/products.json';
+  import { resolveImages } from '$lib/utils/images.js';
 
-  $: accessoryProducts = accessoriesList.map((product) => product.productInfo);
+  const componentOrder = [
+    'car-harness', 'replacement-mounts', 'panda', 'harness-connector',
+    'harness-box', 'obd-c-cable', 'comma-power', 'comma-prime-sim',
+    'panda-jungle', 'panda-paw', 'comma-ai-hoodie', 'comma-ai-beanie',
+    'comma-ai-t-shirt', 'comma-power-extender', 'comma-device-screen',
+    'comma-3x-back-case', 'comma-3x-trade-in', 'comma-3x-out-of-warranty-repair',
+  ];
+
+  $: accessoryProducts = componentOrder
+    .map(name => {
+      const product = productsData[name];
+      if (!product || product.category !== 'accessories') return null;
+      return {
+        ...product,
+        images: resolveImages(product.images)
+      };
+    })
+    .filter(Boolean);
 </script>
 
 <section class="dark" id="devices">
@@ -33,87 +49,25 @@
       <div class="product-display gradient-bg">
         <Grid columns={2} alignItems="center" size="large">
           <div class="product-content">
-            <Badge style="accent">New low price!</Badge>
             <hgroup>
-              <h1>comma 3X</h1>
-              <span>
-                {#if THREEX_STRIKETHROUGH_PRICE}
-                  <span class="strikethrough-price">${THREEX_STRIKETHROUGH_PRICE}</span>
-                {/if}
-                <span class:sale-price={THREEX_SALE}>${THREEX_PRICE}</span>
-              </span>
-              <span class="muted">or ${THREEX_AFFIRM_PRICE}/month with Affirm.</span>
+              <h1>comma four</h1>
+              <span>${THREEX_PRICE}</span>
             </hgroup>
-            <LinkButton href="shop/comma-3x" style="secondary" fullWidth>
+            <LinkButton href="/shop/comma-four" style="secondary" fullWidth>
               Buy now
             </LinkButton>
             <p>
               Works with {vehicleCountText} cars.
-              <a class="highlight muted" href="/vehicles" target="_blank">Check compatibility</a>.
+              <a class="highlight muted" href="https://github.com/commaai/openpilot/blob/master/docs/CARS.md" target="_blank">Check compatibility</a>.
             </p>
           </div>
           <div class="mobile-first">
-            <img src={DeviceImage} loading="lazy" alt="comma 3X device" />
-          </div>
-        </Grid>
-      </div>
-      <div class="traits light">
-        <Grid columns={3} alignItems="stretch" columnGap="0" rowGap="0">
-          <div class="trait">
-            <div>{@html RecordingsIcon}</div>
-            <hgroup>
-              <h2>Easy to plug in</h2>
-              <div>
-                Watch our step-by-step videos. Get set up in your car in 15 minutes.
-              </div>
-            </hgroup>
-          </div>
-          <div class="trait">
-            <div>{@html CalendarIcon}</div>
-            <hgroup>
-              <h2>30-day money-back trial</h2>
-              <div>
-                See for yourself why Consumer Reports rated us as the
-                <a class="highlight" href="https://data.consumerreports.org/wp-content/uploads/2020/11/consumer-reports-active-driving-assistance-systems-november-16-2020.pdf" target="_blank">top ADAS system</a>.
-              </div>
-            </hgroup>
-          </div>
-          <div class="trait">
-            <div>{@html CurrencyIcon}</div>
-            <hgroup>
-              <h2>Pay over time</h2>
-              <div>
-                Split your purchase into 3, 6, or 12 monthly payments. On a
-                ${THREEX_PRICE} purchase, you may pay ${THREEX_AFFIRM_PRICE} for 12 months with a 15% APR.
-              </div>
-            </hgroup>
+            <img src={FourImage} loading="lazy" alt="comma four device" />
           </div>
         </Grid>
       </div>
     </article>
 
-    <article>
-      <div class="product-display">
-        <Grid columns={2} alignItems="center" size="large">
-          <div class="product-content">
-            <Badge style="dark">Robotics Development Kit</Badge>
-            <hgroup>
-              <h1>body</h1>
-              <span>$999</span>
-              <span class="muted">or $91/month with Affirm.</span>
-            </hgroup>
-            <LinkButton href="/shop/body" style="secondary">Buy now</LinkButton>
-            <p>
-              "the future of people" –
-              <a class="highlight muted" href="https://blog.comma.ai/commabody/">Read blog post.</a>
-            </p>
-          </div>
-          <div class="mobile-first">
-            <img src={BodyImage} loading="lazy" alt="comma body device" />
-          </div>
-        </Grid>
-      </div>
-    </article>
   </div>
 </section>
 
@@ -123,21 +77,11 @@
     <h1>Accessories</h1>
     <div class="products-list">
       <Grid columns={3} alignItems="stretch">
-        {#each accessoryProducts.slice(0, 6) as product}
+        {#each accessoryProducts as product}
           <ProductCard {product} />
         {/each}
       </Grid>
     </div>
-    <Accordion style="dark">
-      <h2 class="shop-accessories-label" slot="label">Shop all accessories</h2>
-      <div class="shop-accessories-list" slot="content">
-        <Grid columns={3} alignItems="stretch">
-          {#each accessoryProducts.slice(6) as product}
-            <ProductCard {product} />
-          {/each}
-        </Grid>
-      </div>
-    </Accordion>
   </div>
 </section>
 
@@ -242,7 +186,7 @@
                 comma openpilot is an open source driver-assistance system.
                 Currently, openpilot performs the functions of Adaptive Cruise
                 Control (ACC) and Automated Lane Centering (ALC) and Lane Change
-                Assist for <a class="highlight" href="/vehicles" tabindex="0">compatible vehicles</a>.
+                Assist for <a class="highlight" href="https://github.com/commaai/openpilot/blob/master/docs/CARS.md" tabindex="0" target="_blank" rel="noopener noreferrer">compatible vehicles</a>.
                 It performs similarly to Tesla Autopilot and GM Super Cruise.
                 openpilot can steer, accelerate, and brake automatically for other vehicles within its lane.
               </p>
@@ -254,7 +198,7 @@
               </p>
               <p>
                 A car must be provided to comma prior to beginning the project.
-                The porting fee includes an installed working comma 3X when the
+                The porting fee includes an installed working comma four when the
                 car is returned and open sourcing of the required interface
                 hardware.<br />
               </p>
@@ -266,7 +210,7 @@
               <strong>Included</strong>
               <ul>
                 <li>Fully working port for openpilot</li>
-                <li>comma 3X installed in returned car</li>
+                <li>comma four installed in returned car</li>
                 <li>Completed in 12 weeks</li>
               </ul>
               <strong>Pricing</strong>
@@ -329,7 +273,7 @@
   }
 
   #devices {
-    padding: 4rem 0 0;
+    padding-bottom: 0;
 
     & article {
       border: 1px solid #000;
@@ -360,15 +304,6 @@
           &:first-of-type {
             font-size: 1.5rem;
           }
-        }
-
-        & .strikethrough-price {
-          text-decoration: line-through;
-        }
-
-        & .sale-price {
-          font-weight: 700;
-          color: var(--color-red);
         }
 
       }
@@ -411,12 +346,7 @@
       }
     }
 
-    @media only screen and (max-width: 1024px) {
-      & {
-        padding: 2.5rem 0 0;
-      }
-
-
+    @media only screen and (max-width: 1160px) {
       & .product-display {
         padding: 2rem;
         text-align: center;

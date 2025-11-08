@@ -3,8 +3,8 @@
     needSupport: {
       title: "What comma support can help with",
       questions: [
-        { 
-          question: "Hardware support for an in-warranty comma 3X",
+        {
+          question: "Hardware support for an in-warranty comma four/3X",
           answer: `
             <div style="margin-left: 2rem">
               <strong>Before contacting support, first try these:</strong>
@@ -46,7 +46,7 @@
             </div>
             `
         },
-        { 
+        {
           question: "Support for a comma prime subscription",
           answer: `
             First ensure your device is running the latest stock openpilot release.
@@ -58,7 +58,7 @@
             If you still have issues, open a <a href="https://commasupport.zendesk.com/hc/en-us/requests/new?ticket_form_id=29233366516631">ticket</a> with support.
           `
         },
-        { 
+        {
           question: "I'm adding support for a new car and would like to extend my return window.",
           answer: `
             If you're adding support for a new car, we can extend your return window to 90 days.
@@ -66,21 +66,21 @@
             Return window extensions are subject to approval.
           `
         },
-        { 
+        {
           question: "My comma 3X is out of warranty and needs repair.",
           answer: `
             We offer repairs at a flat-rate for out of warranty comma 3X devices.
             More details on the <a href="/shop/comma-3x-out-of-warranty-repair">shop</a>.
           `
         },
-        { 
+        {
           question: "My older comma device is out of warranty and needs repair.",
           answer: `
             We offer trade-ins for eligible devices.
             More details on the <a href="/shop/comma-3x-trade-in">shop</a>.
           `
         },
-        { 
+        {
           question: "I broke my device's screen.",
           answer: `
             We offer <a href="/shop/comma-device-screen">replacement screens</a> on the shop.

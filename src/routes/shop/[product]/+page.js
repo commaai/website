@@ -1,41 +1,65 @@
 import { getProduct } from '$lib/utils/shopify';
 import { error } from '@sveltejs/kit';
+import productsData from '$lib/data/products.json';
+import { resolveImages } from '$lib/utils/images.js';
 
-export async function load({ url }) {
-  const productId = url.pathname.split('/')[2];
+// Helper to convert product-slug to PascalCase component name
+function slugToComponentName(slug) {
+  // Special case for comma-3x -> Comma3X
+  if (slug === 'comma-3x') {
+    return 'Comma3X';
+  }
+  return slug
+    .split('-')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join('');
+}
 
-  try {
-    const productModule = await import(`../products/${productId}.svelte`);
-    const { default: component, productInfo } = productModule;
+export async function load({ url, params }) {
+  // Support both dynamic routes and explicit routes like /shop/comma-3x
+  const productId = params.product || url.pathname.split('/').filter(Boolean).pop();
+  const productInfo = productsData[productId];
 
-    const response = await getProduct(productInfo.id);
-    if (response.status === 200) {
-      const product = response.body?.data?.product;
+  if (!productInfo) {
+    throw error(404, { message: `Product "${productId}" not found` });
+  }
 
-      if (product) {
-        return {
-          banner: productInfo.category === "parts" ? { label: "Parts", link: "/shop/parts" } : { label: "Shop", link: "/shop" },
-          component,
-          product: {
-            ...product,
-            ...productInfo,
-          },
-        };
-      }
+  // Resolve image imports
+  const resolvedImages = resolveImages(productInfo.images);
 
-      throw error(404, {
-        message: response.body.errors.map(error => error.message).join(', '),
-      })
-    } else {
-      console.error(response);
-      throw error(response.status, {
-        message: "Error fetching product",
-      })
+  // Load custom component if needed
+  let descriptionComponent = null;
+  if (productInfo.hasCustomComponent) {
+    const componentName = slugToComponentName(productId);
+    try {
+      const module = await import(`$lib/components/ProductDescriptions/${componentName}.svelte`);
+      descriptionComponent = module.default;
+    } catch (e) {
+      console.error(`Failed to load custom component for ${productId}:`, e);
     }
-  } catch (e) {
-    console.error(`Failed to load product ${productId}:`, e);
+  }
+
+  // Fetch from Shopify
+  const response = await getProduct(productInfo.id);
+  if (response.status === 200) {
+    const product = response.body?.data?.product;
+    if (product) {
+      return {
+        product: {
+          ...product,
+          ...productInfo,
+          images: resolvedImages
+        },
+        descriptionComponent
+      };
+    }
     throw error(404, {
-      message: `Product "${productId}" not found`,
-    })
+      message: response.body.errors.map(e => e.message).join(', ')
+    });
+  } else {
+    console.error(response);
+    throw error(response.status, {
+      message: "Error fetching product"
+    });
   }
 }
