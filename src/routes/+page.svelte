@@ -458,7 +458,6 @@
     text-align: center;
     cursor: pointer;
     user-select: none;
-    padding-left: 12px;
     max-width: 483px;
     line-height: 1.4;
     word-wrap: break-word;
