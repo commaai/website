@@ -22,7 +22,9 @@
 
   // Filter cars based on search input
   $: filteredCars = searchValue
-    ? uniqueCars.filter(car => car.toLowerCase().includes(searchValue.toLowerCase()))
+    ? uniqueCars.filter(car =>
+        normalizeAndStripDiacritics(car).includes(normalizeAndStripDiacritics(searchValue))
+      )
     : uniqueCars;
 
   // Reset highlighted index when filtered results change
@@ -32,6 +34,11 @@
     }
   } else {
     highlightedIndex = -1;
+  }
+
+  // Strip diacritics and normalize case so škoda matches skoda & Skoda
+  function normalizeAndStripDiacritics(str) {
+    return str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
   }
 
   // Save selected car
