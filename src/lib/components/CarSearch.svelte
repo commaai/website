@@ -14,6 +14,7 @@
   let searchInputRef;
   let dropdownRef;
   let highlightedIndex = -1;
+  let usingKeyboard = false;
 
   // Get unique car names from vehicle harnesses only (excludes generic/developer harnesses)
   $: uniqueCars = $vehicleHarnesses
@@ -111,6 +112,7 @@
 
     if (e.key === 'ArrowDown') {
       e.preventDefault();
+      usingKeyboard = true;
       highlightedIndex = highlightedIndex < filteredCars.length - 1 ? highlightedIndex + 1 : 0;
       scrollIntoView(highlightedIndex);
       return;
@@ -118,6 +120,7 @@
 
     if (e.key === 'ArrowUp') {
       e.preventDefault();
+      usingKeyboard = true;
       highlightedIndex = highlightedIndex > 0 ? highlightedIndex - 1 : filteredCars.length - 1;
       scrollIntoView(highlightedIndex);
       return;
@@ -136,6 +139,12 @@
       e.preventDefault();
       saveSelectedCar(car);
     }
+  }
+
+  // Don't double highlight when mouse on an item and keyboard nav's to other item
+  function handleDropdownItemMouseEnter(index) {
+    usingKeyboard = false;
+    highlightedIndex = index;
   }
 </script>
 
@@ -163,7 +172,7 @@
     </button>
   {/if}
   {#if showDropdown}
-    <div class="search-dropdown" bind:this={dropdownRef}>
+    <div class="search-dropdown" class:disable-hover={usingKeyboard} bind:this={dropdownRef}>
       {#if filteredCars.length > 0}
         {#each filteredCars as car, index}
           <div
@@ -174,7 +183,7 @@
             tabindex="-1"
             on:click={() => saveSelectedCar(car)}
             on:keydown={(e) => handleDropdownItemKeyDown(e, car)}
-            on:mouseenter={() => highlightedIndex = index}
+            on:mouseenter={() => handleDropdownItemMouseEnter(index)}
           >
             {car}
           </div>
@@ -397,6 +406,10 @@
         pointer-events: none;
       }
     }
+
+      & .search-dropdown.disable-hover .search-dropdown-item:hover {
+        color: #ffffff;
+      }
 
     /*@media only screen and (max-width: 1280px) {*/
     /*  & {*/
