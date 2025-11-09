@@ -178,8 +178,9 @@
           <div
             class="search-dropdown-item"
             class:highlighted={highlightedIndex === index}
+            class:selected={$selectedCar === car}
             role="option"
-            aria-selected={$selectedCar === car || highlightedIndex === index}
+            aria-selected={highlightedIndex === index}
             tabindex="-1"
             on:click={() => saveSelectedCar(car)}
             on:keydown={(e) => handleDropdownItemKeyDown(e, car)}
@@ -381,6 +382,13 @@
       &.highlighted {
         color: var(--color-accent);
       }
+
+        /* Saved selection state when not the active highlight */
+        &.selected:not(.highlighted) {
+          text-decoration: underline;
+          text-underline-offset: 0.2em;
+          opacity: 0.85;
+        }
 
       @media (hover: hover) and (pointer: fine) {
         &:hover {
