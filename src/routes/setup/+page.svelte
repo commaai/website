@@ -81,7 +81,7 @@
     <SetupStep
       stepNumber={5}
       images={[Plug1Image]}
-      header="plug the car’s camera wires into the other end of the "
+      header="plug the car’s camera wires into the other end of the harness box"
       body="The other end of the harness box has a corresponding connector for your car to plug into, make sure you hear a click when you plug each wire in. This completes the connection between the car camera and the harness box"
     />
     <SetupStep
