@@ -7,6 +7,7 @@
   import "@fontsource/inter/700.css";
   import '@fontsource/jetbrains-mono/400.css';
 
+  import { browser } from "$app/environment";
   import { get } from "svelte/store";
 
   import Badge from "$lib/components/Badge.svelte";
@@ -68,6 +69,13 @@
   });
 
   printConsoleBanner();
+
+  function handleCarSelected() {
+    if (!browser) return;
+    if ($page.url.pathname !== "/") return;
+    const buyButton = document.querySelector(".buy-now-button");
+    buyButton?.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
 </script>
 
 <svelte:head>
@@ -95,7 +103,7 @@
       <a href="/jobs" class="hide-mobile-2" class:active={$page.url.pathname.startsWith('/jobs')}>jobs</a>
     </nav>
     <div class="navbar-section-search">
-      <CarSearch />
+      <CarSearch on:carSelected={handleCarSelected} />
     </div>
     <div class="navbar-section-buttons">
       <!-- <a class="button shop" href="/shop">

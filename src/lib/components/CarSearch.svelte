@@ -1,10 +1,13 @@
 <script>
+  import { createEventDispatcher } from "svelte";
   import { browser } from "$app/environment";
   import { vehicleHarnesses } from '$lib/utils/harnesses';
   import { clickOutside } from '$lib/utils/clickOutside';
   import { selectedCar } from '../../store';
   import SearchIcon from "$lib/icons/ui/search.png";
   import CloseIcon from "$lib/icons/ui/close.svg?raw";
+
+  const dispatch = createEventDispatcher();
 
   // Search functionality
   let searchValue = "";
@@ -39,6 +42,7 @@
     selectedCar.set(car);
     searchValue = car;
     showDropdown = false;
+    dispatch("carSelected", { car });
   }
 
   // Clear selection
