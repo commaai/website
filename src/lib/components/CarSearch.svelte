@@ -22,9 +22,12 @@
 
   // Filter cars based on search input
   $: filteredCars = searchValue
-    ? uniqueCars.filter(car =>
-        normalizeAndStripDiacritics(car).includes(normalizeAndStripDiacritics(searchValue))
-      )
+    ? (() => {
+        const normalizedSearch = normalizeAndStripDiacritics(searchValue);
+        return uniqueCars.filter(car =>
+          normalizeAndStripDiacritics(car).includes(normalizedSearch)
+        );
+      })()
     : uniqueCars;
 
   // Reset highlighted index when filtered results change
