@@ -41,6 +41,7 @@
 
   // Strip diacritics and normalize case so škoda matches skoda & Skoda
   function normalizeAndStripDiacritics(str) {
+    if (!str) return '';
     return str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
   }
 
