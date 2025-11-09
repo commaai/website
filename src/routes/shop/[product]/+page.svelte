@@ -1,9 +1,18 @@
 <script>
   import Product from "$lib/components/Product.svelte";
   import NoteCard from "$lib/components/NoteCard.svelte";
+  import { selectedCar } from "../../../store.js";
+  import { vehicleHarnesses } from "$lib/utils/harnesses.js";
 
   export let data;
-  $: ({ product, descriptionComponent } = data);
+  $: ({ product, descriptionComponent, productId } = data);
+
+  const harnessBundledProducts = new Set(['comma-four']);
+  $: shouldBundleHarness = harnessBundledProducts.has(productId);
+  $: selectedHarness = shouldBundleHarness && $selectedCar && $vehicleHarnesses
+    ? $vehicleHarnesses.find((h) => h.car === $selectedCar) ?? null
+    : null;
+  $: bundledHarnessIds = shouldBundleHarness && selectedHarness?.id ? [selectedHarness.id] : [];
 </script>
 
 <svelte:head>
@@ -19,6 +28,7 @@
         {product}
         backordered={product.backordered || null}
         forceOutOfStock={product.forceOutOfStock || false}
+        additionalProductIds={bundledHarnessIds}
       >
         <div slot="notes">
           {#if product.notes}
