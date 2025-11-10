@@ -209,8 +209,8 @@
   }
 
   .vehicles-cover-image {
-    background-image: url("$lib/images/vehicles/cover-vehicles-v2-3x-optimized_1.jpg");
-    background-position: 50% 38%;
+    background-image: url("/videos/hero/poster.jpg");
+    background-position: 50% 30%;
     background-size: cover;
     background-attachment: scroll;
     height: 287px;
