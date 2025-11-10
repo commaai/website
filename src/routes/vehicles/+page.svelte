@@ -14,9 +14,9 @@
   import InfoIcon from '$lib/icons/ui/info.svg?raw';
   import CarIcon from '$lib/icons/features/car.svg?raw';
 
-  import Comma3XImage from '$lib/images/device.png';
+  import CommaFourImage from '$lib/images/products/comma-four/four_screen_on.png';
 
-  import { THREEX_PRICE, CAR_HARNESS_PRICE, THREEX_STRIKETHROUGH_PRICE, THREEX_SALE } from '$lib/constants/prices.js';
+  import { FOUR_PRICE } from '$lib/constants/prices.js';
   import { vehicleCountText } from '$lib/constants/vehicles.js';
 
   const brand_images = import.meta.glob('$lib/images/vehicles/brand-icons/*.png', { eager: true });
@@ -31,20 +31,25 @@
         openpilot supports {vehicleCountText} vehicles
       </div>
       <div class="description">
-        A supported vehicle is one that just works when you install a comma 3X.
+        A supported vehicle is one that just works when you install a comma four.
         All supported cars provide a better experience than any stock system.
         Supported vehicles reference the US market unless otherwise specified.
       </div>
     </Grid>
 
     <div class="compatibility-make-links">
-      {#each Object.keys(vehicles) as brand}
+      {#each Object.entries(vehicles) as [brand, cars]}
+        {#if cars.length !== 0}
+        {@const brand_img_path = `/src/lib/images/vehicles/brand-icons/Logo-${brand}.png`}
         <div class="compatibility-make-element">
           <a href="#{brand.toLowerCase()}" class="compatibility-make-anchor-link">
-            <img src={brand_images[`/src/lib/images/vehicles/brand-icons/Logo-${brand}.png`].default} loading="eager" alt="{brand} car brand" />
+            {#if brand_images[brand_img_path]}
+              <img src={brand_images[brand_img_path].default} loading="eager" alt="{brand} car brand" />
+            {/if}
           </a>
           <div class="compatibility-make-name">{brand}</div>
         </div>
+        {/if}
       {/each}
     </div>
 
@@ -104,8 +109,12 @@
 <section class="light" id="compatibility-chart">
   <div class="container" style="width:85%; max-width: 60rem">
     {#each Object.entries(vehicles) as [make, cars]}
+      {#if cars.length !== 0}
+      {@const brand_img_path = `/src/lib/images/vehicles/brand-icons/Logo-${make}.png`}
       <div id={make.toLowerCase()} class="car-make-header">
-        <img src={brand_images[`/src/lib/images/vehicles/brand-icons/Logo-${make}.png`].default} alt="{make} car brand" />
+        {#if brand_images[brand_img_path]}
+          <img src={brand_images[brand_img_path].default} alt="{make} car brand" />
+        {/if}
         <h3>{make} <span class="muted">({cars.length})</span></h3>
       </div>
 
@@ -147,27 +156,18 @@
                   </div>
                   <div class="device-promotion-card">
                     <div class="product-wrapper">
-                      <img src={Comma3XImage} loading="lazy" alt="comma 3X device" />
+                      <img src={CommaFourImage} loading="lazy" alt="comma four device" />
                       <hgroup>
-                        <strong>comma 3X</strong>
-                        {#if THREEX_SALE}
-                          <div style="display: flex; align-items: center;">
-                            {#if THREEX_STRIKETHROUGH_PRICE}
-                              <div class="understated-price strikethrough-price">${THREEX_STRIKETHROUGH_PRICE}</div>
-                            {/if}
-                            <div class="red-price">${THREEX_PRICE}</div>
-                          </div>
-                        {:else}
-                          <div class="understated-price">${THREEX_PRICE}</div>
-                        {/if}
+                        <strong>comma four</strong>
+                        <div class="understated-price">${FOUR_PRICE}</div>
                         {#if car_info.harness_connector !== "" }
                           <strong>car harness: { car_info.harness_connector }</strong>
-                          <div class="understated-price">+${CAR_HARNESS_PRICE}</div>
+                          <div class="understated-price">included</div>
                         {/if}
                       </hgroup>
                     </div>
                     <LinkButton
-                      href={`/shop/comma-3x?harness=${car_info.name}`}
+                      href={`/shop/comma-four?harness=${car_info.name}`}
                       style="primary"
                       fullWidth
                       thin
@@ -185,6 +185,7 @@
           </Accordion>
         </div>
       {/each}
+      {/if}
     {/each}
   </div>
 </section>
@@ -208,8 +209,8 @@
   }
 
   .vehicles-cover-image {
-    background-image: url("$lib/images/vehicles/cover-vehicles-v2-3x-optimized_1.jpg");
-    background-position: 50% 38%;
+    background-image: url("/videos/hero/poster.jpg");
+    background-position: 50% 30%;
     background-size: cover;
     background-attachment: scroll;
     height: 287px;

@@ -25,6 +25,7 @@ body {
   font-size: 16px;
   font-weight: 400;
   line-height: 1.4;
+  letter-spacing: -0.04em;
 
   margin: 0;
   min-height: 100%;
@@ -32,7 +33,29 @@ body {
   overflow-x: hidden;
 
   -webkit-tap-highlight-color: transparent;
-  touch-action: manipulation
+  touch-action: manipulation;
+}
+
+/* Text selection highlight using accent color */
+::selection {
+  background-color: rgba(81, 255, 0, 0.5);
+  color: var(--color-black);
+}
+
+::-moz-selection {
+  background-color: rgba(81, 255, 0, 0.5);
+  color: var(--color-black);
+}
+
+/* Higher opacity for dark backgrounds */
+.dark ::selection {
+  background-color: rgba(81, 255, 0, 0.8);
+  color: var(--color-black);
+}
+
+.dark ::-moz-selection {
+  background-color: rgba(81, 255, 0, 0.8);
+  color: var(--color-black);
 }
 
 :root {
@@ -190,7 +213,7 @@ blockquote {
 }
 
 section {
-  padding-top: 7rem;
+  padding-top: 2rem;
   padding-bottom: 5rem;
   background-color: var(--color-background);
 
@@ -202,21 +225,19 @@ section {
   }
 }
 
+section:first-of-type {
+  padding-top: 7rem;
+}
+
 section.light + section.light,
 section.dark + section.dark {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
 
-@media (max-width: 1024px) {
-  section {
-    padding-top: 3rem;
-  }
-}
-
-@media (max-width: 480px) {
-  section {
-    padding-top: 3rem;
+@media (max-width: 1160px) {
+  section:first-of-type {
+    padding-top: 10rem;
   }
 }
 

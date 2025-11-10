@@ -7,16 +7,13 @@
   import "@fontsource/inter/700.css";
   import '@fontsource/jetbrains-mono/400.css';
 
-  import { page } from "$app/stores";
   import { get } from "svelte/store";
 
   import Badge from "$lib/components/Badge.svelte";
   import Grid from "$lib/components/Grid.svelte";
   import SocialIcons from "$lib/components/SocialIcons.svelte";
-  import HeaderBanner from "$lib/components/HeaderBanner.svelte";
   import MailingListForm from "$lib/components/MailingListForm.svelte";
 
-  import ArrowRightIcon from "$lib/icons/arrow-right.svg?raw";
   import CommaIcon from "$lib/icons/comma.svg?raw";
   import CartIcon from "$lib/icons/ui/cart.svg?raw";
   import BasketIcon from "$lib/icons/ui/basket.svg?raw";
@@ -24,6 +21,8 @@
 
   import { updateCart } from '$lib/utils/shopify';
   import { printConsoleBanner } from '$lib/utils/console';
+
+  import CarSearch from "$lib/components/CarSearch.svelte";
 
   import HeaderMenu from "$lib/components/HeaderMenu.svelte";
   import ShoppingCart from "$lib/components/ShoppingCart.svelte";
@@ -35,15 +34,7 @@
   } from "../store.js";
 
   import { onMount } from "svelte";
-
-  onMount(async () => {
-    await loadCart();
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") {
-        showCart.set(false);
-      }
-    });
-  });
+  import { page } from "$app/stores";
 
   let loading = false;
 
@@ -67,6 +58,15 @@
     loading = false;
   }
 
+  onMount(async () => {
+    await loadCart();
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        showCart.set(false);
+      }
+    });
+  });
+
   printConsoleBanner();
 </script>
 
@@ -82,23 +82,26 @@
 
 <header class="navbar">
   <div class="navbar-container">
-    <div class="navbar-section-logo">
-      <a class="title" href="/">comma</a>
+    <!-- <div class="navbar-section-logo">
       <div class="menu-container">
         <HeaderMenu />
       </div>
-    </div>
+    </div> -->
     <nav class="navbar-section-links">
-      <a href="/openpilot">openpilot</a>
-      <a href="/shop/comma-3x">comma 3X</a>
-      <a href="/vehicles">compatibility</a>
-      <a href="https://comma.ai/jobs">jobs</a>
+      <a href="/" class:active={$page.url.pathname === '/'}>comma four</a>
+      <a href="/shop" class:active={$page.url.pathname.startsWith('/shop')}>shop</a>
+      <a href="/setup" class:active={$page.url.pathname.startsWith('/setup')}>setup</a>
+      <a href="/support" class="hide-mobile-1" class:active={$page.url.pathname.startsWith('/support')}>support</a>
+      <a href="/jobs" class="hide-mobile-2" class:active={$page.url.pathname.startsWith('/jobs')}>jobs</a>
     </nav>
+    <div class="navbar-section-search">
+      <CarSearch />
+    </div>
     <div class="navbar-section-buttons">
-      <a class="button shop" href="/shop">
+      <!-- <a class="button shop" href="/shop">
         {@html BasketIcon}
         Shop
-      </a>
+      </a> -->
       {#if $cartTotalQuantity > 0}
         <button class="button cart" on:click={openCart}>
           {@html CartIcon}
@@ -107,18 +110,6 @@
       {/if}
     </div>
   </div>
-
-  {#if $page.data.banner}
-    {@const banner = $page.data.banner}
-    <div class="banner">
-      <a href={banner.link}>
-        <div>
-          {@html ArrowRightIcon}
-          {banner.label}
-        </div>
-      </a>
-    </div>
-  {/if}
 </header>
 
 {#if $showCart}
@@ -129,90 +120,68 @@
   />
 {/if}
 
-<HeaderBanner />
-
 <main>
   <slot></slot>
 </main>
 
 <footer>
-  <div class="container">
-    <Grid columns={4} wrapMode="single" alignItems="start" size="large">
-      <div class="footer-links">
-        <strong>Product</strong>
-        <a href="/openpilot">openpilot</a>
-        <a class="badged" href="/shop/comma-3x">
-          <span>comma 3X</span>
-          <Badge style="light" display="inline">new</Badge>
-        </a>
-        <a href="/shop/body">body</a>
-        <a href="/connect">connect</a>
-        <a href="/vehicles">Compatibility</a>
-        <a href="/shop">Shop</a>
+  <div class="footer-content">
+    <div class="footer-left">
+      <h1>COMMA</h1>
+      <div class="copyright">© comma_ai 2025</div>
+    </div>
+    <div class="footer-right">
+      <div class="footer-links-grid">
+        <a href="https://connect.comma.ai">CONNECT</a>
+        <a href="https://github.com/commaai/openpilot/releases">RELEASES</a>
+        <a href="/jobs">JOBS</a>
+        <a href="/leaderboard.html">LEADERBOARD</a>
+        <a href="/support">SUPPORT</a>
+        <a href="/setup">SETUP GUIDE</a>
+        <a href="https://github.com/commaai">GITHUB</a>
+        <a href="https://twitter.com/comma_ai">TWITTER</a>
+        <a href="https://www.instagram.com/comma_ai">INSTAGRAM</a>
+        <a href="https://discord.comma.ai">DISCORD</a>
+        <a href="https://www.youtube.com/commaai">YOUTUBE</a>
+        <a href="/terms">TERMS & PRIVACY</a>
       </div>
-      <div class="footer-links">
-        <strong>Company</strong>
-        <a href="https://blog.comma.ai">Blog</a>
-        <a class="badged" href="/jobs.html">
-          <span>Jobs</span>
-          <Badge style="light" display="inline">we're hiring!</Badge>
-        </a>
-        <a class="badged" href="/leaderboard.html">
-          <span>Leaderboard</span>
-          <Badge style="accent" display="inline">New Challenge!</Badge>
-        </a>
-      </div>
-      <div class="footer-links">
-        <strong>Support</strong>
-        <a href="/support">Support & FAQs</a>
-        <a href="/setup">Setup Guides</a>
-        <a href="/shipping">Shipping & Returns</a>
-        <a class="badged" href="https://discord.comma.ai/">
-          <span>Discord</span>
-          {@html ExternalIcon}
-        </a>
-      </div>
-      <div class="footer-links">
-        <div class="tagline">{@html CommaIcon}<span>make driving chill</span></div>
-        <SocialIcons size="1.5rem" />
-        <div class="mailing-list">
-          <MailingListForm style="primary" />
-        </div>
-      </div>
-    </Grid>
-    <div class="copyright">
-      <span>© comma_ai 2025</span>
-      <a href="/terms">Terms & Privacy</a>
     </div>
   </div>
 </footer>
 
 <style>
   @font-face {
-    font-display: swap;
+    font-display: block;
     font-family: "Monument Extended Black";
     font-style: normal;
     src: url("$lib/fonts/MonumentExtended/MonumentExtended-Black.woff2");
   }
 
   .navbar {
-    top: 0;
-    position: sticky;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    z-index: 10;
+    top: 1rem;
+    position: fixed;
+    left: 1rem;
+    right: 1rem;
+    width: auto;
+    z-index: 20;
+    border-radius: 0.5rem;
 
-    background-color: rgba(245, 245, 245, 0.75);
+    background-color: rgba(0, 0, 0, 0.75);
     border-bottom: 1px solid #000;
     backdrop-filter: blur(10px);
+    overflow: visible;
   }
 
   .navbar-container {
     display: flex;
     align-items: stretch;
     justify-content: space-between;
+    border-radius: 0.5rem;
+    overflow: visible;
+
+    @media only screen and (max-width: 1160px) {
+      flex-wrap: wrap;
+    }
   }
 
   .navbar-section-logo {
@@ -255,18 +224,85 @@
     display: flex;
     flex: 1;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
 
     & a {
-      color: #000;
-      margin: 0 1.75rem;
+      color: #ffffff;
+      margin: 1.0rem 1.5rem;
       font-family: Inter, sans-serif;
       font-size: 1.125rem;
+      white-space: nowrap;
+      transition: color 0.2s, text-shadow 0.2s;
+
+      &.active,
+      &:active {
+        color: var(--color-accent);
+        text-shadow: 0 0 8px var(--color-accent), 0 0 16px var(--color-accent);
+      }
+
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          color: var(--color-accent);
+          text-shadow: 0 0 8px var(--color-accent), 0 0 16px var(--color-accent);
+        }
+      }
+
+      @media only screen and (max-width: 698px) {
+        margin: 1.0rem 0.75rem;
+        font-size: 1rem;
+      }
     }
 
-    @media only screen and (max-width: 1280px) {
-      & {
+    @media only screen and (max-width: 400px) {
+      & a.hide-mobile-2 {
         display: none;
+      }
+    }
+
+    @media only screen and (max-width: 350px) {
+      & a.hide-mobile-1 {
+        display: none;
+      }
+    }
+  }
+
+  /* Wrap nav bar links earlier if cart button is showing */
+  @media (max-width: 500px) {
+    .navbar-container:has(.cart) .navbar-section-links a.hide-mobile-2 {
+      display: none;
+    }
+  }
+
+  @media (max-width: 450px) {
+    .navbar-container:has(.cart) .navbar-section-links a.hide-mobile-1 {
+      display: none;
+    }
+  }
+
+  .navbar-section-search {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    min-width: 0;
+
+    & :global(.car-search) {
+      width: 100%;
+      flex: 1;
+    }
+
+    @media only screen and (max-width: 1160px) {
+      order: 3;
+      flex-basis: 100%;
+      width: 100%;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 0 0 0.5rem 0.5rem;
+
+      & :global(.car-search) {
+        min-width: 0;
+
+        & :global(.search-input) {
+          min-width: 0;
+        }
       }
     }
   }
@@ -286,7 +322,7 @@
       color: #000;
       text-transform: uppercase;
       font-family: Inter, sans-serif;
-      border-left: 1px solid #000;
+      border: none;
       padding-left: 56px;
       padding-right: 56px;
       font-size: 1rem;
@@ -296,6 +332,15 @@
       align-items: center;
       cursor: pointer;
       background-color: var(--color-accent);
+
+      &:last-child {
+        border-top-right-radius: 0.5rem;
+        border-bottom-right-radius: 0.5rem;
+      }
+
+      &:not(:first-child) {
+        border-left: 1px solid #000;
+      }
 
       @media (hover: hover) and (pointer: fine) {
         &:hover {
@@ -307,7 +352,7 @@
       }
     }
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 1300px) {
       /* show single button, with priority for cart */
       &.navbar-section-buttons > :first-child:not(:only-child) {
         display: none;
@@ -330,140 +375,167 @@
   }
 
   footer {
-    color: #fff;
-    background-color: #000;
-    padding: 6rem 6rem 1.25rem;
+    background-color: #333;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    z-index: 10;
+    border-top: 1px solid black;
 
-    @media screen and (max-width: 1024px) {
-      & {
-        padding: 2rem;
-      }
-
-      & .footer-links {
-        margin-bottom: 1rem;
-      }
-    }
-
-    & .container {
-      max-width: 1440px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    & .footer-links {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.75rem;
-
-      & strong {
-        color: #fff;
-        opacity: 0.65;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        font-size: 1rem;
-        font-weight: 600;
-      }
-
-      & a {
-        color: #fff;
-        font-size: 1.25rem;
-        transition: opacity 0.2s;
-      }
-
-      @media (hover: hover) and (pointer: fine) {
-        & a:hover {
-          opacity: 0.65;
-        }
-      }
-      & a:active {
-        opacity: 0.65;
-      }
-
-      & .badged {
-        display: flex;
-        align-items: center;
-        transition: opacity 0.2s;
-
-        & span {
-          margin-right: 0.75rem;
-        }
-
-        & div {
-          padding: 0.25rem 0.4rem;
-          text-wrap: nowrap;
-          margin: 0;
-        }
-      }
-
-      & .tagline {
-        display: flex;
-
-        & svg {
-          width: 16px;
-          height: 28px;
-          margin-right: 0.75rem;
-          color: white;
-        }
-
-        & span {
-          font-size: 1.2rem;
-          font-weight: 400;
-        }
-      }
-    }
-
-    & .mailing-list {
-      margin-top: 2rem;
-      width: 100%;
-      color: white;
-    }
-
-    @media only screen and (max-width: 1024px) and (min-width: 512px) {
-      & .mailing-list {
-        width: unset;
-      }
-    }
-
-    & .copyright {
+    & .footer-content {
+      background-color: #EAEAEA;
+      padding: 1rem;
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      font-size: 0.875rem;
-      margin-top: 4rem;
-      opacity: 0.65;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255, 255, 255, 0.25);
+      align-items: flex-end;
+      width: 100%;
+      box-sizing: border-box;
+      overflow-x: auto;
     }
-  }
 
-  .banner {
-    background-color: black;
-    border-bottom: 1px solid rgba(255, 255, 255, .15);
-    position: sticky;
-    top: 66px;
-    z-index: 1;
+    & .footer-left {
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+      gap: 2rem;
+    }
 
-    & a {
-      display: block;
-      padding: 0.5rem 0;
+    & h1 {
+      color: #000;
+      font-family: "Monument Extended Black", sans-serif;
+      font-size: 64px;
+      text-transform: uppercase;
+      margin: 0;
+      padding: 0;
+      line-height: 1;
+    }
 
-      font-size: 1.25rem;
-      color: white !important;
+    & .footer-left .copyright {
+      color: black;
+      font-size: 0.875rem;
+      margin: 0;
+      padding: 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 400;
+      line-height: 1;
+    }
 
-      & div {
-        display: flex;
-        align-items: center;
-        width: 85%;
-        max-width: 90rem;
-        margin-left: auto;
-        margin-right: auto;
+    & .footer-right {
+      display: flex;
+      align-items: center;
+      align-self: center;
+    }
 
-        & svg {
-          transform: rotate(180deg);
-          margin-right: 1rem;
-        }
+    & .footer-links-grid {
+      display: grid;
+      grid-template-columns: repeat(6, auto);
+      gap: 0.75rem 60px;
+      justify-content: flex-end;
+      justify-items: end;
+      grid-auto-flow: row;
+      direction: rtl;
+
+      @media screen and (max-width: 1440px) {
+        grid-template-columns: repeat(4, auto);
+      }
+
+      @media screen and (max-width: 1170px) {
+        grid-template-columns: repeat(3, auto);
+      }
+
+      @media screen and (max-width: 471px) {
+        grid-template-columns: repeat(2, auto);
+      }
+
+      @media screen and (max-width: 300px) {
+        grid-template-columns: repeat(1, auto);
       }
     }
+
+    & .footer-links-grid a {
+      direction: ltr;
+      color: #000;
+      text-transform: uppercase;
+      font-size: 14px;
+      font-weight: 400;
+      text-decoration: none;
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: 0.5px;
+      transition: opacity 0.2s;
+      line-height: 1;
+      text-align: right;
+      justify-self: end;
+      align-self: end;
+      width: 100%;
+      display: block;
+    }
+
+    & .footer-links-grid a:hover,
+    & .footer-links-grid a:active {
+      opacity: 0.6;
+    }
+
+    /*@media screen and (max-width: 1024px) {*/
+    /*  & .footer-content {*/
+    /*    padding: 1rem;*/
+    /*    flex-direction: column;*/
+    /*    gap: 2rem;*/
+    /*  }*/
+
+    /*  & .footer-right {*/
+    /*    align-items: flex-start;*/
+    /*    width: 100%;*/
+    /*  }*/
+
+    /*  & .footer-links-grid {*/
+    /*    grid-template-columns: repeat(auto-fit, minmax(120px, auto));*/
+    /*    justify-content: flex-start;*/
+    /*    width: 100%;*/
+    /*    gap: 1.5rem 1.5rem;*/
+    /*  }*/
+    /*}*/
+
+    @media screen and (max-width: 1010px) {
+      & .footer-content {
+        flex-direction: column;
+        align-items: start;
+        gap: 2rem;
+      }
+
+      & .footer-left {
+        order: 2;
+      }
+
+      & .footer-right {
+        order: 1;
+        align-self: flex-start;
+      }
+
+      & .footer-links-grid {
+        gap: 1rem 60px;
+        justify-content: flex-start;
+        justify-items: start;
+        direction: ltr;
+      }
+
+      & .footer-links-grid a {
+        text-align: left;
+        justify-self: start;
+      }
+    }
+
+    @media screen and (max-width: 500px) {
+      & .footer-left {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+
+    @media screen and (max-width: 698px) {
+      & h1 {
+        font-size: 48px;
+      }
+    }
+
   }
 </style>

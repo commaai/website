@@ -10,6 +10,16 @@
     "cleanUrls": true,
     "redirects": [
       {
+        "source": "/four",
+        "destination": "/shop/comma-four",
+        "type": 302
+      },
+      {
+        "source": "/shop/comma-3x",
+        "destination": "/four",
+        "type": 302
+      },
+      {
         "source": "/bounties",
         "destination": "https://github.com/orgs/commaai/projects/26/views/1?pane=info",
         "type": 302
@@ -63,11 +73,6 @@
         "source": "/faq",
         "destination": "/support",
         "type": 301
-      },
-      {
-        "source": "/hack",
-        "destination": "https://blog.comma.ai/comma_hack/",
-        "type": 302
       },
       {
         "source": "/hyundai-guide",
@@ -136,7 +141,7 @@
       },
       {
         "source": "/body",
-        "destination": "/setup/comma-body",
+        "destination": "/shop/body",
         "type": 302
       },
       {
@@ -407,6 +412,26 @@
       {
         "source": "/SUPPORT",
         "destination": "/support",
+        "type": 302
+      },
+      {
+        "source": "/openpilot",
+        "destination": "https://github.com/commaai/openpilot",
+        "type": 302
+      },
+      {
+        "source": "/connect",
+        "destination": "https://connect.comma.ai",
+        "type": 302
+      },
+      {
+        "source": "/shipping",
+        "destination": "/faq",
+        "type": 302
+      },
+      {
+        "source": "/hack",
+        "destination": "https://forms.gle/tRAGiwuAXXms3dxAA",
         "type": 302
       }
     ]

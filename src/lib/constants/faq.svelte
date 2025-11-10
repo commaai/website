@@ -1,8 +1,6 @@
 <script context="module">
   import OpenpilotImage from '$lib/images/faq/openpilot.svg';
   import ConnectImage from '$lib/images/faq/connect.svg';
-  import CommaThreeImage from '$lib/images/faq/comma-three.svg';
-  import BodyImage from '$lib/images/faq/body.svg';
   import ReturnPolicyImage from '$lib/images/faq/30-day.svg';
   import ShopImage from '$lib/images/faq/shop.svg';
   import ShippingImage from '$lib/images/faq/shipping.svg';
@@ -279,7 +277,7 @@
           answer: `
             <p>
               Sign up for prime in <a href="https://connect.comma.ai/">comma connect</a>. With a
-              purchase of a comma 3X, you get a free month of comma prime, in which you
+              purchase of a comma four, you get a free month of comma prime, in which you
               can cancel at any time. After that, you will be charged $24 a month
               (domestic only).
             </p>
@@ -371,46 +369,18 @@
     },
     devices: {
       title: 'comma devices',
-      image: CommaThreeImage,
+      image: OtherTopicsImage,
       questions: [
         {
-          question: 'How and where do I buy a comma device?',
-          answer: `
-            <p>
-              The comma shop is the only official retailer of comma devices (the comma two,
-              comma three, and comma 3X). The comma shop accepts all major credit cards. We
-              offer free shipping in the US and $30 flat rate international shipping.
-            </p>
-            <p>
-              Buy the <a href="/shop/comma-3x">comma 3X here</a>.
-            </p>
-          `
-        }, {
           question: 'Do I need a comma prime monthly subscription to use the device?',
           answer: `
             No. comma prime is completely optional and is not needed for any core functionality. comma prime can be activated, cancelled, and re-activated at any time.
           `
         }, {
-          question: 'I ordered a comma device! Now what?',
-          answer: `
-            <p>
-              Congratulations! Get started by watching the Installation Guide on our
-              <a  href="/setup">setup page</a>. We find on average the installation process takes 15-30
-              minutes.
-            </p>
-            <p>
-              If you encounter an issue, we recommend you join our <a href="https://discord.comma.ai/">Discord</a>
-              where hundreds of active users are available to help troubleshoot.
-            </p>
-            <p>
-              You can cancel your order for a full refund up until it ships through your order page.
-            </p>
-          `
-        }, {
           question: 'Does installing a comma device require permanent modifications to the car?',
           answer: `
             Installing a comma device does not require any permanent modifications to
-            your car. With the car harness, most car trims remain in place.
+            your car. Removing the comma device leaves your car in the same state as before the installation.
           `
         }, {
           question: 'How do I mount my comma device?',
@@ -456,70 +426,6 @@
               rejecting coverage to comma hardware users.
             </p>
           `
-        }, {
-          question: 'I am upgrading from a comma two to a comma 3X do I need to order another harness?',
-          answer: `
-            No, existing comma harnesses work with these devices.
-          `
-        }
-      ]
-    },
-    body: {
-      title: 'comma body',
-      image: BodyImage,
-      questions: [
-        {
-          question: 'What is the body?',
-          answer: `
-            <p>
-              comma body is “the future of people.” You buy a comma body, buy a comma
-              3X (the head), attach the comma 3X to the body, and watch it come
-              to life.
-            </p>
-            <p>
-              We believe that in order to solve AI, for most people’s definition, you
-              must be embedded in the real world. We define AI as a machine that can
-              do every task at least as well as a human. And in order to do human
-              tasks, it helps a lot to have a human like body. The comma body is the
-              beginning of that journey.
-            </p>
-            <p>
-              Today it’s a mobile platform for the comma 3X, but we will be
-              building a knee and arms for it. Like everything we do, we try to
-              distill the problem down to its essence, so unlike some companies, we
-              aren’t focused on the humanoid shape. Wheels are a fine form of
-              locomotion for cooking and cleaning, the dream tasks of the comma body.
-              Two arms, a knee, and a comma 3X should complete a comma person (sold
-              separately, knee and arm coming in 2023).
-            </p>
-          `
-        }, {
-          question: 'What software does it run?',
-          answer: `
-            <p>
-              The comma body runs openpilot! From openpilot's perspective, the comma
-              body is a car. It runs the same camera and logging software, so we'll
-              be able to learn from the fleet of bodies in the same way we learn from
-              our fleet of cars.
-            </p>
-            <p>
-              At launch, the software will balance the body (using the same localizer
-              as the car!) and allow you to drive it around via web interface. Shortly
-              we’ll add video streaming to that web interface, allowing you to drive
-              your body outside line of sight. We’d also like to add a VR app to drive
-              the body from a first person view, this will be needed by the time we
-              ship the arms.
-            </p>
-            <p>
-              Once we start getting data back from our body fleet, we can train
-              models. The first model we will train (jointly with the driving model!)
-              is a posenet, allowing inside out position tracking. When this model is
-              shipped, the localizer will change from 3-DoF to 6-DoF. And once the
-              dead reckoning is similar quality to what we have on the cars, adding a
-              SLAM system will be very simple to allow drift free localization in
-              your environment.
-            </p>
-          `,
         }
       ]
     },
@@ -531,18 +437,18 @@
           question: 'What is the 30-day money-back trial?',
           answer: `
             <p>
-              Every vehicle is a little different and the experience can be hard to describe which is why we offer this trial. If you don’t love the comma 3X, you can return it for a refund–no questions asked. All refunds must be initiated through <a href="https://comma.ai/returns">comma.ai/returns</a> within 30 calendar days of receiving your order.
+              Every vehicle is a little different and the experience can be hard to describe which is why we offer this trial. If you don’t love the comma four, you can return it for a refund–no questions asked. All refunds must be initiated through <a href="https://comma.ai/returns">comma.ai/returns</a> within 30 calendar days of receiving your order.
             </p>
           `
         }, {
           question: 'When does the 30-day money-back trial start?',
           answer: `
-            The 30-day money-back trial starts the day your comma 3X is delivered (signature confirmation required for delivery). If you do decide to return your device, we ask that you get the return device in the mail within 30 days of receiving it.
+            The 30-day money-back trial starts the day your comma four is delivered (signature confirmation required for delivery). If you do decide to return your device, we ask that you get the return device in the mail within 30 days of receiving it.
           `
         }, {
-          question: 'How do I return my comma 3X?',
+          question: 'How do I return my comma four?',
           answer: `
-            To return your device, please request a return at: <a href="https://comma.ai/returns">comma.ai/returns</a>. A prepaid return label (or return instructions if not in the US) will be automatically sent to you. $9.99 will be deducted from your refund if you choose to use this label.
+            To return your device, please request a return at <a href="https://comma.ai/returns">comma.ai/returns</a>. A prepaid return label (or return instructions if not in the US) will be automatically sent to you. $9.99 will be deducted from your refund if you choose to use this label.
           `
         }, {
           question: 'Are international orders eligible for the trial?',
@@ -565,12 +471,6 @@
           question: 'I would like to match a price change.',
           answer: `
             We do not offer price matching. Returns can be made at <a href="https://comma.ai/returns">comma.ai/returns</a> within 30 days of receiving the order.
-          `
-        }, {
-          question: 'Do you sell parts?',
-          answer: `
-            We do our best to offer replacement parts for your comma two, three,
-            and 3X. Please check out our shop for our current offering.
           `
         }, {
           question: 'Is the 1-year hardware warranty transferable?',
@@ -739,19 +639,14 @@
             We ship to the entire US and most countries. We ship internationally with a flat rate of $30. We do not ship to PO Boxes (with an exception for Military). If you reject an international package we will deduct any additional fees from your return. All US deliveries require signature confirmation at this time though subject to change.
           `
         }, {
-          question: 'How much is shipping?',
-          answer: `
-            <p>
-              Shipping is free for US addresses including Alaska, Hawaii, and US Territories. We offer a domestic UPS 2nd Day Air shipping option for $25.
-            </p>
-            <p>
-              International shipping is flat rate and costs $30. Note that international shipping times can vary widely, so please be patient.
-            </p>
-          `
-        }, {
           question: 'What do I do if my device arrives damaged?',
           answer: `
-            Please alert us to any issues with your order within 3 days of delivery. We may not be responsible for damages if we are not notified within this window. If you damage your screen we offer repairs for $200 or you can purchase a replacement screen in our shop for $100 (DIY at your own risk). If we receive a damaged device returned to us we will deduct the cost of the repair from your return. We are not responsible for lost or damaged items mailed back to us and recommend using the original packaging to make a return or carefully padding your device when sending it back.
+            <p>
+            Please alert us to any issues with your order within 3 days of delivery by opening a <a href="https://commasupport.zendesk.com/hc/en-us/requests/new?ticket_form_id=29233377161623">support ticket here</a> and including pictures of both the product and packaging. We may not be responsible for damages if we are not notified within this window.
+            </p>
+            <p>
+            If we receive a damaged device returned to us, we will deduct the cost of the repair from your return. We are not responsible for lost or damaged items mailed back to us and recommend using the original packaging to make a return or carefully padding your device when sending it back.
+            <p>
           `
         }, {
           question: 'My order has no recent tracking activity and is past the delivery date. What should I do?',
@@ -802,8 +697,8 @@
       ]
     },
     troubleshooting: {
-      title: 'Hardware Troubleshooting & Failures',
-      image: CommaThreeImage,
+      title: 'Hardware Troubleshooting',
+      image: OtherTopicsImage,
       questions: [
         {
           question: 'Why is a stock route required to open a hardware support ticket?',
@@ -825,7 +720,7 @@
           question: 'How do you replace the SIM card in a comma 3X?',
           answer: `
             <p>
-              All comma 3Xs (shipped in the US) come with a SIM card. The SIM slot is a
+              All comma 3Xs come with a SIM card. The SIM slot is a
               push/pull mechanism, where you must push on the card to release it and then
               guide it out.
 
@@ -880,33 +775,9 @@
             </p>
           `
         }, {
-          question: 'My comma 3X is having issues. What should I do?',
+          question: 'My comma four is having issues. What should I do?',
           answer: `
             We recommend first trying to reflash your device at <a href="https://flash.comma.ai">flash.comma.ai</a> and to reseat all the cable connections. comma support is only able to look into issues on stock with a route where the issue occurs. If you are running a fork, we are unable to diagnose defective hardware without a route on stock. Once you have a route, please open a ticket at <a href="https://comma.ai/support">comma.ai/support</a>. Pictures, videos, and uploading logs via wi-fi are very helpful and often expedite the resolution process. Please also include any troubleshooting steps you have already taken. We also recommend reviewing the community <a href="https://github.com/commaai/openpilot/wiki">GitHub wiki</a> and <a href="https://discord.comma.ai">discord.comma.ai</a> for other troubleshooting.
-          `
-        }, {
-          question: 'My comma three is having issues. What should I do?',
-          answer: `
-            <p>
-              comma three has supercapacitors. When unplugged, allow them to fully drain for 30 seconds before plugging the device back in.
-            </p>
-            <p>
-              Still nothing? <a href="https://flash.comma.ai">Reflash AGNOS</a>.
-            </p>
-            <p>
-            While we are no longer able to repair comma three, we offer a <a href="/shop/comma-3x-trade-in">trade-in for the comma 3X</a>.
-            </p>
-          `
-        }, {
-          question: 'My comma two/EON is having issues?',
-          answer: `
-            While we are no longer able to repair EON and comma two, we offer a <a href="/shop/comma-3x-trade-in">trade-in for the comma 3X</a>.
-
-            Otherwise, we recommend checking out the <a href="https://discord.comma.ai">discord.comma.ai</a> for DIY repair options.          `
-        }, {
-          question: 'My J533/Hyundai/Kia harness does not fit?',
-          answer: `
-            Reference Hyundai/Kia harness diagrams <a href="https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis#harness-guide">here</a>. Reference J533 install details <a href="https://github.com/commaai/openpilot/wiki/VW-J533-(Gateway)-Cable">here</a>.
           `
         }, {
           question: 'Performing a Factory Reset',
@@ -934,7 +805,7 @@
         }, {
           question: 'Can I get a review device? (I am a Reviewer / Media / YouTuber)',
           answer: `
-            We have a 30-day no questions asked return policy if you would like to experience a comma 3X for yourself.
+            We have a 30-day no questions asked return policy if you would like to experience a comma four for yourself.
           `
         }, {
           question: 'I\'d like to partner with comma.',
@@ -951,10 +822,7 @@
           question: 'Why haven\'t I heard back from support?',
           answer: `
             <p>
-              comma support is for comma shop order and warranty related issues. Our inbox is not monitored; please open a support ticket on our <a href="https://comma.ai/support">comma.ai/support</a> and provide the requested information.
-            </p>
-            <p>
-              For car compatibility questions please see <a https://comma.ai/vehicles>comma.ai/vehicles</a>. Don’t see your car, then it’s probably not supported.
+              comma support is for comma shop order and warranty related issues. Our inbox is not monitored; please open a support ticket on our <a href="https://comma.ai/support">comma.ai/support</a>.
             </p>
             <p>
               comma does not provide support for openpilot. We recommend the <a https://discord.comma.ai>community Discord</a> or open an issue on openpilot’s GitHub.
