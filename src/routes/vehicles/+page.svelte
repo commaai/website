@@ -16,7 +16,7 @@
 
   import Comma3XImage from '$lib/images/device.png';
 
-  import { THREEX_PRICE, CAR_HARNESS_PRICE, THREEX_STRIKETHROUGH_PRICE, THREEX_SALE } from '$lib/constants/prices.js';
+  import { FOUR_PRICE } from '$lib/constants/prices.js';
   import { vehicleCountText } from '$lib/constants/vehicles.js';
 
   const brand_images = import.meta.glob('$lib/images/vehicles/brand-icons/*.png', { eager: true });
@@ -159,19 +159,9 @@
                       <img src={Comma3XImage} loading="lazy" alt="comma 3X device" />
                       <hgroup>
                         <strong>comma 3X</strong>
-                        {#if THREEX_SALE}
-                          <div style="display: flex; align-items: center;">
-                            {#if THREEX_STRIKETHROUGH_PRICE}
-                              <div class="understated-price strikethrough-price">${THREEX_STRIKETHROUGH_PRICE}</div>
-                            {/if}
-                            <div class="red-price">${THREEX_PRICE}</div>
-                          </div>
-                        {:else}
-                          <div class="understated-price">${THREEX_PRICE}</div>
-                        {/if}
+                        <div class="understated-price">${FOUR_PRICE}</div>
                         {#if car_info.harness_connector !== "" }
                           <strong>car harness: { car_info.harness_connector }</strong>
-                          <div class="understated-price">+${CAR_HARNESS_PRICE}</div>
                         {/if}
                       </hgroup>
                     </div>
