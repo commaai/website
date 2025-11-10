@@ -1,4 +1,5 @@
 <script>
+  import { onMount } from 'svelte';
   import IconChevron from '$lib/icons/icon-chevron.svg?raw';
 
   export let id = (Math.random() * 10e15).toString(16);
@@ -7,6 +8,12 @@
   export let style = "light"; // or "dark"
   export let foregroundColor = null;
   export let backgroundColor = null;
+
+  let contentEl;
+  onMount(() => {
+    if (!checked && contentEl) contentEl.style.display = 'none';
+  });
+  $: if (contentEl) contentEl.style.display = checked ? '' : 'none';
 </script>
 
 <div
@@ -21,7 +28,7 @@
     <slot name="label"></slot>
     <span class="chevron">{@html IconChevron}</span>
   </label>
-  <div class="content">
+  <div class="content" bind:this={contentEl}>
     <slot name="content"></slot>
   </div>
 </div>
