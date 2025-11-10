@@ -162,6 +162,7 @@
                         <div class="understated-price">${FOUR_PRICE}</div>
                         {#if car_info.harness_connector !== "" }
                           <strong>car harness: { car_info.harness_connector }</strong>
+                          <div class="understated-price">included</div>
                         {/if}
                       </hgroup>
                     </div>
