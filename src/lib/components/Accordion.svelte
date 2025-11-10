@@ -1,6 +1,6 @@
 <script>
-  import { onMount } from 'svelte';
   import IconChevron from '$lib/icons/icon-chevron.svg?raw';
+  import { onMount } from 'svelte';
 
   export let id = (Math.random() * 10e15).toString(16);
   export let type = "checkbox"; // or "radio"
@@ -9,11 +9,22 @@
   export let foregroundColor = null;
   export let backgroundColor = null;
 
-  let contentEl;
-  onMount(() => {
-    if (!checked && contentEl) contentEl.style.display = 'none';
-  });
-  $: if (contentEl) contentEl.style.display = checked ? '' : 'none';
+  let contentEl, inputEl;
+  onMount(() => contentEl.style.display = inputEl.checked ? 'block' : 'none');
+  function toggleContent() {
+    if (inputEl.checked) {
+      contentEl.style.display = 'block';
+      contentEl.style.maxHeight = '0px';
+      requestAnimationFrame(() => contentEl.style.maxHeight = `${contentEl.scrollHeight}px`);
+    } else {
+      contentEl.style.maxHeight = `${contentEl.scrollHeight}px`;
+      requestAnimationFrame(() => contentEl.style.maxHeight = '0px');
+    }
+  }
+  function onTransitionEnd() {
+    if (!inputEl.checked) contentEl.style.display = 'none';
+    contentEl.style.maxHeight = null;
+  }
 </script>
 
 <div
@@ -23,12 +34,12 @@
     --background-color: {backgroundColor ?? (style === 'light' ? 'white' : 'black')};
   "
 >
-  <input {type} name={id} {id} {checked} on:click />
+  <input {type} name={id} {id} {checked} on:click={toggleContent} bind:this={inputEl} />
   <label for={id}>
     <slot name="label"></slot>
     <span class="chevron">{@html IconChevron}</span>
   </label>
-  <div class="content" bind:this={contentEl}>
+  <div class="content" on:transitionend={onTransitionEnd} bind:this={contentEl}>
     <slot name="content"></slot>
   </div>
 </div>
