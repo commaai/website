@@ -1272,10 +1272,10 @@
       ]
     },
     {
-      "name": "Honda Civic Hybrid 2025",
+      "name": "Honda Civic Hybrid 2025-26",
       "model": "Civic Hybrid",
-      "years": "2025",
-      "year_list": "2025",
+      "years": "2025-26",
+      "year_list": "2025, 2026",
       "package": "All",
       "angled_mount": false,
       "video": "",
@@ -1320,10 +1320,10 @@
       ]
     },
     {
-      "name": "Honda CR-V 2023-25",
+      "name": "Honda CR-V 2023-26",
       "model": "CR-V",
-      "years": "2023-25",
-      "year_list": "2023, 2024, 2025",
+      "years": "2023-26",
+      "year_list": "2023, 2024, 2025, 2026",
       "package": "All",
       "angled_mount": false,
       "video": "",
@@ -1512,10 +1512,10 @@
       ]
     },
     {
-      "name": "Honda Odyssey 2021-25",
+      "name": "Honda Odyssey 2021-26",
       "model": "Odyssey",
-      "years": "2021-25",
-      "year_list": "2021, 2022, 2023, 2024, 2025",
+      "years": "2021-26",
+      "year_list": "2021, 2022, 2023, 2024, 2025, 2026",
       "package": "All",
       "angled_mount": false,
       "video": "",
@@ -1549,7 +1549,7 @@
       "years": "2026",
       "year_list": "2026",
       "package": "All",
-      "angled_mount": false,
+      "angled_mount": true,
       "video": "",
       "setup_video": "",
       "harness_connector": "Honda Bosch C",
