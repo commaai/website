@@ -51,7 +51,7 @@
           question: 'Is my car compatible with openpilot?',
           answer: `
             A complete list of compatible vehicles can be found on our
-            <a href="https://github.com/commaai/openpilot/blob/master/docs/CARS.md" target="_blank">Compatibility page</a>.
+            <a href="/vehicles">Compatibility page</a>.
           `
         }, {
           question: 'What should I buy to run openpilot in my car?',
@@ -539,7 +539,7 @@
           question: 'What do I need to know before making an international order?',
           answer: `
             <p>
-              We recommend verifying that your car is supported at <a href="https://github.com/commaai/openpilot/blob/master/docs/CARS.md" target="_blank">the openpilot compatibility page</a>. All support is for US cars unless specified otherwise.
+              We recommend verifying that your car is supported at <a href="/vehicles">comma.ai/vehicles</a>. All support is for US cars unless specified otherwise.
             </p>
             <p>
               Our prices do not include customs duties and taxes that may apply when shipping to your country. These charges are typically determined by your local customs authority and are your responsibility to pay. The fees often range from $150-350 for a 3X and harness, but they can be more depending on your government. The 3X HS Code is 8525.81. If you refuse to pay these fees, comma is forced to cover them to receive the device back and they will be subtracted from the cost of your return refund.

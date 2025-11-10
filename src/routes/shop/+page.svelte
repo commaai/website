@@ -58,7 +58,7 @@
             </LinkButton>
             <p>
               Works with {vehicleCountText} cars.
-              <a class="highlight muted" href="https://github.com/commaai/openpilot/blob/master/docs/CARS.md" target="_blank">Check compatibility</a>.
+              <a class="highlight muted" href="/vehicles" target="_blank">Check compatibility</a>.
             </p>
           </div>
           <div class="mobile-first">
@@ -186,7 +186,7 @@
                 comma openpilot is an open source driver-assistance system.
                 Currently, openpilot performs the functions of Adaptive Cruise
                 Control (ACC) and Automated Lane Centering (ALC) and Lane Change
-                Assist for <a class="highlight" href="https://github.com/commaai/openpilot/blob/master/docs/CARS.md" tabindex="0" target="_blank" rel="noopener noreferrer">compatible vehicles</a>.
+                Assist for <a class="highlight" href="/vehicles" tabindex="0">compatible vehicles</a>.
                 It performs similarly to Tesla Autopilot and GM Super Cruise.
                 openpilot can steer, accelerate, and brake automatically for other vehicles within its lane.
               </p>
