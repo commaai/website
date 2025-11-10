@@ -14,7 +14,7 @@
   import InfoIcon from '$lib/icons/ui/info.svg?raw';
   import CarIcon from '$lib/icons/features/car.svg?raw';
 
-  import Comma3XImage from '$lib/images/device.png';
+  import CommaFourImage from '$lib/images/products/comma-four/four_screen_on.png';
 
   import { FOUR_PRICE } from '$lib/constants/prices.js';
   import { vehicleCountText } from '$lib/constants/vehicles.js';
@@ -31,7 +31,7 @@
         openpilot supports {vehicleCountText} vehicles
       </div>
       <div class="description">
-        A supported vehicle is one that just works when you install a comma 3X.
+        A supported vehicle is one that just works when you install a comma four.
         All supported cars provide a better experience than any stock system.
         Supported vehicles reference the US market unless otherwise specified.
       </div>
@@ -156,9 +156,9 @@
                   </div>
                   <div class="device-promotion-card">
                     <div class="product-wrapper">
-                      <img src={Comma3XImage} loading="lazy" alt="comma 3X device" />
+                      <img src={CommaFourImage} loading="lazy" alt="comma four device" />
                       <hgroup>
-                        <strong>comma 3X</strong>
+                        <strong>comma four</strong>
                         <div class="understated-price">${FOUR_PRICE}</div>
                         {#if car_info.harness_connector !== "" }
                           <strong>car harness: { car_info.harness_connector }</strong>
