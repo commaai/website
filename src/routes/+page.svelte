@@ -5,6 +5,7 @@
   import { getProduct } from '$lib/utils/shopify.js';
   import { vehicleHarnesses } from '$lib/utils/harnesses.js';
   import { selectedCar } from '../store';
+  import { vehicleCountText } from '$lib/constants/vehicles.js';
 
   import FourImage from "$lib/images/products/comma-four/four_screen_on.png";
   import FourSide from "$lib/images/products/comma-four/four_side_2.png";
@@ -195,7 +196,7 @@
     <img src={currentFourImage} alt="comma four" class="four-image" />
     <div class="four-content">
       <div class="four-text">
-        comma four works on 325+ car models. It adds the best ADAS in the world to your existing car.<br><br>
+        comma four works on <a href="/vehicles" style="text-decoration: underline;">{vehicleCountText} car models</a>. It adds the best ADAS in the world to your existing car.<br><br>
         It runs <a href="https://github.com/commaai/openpilot?tab=readme-ov-file#openpilot" target="_blank" style="text-decoration: underline;">openpilot</a>, which can drive for hours without driver action.
       </div>
       <ul class="four-features">
