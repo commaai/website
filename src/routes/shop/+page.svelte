@@ -16,7 +16,7 @@
   import AdaptiveCruiseIcon from "$lib/icons/features/adaptive-cruise.svg?raw";
   import LaneCenteringIcon from "$lib/icons/features/lane-centering.svg?raw";
 
-  import { THREEX_PRICE, THREEX_AFFIRM_PRICE } from '$lib/constants/prices.js';
+  import { FOUR_PRICE } from '$lib/constants/prices.js';
   import { vehicleCountText } from '$lib/constants/vehicles.js';
 
   import { addToCart } from "../../store";
@@ -51,7 +51,7 @@
           <div class="product-content">
             <hgroup>
               <h1>comma four</h1>
-              <span>${THREEX_PRICE}</span>
+              <span>${FOUR_PRICE}</span>
             </hgroup>
             <LinkButton href="/shop/comma-four" style="secondary" fullWidth>
               Buy now
