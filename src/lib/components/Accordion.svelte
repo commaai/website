@@ -9,9 +9,7 @@
   export let foregroundColor = null;
   export let backgroundColor = null;
 
-  let contentEl;
-  let inputEl;
-
+  let contentEl, inputEl;
   onMount(() => {
     contentEl.style.display = inputEl.checked ? 'block' : 'none';
   });
