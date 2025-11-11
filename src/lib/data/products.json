@@ -235,17 +235,16 @@
     "notes": "",
     "description": "<strong>Description</strong>\n<p>Okay, okay we heard you. We aren't a high end fashion brand, we are a tech company. We sell a company t-shirt—for a reasonable price.</p>\n<p>\n  This signature t-shirt is markedly soft, unisex that is versatile and lends itself to daily wear.\n  Spun from a plush fabric that is made up of cotton and polyester fibers,\n  this shirt features an up-to-date fit. Choose yours from the single white color we offer.\n</p>"
   },
-  "comma-3x-trade-in": {
-    "title": "comma 3X trade-in",
-    "id": "gid://shopify/Product/7555745054783",
-    "route": "/shop/comma-3x-trade-in",
+  "comma-four-trade-in": {
+    "title": "comma four trade-in",
+    "id": "gid://shopify/Product/7966336778303",
+    "route": "/shop/comma-four-trade-in",
     "category": "accessories",
     "price": "$750",
     "images": [
-      "/src/lib/images/products/comma-3x/comma-3x.jpg",
-      "/src/lib/images/products/comma-3x/comma-3x-back.jpg",
-      "/src/lib/images/products/comma-3x/comma-3x-promo.jpg",
-      "/src/lib/images/products/comma-3x/comma-3x-includes.jpg"
+      "/src/lib/images/products/comma-four/four_screen_on.png",
+      "/src/lib/images/products/comma-four/four_side_2.png",
+      "/src/lib/images/products/comma-four/four_back_2.png"
     ],
     "backordered": "4-12 weeks",
     "forceOutOfStock": true,
