@@ -195,10 +195,10 @@
 
   <div class="hero-content-wrapper">
     <div class="buy-now-container">
-      <button class="buy-now-button">
+      <a href="/shop/comma-four" class="buy-now-button">
         <span class="buy-now-text">Buy now</span>
         <span class="buy-now-price"><span class="dollar-sign">$</span>999</span>
-      </button>
+      </a>
       <div class="shipping-notice">Ships in 1-12 weeks</div>
       <button class="check-compatibility" class:flash={compatPulse} class:shake={compatShake} on:click={() => document.querySelector('.car-search input')?.focus()}>
         {@html compatHtml}
