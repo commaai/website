@@ -149,7 +149,7 @@
   </p>
   {#if backordered}
     <p class="disclaimer warning">
-      The car harness you have selected is currently backordered.
+      The comma four is expected to ship out in 1-12 weeks.
       By adding this item to your cart you acknowledge that your order will be delayed.
     </p>
   {/if}
