@@ -6,6 +6,8 @@
   import { tick } from 'svelte';
   import { clickOutside } from '$lib/utils/clickOutside';
   import { allHarnesses, vehicleHarnesses, genericHarnesses } from '$lib/utils/harnesses';
+  import { selectedCar } from '../../../store';
+  import { NO_HARNESS_OPTION } from '$lib/constants/vehicles.js';
 
   import NoteCard from '$lib/components/NoteCard.svelte';
   import DropdownItem from './HarnessDropdownItem.svelte';
@@ -18,6 +20,7 @@
 
   export let label = "Select vehicle";
   export let placeholder = "Search for a vehicle or harness";
+  export let showNoHarnessOption = false; // shows "I already have a harness" option
   export let showVehicleHarnesses = true; // If true, includes the harnesses by each vehicle model
   export let showGenericHarnesses = true; // If true, includes the generic/developer harnesses
   export let hideSupportNoteCard = false;
@@ -31,6 +34,13 @@
     // Don't update w/ initial state
     onChange(selection);
     updateQueryParams(selection);
+
+    // remember with cookie
+    if (selection?.car) {
+      selectedCar.set(selection.car);
+    } else {
+      selectedCar.set('');
+    }
   }
 
   function updateQueryParams(selectedHarness) {
@@ -47,8 +57,8 @@
 
   const setInitialSelection = () => {
     const harnessParam = $page.url.searchParams.get('harness')
-    let carName = harnessParam ? decodeURIComponent(harnessParam) : null;
-    selection = carName ? $harnesses.find(harness => harness.car === carName) ?? null : null;
+    let carName = harnessParam ? decodeURIComponent(harnessParam) : $selectedCar;
+    selection = $harnesses.find(harness => harness.car === carName) ?? null;
   }
 
   /* Filtered Dropdown */
@@ -135,6 +145,9 @@
         <DropdownItem value={{ car: 'No matching vehicles' }} />
       {/if}
     {:else}
+      {#if showNoHarnessOption}
+      <DropdownItem value={NO_HARNESS_OPTION} on:click={() => handleOptionClick(NO_HARNESS_OPTION)} on:keydown={(e) => handleOptionKeyDown(e, NO_HARNESS_OPTION)} />
+      {/if}
       {#each $harnesses as item}
         <DropdownItem value={item} on:click={() => handleOptionClick(item)} on:keydown={(e) => handleOptionKeyDown(e, item)} />
       {/each}

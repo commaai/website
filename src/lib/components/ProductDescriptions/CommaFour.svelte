@@ -11,20 +11,19 @@
   import WarrantyIcon from "$lib/icons/features/warranty.svg?raw";
 
   import { FOUR_PRICE } from '$lib/constants/prices.js';
+  import { NO_HARNESS_OPTION } from '$lib/constants/vehicles.js';
 </script>
 
 <script>
   export let product;
   let additionalProductIds = [];
+  let confirmedNoHarness = false;
+  let disableBuyButtonText = "SELECT YOUR CAR";
 
   let showDisclaimerModal = false;
   let onProceed;
   let beforeAddToCart = (addToCart) => {
     onProceed = () => {
-      // Prevent proceeding if no harness is selected
-      if (!selectedHarness || additionalProductIds.length === 0) {
-        return;
-      }
       addToCart();
       showDisclaimerModal = false;
     }
@@ -48,20 +47,26 @@
   let backordered = null;
   const handleHarnessSelection = (value) => {
     selectedHarness = value;
-    if (value) {
-      additionalProductIds = [value?.id]
-      backordered = value.currentlyNotInStock ? `ships in ${(value.backordered || '1-12 weeks')}` : null;
+    if (value === NO_HARNESS_OPTION) {
+      confirmedNoHarness = true
+      disableBuyButtonText = null;
     } else {
-      additionalProductIds = [];
-      backordered = null;
+      confirmedNoHarness = false
+      if (value) {
+        additionalProductIds = [value?.id]
+        backordered = value.currentlyNotInStock ? `ships in ${(value.backordered || '1-12 weeks')}` : null;
+        disableBuyButtonText = null;
+      } else {
+        additionalProductIds = [];
+        backordered = null;
+        disableBuyButtonText = "SELECT YOUR CAR";
+      }
     }
     backordered = '1-12 weeks';
   }
-
-  $: isAddToCartDisabled = !selectedHarness;
 </script>
 
-<Product {product} {additionalProductIds} {backordered} {beforeAddToCart} {getCartNote} {isAddToCartDisabled} priceOverride={FOUR_PRICE}>
+<Product {product} {additionalProductIds} {backordered} {beforeAddToCart} {getCartNote} priceOverride={FOUR_PRICE} disableBuyButtonText={disableBuyButtonText}>
   <div slot="shipping"></div>
 
   <span slot="price-accessory">
@@ -75,6 +80,7 @@
     <HarnessSelector
       label="Select your car"
       onChange={handleHarnessSelection}
+      showNoHarnessOption={true}
     >
     </HarnessSelector>
     <NoteCard title="Upgrading from another comma device?">
@@ -136,7 +142,6 @@
   onClose={() => showDisclaimerModal = false}
   bind:show={showDisclaimerModal}
   primaryButtonText={backordered ? `Add to cart (ships in ${backordered})` : "Add to cart"}
-  primaryButtonDisabled={!selectedHarness || additionalProductIds.length === 0}
 >
   {#if additionalProductIds.length === 0}
     <p class="disclaimer">
