@@ -8,9 +8,6 @@
 
   import { faq } from "$lib/constants/faq.svelte";
 
-  // import DeviceVideoWebm from "$lib/videos/comma-3x.webm";
-  // import DeviceVideoMp4 from "$lib/videos/comma-3x.mp4";
-
   import Comma3XImage from "$lib/images/device.png";
   import Comma3XGlowImage from "$lib/images/device-glow.png";
   import Comma3XProductImage from "$lib/images/products/comma-3x/comma-3x-promo.jpg";
@@ -35,33 +32,23 @@
 <section class="light" id="description">
   <div class="container">
     <Grid rowGap="0" templateColumns="0.5fr 1.25fr">
-      <h2>Meet the comma 3X</h2>
+      <h2>Meet the comma four</h2>
       <div class="description">
         <p>
-          The comma 3X is custom hardware designed to live in your car, and purpose built to run openpilot. The comma 3X has three beautiful HDR cameras, two cameras to watch the road and one night-vision camera to see inside the car.
+          The comma four is custom hardware designed to live in your car, and purpose built to run openpilot. The comma four has three beautiful HDR cameras, two cameras to watch the road and one night-vision camera to see inside the car.
         </p>
         <p>
-          Besides cameras, the comma 3X has a suite of connectivity and sensors including cellular LTE, Wi-Fi, an IMU, high-precision GPS, and microphones.
+          Besides cameras, the comma four has a suite of connectivity and sensors including cellular LTE, Wi-Fi, an IMU, high-precision GPS, and microphones.
         </p>
       </div>
     </Grid>
-    <div class="mobile-hero">
-      <video autoplay muted loop webkit-playsinline playsinline disableRemotePlayback>
-<!--        <source src={DeviceVideoWebm} type="video/webm" />-->
-<!--        <source src={DeviceVideoMp4} type="video/mp4" />-->
-      </video>
-      <hgroup>
-        <h1>comma 3X</h1>
-        <h2>Make driving chill</h2>
-      </hgroup>
-    </div>
     <hr />
     <Grid rowGap="0" templateColumns="0.5fr 1.25fr">
       <h2>In the Box</h2>
       <div class="box-contents">
         <div>
-          <img src={Comma3XProductImage} loading="lazy" alt="comma 3X device">
-          <p>comma 3X</p>
+          <img src={Comma3XProductImage} loading="lazy" alt="comma four device">
+          <p>comma four</p>
         </div>
         <div>
           <img src={OBDCCableImage} loading="lazy" alt="1.5ft right-angle OBD-C cable">
@@ -82,7 +69,7 @@
     <Grid rowGap="0" templateColumns="0.5fr 1.25fr">
       <h2>On-device Storage</h2>
       <div>
-        <p>comma 3X includes on-board storage to store your drives.</p>
+        <p>comma four includes on-board storage to store your drives.</p>
         <div class="spec-card">
           <div class="header">
             <div>{@html MemoryIcon}</div>
@@ -100,7 +87,7 @@
           Want your video footage saved for longer? – Sign up for <a href="/connect" class="highlight">comma prime</a> for 1 year of cloud video storage.
         </p>
         <p>
-          comma 3X includes one free month of comma prime.
+          comma four includes one free month of comma prime.
           To claim your free prime trial, log into <a href="https://connect.comma.ai/" target="_blank" class="highlight">comma connect</a>.
           Once paired, you can see your recorded drives, SSH into your device from anywhere, and more.
         </p>
@@ -193,7 +180,7 @@
     </Grid>
     <hr />
     <SetupGuide
-      productName="comma 3X"
+      productName="comma four"
       title="Setup Guide"
       stepCount={7}
       estimatedMinutes={15}
@@ -210,7 +197,7 @@
         <div>
           <hgroup>
             <span>Car harness</span>
-            <h2>comma 3X is compatible with {vehicleCountText} cars</h2>
+            <h2>comma four is compatible with {vehicleCountText} cars</h2>
           </hgroup>
           <p>
             A supported vehicle is one that just works when you install a comma device.
@@ -223,14 +210,14 @@
     </div>
     <div class="compatibility">
       <Grid>
-        <img src={Comma3XGlowImage} loading="lazy" alt="comma 3X device" />
+        <img src={Comma3XGlowImage} loading="lazy" alt="comma four device" />
         <div>
           <hgroup>
             <span>Software</span>
             <h2>Works with openpilot</h2>
           </hgroup>
           <p>
-            comma 3X ships without software installed, so you need to install software.
+            comma four ships without software installed, so you need to install software.
             It is compatible with <a href="/openpilot" class="highlight">openpilot</a> and works with a wide variety of community supported forks.
           </p>
           <LinkButton href="/openpilot" style="secondary" fullWidth={false}>Openpilot</LinkButton>
@@ -238,7 +225,7 @@
       </Grid>
     </div>
     <h2 class="guarantee">
-      Try our 30-day money-back trial and see why 92% of buyers keep their comma 3X and why Consumer Reports rated us as the
+      Try our 30-day money-back trial and see why 92% of buyers keep their comma four and why Consumer Reports rated us as the
       <a href="https://data.consumerreports.org/wp-content/uploads/2020/11/consumer-reports-active-driving-assistance-systems-november-16-2020.pdf" class="highlight">top ADAS system.</a>
     </h2>
   </div>
@@ -272,13 +259,13 @@
           </p>
           <strong>Warranty</strong>
           <p>
-            1-year limited warranty against hardware defects. Open and repair the comma 3X at your own risk.
+            1-year limited warranty against hardware defects. Open and repair the comma four at your own risk.
             comma is not responsible for damages that may occur while repairing devices. We cannot provide shipping return labels for international devices.
             Any damage on arrival must be reported to comma support within 14 days of delivery.
           </p>
           <strong>Software</strong>
           <p>
-            The comma 3X does not ship with software capable of controlling a car.
+            The comma four does not ship with software capable of controlling a car.
             Open source software can be installed separately.
           </p>
           <strong>Windshield installation</strong>
@@ -292,7 +279,7 @@
           </p>
       </div>
     </Grid>
-    <Faq topic={faq.devices} title="comma 3X FAQ" />
+    <Faq topic={faq.devices} title="comma four FAQ" />
     <Space multiplier={3} />
     <Faq topic={faq.trial} />
   </div>

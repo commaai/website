@@ -225,26 +225,6 @@
           </button>
         {/each}
       </div>
-      <div class="four-terms">
-        <details>
-          <summary class="four-terms-toggle">Terms & Conditions</summary>
-          <div class="four-terms-content">
-            <p><strong>30-Day Return</strong><br>
-            If for any reason you are dissatisfied with anything purchased at the comma.ai shop, ship it back within 30 days for a full refund. <a href="https://comma.ai/returns">comma.ai/returns</a></p>
-
-            <p>If you intend to upstream support for a new car model, we may approve an extended return window. Open a ticket request at <a href="https://comma.ai/support">comma.ai/support</a>.</p>
-
-            <p><strong>Warranty</strong><br>
-            1-year limited warranty against hardware defects. Open and repair the comma four at your own risk. comma is not responsible for damages that may occur while repairing devices. We cannot provide shipping return labels for international devices. Any damage on arrival must be reported to comma support within 14 days of delivery.</p>
-
-            <p><strong>Software</strong><br>
-            The comma four does not ship with software capable of controlling a car. Open source software can be installed separately.</p>
-
-            <p><strong>Windshield installation</strong><br>
-            Before using the device on your windshield, check the state and local laws and ordinances where you drive. Some state laws prohibit or restrict the placement of objects on the windshield of a motor vehicle. IT IS THE USER'S RESPONSIBILITY TO MOUNT THE DEVICE IN COMPLIANCE WITH ALL APPLICABLE LAWS AND ORDINANCES. Always mount your device in a location that does not obstruct the driver's view of the road. comma does not assume any responsibility for any fines, penalties, or damages that may be incurred as a result of any state or local law or ordinance relating to the use of your comma device.</p>
-          </div>
-        </details>
-      </div>
     </div>
   </section>
 
@@ -753,82 +733,6 @@
         width: 100px;
         height: 80px;
         padding: 2px;
-      }
-    }
-
-    & .four-terms {
-      margin-top: 3rem;
-      color: rgb(155, 155, 155);
-      font-size: 14px;
-      line-height: 1.6;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
-      @media screen and (max-width: 1500px) {
-        order: 3;
-        margin-top: 3rem;
-      }
-
-      & details {
-        width: 100%;
-        max-width: 550px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      & .four-terms-toggle {
-        background: transparent;
-        border: none;
-        color: rgb(155, 155, 155);
-        font-size: 14px;
-        font-family: Inter, sans-serif;
-        cursor: pointer;
-        padding: 0;
-        margin-bottom: 1rem;
-        text-decoration: underline;
-        list-style: none;
-        text-align: center;
-
-        &::-webkit-details-marker {
-          display: none;
-        }
-
-        &::marker {
-          display: none;
-        }
-
-        &:hover {
-          color: #EAEAEA;
-        }
-      }
-
-      & .four-terms-content {
-        width: 100%;
-        max-width: 550px;
-
-        & p {
-          margin: 0 0 1.5rem 0;
-
-          &:last-child {
-            margin-bottom: 0;
-          }
-        }
-
-        & strong {
-          color: #EAEAEA;
-          font-weight: 600;
-        }
-
-        & a {
-          color: rgb(155, 155, 155);
-          text-decoration: underline;
-
-          &:hover {
-            color: #EAEAEA;
-          }
-        }
       }
     }
   }
