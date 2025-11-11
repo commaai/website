@@ -9,8 +9,8 @@
   import { faq } from "$lib/constants/faq.svelte";
 
   import FourImage from "$lib/images/products/comma-four/four_screen_on.png";
-  import OBDCCableImage from "$lib/images/products/obd-c-cable/obd-c-right-cable.jpg";
-  import ReplacementMountsImage from "$lib/images/products/replacement-mounts/replacement-mounts-3x.png";
+  import OBDCCableImage from "$lib/images/products/obd-c-cable/obd-c-right-cable-four.png";
+  import ReplacementMountsImage from "$lib/images/products/replacement-mounts/replacement-mounts-four.png";
   import CarBrandCollageImage from "$lib/images/car-brand-collage.jpg";
 
   import MemoryIcon from "$lib/icons/features/memory.svg?raw";
