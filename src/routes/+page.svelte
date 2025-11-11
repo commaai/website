@@ -1,7 +1,7 @@
 <script>
   import { onMount, tick } from 'svelte';
   import Hls from 'hls.js';
-  import productsData from '$lib/data/products.json';
+  import { products as productsData } from '$lib/data/products.js';
   import { getProduct } from '$lib/utils/shopify.js';
   import { vehicleHarnesses } from '$lib/utils/harnesses.js';
   import { selectedCar } from '../store';

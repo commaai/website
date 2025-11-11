@@ -20,7 +20,7 @@
   import { vehicleCountText } from '$lib/constants/vehicles.js';
 
   import { addToCart } from "../../store";
-  import productsData from '$lib/data/products.json';
+  import { products as productsData } from '$lib/data/products.js';
   import { resolveImages } from '$lib/utils/images.js';
 
   const componentOrder = [

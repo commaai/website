@@ -1,6 +1,6 @@
 import { getProduct } from '$lib/utils/shopify';
 import { error } from '@sveltejs/kit';
-import productsData from '$lib/data/products.json';
+import { products as productsData } from '$lib/data/products.js';
 import { resolveImages } from '$lib/utils/images.js';
 
 // Helper to convert product-slug to PascalCase component name
