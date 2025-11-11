@@ -28,7 +28,7 @@
     'harness-box', 'obd-c-cable', 'comma-power', 'comma-prime-sim',
     'panda-jungle', 'panda-paw', 'comma-ai-hoodie', 'comma-ai-beanie',
     'comma-ai-t-shirt', 'comma-power-extender', 'comma-device-screen',
-    'comma-3x-back-case', 'comma-3x-trade-in', 'comma-3x-out-of-warranty-repair',
+    'comma-3x-back-case', 'comma-four-trade-in', 'comma-3x-out-of-warranty-repair',
   ];
 
   $: accessoryProducts = componentOrder
