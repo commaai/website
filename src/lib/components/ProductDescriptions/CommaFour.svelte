@@ -17,7 +17,6 @@
 <script>
   export let product;
   let additionalProductIds = [];
-  let confirmedNoHarness = false;
   let disableBuyButtonText = "SELECT YOUR CAR";
 
   let showDisclaimerModal = false;
@@ -48,10 +47,8 @@
   const handleHarnessSelection = (value) => {
     selectedHarness = value;
     if (value === NO_HARNESS_OPTION) {
-      confirmedNoHarness = true
       disableBuyButtonText = null;
     } else {
-      confirmedNoHarness = false
       if (value) {
         additionalProductIds = [value?.id]
         backordered = value.currentlyNotInStock ? `ships in ${(value.backordered || '1-12 weeks')}` : null;
