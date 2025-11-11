@@ -19,11 +19,8 @@
   import NHaasGroteskRoman from "$lib/fonts/NHaasGrotesk/NHaasGroteskDSPro-55Rg.otf";
   import NHaasGrotesk75 from "$lib/fonts/NHaasGrotesk/NHaasGroteskTXPro-75Bd.otf";
 
-  let variantId = null;
   let videoElement;
   let videoReady = false;
-  let clickedWithoutCar = false;
-  let compatHtml = 'check compatibility';
   let compatPulse = false;
   let compatShake = false;
 
@@ -40,50 +37,7 @@
     currentFourImage = imageSrc;
   }
 
-  // Get selected car and harness info
-  $: selectedHarness = $selectedCar && $vehicleHarnesses ? $vehicleHarnesses.find(h => h.car === $selectedCar) || null : null;
-
-  // Reset clickedWithoutCar when a car is selected
-  $: if ($selectedCar) {
-    clickedWithoutCar = false;
-  }
-
-  // Update compatibility message and pulse highlight when it changes
-  $: (async () => {
-    let nextHtml = 'check compatibility';
-    if (clickedWithoutCar && !$selectedCar) {
-      nextHtml = 'Select your car. The comma four ships with a harness specific to your car.';
-    } else if (selectedHarness && selectedHarness.package) {
-      nextHtml = selectedHarness.package === 'All'
-        ? `openpilot will work with <strong>all packages and trims</strong> on the <strong>${selectedHarness.car}</strong>.`
-        : `openpilot requires <strong>${selectedHarness.car}</strong> to come equipped with <strong>${selectedHarness.package}</strong>.`;
-    }
-
-    if (nextHtml !== compatHtml) {
-      compatHtml = nextHtml;
-      // trigger color pulse
-      compatPulse = false;
-      await tick();
-      compatPulse = true;
-      setTimeout(() => {
-        compatPulse = false;
-      }, 2500);
-    }
-  })();
-
   onMount(async () => {
-    // Fetch product variant ID
-    const productInfo = productsData['comma-four'];
-    if (productInfo) {
-      const response = await getProduct(productInfo.id);
-      if (response.status === 200 && response.body?.data?.product) {
-        const product = response.body.data.product;
-        if (product.variants?.nodes?.length > 0) {
-          variantId = product.variants.nodes[0].id;
-        }
-      }
-    }
-
     // Initialize HLS.js
     if (videoElement) {
       // Show video once it starts playing
@@ -200,9 +154,7 @@
         <span class="buy-now-price"><span class="dollar-sign">$</span>999</span>
       </a>
       <div class="shipping-notice">Ships in 1-12 weeks</div>
-      <button class="check-compatibility" class:flash={compatPulse} class:shake={compatShake} on:click={() => document.querySelector('.car-search input')?.focus()}>
-        {@html compatHtml}
-      </button>
+      <a href="/vehicles" class="check-compatibility">check compatibility</a>
     </div>
   </div>
 

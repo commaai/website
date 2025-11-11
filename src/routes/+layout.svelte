@@ -22,8 +22,6 @@
   import { updateCart } from '$lib/utils/shopify';
   import { printConsoleBanner } from '$lib/utils/console';
 
-  import CarSearch from "$lib/components/CarSearch.svelte";
-
   import HeaderMenu from "$lib/components/HeaderMenu.svelte";
   import ShoppingCart from "$lib/components/ShoppingCart.svelte";
   import {
@@ -94,9 +92,6 @@
       <a href="/support" class="hide-mobile-1" class:active={$page.url.pathname.startsWith('/support')}>support</a>
       <a href="/jobs" class="hide-mobile-2" class:active={$page.url.pathname.startsWith('/jobs')}>jobs</a>
     </nav>
-    <div class="navbar-section-search">
-      <CarSearch />
-    </div>
     <div class="navbar-section-buttons">
       <!-- <a class="button shop" href="/shop">
         {@html BasketIcon}
