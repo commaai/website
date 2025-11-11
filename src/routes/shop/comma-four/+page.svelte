@@ -251,12 +251,6 @@
             International shipping is a $30 flat rate; customs/duties/taxes are between you and your country.
             Please see FAQ for more information.
           </p>
-          <strong>Affirm</strong>
-          <p>
-            Your rate will be based on credit, and is subject to an eligibility check.
-            Payment options through Affirm are provided by these lending partners: <a href="http://affirm.com/lenders" target="_blank" class="highlight">affirm.com/lenders</a>.
-            Options depend on your purchase amount, and a down payment may be required.
-          </p>
           <strong>Warranty</strong>
           <p>
             1-year limited warranty against hardware defects. Open and repair the comma four at your own risk.
