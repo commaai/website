@@ -51,7 +51,7 @@
       additionalProductIds = [];
       backordered = null;
     }
-    backordered = '4-12 weeks';
+    backordered = '1-12 weeks';
   }
 </script>
 
@@ -60,16 +60,12 @@
 
   <span slot="price-accessory">
     <div class="badge">
-      <Badge style="dark">Free shipping</Badge>
+      <Badge style="dark">Free rush shipping</Badge>
     </div>
-    <span class="muted">
-      Payment options through Affirm are subject to an eligibility check and are provided by these
-      <a href="http://affirm.com/lenders" target="_blank" class="muted" style="border-bottom: 1px solid #000;">lending partners</a>.
-    </span>
 
     <hr />
 
-    <strong>Select a harness to connect the comma 3X to your car.</strong>
+    <strong>Select a harness to connect the comma four to your car.</strong>
     <HarnessSelector
       label="Add harness for your vehicle"
       onChange={handleHarnessSelection}
@@ -85,8 +81,7 @@
       You do not need a new car harness.
     </NoteCard>
     <NoteCard title="Shipping">
-      Use rush shipping for next business day fulfillment.
-      Otherwise, orders ship within 5 business days unless otherwise noted.
+      Free Rush (UPS 2nd Day Air) shipping. $30 flat rate internationally.
     </NoteCard>
   </span>
 
@@ -97,7 +92,7 @@
       <Accordion>
         <div class="label" slot="label">
           <div>{@html ShippingIcon}</div>
-          <span>Upgrade to UPS 2-day Air for $25</span>
+          <span>Free Rush (UPS 2nd Day Air) shipping</span>
         </div>
         <div class="details" slot="content">
           US only. Rush orders are fulfilled on the next business day.
@@ -144,12 +139,12 @@
 >
   {#if additionalProductIds.length === 0}
     <p class="disclaimer">
-      A car harness is required to connect the comma 3X to your vehicle.
+      A car harness is required to connect the comma four to your vehicle.
       You currently have no car harness selected.
     </p>
   {/if}
   <p class="disclaimer">
-    The comma 3X does not ship with any software.
+    The comma four does not ship with any software.
     Once you have the device you will be able to install any software you choose at your own risk.
   </p>
   {#if backordered}
