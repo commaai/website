@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>NeurIPS-style Minimal Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>comma.ai NeurIPS</title>
   <link rel="stylesheet" href="neurips.css">
 </head>
 <body>
@@ -50,11 +51,11 @@
             such as the comma four, the comma body v2, and much more.
           </p>
           <p>
-            Food and drinks will be provided.
-          </p>
-          <p>
             This event is strictly invite only. More information about how to attend will be described
             in this paper.
+          </p>
+          <p>
+            Food and drinks will be provided.
           </p>
         </div>
       </section>
@@ -62,53 +63,95 @@
       <!-- Two-column body -->
       <div class="columns">
         <div class="column">
-          <h2>1 Introduction</h2>
+          <h2>1 How to get invited?</h2>
           <p>
-            The official NeurIPS LaTeX style sets a 5.5&nbsp;inch text
-            width on letter paper, uses 10&nbsp;pt Times Roman, and
-            formats the title with a thick rule above and a thin rule
-            below. Authors appear centered below the lower rule.
+            This event is strictly invite only. To get invited, start by
+            going to:
           </p>
           <p>
-            This HTML version approximates those choices: we fix the
-            text width to match the LaTeX <code>textwidth</code>, use a
-            Times-like font, and mimic the spacing around the title and
-            abstract. The goal is to provide a simple template for
-            project pages or web-friendly versions of NeurIPS papers.
+            Please follow common CTF etiquette: Do not share flags publicly
+            or with other participants. Do not share submission form links.
+            Do not send more than 3 submissions. etc.
           </p>
+          <h2>2 CTF Prizes</h2>
           <p>
-            You can freely replace the text here with your own paper
-            content. Additional sections will continue to flow in the
-            two-column layout.
+            In addition to getting invited to the event, there are prizes
+            for the top 3 participants who submit all the flags first:
+            <br>
+            - 1<sup>st</sup>: comma four ($999 value) <br>
+            - 2<sup>nd</sup>: prototype comma body v2 (priceless) <br>
+            - 3<sup>rd</sup>: custom merch (priceless) <br>
           </p>
-        </div>
-
-        <div class="column">
+          <h2>3 Indoor Navigation Challenge</h2>
+          <p>
+            There will be a fun indoor navigation challenge where participants
+            will have to navigate a comma body v2 through an indoor course autonomously.
+            More details will be provided at the event.
+          </p>
           <figure class="nips-figure">
-            <!-- Replace with your own image -->
-            <!-- <img src="figure-placeholder.png" alt="Example figure"> -->
+            <img src="videos/neurips/full_assembly_v38.png" alt="Example figure">
             <figcaption>
-              Figure&nbsp;1: A placeholder figure with a NeurIPS-style
-              caption in one column of the two-column layout.
+              Figure&nbsp;1: a comma body v2 used in the indoor navigation challenge.
             </figcaption>
           </figure>
-
+        </div>
+        <div class="column">
+          <h2>4 Schedule</h2>
+          <p>The event schedule is described in Table 1. Please note that it is subject to change.</p>
+          <p>Table 1: Event Schedule (All times Pacific)</p>
+          <table class="schedule-table">
+            <tbody>
+              <tr>
+                <td class="time">6:00 PM</td>
+                <td>Doors Open</td>
+              </tr>
+              <tr>
+                <td class="time">7:00 PM</td>
+                <td>Opening Remarks</td>
+              </tr>
+              <tr>
+                <td class="time">7:30 PM</td>
+                <td>Indoor Navigation Challenge Starts</td>
+              </tr>
+              <tr>
+                <td class="time">11:00 PM</td>
+                <td>Indoor Navigation Challenge Demos and Prizes</td>
+              </tr>
+              <tr>
+                <td class="time">12:00 AM</td>
+                <td>Event Ends</td>
+              </tr>
+            </tbody>
+          </table>
+          <h2>5 Research rump talks</h2>
           <p>
-            Figures are centered within the column and constrained to
-            the column width. The caption uses a slightly smaller font,
-            similar to LaTeX’s default. You can float the figure by
-            moving it earlier or later in the column’s HTML.
+            There will be several short research rump talks from comma.ai
+            engineers throughout the evening. Topics will include: <br>
+            - Learning to Drive from a World Model [1] <br>
+            - comma body v2 overview [2] <br>
+            - comma four as a robotics platform [3] <br>
           </p>
-
-          <p>
-            On very narrow screens the two columns may feel cramped; for
-            a real site you might add a media query to stack them on
-            mobile, but this minimal example intentionally stays close
-            to the fixed-layout PDF feel.
-          </p>
+          <figure class="nips-figure">
+            <!-- Replace with your own image -->
+            <img src="videos/neurips/revH.68.png" alt="Example figure">
+            <figcaption>
+              Figure&nbsp;2: comma four exploded view.
+            </figcaption>
+          </figure>
         </div>
       </div>
-
+        <div>
+        <figure class="nips-figure nips-figure-wide">
+        <video class="nips-video-wide" controls muted playsinline>
+          <source src="videos/neurips/captioned_compressed_mlsim.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <figcaption>
+          Figure&nbsp;3: Examples of simulation rollouts using the driving World Model.
+          Captioned by comma.ai engineers.
+        </figcaption>
+        </figure>
+        </div>
       <!-- References -->
       <section class="references">
         <h2>References</h2>

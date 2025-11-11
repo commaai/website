@@ -170,3 +170,49 @@ body {
   font-family: "Courier New", Courier, monospace;
   font-size: 8.5pt;
 }
+
+/* NeurIPS-style plain schedule table (like a LaTeX tabular) */
+.schedule-table {
+  border-collapse: separate;   /* no grid look */
+  border-spacing: 0;           /* no extra gaps */
+  margin: 0 0 5.5pt;           /* same as paragraph spacing */
+  font-size: 10pt;             /* same as body text */
+  width: auto;                 /* shrink to content, not full column width */
+}
+
+.schedule-table td {
+  padding: 0;                  /* LaTeX tables are tight */
+  vertical-align: baseline;
+}
+
+.schedule-table td.time {
+  padding-right: 1.5em;        /* like an 'r l' column separation in tabular */
+  white-space: nowrap;         /* keep the times on one line */
+  font-weight: normal;         /* same weight as text (unless you want bold) */
+}
+
+/* Full-width figure / video: span the whole text block (both columns) */
+.nips-figure-wide {
+  margin: 0 0 0.2in;
+}
+
+.nips-figure-wide img,
+.nips-figure-wide video {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .nips-page {
+    width: 100%;
+    max-width: 90%;
+    margin: 16px auto;
+    padding: 0 12px;
+  }
+
+  body {
+    font-size: 9pt;  /* small nudge down from 10pt */
+  }
+}
