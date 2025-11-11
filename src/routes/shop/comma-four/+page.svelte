@@ -8,9 +8,7 @@
 
   import { faq } from "$lib/constants/faq.svelte";
 
-  import Comma3XImage from "$lib/images/device.png";
-  import Comma3XGlowImage from "$lib/images/device-glow.png";
-  import Comma3XProductImage from "$lib/images/products/comma-3x/comma-3x-promo.jpg";
+  import FourImage from "$lib/images/products/comma-four/four_screen_on.png";
   import OBDCCableImage from "$lib/images/products/obd-c-cable/obd-c-right-cable.jpg";
   import ReplacementMountsImage from "$lib/images/products/replacement-mounts/replacement-mounts-3x.png";
   import CarBrandCollageImage from "$lib/images/car-brand-collage.jpg";
@@ -47,7 +45,7 @@
       <h2>In the Box</h2>
       <div class="box-contents">
         <div>
-          <img src={Comma3XProductImage} loading="lazy" alt="comma four device">
+          <img src={FourImage} loading="lazy" alt="comma four device">
           <p>comma four</p>
         </div>
         <div>
@@ -185,7 +183,7 @@
       stepCount={7}
       estimatedMinutes={15}
       link="/setup/comma-four"
-      image={Comma3XImage}
+      image={FourImage}
     />
   </div>
 </section>
@@ -210,7 +208,7 @@
     </div>
     <div class="compatibility">
       <Grid>
-        <img src={Comma3XGlowImage} loading="lazy" alt="comma four device" />
+        <img src={FourImage} loading="lazy" alt="comma four device" />
         <div>
           <hgroup>
             <span>Software</span>
