@@ -54,12 +54,7 @@
         </div>
         <div>
           <img src={ReplacementMountsImage} loading="lazy" alt="mount">
-          <p>2 standard mounts (some cars ship with 8 degree mounts. Details
-            <a
-              href="https://github.com/commaai/openpilot/blob/master/docs/CARS.md#supported-cars"
-              target="_blank" class="highlight">here</a
-            >.)
-          </p>
+          <p>2 mounts</p>
         </div>
       </div>
     </Grid>
@@ -78,7 +73,7 @@
               <strong>128<span class="unit">GB</span></strong>
               <span>built in storage</span>
             </hgroup>
-            <div>~4.5 hours of footage</div>
+            <div>10 hours of footage</div>
           </div>
         </div>
         <p>
@@ -101,7 +96,7 @@
             <span>Cameras</span>
           </div>
           <div class="contents">
-            Three 1080p cameras w/ 140 dB of dynamic range: dual-cam 360° vision and a narrow cam to see far-away objects
+            Dual-cam 360° vision and a narrow cam to see far-away objects
           </div>
         </div>
         <div class="spec-card">
@@ -110,7 +105,7 @@
             <span>Processor</span>
           </div>
           <div class="contents">
-            <span>Qualcomm Snapdragon 845 <span class="max-gradient">MAX</span></span>
+            <span>Qualcomm Snapdragon 845 <span class="max-gradient">MAX</span><br><br>Max cooling for quiet sustained peak performance.</span>
           </div>
         </div>
         <div class="spec-card">
@@ -159,7 +154,7 @@
             <span>Display</span>
           </div>
           <div class="contents">
-            2160x1080 Beautiful OLED display
+            300 PPI OLED display
           </div>
         </div>
         <div class="spec-card">
@@ -180,9 +175,8 @@
     <SetupGuide
       productName="comma four"
       title="Setup Guide"
-      stepCount={7}
       estimatedMinutes={15}
-      link="/setup/comma-four"
+      link="/setup"
       image={FourImage}
     />
   </div>
@@ -245,7 +239,7 @@
           </p>
           <strong>Shipping</strong>
           <p>
-            Free shipping via UPS (US only); signature confirmation required.
+            Free Rush (UPS 2nd Day Air) shipping (US only); signature confirmation required.
             International shipping is a $30 flat rate; customs/duties/taxes are between you and your country.
             Please see FAQ for more information.
           </p>
@@ -278,14 +272,6 @@
 </section>
 
 <style>
-  .max-gradient {
-    background: linear-gradient(to bottom left, #8027FC, #CFA9FF);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    font-weight: bold;
-  }
-
   h2 {
     font-size: 1.875rem;
     font-weight: 600;
@@ -302,6 +288,14 @@
 
   hr {
     margin: 3rem 0;
+  }
+
+  .max-gradient {
+    background: linear-gradient(to bottom left, #8027FC, #CFA9FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: bold;
   }
 
   #description {
