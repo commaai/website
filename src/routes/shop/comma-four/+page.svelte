@@ -33,10 +33,16 @@
       <h2>Meet the comma four</h2>
       <div class="description">
         <p>
-          The comma four is custom hardware designed to live in your car, and purpose built to run openpilot. The comma four has three beautiful HDR cameras, two cameras to watch the road and one night-vision camera to see inside the car.
+          comma four is the next generation comma hardware designed to live in your car. The comma four has three beautiful HDR cameras, two cameras to watch the road and one night-vision camera to see inside the car.
+        </p>
+        <p>
+          It runs <a class="highlight" href="https://github.com/commaai/openpilot" target="_blank">openpilot</a>, which can drive for hours without driver action.
         </p>
         <p>
           Besides cameras, the comma four has a suite of connectivity and sensors including cellular LTE, Wi-Fi, an IMU, high-precision GPS, and microphones.
+        </p>
+        <p>
+          You need a car harness if you don't already have one, which is free with purchase of comma four. The car harness is our universal interface to your car. Use the car harness to connect your comma device to your vehicle.
         </p>
       </div>
     </Grid>
