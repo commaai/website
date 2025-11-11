@@ -581,13 +581,13 @@ export const products = {
     description: `
       <strong>Description</strong>
       <p>
-        Trade in any older comma device (EON, comma two, comma three, or comma 3X) for a brand new comma four. Device can be in any condition as long as you are the original purchaser.
+        Trade in any older comma device (EON, comma two, comma three, or comma 3X) for $250 credit towards a brand new comma four. Device can be in any condition as long as you are the original purchaser.
       </p>
 
       <hr>
       <strong>Trade-in Instructions</strong>
       <p>
-        1. Purchase this product.
+        1. Purchase this product, NOT THE comma four product. If this was done by mistake, please contact <a href="/support">support</a>.
       </p>
       <p>
         2. We ship you a new comma four.
