@@ -21,6 +21,10 @@
   let onProceed;
   let beforeAddToCart = (addToCart) => {
     onProceed = () => {
+      // Prevent proceeding if no harness is selected
+      if (!selectedHarness || additionalProductIds.length === 0) {
+        return;
+      }
       addToCart();
       showDisclaimerModal = false;
     }
@@ -53,9 +57,11 @@
     }
     backordered = '1-12 weeks';
   }
+
+  $: isAddToCartDisabled = !selectedHarness;
 </script>
 
-<Product {product} {additionalProductIds} {backordered} {beforeAddToCart} {getCartNote} priceOverride={FOUR_PRICE}>
+<Product {product} {additionalProductIds} {backordered} {beforeAddToCart} {getCartNote} {isAddToCartDisabled} priceOverride={FOUR_PRICE}>
   <div slot="shipping"></div>
 
   <span slot="price-accessory">
@@ -130,6 +136,7 @@
   onClose={() => showDisclaimerModal = false}
   bind:show={showDisclaimerModal}
   primaryButtonText={backordered ? `Add to cart (ships in ${backordered})` : "Add to cart"}
+  primaryButtonDisabled={!selectedHarness || additionalProductIds.length === 0}
 >
   {#if additionalProductIds.length === 0}
     <p class="disclaimer">

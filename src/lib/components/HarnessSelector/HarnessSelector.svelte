@@ -6,7 +6,6 @@
   import { tick } from 'svelte';
   import { clickOutside } from '$lib/utils/clickOutside';
   import { allHarnesses, vehicleHarnesses, genericHarnesses } from '$lib/utils/harnesses';
-  import { selectedCar } from '../../../store';
 
   import NoteCard from '$lib/components/NoteCard.svelte';
   import DropdownItem from './HarnessDropdownItem.svelte';
@@ -32,13 +31,6 @@
     // Don't update w/ initial state
     onChange(selection);
     updateQueryParams(selection);
-
-    // remember with cookie
-    if (selection?.car) {
-      selectedCar.set(selection.car);
-    } else {
-      selectedCar.set('');
-    }
   }
 
   function updateQueryParams(selectedHarness) {
@@ -55,8 +47,8 @@
 
   const setInitialSelection = () => {
     const harnessParam = $page.url.searchParams.get('harness')
-    let carName = harnessParam ? decodeURIComponent(harnessParam) : $selectedCar;
-    selection = $harnesses.find(harness => harness.car === carName) ?? null;
+    let carName = harnessParam ? decodeURIComponent(harnessParam) : null;
+    selection = carName ? $harnesses.find(harness => harness.car === carName) ?? null : null;
   }
 
   /* Filtered Dropdown */

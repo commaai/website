@@ -16,6 +16,7 @@
   export let getCartNote = null;
   export let backordered = null;
   export let forceOutOfStock = false;
+  export let isAddToCartDisabled = false;
 
   export let VariantSelector = null;
   function handleVariantSelection(variant) {
@@ -60,7 +61,9 @@
 
   let addToCartLabel;
   $: {
-    if (forceOutOfStock || (selectedVariant && !selectedVariant.availableForSale)) {
+    if (isAddToCartDisabled) {
+      addToCartLabel = "Select your car";
+    } else if (forceOutOfStock || (selectedVariant && !selectedVariant.availableForSale)) {
       addToCartLabel = "Out of stock";
       if (backordered) {
         addToCartLabel += ` (${backordered})`;
@@ -122,7 +125,7 @@
           style="accent"
           fullWidth={true}
           on:click={addItem}
-          disabled={forceOutOfStock || !selectedVariant || selectedVariant?.availableForSale === false}
+          disabled={isAddToCartDisabled || forceOutOfStock || !selectedVariant || selectedVariant?.availableForSale === false}
         >
           {addToCartLabel}
         </Button>
