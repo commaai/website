@@ -80,8 +80,12 @@
       showNoHarnessOption={true}
     >
     </HarnessSelector>
+    <NoteCard title="$250 credit with trade-in">
+      Get $250 credit when you trade in your old comma device, in any condition.
+      <a href="/shop/comma-four-trade-in">Learn more</a>
+    </NoteCard>
     <NoteCard title="Upgrading from another comma device?">
-      You do not need a new car harness.
+      You do not need a new car harness. All comma devices use the same harness.
     </NoteCard>
     <NoteCard title="Shipping">
       Free Rush (UPS 2nd Day Air) shipping. $30 flat rate internationally.
@@ -206,5 +210,11 @@
 
   hr {
     margin: 2rem 0;
+  }
+
+  .highlight {
+    background-color: rgba(134, 255, 78, 0.15);
+    border-bottom: 2px solid #86ff4e;
+    padding: 0 2px;
   }
 </style>
