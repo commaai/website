@@ -618,7 +618,7 @@ export const products = {
         -> This offer is for new comma four purchases only.
       </p>
       <p>
-        -> We are not responsible for lost or damaged packages. Please be sure to have tracking on your package. Ship your device according to local laws and regulations.
+        -> Trade-in device must be shipped back to us within 30 days of receiving your new comma four. We are not responsible for lost or damaged packages. Please be sure to have tracking on your package. Ship your device according to local laws and regulations.
       </p>
     `.trim()
   },
