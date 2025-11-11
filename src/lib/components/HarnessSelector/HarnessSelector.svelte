@@ -56,8 +56,7 @@
   }
 
   const setInitialSelection = () => {
-    const harnessParam = $page.url.searchParams.get('harness')
-    let carName = harnessParam ? decodeURIComponent(harnessParam) : $selectedCar;
+    let carName = decodeURIComponent($page.url.searchParams.get('harness'));
     selection = $harnesses.find(harness => harness.car === carName) ?? null;
   }
 
