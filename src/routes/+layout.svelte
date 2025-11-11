@@ -274,34 +274,6 @@
     }
   }
 
-  .navbar-section-search {
-    display: flex;
-    align-items: center;
-    flex: 1;
-    min-width: 0;
-
-    & :global(.car-search) {
-      width: 100%;
-      flex: 1;
-    }
-
-    @media only screen and (max-width: 1160px) {
-      order: 3;
-      flex-basis: 100%;
-      width: 100%;
-      border-top: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 0 0 0.5rem 0.5rem;
-
-      & :global(.car-search) {
-        min-width: 0;
-
-        & :global(.search-input) {
-          min-width: 0;
-        }
-      }
-    }
-  }
-
   .navbar-section-buttons {
     display: flex;
 
