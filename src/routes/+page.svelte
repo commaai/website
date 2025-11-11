@@ -145,17 +145,18 @@
         {/each}
       </div>
     </div>
-    <div class="hero-content-wrapper">
-      <div class="buy-now-container">
-        <a href="/shop/comma-four" class="buy-now-button">
-          <span class="buy-now-text">Buy now</span>
-          <span class="buy-now-price"><span class="dollar-sign">$</span>999</span>
-        </a>
-        <div class="shipping-notice">Ships in 1-12 weeks</div>
-        <a href="/vehicles" class="check-compatibility">check compatibility</a>
-      </div>
-    </div>
   </section>
+
+  <div class="hero-content-wrapper">
+    <div class="buy-now-container">
+      <a href="/shop/comma-four" class="buy-now-button">
+        <span class="buy-now-text">Buy now</span>
+        <span class="buy-now-price"><span class="dollar-sign">$</span>999</span>
+      </a>
+      <div class="shipping-notice">Ships in 1-12 weeks</div>
+      <a href="/vehicles" class="check-compatibility">check compatibility</a>
+    </div>
+  </div>
 
   <!--This somehow pushes up hero overlays earlier-->
   <div class="sticky-bottom-spacer"></div>
@@ -189,9 +190,10 @@
     color: black;
   }
 
-  .comma-four-section .hero-content-wrapper {
-    position: relative;
-    width: 100%;
+  .hero-content-wrapper {
+    left: 0;
+    right: 0;
+    bottom: 60px;
     pointer-events: none;
     z-index: 10;
     display: flex;
@@ -199,16 +201,16 @@
     align-items: center;
     justify-content: center;
     padding: 0 2rem;
-    margin-top: 3rem;
 
     @media screen and (max-width: 1080px) {
+      bottom: 30px;
       gap: 0;
     }
 
     @media screen and (max-width: 698px) {
+      bottom: calc(30px);
       padding: 0;
       margin: 0 2rem;
-      margin-top: 2rem;
       gap: 0.5rem;
     }
   }
@@ -472,7 +474,7 @@
 
   .comma-four-section {
     position: relative;
-    overflow: visible;
+    overflow: hidden;
     height: 100vh;
     background-color: #000;
     z-index: 0;
@@ -542,27 +544,6 @@
         width: calc(100% - 4rem);
         max-width: 550px;
         align-items: center;
-        margin-top: 3rem;
-      }
-    }
-
-    & .hero-content-wrapper {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      width: 100%;
-      z-index: 10;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 6rem 0;
-
-      @media screen and (max-width: 1500px) {
-        position: relative;
-        left: auto;
-        right: auto;
-        bottom: auto;
         margin-top: 3rem;
       }
     }
