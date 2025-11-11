@@ -531,9 +531,9 @@
             We do not offer discounts for specific groups.
           `
         }, {
-          question: 'Do you offer any upgrades or trade-in discounts for the comma two or three?',
+          question: 'Do you offer any upgrades or trade-in discounts for the comma two, three, or 3X?',
           answer: `
-            Trade-in details can be <a href="/shop/comma-3x-trade-in">found here</a>.
+            Trade-in details can be <a href="/shop/comma-four-trade-in">found here</a>.
           `
         }, {
           question: 'What do I need to know before making an international order?',

@@ -20,6 +20,11 @@
         "type": 302
       },
       {
+        "source": "/shop/comma-3x-trade-in",
+        "destination": "/shop/comma-four-trade-in",
+        "type": 301
+      },
+      {
         "source": "/bounties",
         "destination": "https://github.com/orgs/commaai/projects/26/views/1?pane=info",
         "type": 302

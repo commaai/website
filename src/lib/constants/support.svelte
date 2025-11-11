@@ -77,7 +77,7 @@
           question: "My older comma device is out of warranty and needs repair.",
           answer: `
             We offer trade-ins for eligible devices.
-            More details on the <a href="/shop/comma-3x-trade-in">shop</a>.
+            More details on the <a href="/shop/comma-four-trade-in">shop</a>.
           `
         },
         {
