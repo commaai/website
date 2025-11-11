@@ -19,6 +19,7 @@
         {product}
         backordered={product.backordered || null}
         forceOutOfStock={product.forceOutOfStock || false}
+        hideOutOfStockVariants={product.hideOutOfStockVariants || false}
       >
         <div slot="notes">
           {#if product.notes}

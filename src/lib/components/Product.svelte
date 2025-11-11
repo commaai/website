@@ -17,6 +17,7 @@
   export let backordered = null;
   export let forceOutOfStock = false;
   export let disableBuyButtonText = null;
+  export let hideOutOfStockVariants = false;
 
   export let VariantSelector = null;
   function handleVariantSelection(variant) {
@@ -26,9 +27,16 @@
 
   let currentImageIndex = 0;
 
-  let selectedVariantId = autoSelectFirstVariant ? product?.variants?.nodes[0].id : null;
+  $: variants = hideOutOfStockVariants
+    ? product?.variants?.nodes.filter(v => v.availableForSale) || []
+    : product?.variants?.nodes || [];
 
-  $: selectedVariant = product?.variants?.nodes.find(
+  let selectedVariantId = null;
+  $: if (autoSelectFirstVariant && variants.length > 0 && !selectedVariantId) {
+    selectedVariantId = variants[0].id;
+  }
+
+  $: selectedVariant = variants.find(
     (variant) => variant.id === selectedVariantId,
   );
 
@@ -109,10 +117,10 @@
           {#if VariantSelector}
             <svelte:component this={VariantSelector} onChange={handleVariantSelection} />
           {:else}
-            {#if product?.variants?.nodes.length > 1}
+            {#if variants.length > 1}
               <img src={selectedVariant.image.url} alt="" />
               <Select bind:value={selectedVariantId}>
-                {#each product?.variants?.nodes as option}
+                {#each variants as option}
                   <option value={option.id}>
                     {option.title}
                   </option>

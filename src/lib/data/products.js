@@ -433,7 +433,7 @@ export const products = {
     id: "gid://shopify/Product/6786322858047",
     route: "/shop/comma-device-screen",
     category: "accessories",
-    price: "$100",
+    price: "$40",
     images: [
       "/src/lib/images/products/comma-three-device-screen/comma-three-device-screen.jpg"
     ],
@@ -460,7 +460,8 @@ export const products = {
         <li>comma three display pre-attached to front case</li>
         <li>NOTE: comma three front cases are out of stock; purchase the "comma 3/3X - screen only" instead and attach to your existing front case</li>
       </ul>
-    `.trim()
+    `.trim(),
+    hideOutOfStockVariants: true
   },
 
   "comma-3x-back-case": {
