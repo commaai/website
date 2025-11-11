@@ -56,7 +56,7 @@
         </div>
         <div>
           <img src={OBDCCableImage} loading="lazy" alt="2ft OBD-C cable">
-          <p>2 ft right-angle OBD-C cable</p>
+          <p>2 ft OBD-C cable</p>
         </div>
         <div>
           <img src={ReplacementMountsImage} loading="lazy" alt="mount">
