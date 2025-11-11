@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NeurIPS-style Minimal Example</title>
+  <link rel="stylesheet" href="../src/neurips.css">
+</head>
+<body>
+  <div class="nips-page">
+
+    <!-- Title + rules + authors -->
+    <header class="nips-header">
+      <div class="top-rule"></div>
+
+      <div class="title-block">
+        <h1>comma.ai NeurIPS event</h1>
+        <h1>Wednesday, December 3<sup>rd</sup>, 2025</h1>
+      </div>
+
+      <div class="bottom-rule"></div>
+
+      <div class="nips-authors">
+        <div class="author">
+          <span class="name">Autonomy</span><br>
+          <span class="affiliation">comma.ai</span><br>
+          <span class="email"><code>author1@example.com</code></span>
+        </div>
+        <div class="author">
+          <span class="name">Product</span><br>
+          <span class="affiliation">comma.ai</span><br>
+          <span class="email"><code>author2@example.com</code></span>
+        </div>
+        <div class="author">
+          <span class="name">Operations</span><br>
+          <span class="affiliation">comma.ai</span><br>
+          <span class="email"><code>author2@example.com</code></span>
+        </div>
+      </div>
+    </header>
+
+    <main class="nips-body">
+      <!-- Abstract: centered heading, narrower block -->
+      <section class="abstract">
+        <h2>Abstract</h2>
+        <div class="abstract-body">
+          <p>
+            comma.ai is hosting a NeurIPS event on Wednesday, December 3<sup>rd</sup>,
+            2025 at their headquarters in San Diego, CA. The event will start at 6:00 PM
+            and will feature fun challenges involving the latest comma.ai hardware and software
+            such as the comma four, the comma body v2, and much more.
+          </p>
+          <p>
+            Food and drinks will be provided.
+          </p>
+          <p>
+            This event is strictly invite only. More information about how to attend will be described
+            in this paper.
+          </p>
+        </div>
+      </section>
+
+      <!-- Two-column body -->
+      <div class="columns">
+        <div class="column">
+          <h2>1 Introduction</h2>
+          <p>
+            The official NeurIPS LaTeX style sets a 5.5&nbsp;inch text
+            width on letter paper, uses 10&nbsp;pt Times Roman, and
+            formats the title with a thick rule above and a thin rule
+            below. Authors appear centered below the lower rule.
+          </p>
+          <p>
+            This HTML version approximates those choices: we fix the
+            text width to match the LaTeX <code>textwidth</code>, use a
+            Times-like font, and mimic the spacing around the title and
+            abstract. The goal is to provide a simple template for
+            project pages or web-friendly versions of NeurIPS papers.
+          </p>
+          <p>
+            You can freely replace the text here with your own paper
+            content. Additional sections will continue to flow in the
+            two-column layout.
+          </p>
+        </div>
+
+        <div class="column">
+          <figure class="nips-figure">
+            <!-- Replace with your own image -->
+            <!-- <img src="figure-placeholder.png" alt="Example figure"> -->
+            <figcaption>
+              Figure&nbsp;1: A placeholder figure with a NeurIPS-style
+              caption in one column of the two-column layout.
+            </figcaption>
+          </figure>
+
+          <p>
+            Figures are centered within the column and constrained to
+            the column width. The caption uses a slightly smaller font,
+            similar to LaTeX’s default. You can float the figure by
+            moving it earlier or later in the column’s HTML.
+          </p>
+
+          <p>
+            On very narrow screens the two columns may feel cramped; for
+            a real site you might add a media query to stack them on
+            mobile, but this minimal example intentionally stays close
+            to the fixed-layout PDF feel.
+          </p>
+        </div>
+      </div>
+
+      <!-- References -->
+      <section class="references">
+        <h2>References</h2>
+        <ol class="reference-list">
+          <li>
+            "Learning to Drive from a World Model", Autonomy team, comma.ai, 2025.
+            <a class="url" target="_blank" href="https://blog.comma.ai/mlsim">https://blog.comma.ai/mlsim</a>.
+          </li>
+          <li>
+            comma body
+            <a class="url" target="_blank" href="https://blog.comma.ai/commabody/">https://blog.comma.ai/commabody/</a>.
+          </li>
+          <li>
+            comma four
+            <a class="url" target="_blank" href="https://blog.comma.ai/mlsim">https://blog.comma.ai/mlsim</a>.
+          </li>
+        </ol>
+      </section>
+
+    </main>
+
+  </div>
+</body>
+</html>

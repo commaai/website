@@ -1,0 +1,172 @@
+/* Global page + typography: approximate NeurIPS 10pt Times on 5.5in textwidth */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #ffffff;
+  font-family: "Times", "Nimbus Roman No9 L", "Times New Roman", serif;
+  font-size: 10pt;            /* neurips_2024: normalsize = 10pt */
+  line-height: 1.05;          /* slightly tight, like TeX with reduced leading */
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Text block width ~ LaTeX textwidth = 5.5in on letter paper */
+.nips-page {
+  width: 5.5in;               /* textwidth */
+  max-width: 100%;
+  margin: 1in auto 1in;       /* top/bottom ~1in, centered */
+}
+
+/* Title area: thick rule, title, thin rule, then authors */
+.nips-header {
+  margin-top: 0.10in;         /* \vskip 0.1in before @toptitlebar */
+  margin-bottom: 0.35in;      /* space before abstract */
+}
+
+.top-rule {
+  border-top: 4px solid #000; /* hrule height 4pt */
+  margin-top: 0;
+  /* @toptitlebar: vskip 0.25in then -parskip (~0.076in) */
+  margin-bottom: 0.17in;
+}
+
+.title-block {
+  text-align: center;
+}
+
+.title-block h1 {
+  margin: 0;
+  font-weight: bold;
+  font-size: 1.7em;           /* ~17pt, matches \LARGE in this context */
+}
+
+.bottom-rule {
+  border-top: 1px solid #000; /* hrule height 1pt */
+  /* @bottomtitlebar: vskip 0.29in - parskip */
+  margin-top: 0.21in;
+  margin-bottom: 0.09in;      /* vskip 0.09in */
+}
+
+/* Authors centered below the thin rule */
+.nips-authors {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+  flex-wrap: wrap;
+}
+
+.nips-authors .author {
+  font-size: 10pt;
+  font-weight: bold;          /* name bold, rest mostly normal */
+  line-height: 1.1;
+}
+
+.nips-authors .affiliation,
+.nips-authors .email {
+  font-weight: normal;
+}
+
+/* Abstract: centered heading, narrower text block (like \centerline + quote) */
+.abstract {
+  margin-bottom: 0.3in;
+}
+
+.abstract h2 {
+  margin: 0 0 0.5ex;
+  text-align: center;
+  font-size: 12pt;            /* \large */
+  font-weight: bold;
+}
+
+.abstract-body {
+  max-width: 4in;             /* narrower than full 5.5in textwidth */
+  margin: 0 auto;
+}
+
+.abstract-body p {
+  margin: 0 0 5.5pt;          /* parskip ~5.5pt */
+  text-align: justify;
+}
+
+/* General section headings & paragraph spacing */
+.nips-body h2 {
+  font-size: 12pt;            /* \large\bf */
+  font-weight: bold;
+  margin: 0 0 0.1in;
+}
+
+.nips-body p {
+  margin: 0 0 5.5pt;          /* parskip 5.5pt, no indent */
+  text-align: justify;
+}
+
+/* Two-column layout, approximating LaTeX two-column geometry */
+.columns {
+  display: flex;
+  gap: 0.25in;                /* column separation */
+  align-items: flex-start;
+}
+
+.column {
+  flex: 1 1 0;
+}
+
+/* Figure style (within a column) */
+.nips-figure {
+  margin: 0 0 0.2in;
+  text-align: center;
+}
+
+.nips-figure img {
+  max-width: 100%;
+  height: auto;
+  border: 0.5px solid #ccc;
+}
+
+.nips-figure figcaption {
+  font-size: 9pt;             /* slightly smaller than body */
+  margin-top: 0.1in;
+  text-align: left;
+}
+
+/* References (BibTeX-style numbered list with [1] labels) */
+.references {
+  margin-top: 0.3in;
+}
+
+.references h2 {
+  font-size: 12pt;
+  font-weight: bold;
+  margin: 0 0 0.1in;
+}
+
+.reference-list {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;        /* kill the default '1.' markers */
+  counter-reset: ref;
+}
+
+.reference-list li {
+  position: relative;
+  padding-left: 1.6em;     /* space to draw [1] in the margin */
+  margin-bottom: 3pt;
+  text-align: left;
+  font-size: 9pt;
+}
+
+.reference-list li::before {
+  position: absolute;
+  left: 0;
+  content: "[" counter(ref) "]";  /* [1], [2], ... */
+  counter-increment: ref;
+}
+
+.reference-list .url {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 8.5pt;
+}
