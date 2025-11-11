@@ -110,7 +110,7 @@
             <span>Processor</span>
           </div>
           <div class="contents">
-            Qualcomm Snapdragon 845
+            <span>Qualcomm Snapdragon 845 <span class="max-gradient">MAX</span></span>
           </div>
         </div>
         <div class="spec-card">
@@ -278,6 +278,14 @@
 </section>
 
 <style>
+  .max-gradient {
+    background: linear-gradient(to bottom left, #8027FC, #CFA9FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: bold;
+  }
+
   h2 {
     font-size: 1.875rem;
     font-weight: 600;
