@@ -108,41 +108,6 @@
     }
   });
 
-  async function handleBuyNow() {
-    // If no car selected and this is the first click, shake and show message
-    if (!$selectedCar) {
-      clickedWithoutCar = true;
-      document.querySelector('.car-search input')?.focus()
-      // shake compatibility text instead of button
-      compatShake = false;
-      await tick();
-      compatShake = true;
-      setTimeout(() => {
-        compatShake = false;
-      }, 750); // Animation duration (medium)
-      return;
-    }
-
-    // Second click or car is selected - proceed to checkout
-    if (variantId) {
-      // Extract numeric ID from GraphQL variant ID (format: gid://shopify/ProductVariant/12345)
-      const numericId = variantId.split('/').pop();
-
-      // Get selected car from store and find its harness
-      let cartItems = `${numericId}:1`;
-      if ($selectedCar && $vehicleHarnesses) {
-        const harness = $vehicleHarnesses.find(h => h.car === $selectedCar);
-        if (harness && harness.id) {
-          const harnessNumericId = harness.id.split('/').pop();
-          cartItems = `${numericId}:1,${harnessNumericId}:1`;
-        }
-      }
-
-      // Open Shopify cart with product (and harness if car is selected) added
-      window.open(`https://${storeUrl}/cart/${cartItems}`, '_blank');
-    }
-  }
-
   function handleDragStart(e) {
     e.preventDefault();
     return false;
@@ -230,7 +195,7 @@
 
   <div class="hero-content-wrapper">
     <div class="buy-now-container">
-      <button class="buy-now-button" on:click={handleBuyNow}>
+      <button class="buy-now-button">
         <span class="buy-now-text">Buy now</span>
         <span class="buy-now-price"><span class="dollar-sign">$</span>999</span>
       </button>

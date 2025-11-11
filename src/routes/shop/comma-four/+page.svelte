@@ -184,7 +184,7 @@
       title="Setup Guide"
       stepCount={7}
       estimatedMinutes={15}
-      link="/setup/comma-3x"
+      link="/setup/comma-four"
       image={Comma3XImage}
     />
   </div>
