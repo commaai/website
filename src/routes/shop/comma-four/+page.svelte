@@ -55,8 +55,8 @@
           <p>comma four</p>
         </div>
         <div>
-          <img src={OBDCCableImage} loading="lazy" alt="1.5ft right-angle OBD-C cable">
-          <p>1.5 ft right-angle OBD-C cable</p>
+          <img src={OBDCCableImage} loading="lazy" alt="2ft right-angle OBD-C cable">
+          <p>2 ft right-angle OBD-C cable</p>
         </div>
         <div>
           <img src={ReplacementMountsImage} loading="lazy" alt="mount">
