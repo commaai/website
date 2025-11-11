@@ -77,7 +77,7 @@
           </div>
         </div>
         <p>
-          Want your video footage saved for longer? – Sign up for <a href="/connect" class="highlight">comma prime</a> for 1 year of cloud video storage.
+          Want your video footage saved for longer? – Sign up for comma prime for 1 year of cloud video storage.
         </p>
         <p>
           comma four includes one free month of comma prime.
