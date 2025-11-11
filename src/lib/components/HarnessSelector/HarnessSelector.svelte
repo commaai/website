@@ -60,11 +60,18 @@
     selection = $harnesses.find(harness => harness.car === carName) ?? null;
   }
 
+  // Normalize diacritics for matching (e.g., "Škoda" -> "Skoda")
+  function normalizeDiacritics(str) {
+    return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  }
+
   /* Filtered Dropdown */
   let inputValue = "";
   let inputRef;
 
-  $: filteredItems = $harnesses.filter(item => item.car.toLowerCase().match(inputValue.toLowerCase()));
+  $: filteredItems = $harnesses.filter(item => 
+    normalizeDiacritics(item.car.toLowerCase()).match(normalizeDiacritics(inputValue.toLowerCase()))
+  );
 
   const handleClear = () => {
     // clear search input or close menu
