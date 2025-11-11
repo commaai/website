@@ -5,6 +5,7 @@
     "route": "/shop/four",
     "category": "device",
     "price": "$999",
+    "freeRush": true,
     "images": [
       "/src/lib/images/products/comma-four/four_screen_on.png",
       "/src/lib/images/products/comma-four/four_side_2.png",
@@ -227,6 +228,7 @@
     "route": "/shop/comma-four-trade-in",
     "category": "accessories",
     "price": "$750",
+    "freeRush": true,
     "images": [
       "/src/lib/images/products/comma-four/four_screen_on.png",
       "/src/lib/images/products/comma-four/four_side_2.png",
