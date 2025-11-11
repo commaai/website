@@ -47,17 +47,17 @@
   const handleHarnessSelection = (value) => {
     selectedHarness = value;
     if (value === NO_HARNESS_OPTION) {
+      additionalProductIds = []
+      backordered = null;
+      disableBuyButtonText = null;
+    } else if (value) {
+      additionalProductIds = [value?.id]
+      backordered = value.currentlyNotInStock ? `ships in ${(value.backordered || '1-12 weeks')}` : null;
       disableBuyButtonText = null;
     } else {
-      if (value) {
-        additionalProductIds = [value?.id]
-        backordered = value.currentlyNotInStock ? `ships in ${(value.backordered || '1-12 weeks')}` : null;
-        disableBuyButtonText = null;
-      } else {
-        additionalProductIds = [];
-        backordered = null;
-        disableBuyButtonText = "SELECT YOUR CAR";
-      }
+      additionalProductIds = [];
+      backordered = null;
+      disableBuyButtonText = "SELECT YOUR CAR";
     }
     backordered = '1-12 weeks';
   }
