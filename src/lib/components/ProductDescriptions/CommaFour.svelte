@@ -6,25 +6,11 @@
   import HarnessSelector from "$lib/components/HarnessSelector/HarnessSelector.svelte";
   import Modal from "$lib/components/Modal.svelte";
 
-  import Comma3XImage from "$lib/images/products/comma-3x/comma-3x.jpg";
-  import Comma3XBackImage from "$lib/images/products/comma-3x/comma-3x-back.jpg";
-  import Comma3XPromoImage from "$lib/images/products/comma-3x/comma-3x-promo.jpg";
-  import Comma3XIncludesImage from "$lib/images/products/comma-3x/comma-3x-includes.jpg";
-
   import ShippingIcon from "$lib/icons/features/shipping.svg?raw";
   import MoneyBackGuaranteeIcon from "$lib/icons/features/money-back-guarantee.svg?raw";
   import WarrantyIcon from "$lib/icons/features/warranty.svg?raw";
 
-  import { THREEX_PRICE, THREEX_AFFIRM_PRICE, THREEX_SALE, THREEX_STRIKETHROUGH_PRICE, CAR_HARNESS_PRICE, CAR_HARNESS_SALE, CAR_HARNESS_STRIKETHROUGH_PRICE } from '$lib/constants/prices.js';
-
-  export const productInfo = {
-    title: "comma 3X",
-    id: "gid://shopify/Product/7203374006335",
-    route: "/shop/comma-3x",
-    category: "device",
-    price: `$${THREEX_PRICE}`,
-    images: [Comma3XImage, Comma3XBackImage, Comma3XPromoImage, Comma3XIncludesImage],
-  };
+  import { FOUR_PRICE } from '$lib/constants/prices.js';
 </script>
 
 <script>
@@ -69,20 +55,10 @@
   }
 </script>
 
-<Product {product} {additionalProductIds} {backordered} {beforeAddToCart} {getCartNote} previousPrice={THREEX_STRIKETHROUGH_PRICE} priceOverride={THREEX_PRICE} sale={THREEX_SALE}>
+<Product {product} {additionalProductIds} {backordered} {beforeAddToCart} {getCartNote} priceOverride={FOUR_PRICE}>
   <div slot="shipping"></div>
 
   <span slot="price-accessory">
-    <div class="financing">
-      or ${THREEX_AFFIRM_PRICE}/mo with Affirm.
-      <a
-        href="https://www.affirm.com/apps/prequal/?public_api_key=EE7S5PMJUQ8H98C5&amp;device_id=063366d6-31b6-4e41-adcb-79f608745058&amp;referring_url=https%253A%252F%252Fcomma.ai%252Fshop%252Fcomma-three&amp;unit_price={THREEX_PRICE}00&amp;page_type=product&amp;use_promo=true&amp;locale=en_US"
-        target="_blank"
-        class="highlight"
-      >
-        Prequalify now
-      </a>
-    </div>
     <div class="badge">
       <Badge style="dark">Free shipping</Badge>
     </div>
@@ -99,14 +75,9 @@
       onChange={handleHarnessSelection}
     >
       <div slot="accessoryLabel" class="harness-price">
-        {#if CAR_HARNESS_SALE}
-          <div class="strikethrough-price">
-            +${CAR_HARNESS_STRIKETHROUGH_PRICE}
-          </div>
-        {/if}
         <div style="width: 0.75rem;"/>
-        <div class:sale-price={CAR_HARNESS_SALE}>
-          +${CAR_HARNESS_PRICE}
+        <div>
+          included
         </div>
       </div>
     </HarnessSelector>
@@ -224,10 +195,6 @@
     max-width: 80%;
     margin-left: 2.5rem;
     margin-top: 0.875rem;
-  }
-
-  .financing {
-    text-wrap: pretty;
   }
 
   .disclaimer {
