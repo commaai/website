@@ -564,7 +564,7 @@ export const products = {
     id: "gid://shopify/Product/7966336778303",
     route: "/shop/comma-four-trade-in",
     category: "accessories",
-    price: "$750",
+    price: "$999",
     freeRush: true,
     images: [
       "/src/lib/images/products/comma-four/four_screen_on.png",
@@ -590,9 +590,13 @@ export const products = {
         1. Purchase this product.
       </p>
       <p>
-        2. Ship your old comma device back to us with tracking.
-        <br>
+        2. We ship you a new comma four.
+      </p>
+      <p>
+        3. Ship your old comma device back to us with tracking within 30 days of receiving your new comma four.
+        <br><br>
         <u>You must include your trade-in comma four order number <b>and</b> the trade-in device's original order number <b>inside</b> the box.</u>
+        Can't find it? Open a ticket with <a href="/support">support</a>.
       </p>
       <p>Address to:</p>
       <p style="margin-left: 1em; font-size: 0.75em"><b>
@@ -602,10 +606,7 @@ export const products = {
         San Diego, CA 92110<br>
       </b></p>
       <p>
-        3. When the old comma device arrives, give us 1-2 business days to process it.
-      </p>
-      <p>
-        4. We ship you your brand new comma four.
+        4. When the old comma device arrives, we credit $250 back to your comma four order. Please give us 1-2 business days to process the device once it arrives.
       </p>
 
       <hr>
