@@ -128,7 +128,12 @@
         </Button>
         <slot name="shipping">
           <NoteCard title="Shipping" icon={ShippingIcon}>
+          <!-- TODO: exclude comma four parts in the future -->
+          {#if product?.title.includes('comma four')}
+            Free Rush (UPS 2nd Day Air) shipping. $30 flat rate internationally.
+          {:else}
             Free US shipping, $30 flat rate internationally.
+          {/if}
           </NoteCard>
         </slot>
         <slot name="notes"></slot>
