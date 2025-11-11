@@ -321,7 +321,7 @@
     user-select: none;
 
     @media screen and (max-width: 698px) {
-      font-size: 14px;
+      font-size: 20px;
     }
   }
 
@@ -368,7 +368,7 @@
 
     @media screen and (max-width: 698px) {
       max-width: 100%;
-      font-size: 14px;
+      font-size: 20px;
     }
   }
 
