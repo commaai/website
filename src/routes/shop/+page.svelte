@@ -58,7 +58,7 @@
             </LinkButton>
             <p>
               Works with {vehicleCountText} cars.
-              <a class="highlight muted" href="/vehicles" target="_blank">Check compatibility</a>.
+              <a class="highlight muted" href="/vehicles">Check compatibility</a>.
             </p>
           </div>
           <div class="mobile-first">
