@@ -432,7 +432,8 @@ export const products = {
           href="https://github.com/commaai/hardware"
           target="_blank">open source</a> files.
       </p>
-    `.trim()
+    `.trim(),
+    hideOutOfStockVariants: true
   },
 
   "comma-device-screen": {
