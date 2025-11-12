@@ -6,23 +6,41 @@
   export let onToggle;
 </script>
 
-<label class="checkbox-card">
+<div class="checkbox-card">
   <NoteCard {title}>
-    <input type="checkbox" slot="icon" checked={checked} on:change={() => onToggle && onToggle()} />
+    <label class="checkbox-label" slot="icon">
+      <input type="checkbox" checked={checked} on:change={() => onToggle && onToggle()} />
+    </label>
     <slot></slot>
   </NoteCard>
-</label>
+</div>
 
 <style>
   .checkbox-card {
-    cursor: pointer;
-    display: block;
+    margin: 1rem 0;
+    position: relative;
   }
 
-  .checkbox-card :global(input[type="checkbox"]) {
+  .checkbox-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .checkbox-label input[type="checkbox"] {
     width: 1.25rem;
     height: 1.25rem;
     cursor: pointer;
+    margin: 0;
+  }
+
+  .checkbox-card :global(.icon-slot) {
+    position: relative;
   }
 </style>
 
