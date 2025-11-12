@@ -52,14 +52,13 @@
   let backordered = null;
 
   const updateAdditionalProductIds = () => {
-    const ids = [];
+    additionalProductIds = [];
     if (selectedHarness && selectedHarness !== NO_HARNESS_OPTION) {
-      ids.push(selectedHarness.id);
+      additionalProductIds.push(selectedHarness.id);
     }
     if (tradeInChecked && tradeInVariantId) {
-      ids.push(tradeInVariantId);
+      additionalProductIds.push(tradeInVariantId);
     }
-    additionalProductIds = ids;
   }
 
   const handleHarnessSelection = (value) => {
