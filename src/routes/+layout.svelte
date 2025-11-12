@@ -132,6 +132,7 @@
         <a href="https://github.com/commaai/openpilot/releases">RELEASES</a>
         <a href="/jobs">JOBS</a>
         <a href="/leaderboard.html">LEADERBOARD</a>
+        <a href="/vehicles">COMPATIBILITY</a>
         <a href="/support">SUPPORT</a>
         <a href="/setup">SETUP GUIDE</a>
         <a href="https://github.com/commaai">GITHUB</a>
