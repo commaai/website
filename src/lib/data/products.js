@@ -56,7 +56,12 @@ export const products = {
     notes: [
       {
         title: "Note",
-        content: `A panda is not necessary if purchasing a <a href="/shop/comma-four" target="_blank">comma four</a>.<br /><br />A red panda is required if using a comma 3 on a CAN FD vehicle. Check <a href="https://github.com/commaai/openpilot/blob/master/docs/CARS.md" target="_blank" rel="noopener noreferrer">compatibility</a> to see if your car requires a red panda with comma 3.`,
+        content: `A panda is not necessary if purchasing a
+        <a href="/shop/comma-four" target="_blank">comma four</a>.
+        <br /><br />
+        A red panda is required if using a comma 3 on a CAN FD vehicle. Check
+        <a href="https://github.com/commaai/openpilot/blob/master/docs/CARS.md" target="_blank" rel="noopener noreferrer">compatibility</a> to see if your car requires
+        a red panda with comma 3.`,
       }
     ],
     description: `
@@ -227,7 +232,8 @@ export const products = {
       },
       {
         title: "Note",
-        content: `For US customers only, requires $24/month comma prime subscription you can purchase at <a href="http://connect.comma.ai/" target="_blank">connect.comma.ai</a>.`,
+        content: `For US customers only, requires $24/month comma prime subscription you can purchase at
+        <a href="http://connect.comma.ai/" target="_blank">connect.comma.ai</a>.`,
       }
     ],
     description: `
@@ -337,7 +343,7 @@ export const products = {
     notes: [
       {
         title: "Note",
-        content: `The harness box is included with the <a href="/shop/car-harness">car harness</a>.`,
+        content: `The harness box is included with the <a href="/shop/car-harness">car harness</a>.`
       }
     ],
     description: ""
@@ -444,7 +450,9 @@ export const products = {
     notes: [
       {
         title: "Note: final sale",
-        content: "Open and repair the comma 3/3X at your own risk. comma is not responsible for damages that may occur while repairing devices. No warranty except DOA.",
+        content: `Open and repair the comma 3/3X at your own risk.
+        comma is not responsible for damages that may occur while repairing devices.
+        No warranty except DOA.`,
       }
     ],
     description: `
@@ -483,7 +491,9 @@ export const products = {
     notes: [
       {
         title: "Note: final sale",
-        content: "Open and repair the comma 3/3X at your own risk. comma is not responsible for damages that may occur while repairing devices. No warranty except DOA.",
+        content: `Open and repair the comma 3/3X at your own risk.
+        comma is not responsible for damages that may occur while repairing devices.
+        No warranty except DOA.`,
       }
     ],
     description: `
