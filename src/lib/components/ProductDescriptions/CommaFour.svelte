@@ -124,17 +124,6 @@
     >
       Get $250 credit when you trade in your old comma device, in any condition.
       <a href="/shop/comma-four-trade-in">Learn more</a>
-      <div slot="instructions">
-        <p><strong>Trade-in Instructions:</strong></p>
-        <ol>
-          <li>Purchase this product.</li>
-          <li>Ship your old comma device back to us with tracking.</li>
-          <li>Include your trade-in order number and the original device's order number inside the box.</li>
-          <li>When the device arrives, we'll process it within 1-2 business days.</li>
-          <li>We'll ship you your brand new comma four.</li>
-        </ol>
-        <p><strong>Note:</strong> This offer is only valid for the original device owner. The device must have been purchased from the comma shop by the same person purchasing the trade-in.</p>
-      </div>
     </CheckboxCard>
   </span>
 
