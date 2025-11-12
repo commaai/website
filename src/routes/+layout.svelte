@@ -86,11 +86,12 @@
       </div>
     </div> -->
     <nav class="navbar-section-links">
-      <a href="/" class:active={$page.url.pathname === '/'}>comma four</a>
+      <a href="/" class:active={$page.url.pathname === '/'}>home</a>
       <a href="/shop" class:active={$page.url.pathname.startsWith('/shop')}>shop</a>
       <a href="/setup" class:active={$page.url.pathname.startsWith('/setup')}>setup</a>
       <a href="/support" class="hide-mobile-1" class:active={$page.url.pathname.startsWith('/support')}>support</a>
-      <a href="/jobs" class="hide-mobile-2" class:active={$page.url.pathname.startsWith('/jobs')}>jobs</a>
+      <a href="/vehicles" class="hide-mobile-2" class:active={$page.url.pathname.startsWith('/vehicles')}>vehicles</a>
+      <a href="/jobs" class="hide-mobile-3" class:active={$page.url.pathname.startsWith('/jobs')}>jobs</a>
     </nav>
     <div class="navbar-section-buttons">
       <!-- <a class="button shop" href="/shop">
@@ -242,19 +243,25 @@
         }
       }
 
-      @media only screen and (max-width: 698px) {
+      @media only screen and (max-width: 710px) {
         margin: 1.0rem 0.75rem;
         font-size: 1rem;
       }
     }
 
-    @media only screen and (max-width: 400px) {
+    @media only screen and (max-width: 440px) {
+      & a.hide-mobile-3 {
+        display: none;
+      }
+    }
+
+    @media only screen and (max-width: 380px) {
       & a.hide-mobile-2 {
         display: none;
       }
     }
 
-    @media only screen and (max-width: 350px) {
+    @media only screen and (max-width: 305px) {
       & a.hide-mobile-1 {
         display: none;
       }
@@ -262,13 +269,19 @@
   }
 
   /* Wrap nav bar links earlier if cart button is showing */
-  @media (max-width: 500px) {
+  @media (max-width: 540px) {
+    .navbar-container:has(.cart) .navbar-section-links a.hide-mobile-3 {
+      display: none;
+    }
+  }
+
+  @media (max-width: 460px) {
     .navbar-container:has(.cart) .navbar-section-links a.hide-mobile-2 {
       display: none;
     }
   }
 
-  @media (max-width: 450px) {
+  @media (max-width: 380px) {
     .navbar-container:has(.cart) .navbar-section-links a.hide-mobile-1 {
       display: none;
     }
