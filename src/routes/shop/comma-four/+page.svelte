@@ -39,7 +39,7 @@
           It runs <a class="highlight" href="https://github.com/commaai/openpilot" target="_blank">openpilot</a>, which can drive for hours without driver action.
         </p>
         <p>
-          Besides cameras, the comma four has a suite of connectivity and sensors including cellular LTE, Wi-Fi, an IMU, high-precision GPS, and microphones.
+          Besides cameras, the comma four has a suite of connectivity and sensors including cellular LTE, Wi-Fi, an IMU, high-precision GPS, and a microphone.
         </p>
       </div>
     </Grid>

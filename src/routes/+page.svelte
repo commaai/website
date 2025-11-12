@@ -153,7 +153,6 @@
         <span class="buy-now-text">Buy now</span>
         <span class="buy-now-price"><span class="dollar-sign">$</span>999</span>
       </a>
-      <div class="shipping-notice">Ships in 1-12 weeks</div>
       <a href="/vehicles" class="check-compatibility">check compatibility</a>
     </div>
   </div>
@@ -310,20 +309,6 @@
       box-sizing: border-box;
     }
 
-  }
-
-  .shipping-notice {
-    font-size: 24px;
-    color: rgb(155, 155, 155);
-    text-shadow: 0 0 12px rgba(40, 40, 40, 1);
-    font-family: Inter, sans-serif;
-    text-align: center;
-    line-height: 1.4;
-    user-select: none;
-
-    @media screen and (max-width: 698px) {
-      font-size: 20px;
-    }
   }
 
   @keyframes shake-x {
