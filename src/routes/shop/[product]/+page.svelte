@@ -1,6 +1,6 @@
 <script>
   import Product from "$lib/components/Product.svelte";
-  import NoteCard from "$lib/components/NoteCard.svelte";
+  import NotesRenderer from "$lib/components/NotesRenderer.svelte";
 
   export let data;
   $: ({ product, descriptionComponent } = data);
@@ -23,7 +23,7 @@
       >
         <div slot="notes">
           {#if product.notes}
-            {@html product.notes}
+            <NotesRenderer notes={product.notes} />
           {/if}
         </div>
         <div slot="description">
