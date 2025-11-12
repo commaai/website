@@ -343,7 +343,7 @@ export const products = {
     notes: [
       {
         title: "Note",
-        content: `The harness box is included with the <a href="/shop/car-harness">car harness</a>.`
+        content: `The harness box is included with the <a href="/shop/car-harness">car harness</a>.`,
       }
     ],
     description: ""
