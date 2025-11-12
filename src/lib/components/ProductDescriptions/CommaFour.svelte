@@ -84,12 +84,13 @@
       Get $250 credit when you trade in your old comma device, in any condition.
       <a href="/shop/comma-four-trade-in">Learn more</a>
     </NoteCard>
+  </span>
+
+  <div slot="notes">
     <NoteCard title="Upgrading from another comma device?">
       You do not need a new car harness. All comma devices use the same harness.
     </NoteCard>
-  </span>
-
-  <div slot="notes"></div>
+  </div>
 
   <div slot="description">
     <div class="item">
