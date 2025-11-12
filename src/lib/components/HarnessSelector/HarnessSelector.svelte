@@ -69,7 +69,7 @@
   let inputValue = "";
   let inputRef;
 
-  $: filteredItems = $harnesses.filter(item =>
+  $: filteredItems = $harnesses.filter(item => 
     normalizeDiacritics(item.car.toLowerCase()).match(normalizeDiacritics(inputValue.toLowerCase()))
   );
 
@@ -182,8 +182,6 @@
 .dropdown-content {
   display: none;
   position: absolute;
-  color: white;
-  background-color: #fff;
   border: 1px solid #ddd;
   z-index: 1;
   width: 100%;
@@ -200,7 +198,6 @@
   width: 100%;
   min-height: 84px;
   border: 1px solid #a0a0a0;
-  border-radius: 18px;
   padding: 14px;
   outline: none;
   font-size: 1rem;
@@ -219,7 +216,6 @@
   color: #222222;
   background-color: #fff;
   border: 1px solid #a0a0a0;
-  border-radius: 18px;
   padding: 1rem 3rem 1rem 1.5rem;
   box-sizing: border-box;
   min-height: 84px;
