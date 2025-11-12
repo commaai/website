@@ -123,7 +123,7 @@
       onToggle={handleTradeInToggle}
     >
       Get $250 credit when you trade in your old comma device, in any condition.
-      <a href="/shop/comma-four-trade-in">Learn more</a>
+      <a href="/shop/comma-four-trade-in">Instructions and Terms</a>
     </CheckboxCard>
   </span>
 
