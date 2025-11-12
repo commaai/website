@@ -117,11 +117,7 @@
       showNoHarnessOption={true}
     >
     </HarnessSelector>
-    <CheckboxCard
-      title="$250 credit with trade-in"
-      checked={tradeInChecked}
-      onToggle={handleTradeInToggle}
-    >
+    <CheckboxCard title="$250 credit with trade-in" checked={tradeInChecked} onToggle={handleTradeInToggle}>
       Get $250 credit when you trade in your old comma device, in any condition.
       <a href="/shop/comma-four-trade-in">Instructions and Terms</a>
     </CheckboxCard>
