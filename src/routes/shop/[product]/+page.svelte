@@ -23,7 +23,11 @@
       >
         <div slot="notes">
           {#if product.notes}
-            {@html product.notes}
+            {#each product.notes as note}
+              <NoteCard title={note.title}>
+                {@html note.content}
+              </NoteCard>
+            {/each}
           {/if}
         </div>
         <div slot="description">
