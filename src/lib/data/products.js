@@ -371,8 +371,7 @@ export const products = {
     description: `
       <strong>Description</strong>
       <p>
-        We recommend allowing 48 hours for the mount to cure before use.
-        See <a href="/setup" target="_blank">comma.ai/setup</a> for more information.
+        Unlike the comma 3/3X mounts, comma four mounts are compatible with every vehicle openpilot supports.
       </p>
       <hr />
       <hgroup>
@@ -382,11 +381,11 @@ export const products = {
         </div>
       </hgroup>
       <p>
-        Standard mount compatible with all vehicles.<br /><br />
+        Mount compatible with all vehicles.<br /><br />
         <strong>Includes:</strong>
       </p>
       <p>
-        (2) standard mounts with adhesive backing
+        (2) mounts with adhesive backing
       </p>
       <p>
         (1) alcohol wipe
