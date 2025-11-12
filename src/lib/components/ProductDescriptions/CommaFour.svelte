@@ -49,7 +49,6 @@
   let selectedHarness = null;
   let tradeInVariantId = null;
   let tradeInChecked = false;
-
   let backordered = null;
 
   const updateAdditionalProductIds = () => {
@@ -57,7 +56,6 @@
     if (selectedHarness && selectedHarness !== NO_HARNESS_OPTION) {
       ids.push(selectedHarness.id);
     }
-    console.log(tradeInVariantId);
     if (tradeInChecked && tradeInVariantId) {
       ids.push(tradeInVariantId);
     }
