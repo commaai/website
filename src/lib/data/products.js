@@ -249,7 +249,7 @@ export const products = {
     category: "accessories",
     price: "$20",
     images: [
-      "/src/lib/images/products/obd-c-cable/obd-c-right-cable.jpg",
+      "/src/lib/images/products/obd-c-cable/obd-c-cable-four.png",
       "/src/lib/images/products/obd-c-cable/obd-c-long-cable.jpg"
     ],
     notes: "",
@@ -269,13 +269,13 @@ export const products = {
         <hgroup>
           <div>
             <span>variant</span>
-            <strong>comma 3/3X long (9.5 ft)</strong>
+            <strong>comma long (9.5 ft)</strong>
           </div>
         </hgroup>
         <p>
           Check the <a href="../shop/car-harness" target="_blank">car harness page</a>
           to determine if your car harness kit requires this cable instead of the
-          standard right-angle cable.
+          standard cable. This is the same cable from the comma three/3X car harness kit.
         </p>
       </div>
     `.trim()
@@ -348,9 +348,7 @@ export const products = {
     category: "accessories",
     price: "$20",
     images: [
-      "/src/lib/images/products/replacement-mounts/replacement-mounts-3x.png",
-      "/src/lib/images/products/replacement-mounts/mount-3x.png",
-      "/src/lib/images/products/replacement-mounts/mount-3x-8deg.png"
+      "/src/lib/images/products/replacement-mounts/replacement-mounts-four.png",
     ],
     notes: `
       <NoteCard title="Note">
