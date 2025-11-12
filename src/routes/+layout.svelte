@@ -256,7 +256,7 @@
       }
     }
 
-    @media only screen and (max-width: 380px) {
+    @media only screen and (max-width: 385px) {
       & a.hide-mobile-2 {
         display: none;
       }
@@ -276,13 +276,13 @@
     }
   }
 
-  @media (max-width: 460px) {
+  @media (max-width: 480px) {
     .navbar-container:has(.cart) .navbar-section-links a.hide-mobile-2 {
       display: none;
     }
   }
 
-  @media (max-width: 380px) {
+  @media (max-width: 395px) {
     .navbar-container:has(.cart) .navbar-section-links a.hide-mobile-1 {
       display: none;
     }
