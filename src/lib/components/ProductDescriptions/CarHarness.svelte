@@ -13,7 +13,7 @@
       Harness compatibility based on the US car market.
     </NoteCard>
     <NoteCard title="Note">
-      Does not include the right angle
+      Does not include the
       <a href="/shop/obd-c-cable" target="_blank">OBD-C cable</a>, sold
       separately.
     </NoteCard>

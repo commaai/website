@@ -12,7 +12,7 @@ export const products = {
       "/src/lib/images/products/comma-four/four_back_2.png",
       "/src/lib/images/products/comma-four/remount.jpg"
     ],
-    notes: "",
+    notes: [],
     description: `
       <strong>Description</strong>
       <p>
@@ -53,16 +53,17 @@ export const products = {
       "/src/lib/images/products/panda/red-panda.jpg",
       "/src/lib/images/products/panda/white-panda.jpeg"
     ],
-    notes: `
-      <NoteCard title="Note">
-        A panda is not necessary if purchasing a
+    notes: [
+      {
+        title: "Note",
+        content: `A panda is not necessary if purchasing a
         <a href="/shop/comma-four" target="_blank">comma four</a>.
         <br /><br />
         A red panda is required if using a comma 3 on a CAN FD vehicle. Check
         <a href="https://github.com/commaai/openpilot/blob/master/docs/CARS.md" target="_blank" rel="noopener noreferrer">compatibility</a> to see if your car requires
-        a red panda with comma 3.
-      </NoteCard>
-    `.trim(),
+        a red panda with comma 3.`,
+      }
+    ],
     description: `
       <strong>Description</strong>
       <p>
@@ -135,7 +136,7 @@ export const products = {
       "/src/lib/images/products/panda-jungle/panda-jungle-v2.jpeg",
       "/src/lib/images/products/panda-jungle/power-adapter.jpeg"
     ],
-    notes: "",
+    notes: [],
     description: `
       <strong>Description</strong>
       <p>What's better than debug board? pandas in a jungle! (pandas not included, only panda jungle)</p>
@@ -158,7 +159,7 @@ export const products = {
       "/src/lib/images/products/panda-paw/panda-paw.jpg",
       "/src/lib/images/products/panda-paw/panda-paw-back.jpeg"
     ],
-    notes: "",
+    notes: [],
     description: `
       <strong>Description</strong>
       <p>Bricked your panda? You must be kidding, because panda are unbrickable if you have the convenient panda paw!</p>
@@ -182,11 +183,12 @@ export const products = {
     images: [
       "/src/lib/images/products/comma-power/comma-power.jpg"
     ],
-    notes: `
-      <NoteCard title="Note">
-        A comma power is included with a purchase of a car harness.
-      </NoteCard>
-    `.trim(),
+    notes: [
+      {
+        title: "Note",
+        content: "A comma power is included with a purchase of a car harness.",
+      }
+    ],
     description: `
       <strong>Description</strong>
       <p>
@@ -204,7 +206,7 @@ export const products = {
     images: [
       "/src/lib/images/products/comma-power-extender/POWER-EXTENDER.jpg"
     ],
-    notes: "",
+    notes: [],
     description: `
       <strong>Description</strong>
       <p>
@@ -223,13 +225,17 @@ export const products = {
       "/src/lib/images/products/comma-prime-sim/comma-prime-sim.jpg",
       "/src/lib/images/products/comma-prime-sim/comma-prime-sim-installation.png"
     ],
-    notes: `
-      <NoteCard title="Product Compatibility">This product is only for the comma 3/3X.</NoteCard>
-      <NoteCard title="Note">
-        For US customers only, requires $24/month comma prime subscription you can purchase at
-        <a href="http://connect.comma.ai/" target="_blank">connect.comma.ai</a>.
-      </NoteCard>
-    `.trim(),
+    notes: [
+      {
+        title: "Product Compatibility",
+        content: "This product is only for the comma 3/3X.",
+      },
+      {
+        title: "Note",
+        content: `For US customers only, requires $24/month comma prime subscription you can purchase at
+        <a href="http://connect.comma.ai/" target="_blank">connect.comma.ai</a>.`,
+      }
+    ],
     description: `
       <strong>Description</strong>
       <p>
@@ -252,7 +258,7 @@ export const products = {
       "/src/lib/images/products/obd-c-cable/obd-c-cable-four.png",
       "/src/lib/images/products/obd-c-cable/obd-c-long-cable.jpg"
     ],
-    notes: "",
+    notes: [],
     description: `
       <strong>Description</strong>
       <p>
@@ -291,11 +297,12 @@ export const products = {
       "/src/lib/images/products/harness-connector/harness-connector.jpg",
       "/src/lib/images/products/car-harness/connectors.jpg"
     ],
-    notes: `
-      <NoteCard title="Compatibility">
-        Harness connector compatibility based on the US car market.
-      </NoteCard>
-    `.trim(),
+    notes: [
+      {
+        title: "Compatibility",
+        content: "Harness connector compatibility based on the US car market.",
+      }
+    ],
     description: `
       <strong>Description</strong>
       <p>
@@ -333,11 +340,12 @@ export const products = {
     images: [
       "/src/lib/images/products/harness-box/harness-box.jpg"
     ],
-    notes: `
-      <NoteCard title="Note">
-        The harness box is included with the <a href="/shop/car-harness">car harness</a>.
-      </NoteCard>
-    `.trim(),
+    notes: [
+      {
+        title: "Note",
+        content: `The harness box is included with the <a href="/shop/car-harness">car harness</a>.`,
+      }
+    ],
     description: ""
   },
 
@@ -350,14 +358,16 @@ export const products = {
     images: [
       "/src/lib/images/products/replacement-mounts/replacement-mounts-four.png",
     ],
-    notes: `
-      <NoteCard title="Note">
-        comma four orders come with (2) mounts.
-      </NoteCard>
-      <NoteCard title="Note">
-        comma four mounts are not compatible with comma 3X/three.
-      </NoteCard>
-    `.trim(),
+    notes: [
+      {
+        title: "Note",
+        content: "comma four orders come with (2) mounts.",
+      },
+      {
+        title: "Note",
+        content: "comma four mounts are not compatible with comma 3X/three.",
+      }
+    ],
     description: `
       <strong>Description</strong>
       <p>
@@ -435,13 +445,14 @@ export const products = {
     images: [
       "/src/lib/images/products/comma-three-device-screen/comma-three-device-screen.jpg"
     ],
-    notes: `
-      <NoteCard title="Note: final sale">
-        Open and repair the comma 3/3X at your own risk.
+    notes: [
+      {
+        title: "Note: final sale",
+        content: `Open and repair the comma 3/3X at your own risk.
         comma is not responsible for damages that may occur while repairing devices.
-        No warranty except DOA.
-      </NoteCard>
-    `.trim(),
+        No warranty except DOA.`,
+      }
+    ],
     description: `
       <strong>comma 3X - screen + front case</strong>
       <ul>
@@ -475,13 +486,14 @@ export const products = {
     images: [
       "/src/lib/images/products/comma-3x-back-case/comma-3x-back-case.jpg"
     ],
-    notes: `
-      <NoteCard title="Note: final sale">
-        Open and repair the comma 3/3X at your own risk.
+    notes: [
+      {
+        title: "Note: final sale",
+        content: `Open and repair the comma 3/3X at your own risk.
         comma is not responsible for damages that may occur while repairing devices.
-        No warranty except DOA.
-      </NoteCard>
-    `.trim(),
+        No warranty except DOA.`,
+      }
+    ],
     description: `
       <strong>comma 3X back case</strong>
       <ul>
@@ -503,7 +515,7 @@ export const products = {
       "/src/lib/images/products/comma-ai-hoodie/comma-hoodie-print.jpeg",
       "/src/lib/images/products/comma-ai-hoodie/comma-hoodie-packaging.jpeg"
     ],
-    notes: "",
+    notes: [],
     description: `
       <strong>Description</strong>
       <p>
@@ -526,7 +538,7 @@ export const products = {
     images: [
       "/src/lib/images/products/comma-ai-beanie/comma-beanie.jpg"
     ],
-    notes: "",
+    notes: [],
     description: `
       <strong>Description</strong>
       <p>A black beanie with a comma on it.</p>
@@ -545,7 +557,7 @@ export const products = {
       "/src/lib/images/products/comma-ai-t-shirt/comma-t-shirt-pose.jpeg",
       "/src/lib/images/products/comma-ai-t-shirt/comma-t-shirt-print.jpeg"
     ],
-    notes: "",
+    notes: [],
     description: `
       <strong>Description</strong>
       <p>Okay, okay we heard you. We aren't a high end fashion brand, we are a tech company. We sell a company t-shirt—for a reasonable price.</p>
@@ -572,7 +584,7 @@ export const products = {
       "/src/lib/images/products/comma-3x/comma-3x.jpg"
     ],
     backordered: "4-12 weeks",
-    notes: "",
+    notes: [],
     description: `
       <strong>Description</strong>
       <p>
