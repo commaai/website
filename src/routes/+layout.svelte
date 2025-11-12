@@ -222,7 +222,9 @@
     flex: 1;
     align-items: center;
     justify-content: left;
-
+    overflow: hidden;
+  flex-flow: row wrap;
+    height: 60px;
     & a {
       color: #ffffff;
       margin: 1.0rem 1.5rem;
@@ -250,23 +252,23 @@
       }
     }
 
-    @media only screen and (max-width: 440px) {
-      & a.hide-mobile-3 {
-        display: none;
-      }
-    }
+    /*@media only screen and (max-width: 440px) {*/
+    /*  & a.hide-mobile-3 {*/
+    /*    display: none;*/
+    /*  }*/
+    /*}*/
 
-    @media only screen and (max-width: 385px) {
-      & a.hide-mobile-2 {
-        display: none;
-      }
-    }
+    /*@media only screen and (max-width: 385px) {*/
+    /*  & a.hide-mobile-2 {*/
+    /*    display: none;*/
+    /*  }*/
+    /*}*/
 
-    @media only screen and (max-width: 305px) {
-      & a.hide-mobile-1 {
-        display: none;
-      }
-    }
+    /*@media only screen and (max-width: 305px) {*/
+    /*  & a.hide-mobile-1 {*/
+    /*    display: none;*/
+    /*  }*/
+    /*}*/
   }
 
   /* Wrap nav bar links earlier if cart button is showing */
