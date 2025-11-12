@@ -6,7 +6,7 @@
   export let onToggle;
 </script>
 
-<div class="checkbox-card">
+<div class="checkbox-card" class:checked={checked}>
   <NoteCard {title}>
     <label class="checkbox-label" slot="icon">
       <input type="checkbox" checked={checked} on:change={() => onToggle && onToggle()} />
@@ -41,6 +41,11 @@
 
   .checkbox-card :global(.icon-slot) {
     position: relative;
+  }
+
+  .checkbox-card.checked :global(.card hgroup span) {
+    background-color: #86ff4e;
+    color: black;
   }
 </style>
 
