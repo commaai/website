@@ -33,6 +33,7 @@
     width: fit-content;
     cursor: pointer;
     transition: all 0.2s;
+    border-radius: 18px;
 
     @media (hover: hover) and (pointer: fine) {
       &.primary:hover:not(.disabled) {

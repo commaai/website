@@ -28,6 +28,7 @@
     color: #222222;
     background-color: #fff;
     border: 1px solid #a0a0a0;
+    border-radius: 18px;
     padding: 1.25rem 3rem;
     box-sizing: border-box;
     min-height: 84px;

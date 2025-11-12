@@ -24,6 +24,7 @@
     align-items: center;
     color: black;
     border: 1px solid #616161;
+    border-radius: 16px;
 
     & hgroup {
       margin-left: 1rem;
