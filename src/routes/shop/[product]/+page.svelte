@@ -22,13 +22,11 @@
         hideOutOfStockVariants={product.hideOutOfStockVariants || false}
       >
         <div slot="notes">
-          {#if product.notes}
-            {#each product.notes as note}
-              <NoteCard title={note.title}>
-                {@html note.content}
-              </NoteCard>
-            {/each}
-          {/if}
+          {#each product.notes || [] as note}
+            <NoteCard title={note.title}>
+              {@html note.content}
+            </NoteCard>
+          {/each}
         </div>
         <div slot="description">
           {#if product.description}
