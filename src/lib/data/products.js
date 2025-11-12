@@ -622,6 +622,11 @@ export const products = {
   //   `.trim()
   // },
 
+  "comma-four-trade-in": {
+    title: "comma four trade-in",
+    id: "gid://shopify/Product/7966994202687",
+  },
+
   "comma-3x-out-of-warranty-repair": {
     title: "comma 3X out of warranty repair",
     id: "gid://shopify/Product/7294255104063",
