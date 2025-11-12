@@ -371,7 +371,7 @@ export const products = {
     description: `
       <strong>Description</strong>
       <p>
-        Unlike the comma 3/3X mounts, comma four mounts are compatible with every vehicle openpilot supports.
+        comma four mounts are compatible with every vehicle openpilot supports.
       </p>
       <hr />
       <hgroup>
