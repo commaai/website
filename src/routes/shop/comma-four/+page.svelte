@@ -41,9 +41,6 @@
         <p>
           Besides cameras, the comma four has a suite of connectivity and sensors including cellular LTE, Wi-Fi, an IMU, high-precision GPS, and microphones.
         </p>
-        <p>
-          You need a car harness if you don't already have one, which is free with purchase of comma four. The car harness is our universal interface to your car. Use the car harness to connect your comma device to your vehicle.
-        </p>
       </div>
     </Grid>
     <hr />

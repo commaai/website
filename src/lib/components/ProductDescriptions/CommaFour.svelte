@@ -87,9 +87,6 @@
     <NoteCard title="Upgrading from another comma device?">
       You do not need a new car harness. All comma devices use the same harness.
     </NoteCard>
-    <NoteCard title="Shipping">
-      Free Rush (UPS 2nd Day Air) shipping. $30 flat rate internationally.
-    </NoteCard>
   </span>
 
   <div slot="notes"></div>
