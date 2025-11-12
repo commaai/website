@@ -43,6 +43,11 @@
     position: relative;
   }
 
+  .checkbox-card.checked :global(.card) {
+    border-color: #86ff4e;
+    background-color: rgba(134, 255, 78, 0.1);
+  }
+
   .checkbox-card.checked :global(.card hgroup span) {
     background-color: #86ff4e;
     color: black;
