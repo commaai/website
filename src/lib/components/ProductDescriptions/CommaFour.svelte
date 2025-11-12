@@ -52,37 +52,34 @@
 
   let backordered = null;
 
-  const updateAdditionalProductIds = () => {
-    const ids = [];
-    if (selectedHarness && selectedHarness !== NO_HARNESS_OPTION) {
-      ids.push(selectedHarness.id);
-    }
-    console.log(tradeInVariantId);
-    if (tradeInChecked && tradeInVariantId) {
-      ids.push(tradeInVariantId);
-    }
-    additionalProductIds = ids;
-  }
-
   const handleHarnessSelection = (value) => {
     selectedHarness = value;
-    updateAdditionalProductIds();
     if (value === NO_HARNESS_OPTION) {
+      additionalProductIds = []
       backordered = null;
       disableBuyButtonText = null;
     } else if (value) {
+      additionalProductIds = [value?.id]
       backordered = value.currentlyNotInStock ? `ships in ${(value.backordered || '1-12 weeks')}` : null;
       disableBuyButtonText = null;
     } else {
+      additionalProductIds = [];
       backordered = null;
       disableBuyButtonText = "SELECT YOUR CAR";
+    }
+    if (tradeInChecked && tradeInVariantId) {
+      additionalProductIds.push(tradeInVariantId);
     }
     backordered = '1-12 weeks';
   }
 
   const handleTradeInToggle = () => {
     tradeInChecked = !tradeInChecked;
-    updateAdditionalProductIds();
+    if (tradeInChecked && tradeInVariantId) {
+      additionalProductIds.push(tradeInVariantId);
+    } else if (additionalProductIds.includes(tradeInVariantId)) {
+      additionalProductIds.splice(additionalProductIds.indexOf(tradeInVariantId), 1);
+    }
   }
 
   onMount(async () => {
