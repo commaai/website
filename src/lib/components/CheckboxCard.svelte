@@ -24,7 +24,7 @@
     width: 1.25rem;
     height: 1.25rem;
     cursor: pointer;
-    accent-color: #86ff4e;
+    accent-color: var(--color-accent);
   }
 
   .checkbox-card.checked :global(.card hgroup span) {
