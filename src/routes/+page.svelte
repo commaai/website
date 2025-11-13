@@ -305,7 +305,6 @@
 
   .hero-text {
     line-height: 1;
-    font-family: Inter, sans-serif;
     font-size: 112px;
     font-weight: normal;
     color: #EAEAEA;
@@ -349,7 +348,6 @@
     gap: 200px;
     min-width: 300px;
     transition: background-color 0.2s ease, border-color 0.2s ease;
-    font-family: Inter, sans-serif;
 
     &:hover {
       background-color: rgba(69, 160, 73, 0.4);
@@ -374,7 +372,6 @@
       flex: 0 0 auto;
       font-weight: 700;
       font-size: 48px;
-      font-family: Inter, sans-serif;
       color: #00FF40;
       text-shadow: 0 0 24px rgba(0, 255, 64, 0.75);
       line-height: 1;
@@ -421,7 +418,6 @@
     font-size: 24px;
     color: rgb(155, 155, 155);
     text-shadow: 0 0 12px rgba(40, 40, 40, 1);
-    font-family: Inter, sans-serif;
     background: transparent;
     border: none;
     padding: 0;
