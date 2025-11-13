@@ -355,7 +355,7 @@
   }
 
   footer {
-    background-color: #333;
+    background-color: black;
     padding: 0;
     margin: 0;
     position: relative;
@@ -363,7 +363,7 @@
     border-top: 1px solid black;
 
     & .footer-content {
-      background-color: #EAEAEA;
+      color: white;
       padding: 1rem;
       display: flex;
       justify-content: space-between;
@@ -381,7 +381,6 @@
     }
 
     & h1 {
-      color: #000;
       font-family: "Monument Extended Black", sans-serif;
       font-size: 64px;
       text-transform: uppercase;
@@ -391,7 +390,6 @@
     }
 
     & .footer-left .copyright {
-      color: black;
       font-size: 0.875rem;
       margin: 0;
       padding: 0;
@@ -434,7 +432,6 @@
 
     & .footer-links-grid a {
       direction: ltr;
-      color: #000;
       text-transform: uppercase;
       font-size: 14px;
       font-weight: 400;
