@@ -84,17 +84,18 @@
     type="font/otf"
     crossorigin="anonymous"
   />
+  <!--  TODO: why do we need this again? -->
   <style>
     body {
-      background-color: #000;
+      background-color: var(--color-light);
     }
   </style>
 </svelte:head>
 
-<div class="gradient-overlay"></div>
-<div class="gradient-overlay-top"></div>
+<!--<div class="gradient-overlay"></div>-->
+<!--<div class="gradient-overlay-top"></div>-->
 
-<div style="background-color: black;">
+<div>
   <section class="hero-image" style="background-image: url('/videos/hero/poster.jpg');" on:dragstart={handleDragStart} role="img" aria-label="Hero image">
     <!-- <img src={HeroImage} alt="Hero" draggable="false" /> -->
     <video
@@ -450,7 +451,7 @@
 
   .black-spacer {
     height: 15vh;
-    background-color: #000;
+    background-color: var(--color-light);
     width: 100%;
     padding: 0;
     margin: 0;
@@ -462,7 +463,7 @@
     position: relative;
     overflow: hidden;
     height: 100vh;
-    background-color: #000;
+    background-color: var(--color-light);
     z-index: 0;
     /*border: 2px solid red;*/
 
