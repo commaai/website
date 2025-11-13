@@ -7,7 +7,7 @@ html, body {
 body {
   background: #ffffff;
   font-family: "Times", "Nimbus Roman No9 L", "Times New Roman", serif;
-  font-size: 10pt;            /* neurips_2024: normalsize = 10pt */
+  font-size: 10.5pt;            /* neurips_2024: normalsize = 10pt */
   line-height: 1.05;          /* slightly tight, like TeX with reduced leading */
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -15,7 +15,7 @@ body {
 
 /* Text block width ~ LaTeX textwidth = 5.5in on letter paper */
 .nips-page {
-  width: 5.5in;               /* textwidth */
+  width: 6.5in;               /* textwidth */
   max-width: 100%;
   margin: 1in auto 1in;       /* top/bottom ~1in, centered */
 }
@@ -55,12 +55,12 @@ body {
   text-align: center;
   display: flex;
   justify-content: center;
-  gap: 2em;
+  gap: 2em 3em;
   flex-wrap: wrap;
 }
 
 .nips-authors .author {
-  font-size: 10pt;
+  font-size: 10.5pt;
   font-weight: bold;          /* name bold, rest mostly normal */
   line-height: 1.1;
 }
@@ -83,7 +83,7 @@ body {
 }
 
 .abstract-body {
-  max-width: 4in;             /* narrower than full 5.5in textwidth */
+  max-width: 4.5in;             /* narrower than full 5.5in textwidth */
   margin: 0 auto;
 }
 
@@ -176,7 +176,7 @@ body {
   border-collapse: separate;   /* no grid look */
   border-spacing: 0;           /* no extra gaps */
   margin: 0 0 5.5pt;           /* same as paragraph spacing */
-  font-size: 10pt;             /* same as body text */
+  font-size: 10.5pt;             /* same as body text */
   width: auto;                 /* shrink to content, not full column width */
 }
 
@@ -214,5 +214,11 @@ body {
 
   body {
     font-size: 9pt;  /* small nudge down from 10pt */
+  }
+  .schedule-table {
+    font-size: 9pt;  /* small nudge down from 10pt */
+  }
+  .nips-authors {
+    gap: 2em 50em;
   }
 }
