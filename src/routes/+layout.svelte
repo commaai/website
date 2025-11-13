@@ -414,11 +414,9 @@
       gap: 1rem 2rem;
       justify-content: flex-end;
       align-items: flex-end;
-      direction: ltr;
     }
 
     & .footer-links-grid a {
-      direction: ltr;
       text-transform: uppercase;
       font-size: 14px;
       font-weight: 400;
@@ -478,7 +476,6 @@
       & .footer-links-grid {
         gap: 1.25rem 2rem;
         justify-content: flex-start;
-        direction: ltr;
       }
 
       & .footer-links-grid a {
