@@ -281,14 +281,13 @@
     display: flex;
   }
 
-  .hero-video img:first-child {
-    aspect-ratio: 1;
-    object-fit: cover;
-  }
-
-  .hero-video img:nth-child(2) {
-    aspect-ratio: 1;
-    object-fit: cover;
+  .hero-video img,
+  .hero-video picture {
+    /*aspect-ratio: 1;*/
+    /*object-fit: cover;*/
+    /*flex: 1 1 0;*/
+    width: 100%;
+    /*height: auto;*/
   }
 
   .left-section {
