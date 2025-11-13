@@ -378,6 +378,8 @@
       flex-direction: row;
       align-items: baseline;
       gap: 2rem;
+      flex: 0 0 50%;
+      width: 50%;
     }
 
     & h1 {
@@ -402,32 +404,17 @@
       display: flex;
       align-items: center;
       align-self: center;
+      flex: 0 0 50%;
+      width: 50%;
     }
 
     & .footer-links-grid {
-      display: grid;
-      grid-template-columns: repeat(6, auto);
-      gap: 0.75rem 60px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
       justify-content: flex-end;
-      justify-items: end;
-      grid-auto-flow: row;
-      direction: rtl;
-
-      @media screen and (max-width: 1440px) {
-        grid-template-columns: repeat(4, auto);
-      }
-
-      @media screen and (max-width: 1170px) {
-        grid-template-columns: repeat(3, auto);
-      }
-
-      @media screen and (max-width: 471px) {
-        grid-template-columns: repeat(2, auto);
-      }
-
-      @media screen and (max-width: 300px) {
-        grid-template-columns: repeat(1, auto);
-      }
+      align-items: flex-end;
+      direction: ltr;
     }
 
     & .footer-links-grid a {
@@ -441,10 +428,8 @@
       transition: opacity 0.2s;
       line-height: 1;
       text-align: right;
-      justify-self: end;
-      align-self: end;
-      width: 100%;
       display: block;
+      white-space: nowrap;
     }
 
     & .footer-links-grid a:hover,
@@ -472,7 +457,7 @@
     /*  }*/
     /*}*/
 
-    @media screen and (max-width: 1010px) {
+    @media screen and (max-width: 1100px) {
       & .footer-content {
         flex-direction: column;
         align-items: start;
@@ -480,24 +465,24 @@
       }
 
       & .footer-left {
-        order: 2;
+        width: 100%;
+        flex: 1 1 100%;
       }
 
       & .footer-right {
-        order: 1;
         align-self: flex-start;
+        width: 100%;
+        flex: 1 1 100%;
       }
 
       & .footer-links-grid {
-        gap: 1rem 60px;
+        gap: 1.25rem 2rem;
         justify-content: flex-start;
-        justify-items: start;
         direction: ltr;
       }
 
       & .footer-links-grid a {
         text-align: left;
-        justify-self: start;
       }
     }
 
