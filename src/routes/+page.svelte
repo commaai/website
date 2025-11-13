@@ -33,7 +33,6 @@
   // Image carousel state
   let currentFourImage = FourFront;
   const fourImages = [
-    { src: FourFront, name: 'screen' },
     { src: FourAngled, name: 'angled' },
     { src: FourBack, name: 'back' },
     { src: FourSide, name: 'side' },
@@ -41,6 +40,12 @@
 
   function selectFourImage(imageSrc) {
     currentFourImage = imageSrc;
+    // swap out
+    if (imageSrc === FourAngled) {
+      fourImages[0] = { src: FourFront, name: 'front' };
+    } else if (imageSrc === FourFront) {
+      fourImages[0] = { src: FourAngled, name: 'angled' };
+    }
   }
 
   onMount(async () => {
@@ -100,8 +105,7 @@
         <div class="hero-title">comma 4</div>
         <div class="hero-description">
           comma 4 drives with <a href="https://github.com/commaai/openpilot" target="_blank">openpilot</a> and works with <a href="/vehicles">{vehicleCountText} car models</a>.<br><br>
-          It only takes <a href="/setup">15 minutes</a> to upgrade your car to the best advanced driver assistance system in the world.<br><br>
-          Let us handle your commute.
+          It only takes <a href="/setup">15 minutes</a> to upgrade your car to the best advanced driver assistance system in the world.
         </div>
       </div>
       <div class="hero-bottom">
@@ -120,7 +124,19 @@
     <div class="left-section">
       <div class="hero-carousel">
         <div class="main-image-container">
-          <img src={currentFourImage} alt="comma four" class="four-image" />
+          <img src={currentFourImage} alt="comma four" class="four-image"/>
+        </div>
+        <div class="four-thumbnails">
+          {#each fourImages as image}
+            <button
+              class="four-thumbnail"
+              class:active={currentFourImage === image.src}
+              on:click={() => selectFourImage(image.src)}
+              aria-label={`View ${image.name} view`}
+            >
+              <img src={image.src} alt={`comma four ${image.name}`}/>
+            </button>
+          {/each}
         </div>
       </div>
 
@@ -291,13 +307,77 @@
 
   }
 
+  .hero-carousel {
+    display: flex;
+  }
+
   .main-image-container {
     width: 960px;
     height: auto;
 
-    @media screen and (max-width: 2100px) {
+    @media screen and (max-width: 2000px) {
+      width: 800px;
+    }
+
+    @media screen and (max-width: 1600px) {
       width: 700px;
     }
+  }
+
+  .four-thumbnails {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+
+    @media screen and (max-width: 1500px) {
+      order: 1;
+    }
+
+    @media screen and (max-width: 698px) {
+      gap: 0.5rem;
+    }
+  }
+
+  .four-thumbnail {
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.active {
+      transform: scale(1.1);
+    }
+
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    /*@media screen and (max-width: 500px) {*/
+    /*  width: 100px;*/
+    /*  height: 80px;*/
+    /*  padding: 2px;*/
+    /*}*/
+
+    @media screen and (max-width: 2000px) {
+      width: 175px;
+      height: 175px;
+    }
+
+    /*@media screen and (max-width: 1600px) {*/
+    /*  width: 150px;*/
+    /*  height: 150px;*/
+    /*}*/
   }
 
   .hero-title {
