@@ -156,12 +156,10 @@
   </section>
 
   <section class="light hero-section">
-    <div class="left-section">
-      <div class="bottom-section">
+    <div class="left-section" style="background-color: black; align-items: center;">
         <div class="map-image">
           <img src={Map} alt="openpilot map"/>
         </div>
-      </div>
     </div>
 
     <div class="right-section">
