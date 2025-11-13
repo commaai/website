@@ -144,32 +144,32 @@
 
     <div class="right-section">
       <div class="hero-title">tiny enough to forget</div>
-      <div class="hero-description hero-bottom">
+      <div class="hero-description">
         comma 4 offers the most AI per square inch, all running in complete silence.<br><br>
         There when you need it, gone when you don't.<br><br>
+        <a href="/shop/comma-four" class="link-away">
+          tech specs
+          {@html LinkArrow}
+        </a>
       </div>
-      <a href="/shop/comma-four" class="link-away">
-        tech specs
-        {@html LinkArrow}
-      </a>
     </div>
   </section>
 
   <section class="light hero-section">
     <div class="left-section">
-      <img src={Map} alt="openpilot map" />
+      <img src={Map} alt="openpilot map"/>
     </div>
 
     <div class="right-section">
       <div class="hero-title">better with every drive</div>
-      <div class="hero-description hero-bottom">
+      <div class="hero-description">
         openpilot has driven over 150 million miles around the globe. It learns how well your car drives and adapts to drive your car well.<br><br>
         See openpilot in action on YouTube and contribute to the largest open-source robotics project in the world.<br><br>
+        <a href="https://github.com/commaai/openpilot" class="link-away">
+          github
+          {@html LinkArrow}
+        </a>
       </div>
-      <a href="https://github.com/commaai/openpilot" class="link-away">
-        github
-        {@html LinkArrow}
-      </a>
     </div>
   </section>
 
@@ -399,6 +399,11 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+  }
+
+  .bottom-section {
+    display: flex;
+    flex-direction: column;
   }
 
   .hero-video .hero-price {
