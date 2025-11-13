@@ -11,6 +11,7 @@
   import FourSide from "$lib/images/products/comma-four/four_side_2.png";
   import FourBack from "$lib/images/products/comma-four/four_back_2.png";
   import FourPov from "$lib/images/home/four_pov.png";
+  import Map from "$lib/images/home/map.png";
   import FourZoom from "$lib/images/home/four_zoom.png";
   import LinkArrow from "$lib/images/home/link_arrow.svg?raw";
   import ExperimentalIcon from "$lib/images/experimental.svg?raw";
@@ -74,8 +75,9 @@
   <!--  TODO: why do we need this again? -->
   <style>
     body {
-      background-color: var(--color-light);
+      background-color: var(--color-light); <!-- !important;-->
       letter-spacing: -0.08em;
+      line-height: 1.2;
     }
   </style>
 </svelte:head>
@@ -84,10 +86,12 @@
 <!--<div class="gradient-overlay-top"></div>-->
 
 <div>
-  <section class="light hero-video">
-    <img src={FourPov} alt="comma four pov" />
-    <img src={FourZoom} alt="comma four zoom" />
-    <div class="hero-text-div">
+  <section class="light hero-video hero-section">
+    <div class="left-section">
+      <img src={FourPov} alt="comma four pov" />
+      <img src={FourZoom} alt="comma four zoom" />
+    </div>
+    <div class="right-section">
       <div>
         <div class="hero-title">comma 4</div>
         <div class="hero-description">
@@ -108,7 +112,44 @@
     </div>
   </section>
 
-<!--  <section class="hero-image" style="background-image: url('/videos/hero/poster.jpg');" on:dragstart={handleDragStart} role="img" aria-label="Hero image">-->
+  <section class="light hero-section">
+    <div class="left-section">
+      hello
+      <!--      images-->
+
+    </div>
+    <div class="right-section">
+      <div class="hero-title">tiny enough to forget</div>
+      <div class="hero-description hero-bottom">
+        comma 4 offers the most AI per square inch, all running in complete silence.<br><br>
+        There when you need it, gone when you don't.<br><br>
+      </div>
+      <a href="/shop/comma-four" class="link-away">
+        tech specs
+        {@html LinkArrow}
+      </a>
+    </div>
+  </section>
+
+  <section class="light hero-section">
+    <div class="left-section">
+      <img src={Map} alt="openpilot map" />
+    </div>
+
+    <div class="right-section">
+      <div class="hero-title">better with every drive</div>
+      <div class="hero-description hero-bottom">
+        openpilot has driven over 150 million miles around the globe. It learns how well your car drives and adapts to drive your car well.<br><br>
+        See openpilot in action on YouTube and contribute to the largest open-source robotics project in the world.<br><br>
+      </div>
+      <a href="https://github.com/commaai/openpilot" class="link-away">
+        github
+        {@html LinkArrow}
+      </a>
+    </div>
+  </section>
+
+  <!--  <section class="hero-image" style="background-image: url('/videos/hero/poster.jpg');" on:dragstart={handleDragStart} role="img" aria-label="Hero image">-->
 <!--    &lt;!&ndash; <img src={HeroImage} alt="Hero" draggable="false" /> &ndash;&gt;-->
 <!--    <video-->
 <!--      bind:this={videoElement}-->
@@ -171,7 +212,7 @@
 <!--  </div>-->
 
   <!--This somehow pushes up hero overlays earlier-->
-  <div class="sticky-bottom-spacer"></div>
+<!--  <div class="sticky-bottom-spacer"></div>-->
 </div>
 
 <style>
@@ -202,45 +243,62 @@
     color: black;
   }
 
+  .hero-section {
+    display: flex;
+    margin-bottom: 4rem;
+  }
+
+  .hero-section:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
   .hero-video {
     display: flex;
   }
 
   .hero-video img:first-child {
-    width: 33%;
     aspect-ratio: 1;
     object-fit: cover;
   }
 
   .hero-video img:nth-child(2) {
-    width: 33%;
     aspect-ratio: 1;
     object-fit: cover;
   }
 
-  .hero-video .hero-text-div {
+  .left-section {
+    width: 66%;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .right-section {
+    display: flex;
     width: 33%;
     padding-left: 40px;
     padding-right: 40px;
-    display: flex;
     flex-direction: column;
     justify-content: space-between;
+
   }
 
-  .hero-video .hero-title {
+  .hero-title {
     font-size: 96px;
+    line-height: 1;
+    padding-bottom: 1rem;
   }
 
-  .hero-video .hero-description {
+  .hero-description {
     font-size: 20px;
   }
 
-  .hero-video .hero-description a {
+  .hero-description a {
     color: inherit;
     text-decoration: underline;
   }
 
-  .hero-video .hero-bottom {
+  .hero-bottom {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -270,9 +328,23 @@
     gap: 20px;
   }
 
-  .hero-video .hero-buy-now svg {
+  .hero-video .hero-buy-now :global(svg) {
     width: 40px;
     height: 40px;
+  }
+
+  .link-away {
+    font-size: 20px;
+    text-decoration: underline;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .link-away :global(svg) {
+    width: 20px;
+    height: 20px;
   }
 
   .hero-content-wrapper {
