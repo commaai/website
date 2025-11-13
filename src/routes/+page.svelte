@@ -10,14 +10,15 @@
   import FourImage from "$lib/images/products/comma-four/four_screen_on.png";
   import FourSide from "$lib/images/products/comma-four/four_side_2.png";
   import FourBack from "$lib/images/products/comma-four/four_back_2.png";
+  import FourPov from "$lib/images/home/four_pov.png";
+  import FourZoom from "$lib/images/home/four_zoom.png";
+  import LinkArrow from "$lib/images/home/link_arrow.svg?raw";
   import ExperimentalIcon from "$lib/images/experimental.svg?raw";
   import WarrantyIcon from "$lib/icons/features/warranty.svg?raw";
   import MoneyBackIcon from "$lib/icons/features/money-back-guarantee.svg?raw";
 
   const HeroVideo = "/videos/hero/hero.m3u8";
   const storeUrl = import.meta.env.VITE_SHOPIFY_STORE_URL;
-  import NHaasGroteskRoman from "$lib/fonts/NHaasGrotesk/NHaasGroteskDSPro-55Rg.otf";
-  import NHaasGrotesk75 from "$lib/fonts/NHaasGrotesk/NHaasGroteskTXPro-75Bd.otf";
 
   let videoElement;
   let videoReady = false;
@@ -70,24 +71,11 @@
 
 <svelte:head>
   <link rel="preload" as="image" href="/videos/hero/poster.jpg" />
-  <link
-    rel="preload"
-    href={NHaasGroteskRoman}
-    as="font"
-    type="font/otf"
-    crossorigin="anonymous"
-  />
-  <link
-    rel="preload"
-    href={NHaasGrotesk75}
-    as="font"
-    type="font/otf"
-    crossorigin="anonymous"
-  />
   <!--  TODO: why do we need this again? -->
   <style>
     body {
       background-color: var(--color-light);
+      letter-spacing: -0.08em;
     }
   </style>
 </svelte:head>
@@ -96,67 +84,91 @@
 <!--<div class="gradient-overlay-top"></div>-->
 
 <div>
-  <section class="hero-image" style="background-image: url('/videos/hero/poster.jpg');" on:dragstart={handleDragStart} role="img" aria-label="Hero image">
-    <!-- <img src={HeroImage} alt="Hero" draggable="false" /> -->
-    <video
-      bind:this={videoElement}
-      class:ready={videoReady}
-      poster="/videos/hero/poster.jpg"
-      autoplay
-      muted
-      loop
-      playsinline
-      draggable="false"
-    />
-  </section>
-
-  <section class="black-spacer"></section>
-
-  <section id="four" class="dark comma-four-section">
-    <img src={currentFourImage} alt="comma four" class="four-image" />
-    <div class="four-content">
-      <div class="four-text">
-        comma four works on <a href="/vehicles" style="text-decoration: underline;">{vehicleCountText} car models</a>. It adds the best ADAS in the world to your existing car.<br><br>
-        It runs <a href="https://github.com/commaai/openpilot?tab=readme-ov-file#openpilot" target="_blank" style="text-decoration: underline;">openpilot</a>, which can drive for hours without driver action.
+  <section class="light hero-video">
+    <img src={FourPov} alt="comma four pov" />
+    <img src={FourZoom} alt="comma four zoom" />
+    <div class="hero-text-div">
+      <div>
+        <div class="hero-title">comma 4</div>
+        <div class="hero-description">
+          comma 4 drives with <a href="https://github.com/commaai/openpilot" target="_blank">openpilot</a> and works with <a href="/vehicles">{vehicleCountText} car models</a>.<br><br>
+          It only takes <a href="/setup">15 minutes</a> to upgrade your car to the best advanced driver assistance system in the world.<br><br>
+          Let us handle your commute.
+        </div>
       </div>
-      <ul class="four-features">
-        <li>
-          <span class="feature-icon">{@html ExperimentalIcon}</span>
-          <span>Install it yourself in 15 minutes</span>
-        </li>
-        <li>
-          <span class="feature-icon">{@html WarrantyIcon}</span>
-          <span>1 year warranty</span>
-        </li>
-        <li>
-          <span class="feature-icon">{@html MoneyBackIcon}</span>
-          <span>30 day free return period</span>
-        </li>
-      </ul>
-      <div class="four-thumbnails">
-        {#each fourImages.slice(1) as image}
-          <button
-            class="four-thumbnail"
-            class:active={currentFourImage === image.src}
-            on:click={() => selectFourImage(image.src)}
-            aria-label={`View ${image.name} view`}
-          >
-            <img src={image.src} alt={`comma four ${image.name}`} />
-          </button>
-        {/each}
+      <div class="hero-bottom">
+        <div class="hero-price">
+          <span class="hero-dollar">$</span><span class="hero-amount">999</span>
+        </div>
+        <a href="/shop/comma-four" class="hero-buy-now">
+          buy now
+          {@html LinkArrow}
+        </a>
       </div>
     </div>
   </section>
 
-  <div class="hero-content-wrapper">
-    <div class="buy-now-container">
-      <a href="/shop/comma-four" class="buy-now-button">
-        <span class="buy-now-text">Buy now</span>
-        <span class="buy-now-price"><span class="dollar-sign">$</span>999</span>
-      </a>
-      <a href="/vehicles" class="check-compatibility">check compatibility</a>
-    </div>
-  </div>
+<!--  <section class="hero-image" style="background-image: url('/videos/hero/poster.jpg');" on:dragstart={handleDragStart} role="img" aria-label="Hero image">-->
+<!--    &lt;!&ndash; <img src={HeroImage} alt="Hero" draggable="false" /> &ndash;&gt;-->
+<!--    <video-->
+<!--      bind:this={videoElement}-->
+<!--      class:ready={videoReady}-->
+<!--      poster="/videos/hero/poster.jpg"-->
+<!--      autoplay-->
+<!--      muted-->
+<!--      loop-->
+<!--      playsinline-->
+<!--      draggable="false"-->
+<!--    />-->
+<!--  </section>-->
+
+<!--  <section class="black-spacer"></section>-->
+
+<!--  <section id="four" class="dark comma-four-section">-->
+<!--    <img src={currentFourImage} alt="comma four" class="four-image" />-->
+<!--    <div class="four-content">-->
+<!--      <div class="four-text">-->
+<!--        comma four works on <a href="/vehicles" style="text-decoration: underline;">{vehicleCountText} car models</a>. It adds the best ADAS in the world to your existing car.<br><br>-->
+<!--        It runs <a href="https://github.com/commaai/openpilot?tab=readme-ov-file#openpilot" target="_blank" style="text-decoration: underline;">openpilot</a>, which can drive for hours without driver action.-->
+<!--      </div>-->
+<!--      <ul class="four-features">-->
+<!--        <li>-->
+<!--          <span class="feature-icon">{@html ExperimentalIcon}</span>-->
+<!--          <span>Install it yourself in 15 minutes</span>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--          <span class="feature-icon">{@html WarrantyIcon}</span>-->
+<!--          <span>1 year warranty</span>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--          <span class="feature-icon">{@html MoneyBackIcon}</span>-->
+<!--          <span>30 day free return period</span>-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--      <div class="four-thumbnails">-->
+<!--        {#each fourImages.slice(1) as image}-->
+<!--          <button-->
+<!--            class="four-thumbnail"-->
+<!--            class:active={currentFourImage === image.src}-->
+<!--            on:click={() => selectFourImage(image.src)}-->
+<!--            aria-label={`View ${image.name} view`}-->
+<!--          >-->
+<!--            <img src={image.src} alt={`comma four ${image.name}`} />-->
+<!--          </button>-->
+<!--        {/each}-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </section>-->
+
+<!--  <div class="hero-content-wrapper">-->
+<!--    <div class="buy-now-container">-->
+<!--      <a href="/shop/comma-four" class="buy-now-button">-->
+<!--        <span class="buy-now-text">Buy now</span>-->
+<!--        <span class="buy-now-price"><span class="dollar-sign">$</span>999</span>-->
+<!--      </a>-->
+<!--      <a href="/vehicles" class="check-compatibility">check compatibility</a>-->
+<!--    </div>-->
+<!--  </div>-->
 
   <!--This somehow pushes up hero overlays earlier-->
   <div class="sticky-bottom-spacer"></div>
@@ -190,6 +202,79 @@
     color: black;
   }
 
+  .hero-video {
+    display: flex;
+  }
+
+  .hero-video img:first-child {
+    width: 33%;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+
+  .hero-video img:nth-child(2) {
+    width: 33%;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+
+  .hero-video .hero-text-div {
+    width: 33%;
+    padding-left: 40px;
+    padding-right: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .hero-video .hero-title {
+    font-size: 96px;
+  }
+
+  .hero-video .hero-description {
+    font-size: 20px;
+  }
+
+  .hero-video .hero-description a {
+    color: inherit;
+    text-decoration: underline;
+  }
+
+  .hero-video .hero-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .hero-video .hero-price {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .hero-video .hero-dollar {
+    font-size: 20px;
+  }
+
+  .hero-video .hero-amount {
+    font-size: 48px;
+    line-height: 1;
+  }
+
+  .hero-video .hero-buy-now {
+    font-size: 48px;
+    line-height: 1;
+    text-decoration: underline;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .hero-video .hero-buy-now svg {
+    width: 40px;
+    height: 40px;
+  }
+
   .hero-content-wrapper {
     left: 0;
     right: 0;
@@ -220,7 +305,7 @@
 
   .hero-text {
     line-height: 1;
-    font-family: "NHaasGrotesk Roman", sans-serif;
+    font-family: Inter, sans-serif;
     font-size: 112px;
     font-weight: normal;
     color: #EAEAEA;
@@ -264,7 +349,7 @@
     gap: 200px;
     min-width: 300px;
     transition: background-color 0.2s ease, border-color 0.2s ease;
-    font-family: "NHaasGrotesk Roman", sans-serif;
+    font-family: Inter, sans-serif;
 
     &:hover {
       background-color: rgba(69, 160, 73, 0.4);
@@ -289,7 +374,7 @@
       flex: 0 0 auto;
       font-weight: 700;
       font-size: 48px;
-      font-family: "NHaasGrotesk 75", sans-serif;
+      font-family: Inter, sans-serif;
       color: #00FF40;
       text-shadow: 0 0 24px rgba(0, 255, 64, 0.75);
       line-height: 1;
@@ -433,21 +518,6 @@
     }
   }
 
-  @font-face {
-    font-display: block;
-    font-family: "NHaasGrotesk Roman";
-    font-style: normal;
-    font-weight: normal;
-    src: url("$lib/fonts/NHaasGrotesk/NHaasGroteskDSPro-55Rg.otf");
-  }
-
-  @font-face {
-    font-display: block;
-    font-family: "NHaasGrotesk 75";
-    font-style: normal;
-    font-weight: bold;
-    src: url("$lib/fonts/NHaasGrotesk/NHaasGroteskTXPro-75Bd.otf");
-  }
 
   .black-spacer {
     height: 15vh;

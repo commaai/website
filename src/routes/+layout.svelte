@@ -87,9 +87,10 @@
     </div> -->
     <nav class="navbar-section-links">
       <a href="/" class:active={$page.url.pathname === '/'}>home</a>
+      <a href="/vehicles" class="hide-mobile-1" class:active={$page.url.pathname.startsWith('/vehicles')}>compatibility</a>
       <a href="/shop" class:active={$page.url.pathname.startsWith('/shop')}>shop</a>
-      <a href="/support" class:active={$page.url.pathname.startsWith('/support')}>faq</a>
-      <a href="/vehicles" class="hide-mobile-1" class:active={$page.url.pathname.startsWith('/vehicles')}>supported cars</a>
+      <a href="/shop" class:active={$page.url.pathname.startsWith('/setup')}>setup</a>
+      <a href="/support" class:active={$page.url.pathname.startsWith('/openpilot')}>autonomy</a>
       <a href="/jobs" class="hide-mobile-2" class:active={$page.url.pathname.startsWith('/jobs')}>jobs</a>
     </nav>
     <div class="navbar-section-buttons">
@@ -154,17 +155,16 @@
   }
 
   .navbar {
-    top: 1rem;
     position: fixed;
-    left: 1rem;
-    right: 1rem;
+    top: 0;
+    left: 0;
+    right: 0;
     width: auto;
     z-index: 20;
-    border-radius: 0.5rem;
 
-    background-color: rgba(0, 0, 0, 0.75);
-    border-bottom: 1px solid #000;
-    backdrop-filter: blur(10px);
+    background-color: #EAEAEA66;
+    /*border-bottom: 1px solid #000;*/
+    backdrop-filter: blur(32px);
     overflow: visible;
   }
 
@@ -223,10 +223,9 @@
     justify-content: left;
 
     & a {
-      color: #ffffff;
-      margin: 1.0rem 1.5rem;
+      margin: 1.25rem 1.25rem;
       font-family: Inter, sans-serif;
-      font-size: 1.125rem;
+      font-size: 1.5rem;
       white-space: nowrap;
       transition: color 0.2s, text-shadow 0.2s;
 

@@ -25,7 +25,6 @@ body {
   font-size: 16px;
   font-weight: 400;
   line-height: 1.4;
-  letter-spacing: -0.04em;
 
   margin: 0;
   min-height: 100%;
@@ -117,7 +116,7 @@ body {
 
 .light {
   --color-foreground: black;
-  --color-background: white;
+  --color-background: var(--color-light);
   --color-muted: #00000080;
 }
 
