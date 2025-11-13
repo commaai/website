@@ -21,7 +21,12 @@
       },
       {
         "source": "/shop/comma-3x-trade-in",
-        "destination": "/shop/comma-four-trade-in",
+        "destination": "/shop/comma-four",
+        "type": 301
+      },
+      {
+        "source": "/shop/comma-four-trade-in",
+        "destination": "/shop/comma-four",
         "type": 301
       },
       {

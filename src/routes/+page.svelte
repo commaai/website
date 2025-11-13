@@ -1,7 +1,7 @@
 <script>
   import { onMount, tick } from 'svelte';
   import Hls from 'hls.js';
-  import productsData from '$lib/data/products.json';
+  import { products as productsData } from '$lib/data/products.js';
   import { getProduct } from '$lib/utils/shopify.js';
   import { vehicleHarnesses } from '$lib/utils/harnesses.js';
   import { selectedCar } from '../store';
@@ -19,11 +19,8 @@
   import NHaasGroteskRoman from "$lib/fonts/NHaasGrotesk/NHaasGroteskDSPro-55Rg.otf";
   import NHaasGrotesk75 from "$lib/fonts/NHaasGrotesk/NHaasGroteskTXPro-75Bd.otf";
 
-  let variantId = null;
   let videoElement;
   let videoReady = false;
-  let clickedWithoutCar = false;
-  let compatHtml = 'check compatibility';
   let compatPulse = false;
   let compatShake = false;
 
@@ -40,50 +37,7 @@
     currentFourImage = imageSrc;
   }
 
-  // Get selected car and harness info
-  $: selectedHarness = $selectedCar && $vehicleHarnesses ? $vehicleHarnesses.find(h => h.car === $selectedCar) || null : null;
-
-  // Reset clickedWithoutCar when a car is selected
-  $: if ($selectedCar) {
-    clickedWithoutCar = false;
-  }
-
-  // Update compatibility message and pulse highlight when it changes
-  $: (async () => {
-    let nextHtml = 'check compatibility';
-    if (clickedWithoutCar && !$selectedCar) {
-      nextHtml = 'Select your car. The comma four ships with a harness specific to your car.';
-    } else if (selectedHarness && selectedHarness.package) {
-      nextHtml = selectedHarness.package === 'All'
-        ? `openpilot will work with <strong>all packages and trims</strong> on the <strong>${selectedHarness.car}</strong>.`
-        : `openpilot requires <strong>${selectedHarness.car}</strong> to come equipped with <strong>${selectedHarness.package}</strong>.`;
-    }
-
-    if (nextHtml !== compatHtml) {
-      compatHtml = nextHtml;
-      // trigger color pulse
-      compatPulse = false;
-      await tick();
-      compatPulse = true;
-      setTimeout(() => {
-        compatPulse = false;
-      }, 2500);
-    }
-  })();
-
   onMount(async () => {
-    // Fetch product variant ID
-    const productInfo = productsData['comma-four'];
-    if (productInfo) {
-      const response = await getProduct(productInfo.id);
-      if (response.status === 200 && response.body?.data?.product) {
-        const product = response.body.data.product;
-        if (product.variants?.nodes?.length > 0) {
-          variantId = product.variants.nodes[0].id;
-        }
-      }
-    }
-
     // Initialize HLS.js
     if (videoElement) {
       // Show video once it starts playing
@@ -107,41 +61,6 @@
       }
     }
   });
-
-  async function handleBuyNow() {
-    // If no car selected and this is the first click, shake and show message
-    if (!$selectedCar) {
-      clickedWithoutCar = true;
-      document.querySelector('.car-search input')?.focus()
-      // shake compatibility text instead of button
-      compatShake = false;
-      await tick();
-      compatShake = true;
-      setTimeout(() => {
-        compatShake = false;
-      }, 750); // Animation duration (medium)
-      return;
-    }
-
-    // Second click or car is selected - proceed to checkout
-    if (variantId) {
-      // Extract numeric ID from GraphQL variant ID (format: gid://shopify/ProductVariant/12345)
-      const numericId = variantId.split('/').pop();
-
-      // Get selected car from store and find its harness
-      let cartItems = `${numericId}:1`;
-      if ($selectedCar && $vehicleHarnesses) {
-        const harness = $vehicleHarnesses.find(h => h.car === $selectedCar);
-        if (harness && harness.id) {
-          const harnessNumericId = harness.id.split('/').pop();
-          cartItems = `${numericId}:1,${harnessNumericId}:1`;
-        }
-      }
-
-      // Open Shopify cart with product (and harness if car is selected) added
-      window.open(`https://${storeUrl}/cart/${cartItems}`, '_blank');
-    }
-  }
 
   function handleDragStart(e) {
     e.preventDefault();
@@ -225,39 +144,16 @@
           </button>
         {/each}
       </div>
-      <div class="four-terms">
-        <details>
-          <summary class="four-terms-toggle">Terms & Conditions</summary>
-          <div class="four-terms-content">
-            <p><strong>30-Day Return</strong><br>
-            If for any reason you are dissatisfied with anything purchased at the comma.ai shop, ship it back within 30 days for a full refund. <a href="https://comma.ai/returns">comma.ai/returns</a></p>
-
-            <p>If you intend to upstream support for a new car model, we may approve an extended return window. Open a ticket request at <a href="https://comma.ai/support">comma.ai/support</a>.</p>
-
-            <p><strong>Warranty</strong><br>
-            1-year limited warranty against hardware defects. Open and repair the comma four at your own risk. comma is not responsible for damages that may occur while repairing devices. We cannot provide shipping return labels for international devices. Any damage on arrival must be reported to comma support within 14 days of delivery.</p>
-
-            <p><strong>Software</strong><br>
-            The comma four does not ship with software capable of controlling a car. Open source software can be installed separately.</p>
-
-            <p><strong>Windshield installation</strong><br>
-            Before using the device on your windshield, check the state and local laws and ordinances where you drive. Some state laws prohibit or restrict the placement of objects on the windshield of a motor vehicle. IT IS THE USER'S RESPONSIBILITY TO MOUNT THE DEVICE IN COMPLIANCE WITH ALL APPLICABLE LAWS AND ORDINANCES. Always mount your device in a location that does not obstruct the driver's view of the road. comma does not assume any responsibility for any fines, penalties, or damages that may be incurred as a result of any state or local law or ordinance relating to the use of your comma device.</p>
-          </div>
-        </details>
-      </div>
     </div>
   </section>
 
   <div class="hero-content-wrapper">
     <div class="buy-now-container">
-      <button class="buy-now-button" on:click={handleBuyNow}>
+      <a href="/shop/comma-four" class="buy-now-button">
         <span class="buy-now-text">Buy now</span>
         <span class="buy-now-price"><span class="dollar-sign">$</span>999</span>
-      </button>
-      <div class="shipping-notice">Ships in 1-12 weeks</div>
-      <button class="check-compatibility" class:flash={compatPulse} class:shake={compatShake} on:click={() => document.querySelector('.car-search input')?.focus()}>
-        {@html compatHtml}
-      </button>
+      </a>
+      <a href="/vehicles" class="check-compatibility">check compatibility</a>
     </div>
   </div>
 
@@ -312,8 +208,7 @@
 
     @media screen and (max-width: 698px) {
       bottom: calc(30px);
-      padding: 0;
-      margin: 0 2rem;
+      padding: 0 2rem;
       gap: 0.5rem;
     }
   }
@@ -406,26 +301,14 @@
     }
 
     @media screen and (max-width: 698px) {
-      min-width: 100%;
+      min-width: auto;
+      width: 100%;
       padding: 1.25rem 2rem;
       font-size: 1.25rem;
       gap: 2rem;
+      box-sizing: border-box;
     }
 
-  }
-
-  .shipping-notice {
-    font-size: 24px;
-    color: rgb(155, 155, 155);
-    text-shadow: 0 0 12px rgba(40, 40, 40, 1);
-    font-family: Inter, sans-serif;
-    text-align: center;
-    line-height: 1.4;
-    user-select: none;
-
-    @media screen and (max-width: 698px) {
-      font-size: 14px;
-    }
   }
 
   @keyframes shake-x {
@@ -471,7 +354,7 @@
 
     @media screen and (max-width: 698px) {
       max-width: 100%;
-      font-size: 14px;
+      font-size: 20px;
     }
   }
 
@@ -753,82 +636,6 @@
         width: 100px;
         height: 80px;
         padding: 2px;
-      }
-    }
-
-    & .four-terms {
-      margin-top: 3rem;
-      color: rgb(155, 155, 155);
-      font-size: 14px;
-      line-height: 1.6;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
-      @media screen and (max-width: 1500px) {
-        order: 3;
-        margin-top: 3rem;
-      }
-
-      & details {
-        width: 100%;
-        max-width: 550px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      & .four-terms-toggle {
-        background: transparent;
-        border: none;
-        color: rgb(155, 155, 155);
-        font-size: 14px;
-        font-family: Inter, sans-serif;
-        cursor: pointer;
-        padding: 0;
-        margin-bottom: 1rem;
-        text-decoration: underline;
-        list-style: none;
-        text-align: center;
-
-        &::-webkit-details-marker {
-          display: none;
-        }
-
-        &::marker {
-          display: none;
-        }
-
-        &:hover {
-          color: #EAEAEA;
-        }
-      }
-
-      & .four-terms-content {
-        width: 100%;
-        max-width: 550px;
-
-        & p {
-          margin: 0 0 1.5rem 0;
-
-          &:last-child {
-            margin-bottom: 0;
-          }
-        }
-
-        & strong {
-          color: #EAEAEA;
-          font-weight: 600;
-        }
-
-        & a {
-          color: rgb(155, 155, 155);
-          text-decoration: underline;
-
-          &:hover {
-            color: #EAEAEA;
-          }
-        }
       }
     }
   }

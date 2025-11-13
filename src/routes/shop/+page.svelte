@@ -20,7 +20,7 @@
   import { vehicleCountText } from '$lib/constants/vehicles.js';
 
   import { addToCart } from "../../store";
-  import productsData from '$lib/data/products.json';
+  import { products as productsData } from '$lib/data/products.js';
   import { resolveImages } from '$lib/utils/images.js';
 
   const componentOrder = [
@@ -28,7 +28,7 @@
     'harness-box', 'obd-c-cable', 'comma-power', 'comma-prime-sim',
     'panda-jungle', 'panda-paw', 'comma-ai-hoodie', 'comma-ai-beanie',
     'comma-ai-t-shirt', 'comma-power-extender', 'comma-device-screen',
-    'comma-3x-back-case', 'comma-four-trade-in', 'comma-3x-out-of-warranty-repair',
+    'comma-3x-back-case', 'comma-3x-out-of-warranty-repair',
   ];
 
   $: accessoryProducts = componentOrder
@@ -58,7 +58,7 @@
             </LinkButton>
             <p>
               Works with {vehicleCountText} cars.
-              <a class="highlight muted" href="/vehicles" target="_blank">Check compatibility</a>.
+              <a class="highlight muted" href="/vehicles">Check compatibility</a>.
             </p>
           </div>
           <div class="mobile-first">

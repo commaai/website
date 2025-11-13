@@ -22,8 +22,6 @@
   import { updateCart } from '$lib/utils/shopify';
   import { printConsoleBanner } from '$lib/utils/console';
 
-  import CarSearch from "$lib/components/CarSearch.svelte";
-
   import HeaderMenu from "$lib/components/HeaderMenu.svelte";
   import ShoppingCart from "$lib/components/ShoppingCart.svelte";
   import {
@@ -88,15 +86,12 @@
       </div>
     </div> -->
     <nav class="navbar-section-links">
-      <a href="/" class:active={$page.url.pathname === '/'}>comma four</a>
+      <a href="/" class:active={$page.url.pathname === '/'}>home</a>
       <a href="/shop" class:active={$page.url.pathname.startsWith('/shop')}>shop</a>
-      <a href="/setup" class:active={$page.url.pathname.startsWith('/setup')}>setup</a>
-      <a href="/support" class="hide-mobile-1" class:active={$page.url.pathname.startsWith('/support')}>support</a>
+      <a href="/support" class:active={$page.url.pathname.startsWith('/support')}>faq</a>
+      <a href="/vehicles" class="hide-mobile-1" class:active={$page.url.pathname.startsWith('/vehicles')}>supported cars</a>
       <a href="/jobs" class="hide-mobile-2" class:active={$page.url.pathname.startsWith('/jobs')}>jobs</a>
     </nav>
-    <div class="navbar-section-search">
-      <CarSearch />
-    </div>
     <div class="navbar-section-buttons">
       <!-- <a class="button shop" href="/shop">
         {@html BasketIcon}
@@ -136,6 +131,7 @@
         <a href="https://github.com/commaai/openpilot/releases">RELEASES</a>
         <a href="/jobs">JOBS</a>
         <a href="/leaderboard.html">LEADERBOARD</a>
+        <a href="/vehicles">SUPPORTED CARS</a>
         <a href="/support">SUPPORT</a>
         <a href="/setup">SETUP GUIDE</a>
         <a href="https://github.com/commaai">GITHUB</a>
@@ -247,13 +243,19 @@
         }
       }
 
-      @media only screen and (max-width: 698px) {
+      @media only screen and (max-width: 710px) {
         margin: 1.0rem 0.75rem;
         font-size: 1rem;
       }
     }
 
-    @media only screen and (max-width: 400px) {
+    /*@media only screen and (max-width: 440px) {*/
+    /*  & a.hide-mobile-3 {*/
+    /*    display: none;*/
+    /*  }*/
+    /*}*/
+
+    @media only screen and (max-width: 405px) {
       & a.hide-mobile-2 {
         display: none;
       }
@@ -267,43 +269,21 @@
   }
 
   /* Wrap nav bar links earlier if cart button is showing */
-  @media (max-width: 500px) {
+  /*@media (max-width: 540px) {*/
+  /*  .navbar-container:has(.cart) .navbar-section-links a.hide-mobile-3 {*/
+  /*    display: none;*/
+  /*  }*/
+  /*}*/
+
+  @media (max-width: 490px) {
     .navbar-container:has(.cart) .navbar-section-links a.hide-mobile-2 {
       display: none;
     }
   }
 
-  @media (max-width: 450px) {
+  @media (max-width: 436px) {
     .navbar-container:has(.cart) .navbar-section-links a.hide-mobile-1 {
       display: none;
-    }
-  }
-
-  .navbar-section-search {
-    display: flex;
-    align-items: center;
-    flex: 1;
-    min-width: 0;
-
-    & :global(.car-search) {
-      width: 100%;
-      flex: 1;
-    }
-
-    @media only screen and (max-width: 1160px) {
-      order: 3;
-      flex-basis: 100%;
-      width: 100%;
-      border-top: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 0 0 0.5rem 0.5rem;
-
-      & :global(.car-search) {
-        min-width: 0;
-
-        & :global(.search-input) {
-          min-width: 0;
-        }
-      }
     }
   }
 

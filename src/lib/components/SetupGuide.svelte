@@ -21,11 +21,6 @@
     </hgroup>
     <div class="overview">
       <div>
-        {@html RecordingsIcon}
-        <span>{stepCount} steps</span>
-      </div>
-      <div class="divider" />
-      <div>
         {@html ImmediateIcon}
         <span>{estimatedMinutes} min</span>
       </div>
