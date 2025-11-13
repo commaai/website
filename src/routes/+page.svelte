@@ -157,7 +157,11 @@
 
   <section class="light hero-section">
     <div class="left-section">
-      <img src={Map} alt="openpilot map"/>
+      <div class="bottom-section">
+        <div class="map-image">
+          <img src={Map} alt="openpilot map"/>
+        </div>
+      </div>
     </div>
 
     <div class="right-section">
@@ -288,6 +292,10 @@
     /*flex: 1 1 0;*/
     width: 100%;
     /*height: auto;*/
+  }
+
+  .map-image {
+    line-height: 0;
   }
 
   .left-section {
