@@ -7,9 +7,13 @@
   import { selectedCar } from '../store';
   import { vehicleCountText } from '$lib/constants/vehicles.js';
 
-  import FourImage from "$lib/images/products/comma-four/four_screen_on.png";
-  import FourSide from "$lib/images/products/comma-four/four_side_2.png";
-  import FourBack from "$lib/images/products/comma-four/four_back_2.png";
+  // import FourImage from "$lib/images/products/comma-four/four_screen_on.png";
+  // import FourSide from "$lib/images/products/comma-four/four_side_2.png";
+  // import FourBack from "$lib/images/products/comma-four/four_back_2.png";
+  import FourFront from "$lib/images/home/hero/four_front.png";
+  import FourBack from "$lib/images/home/hero/four_back.png";
+  import FourSide from "$lib/images/home/hero/four_side.png";
+  import FourAngled from "$lib/images/home/hero/four_angled.png";
   import FourPov from "$lib/images/home/four_pov.png";
   import Map from "$lib/images/home/map.png";
   import FourZoom from "$lib/images/home/four_zoom.png";
@@ -27,12 +31,12 @@
   let compatShake = false;
 
   // Image carousel state
-  let currentFourImage = FourImage;
+  let currentFourImage = FourFront;
   const fourImages = [
-    { src: FourImage, name: 'screen' },
-    { src: FourImage, name: 'front' },
+    { src: FourFront, name: 'screen' },
+    { src: FourAngled, name: 'angled' },
+    { src: FourBack, name: 'back' },
     { src: FourSide, name: 'side' },
-    { src: FourBack, name: 'back' }
   ];
 
   function selectFourImage(imageSrc) {
@@ -114,10 +118,14 @@
 
   <section class="light hero-section">
     <div class="left-section">
-      hello
-      <!--      images-->
+      <div class="hero-carousel">
+        <div class="main-image-container">
+          <img src={currentFourImage} alt="comma four" class="four-image" />
+        </div>
+      </div>
 
     </div>
+
     <div class="right-section">
       <div class="hero-title">tiny enough to forget</div>
       <div class="hero-description hero-bottom">
@@ -281,6 +289,15 @@
     flex-direction: column;
     justify-content: space-between;
 
+  }
+
+  .main-image-container {
+    width: 960px;
+    height: auto;
+
+    @media screen and (max-width: 2100px) {
+      width: 700px;
+    }
   }
 
   .hero-title {
