@@ -104,12 +104,14 @@
   <section class="light hero-video hero-section">
     <div class="left-section">
       <div class="hero-image-container">
-        <img src={FourPov} alt="comma four pov"/>
-        <div class="bottom-right">i8 East, San Diego</div>
-      </div>
-      <div class="hero-image-container">
-        <img src={FourZoom} alt="comma four zoom"/>
-        <div class="bottom-left">Make driving chill</div>
+        <div class="hero-image-text-container">
+          <img src={FourPov} alt="comma four pov"/>
+          <div class="bottom-right">i8 East, San Diego</div>
+        </div>
+        <div class="hero-image-text-container">
+          <img src={FourZoom} alt="comma four zoom"/>
+          <div class="bottom-left">Make driving chill</div>
+        </div>
       </div>
     </div>
     <!-- Buy now should be pushed down a bit -->
@@ -321,6 +323,10 @@
       @media screen and (max-width: 1300px) {
         flex-direction: column-reverse;
       }
+
+      @media screen and (max-width: 950px) {
+        flex-direction: column;
+      }
     }
   }
 
@@ -357,6 +363,16 @@
   }
 
   .hero-image-container {
+  /*  lay out vertically now*/
+    display: flex;
+    width: 100%;
+
+    @media screen and (max-width: 950px) {
+      flex-direction: column;
+    }
+  }
+
+  .hero-image-text-container {
     width: 100%;
     display: flex;
     align-items: flex-end;
@@ -370,6 +386,10 @@
       font-size: 36px;
       letter-spacing: -0.06em;
       line-height: 1;
+
+      @media screen and (max-width: 1300px) {
+        font-size: 32px;
+      }
     }
 
     & .bottom-right {
@@ -378,6 +398,10 @@
       right: 1rem;
       font-size: 20px;
       letter-spacing: -0.06em;
+
+      @media screen and (max-width: 1300px) {
+        font-size: 16px;
+      }
     }
   }
 
@@ -395,10 +419,19 @@
       padding-left: 10px;
       padding-top: 2rem;
     }
+
+    @media screen and (max-width: 950px) {
+      width: 100%;
+      /*padding-right: 10px; WHY NO WORK?*/
+    }
   }
 
   .hero-section:last-child .right-section {
     margin-bottom: 4rem;
+
+    @media screen and (max-width: 950px) {
+      margin-bottom: 2rem;
+    }
   }
 
   .hero-carousel {
@@ -406,6 +439,10 @@
 
     @media screen and (max-width: 1300px) {
       display: none;
+    }
+
+    @media screen and (max-width: 950px) {
+      display: flex;
     }
   }
 
@@ -448,6 +485,11 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+    }
+
+    @media screen and (max-width: 950px) {
+      /* Switch back to carousel */
+      display: none;
     }
   }
 
@@ -522,6 +564,10 @@
     @media screen and (max-width: 1300px) {
       padding-top: 8rem;
       font-size: 16px;
+    }
+
+    @media screen and (max-width: 950px) {
+      padding-top: 4rem;
     }
   }
 
