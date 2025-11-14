@@ -338,6 +338,10 @@
 
   .hero-section:first-child {
     padding-top: 104px;
+
+    @media screen and (max-width: 950px) {
+      padding-top: 0;
+    }
   }
 
   .hero-section:last-child {

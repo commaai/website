@@ -78,12 +78,13 @@
 </svelte:head>
 
 <header class="navbar">
+  <div class="menu-container">
+    <HeaderMenu/>
+  </div>
   <div class="navbar-container">
-    <div class="menu-container">
-      <HeaderMenu />
-    </div>
-<!--    <div class="hamburger-icon">-->
-<!--      {@html HamburgerIcon}-->
+
+    <!--    <div class="hamburger-icon">-->
+    <!--      {@html HamburgerIcon}-->
 <!--    </div>-->
     <nav class="navbar-section-links">
       <a href="/">{@html CommaIcon}</a>
@@ -183,7 +184,7 @@
   .hamburger-icon {
     display: none;
 
-    @media only screen and (max-width: 850px) {
+    @media only screen and (max-width: 700px) {
       display: flex;
       align-items: center;
       cursor: pointer;
@@ -214,7 +215,7 @@
         }
       }
 
-      @media only screen and (max-width: 850px) {
+      @media only screen and (max-width: 700px) {
         display: none;
       }
 

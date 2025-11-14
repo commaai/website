@@ -43,14 +43,16 @@
     display: none;
     position: absolute;
     border: none;
-    width: 64px;
-    height: 64px;
-    left: 3px;
-    top: 0;
     /*border-right: 1px solid #000;*/
     background-color: transparent;
     /*height: 65px;*/
     /*width: 90px;*/
+    height: 64px;
+    /* Half of nav bar and close height */
+    /*top: calc(64px / 2 - 16px / 2);*/
+    top: 0;
+    left: 24px;
+    z-index: 1000;
     padding: 0;
     text-align: center;
     cursor: pointer;
@@ -62,7 +64,7 @@
     /*  }*/
     /*}*/
 
-    @media screen and (max-width: 850px) {
+    @media screen and (max-width: 700px) {
       display: block;
     }
 
@@ -74,20 +76,18 @@
   }
 
   .menu-container {
-    position: fixed;
+    position: absolute;
     left: 0;
     right: 0;
-    top: 30px;
-    margin-top: 30px;
-    display: flex;
+    top: 63px;
+    /*display: flex;*/
     padding: 0 3rem;
     z-index: 2;
     /*background-color: #EAEAEA;*/
     color: white;
-        background-color: #EAEAEA66;
-    backdrop-filter: blur(32px);
-    /*display: none;*/
-    /*background-color: #EAEAEA66; backdrop-filter: blur(32px);*/
+    display: none;
+    background-color: #EAEAEA66; backdrop-filter: blur(32px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 
     @media (hover: hover) and (pointer: fine) {
       & a:hover {
