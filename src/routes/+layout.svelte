@@ -16,8 +16,6 @@
 
   import CommaIcon from "$lib/icons/comma-logo.svg?raw";
   import CartIcon from "$lib/icons/ui/cart.svg?raw";
-  import BasketIcon from "$lib/icons/ui/basket.svg?raw";
-  import ExternalIcon from "$lib/icons/ui/external.svg?raw";
 
   import { updateCart } from '$lib/utils/shopify';
   import { printConsoleBanner } from '$lib/utils/console';
@@ -94,10 +92,6 @@
       <a href="/jobs" class="hide-mobile-2">jobs</a>
     </nav>
     <div class="navbar-section-buttons">
-      <!-- <a class="button shop" href="/shop">
-        {@html BasketIcon}
-        Shop
-      </a> -->
       {#if $cartTotalQuantity > 0}
         <button class="button cart" on:click={openCart}>
           <div class="cart-text">cart ({$cartTotalQuantity})</div>
@@ -165,7 +159,6 @@
     z-index: 20;
 
     background-color: #EAEAEA66;
-    /*border-bottom: 1px solid #000;*/
     backdrop-filter: blur(32px);
     overflow: visible;
   }
@@ -245,12 +238,6 @@
       }
     }
 
-    /*@media only screen and (max-width: 440px) {*/
-    /*  & a.hide-mobile-3 {*/
-    /*    display: none;*/
-    /*  }*/
-    /*}*/
-
     @media only screen and (max-width: 405px) {
       & a.hide-mobile-2 {
         display: none;
@@ -263,13 +250,6 @@
       }
     }
   }
-
-  /* Wrap nav bar links earlier if cart button is showing */
-  /*@media (max-width: 540px) {*/
-  /*  .navbar-container:has(.cart) .navbar-section-links a.hide-mobile-3 {*/
-  /*    display: none;*/
-  /*  }*/
-  /*}*/
 
   @media (max-width: 490px) {
     .navbar-container:has(.cart) .navbar-section-links a.hide-mobile-2 {
@@ -289,7 +269,7 @@
     margin: 0;
     height: 64px;  /* Why?! */
 
-    & .cart, & .shop {
+    & .cart {
       border: none;
 
       & svg {
@@ -392,26 +372,6 @@
     & .footer-links-grid a:active {
       opacity: 0.6;
     }
-
-    /*@media screen and (max-width: 1024px) {*/
-    /*  & .footer-content {*/
-    /*    padding: 1rem;*/
-    /*    flex-direction: column;*/
-    /*    gap: 2rem;*/
-    /*  }*/
-
-    /*  & .footer-right {*/
-    /*    align-items: flex-start;*/
-    /*    width: 100%;*/
-    /*  }*/
-
-    /*  & .footer-links-grid {*/
-    /*    grid-template-columns: repeat(auto-fit, minmax(120px, auto));*/
-    /*    justify-content: flex-start;*/
-    /*    width: 100%;*/
-    /*    gap: 1.5rem 1.5rem;*/
-    /*  }*/
-    /*}*/
 
     @media screen and (max-width: 1100px) {
       & .footer-content {
