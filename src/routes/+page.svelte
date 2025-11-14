@@ -131,6 +131,20 @@
           {@html LinkArrow}
         </a>
       </div>
+
+      <!-- On mobile, four thumbnails will go vertically down the page, spanning all sections starting from "comma four" -->
+      <div class="four-thumbnails mobile">
+        {#each allFourImages as image}
+          <button
+            class="four-thumbnail"
+            class:active={currentFourImage === image.src}
+            on:click={() => selectFourImage(image.src)}
+            aria-label={`View ${image.name} view`}
+          >
+            <img src={image.src} alt={`comma four ${image.name}`}/>
+          </button>
+        {/each}
+      </div>
     </div>
   </section>
 
@@ -409,6 +423,19 @@
     }
   }
 
+  .four-thumbnails.mobile {
+    display: none;
+    position: absolute;
+    right: 10%;
+
+    @media screen and (max-width: 1300px) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
   .four-thumbnail {
     background: transparent;
     border: none;
@@ -441,6 +468,13 @@
     @media screen and (max-width: 2000px) {
       width: 175px;
       height: 175px;
+    }
+
+    /* Images are vertically laid out on right */
+    @media screen and (max-width: 1300px) {
+      width: 402px;
+      height: 402px;
+      margin-bottom: -4rem;
     }
 
     /*@media screen and (max-width: 1600px) {*/
