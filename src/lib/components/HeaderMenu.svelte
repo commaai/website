@@ -2,6 +2,7 @@
   import SocialIcons from "$lib/components/SocialIcons.svelte";
   import HamburgerIcon from "$lib/icons/ui/hamburger.svg?raw";
   import Close from "$lib/icons/ui/close-new.svg?raw";
+  import CommaIcon from "$lib/icons/comma-logo.svg?raw";
   import { page } from '$app/stores';
 </script>
 
@@ -24,11 +25,11 @@
     tabindex="-1"
   >
     <div class="section-links">
-      <a href="/shop/comma-3x">comma 3X</a>
+      <a href="/">{@html CommaIcon}</a>
+      <a href="/vehicles">compatibility</a>
       <a href="/shop">shop</a>
-      <a href="/setup">setup guide</a>
-      <a href="/support">support & FAQs</a>
-      <a href="https://blog.comma.ai">blog</a>
+      <a href="/setup">setup</a>
+      <a href="https://blog.comma.ai">autonomy</a>
       <a href="/jobs">jobs</a>
     </div>
   </div>
@@ -73,21 +74,12 @@
     left: 0;
     right: 0;
     top: 63px;
-    padding: 0 3rem;
+    padding: 0 2rem;
     z-index: 2;
     color: white;
     display: none;
     background-color: #EAEAEA66; backdrop-filter: blur(32px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-
-    @media (hover: hover) and (pointer: fine) {
-      & a:hover {
-        color: var(--color-accent);
-      }
-    }
-    & a:active {
-      color: var(--color-accent);
-    }
   }
 
   nav:focus-within {
@@ -125,34 +117,27 @@
     justify-content: flex-start;
     display: flex;
     flex-flow: column;
-    width: 62%;
-    padding: 4rem 0;
+    padding: 2rem 0;
 
     & a {
       color: black;
-      margin-bottom: 2rem;
+      margin-bottom: 24px;
       padding: 0;
-      font-size: 2.5rem;
+      font-size: 32px;
+      letter-spacing: -0.06em;
       line-height: 0.9;
       text-decoration: none;
-    }
-  }
 
-  @media only screen and (max-width: 768px) {
-    .menu-container {
-      flex-flow: column nowrap;
-      row-gap: 1.75rem;
-      justify-content: flex-start;
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          text-shadow: 0 0 8px white, 0 0 16px black;
+        }
+      }
     }
 
-    .section-links {
-      width: 100%;
-      padding: 2.5rem 0 0;
-      flex: unset;
-    }
-
-    .section-links a {
-      font-size: 1.5rem;
+    & svg {
+      width: 24px;
+      height: auto;
     }
   }
 </style>
