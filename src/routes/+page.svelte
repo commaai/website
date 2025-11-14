@@ -309,7 +309,10 @@
     padding-right: 40px;
     flex-direction: column;
     justify-content: space-between;
+  }
 
+  .hero-section:last-child .right-section {
+    margin-bottom: 4rem;
   }
 
   .hero-carousel {
@@ -388,11 +391,14 @@
   .hero-title {
     font-size: 96px;
     line-height: 1;
+    letter-spacing: -0.08em;
     padding-bottom: 1rem;
   }
 
   .hero-description {
     font-size: 20px;
+    line-height: 1.2;
+    letter-spacing: -0.06em;
   }
 
   .hero-description a {
