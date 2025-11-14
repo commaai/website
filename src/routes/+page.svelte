@@ -113,10 +113,10 @@
       </div>
     </div>
     <!-- Buy now should be pushed down a bit -->
-    <div class="right-section" style="min-height: 25rem;">
+    <div class="right-section">
       <div>
         <div class="hero-title">comma 4</div>
-        <div class="hero-description">
+        <div class="hero-description" style="padding-top: 0; padding-bottom: 8rem;">
           comma 4 drives with <a href="https://github.com/commaai/openpilot" target="_blank">openpilot</a> and works with <a href="/vehicles">{vehicleCountText} car models</a>.<br><br>
           It only takes <a href="/setup">15 minutes</a> to upgrade your car to the best advanced driver assistance system in the world.
         </div>
@@ -270,6 +270,17 @@
 </div>
 
 <style>
+  /*
+    Large screen layout:
+    1300px and up: left section 2/3, right section 1/3
+
+    Medium screen layout:
+    Below 1300px: left section 100%, right section 50% below
+
+    Small screen layout:
+    Below 950px: left section 100%, right section 100% below
+  */
+
   .gradient-overlay {
     position: fixed;
     bottom: 0;
@@ -303,6 +314,7 @@
 
     @media screen and (max-width: 1300px) {
       flex-direction: column;
+      margin-bottom: 0rem;
     }
 
     &.mobile-direction-flip {
@@ -379,6 +391,9 @@
 
     @media screen and (max-width: 1300px) {
       width: 50%;
+      /*min-height: 8rem;*/
+      padding-left: 10px;
+      padding-top: 2rem;
     }
   }
 
@@ -474,7 +489,7 @@
     @media screen and (max-width: 1300px) {
       width: 402px;
       height: 402px;
-      margin-bottom: -4rem;
+      margin-bottom: -7rem;
       cursor: default;
 
       &.active {
@@ -493,12 +508,21 @@
     line-height: 1;
     letter-spacing: -0.08em;
     padding-bottom: 1rem;
+
+    @media screen and (max-width: 1300px) {
+      font-size: 72px;
+    }
   }
 
   .hero-description {
     font-size: 20px;
     line-height: 1.2;
     letter-spacing: -0.06em;
+
+    @media screen and (max-width: 1300px) {
+      padding-top: 8rem;
+      font-size: 16px;
+    }
   }
 
   .hero-description a {
@@ -528,7 +552,7 @@
 
   .hero-video .hero-amount {
     font-size: 48px;
-    line-height: 1;
+    line-height: 0.9;
   }
 
   .hero-video .hero-buy-now {
@@ -554,11 +578,20 @@
     display: flex;
     align-items: center;
     gap: 12px;
+
+    @media screen and (max-width: 1300px) {
+      font-size: 16px;
+    }
   }
 
   .link-away :global(svg) {
     width: 20px;
     height: 20px;
+
+    @media screen and (max-width: 1300px) {
+      width: 16px;
+      height: 16px;
+    }
   }
 
   .hero-content-wrapper {
