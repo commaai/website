@@ -161,6 +161,7 @@
     right: 0;
     width: auto;
     z-index: 20;
+    color: black;
 
     background-color: #EAEAEA66;
     /*border-bottom: 1px solid #000;*/
