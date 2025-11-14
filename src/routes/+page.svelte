@@ -312,12 +312,18 @@
 
   .hero-section {
     display: flex;
-    margin-bottom: 4rem;
+    padding-bottom: 4rem;
 
     @media screen and (max-width: 1300px) {
       flex-direction: column;
-      margin-bottom: 0rem;
+      padding-bottom: 1rem;
     }
+
+    /*@media screen and (max-width: 950px) {*/
+    /*  !*padding-bottom: 1rem;*!*/
+    /*  padding-left: 0;*/
+    /*  padding-right: 1rem;*/
+    /*}*/
 
     &.mobile-direction-flip {
       @media screen and (max-width: 1300px) {
@@ -421,11 +427,12 @@
       width: 50%;
       /*min-height: 8rem;*/
       padding-left: 10px;
+      padding-right: 10px;
       padding-top: 2rem;
     }
 
     @media screen and (max-width: 950px) {
-      width: 100%;
+      width: auto;
       /*padding-right: 10px; WHY NO WORK?*/
     }
   }
