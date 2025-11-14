@@ -16,6 +16,7 @@
 
   import CommaIcon from "$lib/icons/comma-logo.svg?raw";
   import CartIcon from "$lib/icons/ui/cart.svg?raw";
+  import HamburgerIcon from "$lib/icons/ui/hamburger.svg?raw";
 
   import { updateCart } from '$lib/utils/shopify';
   import { printConsoleBanner } from '$lib/utils/console';
@@ -83,6 +84,9 @@
         <HeaderMenu />
       </div>
     </div> -->
+    <div class="hamburger-icon">
+      {@html HamburgerIcon}
+    </div>
     <nav class="navbar-section-links">
       <a href="/">{@html CommaIcon}</a>
       <a href="/vehicles" class="hide-mobile-1">compatibility</a>
@@ -174,6 +178,17 @@
     }
   }
 
+  .hamburger-icon {
+    display: none;
+
+    @media only screen and (max-width: 850px) {
+      display: flex;
+      align-items: center;
+      padding: 0 1rem;
+      cursor: pointer;
+    }
+  }
+
   .navbar-section-logo {
     flex-direction: row-reverse;
     align-items: center;
@@ -213,12 +228,14 @@
   .navbar-section-links {
     display: flex;
     flex: 1;
-    align-items: center;
+    align-items: stretch;
     justify-content: left;
 
     & a {
+      display: flex;
+      align-items: center;
       color: black;
-      margin: 1.25rem 1.25rem;
+      margin: 0 1.25rem;
       font-family: Inter, sans-serif;
       font-size: 1.25rem;
       letter-spacing: -0.06em;
@@ -232,23 +249,27 @@
         }
       }
 
-      @media only screen and (max-width: 710px) {
-        margin: 1.0rem 0.75rem;
-        font-size: 1rem;
-      }
-    }
-
-    @media only screen and (max-width: 405px) {
-      & a.hide-mobile-2 {
+      @media only screen and (max-width: 850px) {
         display: none;
       }
+
+      /*@media only screen and (max-width: 710px) {*/
+      /*  margin: 1.0rem 0.75rem;*/
+      /*  font-size: 1rem;*/
+      /*}*/
     }
 
-    @media only screen and (max-width: 350px) {
-      & a.hide-mobile-1 {
-        display: none;
-      }
-    }
+    /*@media only screen and (max-width: 405px) {*/
+    /*  & a.hide-mobile-2 {*/
+    /*    display: none;*/
+    /*  }*/
+    /*}*/
+
+    /*@media only screen and (max-width: 350px) {*/
+    /*  & a.hide-mobile-1 {*/
+    /*    display: none;*/
+    /*  }*/
+    /*}*/
   }
 
   @media (max-width: 490px) {
@@ -265,8 +286,7 @@
 
   .navbar-section-buttons {
     display: flex;
-    padding: 0;
-    margin: 0;
+    padding: 0 20px 0 0;
     height: 64px;  /* Why?! */
 
     & .cart {
@@ -278,10 +298,11 @@
     }
 
     & .button {
+      padding: 0;
       color: black;
       font-family: Inter, sans-serif;
-      padding-left: 56px;
-      padding-right: 56px;
+      /*padding-left: 56px;*/
+      /*padding-right: 56px;*/
       font-size: 20px;
       font-weight: 400;
       letter-spacing: -0.06em;
