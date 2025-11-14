@@ -86,12 +86,12 @@
       </div>
     </div> -->
     <nav class="navbar-section-links">
-      <a href="/" class:active={$page.url.pathname === '/'}>home</a>
-      <a href="/vehicles" class="hide-mobile-1" class:active={$page.url.pathname.startsWith('/vehicles')}>compatibility</a>
-      <a href="/shop" class:active={$page.url.pathname.startsWith('/shop')}>shop</a>
-      <a href="/shop" class:active={$page.url.pathname.startsWith('/setup')}>setup</a>
-      <a href="/support" class:active={$page.url.pathname.startsWith('/openpilot')}>autonomy</a>
-      <a href="/jobs" class="hide-mobile-2" class:active={$page.url.pathname.startsWith('/jobs')}>jobs</a>
+      <a href="/">home</a>
+      <a href="/vehicles" class="hide-mobile-1">compatibility</a>
+      <a href="/shop">shop</a>
+      <a href="/setup">setup</a>
+      <a href="https://blog.comma.ai">autonomy</a>
+      <a href="/jobs" class="hide-mobile-2">jobs</a>
     </nav>
     <div class="navbar-section-buttons">
       <!-- <a class="button shop" href="/shop">
@@ -161,7 +161,6 @@
     right: 0;
     width: auto;
     z-index: 20;
-    color: black;
 
     background-color: #EAEAEA66;
     /*border-bottom: 1px solid #000;*/
@@ -224,6 +223,7 @@
     justify-content: left;
 
     & a {
+      color: black;
       margin: 1.25rem 1.25rem;
       font-family: Inter, sans-serif;
       font-size: 1.25rem;
@@ -231,16 +231,9 @@
       white-space: nowrap;
       transition: color 0.2s, text-shadow 0.2s;
 
-      &.active,
-      &:active {
-        color: var(--color-accent);
-        text-shadow: 0 0 8px var(--color-accent), 0 0 16px var(--color-accent);
-      }
-
       @media (hover: hover) and (pointer: fine) {
         &:hover {
-          color: var(--color-accent);
-          text-shadow: 0 0 8px var(--color-accent), 0 0 16px var(--color-accent);
+          text-shadow: 0 0 8px white, 0 0 16px black;
         }
       }
 
