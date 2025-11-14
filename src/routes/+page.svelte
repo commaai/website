@@ -336,6 +336,10 @@
     }
   }
 
+  .hero-section:first-child {
+    padding-top: 64px;
+  }
+
   .hero-section:last-child {
     margin-bottom: 0;
     padding-bottom: 0;
