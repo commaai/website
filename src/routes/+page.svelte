@@ -32,6 +32,12 @@
 
   // Image carousel state
   let currentFourImage = FourFront;
+  const allFourImages = [
+    { src: FourFront, name: 'front' },
+    { src: FourAngled, name: 'angled' },
+    { src: FourBack, name: 'back' },
+    { src: FourSide, name: 'side' },
+  ];
   const fourImages = [
     { src: FourAngled, name: 'angled' },
     { src: FourBack, name: 'back' },
@@ -163,7 +169,7 @@
     </div>
   </section>
 
-  <section class="light hero-section">
+  <section class="light hero-section mobile-direction-flip">
     <div class="left-section" style="background-color: black; align-items: center;">
         <div class="map-image">
           <img src={Map} alt="openpilot map"/>
@@ -284,6 +290,12 @@
     @media screen and (max-width: 1300px) {
       flex-direction: column;
     }
+
+    &.mobile-direction-flip {
+      @media screen and (max-width: 1300px) {
+        flex-direction: column-reverse;
+      }
+    }
   }
 
   .hero-section:last-child {
@@ -362,6 +374,10 @@
 
   .hero-carousel {
     display: flex;
+
+    @media screen and (max-width: 1300px) {
+      display: none;
+    }
   }
 
   .main-image-container {
