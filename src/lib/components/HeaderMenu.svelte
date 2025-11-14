@@ -1,5 +1,7 @@
 <script>
   import SocialIcons from "$lib/components/SocialIcons.svelte";
+  import HamburgerIcon from "$lib/icons/ui/hamburger.svg?raw";
+  import Close from "$lib/icons/ui/close-new.svg?raw";
   import { page } from '$app/stores';
 </script>
 
@@ -11,11 +13,12 @@
     aria-controls="menu-dropdown"
     tabindex="0"
   >
-    <svg viewBox="0 0 24 24" width="32" height="32">
-      <rect x="3" y="5" width="18" height="2"></rect>
-      <rect x="3" y="11" width="18" height="2"></rect>
-      <rect x="3" y="17" width="18" height="2"></rect>
-    </svg>
+<!--    <svg viewBox="0 0 24 24" width="32" height="32">-->
+<!--      <rect x="3" y="5" width="18" height="2"></rect>-->
+<!--      <rect x="3" y="11" width="18" height="2"></rect>-->
+<!--      <rect x="3" y="17" width="18" height="2"></rect>-->
+<!--    </svg>-->
+    {@html HamburgerIcon}
   </button>
   <div
     class="menu-container"
@@ -37,21 +40,30 @@
 
 <style>
   .toggle-button {
-    display: block;
+    display: none;
+    position: absolute;
     border: none;
-    border-right: 1px solid #000;
+    width: 64px;
+    height: 64px;
+    left: 3px;
+    top: 0;
+    /*border-right: 1px solid #000;*/
     background-color: transparent;
-    height: 65px;
-    width: 90px;
+    /*height: 65px;*/
+    /*width: 90px;*/
     padding: 0;
     text-align: center;
     cursor: pointer;
     transition: background-color 0.2s;
 
-    @media (hover: hover) and (pointer: fine) {
-      &:hover {
-        background-color: var(--color-accent);
-      }
+    /*@media (hover: hover) and (pointer: fine) {*/
+    /*  &:hover {*/
+    /*    background-color: var(--color-accent);*/
+    /*  }*/
+    /*}*/
+
+    @media screen and (max-width: 850px) {
+      display: block;
     }
 
     & svg {
@@ -62,16 +74,20 @@
   }
 
   .menu-container {
-    position: absolute;
+    position: fixed;
     left: 0;
     right: 0;
+    top: 30px;
+    margin-top: 30px;
     display: flex;
     padding: 0 3rem;
     z-index: 2;
-    background-color: black;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    /*background-color: #EAEAEA;*/
     color: white;
-    display: none;
+        background-color: #EAEAEA66;
+    backdrop-filter: blur(32px);
+    /*display: none;*/
+    /*background-color: #EAEAEA66; backdrop-filter: blur(32px);*/
 
     @media (hover: hover) and (pointer: fine) {
       & a:hover {
@@ -85,7 +101,7 @@
 
   nav:focus-within {
     & .toggle-button {
-      background-color: black;
+      /*background-color: black;*/
       color: white;
       transition: background-color 250ms, color 250ms;
       cursor: pointer;
@@ -115,7 +131,7 @@
     padding: 4rem 0;
 
     & a {
-      color: #fff;
+      color: black;
       margin-bottom: 2rem;
       padding: 0;
       font-size: 2.5rem;

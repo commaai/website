@@ -78,15 +78,13 @@
 </svelte:head>
 
 <header class="navbar">
-  <!-- CSS-only toggle -->
-  <input type="checkbox" id="nav-toggle" class="nav-toggle" />
-
   <div class="navbar-container">
-    <!-- HAMBURGER -->
-    <label class="hamburger-icon" for="nav-toggle">
-      {@html HamburgerIcon}
-    </label>
-
+    <div class="menu-container">
+      <HeaderMenu />
+    </div>
+<!--    <div class="hamburger-icon">-->
+<!--      {@html HamburgerIcon}-->
+<!--    </div>-->
     <nav class="navbar-section-links">
       <a href="/">{@html CommaIcon}</a>
       <a href="/vehicles" class="hide-mobile-1">compatibility</a>
@@ -95,7 +93,6 @@
       <a href="https://blog.comma.ai">autonomy</a>
       <a href="/jobs" class="hide-mobile-2">jobs</a>
     </nav>
-
     <div class="navbar-section-buttons">
       {#if $cartTotalQuantity > 0}
         <button class="button cart" on:click={openCart}>
@@ -105,16 +102,6 @@
       {/if}
     </div>
   </div>
-
-  <!-- MOBILE DROPDOWN MENU (separate from desktop nav) -->
-  <nav class="navbar-mobile-menu">
-    <a href="/">{@html CommaIcon}</a>
-    <a href="/vehicles">compatibility</a>
-    <a href="/shop">shop</a>
-    <a href="/setup">setup</a>
-    <a href="https://blog.comma.ai">autonomy</a>
-    <a href="/jobs">jobs</a>
-  </nav>
 </header>
 
 {#if $showCart}
@@ -173,52 +160,9 @@
     margin: 20px;
     z-index: 20;
 
-    background-color: #EAEAEA66;
-    backdrop-filter: blur(32px);
+    /*background-color: #EAEAEA66;*/
+    /*backdrop-filter: blur(32px);*/
     overflow: visible;
-  }
-
-  /* hide the checkbox itself */
-  .nav-toggle {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  /* base: mobile menu hidden */
-  .navbar-mobile-menu {
-    display: none;
-  }
-
-  @media only screen and (max-width: 850px) {
-    .navbar-mobile-menu {
-      position: fixed;
-      /* match navbar margin + height */
-      top: 84px;          /* 64px navbar + ~20px margin */
-      left: 20px;
-      right: 20px;
-
-      background: #eaeaea;
-      backdrop-filter: blur(32px);
-      padding: 24px;
-      display: none;
-      flex-direction: column;
-      gap: 24px;
-      z-index: 19; /* under navbar (20) but above page */
-    }
-
-    .navbar-mobile-menu a {
-      font-family: Inter, sans-serif;
-      font-size: 1.5rem;
-      letter-spacing: -0.06em;
-      color: black;
-      text-decoration: none;
-    }
-
-    /* when checkbox is checked, show the menu */
-    .nav-toggle:checked ~ .navbar-mobile-menu {
-      display: flex;
-    }
   }
 
   .navbar-container {
@@ -228,6 +172,8 @@
     overflow: visible;
     padding-left: 24px;
     padding-right: 24px;
+    background-color: #EAEAEA66;
+    backdrop-filter: blur(32px);
 
     @media only screen and (max-width: 1160px) {
       flex-wrap: wrap;
@@ -241,42 +187,6 @@
       display: flex;
       align-items: center;
       cursor: pointer;
-    }
-  }
-
-  .navbar-section-logo {
-    flex-direction: row-reverse;
-    align-items: center;
-    display: flex;
-    border-right: 1px solid #000;
-
-    & > .title {
-      font-family: "Monument Extended Black", sans-serif;
-      font-size: 20px;
-      color: black;
-      height: 20px;
-      text-transform: uppercase;
-      padding: 0 2rem;
-    }
-
-    @media only screen and (max-width: 1280px) {
-      border-right: none;
-    }
-
-    @media only screen and (max-width: 768px) {
-      flex: 1;
-
-      & > .title {
-        display: flex;
-        flex: 1;
-        justify-content: center;
-      }
-    }
-
-    @media only screen and (max-width: 375px) {
-      & > .title {
-        padding: 0 0.25rem;
-      }
     }
   }
 
