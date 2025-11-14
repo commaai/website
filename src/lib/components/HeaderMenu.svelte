@@ -43,7 +43,8 @@
     background-color: transparent;
     height: 64px;
     top: 0;
-    left: 24px;
+    /* Position to the right of the comma logo + padding */
+    left: calc(24px + 13px + 24px);
     z-index: 1000;
     padding: 0;
     text-align: center;

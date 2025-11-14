@@ -16,7 +16,6 @@
 
   import CommaIcon from "$lib/icons/comma-logo.svg?raw";
   import CartIcon from "$lib/icons/ui/cart.svg?raw";
-  import HamburgerIcon from "$lib/icons/ui/hamburger.svg?raw";
 
   import { updateCart } from '$lib/utils/shopify';
   import { printConsoleBanner } from '$lib/utils/console';
@@ -82,12 +81,10 @@
     <HeaderMenu/>
   </div>
   <div class="navbar-container">
-
-    <!--    <div class="hamburger-icon">-->
-    <!--      {@html HamburgerIcon}-->
-<!--    </div>-->
-    <nav class="navbar-section-links">
+    <span class="comma-home-icon">
       <a href="/">{@html CommaIcon}</a>
+    </span>
+    <nav class="navbar-section-links">
       <a href="/vehicles" class="hide-mobile-1">compatibility</a>
       <a href="/shop">shop</a>
       <a href="/setup">setup</a>
@@ -176,18 +173,21 @@
     background-color: #EAEAEA66;
     backdrop-filter: blur(32px);
 
+    & .comma-home-icon {
+      display: none;
+      & a {
+        display: flex;
+        align-items: center;
+        height: 100%;
+      }
+
+      @media only screen and (max-width: 700px) {
+        display: flex;
+      }
+    }
+
     @media only screen and (max-width: 1160px) {
       flex-wrap: wrap;
-    }
-  }
-
-  .hamburger-icon {
-    display: none;
-
-    @media only screen and (max-width: 700px) {
-      display: flex;
-      align-items: center;
-      cursor: pointer;
     }
   }
 
