@@ -475,6 +475,11 @@
       width: 402px;
       height: 402px;
       margin-bottom: -4rem;
+      cursor: default;
+
+      &.active {
+        transform: scale(1);
+      }
     }
 
     /*@media screen and (max-width: 1600px) {*/
