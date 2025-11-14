@@ -641,11 +641,13 @@
   .hero-video .hero-amount {
     font-size: 48px;
     line-height: 0.9;
+    letter-spacing: -0.08em;
   }
 
   .hero-video .hero-buy-now {
     font-size: 48px;
     line-height: 1;
+    letter-spacing: -0.08em;
     text-decoration: underline;
     color: inherit;
     display: flex;
