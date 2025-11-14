@@ -337,7 +337,7 @@
   }
 
   .hero-section:first-child {
-    padding-top: 64px;
+    padding-top: 104px;
   }
 
   .hero-section:last-child {

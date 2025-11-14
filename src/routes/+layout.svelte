@@ -14,7 +14,7 @@
   import SocialIcons from "$lib/components/SocialIcons.svelte";
   import MailingListForm from "$lib/components/MailingListForm.svelte";
 
-  import CommaIcon from "$lib/icons/comma.svg?raw";
+  import CommaIcon from "$lib/icons/comma-logo.svg?raw";
   import CartIcon from "$lib/icons/ui/cart.svg?raw";
   import BasketIcon from "$lib/icons/ui/basket.svg?raw";
   import ExternalIcon from "$lib/icons/ui/external.svg?raw";
@@ -86,7 +86,7 @@
       </div>
     </div> -->
     <nav class="navbar-section-links">
-      <a href="/">home</a>
+      <a href="/">{@html CommaIcon}</a>
       <a href="/vehicles" class="hide-mobile-1">compatibility</a>
       <a href="/shop">shop</a>
       <a href="/setup">setup</a>
@@ -100,8 +100,8 @@
       </a> -->
       {#if $cartTotalQuantity > 0}
         <button class="button cart" on:click={openCart}>
-          {@html CartIcon}
           <div class="cart-text">cart ({$cartTotalQuantity})</div>
+          {@html CartIcon}
         </button>
       {/if}
     </div>
@@ -160,6 +160,8 @@
     left: 0;
     right: 0;
     width: auto;
+    height: 64px;
+    margin: 20px;
     z-index: 20;
 
     background-color: #EAEAEA66;
@@ -172,7 +174,6 @@
     display: flex;
     align-items: stretch;
     justify-content: space-between;
-    border-radius: 0.5rem;
     overflow: visible;
 
     @media only screen and (max-width: 1160px) {
@@ -230,6 +231,7 @@
       letter-spacing: -0.06em;
       white-space: nowrap;
       transition: color 0.2s, text-shadow 0.2s;
+      line-height: 1;
 
       @media (hover: hover) and (pointer: fine) {
         &:hover {
@@ -283,68 +285,30 @@
 
   .navbar-section-buttons {
     display: flex;
+    padding: 0;
+    margin: 0;
+    height: 64px;  /* Why?! */
 
     & .cart, & .shop {
       border: none;
 
       & svg {
-        margin-right: 0.5rem;
+        margin-left: 1rem;
       }
     }
 
     & .button {
-      color: #000;
-      text-transform: uppercase;
+      color: black;
       font-family: Inter, sans-serif;
-      border: none;
       padding-left: 56px;
       padding-right: 56px;
-      font-size: 1rem;
-      font-weight: 700;
-      letter-spacing: 1px;
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: -0.06em;
       display: flex;
       align-items: center;
       cursor: pointer;
-      background-color: var(--color-accent);
-
-      &:last-child {
-        border-top-right-radius: 0.5rem;
-        border-bottom-right-radius: 0.5rem;
-      }
-
-      &:not(:first-child) {
-        border-left: 1px solid #000;
-      }
-
-      @media (hover: hover) and (pointer: fine) {
-        &:hover {
-          background-color: var(--color-accent-hover);
-        }
-      }
-      &:active {
-        background-color: var(--color-accent-hover);
-      }
-    }
-
-    @media only screen and (max-width: 1300px) {
-      /* show single button, with priority for cart */
-      &.navbar-section-buttons > :first-child:not(:only-child) {
-        display: none;
-      }
-
-      & .cart .cart-text {
-        display: none;
-      }
-
-      & .cart {
-        padding-left: 25px;
-        padding-right: 25px;
-      }
-
-      & .shop {
-        padding-left: 10px;
-        padding-right: 10px;
-      }
+      background-color: transparent;
     }
   }
 
