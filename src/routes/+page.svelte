@@ -106,7 +106,8 @@
         <div class="bottom-left">Make driving chill</div>
       </div>
     </div>
-    <div class="right-section">
+    <!-- Buy now should be pushed down a bit -->
+    <div class="right-section" style="min-height: 25rem;">
       <div>
         <div class="hero-title">comma 4</div>
         <div class="hero-description">
@@ -114,6 +115,7 @@
           It only takes <a href="/setup">15 minutes</a> to upgrade your car to the best advanced driver assistance system in the world.
         </div>
       </div>
+<!--      <div class="hero-bottom" style="margin-top: 8rem;">-->
       <div class="hero-bottom">
         <div class="hero-price">
           <span class="hero-dollar">$</span><span class="hero-amount">999</span>
@@ -278,6 +280,10 @@
   .hero-section {
     display: flex;
     margin-bottom: 4rem;
+
+    @media screen and (max-width: 1300px) {
+      flex-direction: column;
+    }
   }
 
   .hero-section:last-child {
@@ -306,6 +312,10 @@
     width: 66%;
     display: flex;
     align-items: flex-end;
+
+    @media screen and (max-width: 1300px) {
+      width: 100%;
+    }
   }
 
   .hero-image-container {
@@ -340,6 +350,10 @@
     padding-right: 40px;
     flex-direction: column;
     justify-content: space-between;
+
+    @media screen and (max-width: 1300px) {
+      width: 50%;
+    }
   }
 
   .hero-section:last-child .right-section {
@@ -470,6 +484,7 @@
     display: flex;
     align-items: center;
     gap: 20px;
+    text-align: right;
   }
 
   .hero-video .hero-buy-now :global(svg) {

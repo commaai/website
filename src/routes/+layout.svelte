@@ -225,7 +225,8 @@
     & a {
       margin: 1.25rem 1.25rem;
       font-family: Inter, sans-serif;
-      font-size: 1.5rem;
+      font-size: 1.25rem;
+      letter-spacing: -0.06em;
       white-space: nowrap;
       transition: color 0.2s, text-shadow 0.2s;
 
