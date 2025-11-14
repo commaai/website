@@ -97,8 +97,14 @@
 <div>
   <section class="light hero-video hero-section">
     <div class="left-section">
-      <img src={FourPov} alt="comma four pov" />
-      <img src={FourZoom} alt="comma four zoom" />
+      <div class="hero-image-container">
+        <img src={FourPov} alt="comma four pov"/>
+        <div class="bottom-right">i8 East, San Diego</div>
+      </div>
+      <div class="hero-image-container">
+        <img src={FourZoom} alt="comma four zoom"/>
+        <div class="bottom-left">Make driving chill</div>
+      </div>
     </div>
     <div class="right-section">
       <div>
@@ -300,6 +306,31 @@
     width: 66%;
     display: flex;
     align-items: flex-end;
+  }
+
+  .hero-image-container {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+    color: #EAEAEA;
+
+    & .bottom-left {
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+      font-size: 36px;
+      letter-spacing: -0.06em;
+      line-height: 1;
+    }
+
+    & .bottom-right {
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+      font-size: 20px;
+      letter-spacing: -0.06em;
+    }
   }
 
   .right-section {
