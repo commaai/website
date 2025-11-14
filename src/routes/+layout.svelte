@@ -172,6 +172,8 @@
     align-items: stretch;
     justify-content: space-between;
     overflow: visible;
+    padding-left: 24px;
+    padding-right: 24px;
 
     @media only screen and (max-width: 1160px) {
       flex-wrap: wrap;
@@ -184,7 +186,6 @@
     @media only screen and (max-width: 850px) {
       display: flex;
       align-items: center;
-      padding: 0 1rem;
       cursor: pointer;
     }
   }
@@ -230,12 +231,12 @@
     flex: 1;
     align-items: stretch;
     justify-content: left;
+    gap: 24px;
 
     & a {
       display: flex;
       align-items: center;
       color: black;
-      margin: 0 1.25rem;
       font-family: Inter, sans-serif;
       font-size: 1.25rem;
       letter-spacing: -0.06em;
@@ -286,7 +287,6 @@
 
   .navbar-section-buttons {
     display: flex;
-    padding: 0 20px 0 0;
     height: 64px;  /* Why?! */
 
     & .cart {
