@@ -13,12 +13,8 @@
     aria-controls="menu-dropdown"
     tabindex="0"
   >
-<!--    <svg viewBox="0 0 24 24" width="32" height="32">-->
-<!--      <rect x="3" y="5" width="18" height="2"></rect>-->
-<!--      <rect x="3" y="11" width="18" height="2"></rect>-->
-<!--      <rect x="3" y="17" width="18" height="2"></rect>-->
-<!--    </svg>-->
-    {@html HamburgerIcon}
+    <span class="hamburger-icon">{@html HamburgerIcon}</span>
+    <span class="close-icon">{@html Close}</span>
   </button>
   <div
     class="menu-container"
@@ -43,13 +39,8 @@
     display: none;
     position: absolute;
     border: none;
-    /*border-right: 1px solid #000;*/
     background-color: transparent;
-    /*height: 65px;*/
-    /*width: 90px;*/
     height: 64px;
-    /* Half of nav bar and close height */
-    /*top: calc(64px / 2 - 16px / 2);*/
     top: 0;
     left: 24px;
     z-index: 1000;
@@ -57,12 +48,6 @@
     text-align: center;
     cursor: pointer;
     transition: background-color 0.2s;
-
-    /*@media (hover: hover) and (pointer: fine) {*/
-    /*  &:hover {*/
-    /*    background-color: var(--color-accent);*/
-    /*  }*/
-    /*}*/
 
     @media screen and (max-width: 700px) {
       display: block;
@@ -73,6 +58,14 @@
       display: block;
       height: 100%;
     }
+
+    & .hamburger-icon {
+      display: block;
+    }
+
+    & .close-icon {
+      display: none;
+    }
   }
 
   .menu-container {
@@ -80,10 +73,8 @@
     left: 0;
     right: 0;
     top: 63px;
-    /*display: flex;*/
     padding: 0 3rem;
     z-index: 2;
-    /*background-color: #EAEAEA;*/
     color: white;
     display: none;
     background-color: #EAEAEA66; backdrop-filter: blur(32px);
@@ -101,7 +92,6 @@
 
   nav:focus-within {
     & .toggle-button {
-      /*background-color: black;*/
       color: white;
       transition: background-color 250ms, color 250ms;
       cursor: pointer;
@@ -110,6 +100,14 @@
       & svg {
         fill: white;
       }
+    }
+
+    & .hamburger-icon {
+      display: none;
+    }
+
+    & .close-icon {
+      display: block;
     }
 
     & .menu-container {
