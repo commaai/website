@@ -85,6 +85,7 @@
       <a href="/">{@html CommaIcon}</a>
     </span>
     <nav class="navbar-section-links">
+      <a href="/">{@html CommaIcon}</a>
       <a href="/vehicles" class="hide-mobile-1">compatibility</a>
       <a href="/shop">shop</a>
       <a href="/setup">setup</a>
