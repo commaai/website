@@ -1,5 +1,8 @@
 <script>
   import SocialIcons from "$lib/components/SocialIcons.svelte";
+  import HamburgerIcon from "$lib/icons/ui/hamburger.svg?raw";
+  import Close from "$lib/icons/ui/close-new.svg?raw";
+  import CommaIcon from "$lib/icons/comma-logo.svg?raw";
   import { page } from '$app/stores';
 </script>
 
@@ -11,11 +14,8 @@
     aria-controls="menu-dropdown"
     tabindex="0"
   >
-    <svg viewBox="0 0 24 24" width="32" height="32">
-      <rect x="3" y="5" width="18" height="2"></rect>
-      <rect x="3" y="11" width="18" height="2"></rect>
-      <rect x="3" y="17" width="18" height="2"></rect>
-    </svg>
+    <span class="hamburger-icon">{@html HamburgerIcon}</span>
+    <span class="close-icon">{@html Close}</span>
   </button>
   <div
     class="menu-container"
@@ -25,11 +25,11 @@
     tabindex="-1"
   >
     <div class="section-links">
-      <a href="/shop/comma-3x">comma 3X</a>
+      <a href="/">{@html CommaIcon}</a>
+      <a href="/vehicles">compatibility</a>
       <a href="/shop">shop</a>
-      <a href="/setup">setup guide</a>
-      <a href="/support">support & FAQs</a>
-      <a href="https://blog.comma.ai">blog</a>
+      <a href="/setup">setup</a>
+      <a href="https://blog.comma.ai">autonomy</a>
       <a href="/jobs">jobs</a>
     </div>
   </div>
@@ -37,21 +37,22 @@
 
 <style>
   .toggle-button {
-    display: block;
+    display: none;
+    position: absolute;
     border: none;
-    border-right: 1px solid #000;
     background-color: transparent;
-    height: 65px;
-    width: 90px;
+    height: 64px;
+    top: 0;
+    /* Position to the right of the comma logo + padding */
+    left: calc(24px + 13px + 24px);
+    z-index: 1000;
     padding: 0;
     text-align: center;
     cursor: pointer;
     transition: background-color 0.2s;
 
-    @media (hover: hover) and (pointer: fine) {
-      &:hover {
-        background-color: var(--color-accent);
-      }
+    @media screen and (max-width: 700px) {
+      display: block;
     }
 
     & svg {
@@ -59,33 +60,31 @@
       display: block;
       height: 100%;
     }
+
+    & .hamburger-icon {
+      display: block;
+    }
+
+    & .close-icon {
+      display: none;
+    }
   }
 
   .menu-container {
     position: absolute;
     left: 0;
     right: 0;
-    display: flex;
-    padding: 0 3rem;
+    top: 63px;
+    padding: 0 2rem;
     z-index: 2;
-    background-color: black;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
     color: white;
     display: none;
-
-    @media (hover: hover) and (pointer: fine) {
-      & a:hover {
-        color: var(--color-accent);
-      }
-    }
-    & a:active {
-      color: var(--color-accent);
-    }
+    background-color: #EAEAEA66; backdrop-filter: blur(32px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
   }
 
   nav:focus-within {
     & .toggle-button {
-      background-color: black;
       color: white;
       transition: background-color 250ms, color 250ms;
       cursor: pointer;
@@ -94,6 +93,14 @@
       & svg {
         fill: white;
       }
+    }
+
+    & .hamburger-icon {
+      display: none;
+    }
+
+    & .close-icon {
+      display: block;
     }
 
     & .menu-container {
@@ -111,34 +118,27 @@
     justify-content: flex-start;
     display: flex;
     flex-flow: column;
-    width: 62%;
-    padding: 4rem 0;
+    padding: 2rem 0;
 
     & a {
-      color: #fff;
-      margin-bottom: 2rem;
+      color: black;
+      margin-bottom: 24px;
       padding: 0;
-      font-size: 2.5rem;
+      font-size: 32px;
+      letter-spacing: -0.06em;
       line-height: 0.9;
       text-decoration: none;
-    }
-  }
 
-  @media only screen and (max-width: 768px) {
-    .menu-container {
-      flex-flow: column nowrap;
-      row-gap: 1.75rem;
-      justify-content: flex-start;
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          text-shadow: 0 0 8px white, 0 0 16px black;
+        }
+      }
     }
 
-    .section-links {
-      width: 100%;
-      padding: 2.5rem 0 0;
-      flex: unset;
-    }
-
-    .section-links a {
-      font-size: 1.5rem;
+    & svg {
+      width: 24px;
+      height: auto;
     }
   }
 </style>

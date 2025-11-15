@@ -7,17 +7,23 @@
   import { selectedCar } from '../store';
   import { vehicleCountText } from '$lib/constants/vehicles.js';
 
-  import FourImage from "$lib/images/products/comma-four/four_screen_on.png";
-  import FourSide from "$lib/images/products/comma-four/four_side_2.png";
-  import FourBack from "$lib/images/products/comma-four/four_back_2.png";
+  // import FourImage from "$lib/images/products/comma-four/four_screen_on.png";
+  // import FourSide from "$lib/images/products/comma-four/four_side_2.png";
+  // import FourBack from "$lib/images/products/comma-four/four_back_2.png";
+  import FourFront from "$lib/images/home/hero/four_front.png";
+  import FourBack from "$lib/images/home/hero/four_back.png";
+  import FourSide from "$lib/images/home/hero/four_side.png";
+  import FourAngled from "$lib/images/home/hero/four_angled.png";
+  import FourPov from "$lib/images/home/four_pov.png";
+  import Map from "$lib/images/home/map.png";
+  import FourZoom from "$lib/images/home/four_zoom.png";
+  import LinkArrow from "$lib/images/home/link_arrow.svg?raw";
   import ExperimentalIcon from "$lib/images/experimental.svg?raw";
   import WarrantyIcon from "$lib/icons/features/warranty.svg?raw";
   import MoneyBackIcon from "$lib/icons/features/money-back-guarantee.svg?raw";
 
   const HeroVideo = "/videos/hero/hero.m3u8";
   const storeUrl = import.meta.env.VITE_SHOPIFY_STORE_URL;
-  import NHaasGroteskRoman from "$lib/fonts/NHaasGrotesk/NHaasGroteskDSPro-55Rg.otf";
-  import NHaasGrotesk75 from "$lib/fonts/NHaasGrotesk/NHaasGroteskTXPro-75Bd.otf";
 
   let videoElement;
   let videoReady = false;
@@ -25,16 +31,27 @@
   let compatShake = false;
 
   // Image carousel state
-  let currentFourImage = FourImage;
-  const fourImages = [
-    { src: FourImage, name: 'screen' },
-    { src: FourImage, name: 'front' },
+  let currentFourImage = FourFront;
+  const allFourImages = [
+    { src: FourFront, name: 'front' },
+    { src: FourAngled, name: 'angled' },
+    { src: FourBack, name: 'back' },
     { src: FourSide, name: 'side' },
-    { src: FourBack, name: 'back' }
+  ];
+  const fourImages = [
+    { src: FourAngled, name: 'angled' },
+    { src: FourBack, name: 'back' },
+    { src: FourSide, name: 'side' },
   ];
 
   function selectFourImage(imageSrc) {
     currentFourImage = imageSrc;
+    // swap out
+    if (imageSrc === FourAngled) {
+      fourImages[0] = { src: FourFront, name: 'front' };
+    } else {
+      fourImages[0] = { src: FourAngled, name: 'angled' };
+    }
   }
 
   onMount(async () => {
@@ -70,98 +87,202 @@
 
 <svelte:head>
   <link rel="preload" as="image" href="/videos/hero/poster.jpg" />
-  <link
-    rel="preload"
-    href={NHaasGroteskRoman}
-    as="font"
-    type="font/otf"
-    crossorigin="anonymous"
-  />
-  <link
-    rel="preload"
-    href={NHaasGrotesk75}
-    as="font"
-    type="font/otf"
-    crossorigin="anonymous"
-  />
+  <!--  TODO: why do we need this again? -->
   <style>
     body {
-      background-color: #000;
+      background-color: var(--color-light); <!-- !important;-->
+      letter-spacing: -0.08em;
+      line-height: 1.2;
     }
   </style>
 </svelte:head>
 
-<div class="gradient-overlay"></div>
-<div class="gradient-overlay-top"></div>
+<!--<div class="gradient-overlay"></div>-->
+<!--<div class="gradient-overlay-top"></div>-->
 
-<div style="background-color: black;">
-  <section class="hero-image" style="background-image: url('/videos/hero/poster.jpg');" on:dragstart={handleDragStart} role="img" aria-label="Hero image">
-    <!-- <img src={HeroImage} alt="Hero" draggable="false" /> -->
-    <video
-      bind:this={videoElement}
-      class:ready={videoReady}
-      poster="/videos/hero/poster.jpg"
-      autoplay
-      muted
-      loop
-      playsinline
-      draggable="false"
-    />
-  </section>
-
-  <section class="black-spacer"></section>
-
-  <section id="four" class="dark comma-four-section">
-    <img src={currentFourImage} alt="comma four" class="four-image" />
-    <div class="four-content">
-      <div class="four-text">
-        comma four works on <a href="/vehicles" style="text-decoration: underline;">{vehicleCountText} car models</a>. It adds the best ADAS in the world to your existing car.<br><br>
-        It runs <a href="https://github.com/commaai/openpilot?tab=readme-ov-file#openpilot" target="_blank" style="text-decoration: underline;">openpilot</a>, which can drive for hours without driver action.
+<div>
+  <section class="light hero-video hero-section">
+    <div class="left-section">
+      <div class="hero-image-container">
+        <div class="hero-image-text-container">
+          <img src={FourPov} alt="comma four pov"/>
+          <div class="bottom-right">i8 East, San Diego</div>
+        </div>
+        <div class="hero-image-text-container">
+          <img src={FourZoom} alt="comma four zoom"/>
+          <div class="bottom-left">Make driving chill</div>
+        </div>
       </div>
-      <ul class="four-features">
-        <li>
-          <span class="feature-icon">{@html ExperimentalIcon}</span>
-          <span>Install it yourself in 15 minutes</span>
-        </li>
-        <li>
-          <span class="feature-icon">{@html WarrantyIcon}</span>
-          <span>1 year warranty</span>
-        </li>
-        <li>
-          <span class="feature-icon">{@html MoneyBackIcon}</span>
-          <span>30 day free return period</span>
-        </li>
-      </ul>
-      <div class="four-thumbnails">
-        {#each fourImages.slice(1) as image}
+    </div>
+    <!-- Buy now should be pushed down a bit -->
+    <div class="right-section">
+      <div>
+        <div class="hero-title">comma 4</div>
+        <div class="hero-description" style="padding-top: 0; padding-bottom: 8rem;">
+          comma 4 drives with <a href="https://github.com/commaai/openpilot" target="_blank">openpilot</a> and works with <a href="/vehicles">{vehicleCountText} car models</a>.<br><br>
+          It only takes <a href="/setup">15 minutes</a> to upgrade your car to the best advanced driver assistance system in the world.
+        </div>
+      </div>
+<!--      <div class="hero-bottom" style="margin-top: 8rem;">-->
+      <div class="hero-bottom">
+        <div class="hero-price">
+          <span class="hero-dollar">$</span><span class="hero-amount">999</span>
+        </div>
+        <a href="/shop/comma-four" class="hero-buy-now">
+          buy now
+          {@html LinkArrow}
+        </a>
+      </div>
+
+      <!-- On mobile, four thumbnails will go vertically down the page, spanning all sections starting from "comma four" -->
+      <div class="four-thumbnails mobile">
+        {#each allFourImages as image}
           <button
             class="four-thumbnail"
             class:active={currentFourImage === image.src}
             on:click={() => selectFourImage(image.src)}
             aria-label={`View ${image.name} view`}
           >
-            <img src={image.src} alt={`comma four ${image.name}`} />
+            <img src={image.src} alt={`comma four ${image.name}`}/>
           </button>
         {/each}
       </div>
     </div>
   </section>
 
-  <div class="hero-content-wrapper">
-    <div class="buy-now-container">
-      <a href="/shop/comma-four" class="buy-now-button">
-        <span class="buy-now-text">Buy now</span>
-        <span class="buy-now-price"><span class="dollar-sign">$</span>999</span>
-      </a>
-      <a href="/vehicles" class="check-compatibility">check compatibility</a>
+  <section class="light hero-section">
+    <div class="left-section">
+      <div class="hero-carousel">
+        <div class="main-image-container">
+          <img src={currentFourImage} alt="comma four" class="four-image"/>
+        </div>
+        <div class="four-thumbnails">
+          {#each fourImages as image}
+            <button
+              class="four-thumbnail"
+              class:active={currentFourImage === image.src}
+              on:click={() => selectFourImage(image.src)}
+              aria-label={`View ${image.name} view`}
+            >
+              <img src={image.src} alt={`comma four ${image.name}`}/>
+            </button>
+          {/each}
+        </div>
+      </div>
+
     </div>
-  </div>
+
+    <div class="right-section">
+      <div class="hero-title">tiny enough to forget</div>
+      <div class="hero-description">
+        comma 4 offers the most AI per square inch, all running in complete silence.<br><br>
+        There when you need it, gone when you don't.<br><br>
+        <a href="/shop/comma-four" class="link-away">
+          tech specs
+          {@html LinkArrow}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="light hero-section mobile-direction-flip">
+    <div class="left-section" style="background-color: black; align-items: center;">
+        <div class="map-image">
+          <img src={Map} alt="openpilot map"/>
+        </div>
+    </div>
+
+    <div class="right-section">
+      <div class="hero-title">better with every drive</div>
+      <div class="hero-description">
+        openpilot has driven over 150 million miles around the globe. It learns how well your car drives and adapts to drive your car well.<br><br>
+        See openpilot in action on YouTube and contribute to the largest open-source robotics project in the world.<br><br>
+        <a href="https://github.com/commaai/openpilot" class="link-away">
+          github
+          {@html LinkArrow}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!--  <section class="hero-image" style="background-image: url('/videos/hero/poster.jpg');" on:dragstart={handleDragStart} role="img" aria-label="Hero image">-->
+<!--    &lt;!&ndash; <img src={HeroImage} alt="Hero" draggable="false" /> &ndash;&gt;-->
+<!--    <video-->
+<!--      bind:this={videoElement}-->
+<!--      class:ready={videoReady}-->
+<!--      poster="/videos/hero/poster.jpg"-->
+<!--      autoplay-->
+<!--      muted-->
+<!--      loop-->
+<!--      playsinline-->
+<!--      draggable="false"-->
+<!--    />-->
+<!--  </section>-->
+
+<!--  <section class="black-spacer"></section>-->
+
+<!--  <section id="four" class="dark comma-four-section">-->
+<!--    <img src={currentFourImage} alt="comma four" class="four-image" />-->
+<!--    <div class="four-content">-->
+<!--      <div class="four-text">-->
+<!--        comma four works on <a href="/vehicles" style="text-decoration: underline;">{vehicleCountText} car models</a>. It adds the best ADAS in the world to your existing car.<br><br>-->
+<!--        It runs <a href="https://github.com/commaai/openpilot?tab=readme-ov-file#openpilot" target="_blank" style="text-decoration: underline;">openpilot</a>, which can drive for hours without driver action.-->
+<!--      </div>-->
+<!--      <ul class="four-features">-->
+<!--        <li>-->
+<!--          <span class="feature-icon">{@html ExperimentalIcon}</span>-->
+<!--          <span>Install it yourself in 15 minutes</span>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--          <span class="feature-icon">{@html WarrantyIcon}</span>-->
+<!--          <span>1 year warranty</span>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--          <span class="feature-icon">{@html MoneyBackIcon}</span>-->
+<!--          <span>30 day free return period</span>-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--      <div class="four-thumbnails">-->
+<!--        {#each fourImages.slice(1) as image}-->
+<!--          <button-->
+<!--            class="four-thumbnail"-->
+<!--            class:active={currentFourImage === image.src}-->
+<!--            on:click={() => selectFourImage(image.src)}-->
+<!--            aria-label={`View ${image.name} view`}-->
+<!--          >-->
+<!--            <img src={image.src} alt={`comma four ${image.name}`} />-->
+<!--          </button>-->
+<!--        {/each}-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </section>-->
+
+<!--  <div class="hero-content-wrapper">-->
+<!--    <div class="buy-now-container">-->
+<!--      <a href="/shop/comma-four" class="buy-now-button">-->
+<!--        <span class="buy-now-text">Buy now</span>-->
+<!--        <span class="buy-now-price"><span class="dollar-sign">$</span>999</span>-->
+<!--      </a>-->
+<!--      <a href="/vehicles" class="check-compatibility">check compatibility</a>-->
+<!--    </div>-->
+<!--  </div>-->
 
   <!--This somehow pushes up hero overlays earlier-->
-  <div class="sticky-bottom-spacer"></div>
+<!--  <div class="sticky-bottom-spacer"></div>-->
 </div>
 
 <style>
+  /*
+    Large screen layout:
+    1300px and up: left section 2/3, right section 1/3
+
+    Medium screen layout:
+    Below 1300px: left section 100%, right section 50% below
+
+    Small screen layout:
+    Below 950px: left section 100%, right section 100% below
+  */
+
   .gradient-overlay {
     position: fixed;
     bottom: 0;
@@ -187,6 +308,366 @@
   .sticky-bottom-spacer {
     height: 4rem;
     color: black;
+  }
+
+  .hero-section {
+    display: flex;
+    padding-bottom: 4rem;
+
+    @media screen and (max-width: 1300px) {
+      flex-direction: column;
+      padding-bottom: 1rem;
+    }
+
+    /*@media screen and (max-width: 950px) {*/
+    /*  !*padding-bottom: 1rem;*!*/
+    /*  padding-left: 0;*/
+    /*  padding-right: 1rem;*/
+    /*}*/
+
+    &.mobile-direction-flip {
+      @media screen and (max-width: 1300px) {
+        flex-direction: column-reverse;
+      }
+
+      @media screen and (max-width: 950px) {
+        flex-direction: column;
+      }
+    }
+  }
+
+  .hero-section:first-child {
+    padding-top: 104px;
+
+    @media screen and (max-width: 950px) {
+      padding-top: 0;
+    }
+  }
+
+  .hero-section:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .hero-video {
+    display: flex;
+  }
+
+  .hero-video img,
+  .hero-video picture {
+    /*aspect-ratio: 1;*/
+    /*object-fit: cover;*/
+    /*flex: 1 1 0;*/
+    width: 100%;
+    /*height: auto;*/
+  }
+
+  .map-image {
+    line-height: 0;
+  }
+
+  .left-section {
+    width: 66%;
+    display: flex;
+    align-items: flex-end;
+
+    @media screen and (max-width: 1300px) {
+      width: 100%;
+    }
+
+    @media screen and (max-width: 950px) {
+      justify-content: center;
+    }
+  }
+
+  .hero-image-container {
+  /*  lay out vertically now*/
+    display: flex;
+    width: 100%;
+
+    @media screen and (max-width: 950px) {
+      flex-direction: column;
+    }
+  }
+
+  .hero-image-text-container {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+    color: #EAEAEA;
+
+    & .bottom-left {
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+      font-size: 36px;
+      letter-spacing: -0.06em;
+      line-height: 1;
+
+      @media screen and (max-width: 1300px) {
+        font-size: 32px;
+      }
+    }
+
+    & .bottom-right {
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+      font-size: 20px;
+      letter-spacing: -0.06em;
+    }
+  }
+
+  .right-section {
+    display: flex;
+    width: 33%;
+    padding-left: 40px;
+    padding-right: 40px;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @media screen and (max-width: 1300px) {
+      width: 50%;
+      /*min-height: 8rem;*/
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-top: 2rem;
+    }
+
+    @media screen and (max-width: 950px) {
+      width: auto;
+      /*padding-right: 10px; WHY NO WORK?*/
+    }
+  }
+
+  .hero-section:last-child .right-section {
+    margin-bottom: 4rem;
+
+    @media screen and (max-width: 950px) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  .hero-carousel {
+    display: flex;
+
+    @media screen and (max-width: 1300px) {
+      display: none;
+    }
+
+    @media screen and (max-width: 950px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  .main-image-container {
+    width: 960px;
+    height: auto;
+
+    @media screen and (max-width: 2000px) {
+      width: 800px;
+    }
+
+    @media screen and (max-width: 1600px) {
+      width: 700px;
+    }
+
+    @media screen and (max-width: 950px) {
+      width: 402px;
+    }
+  }
+
+  .four-thumbnails {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+
+    @media screen and (max-width: 1500px) {
+      order: 1;
+    }
+
+    /*@media screen and (max-width: 698px) {*/
+    /*  gap: 0.5rem;*/
+    /*}*/
+
+    @media screen and (max-width: 950px) {
+      flex-direction: row;
+      gap: 0;
+    }
+  }
+
+  /*BETTER NAME*/
+  .four-thumbnails.mobile {
+    display: none;
+    position: absolute;
+    right: 10%;
+
+    @media screen and (max-width: 1300px) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @media screen and (max-width: 950px) {
+      /* Switch back to carousel */
+      display: none;
+    }
+  }
+
+  .four-thumbnail {
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.active {
+      transform: scale(1.1);
+    }
+
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    /*@media screen and (max-width: 500px) {*/
+    /*  width: 100px;*/
+    /*  height: 80px;*/
+    /*  padding: 2px;*/
+    /*}*/
+
+    @media screen and (max-width: 2000px) {
+      width: 175px;
+      height: 175px;
+    }
+
+    /* Images are vertically laid out on right */
+    @media screen and (max-width: 1300px) {
+      width: 402px;
+      height: 402px;
+      margin-bottom: -7rem;
+      cursor: default;
+
+      &.active {
+        transform: scale(1);
+      }
+    }
+
+    @media screen and (max-width: 950px) {
+      width: 134px;
+      height: 134px;
+      margin-bottom: 0;
+
+      &.active {
+        transform: scale(1.1);
+      }
+
+    }
+
+    /*@media screen and (max-width: 1600px) {*/
+    /*  width: 150px;*/
+    /*  height: 150px;*/
+    /*}*/
+  }
+
+  .hero-title {
+    font-size: 96px;
+    line-height: 1;
+    letter-spacing: -0.08em;
+    padding-bottom: 1rem;
+
+    @media screen and (max-width: 1300px) {
+      font-size: 72px;
+    }
+  }
+
+  .hero-description {
+    font-size: 20px;
+    line-height: 1.2;
+    letter-spacing: -0.06em;
+
+    @media screen and (max-width: 1300px) {
+      padding-top: 8rem;
+    }
+
+    @media screen and (max-width: 950px) {
+      padding-top: 4rem;
+    }
+  }
+
+  .hero-description a {
+    color: inherit;
+    text-decoration: underline;
+  }
+
+  .hero-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .bottom-section {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero-video .hero-price {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .hero-video .hero-dollar {
+    font-size: 20px;
+  }
+
+  .hero-video .hero-amount {
+    font-size: 48px;
+    line-height: 0.9;
+    letter-spacing: -0.08em;
+  }
+
+  .hero-video .hero-buy-now {
+    font-size: 48px;
+    line-height: 1;
+    letter-spacing: -0.08em;
+    text-decoration: underline;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-align: right;
+  }
+
+  .hero-video .hero-buy-now :global(svg) {
+    width: 40px;
+    height: 40px;
+  }
+
+  .link-away {
+    font-size: 20px;
+    text-decoration: underline;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .link-away :global(svg) {
+    width: 20px;
+    height: 20px;
   }
 
   .hero-content-wrapper {
@@ -219,7 +700,6 @@
 
   .hero-text {
     line-height: 1;
-    font-family: "NHaasGrotesk Roman", sans-serif;
     font-size: 112px;
     font-weight: normal;
     color: #EAEAEA;
@@ -263,7 +743,6 @@
     gap: 200px;
     min-width: 300px;
     transition: background-color 0.2s ease, border-color 0.2s ease;
-    font-family: "NHaasGrotesk Roman", sans-serif;
 
     &:hover {
       background-color: rgba(69, 160, 73, 0.4);
@@ -288,7 +767,6 @@
       flex: 0 0 auto;
       font-weight: 700;
       font-size: 48px;
-      font-family: "NHaasGrotesk 75", sans-serif;
       color: #00FF40;
       text-shadow: 0 0 24px rgba(0, 255, 64, 0.75);
       line-height: 1;
@@ -335,7 +813,6 @@
     font-size: 24px;
     color: rgb(155, 155, 155);
     text-shadow: 0 0 12px rgba(40, 40, 40, 1);
-    font-family: Inter, sans-serif;
     background: transparent;
     border: none;
     padding: 0;
@@ -432,25 +909,10 @@
     }
   }
 
-  @font-face {
-    font-display: block;
-    font-family: "NHaasGrotesk Roman";
-    font-style: normal;
-    font-weight: normal;
-    src: url("$lib/fonts/NHaasGrotesk/NHaasGroteskDSPro-55Rg.otf");
-  }
-
-  @font-face {
-    font-display: block;
-    font-family: "NHaasGrotesk 75";
-    font-style: normal;
-    font-weight: bold;
-    src: url("$lib/fonts/NHaasGrotesk/NHaasGroteskTXPro-75Bd.otf");
-  }
 
   .black-spacer {
     height: 15vh;
-    background-color: #000;
+    background-color: var(--color-light);
     width: 100%;
     padding: 0;
     margin: 0;
@@ -462,7 +924,7 @@
     position: relative;
     overflow: hidden;
     height: 100vh;
-    background-color: #000;
+    background-color: var(--color-light);
     z-index: 0;
     /*border: 2px solid red;*/
 
@@ -603,8 +1065,8 @@
         order: 1;
       }
 
-      @media screen and (max-width: 698px) {
-        gap: 0.5rem;
+      @media screen and (max-width: 950px) {
+        gap: 0;
       }
     }
 

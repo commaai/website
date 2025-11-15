@@ -14,10 +14,8 @@
   import SocialIcons from "$lib/components/SocialIcons.svelte";
   import MailingListForm from "$lib/components/MailingListForm.svelte";
 
-  import CommaIcon from "$lib/icons/comma.svg?raw";
+  import CommaIcon from "$lib/icons/comma-logo.svg?raw";
   import CartIcon from "$lib/icons/ui/cart.svg?raw";
-  import BasketIcon from "$lib/icons/ui/basket.svg?raw";
-  import ExternalIcon from "$lib/icons/ui/external.svg?raw";
 
   import { updateCart } from '$lib/utils/shopify';
   import { printConsoleBanner } from '$lib/utils/console';
@@ -79,28 +77,26 @@
 </svelte:head>
 
 <header class="navbar">
+  <div class="menu-container">
+    <HeaderMenu/>
+  </div>
   <div class="navbar-container">
-    <!-- <div class="navbar-section-logo">
-      <div class="menu-container">
-        <HeaderMenu />
-      </div>
-    </div> -->
+    <span class="comma-home-icon">
+      <a href="/">{@html CommaIcon}</a>
+    </span>
     <nav class="navbar-section-links">
-      <a href="/" class:active={$page.url.pathname === '/'}>home</a>
-      <a href="/shop" class:active={$page.url.pathname.startsWith('/shop')}>shop</a>
-      <a href="/support" class:active={$page.url.pathname.startsWith('/support')}>faq</a>
-      <a href="/vehicles" class="hide-mobile-1" class:active={$page.url.pathname.startsWith('/vehicles')}>supported cars</a>
-      <a href="/jobs" class="hide-mobile-2" class:active={$page.url.pathname.startsWith('/jobs')}>jobs</a>
+      <a href="/">{@html CommaIcon}</a>
+      <a href="/vehicles" class="hide-mobile-1">compatibility</a>
+      <a href="/shop">shop</a>
+      <a href="/setup">setup</a>
+      <a href="https://blog.comma.ai">autonomy</a>
+      <a href="/jobs" class="hide-mobile-2">jobs</a>
     </nav>
     <div class="navbar-section-buttons">
-      <!-- <a class="button shop" href="/shop">
-        {@html BasketIcon}
-        Shop
-      </a> -->
       {#if $cartTotalQuantity > 0}
         <button class="button cart" on:click={openCart}>
-          {@html CartIcon}
           <div class="cart-text">cart ({$cartTotalQuantity})</div>
+          {@html CartIcon}
         </button>
       {/if}
     </div>
@@ -154,17 +150,17 @@
   }
 
   .navbar {
-    top: 1rem;
     position: fixed;
-    left: 1rem;
-    right: 1rem;
+    top: 0;
+    left: 0;
+    right: 0;
     width: auto;
+    height: 64px;
+    margin: 20px;
     z-index: 20;
-    border-radius: 0.5rem;
 
-    background-color: rgba(0, 0, 0, 0.75);
-    border-bottom: 1px solid #000;
-    backdrop-filter: blur(10px);
+    /*background-color: #EAEAEA66;*/
+    /*backdrop-filter: blur(32px);*/
     overflow: visible;
   }
 
@@ -172,108 +168,76 @@
     display: flex;
     align-items: stretch;
     justify-content: space-between;
-    border-radius: 0.5rem;
     overflow: visible;
+    padding-left: 24px;
+    padding-right: 24px;
+    background-color: #EAEAEA66;
+    backdrop-filter: blur(24px) saturate(220%);
+
+    & .comma-home-icon {
+      display: none;
+      & a {
+        display: flex;
+        align-items: center;
+        height: 100%;
+      }
+
+      @media only screen and (max-width: 700px) {
+        display: flex;
+      }
+    }
 
     @media only screen and (max-width: 1160px) {
       flex-wrap: wrap;
     }
   }
 
-  .navbar-section-logo {
-    flex-direction: row-reverse;
-    align-items: center;
-    display: flex;
-    border-right: 1px solid #000;
-
-    & > .title {
-      font-family: "Monument Extended Black", sans-serif;
-      font-size: 20px;
-      color: black;
-      height: 20px;
-      text-transform: uppercase;
-      padding: 0 2rem;
-    }
-
-    @media only screen and (max-width: 1280px) {
-      border-right: none;
-    }
-
-    @media only screen and (max-width: 768px) {
-      flex: 1;
-
-      & > .title {
-        display: flex;
-        flex: 1;
-        justify-content: center;
-      }
-    }
-
-    @media only screen and (max-width: 375px) {
-      & > .title {
-        padding: 0 0.25rem;
-      }
-    }
-  }
-
   .navbar-section-links {
     display: flex;
     flex: 1;
-    align-items: center;
+    align-items: stretch;
     justify-content: left;
+    gap: 24px;
 
     & a {
-      color: #ffffff;
-      margin: 1.0rem 1.5rem;
+      display: flex;
+      align-items: center;
+      color: black;
       font-family: Inter, sans-serif;
-      font-size: 1.125rem;
+      font-size: 1.25rem;
+      letter-spacing: -0.06em;
       white-space: nowrap;
       transition: color 0.2s, text-shadow 0.2s;
-
-      &.active,
-      &:active {
-        color: var(--color-accent);
-        text-shadow: 0 0 8px var(--color-accent), 0 0 16px var(--color-accent);
-      }
+      line-height: 1;
 
       @media (hover: hover) and (pointer: fine) {
         &:hover {
-          color: var(--color-accent);
-          text-shadow: 0 0 8px var(--color-accent), 0 0 16px var(--color-accent);
+          text-shadow: 0 0 8px white, 0 0 16px black;
         }
       }
 
-      @media only screen and (max-width: 710px) {
-        margin: 1.0rem 0.75rem;
-        font-size: 1rem;
+      @media only screen and (max-width: 700px) {
+        display: none;
       }
+
+      /*@media only screen and (max-width: 710px) {*/
+      /*  margin: 1.0rem 0.75rem;*/
+      /*  font-size: 1rem;*/
+      /*}*/
     }
 
-    /*@media only screen and (max-width: 440px) {*/
-    /*  & a.hide-mobile-3 {*/
+    /*@media only screen and (max-width: 405px) {*/
+    /*  & a.hide-mobile-2 {*/
     /*    display: none;*/
     /*  }*/
     /*}*/
 
-    @media only screen and (max-width: 405px) {
-      & a.hide-mobile-2 {
-        display: none;
-      }
-    }
-
-    @media only screen and (max-width: 350px) {
-      & a.hide-mobile-1 {
-        display: none;
-      }
-    }
+    /*@media only screen and (max-width: 350px) {*/
+    /*  & a.hide-mobile-1 {*/
+    /*    display: none;*/
+    /*  }*/
+    /*}*/
   }
-
-  /* Wrap nav bar links earlier if cart button is showing */
-  /*@media (max-width: 540px) {*/
-  /*  .navbar-container:has(.cart) .navbar-section-links a.hide-mobile-3 {*/
-  /*    display: none;*/
-  /*  }*/
-  /*}*/
 
   @media (max-width: 490px) {
     .navbar-container:has(.cart) .navbar-section-links a.hide-mobile-2 {
@@ -289,73 +253,34 @@
 
   .navbar-section-buttons {
     display: flex;
+    height: 64px;  /* Why?! */
 
-    & .cart, & .shop {
+    & .cart {
       border: none;
 
       & svg {
-        margin-right: 0.5rem;
+        margin-left: 1rem;
       }
     }
 
     & .button {
-      color: #000;
-      text-transform: uppercase;
+      padding: 0;
+      color: black;
       font-family: Inter, sans-serif;
-      border: none;
-      padding-left: 56px;
-      padding-right: 56px;
-      font-size: 1rem;
-      font-weight: 700;
-      letter-spacing: 1px;
+      /*padding-left: 56px;*/
+      /*padding-right: 56px;*/
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: -0.06em;
       display: flex;
       align-items: center;
       cursor: pointer;
-      background-color: var(--color-accent);
-
-      &:last-child {
-        border-top-right-radius: 0.5rem;
-        border-bottom-right-radius: 0.5rem;
-      }
-
-      &:not(:first-child) {
-        border-left: 1px solid #000;
-      }
-
-      @media (hover: hover) and (pointer: fine) {
-        &:hover {
-          background-color: var(--color-accent-hover);
-        }
-      }
-      &:active {
-        background-color: var(--color-accent-hover);
-      }
-    }
-
-    @media only screen and (max-width: 1300px) {
-      /* show single button, with priority for cart */
-      &.navbar-section-buttons > :first-child:not(:only-child) {
-        display: none;
-      }
-
-      & .cart .cart-text {
-        display: none;
-      }
-
-      & .cart {
-        padding-left: 25px;
-        padding-right: 25px;
-      }
-
-      & .shop {
-        padding-left: 10px;
-        padding-right: 10px;
-      }
+      background-color: transparent;
     }
   }
 
   footer {
-    background-color: #333;
+    background-color: black;
     padding: 0;
     margin: 0;
     position: relative;
@@ -363,7 +288,7 @@
     border-top: 1px solid black;
 
     & .footer-content {
-      background-color: #EAEAEA;
+      color: white;
       padding: 1rem;
       display: flex;
       justify-content: space-between;
@@ -378,10 +303,11 @@
       flex-direction: row;
       align-items: baseline;
       gap: 2rem;
+      flex: 0 0 50%;
+      width: 50%;
     }
 
     & h1 {
-      color: #000;
       font-family: "Monument Extended Black", sans-serif;
       font-size: 64px;
       text-transform: uppercase;
@@ -391,7 +317,6 @@
     }
 
     & .footer-left .copyright {
-      color: black;
       font-size: 0.875rem;
       margin: 0;
       padding: 0;
@@ -404,37 +329,19 @@
       display: flex;
       align-items: center;
       align-self: center;
+      flex: 0 0 50%;
+      width: 50%;
     }
 
     & .footer-links-grid {
-      display: grid;
-      grid-template-columns: repeat(6, auto);
-      gap: 0.75rem 60px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
       justify-content: flex-end;
-      justify-items: end;
-      grid-auto-flow: row;
-      direction: rtl;
-
-      @media screen and (max-width: 1440px) {
-        grid-template-columns: repeat(4, auto);
-      }
-
-      @media screen and (max-width: 1170px) {
-        grid-template-columns: repeat(3, auto);
-      }
-
-      @media screen and (max-width: 471px) {
-        grid-template-columns: repeat(2, auto);
-      }
-
-      @media screen and (max-width: 300px) {
-        grid-template-columns: repeat(1, auto);
-      }
+      align-items: flex-end;
     }
 
     & .footer-links-grid a {
-      direction: ltr;
-      color: #000;
       text-transform: uppercase;
       font-size: 14px;
       font-weight: 400;
@@ -444,10 +351,8 @@
       transition: opacity 0.2s;
       line-height: 1;
       text-align: right;
-      justify-self: end;
-      align-self: end;
-      width: 100%;
       display: block;
+      white-space: nowrap;
     }
 
     & .footer-links-grid a:hover,
@@ -455,27 +360,7 @@
       opacity: 0.6;
     }
 
-    /*@media screen and (max-width: 1024px) {*/
-    /*  & .footer-content {*/
-    /*    padding: 1rem;*/
-    /*    flex-direction: column;*/
-    /*    gap: 2rem;*/
-    /*  }*/
-
-    /*  & .footer-right {*/
-    /*    align-items: flex-start;*/
-    /*    width: 100%;*/
-    /*  }*/
-
-    /*  & .footer-links-grid {*/
-    /*    grid-template-columns: repeat(auto-fit, minmax(120px, auto));*/
-    /*    justify-content: flex-start;*/
-    /*    width: 100%;*/
-    /*    gap: 1.5rem 1.5rem;*/
-    /*  }*/
-    /*}*/
-
-    @media screen and (max-width: 1010px) {
+    @media screen and (max-width: 1100px) {
       & .footer-content {
         flex-direction: column;
         align-items: start;
@@ -483,24 +368,23 @@
       }
 
       & .footer-left {
-        order: 2;
+        width: 100%;
+        flex: 1 1 100%;
       }
 
       & .footer-right {
-        order: 1;
         align-self: flex-start;
+        width: 100%;
+        flex: 1 1 100%;
       }
 
       & .footer-links-grid {
-        gap: 1rem 60px;
+        gap: 1.25rem 2rem;
         justify-content: flex-start;
-        justify-items: start;
-        direction: ltr;
       }
 
       & .footer-links-grid a {
         text-align: left;
-        justify-self: start;
       }
     }
 
