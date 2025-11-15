@@ -172,7 +172,7 @@
     padding-left: 24px;
     padding-right: 24px;
     background-color: #EAEAEA66;
-    backdrop-filter: blur(32px);
+    backdrop-filter: blur(24px) saturate(220%);
 
     & .comma-home-icon {
       display: none;
