@@ -107,13 +107,21 @@
       playsinline
       draggable="false"
     />
+    <div class="video-text-overlay">
+      <p>Your car can do this.</p>
+    </div>
   </section>
 
-  <section class="black-spacer"></section>
+  <section class="black-spacer">
+    <div class="video-text-overlay">
+      <p>It just needs a new brain...</p>
+    </div>
+  </section>
 
   <section id="four" class="dark comma-four-section">
     <img src={currentFourImage} alt="comma four" class="four-image" />
     <div class="four-content">
+      <h3 style="font-weight: 400; font-size: 2rem;">Meet comma four.</h3>
       <div class="four-text">
         comma four works on <a href="/vehicles" style="text-decoration: underline;">{vehicleCountText} car models</a>. It adds the best ADAS in the world to your existing car.<br><br>
         It runs <a href="https://github.com/commaai/openpilot?tab=readme-ov-file#openpilot" target="_blank" style="text-decoration: underline;">openpilot</a>, which can drive for hours without driver action.
@@ -409,6 +417,46 @@
       }
     }
 
+    & .video-text-overlay {
+      position: absolute;
+      bottom: 2rem;
+      left: 0;
+      right: 0;
+      padding: 3rem 2rem;
+      pointer-events: none;
+      z-index: 10;
+
+      @media screen and (max-width: 768px) {
+        padding: 2rem 1.5rem;
+      }
+
+      @media screen and (max-width: 480px) {
+        padding: 1.5rem 1rem;
+      }
+
+      & p {
+        color: white;
+        font-size: 5rem;
+        font-weight: 900;
+        margin: 0;
+        text-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+
+        /* @media screen and (max-width: 1200px) {
+          font-size: 4rem;
+        }
+
+        @media screen and (max-width: 768px) {
+          font-size: 3rem;
+        } */
+
+        @media screen and (max-width: 480px) {
+          font-size: 5rem;
+        }
+      }
+    }
+
     &::before {
       content: '';
       position: absolute;
@@ -432,6 +480,41 @@
     }
   }
 
+  .video-text-overlay {
+    position: relative;
+    width: 100%;
+    padding: 3rem 2rem;
+    pointer-events: none;
+    z-index: 10;
+    text-align: center;
+
+    @media screen and (max-width: 768px) {
+      padding: 2rem 1.5rem;
+    }
+
+    @media screen and (max-width: 480px) {
+      padding: 1.5rem 1rem;
+    }
+
+    & p {
+      background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 50%, #f0f0f0 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 5rem;
+      font-weight: 900;
+      margin: 0;
+      text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      filter: drop-shadow(0 1px 2px rgba(255, 255, 255, 0.1));
+
+      @media screen and (max-width: 480px) {
+        font-size: 5rem;
+      }
+    }
+  }
+
   @font-face {
     font-display: block;
     font-family: "NHaasGrotesk Roman";
@@ -449,13 +532,16 @@
   }
 
   .black-spacer {
-    height: 15vh;
+    /* height: 15vh; */
     background-color: #000;
     width: 100%;
     padding: 0;
     margin: 0;
     position: relative;
     z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .comma-four-section {
