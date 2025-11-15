@@ -49,7 +49,7 @@
     // swap out
     if (imageSrc === FourAngled) {
       fourImages[0] = { src: FourFront, name: 'front' };
-    } else if (imageSrc === FourFront) {
+    } else {
       fourImages[0] = { src: FourAngled, name: 'angled' };
     }
   }
