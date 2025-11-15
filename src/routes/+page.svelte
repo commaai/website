@@ -430,8 +430,8 @@
     @media screen and (max-width: 1300px) {
       width: 50%;
       /*min-height: 8rem;*/
-      padding-left: 10px;
-      padding-right: 10px;
+      padding-left: 20px;
+      padding-right: 20px;
       padding-top: 2rem;
     }
 
