@@ -416,10 +416,6 @@
       right: 1rem;
       font-size: 20px;
       letter-spacing: -0.06em;
-
-      @media screen and (max-width: 1300px) {
-        font-size: 16px;
-      }
     }
   }
 
@@ -605,7 +601,6 @@
 
     @media screen and (max-width: 1300px) {
       padding-top: 8rem;
-      font-size: 16px;
     }
 
     @media screen and (max-width: 950px) {
@@ -668,20 +663,11 @@
     display: flex;
     align-items: center;
     gap: 12px;
-
-    @media screen and (max-width: 1300px) {
-      font-size: 16px;
-    }
   }
 
   .link-away :global(svg) {
     width: 20px;
     height: 20px;
-
-    @media screen and (max-width: 1300px) {
-      width: 16px;
-      height: 16px;
-    }
   }
 
   .hero-content-wrapper {
