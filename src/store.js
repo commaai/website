@@ -14,14 +14,6 @@ export const cartTotalQuantity = writable(browser ? window.localStorage.getItem(
 export const cartItems = writable([]);
 export const cartDiscount = writable({});
 export const cartSubtotal = writable({});
-export const selectedCar = writable(browser ? localStorage.getItem('selectedCar') || '' : '');
-
-if (browser) {
-  selectedCar.subscribe((value) => {
-    if (value) localStorage.setItem('selectedCar', value);
-    else localStorage.removeItem('selectedCar');
-  });
-}
 
 if (browser) {
   cartId.subscribe((value) => window.localStorage.cartId = value)

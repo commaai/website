@@ -1,9 +1,6 @@
 <script>
-  import Product from "$lib/components/Product.svelte";
-  import NoteCard from "$lib/components/NoteCard.svelte";
-
   export let data;
-  $: ({ product, descriptionComponent } = data);
+  $: ({ component, product } = data);
 </script>
 
 <svelte:head>
@@ -12,38 +9,6 @@
 
 <section class="light" id="product-item">
   <div class="container">
-    {#if descriptionComponent}
-      <svelte:component this={descriptionComponent} {product}/>
-    {:else}
-      <Product
-        {product}
-        backordered={product.backordered || null}
-        forceOutOfStock={product.forceOutOfStock || false}
-        hideOutOfStockVariants={product.hideOutOfStockVariants || false}
-      >
-        <div slot="notes">
-          {#each product.notes || [] as note}
-            <NoteCard title={note.title}>
-              {@html note.content}
-            </NoteCard>
-          {/each}
-        </div>
-        <div slot="description">
-          {#if product.description}
-            {@html product.description}
-          {/if}
-        </div>
-      </Product>
-    {/if}
+    <svelte:component this={component} {product} />
   </div>
 </section>
-
-<style>
-  #product-item {
-    padding: 7rem 0 2rem;
-
-    @media only screen and (max-width: 1150px) {
-      padding: 10rem 0 2rem;
-    }
-  }
-</style>

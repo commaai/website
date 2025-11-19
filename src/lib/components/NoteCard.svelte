@@ -7,11 +7,7 @@
 </script>
 
 <div class="card" class:elevated={style == "elevated"}>
-  <div class="icon-slot">
-    <slot name="icon">
-      {@html icon}
-    </slot>
-  </div>
+  <div>{@html icon}</div>
   <hgroup>
     <span>{title}</span>
     <div>

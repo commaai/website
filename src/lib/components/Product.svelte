@@ -3,6 +3,7 @@
   import Button from "$lib/components/Button.svelte";
   import Select from "$lib/components/Select.svelte";
   import NoteCard from "$lib/components/NoteCard.svelte";
+  import Lightbox from "$lib/components/Lightbox.svelte";
 
   import ShippingIcon from "$lib/icons/features/shipping.svg?raw";
 
@@ -14,10 +15,11 @@
   export let autoSelectFirstVariant = true;
   export let beforeAddToCart = null;
   export let getCartNote = null;
+  export let previousPrice = null;
+  export let priceOverride = null;
+  export let sale = false;
   export let backordered = null;
   export let forceOutOfStock = false;
-  export let disableBuyButtonText = null;
-  export let hideOutOfStockVariants = false;
 
   export let VariantSelector = null;
   function handleVariantSelection(variant) {
@@ -27,16 +29,9 @@
 
   let currentImageIndex = 0;
 
-  $: variants = hideOutOfStockVariants
-    ? product?.variants?.nodes.filter(v => v.availableForSale) || []
-    : product?.variants?.nodes || [];
+  let selectedVariantId = autoSelectFirstVariant ? product?.variants?.nodes[0].id : null;
 
-  let selectedVariantId = null;
-  $: if (autoSelectFirstVariant && variants.length > 0 && !selectedVariantId) {
-    selectedVariantId = variants[0].id;
-  }
-
-  $: selectedVariant = variants.find(
+  $: selectedVariant = product?.variants?.nodes.find(
     (variant) => variant.id === selectedVariantId,
   );
 
@@ -58,7 +53,9 @@
   }
 
   function getPriceLabel(_) {
-    if (selectedVariant) {
+    if (priceOverride) {
+      return formatCurrency({amount: priceOverride, currencyCode: "USD"}, 0);
+    } else if (selectedVariant) {
       return formatCurrency(selectedVariant.price, 0);
     } else if (product.priceRange.minVariantPrice.amount !== product.priceRange.maxVariantPrice.amount) {
       return `from ${formatCurrency(product.priceRange.minVariantPrice, 0)}`;
@@ -69,9 +66,7 @@
 
   let addToCartLabel;
   $: {
-    if (disableBuyButtonText) {
-      addToCartLabel = disableBuyButtonText;
-    } else if (forceOutOfStock || (selectedVariant && !selectedVariant.availableForSale)) {
+    if (forceOutOfStock || (selectedVariant && !selectedVariant.availableForSale)) {
       addToCartLabel = "Out of stock";
       if (backordered) {
         addToCartLabel += ` (${backordered})`;
@@ -82,12 +77,20 @@
       addToCartLabel = "Add to cart";
     }
   }
+
+  let showLightbox = false;
+
+  function keydownLightbox(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      showLightbox = true;
+    }
+  }
 </script>
 
 {#if product}
   <Grid columns={2} rowGap="0" columnGap="6rem" templateColumns="1.25fr 0.75fr" lgTemplateColumns="1fr 1fr" lgColumnGap="2rem">
     <div>
-      <div class="preview">
+      <div class="preview" role="button" tabindex="0" aria-label="open product preview" on:click={() => showLightbox = true} on:keydown={keydownLightbox}>
         <img src={highlightedImageSrc} alt="product preview" />
       </div>
       {#if product?.images?.length > 1}
@@ -112,15 +115,18 @@
       <div>
         <div class="variant-selector">
           <h1>{product?.title}</h1>
-          <div class="price">{priceLabel}</div>
+          {#if previousPrice}
+            <div class="price strikethrough-price">${previousPrice}</div>
+          {/if}
+          <div class="price" class:sale-price={sale}>{priceLabel}</div>
           <slot name="price-accessory"></slot>
           {#if VariantSelector}
             <svelte:component this={VariantSelector} onChange={handleVariantSelection} />
           {:else}
-            {#if variants.length > 1}
+            {#if product?.variants?.nodes.length > 1}
               <img src={selectedVariant.image.url} alt="" />
               <Select bind:value={selectedVariantId}>
-                {#each variants as option}
+                {#each product?.variants?.nodes as option}
                   <option value={option.id}>
                     {option.title}
                   </option>
@@ -133,17 +139,13 @@
           style="accent"
           fullWidth={true}
           on:click={addItem}
-          disabled={forceOutOfStock || !selectedVariant || selectedVariant?.availableForSale === false || disableBuyButtonText !== null}
+          disabled={forceOutOfStock || !selectedVariant || selectedVariant?.availableForSale === false}
         >
           {addToCartLabel}
         </Button>
         <slot name="shipping">
           <NoteCard title="Shipping" icon={ShippingIcon}>
-          {#if product?.freeRush}
-            Free Rush (UPS 2nd Day Air) shipping. $30 flat rate internationally.
-          {:else}
             Free US shipping, $30 flat rate internationally.
-          {/if}
           </NoteCard>
         </slot>
         <slot name="notes"></slot>
@@ -156,6 +158,10 @@
   </Grid>
 {/if}
 
+{#if showLightbox && product?.images?.length > 1}
+  <Lightbox images={product.images} onClose={() => showLightbox = false} selectedIndex={currentImageIndex} />
+{/if}
+
 <style>
   h1 {
     font-size: 2.5rem;
@@ -164,6 +170,7 @@
 
   .preview {
     border: 1px solid rgba(0, 0, 0, 0.12);
+    cursor: pointer;
 
     & img {
       display: block;
@@ -202,6 +209,14 @@
       font-size: 1.5rem;
     }
 
+    & .strikethrough-price {
+      text-decoration: line-through;
+    }
+
+    & .sale-price {
+      font-weight: 700;
+      color: var(--color-red);
+    }
 
     & img {
       width: 120px;

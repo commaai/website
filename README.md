@@ -21,4 +21,6 @@ bun run build
 firebase serve  # or `bun run preview` without firebase login
 ```
 
-use `./encode.sh <video_file.mp4>` to update the hero video
+## Deploy
+
+Merging to master will deploy the latest state of the repository to the live channel.
