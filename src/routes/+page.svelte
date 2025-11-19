@@ -15,6 +15,7 @@
   import FourSide from "$lib/images/home/hero/four_side.png";
   import FourAngled from "$lib/images/home/hero/four_angled.png";
   import FourPov from "$lib/images/home/four_pov.png";
+  import Sonata from "$lib/images/home/sonata.png";
   import Map from "$lib/images/home/map.png";
   import FourZoom from "$lib/images/home/four_zoom.png";
   import LinkArrow from "$lib/images/home/link_arrow.svg?raw";
@@ -104,23 +105,28 @@
   <section class="light hero-video hero-section">
     <div class="left-section">
       <div class="hero-image-container">
+<!--        <div class="hero-image-text-container">-->
+<!--          <img src={FourPov} alt="comma four pov"/>-->
+<!--          <div class="bottom-right">i8 East, San Diego</div>-->
+<!--        </div>-->
         <div class="hero-image-text-container">
-          <img src={FourPov} alt="comma four pov"/>
-          <div class="bottom-right">i8 East, San Diego</div>
-        </div>
-        <div class="hero-image-text-container">
-          <img src={FourZoom} alt="comma four zoom"/>
-          <div class="bottom-left">Make driving chill</div>
+          <img src={Sonata} alt="comma four zoom"/>
+          <div class="bottom-left">comma 4</div>
+          <div class="bottom-left-2">plugged into a Hyundai Sonata</div>
         </div>
       </div>
     </div>
     <!-- Buy now should be pushed down a bit -->
     <div class="right-section">
       <div>
-        <div class="hero-title">comma 4</div>
+        <div class="hero-title">Your car can do more.</div>
+<!--        comma her image-->
+        <img src={FourFront} class="four-image" />
         <div class="hero-description" style="padding-top: 0; padding-bottom: 8rem;">
-          comma 4 drives with <a href="https://github.com/commaai/openpilot" target="_blank">openpilot</a> and works with <a href="/vehicles">{vehicleCountText} car models</a>.<br><br>
-          It only takes <a href="/setup">15 minutes</a> to upgrade your car to the best advanced driver assistance system in the world.
+          Meet comma 4.<br><br>
+          Your car already has the right hardware, now it can have the right software.<br><br>
+          It only takes <a href="/setup">15 minutes</a> to upgrade your car to the best advanced driving assistance system in the world.<br><br>
+          comma 4 works with <a href="/vehicles">{vehicleCountText} car models</a>.
         </div>
       </div>
 <!--      <div class="hero-bottom" style="margin-top: 8rem;">-->
@@ -146,6 +152,117 @@
             <img src={image.src} alt={`comma four ${image.name}`}/>
           </button>
         {/each}
+      </div>
+    </div>
+  </section>
+
+  <section class="light hero-section">
+<!--    <div class="left-section">-->
+<!--      <div class="hero-carousel">-->
+<!--        <div class="main-image-container">-->
+<!--          <img src={currentFourImage} alt="comma four" class="four-image"/>-->
+<!--        </div>-->
+<!--        <div class="four-thumbnails">-->
+<!--          {#each fourImages as image}-->
+<!--            <button-->
+<!--              class="four-thumbnail"-->
+<!--              class:active={currentFourImage === image.src}-->
+<!--              on:click={() => selectFourImage(image.src)}-->
+<!--              aria-label={`View ${image.name} view`}-->
+<!--            >-->
+<!--              <img src={image.src} alt={`comma four ${image.name}`}/>-->
+<!--            </button>-->
+<!--          {/each}-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--    </div>-->
+
+    <div class="right-section">
+<!--      <div class="hero-title">tiny enough to forget</div>-->
+      <div class="hero-description">
+        The most AI per square inch, all running in complete silence.<br><br>
+        There when you need it, gone when you don't.<br><br>
+        <ul>
+          <li>modern AI trained on over 300 million miles of driving data</li>
+          <li>360° onboard sensor suite</li>
+          <li>100% local compute, no internet required</li>
+          <li>310 ppi high resolution OLED display</li>
+        </ul>
+        <a href="/shop/comma-four" class="link-away">
+          tech specs
+          {@html LinkArrow}
+        </a>
+      </div>
+    </div>
+  </section>
+
+    <section class="light hero-section">
+<!--    <div class="left-section">-->
+<!--      <div class="hero-carousel">-->
+<!--        <div class="main-image-container">-->
+<!--          <img src={currentFourImage} alt="comma four" class="four-image"/>-->
+<!--        </div>-->
+<!--        <div class="four-thumbnails">-->
+<!--          {#each fourImages as image}-->
+<!--            <button-->
+<!--              class="four-thumbnail"-->
+<!--              class:active={currentFourImage === image.src}-->
+<!--              on:click={() => selectFourImage(image.src)}-->
+<!--              aria-label={`View ${image.name} view`}-->
+<!--            >-->
+<!--              <img src={image.src} alt={`comma four ${image.name}`}/>-->
+<!--            </button>-->
+<!--          {/each}-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--    </div>-->
+
+    <div class="right-section">
+      <div class="hero-title">Plug & play.</div>
+      <div class="hero-description">
+        comma 4 is designed to fit in your car like it was always meant to be there. So it’s easy to add on, and just as easy to remove.<br><br>
+        Send it back to us any time within 30 days for a full refund, no questions asked.
+        <a href="/shop/comma-four" class="link-away">
+          no-risk trial
+          {@html LinkArrow}
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+    <section class="light hero-section">
+<!--    <div class="left-section">-->
+<!--      <div class="hero-carousel">-->
+<!--        <div class="main-image-container">-->
+<!--          <img src={currentFourImage} alt="comma four" class="four-image"/>-->
+<!--        </div>-->
+<!--        <div class="four-thumbnails">-->
+<!--          {#each fourImages as image}-->
+<!--            <button-->
+<!--              class="four-thumbnail"-->
+<!--              class:active={currentFourImage === image.src}-->
+<!--              on:click={() => selectFourImage(image.src)}-->
+<!--              aria-label={`View ${image.name} view`}-->
+<!--            >-->
+<!--              <img src={image.src} alt={`comma four ${image.name}`}/>-->
+<!--            </button>-->
+<!--          {/each}-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--    </div>-->
+
+    <div class="right-section">
+      <div class="hero-title">See openpilot in action.</div>
+      <div class="hero-description">
+        comma 4 is powered by the openpilot ADAS software developed by comma. It learns how well your car drives and adapts to drive your car well.
+        <a href="/autonomy" class="link-away">
+          autonomy
+          {@html LinkArrow}
+        </a>
       </div>
     </div>
   </section>
@@ -399,14 +516,28 @@
 
     & .bottom-left {
       position: absolute;
-      bottom: 1rem;
-      left: 1rem;
-      font-size: 36px;
+      bottom: 37px;
+      left: 20px;
+      font-size: 32px;
       letter-spacing: -0.06em;
       line-height: 1;
 
       @media screen and (max-width: 1300px) {
         font-size: 32px;
+      }
+    }
+
+    & .bottom-left-2 {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      font-size: 14px;
+      letter-spacing: -0.06em;
+      line-height: 1;
+      color: rgba(234, 234, 234, 0.65);
+
+      @media screen and (max-width: 1300px) {
+        font-size: 14px;
       }
     }
 
@@ -590,7 +721,7 @@
     padding-bottom: 1rem;
 
     @media screen and (max-width: 1300px) {
-      font-size: 72px;
+      font-size: 64px;
     }
   }
 
