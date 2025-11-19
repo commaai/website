@@ -267,40 +267,74 @@
     </div>
   </section>
 
-  <section class="light hero-section">
-    <div class="left-section">
-      <div class="hero-carousel">
-        <div class="main-image-container">
-          <img src={currentFourImage} alt="comma four" class="four-image"/>
-        </div>
-        <div class="four-thumbnails">
-          {#each fourImages as image}
-            <button
-              class="four-thumbnail"
-              class:active={currentFourImage === image.src}
-              on:click={() => selectFourImage(image.src)}
-              aria-label={`View ${image.name} view`}
-            >
-              <img src={image.src} alt={`comma four ${image.name}`}/>
-            </button>
-          {/each}
-        </div>
-      </div>
+      <section class="light hero-section">
+<!--    <div class="left-section">-->
+<!--      <div class="hero-carousel">-->
+<!--        <div class="main-image-container">-->
+<!--          <img src={currentFourImage} alt="comma four" class="four-image"/>-->
+<!--        </div>-->
+<!--        <div class="four-thumbnails">-->
+<!--          {#each fourImages as image}-->
+<!--            <button-->
+<!--              class="four-thumbnail"-->
+<!--              class:active={currentFourImage === image.src}-->
+<!--              on:click={() => selectFourImage(image.src)}-->
+<!--              aria-label={`View ${image.name} view`}-->
+<!--            >-->
+<!--              <img src={image.src} alt={`comma four ${image.name}`}/>-->
+<!--            </button>-->
+<!--          {/each}-->
+<!--        </div>-->
+<!--      </div>-->
 
-    </div>
+<!--    </div>-->
 
     <div class="right-section">
-      <div class="hero-title">tiny enough to forget</div>
+      <div class="hero-title">Works <i>with</i> you, not without you.</div>
       <div class="hero-description">
-        comma 4 offers the most AI per square inch, all running in complete silence.<br><br>
-        There when you need it, gone when you don't.<br><br>
+        comma 4 makes sure you’re at your best behind the wheel.
         <a href="/shop/comma-four" class="link-away">
-          tech specs
+          tech specs?
           {@html LinkArrow}
         </a>
       </div>
     </div>
   </section>
+
+<!--  <section class="light hero-section">-->
+<!--    <div class="left-section">-->
+<!--      <div class="hero-carousel">-->
+<!--        <div class="main-image-container">-->
+<!--          <img src={currentFourImage} alt="comma four" class="four-image"/>-->
+<!--        </div>-->
+<!--        <div class="four-thumbnails">-->
+<!--          {#each fourImages as image}-->
+<!--            <button-->
+<!--              class="four-thumbnail"-->
+<!--              class:active={currentFourImage === image.src}-->
+<!--              on:click={() => selectFourImage(image.src)}-->
+<!--              aria-label={`View ${image.name} view`}-->
+<!--            >-->
+<!--              <img src={image.src} alt={`comma four ${image.name}`}/>-->
+<!--            </button>-->
+<!--          {/each}-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--    </div>-->
+
+<!--    <div class="right-section">-->
+<!--      <div class="hero-title">tiny enough to forget</div>-->
+<!--      <div class="hero-description">-->
+<!--        comma 4 offers the most AI per square inch, all running in complete silence.<br><br>-->
+<!--        There when you need it, gone when you don't.<br><br>-->
+<!--        <a href="/shop/comma-four" class="link-away">-->
+<!--          tech specs-->
+<!--          {@html LinkArrow}-->
+<!--        </a>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </section>-->
 
   <section class="light hero-section mobile-direction-flip">
     <div class="left-section" style="background-color: black; align-items: center;">
