@@ -259,7 +259,7 @@
       <div class="hero-title">See openpilot in action.</div>
       <div class="hero-description">
         comma 4 is powered by the openpilot ADAS software developed by comma. It learns how well your car drives and adapts to drive your car well.
-        <a href="/autonomy" class="link-away">
+        <a href="/" class="link-away">
           autonomy
           {@html LinkArrow}
         </a>
