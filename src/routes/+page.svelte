@@ -313,8 +313,6 @@
   .hero-section {
     display: flex;
     padding-bottom: 4rem;
-    /*padding-left: 1.25rem;*/
-    /*padding-right: 1.25rem;*/
 
     @media screen and (max-width: 1300px) {
       flex-direction: column;
@@ -466,8 +464,6 @@
   }
 
   .main-image-container {
-    /*margin-top: -4rem;*/
-    /*margin-bottom: -4rem;*/
     width: 960px;
     height: auto;
 
@@ -599,9 +595,6 @@
   }
 
   .hero-description {
-    /*display: flex;*/
-    /*flex-direction: column;*/
-    /*justify-content: space-between;*/
     font-size: 20px;
     line-height: 1.2;
     letter-spacing: -0.06em;
@@ -963,7 +956,6 @@
       max-width: 1200px;
       min-width: 400px;
       position: absolute;
-      /*padding-bottom: -4rem;*/
       top: -200px;
       left: 100px;
       z-index: 0;
