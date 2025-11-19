@@ -112,7 +112,19 @@
   <section class="black-spacer"></section>
 
   <section id="four" class="dark comma-four-section">
-    <img src={currentFourImage} alt="comma four" class="four-image" />
+    <div class="four-image-wrapper">
+      <img src={currentFourImage} alt="comma four" class="four-image" />
+      {#if currentFourImage === FourImage}
+        <video
+          class="four-screen-video"
+          autoplay
+          muted
+          loop
+          playsinline
+          src="/videos/comma-four/screen-video.mp4"
+        />
+      {/if}
+    </div>
     <div class="four-content">
       <div class="four-text">
         comma four works on <a href="/vehicles" style="text-decoration: underline;">{vehicleCountText} car models</a>. It adds the best ADAS in the world to your existing car.<br><br>
@@ -489,7 +501,7 @@
       padding: 2rem;
     }
 
-    & .four-image {
+    & .four-image-wrapper {
       width: 50vw;
       max-width: 1200px;
       min-width: 400px;
@@ -510,6 +522,29 @@
         min-width: 90vw;
         width: 90vw;
       }
+    }
+
+    & .four-image {
+      width: 100%;
+      height: auto;
+      display: block;
+      position: relative;
+    }
+
+    & .four-screen-video {
+      position: absolute;
+      /* Recalculate with: python3 -c "img_w=2548; img_h=2007; x1=353; y1=1300; x2=1712; y2=1912; left=x1/img_w*100; top=y1/img_h*100; width=(x2-x1)/img_w*100; height=(y2-y1)/img_h*100; print(f'left: {left:.1f}%'); print(f'top: {top:.1f}%'); print(f'width: {width:.1f}%'); print(f'height: {height:.1f}%')" */
+      /* Round: left/top down, width/height up */
+      left: 13.7%;
+      top: 64.6%;
+      width: 53.6%;
+      height: 30.6%;
+      object-fit: contain;
+      object-position: center;
+      z-index: 1;
+      /*opacity: 0.7;*/
+      border-radius: 2px;
+      overflow: hidden;
     }
 
     & .four-content {
