@@ -755,7 +755,7 @@
     padding-bottom: 1rem;
 
     @media screen and (max-width: 1300px) {
-      font-size: 64px;
+      font-size: 72px;
     }
   }
 
