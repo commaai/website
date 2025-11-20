@@ -27,7 +27,7 @@
     cursor: pointer;
     color: #222222;
     background-color: rgb(217, 217, 217);
-    padding: 1.25rem 3.85rem;
+    padding: 14px 14px 14px 24px;
     box-sizing: border-box;
     min-height: 84px;
     transition: border-color 0.2s;
@@ -44,16 +44,16 @@
   }
 
   .title {
-    font-size: 1rem;
+    font-size: 20px;
     font-weight: 600;
     margin-right: 0.5rem;
   }
 
   .subtitle {
-    font-size: 0.875rem;
+    font-size: 16px;
     font-weight: 400;
-    color: rgb(81, 81, 81);
     margin-right: 0.5rem;
+    color: black;
   }
 
   .accessory-label {

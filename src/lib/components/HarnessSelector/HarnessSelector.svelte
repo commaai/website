@@ -10,16 +10,18 @@
   import { NO_HARNESS_OPTION } from '$lib/constants/vehicles.js';
 
   import NoteCard from '$lib/components/NoteCard.svelte';
+  import CarNote from '$lib/components/CarNote.svelte';
   import DropdownItem from './HarnessDropdownItem.svelte';
 
   import LinkArrow from "$lib/icons/link_arrow.svg?raw";
   import CloseIcon from '$lib/icons/ui/close-new.svg?raw';
   import CarIcon from '$lib/icons/features/car.svg?raw';
+  import CheckIcon from "$lib/icons/ui/check.svg";
 
   export let onChange;
 
-  export let label = "Select vehicle";
-  export let placeholder = "Search for a vehicle or harness";
+  export let label = "select vehicle";
+  export let placeholder = "search for a vehicle or harness";
   export let showNoHarnessOption = false; // shows "I already have a harness" option
   export let showVehicleHarnesses = true; // If true, includes the harnesses by each vehicle model
   export let showGenericHarnesses = true; // If true, includes the generic/developer harnesses
@@ -109,7 +111,6 @@
 <div class="dropdown" use:clickOutside on:clickOutside={() => menuOpen = false}>
   <div>
     {#if menuOpen}
-      <button class="clear" on:click={handleClear}>{@html CloseIcon}</button>
       <input
         type="text"
         placeholder={placeholder}
@@ -119,10 +120,9 @@
         bind:this={inputRef}
         on:click={() => menuOpen = true}
         on:focus={() => menuOpen = true}
-        style={menuOpen ? 'padding: 14px 4rem' : ''}
+        style={menuOpen ? 'padding: 14px 4rem 14px 24px' : ''}
       />
     {:else if selection}
-      <button class="clear" on:click={handleClear}>{@html CloseIcon}</button>
       <DropdownItem
         value={selection}
         on:click={handleSelectClick}
@@ -140,7 +140,13 @@
       </div>
     {/if}
 <!--    <span class="chevron">{@html ChevronIcon}</span>-->
-    <span class="chevron">{@html LinkArrow}</span>
+    {#if menuOpen}
+      <button class="chevron clear" on:click={handleClear}>{@html CloseIcon}</button>
+    {:else if selection}
+      <button class="chevron clear" on:click={handleClear}>{@html CloseIcon}</button>
+    {:else}
+      <span class="chevron">{@html LinkArrow}</span>
+    {/if}
   </div>
   <div class="dropdown-content" class:show={menuOpen}>
     {#if inputValue !== ''}
@@ -163,12 +169,14 @@
 </div>
 
 {#if selection && selection.package && !hideSupportNoteCard}
-  <NoteCard title="Support" icon={CarIcon}>
-    {@html selection.package === 'All' ?
-      'openpilot will work with <strong>all packages and trims</strong> of this car.' :
-      `openpilot requires <strong>${selection.car}</strong> to come equipped with <strong>${selection.package}</strong>.`
-    }
-  </NoteCard>
+  <div class="car-note-container">
+    <CarNote image={CheckIcon} title="support">
+      {@html selection.package === 'All' ?
+        'openpilot will work with <strong>all packages and trims</strong> of this car.' :
+        `openpilot requires <strong>${selection.car}</strong> to come equipped with <strong>${selection.package}</strong>.`
+      }
+    </CarNote>
+  </div>
 {/if}
 
 
@@ -190,6 +198,12 @@
   overflow-y: auto;
 }
 
+.car-note-container {
+  background-color: #D9D9D9;
+  margin-top: -1rem;
+  padding: 1rem;
+}
+
 .show {
   display:block;
 }
@@ -201,11 +215,11 @@
   border: none;
   padding: 14px;
   outline: none;
-  font-size: 1rem;
+  font-size: 24px;
   background-color: rgb(217, 217, 217);
 
   &::placeholder {
-    font-size: 1rem;
+    font-size: 24px;
     color: #656565;
   }
 }
@@ -251,6 +265,14 @@
   & > svg {
     width: 24px;
     height: 24px;
+  }
+
+  &.clear {
+    pointer-events: auto;
+    cursor: pointer;
+    left: auto;
+    right: 13px;
+    transform: translate(-50%, -50%);
   }
 }
 

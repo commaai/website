@@ -112,6 +112,7 @@
     </div>
     <HarnessSelector
       label="select your car"
+      placeholder="select your car"
       onChange={handleHarnessSelection}
       showNoHarnessOption={true}
     >

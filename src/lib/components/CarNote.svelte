@@ -26,14 +26,14 @@
     display: flex;
     gap: 1rem;
     margin-bottom: 0.75rem;
-  }
 
-  .image {
-    width: 24px;
-    height: 24px;
-    object-fit: contain;
-    flex-shrink: 0;
-    line-height: 1;
+    & img {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+      flex-shrink: 0;
+      line-height: 1;
+    }
   }
 
   .title {
