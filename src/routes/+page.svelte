@@ -16,12 +16,18 @@
   import FourAngled from "$lib/images/home/hero/four_angled.png";
   import FourPov from "$lib/images/home/four_pov.png";
   import Sonata from "$lib/images/home/sonata.png";
+  import SonataLandscape from "$lib/images/home/sonata_landscape.png";
   import Map from "$lib/images/home/map.png";
   import FourZoom from "$lib/images/home/four_zoom.png";
   import LinkArrow from "$lib/images/home/link_arrow.svg?raw";
   import ExperimentalIcon from "$lib/images/experimental.svg?raw";
   import WarrantyIcon from "$lib/icons/features/warranty.svg?raw";
   import MoneyBackIcon from "$lib/icons/features/money-back-guarantee.svg?raw";
+  import ToyotaLogo from "$lib/icons/brands/toyota.svg?raw";
+  import HyundaiLogo from "$lib/icons/brands/hyundai.svg?raw";
+  import HondaLogo from "$lib/icons/brands/honda.svg?raw";
+  import ChevroletLogo from "$lib/icons/brands/chevrolet.svg?raw";
+  import ChryslerLogo from "$lib/icons/brands/chrysler.svg?raw";
 
   const HeroVideo = "/videos/hero/hero.m3u8";
   const storeUrl = import.meta.env.VITE_SHOPIFY_STORE_URL;
@@ -110,7 +116,8 @@
 <!--          <div class="bottom-right">i8 East, San Diego</div>-->
 <!--        </div>-->
         <div class="hero-image-text-container">
-          <img src={Sonata} alt="comma four zoom"/>
+          <img src={Sonata} class="hide-desktop" alt="comma four zoom"/>
+          <img src={FourFront} class="hide-mobile" alt="comma four zoom"/>
           <div class="bottom-left">comma 4</div>
           <div class="bottom-left-2">plugged into a Hyundai Sonata</div>
         </div>
@@ -121,9 +128,9 @@
       <div>
         <div class="hero-title">Your car can do more.</div>
 <!--        comma her image-->
-        <img src={FourFront} class="four-image" />
+        <img src={FourFront} class="four-image hide-desktop" />
         <div class="hero-description" style="padding-top: 0; padding-bottom: 8rem;">
-          Meet comma 4.<br><br>
+          <div class="title">Meet comma 4.<br><br></div>
           Your car already has the right hardware, now it can have the right software.<br><br>
           It only takes <a href="/setup">15 minutes</a> to upgrade your car to the best advanced driving assistance system in the world.<br><br>
           comma 4 works with <a href="/vehicles">{vehicleCountText} car models</a>.
@@ -131,13 +138,20 @@
       </div>
 <!--      <div class="hero-bottom" style="margin-top: 8rem;">-->
       <div class="hero-bottom">
-        <div class="hero-price">
-          <span class="hero-dollar">$</span><span class="hero-amount">999</span>
+        <div class="brand-icon-section">
+          {@html ToyotaLogo}
+          {@html HyundaiLogo}
+          {@html HondaLogo}
+          {@html ChevroletLogo}
+          {@html ChryslerLogo}
         </div>
-        <a href="/shop/comma-four" class="hero-buy-now">
-          buy now
-          {@html LinkArrow}
-        </a>
+<!--        <div class="hero-price">-->
+<!--          <span class="hero-dollar">$</span><span class="hero-amount">999</span>-->
+<!--        </div>-->
+<!--        <a href="/shop/comma-four" class="hero-buy-now">-->
+<!--          buy now-->
+<!--          {@html LinkArrow}-->
+<!--        </a>-->
       </div>
 
       <!-- On mobile, four thumbnails will go vertically down the page, spanning all sections starting from "comma four" -->
@@ -157,26 +171,20 @@
   </section>
 
   <section class="light hero-section">
-<!--    <div class="left-section">-->
-<!--      <div class="hero-carousel">-->
-<!--        <div class="main-image-container">-->
-<!--          <img src={currentFourImage} alt="comma four" class="four-image"/>-->
+    <div class="left-section">
+      <div class="hero-image-container">
+<!--        <div class="hero-image-text-container">-->
+<!--          <img src={FourPov} alt="comma four pov"/>-->
+<!--          <div class="bottom-right">i8 East, San Diego</div>-->
 <!--        </div>-->
-<!--        <div class="four-thumbnails">-->
-<!--          {#each fourImages as image}-->
-<!--            <button-->
-<!--              class="four-thumbnail"-->
-<!--              class:active={currentFourImage === image.src}-->
-<!--              on:click={() => selectFourImage(image.src)}-->
-<!--              aria-label={`View ${image.name} view`}-->
-<!--            >-->
-<!--              <img src={image.src} alt={`comma four ${image.name}`}/>-->
-<!--            </button>-->
-<!--          {/each}-->
-<!--        </div>-->
-<!--      </div>-->
-
-<!--    </div>-->
+        <div class="hero-image-text-container">
+          <img src={SonataLandscape} class="hide-mobile" alt="comma four zoom"/>
+          <img src={FourFront} class="hide-desktop" alt="comma four zoom"/>
+          <div class="bottom-left">comma 4</div>
+          <div class="bottom-left-2">plugged into a Hyundai Sonata</div>
+        </div>
+      </div>
+    </div>
 
     <div class="right-section">
 <!--      <div class="hero-title">tiny enough to forget</div>-->
@@ -464,6 +472,7 @@
   .hero-section {
     display: flex;
     padding-bottom: 4rem;
+    border-bottom: 2px solid black;
 
     @media screen and (max-width: 1300px) {
       flex-direction: column;
@@ -548,6 +557,21 @@
     position: relative;
     color: #EAEAEA;
 
+    & .hide-mobile {
+      @media screen and (max-width: 950px) {
+        display: none;
+      }
+    }
+
+    & .hide-desktop {
+      display: none;
+
+      @media screen and (max-width: 950px) {
+        display: block;
+        width: 100%;
+      }
+    }
+
     & .bottom-left {
       position: absolute;
       bottom: 37px;
@@ -603,6 +627,14 @@
     @media screen and (max-width: 950px) {
       width: auto;
       /*padding-right: 10px; WHY NO WORK?*/
+    }
+
+    & .hide-desktop {
+      display: none;
+
+      @media screen and (max-width: 950px) {
+        display: inline;
+      }
     }
   }
 
@@ -755,7 +787,7 @@
     padding-bottom: 1rem;
 
     @media screen and (max-width: 1300px) {
-      font-size: 72px;
+      font-size: 64px;
     }
   }
 
@@ -771,6 +803,14 @@
     @media screen and (max-width: 950px) {
       padding-top: 4rem;
     }
+
+    & .title {
+      font-size: 40px;
+
+      @media screen and (max-width: 1300px) {
+        font-size: 20px;
+      }
+    }
   }
 
   .hero-description a {
@@ -782,6 +822,16 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+
+    & .brand-icon-section {
+      display: flex;
+      gap: 10px;
+
+      & svg {
+        width: 48px;
+        height: 48px;
+      }
+    }
   }
 
   .bottom-section {
@@ -822,17 +872,26 @@
   }
 
   .link-away {
-    font-size: 20px;
+    font-size: 36px;
     text-decoration: underline;
     color: inherit;
     display: flex;
     align-items: center;
     gap: 12px;
+
+    @media screen and (max-width: 1300px) {
+      font-size: 20px;
+    }
   }
 
   .link-away :global(svg) {
-    width: 20px;
-    height: 20px;
+    width: 36px;
+    height: 36px;
+
+    @media screen and (max-width: 1300px) {
+      width: 20px;
+      height: 20px;
+    }
   }
 
   .hero-content-wrapper {
