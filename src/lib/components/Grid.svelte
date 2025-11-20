@@ -37,16 +37,6 @@
 
 <style>
   .grid {
-    /*!* Default values to prevent flash before hydration - match most common case *!*/
-    /*--columns: 2;*/
-    /*--align-items: flex-start;*/
-    /*--column-gap: 0;*/
-    /*--row-gap: 0;*/
-    /*--wrapped-columns: 1;*/
-    /*--template-columns: 2fr 1fr;*/
-    /*--lg-column-gap: 0;*/
-    /*--lg-template-columns: 2fr 1fr;*/
-
     grid-column-gap: var(--column-gap);
     grid-row-gap: var(--row-gap);
     margin-bottom: var(--margin-bottom);
