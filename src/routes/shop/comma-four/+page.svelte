@@ -14,7 +14,7 @@
   import ReplacementMountsImage from "$lib/images/products/replacement-mounts/replacement-mounts-four.png";
   import CarBrandCollageImage from "$lib/images/car-brand-collage.jpg";
 
-  import FourRemount from "$lib/images/products/comma-four/remount.jpg";
+  import FourRemount from "$lib/images/home/plug-n-play/remount.png";
   import MemoryIcon from "$lib/icons/features/memory.svg?raw";
   import ThreeSixtyVisionIcon from "$lib/icons/features/360-vision.svg?raw";
   import ProcessorIcon from "$lib/icons/features/processor.svg?raw";

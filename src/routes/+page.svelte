@@ -1013,6 +1013,18 @@
       display: none;
     }
 
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 166px;
+      background: linear-gradient(to top, #EAEAEA, transparent);
+      z-index: 1;
+      pointer-events: none;
+    }
+
     & img {
       width: 100%;
       height: auto;

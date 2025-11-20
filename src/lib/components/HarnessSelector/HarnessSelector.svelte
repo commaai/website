@@ -139,7 +139,6 @@
         </div>
       </div>
     {/if}
-<!--    <span class="chevron">{@html ChevronIcon}</span>-->
     {#if menuOpen}
       <button class="chevron clear" on:click={handleClear}>{@html CloseIcon}</button>
     {:else if selection}
