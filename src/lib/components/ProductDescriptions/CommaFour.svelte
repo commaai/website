@@ -106,7 +106,7 @@
   onMount(async () => {
     // Fetch trade-in product variant ID
     try {
-      const tradeInProductId = productsData["comma-four-trade-in"]?.id;
+      const tradeInProductId = productsData["comma-4-trade-in"]?.id;
       if (!tradeInProductId) return;
       const response = await getProduct(tradeInProductId);
       if (response.status === 200) {

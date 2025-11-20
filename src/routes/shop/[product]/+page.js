@@ -6,7 +6,7 @@ import { resolveImages } from '$lib/utils/images.js';
 // Helper to convert product-slug to PascalCase component name
 function slugToComponentName(slug) {
   // Special case for comma-3x -> Comma3X
-  if (slug === 'comma-four') {
+  if (slug === 'comma-4') {
     return 'CommaFour';
   }
   return slug
