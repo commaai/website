@@ -44,7 +44,7 @@
           </p>
 
         <div class="bottom">
-          <a href="#tech-specs" class="link-away">
+          <a href="#tech-specs" class="link-away down">
             tech specs
             {@html LinkArrow}
           </a>
@@ -55,6 +55,21 @@
         </div>
       </div>
     </Grid>
+
+    <hr />
+
+    <div class="description">
+      <h1>Get more with Prime.</h1>
+      <p>
+        comma connect is an app that lets you manage your openpilot experience. Recordings of your drives can be uploaded and stored for 3 days. Subscribe to connect Prime to keep your drives accessible for 1 year.
+      </p>
+      <div class="bottom">
+        <a href="https://connect.comma.ai" class="link-away">
+          learn more
+          {@html LinkArrow}
+        </a>
+      </div>
+    </div>
 
     <hr />
 
@@ -251,9 +266,10 @@
     color: #000;
   }
 
-
   hr {
-    margin: 3rem 0;
+    margin: 3rem calc(-50vw + 50%);
+    width: 100vw;
+    height: 2px;
   }
 
   .link-away {
@@ -277,6 +293,10 @@
       width: 20px;
       height: 20px;
     }
+  }
+
+  .link-away.down :global(svg) {
+    transform: rotate(180deg);
   }
 
   .max-gradient {
@@ -464,8 +484,6 @@
   .fine-print-copy {
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
     /*background-color: #fafafa;*/
 
     & h2 {

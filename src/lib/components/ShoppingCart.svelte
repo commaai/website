@@ -128,10 +128,6 @@
     box-shadow: -5px 0 5px rgba(0, 0, 0, 0.1);
     z-index: 11;
     border-radius: 0.5rem 0 0 0.5rem;
-
-    @media screen and (max-width: 1300px) {
-      top: 9rem;
-    }
   }
 
   .header {
