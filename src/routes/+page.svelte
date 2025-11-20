@@ -42,6 +42,7 @@
 
   let videoElement;
   let videoReady = false;
+  let landscapeVideoElement;
   let compatPulse = false;
   let compatShake = false;
 
@@ -157,6 +158,24 @@
       }
     }
 
+    // Initialize landscape video
+    if (landscapeVideoElement) {
+      if (Hls.isSupported()) {
+        const hls = new Hls();
+        hls.loadSource(HeroVideo);
+        hls.attachMedia(landscapeVideoElement);
+        hls.on(Hls.Events.MANIFEST_PARSED, () => {
+          landscapeVideoElement.play();
+        });
+      } else if (landscapeVideoElement.canPlayType('application/vnd.apple.mpegurl')) {
+        // Native HLS support (Safari)
+        landscapeVideoElement.src = HeroVideo;
+        landscapeVideoElement.addEventListener('loadedmetadata', () => {
+          landscapeVideoElement.play();
+        });
+      }
+    }
+
     // Initialize video carousel
     await tick();
     videoElements.forEach((videoEl, index) => {
@@ -254,18 +273,18 @@
 <!--    <div class="left-section">-->
   <Grid rowGap="0" columnGap="0" templateColumns="2fr 1fr" size="xlarge">
     <div class="left-section-v2">
-      <div class="hero-image-container">
-<!--        <div class="hero-image-text-container">-->
-<!--          <img src={FourPov} alt="comma four pov"/>-->
-<!--          <div class="bottom-right">i8 East, San Diego</div>-->
-<!--        </div>-->
-        <div class="hero-image-text-container">
-          <div style="line-height: 0;">
-            <img src={SonataLandscape} class="hide-mobile" alt="comma four zoom"/>
-          </div>
-<!--          <img src={FourFront} class="hide-desktop" alt="comma four zoom"/>-->
-          <div class="bottom-left">comma 4</div>
-          <div class="bottom-left-2">plugged into a Hyundai Sonata</div>
+      <div class="landscape-video-container">
+        <video
+          bind:this={landscapeVideoElement}
+          class="landscape-video"
+          muted
+          playsinline
+          loop
+        >
+        </video>
+        <div class="landscape-video-text-overlay">
+          <div class="landscape-video-title">comma 4</div>
+          <div class="landscape-video-subtitle">plugged into a Hyundai Sonata</div>
         </div>
       </div>
     </div>
@@ -1308,6 +1327,55 @@
   .hero-image-v2 {
     /*display: block;*/
     line-height: 0;
+  }
+
+  .landscape-video-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .landscape-video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    line-height: 0;
+  }
+
+  .landscape-video-text-overlay {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    z-index: 2;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .landscape-video-title {
+    font-size: 36px;
+    color: #eaeaea;
+    line-height: 1.2;
+    letter-spacing: -0.06em;
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.65);
+
+    @media screen and (max-width: 950px) {
+      font-size: 32px;
+    }
+  }
+
+  .landscape-video-subtitle {
+    font-size: 36px;
+    color: rgba(234, 234, 234, 0.65);
+    line-height: 1.2;
+    letter-spacing: -0.06em;
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.65);
+
+    @media screen and (max-width: 950px) {
+      font-size: 14px;
+    }
   }
 
   .video-carousel {
