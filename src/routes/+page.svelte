@@ -1635,10 +1635,14 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    aspect-ratio: 3 / 4;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+
+    @media screen and (max-width: 1450px) {
+      /* Not needed on desktop */
+      aspect-ratio: 3 / 4;
+    }
 
     @media screen and (max-width: 698px) {
       display: none;
