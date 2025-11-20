@@ -9,10 +9,12 @@
   import { faq } from "$lib/constants/faq.svelte";
 
   import FourImage from "$lib/images/products/comma-four/four_screen_on.png";
+  import FourExploded from "$lib/images/products/comma-four/four-exploded.png";
   import OBDCCableImage from "$lib/images/products/obd-c-cable/obd-c-cable-four.png";
   import ReplacementMountsImage from "$lib/images/products/replacement-mounts/replacement-mounts-four.png";
   import CarBrandCollageImage from "$lib/images/car-brand-collage.jpg";
 
+  import FourRemount from "$lib/images/products/comma-four/remount.jpg";
   import MemoryIcon from "$lib/icons/features/memory.svg?raw";
   import ThreeSixtyVisionIcon from "$lib/icons/features/360-vision.svg?raw";
   import ProcessorIcon from "$lib/icons/features/processor.svg?raw";
@@ -21,6 +23,7 @@
   import DisplayIcon from "$lib/icons/features/display.svg?raw";
   import CableIcon from "$lib/icons/features/cable.svg?raw";
   import { vehicleCountText } from '$lib/constants/vehicles.js';
+  import LinkArrow from "$lib/icons/link_arrow.svg?raw";
 
   export let data;
 </script>
@@ -29,39 +32,166 @@
 
 <section class="light" id="description">
   <div class="container">
-    <Grid rowGap="0" templateColumns="0.5fr 1.25fr">
-      <h2>Meet the comma four</h2>
+
+    <hr />
+
+    <Grid rowGap="0" templateColumns="0.5fr 0.5fr">
+      <img src={FourRemount} loading="lazy" alt="comma four device remounted on windshield">
       <div class="description">
-        <p>
-          comma four is the next generation comma hardware designed to live in your car. The comma four has three beautiful HDR cameras, two cameras to watch the road and one night-vision camera to see inside the car.
-        </p>
-        <p>
-          It runs <a class="highlight" href="https://github.com/commaai/openpilot" target="_blank">openpilot</a>, which can drive for hours without driver action.
-        </p>
-        <p>
-          Besides cameras, the comma four has a suite of connectivity and sensors including cellular LTE, Wi-Fi, an IMU, high-precision GPS, and a microphone.
-        </p>
+        <h1>how it looks</h1>
+          <p>
+            comma 4 lives on your windshield, barely peeking out under the rearview mirror. It’s designed to fit seamlessly into any car, like it was always meant to be there.
+          </p>
       </div>
     </Grid>
+
     <hr />
-    <Grid rowGap="0" templateColumns="0.5fr 1.25fr">
-      <h2>In the Box</h2>
-      <div class="box-contents">
-        <div>
-          <img src={FourImage} loading="lazy" alt="comma four device">
-          <p>comma four</p>
+
+    <Grid rowGap="0" templateColumns="0.5fr 0.5fr">
+        <img src={FourExploded} loading="lazy" alt="comma four exploded view">
+<!--      <img src={FourRemount} loading="lazy" alt="comma four device remounted on windshield">-->
+      <div class="description">
+        <h1>tech specs</h1>
+        <div class="specs">
+<!--        Case-->
+<!--        -->
+<!--        164 grams-->
+<!--        2.9 inches wide-->
+<!--        High temp PC-ABS automotive plastic-->
+<!--        -->
+<!--        -->
+<!--        -->
+<!--        -->
+<!--        Cameras-->
+<!--        -->
+<!--        4mp FCAM (idk fov)-->
+<!--        4mp wide angles (idk fov) x2-->
+<!--        IR LED for attention monitoring at night-->
+<!--        -->
+<!--        -->
+<!--        -->
+<!--        -->
+<!--        Components-->
+<!--         Qualcomm Snapdragon 845 MAX-->
+<!--        CAN FD integrated, STM32H7-->
+<!--        anodized aluminum heatsink-->
+<!--        noctua a4x10 fan-->
+<!--        -->
+<!--        -->
+<!--        -->
+<!--        -->
+<!--        Storage-->
+<!--        -->
+<!--        128 GB Sandisk SSD (idk)-->
+<!--        -->
+<!--        -->
+<!--        -->
+<!--        -->
+<!--        Screen-->
+<!--        -->
+<!--        300 ppi OLED, 536 x 240 resolution-->
+<!--        -->
+<!--        -->
+<!--        -->
+<!--        -->
+<!--        Connectivity-->
+<!--        -->
+<!--        Quectel (idk)-->
+<!--        lte-->
+<!--        wi-fi-->
+<!--        high-precision gps-->
+<!--        -->
+<!--        -->
+<!--        -->
+<!--        -->
+<!--        Ports-->
+<!--        -->
+<!--        OBD-C port (usb-C w/ CAN)-->
+<!--        USB 3.1 Gen 2 port, VID 0x3801-->
+
+          <div class="title">Case</div>
+          <div class="content">
+            164 grams<br>
+            2.9 inches wide<br>
+            High temp PC-ABS automotive plastic
+          </div>
+
+          <div class="title">Cameras</div>
+          <div class="content">
+            4mp FCAM (idk fov)<br>
+            4mp wide angles (idk fov) x2<br>
+            IR LED for attention monitoring at night
+          </div>
+
+          <div class="title">Components</div>
+          <div class="content">
+            Qualcomm Snapdragon 845 MAX<br>
+            CAN FD integrated, STM32H7<br>
+            anodized aluminum heatsink<br>
+            noctua a4x10 fan
+          </div>
+
+          <div class="title">Storage</div>
+          <div class="content">
+            128 GB Sandisk SSD (idk)
+          </div>
+
+          <div class="title">Screen</div>
+          <div class="content">
+            300 ppi OLED, 536 x 240 resolution
+          </div>
+
+          <div class="title">Connectivity</div>
+          <div class="content">
+            Quectel (idk)<br>
+            lte<br>
+            wi-fi<br>
+            high-precision gps
+          </div>
+
+          <div class="title">Ports</div>
+          <div class="content">
+            OBD-C port (usb-C w/ CAN)<br>
+            USB 3.1 Gen 2 port, VID 0x3801
+          </div>
+
+
         </div>
-        <div>
-          <img src={OBDCCableImage} loading="lazy" alt="2ft OBD-C cable">
-          <p>2ft OBD-C cable</p>
-        </div>
-        <div>
-          <img src={ReplacementMountsImage} loading="lazy" alt="mount">
-          <p>2 mounts</p>
-        </div>
+<!--          <p>-->
+<!--            comma 4 lives on your windshield, barely peeking out under the rearview mirror. It’s designed to fit seamlessly into any car, like it was always meant to be there.-->
+<!--          </p>-->
+<!--        exploded-->
       </div>
     </Grid>
+
+<!--    <hr />-->
+<!--    <Grid rowGap="0" templateColumns="0.5fr 1.25fr">-->
+<!--      <h2>In the Box</h2>-->
+<!--      <div class="box-contents">-->
+<!--        <div>-->
+<!--          <img src={FourImage} loading="lazy" alt="comma four device">-->
+<!--          <p>comma four</p>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--          <img src={OBDCCableImage} loading="lazy" alt="2ft OBD-C cable">-->
+<!--          <p>2ft OBD-C cable</p>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--          <img src={ReplacementMountsImage} loading="lazy" alt="mount">-->
+<!--          <p>2 mounts</p>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </Grid>-->
     <hr />
+
+    <Grid rowGap="0" templateColumns="0.5fr 0.5fr">
+      <div></div>
+      <a href="/setup" class="link-away">
+          setup guide
+          {@html LinkArrow}
+        </a>
+    </Grid>
+
     <Grid rowGap="0" templateColumns="0.5fr 1.25fr">
       <h2>On-device Storage</h2>
       <div>
@@ -275,6 +405,11 @@
 </section>
 
 <style>
+  h1 {
+    font-size: 96px;
+    font-weight: 400;
+  }
+
   h2 {
     font-size: 1.875rem;
     font-weight: 600;
@@ -293,6 +428,19 @@
     margin: 3rem 0;
   }
 
+  .link-away {
+    font-size: 48px;
+    text-decoration: underline;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    @media screen and (max-width: 1300px) {
+      font-size: 20px;
+    }
+  }
+
   .max-gradient {
     background: linear-gradient(to bottom left, #8027FC, #CFA9FF);
     -webkit-background-clip: text;
@@ -303,6 +451,22 @@
 
   #description {
     & .description {
+      & .specs {
+      /*  jet brains mono 20px. everything is uppercase styling*/
+        font-family: JetBrains Mono, monospace;
+        font-size: 20px;
+        text-transform: uppercase;
+
+        & .title {
+          font-weight: bold;
+          margin-bottom: 1rem;
+        }
+
+        & .content {
+          margin-bottom: 4rem;
+        }
+      }
+
       & p:first-of-type {
         margin-top: 0;
       }
