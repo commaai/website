@@ -67,9 +67,6 @@
     }
   }
 
-  function handleNextClick() {
-    playNextVideo();
-  }
 
   // Pause inactive videos and play active one
   $: {
@@ -117,7 +114,6 @@
     if (!videoEl) return;
 
     const handleEnded = () => {
-      // When video ends, play the next one
       playNextVideo();
     };
 
@@ -381,7 +377,7 @@
             </div>
           </div>
         {/each}
-        <button class="video-next-button" on:click={handleNextClick} aria-label="Next video">
+        <button class="video-next-button" on:click={playNextVideo} aria-label="Next video">
           {@html NextIcon}
         </button>
       </div>
@@ -1322,10 +1318,6 @@
     align-items: center;
     justify-content: center;
     gap: 0;
-
-    @media screen and (max-width: 698px) {
-      flex-direction: column;
-    }
   }
 
   .video-container {
@@ -1335,7 +1327,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 1;
     cursor: pointer;
 
     @media screen and (max-width: 698px) {
@@ -1366,8 +1357,6 @@
     background-color: rgba(234, 234, 234, 0.8);
     z-index: 3;
     pointer-events: none;
-    opacity: 1;
-    transition: opacity 0.3s ease;
   }
 
   .video-container.active .video-overlay {
