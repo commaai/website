@@ -43,6 +43,7 @@
   const storeUrl = import.meta.env.VITE_SHOPIFY_STORE_URL;
 
   let landscapeVideoElement;
+  let landscapeVideoReady = false;
   let portraitVideoElement;
   let portraitVideoReady = false;
   let carouselVideoReady = [false, false, false];
@@ -154,6 +155,11 @@
   onMount(async () => {
     // Initialize landscape video
     if (landscapeVideoElement) {
+      // Show video once it starts playing
+      landscapeVideoElement.addEventListener('playing', () => {
+        landscapeVideoReady = true;
+      });
+
       if (Hls.isSupported()) {
         const hls = new Hls();
         hls.loadSource(LandscapeVideo);
@@ -330,6 +336,7 @@
       <video
         bind:this={landscapeVideoElement}
         class="landscape-video"
+        class:ready={landscapeVideoReady}
         poster="/videos/hero-landscape/poster.jpg"
         muted
         playsinline
@@ -1555,6 +1562,11 @@
     position: relative;
     width: 100%;
     height: 100%;
+    aspect-ratio: 16 / 9;
+    background-image: url('/videos/hero-landscape/poster.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 
   .landscape-video {
@@ -1563,6 +1575,12 @@
     object-fit: cover;
     display: block;
     line-height: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease-in;
+
+    &.ready {
+      opacity: 1;
+    }
   }
 
   .landscape-video-text-overlay {
