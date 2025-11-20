@@ -20,7 +20,7 @@
   <div class="questions">
     {#each topic.questions as entry}
       {@const id = entry.question.toLowerCase().replace(/[^\w\s]/g, '').replaceAll(' ', '-')}
-      <Accordion checked={id === activehash} on:click={() => handleExpand(id)} {id}>
+      <Accordion checked={id === activehash} on:click={() => handleExpand(id)} {id} alternateBackground={true}>
         <div slot="label" class="label">
           <span>{entry.question}</span>
         </div>

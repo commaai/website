@@ -9,6 +9,7 @@
   export let style = "light"; // or "dark"
   export let foregroundColor = null;
   export let backgroundColor = null;
+  export let alternateBackground = false; // Add this flag
 
   let contentEl, inputEl;
   onMount(() => {
@@ -40,6 +41,7 @@
 
 <div
   class="tab"
+  class:alternate={alternateBackground}
   style="
     --foreground-color: {foregroundColor ?? (style === 'light' ? 'black' : 'white')};
     --background-color: {backgroundColor ?? (style === 'light' ? 'white' : 'black')};
@@ -92,18 +94,24 @@
     display: grid;
     align-items: center;
     position: relative;
-    background-color: #EAEAEA;
-    padding: 0.5rem 4rem 0.5rem 2rem;
+    /*background-color: #EAEAEA;*/
+    padding-right: 4rem;
 
     & > * {
       color: var(--foreground-color);
     }
   }
 
-  :global(.tab:nth-child(odd)) label,
-  :global(.tab:nth-child(odd)) .content {
+  .tab.alternate label,
+  .tab.alternate .content {
+    padding: 0.5rem 4rem 0.5rem 2rem;
+  }
+
+  .tab.alternate:nth-child(odd) label,
+  .tab.alternate:nth-child(odd) .content {
     background-color: #D9D9D9;
   }
+
   .chevron {
     position: absolute;
     right: 2rem;
