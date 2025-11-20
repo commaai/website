@@ -275,7 +275,7 @@
        </div>
      </div>
    </div>
-   <div style="padding-top: 4rem;">
+   <div class="hero-section-top-padding">
      <Grid rowGap="0" columnGap="0" templateColumns="2fr 1fr" size="large">
 
       <div class="left-section-v2 light no-reorder">
@@ -336,6 +336,20 @@
 
 <!--  <section class="light hero-section">-->
 <!--    <div class="left-section">-->
+  <div class="remount-image-mobile">
+    <img src={RemountImage} alt="mount it"/>
+    <div class="remount-buy-overlay">
+      <div class="buy-now-container-v2">
+        <div class="hero-price">
+          <span class="hero-dollar">$</span><span class="hero-amount">999</span>
+        </div>
+        <a href="/shop/comma-four" class="hero-buy-now">
+          buy now
+          {@html LinkArrow}
+        </a>
+      </div>
+    </div>
+  </div>
   <Grid rowGap="0" columnGap="0" templateColumns="2fr 1fr" size="xlarge">
     <div class="left-section-v2 large hide-mobile">
       <div class="landscape-video-container">
@@ -365,18 +379,14 @@
           <li>100% local compute, no internet required</li>
           <li>310 ppi high resolution OLED display</li>
         </ul>
-        <a href="/shop/comma-four" class="link-away">
+        <a href="/shop/comma-four" class="link-away" style="padding-top: 0;">
           tech specs
           {@html LinkArrow}
         </a>
       </div>
 
       <div class="hero-description">
-        works <i>with</i> you, not without you.<br><br>
-
-<!--        now $999 and buy now:-->
-
-        <div class="buy-now-container-v2">
+        <div class="buy-now-container-v2 hide-mobile-buy" style="margin-top: 2rem;">
           <div class="hero-price">
             <span class="hero-dollar">$</span><span class="hero-amount">999</span>
           </div>
@@ -419,7 +429,7 @@
           </div>
         </div>
 
-        <div class="plug-hero-image">
+        <div class="plug-hero-image hide-mobile-remount">
           <img src={RemountImage} alt="mount it"/>
         </div>
 
@@ -649,6 +659,14 @@
     Small screen layout:
     Below 950px: left section 100%, right section 100% below
   */
+
+  .hero-section-top-padding {
+    padding-top: 4rem;
+
+    @media screen and (max-width: 1024px) {
+      padding-top: 0;
+    }
+  }
 
   .gradient-overlay {
     position: fixed;
@@ -957,6 +975,12 @@
     width: 100%;
     height: 100%;
 
+    &.hide-mobile-remount {
+      @media screen and (max-width: 768px) {
+        display: none;
+      }
+    }
+
     & img {
       width: 100%;
       line-height: 0;
@@ -1226,6 +1250,8 @@
 
     & li {
       color: black;
+      padding-bottom: 20px;
+      font-size: 20px;
     }
 
     /*@media screen and (max-width: 1350px) {*/
@@ -1274,12 +1300,14 @@
 
   .hero-price {
     display: flex;
-    align-items: flex-end;
+    align-items: baseline;
   }
 
   .hero-dollar {
     font-size: 20px;
     color: black;
+    line-height: 1;
+    padding-bottom: 0.1em;
   }
 
   .hero-amount {
@@ -1391,6 +1419,12 @@
     justify-content: space-between;
     align-items: end;
     pointer-events: auto;
+
+    &.hide-mobile-buy {
+      @media screen and (max-width: 768px) {
+        display: none;
+      }
+    }
   }
 
   .buy-now-button {
@@ -1694,6 +1728,41 @@
     }
   }
 
+  .remount-image-mobile {
+    position: relative;
+    width: 100%;
+    line-height: 0;
+
+    @media screen and (min-width: 769px) {
+      display: none;
+    }
+
+    & img {
+      width: 100%;
+      height: auto;
+      display: block;
+      line-height: 0;
+      border-bottom: 2px solid black;
+    }
+  }
+
+  .remount-buy-overlay {
+    position: absolute;
+    bottom: 24px;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    pointer-events: auto;
+    width: 100%;
+    padding-left: 24px;
+    padding-right: 24px;
+    box-sizing: border-box;
+
+    & .buy-now-container-v2 {
+      width: 100%;
+    }
+  }
+
   .video-next-button {
     position: absolute;
     bottom: 24px;
@@ -1729,6 +1798,9 @@
 
   .four-image {
     padding-bottom: 1.5rem;
+    width: 80%;
+    margin: 0 auto;
+    display: block;
   }
 
   .hero-image {
