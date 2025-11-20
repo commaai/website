@@ -210,19 +210,6 @@
             updates in the settings, under the "software" tab.
           `
         }, {
-          question: 'Will all versions of openpilot work with my comma device?',
-          answer: `
-            <p>
-              The comma 3X can only run openpilot 0.9.4 and above. Running earlier versions
-              requires making modifications to the software so that a newer AGNOS is installed.
-            </p>
-            <p>
-              If you face issues after installing an older version of openpilot, you can
-              re-flash AGNOS on your device by following the instructions at
-              <a href="https://flash.comma.ai">flash.comma.ai</a>.
-            </p>
-          `
-        }, {
           question: 'Does openpilot work at all speeds?',
           answer: `
             Supported speeds vary depending on the car. Please reference the supported
@@ -392,9 +379,6 @@
               Let the mount cure: the mount must cure for 48 hours before installing the comma device. Skipping this step will compromise the integrity of the mount.
             </p>
             <p>
-              The 3X mount may be difficult to slide onto the device before it’s installed on the windshield. This is expected and will be easier to do once the mount is installed and fully cured. Some force may be necessary to initially slide the device on the mount. Before applying any force, ensure the device mount is parallel to the mount on the windshield so it will slide in correctly.
-            </p>
-            <p>
               IT IS THE USER’S RESPONSIBILITY TO MOUNT THE DEVICE IN COMPLIANCE WITH ALL APPLICABLE LAWS AND ORDINANCES.
             </p>
           `
@@ -531,9 +515,9 @@
             We do not offer discounts for specific groups.
           `
         }, {
-          question: 'Do you offer any upgrades or trade-in discounts for the comma two, three, or 3X?',
+          question: 'Do you offer any upgrades or trade-in discounts?',
           answer: `
-            Trade-in details can be <a href="/shop/comma-4-trade-in">found here</a>.
+            Yes! Trade-in details can be <a href="/shop/comma-4-trade-in">found here</a>.
           `
         }, {
           question: 'What do I need to know before making an international order?',

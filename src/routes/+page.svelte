@@ -224,7 +224,7 @@
           <div class="hero-description">
             <div class="title">Meet comma 4.<br><br></div>
             Your car already has the right hardware, now it can have the right software.<br><br>
-            It only takes <a href="/setup">15 minutes</a> to upgrade your car to the best advanced driving assistance system in the world.<br><br>
+            It only takes <a href="/setup">15 minutes</a> to upgrade your car to the <a href="https://data.consumerreports.org/wp-content/uploads/2020/11/consumer-reports-active-driving-assistance-systems-november-16-2020.pdf" target="_blank">best driving assistance system</a> in the world.<br><br>
             comma 4 works with <a href="/vehicles">{vehicleCountText} car models</a>.
           </div>
         </div>
@@ -385,7 +385,9 @@
     <div class="right-section-v2">
       <div class="hero-title">See openpilot in action.</div>
       <div class="hero-description">
-        comma 4 is powered by the openpilot ADAS software developed by comma. It learns how well your car drives and adapts to drive your car well.
+        comma 4 runs openpilot, the open source driver assistance software developed by comma.
+         <br><br>
+         openpilot has more than 20k users around the globe and drives half their miles every day.
         <a href="https://blog.comma.ai" class="link-away">
           autonomy
           {@html LinkArrow}
@@ -406,7 +408,10 @@
     <div class="right-section-v2">
       <div class="hero-title">Works <i>with</i> you, not without you.</div>
       <div class="hero-description">
-        comma 4 makes sure you’re at your best behind the wheel.
+        openpilot is a driver assistance system, not a self-driving car.
+        Think lane centering and adaptive cruise control on steroids, powered by modern AI.
+        <br><br>
+        While openpilot is engaged, its driver monitoring system will alert you if you're not paying attention.
         <a href="https://github.com/commaai/openpilot" class="link-away">
           openpilot
           {@html LinkArrow}
@@ -425,10 +430,10 @@
     </div>
 
     <div class="right-section-v2">
-      <div class="hero-title">better with every drive</div>
+      <div class="hero-title">better with every update</div>
       <div class="hero-description">
-        openpilot has driven over 150 million miles around the globe. It learns how well your car drives and adapts to drive your car well.<br><br>
-        See openpilot in action on YouTube and contribute to the largest open-source robotics project in the world.<br><br>
+        openpilot has driven over 150 million miles around the globe. As our users drive, openpilot continues to learns how to drive your car better.<br><br>
+        See openpilot in action on <a href="https://www.youtube.com/results?search_query=comma.ai+openpilot" target="_blank">YouTube</a> and contribute to the largest open-source robotics project in the world.<br><br>
         <a href="https://github.com/commaai/openpilot" class="link-away">
           github
           {@html LinkArrow}
