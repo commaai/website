@@ -15,12 +15,7 @@
 
 <div>
   <div class="header" id={(title ?? topic.title).toLowerCase().replace(/[^\w\s]/g, '').replaceAll(' ', '-')}>
-    <Grid columns={2} alignItems="center" rowGap="0" size="small">
-      <h1>{title ?? topic.title}</h1>
-      <div class="mobile-first">
-        <img src={topic.image} loading="eager" alt="{title ?? topic.title} banner" />
-      </div>
-    </Grid>
+    <h1>{title ?? topic.title}</h1>
   </div>
   <div class="questions">
     {#each topic.questions as entry}
@@ -33,23 +28,24 @@
           {@html entry.answer}
         </div>
       </Accordion>
-      <hr />
+<!--      <div style="height: 1rem;"></div>-->
     {/each}
   </div>
 </div>
 
 <style>
   .header {
-    width: 100%;
-    background-color: #000;
+    /*background-color: #000;*/
     margin-top: 2rem;
     margin-bottom: 2rem;
+    padding-left: 2rem;
+    /*padding: 1rem;*/
 
     & h1 {
+      letter-spacing: -0.06em;
       font-size: 3rem;
-      font-weight: 600;
-      margin: 1rem 2rem;
-      color: white;
+      font-weight: 400;
+      color: black;
       text-wrap: balance;
 
       @media screen and (max-width: 1024px) {

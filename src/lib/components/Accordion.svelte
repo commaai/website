@@ -1,5 +1,6 @@
 <script>
-  import IconChevron from '$lib/icons/icon-chevron.svg?raw';
+  // import IconChevron from '$lib/icons/icon-chevron.svg?raw';
+  import IconChevron from "$lib/icons/link_arrow.svg?raw";
   import { onMount } from 'svelte';
 
   export let id = (Math.random() * 10e15).toString(16);
@@ -92,27 +93,32 @@
     align-items: center;
     position: relative;
     background-color: #EAEAEA;
-    padding-right: 4rem;
+    padding: 0.5rem 4rem 0.5rem 2rem;
 
     & > * {
       color: var(--foreground-color);
     }
   }
 
+  :global(.tab:nth-child(odd)) label,
+  :global(.tab:nth-child(odd)) .content {
+    background-color: #D0D0D0;
+  }
   .chevron {
     position: absolute;
     right: 2rem;
     transition: transform 0.6s;
     color: var(--foreground-color);
+    transform: rotate(180deg);
     & > svg {
       color: var(--foreground-color);
-      width: 18px;
-      height: 12px;
+      width: 20px;
+      height: 20px;
     }
   }
 
   input:checked + label .chevron {
-    transform: rotate(180deg);
+    transform: rotate(0deg);
   }
 
 </style>

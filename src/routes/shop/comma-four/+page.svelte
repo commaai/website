@@ -157,32 +157,8 @@
 
 
         </div>
-<!--          <p>-->
-<!--            comma 4 lives on your windshield, barely peeking out under the rearview mirror. It’s designed to fit seamlessly into any car, like it was always meant to be there.-->
-<!--          </p>-->
-<!--        exploded-->
       </div>
     </Grid>
-
-<!--    <hr />-->
-<!--    <Grid rowGap="0" templateColumns="0.5fr 1.25fr">-->
-<!--      <h2>In the Box</h2>-->
-<!--      <div class="box-contents">-->
-<!--        <div>-->
-<!--          <img src={FourImage} loading="lazy" alt="comma four device">-->
-<!--          <p>comma four</p>-->
-<!--        </div>-->
-<!--        <div>-->
-<!--          <img src={OBDCCableImage} loading="lazy" alt="2ft OBD-C cable">-->
-<!--          <p>2ft OBD-C cable</p>-->
-<!--        </div>-->
-<!--        <div>-->
-<!--          <img src={ReplacementMountsImage} loading="lazy" alt="mount">-->
-<!--          <p>2 mounts</p>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </Grid>-->
-    <hr />
 
     <Grid rowGap="0" templateColumns="0.5fr 0.5fr">
       <div></div>
@@ -192,215 +168,56 @@
         </a>
     </Grid>
 
-    <Grid rowGap="0" templateColumns="0.5fr 1.25fr">
-      <h2>On-device Storage</h2>
-      <div>
-        <p>comma four includes on-board storage to store your drives.</p>
-        <div class="spec-card">
-          <div class="header">
-            <div>{@html MemoryIcon}</div>
-            <span>Storage</span>
-          </div>
-          <div class="contents">
-            <hgroup>
-              <strong>128<span class="unit">GB</span></strong>
-              <span>built in storage</span>
-            </hgroup>
-            <div>10 hours of footage</div>
-          </div>
-        </div>
-        <p>
-          Want your video footage saved for longer? – Sign up for comma prime for 1 year of cloud video storage.
-        </p>
-        <p>
-          comma four includes one free month of comma prime.
-          To claim your free prime trial, log into <a href="https://connect.comma.ai/" target="_blank" class="highlight">comma connect</a>.
-          Once paired, you can see your recorded drives, SSH into your device from anywhere, and more.
-        </p>
-      </div>
-    </Grid>
-    <hr />
-    <Grid rowGap="0" templateColumns="0.5fr 1.25fr">
-      <h2>Tech Specs</h2>
-      <div>
-        <div class="spec-card">
-          <div class="header">
-            <div>{@html ThreeSixtyVisionIcon}</div>
-            <span>Cameras</span>
-          </div>
-          <div class="contents">
-            Dual-cam 360° vision and a narrow cam to see far-away objects
-          </div>
-        </div>
-        <div class="spec-card">
-          <div class="header">
-            <div>{@html ProcessorIcon}</div>
-            <span>Processor</span>
-          </div>
-          <div class="contents">
-            <span>Qualcomm Snapdragon 845 <span class="max-gradient">MAX</span><br><br>Max cooling for quiet sustained peak performance.</span>
-          </div>
-        </div>
-        <div class="spec-card">
-          <div class="header">
-            <div>{@html MemoryIcon}</div>
-            <span>Can FD Enabled</span>
-          </div>
-          <div class="contents">
-            Supports CAN FD vehicles without extra hardware
-          </div>
-        </div>
-        <div class="spec-card">
-          <div class="header">
-            <div>{@html MemoryIcon}</div>
-            <span>Storage</span>
-          </div>
-          <div class="contents">
-            128GB built in storage
-          </div>
-        </div>
-        <div class="spec-card">
-          <div class="header">
-            <div>{@html ConnectivityIcon}</div>
-            <span>Connectivity</span>
-          </div>
-          <div class="contents">
-            <ul>
-              <li>LTE</li>
-              <li>Wi-Fi</li>
-              <li>High-Precision GPS</li>
-            </ul>
-          </div>
-        </div>
-        <div class="spec-card">
-          <div class="header">
-            <div>{@html MoonIcon}</div>
-            <span>Night-Vision</span>
-          </div>
-          <div class="contents">
-            IR LEDs for interior night-vision monitoring
-          </div>
-        </div>
-        <div class="spec-card">
-          <div class="header">
-            <div>{@html DisplayIcon}</div>
-            <span>Display</span>
-          </div>
-          <div class="contents">
-            300 PPI OLED display
-          </div>
-        </div>
-        <div class="spec-card">
-          <div class="header">
-            <div>{@html CableIcon}</div>
-            <span>Ports</span>
-          </div>
-          <div class="contents">
-            <ul>
-              <li>OBD-C port (USB-C w/ CAN)</li>
-              <li>USB 3.1 Gen 2 port</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </Grid>
-    <hr />
-    <SetupGuide
-      productName="comma four"
-      title="Setup Guide"
-      estimatedMinutes={15}
-      link="/setup"
-      image={FourImage}
-    />
-  </div>
-</section>
-
-<section class="dark" id="compatibility">
-  <div class="container">
-    <div class="compatibility">
-      <Grid>
-        <div>
-          <hgroup>
-            <span>Car harness</span>
-            <h2>comma four is compatible with {vehicleCountText} cars</h2>
-          </hgroup>
-          <p>
-            A supported vehicle is one that just works when you install a comma device.
-            All supported cars provide a better experience than any stock system.
-          </p>
-          <LinkButton href="/vehicles" style="secondary" fullWidth={false}>View all {vehicleCountText} cars</LinkButton>
-        </div>
-        <img src={CarBrandCollageImage} loading="lazy" alt="collage of some supported car brands" />
-      </Grid>
-    </div>
-    <div class="compatibility">
-      <Grid>
-        <img src={FourImage} loading="lazy" alt="comma four device" />
-        <div>
-          <hgroup>
-            <span>Software</span>
-            <h2>Works with openpilot</h2>
-          </hgroup>
-          <p>
-            comma four ships without software installed, so you need to install software.
-            It is compatible with <a href="https://github.com/commaai/openpilot" class="highlight">openpilot</a> and works with a wide variety of community supported forks.
-          </p>
-          <LinkButton href="https://github.com/commaai/openpilot" style="secondary" fullWidth={false}>Openpilot</LinkButton>
-        </div>
-      </Grid>
-    </div>
-    <h2 class="guarantee">
-      Try our 30-day money-back trial and see why 92% of buyers keep their comma four and why Consumer Reports rated us as the
-      <a href="https://data.consumerreports.org/wp-content/uploads/2020/11/consumer-reports-active-driving-assistance-systems-november-16-2020.pdf" class="highlight">top ADAS system.</a>
-    </h2>
   </div>
 </section>
 
 <section class="light" id="fine-print">
   <div class="container">
-    <Grid templateColumns="0.5fr 1.25fr">
-      <h2>Fine Print</h2>
-      <div class="fine-print-copy">
-          <strong>30-Day Return</strong>
-          <p>
-            If for any reason you are dissatisfied with anything purchased at the <a target="_blank" href="/" class="highlight">comma.ai</a> shop,
-            ship it back within 30 days for a full refund. <a target="_blank" href="https://shop.comma.ai/a/returns" class="highlight">comma.ai/returns</a>
-          </p>
-          <p>
-            If you intend to upstream support for a new car model, we may approve an extended return window.
-            Open a ticket request at <a target="_blank" href="https://shop.comma.ai/a/returns" class="highlight">comma.ai/support</a>.
-          </p>
-          <strong>Shipping</strong>
-          <p>
-            Free Rush (UPS 2nd Day Air) shipping (US only); signature confirmation required.
-            International shipping is a $30 flat rate; customs/duties/taxes are between you and your country.
-            Please see FAQ for more information.
-          </p>
-          <strong>Warranty</strong>
-          <p>
-            1-year limited warranty against hardware defects. Open and repair the comma four at your own risk.
-            comma is not responsible for damages that may occur while repairing devices. We cannot provide shipping return labels for international devices.
-            Any damage on arrival must be reported to comma support within 14 days of delivery.
-          </p>
-          <strong>Software</strong>
-          <p>
-            The comma four does not ship with software capable of controlling a car.
-            Open source software can be installed separately.
-          </p>
-          <strong>Windshield installation</strong>
-          <p>
-            Before using the device on your windshield, check the state and local laws and ordinances where you drive.
-            Some state laws prohibit or restrict the placement of objects on the windshield of a motor vehicle.
-            IT IS THE USER'S RESPONSIBILITY TO MOUNT THE DEVICE IN COMPLIANCE WITH ALL APPLICABLE LAWS AND ORDINANCES.
-            Always mount your device in a location that does not obstruct the driver's view of the road.
-            comma does not assume any responsibility for any fines, penalties, or damages that may be incurred as a result
-            of any state or local law or ordinance relating to the use of your comma device.
-          </p>
-      </div>
-    </Grid>
     <Faq topic={faq.devices} title="comma four FAQ" />
     <Space multiplier={3} />
     <Faq topic={faq.trial} />
+
+<!--    <Grid templateColumns="0.5fr 1.25fr">-->
+    <br>
+      <div class="fine-print-copy">
+        <h2>fine print</h2>
+        <strong>30-Day Return</strong>
+        <p>
+          If for any reason you are dissatisfied with anything purchased at the <a target="_blank" href="/" class="highlight">comma.ai</a> shop,
+          ship it back within 30 days for a full refund. <a target="_blank" href="https://shop.comma.ai/a/returns" class="highlight">comma.ai/returns</a>
+          <br>
+          If you intend to upstream support for a new car model, we may approve an extended return window.
+          Open a ticket request at <a target="_blank" href="https://shop.comma.ai/a/returns" class="highlight">comma.ai/support</a>.
+        </p>
+        <strong>Shipping</strong>
+        <p>
+          Free Rush (UPS 2nd Day Air) shipping (US only); signature confirmation required.
+          International shipping is a $30 flat rate; customs/duties/taxes are between you and your country.
+          Please see FAQ for more information.
+        </p>
+        <strong>Warranty</strong>
+        <p>
+          1-year limited warranty against hardware defects. Open and repair the comma four at your own risk.
+          comma is not responsible for damages that may occur while repairing devices. We cannot provide shipping return labels for international devices.
+          Any damage on arrival must be reported to comma support within 14 days of delivery.
+        </p>
+        <strong>Software</strong>
+        <p>
+          The comma four does not ship with software capable of controlling a car.
+          Open source software can be installed separately.
+        </p>
+        <strong>Windshield installation</strong>
+        <p>
+          Before using the device on your windshield, check the state and local laws and ordinances where you drive.
+          Some state laws prohibit or restrict the placement of objects on the windshield of a motor vehicle.
+          IT IS THE USER'S RESPONSIBILITY TO MOUNT THE DEVICE IN COMPLIANCE WITH ALL APPLICABLE LAWS AND ORDINANCES.
+          Always mount your device in a location that does not obstruct the driver's view of the road.
+          comma does not assume any responsibility for any fines, penalties, or damages that may be incurred as a result
+          of any state or local law or ordinance relating to the use of your comma device.
+        </p>
+      </div>
+<!--    </Grid>-->
+
   </div>
 </section>
 
@@ -609,11 +426,18 @@
   }
 
   .fine-print-copy {
-    padding: 1.5rem;
-    background-color: #fafafa;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    /*background-color: #fafafa;*/
+
+    & h2 {
+      font-size: 48px;
+      font-weight: 400;
+      letter-spacing: -0.06em;
+    }
 
     & strong, & p {
-      color: #545458;
+      color: black;
       font-size: 0.875rem;
       line-height: 1.25;
     }
