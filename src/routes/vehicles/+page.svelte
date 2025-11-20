@@ -258,6 +258,10 @@
     padding-bottom: 4rem;
   }
 
+  section:first-of-type {
+    padding-top: 7rem;
+  }
+
   #vehicles {
     padding-bottom: 0;
 
