@@ -42,6 +42,17 @@
           <p>
             comma 4 lives on your windshield, barely peeking out under the rearview mirror. It’s designed to fit seamlessly into any car, like it was always meant to be there.
           </p>
+
+        <div class="bottom">
+          <a href="#tech-specs" class="link-away">
+            tech specs
+            {@html LinkArrow}
+          </a>
+            <a href="/setup" class="link-away">
+            setup guide
+            {@html LinkArrow}
+          </a>
+        </div>
       </div>
     </Grid>
 
@@ -50,7 +61,7 @@
     <Grid rowGap="0" templateColumns="0.5fr 0.5fr">
         <img src={FourExploded} loading="lazy" alt="comma four exploded view">
 <!--      <img src={FourRemount} loading="lazy" alt="comma four device remounted on windshield">-->
-      <div class="description">
+      <div class="description" id="tech-specs">
         <h1>tech specs</h1>
         <div class="specs">
 <!--        Case-->
@@ -160,13 +171,13 @@
       </div>
     </Grid>
 
-    <Grid rowGap="0" templateColumns="0.5fr 0.5fr">
-      <div></div>
-      <a href="/setup" class="link-away">
-          setup guide
-          {@html LinkArrow}
-        </a>
-    </Grid>
+<!--    <Grid rowGap="0" templateColumns="0.5fr 0.5fr">-->
+<!--      <div></div>-->
+<!--      <a href="/setup" class="link-away">-->
+<!--          setup guide-->
+<!--          {@html LinkArrow}-->
+<!--        </a>-->
+<!--    </Grid>-->
 
   </div>
 </section>
@@ -258,6 +269,16 @@
     }
   }
 
+  .link-away :global(svg) {
+    /*width: 48px;*/
+    /*height: 48px;*/
+
+    @media screen and (max-width: 1300px) {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
   .max-gradient {
     background: linear-gradient(to bottom left, #8027FC, #CFA9FF);
     -webkit-background-clip: text;
@@ -268,6 +289,10 @@
 
   #description {
     & .description {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+
       & .specs {
       /*  jet brains mono 20px. everything is uppercase styling*/
         font-family: JetBrains Mono, monospace;
@@ -281,6 +306,17 @@
 
         & .content {
           margin-bottom: 4rem;
+        }
+      }
+
+      & .bottom {
+        padding-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        margin-top: auto;
+
+        @media screen and (max-width: 1300px) {
+          gap: 1rem;
         }
       }
 
