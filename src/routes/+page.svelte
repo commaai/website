@@ -329,40 +329,44 @@
 <!--  <section class="light hero-section">-->
   <Grid rowGap="0" columnGap="0" templateColumns="2fr 1fr" size="xlarge">
 <!--    <div class="plug-n-play-container">-->
-    <Grid rowGap="0" columnGap="0" templateColumns="1fr 1fr" size="large">
+    <div class="left-section-v2 light block">
+      <Grid rowGap="0" columnGap="0" templateColumns="1fr 1fr" size="medium">
 
-<!--     left and right sections.-->
-<!--     right is full height square image-->
-<!--     left is three vertical bars with image on left and text on right. 2px black vertical bars separating them-->
+  <!--     left and right sections.-->
+  <!--     right is full height square image-->
+  <!--     left is three vertical bars with image on left and text on right. 2px black vertical bars separating them-->
 
-      <div class="plug-instructions">
-        <div class="plug-step">
-          <img src={PlugImage} alt="plug it in"/>
-          plug it in
+        <div class="plug-instructions">
+          <div class="plug-step">
+            <img src={PlugImage} alt="plug it in"/>
+            plug it in
+          </div>
+          <hr/>
+          <div class="plug-step">
+            <img src={StickImage} alt="stick it on"/>
+            stick it on
+          </div>
+          <hr/>
+          <div class="plug-step">
+            <img src={PowerImage} alt="power it up"/>
+            start it up
+          </div>
         </div>
-        <hr/>
-        <div class="plug-step">
-          <img src={StickImage} alt="stick it on"/>
-          stick it on
-        </div>
-        <hr/>
-        <div class="plug-step">
-          <img src={PowerImage} alt="power it up"/>
-          start it up
-        </div>
-      </div>
 
-      <div class="plug-hero-image">
-        <img src={RemountImage} alt="mount it"/>
-      </div>
+        <div class="plug-hero-image">
+          <img src={RemountImage} alt="mount it"/>
+        </div>
 
-<!--   </div>-->
-    </Grid>
+  <!--   </div>-->
+      </Grid>
+    </div>
 
     <div class="right-section-v2">
-      <div class="hero-title">Plug & play.</div>
       <div class="hero-description">
-        comma 4 is designed to fit in your car like it was always meant to be there. So it’s easy to add on, and just as easy to remove.<br><br>
+        <div class="hero-title">Plug & play.</div>
+        comma 4 is designed to fit in your car like it was always meant to be there. So it’s easy to add on, and just as easy to remove.
+      </div>
+      <div class="hero-description">
         Send it back to us any time within 30 days for a full refund, no questions asked.
         <a href="/shop/comma-four" class="link-away">
           no-risk trial
@@ -804,6 +808,10 @@
     /*text-align: center;*/
     /*padding: 1rem;*/
 
+    @media screen and (max-width: 1350px) {
+      font-size: 48px;
+    }
+
     & img {
       width: 11vw;
       height: auto;
@@ -815,9 +823,9 @@
 
   .plug-hero-image {
     /*flex: 1;*/
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
     width: 100%;
     height: 100%;
 
@@ -845,6 +853,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media screen and (max-width: 1350px) {
+      order: 2;
+    }
+
+  /*  select light to remove background color black*/
+    &.light {
+      background-color: transparent;
+    }
+
+    &.block {
+      display: block;
+    }
   }
 
   .right-section-v2 {
@@ -854,13 +875,15 @@
     box-sizing: border-box;
     flex-direction: column;
     justify-content: space-between;
-    padding-left: 40px;
-    padding-right: 40px;
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding: 40px;
 
     & li {
       color: black;
+    }
+
+    @media screen and (max-width: 1350px) {
+      padding: 20px;
+      border-bottom: 2px solid black;
     }
 
     /*@media screen and (max-width: 1350px) {*/
@@ -1024,7 +1047,7 @@
     font-size: 96px;
     line-height: 1;
     letter-spacing: -0.08em;
-    padding-bottom: 1rem;
+    padding-bottom: 40px;
 
     @media screen and (max-width: 1350px) {
       font-size: 64px;
@@ -1044,9 +1067,9 @@
     /*  padding-top: 8rem;*/
     /*}*/
 
-    @media screen and (max-width: 950px) {
-      padding-top: 4rem;
-    }
+    /*@media screen and (max-width: 950px) {*/
+    /*  padding-top: 4rem;*/
+    /*}*/
 
     & .title {
       font-size: 40px;
@@ -1118,25 +1141,27 @@
   }
 
   .link-away {
-    font-size: 36px;
+    font-size: 32px;
     text-decoration: underline;
     color: inherit;
     display: flex;
     align-items: center;
     gap: 12px;
+    padding-top: 40px;
 
     @media screen and (max-width: 1350px) {
-      font-size: 20px;
+      font-size: 24px;
+      padding-top: 16px;
     }
   }
 
   .link-away :global(svg) {
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
 
     @media screen and (max-width: 1350px) {
-      width: 20px;
-      height: 20px;
+      width: 24px;
+      height: 24px;
     }
   }
 
