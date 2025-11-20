@@ -63,7 +63,7 @@
           <div class="content">
             164 grams<br>
             2.9 inches wide<br>
-            High temp PC-ABS automotive plastic
+            automotive grade pc-abs
           </div>
 
           <div class="title">Cameras</div>
@@ -79,12 +79,13 @@
             Qualcomm Snapdragon <span class="max-gradient">845 MAX</span><br>
             STM32H7 always on processor<br>
             anodized aluminum heatsink<br>
+            nickel plated copper backside heatsink<br>
             noctua a4x10 fan
           </div>
 
           <div class="title">Storage</div>
           <div class="content">
-            128 GB Sandisk UFS
+            128GB Sandisk UFS
           </div>
 
           <div class="title">Screen</div>
