@@ -22,8 +22,6 @@
   const brand_images = import.meta.glob('$lib/images/vehicles/brand-icons/*.png', { eager: true });
 </script>
 
-<div class="vehicles-cover-image"></div>
-
 <section id="vehicles" class="light">
   <div class="container">
     <Grid columnGap="4rem" rowGap="2rem" templateColumns="0.75fr 1fr">
@@ -137,7 +135,7 @@
 </section>
 
 <section class="light" id="compatibility-chart">
-  <div class="container" style="width:85%; max-width: 60rem">
+  <div class="container car-container">
     {#each Object.entries(vehicles) as [make, cars]}
       {#if cars.length !== 0}
       {@const brand_img_path = `/src/lib/images/vehicles/brand-icons/Logo-${make}.png`}
@@ -260,14 +258,6 @@
     padding-bottom: 4rem;
   }
 
-  .vehicles-cover-image {
-    background-image: url("/videos/hero/poster.jpg");
-    background-position: 50% 30%;
-    background-size: cover;
-    background-attachment: scroll;
-    height: 287px;
-  }
-
   #vehicles {
     padding-bottom: 0;
 
@@ -279,8 +269,8 @@
       line-height: 1;
       letter-spacing: -0.06em;
 
-      @media screen and (max-width: 512px) {
-        font-size: 1.5rem;
+      @media screen and (max-width: 768px) {
+        font-size: 72px;
       }
     }
 
@@ -303,12 +293,18 @@
       margin-bottom: 1.5rem;
     }
 
-    @media screen and (max-width: 480px) {
+    @media screen and (max-width: 950px) {
       & .compatibility-make-links {
         grid-template-columns: repeat(auto-fit, 85px);
       }
       & .compatibility-make-element {
         width: 85px;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      & .compatibility-make-links {
+        display: none;
       }
     }
 
@@ -353,6 +349,12 @@
         font-size: 96px;
         font-weight: 400;
         display: block;
+        line-height: 1;
+        margin-bottom: 2rem;
+
+        @media screen and (max-width: 768px) {
+          font-size: 72px;
+        }
       }
 
       & p {
@@ -415,26 +417,26 @@
     }
   }
 
-/* Every other brand accordion label gets dark grey */
-:global(#compatibility-chart .container > .tab:nth-child(2n) > label) {
-  background-color: #D9D9D9;
-}
+  .car-container {
+    width:85%;
+    max-width: 60rem;
 
-/* Car accordions alternate independently within each brand */
-:global(.car-row .tab) {
-  background-color: #EAEAEA !important; /* light grey default */
-}
+    @media screen and (max-width: 768px) {
+      & {
+        width: 100%;
+      }
+    }
+  }
 
-/* Every other car accordion gets dark grey */
-:global(.car-row:nth-child(odd) .tab label),
-:global(.car-row:nth-child(odd) .tab .content) {
-  background-color: #D9D9D9 !important; /* dark grey for odd (1st, 3rd, 5th) */
-}
+  /* Every other brand accordion label gets dark grey */
+  :global(#compatibility-chart .container > .tab:nth-child(odd) > label) {
+    background-color: #D9D9D9;
+  }
 
-:global(.car-row:nth-child(even) .tab label),
-:global(.car-row:nth-child(even) .tab .content) {
-  background-color: #EAEAEA !important; /* light grey for even (2nd, 4th, 6th) */
-}
+  .car-row {
+    background-color: #EAEAEA;
+    border-bottom: 1px solid black;
+  }
 
   .car-details-wrapper {
     display: flex;
