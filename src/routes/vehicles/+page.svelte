@@ -171,7 +171,6 @@
                   <div class="car-detail-content-wrapper">
                     <Grid columns={2} rowGap="0" columnGap="2rem" templateColumns="2fr 2fr">
                       <div>
-<!--                        <div class="car-detail-tier">{@html car_info.detail_sentence }</div>-->
                         <div class="cards">
                           <CarNote image={CheckIcon} title="support">
                             {#if car_info.package !== 'All'}
@@ -186,13 +185,6 @@
                               This car supports experimental mode.
                             </CarNote>
                           {/if}
-<!--                          <NoteCard title="Support" icon={CarIcon} style="elevated">-->
-<!--                            {#if car_info.package !== 'All'}-->
-<!--                              openpilot requires the car to come equipped with <b>{car_info.package}</b>.-->
-<!--                            {:else}-->
-<!--                              openpilot will work with <b>all packages and trims</b> of this car.-->
-<!--                            {/if}-->
-<!--                          </NoteCard>-->
                           {#each car_info.footnotes as footnote}
                             <NoteCard title="Note" icon={InfoIcon} style="elevated">
                               {@html footnote}
