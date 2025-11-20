@@ -85,12 +85,12 @@
 <!--      <a href="/">{@html CommaIcon}</a>-->
 <!--    </span>-->
     <nav class="navbar-section-links">
-      <a href="/">{@html CommaIcon}</a>
-      <a href="/vehicles" class="hide-mobile-1">compatibility</a>
-      <a href="/shop">shop</a>
-      <a href="/setup">setup</a>
+      <a href="/" class:active={$page.url.pathname === '/'}>{@html CommaIcon}</a>
+      <a href="/vehicles" class="hide-mobile-1" class:active={$page.url.pathname.startsWith('/vehicles')}>compatibility</a>
+      <a href="/shop" class:active={$page.url.pathname.startsWith('/shop')}>shop</a>
+      <a href="/setup" class:active={$page.url.pathname.startsWith('/setup')}>setup</a>
       <a href="https://blog.comma.ai">autonomy</a>
-      <a href="/jobs" class="hide-mobile-2">jobs</a>
+      <a href="/jobs" class="hide-mobile-2" class:active={$page.url.pathname.startsWith('/jobs')}>jobs</a>
     </nav>
     <div class="navbar-section-buttons">
       {#if $cartTotalQuantity > 0}
@@ -209,6 +209,10 @@
       white-space: nowrap;
       transition: color 0.2s, text-shadow 0.2s;
       line-height: 1;
+
+      &.active {
+        text-shadow: 0 0 8px var(--color-accent), 0 0 16px var(--color-accent);
+      }
 
       @media (hover: hover) and (pointer: fine) {
         &:hover {
