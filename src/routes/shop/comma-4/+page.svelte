@@ -107,6 +107,9 @@
             USB 3.1 Gen 2 port (VID: 0x3801)
           </div>
 
+          <br><br>
+          <div class="title">DESIGNED in SAN DIEGO, CALIFORNIA</div>
+          <div class="title">MADE in SAN DIEGO, CALIFORNIA</div>
 
         </div>
       </div>
