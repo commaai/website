@@ -217,7 +217,7 @@
           <img src={FourFront} alt="comma 4 zoom"/>
         </div>
       </div>
-      <div class="right-section-v2 no-bottom-border">
+      <div class="right-section-v2 no-bottom-border min-height">
         <div>
           <div class="hero-title">Your car can do more.</div>
           <img src={FourFront} class="four-image hide-desktop" />
@@ -671,6 +671,13 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 40px;
+
+    &.min-height {
+      @media screen and (min-width: 1025px) {
+        min-height: 800px;
+      }
+
+    }
 
     & li {
       color: black;
