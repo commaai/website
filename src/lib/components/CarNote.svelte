@@ -49,7 +49,7 @@
     font-family: Inter, sans-serif;
     font-size: 20px;
     font-weight: 400;
-    letter-spacing: -0.08em;
+    letter-spacing: -0.06em;
     line-height: 1;
     width: 100%;
 
