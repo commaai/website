@@ -161,6 +161,10 @@
     font-size: 96px;
     /*regular font*/
     font-weight: 400;
+
+    @media (max-width: 1200px) {
+      font-size: 64px;
+    }
   }
 
   .preview {
@@ -201,7 +205,11 @@
     }
 
     & .price {
-      font-size: 2rem;
+      font-size: 48px;
+
+      @media (max-width: 1200px) {
+        font-size: 36px;
+      }
     }
 
 
