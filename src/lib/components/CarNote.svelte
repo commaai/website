@@ -27,7 +27,7 @@
     gap: 1rem;
     margin-bottom: 0.75rem;
 
-    & img {
+    & .image {
       width: 24px;
       height: 24px;
       object-fit: contain;
