@@ -45,6 +45,7 @@
         <div class="title">
           <hgroup>
             <h1>setup guide</h1>
+            <span class="subtitle">Install comma four yourself in 15 minutes</span>
           </hgroup>
         </div>
       </Grid>
@@ -193,6 +194,14 @@
           & h1 {
             margin-top: 0;
             margin-right: 1rem;
+          }
+
+          & .subtitle {
+            display: block;
+            font-size: 20px;
+            color: black;
+            font-weight: 400;
+            letter-spacing: -0.06em;
           }
         }
       }
