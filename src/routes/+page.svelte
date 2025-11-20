@@ -819,7 +819,10 @@
   }
 
   .map-image {
+    height: 100%;
+    width: 100%;
     line-height: 0;
+    aspect-ratio: 2 / 1;
   }
 
   .left-section {
@@ -956,6 +959,7 @@
       min-width: 100px;
       object-fit: contain;
       display: block;
+      aspect-ratio: 1 / 1;
     }
   }
 
@@ -966,6 +970,7 @@
     /*align-items: center;*/
     width: 100%;
     height: 100%;
+    aspect-ratio: 1 / 1;
 
     &.hide-mobile-remount {
       @media screen and (max-width: 768px) {
@@ -997,6 +1002,7 @@
     top: -5%;
     left: 10%;
     position: absolute;
+    aspect-ratio: 2549 / 2013;
 
     @media screen and (max-width: 1024px) {
       display: none;
@@ -1548,6 +1554,7 @@
     height: 100%;
     overflow: hidden;
     display: flex;
+    aspect-ratio: 2 / 1;
 
     & img {
       width: 100%;
@@ -1749,6 +1756,7 @@
     position: relative;
     width: 100%;
     line-height: 0;
+    aspect-ratio: 1 / 1;
 
     @media screen and (min-width: 769px) {
       display: none;
@@ -1818,6 +1826,7 @@
     width: 80%;
     margin: 0 auto;
     display: block;
+    aspect-ratio: 2549 / 2013;
   }
 
   .hero-image {
