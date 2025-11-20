@@ -364,6 +364,12 @@
             No. comma prime is completely optional and is not needed for any core functionality. comma prime can be activated, cancelled, and re-activated at any time.
           `
         }, {
+          question: 'What else do I need to get started?',
+          answer: `
+            Just select your car model and you're good to go!
+            comma 4 ships with everything you need for <a href="/vehicles">compatible cars</a>.
+          `
+        }, {
           question: 'Does installing a comma device require permanent modifications to the car?',
           answer: `
             Installing a comma device does not require any permanent modifications to
@@ -374,9 +380,6 @@
           answer: `
             <p>
               We recommend the mount be centered on the windshield below the trim (see pictures in the Installation Guide). Be sure to leave enough room to remove the trim in the future. First, clean the windshield with the included alcohol wipe. Ensure the top of the mount is fully visible from the driver’s seat. Adhere mount: peel off the 3M tape’s cover on the mount. Press firmly in the center of the mount, then the edges to ensure no bubbles form.
-            </p>
-            <p>
-              Let the mount cure: the mount must cure for 48 hours before installing the comma device. Skipping this step will compromise the integrity of the mount.
             </p>
             <p>
               IT IS THE USER’S RESPONSIBILITY TO MOUNT THE DEVICE IN COMPLIANCE WITH ALL APPLICABLE LAWS AND ORDINANCES.
