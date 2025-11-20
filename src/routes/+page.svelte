@@ -116,7 +116,7 @@
 
 <div>
   <section class="light hero-video hero-section">
-    <div class="left-section">
+    <div class="left-section-v2">
       <img src={FourFront} class="hide-mobile" alt="comma four zoom"/>
       <div class="hero-image-container hide-desktop">
 <!--        <div class="hero-image-text-container">-->
