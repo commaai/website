@@ -215,7 +215,6 @@
 </script>
 
 <svelte:head>
-  <link rel="preload" as="image" href="/videos/hero/poster.jpg" />
   <link rel="preload" as="image" href="/videos/hero-portrait/poster.jpg" />
   <link rel="preload" as="image" href="/videos/hero-landscape/poster.jpg" />
   <link rel="preload" as="image" href="/videos/keeps-left/poster.jpg" />
