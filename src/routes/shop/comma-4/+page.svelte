@@ -108,9 +108,13 @@
           </div>
 
           <br><br>
-          <div class="title">DESIGNED in SAN DIEGO, CALIFORNIA</div>
+          <!-- <div class="title">DESIGNED in SAN DIEGO, CALIFORNIA</div> -->
           <div class="title">MADE in SAN DIEGO, CALIFORNIA</div>
-
+          <div class="content" style="margin-bottom: 0;">
+            full in-house assembly<br>
+            automated stress testing<br>
+            fulfilled in San Diego<br>
+          </div>
         </div>
       </div>
     </Grid>
