@@ -19,6 +19,7 @@
   class:small={size === "small"}
   class:medium={size === "medium"}
   class:large={size === "large"}
+  class:xlarge={size === "xlarge"}
   style="
     --columns: {columns};
     --align-items: {alignItems};
@@ -60,6 +61,17 @@
 
   @media (max-width: 1024px) {
     .grid.large {
+      grid-template-columns: repeat(var(--wrapped-columns), 1fr);
+    }
+
+    .grid {
+      grid-template-columns: var(--lg-template-columns);
+      column-gap: var(--lg-column-gap);
+    }
+  }
+
+  @media (max-width: 1450px) {
+    .grid.xlarge {
       grid-template-columns: repeat(var(--wrapped-columns), 1fr);
     }
 

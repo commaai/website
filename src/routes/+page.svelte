@@ -179,8 +179,8 @@
 
 <!--  <section class="light hero-section">-->
 <!--    <div class="left-section">-->
-  <Grid rowGap="0" columnGap="0" templateColumns="2fr 1fr">
-    <div>
+  <Grid rowGap="0" columnGap="0" templateColumns="2fr 1fr" size="xlarge">
+    <div class="left-section-v2">
       <div class="hero-image-container">
 <!--        <div class="hero-image-text-container">-->
 <!--          <img src={FourPov} alt="comma four pov"/>-->
@@ -235,8 +235,9 @@
   <hr/>
 
 <!--  <section class="light hero-section">-->
-  <Grid rowGap="0" columnGap="0" templateColumns="2fr 1fr">
-    <div class="plug-n-play-container">
+  <Grid rowGap="0" columnGap="0" templateColumns="2fr 1fr" size="xlarge">
+<!--    <div class="plug-n-play-container">-->
+    <Grid rowGap="0" columnGap="0" templateColumns="1fr 1fr" size="large">
 
 <!--     left and right sections.-->
 <!--     right is full height square image-->
@@ -263,7 +264,8 @@
         <img src={RemountImage} alt="mount it"/>
       </div>
 
-   </div>
+<!--   </div>-->
+    </Grid>
 
     <div class="right-section-v2">
       <div class="hero-title">Plug & play.</div>
@@ -281,8 +283,9 @@
 
   <hr/>
 
-  <Grid rowGap="0" columnGap="0" templateColumns="2fr 1fr">
-    <div>
+  <Grid rowGap="0" columnGap="0" templateColumns="2fr 1fr" size="xlarge">
+    <div class="left-section-v2">
+      carousel of videos showing openpilot in action
     </div>
 
     <div class="right-section-v2">
@@ -300,7 +303,7 @@
   <hr/>
 
 <!--  <section class="light hero-section">-->
-  <Grid rowGap="0" columnGap="0" templateColumns="2fr 1fr">
+  <Grid rowGap="0" columnGap="0" templateColumns="2fr 1fr" size="xlarge">
     <div class="left-section-v2">
 <!--      TODO v2: black on top and bottom -->
       <div class="hero-image-v2">
@@ -358,7 +361,7 @@
 <!--  </section>-->
 
 <!--  <section class="light hero-section mobile-direction-flip">-->
-  <Grid rowGap="0" columnGap="0" templateColumns="2fr 1fr">
+  <Grid rowGap="0" columnGap="0" templateColumns="2fr 1fr" size="xlarge">
 
 <!--    <div class="left-section" style="background-color: black; align-items: center;">-->
 <!--    <div style="background-color: black; align-items: center;">-->
@@ -451,10 +454,10 @@
 <style>
   /*
     Large screen layout:
-    1300px and up: left section 2/3, right section 1/3
+    1350px and up: left section 2/3, right section 1/3
 
     Medium screen layout:
-    Below 1300px: left section 100%, right section 50% below
+    Below 1350px: left section 100%, right section 50% below
 
     Small screen layout:
     Below 950px: left section 100%, right section 100% below
@@ -511,7 +514,7 @@
     padding-bottom: 4rem;
     border-bottom: 2px solid black;
 
-    @media screen and (max-width: 1300px) {
+    @media screen and (max-width: 1350px) {
       flex-direction: column;
       padding-bottom: 1rem;
     }
@@ -523,7 +526,7 @@
     /*}*/
 
     &.mobile-direction-flip {
-      @media screen and (max-width: 1300px) {
+      @media screen and (max-width: 1350px) {
         flex-direction: column-reverse;
       }
 
@@ -568,7 +571,7 @@
     display: flex;
     align-items: flex-end;
 
-    @media screen and (max-width: 1300px) {
+    @media screen and (max-width: 1350px) {
       width: 100%;
     }
 
@@ -602,7 +605,7 @@
       letter-spacing: -0.06em;
       line-height: 1;
 
-      @media screen and (max-width: 1300px) {
+      @media screen and (max-width: 1350px) {
         font-size: 32px;
       }
     }
@@ -616,7 +619,7 @@
       line-height: 1;
       color: rgba(234, 234, 234, 0.65);
 
-      @media screen and (max-width: 1300px) {
+      @media screen and (max-width: 1350px) {
         font-size: 14px;
       }
     }
@@ -638,7 +641,7 @@
     flex-direction: column;
     justify-content: space-between;
 
-    @media screen and (max-width: 1300px) {
+    @media screen and (max-width: 1350px) {
       width: 50%;
       /*min-height: 8rem;*/
       padding-left: 20px;
@@ -662,7 +665,8 @@
   .plug-instructions {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    justify-content: center;
+    /*width: 50%;*/
     height: 100%;
 
     & hr {
@@ -687,8 +691,9 @@
     /*padding: 1rem;*/
 
     & img {
-      width: 200px;
-      height: 200px;
+      width: 11vw;
+      height: auto;
+      min-width: 100px;
       object-fit: contain;
       display: block;
     }
@@ -699,13 +704,24 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50%;
+    width: 100%;
+    height: 100%;
 
     & img {
+      width: 100%;
+      line-height: 0;
       /*width: 400px;*/
       /*height: 400px;*/
       object-fit: contain;
       display: block;
+
+      /*@media screen and (max-width: 1450px) {*/
+      /*  display: none;*/
+      /*}*/
+
+      @media screen and (max-width: 650px) {
+        display: block;
+      }
     }
   }
 
@@ -714,6 +730,7 @@
     background-color: black;
     display: flex;
     align-items: center;
+    justify-content: center;
   }
 
   .right-section-v2 {
@@ -732,7 +749,7 @@
       color: black;
     }
 
-    /*@media screen and (max-width: 1300px) {*/
+    /*@media screen and (max-width: 1350px) {*/
     /*  width: 50%;*/
     /*  !*min-height: 8rem;*!*/
     /*  padding-left: 20px;*/
@@ -758,7 +775,7 @@
   .hero-carousel {
     display: flex;
 
-    @media screen and (max-width: 1300px) {
+    @media screen and (max-width: 1350px) {
       display: none;
     }
 
@@ -813,7 +830,7 @@
     position: absolute;
     right: 10%;
 
-    @media screen and (max-width: 1300px) {
+    @media screen and (max-width: 1350px) {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -861,7 +878,7 @@
     }
 
     /* Images are vertically laid out on right */
-    @media screen and (max-width: 1300px) {
+    @media screen and (max-width: 1350px) {
       width: 402px;
       height: 402px;
       margin-bottom: -7rem;
@@ -895,7 +912,7 @@
     letter-spacing: -0.08em;
     padding-bottom: 1rem;
 
-    @media screen and (max-width: 1300px) {
+    @media screen and (max-width: 1350px) {
       font-size: 64px;
     }
   }
@@ -909,9 +926,9 @@
       color: black;
     }
 
-    @media screen and (max-width: 1300px) {
-      padding-top: 8rem;
-    }
+    /*@media screen and (max-width: 1350px) {*/
+    /*  padding-top: 8rem;*/
+    /*}*/
 
     @media screen and (max-width: 950px) {
       padding-top: 4rem;
@@ -920,7 +937,7 @@
     & .title {
       font-size: 40px;
 
-      @media screen and (max-width: 1300px) {
+      @media screen and (max-width: 1350px) {
         font-size: 20px;
       }
     }
@@ -994,7 +1011,7 @@
     align-items: center;
     gap: 12px;
 
-    @media screen and (max-width: 1300px) {
+    @media screen and (max-width: 1350px) {
       font-size: 20px;
     }
   }
@@ -1003,7 +1020,7 @@
     width: 36px;
     height: 36px;
 
-    @media screen and (max-width: 1300px) {
+    @media screen and (max-width: 1350px) {
       width: 20px;
       height: 20px;
     }
