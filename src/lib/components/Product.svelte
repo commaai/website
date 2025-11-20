@@ -164,7 +164,8 @@
   }
 
   .preview {
-    border: 1px solid rgba(0, 0, 0, 0.12);
+    /*border: 1px solid rgba(0, 0, 0, 0.12);*/
+    padding-bottom: 1.5rem;
 
     & img {
       display: block;

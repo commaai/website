@@ -2,13 +2,15 @@
   export let title;
   export let subtitle = "";  // placed on the right side
   export let checked = false;
+  export let disabled = false;
+  export let checkedStyle = "accent"; // "accent" or "black"
   export let onToggle;
 </script>
 
-<label class="checkbox-card" class:checked={checked}>
+<label class="checkbox-card" class:checked={checked} class:disabled={disabled} class:black-checked={checked && checkedStyle === "black"}>
   <div class="card">
     <div class="icon-slot">
-      <input type="checkbox" checked={checked} on:change={() => onToggle && onToggle()} />
+      <input type="checkbox" checked={checked} disabled={disabled} on:change={() => !disabled && onToggle && onToggle()} />
     </div>
     <hgroup>
       <span class="title-row">
@@ -31,6 +33,11 @@
     color: green;
   }
 
+  .checkbox-card.disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
   .checkbox-card :global(input[type="checkbox"]) {
     display: none;
     cursor: pointer;
@@ -40,13 +47,14 @@
   .card {
     display: flex;
     margin: 1rem 0;
-    padding: 1.5rem 1rem 1.5rem 24px;
+    padding: 1.5rem 24px 1.5rem 24px;
     align-items: center;
     color: black;
     background-color: rgb(217, 217, 217);
 
     & hgroup {
       display: block !important;
+      width: 100%;
 
       & .title-row {
         display: flex;
@@ -58,7 +66,11 @@
         font-size: 24px;
         text-transform: lowercase;
         line-height: 1;
-        color: black;
+
+        & .title {
+          color: black;
+          text-decoration: underline;
+        }
 
         & .subtitle {
           text-transform: none;
@@ -87,5 +99,23 @@
   .checkbox-card.checked :global(.card) {
     background-color: var(--color-accent);
     color: black;
+  }
+
+  .checkbox-card.black-checked :global(.card) {
+    background-color: black;
+    color: white;
+
+    & .title-row .title {
+      color: white;
+    }
+  }
+
+  .checkbox-card.disabled :global(.card) {
+    background-color: #EAEAEA;
+    cursor: not-allowed;
+
+    & .title-row .title {
+      text-decoration: none;
+    }
   }
 </style>

@@ -48,6 +48,7 @@
   let selectedHarness = null;
   let tradeInVariantId = null;
   let tradeInChecked = false;
+  let noTradeInChecked = false;
   let backordered = null;
 
   const updateAdditionalProductIds = () => {
@@ -63,22 +64,43 @@
   const handleHarnessSelection = (value) => {
     selectedHarness = value;
     updateAdditionalProductIds();
+    updateBuyButtonState();
     if (value === NO_HARNESS_OPTION) {
       backordered = null;
-      disableBuyButtonText = null;
     } else if (value) {
       backordered = value.currentlyNotInStock ? `ships in ${(value.backordered || '1-12 weeks')}` : null;
-      disableBuyButtonText = null;
     } else {
       backordered = null;
-      disableBuyButtonText = "add to cart";
     }
     backordered = '1-12 weeks';
   }
 
+  const updateBuyButtonState = () => {
+    if (!selectedHarness || (!tradeInChecked && !noTradeInChecked)) {
+      disableBuyButtonText = "add to cart";
+    } else {
+      disableBuyButtonText = null;
+    }
+  }
+
   const handleTradeInToggle = () => {
+    if (!selectedHarness) return;
     tradeInChecked = !tradeInChecked;
+    if (tradeInChecked) {
+      noTradeInChecked = false;
+    }
     updateAdditionalProductIds();
+    updateBuyButtonState();
+  }
+
+  const handleNoTradeInToggle = () => {
+    if (!selectedHarness) return;
+    noTradeInChecked = !noTradeInChecked;
+    if (noTradeInChecked) {
+      tradeInChecked = false;
+    }
+    updateAdditionalProductIds();
+    updateBuyButtonState();
   }
 
   onMount(async () => {
@@ -117,10 +139,20 @@
       showNoHarnessOption={true}
     >
     </HarnessSelector>
-    <CheckboxCard title="trade-in ($250 credit)" checked={tradeInChecked} onToggle={handleTradeInToggle}>
-<!--      Get $250 credit when you trade in your old comma device. Any comma device, in any condition.-->
-<!--      <a href="/shop/comma-four-trade-in">Instructions and Terms</a>-->
-    </CheckboxCard>
+    <CheckboxCard
+      title="trade-in"
+      subtitle="$250 credit"
+      checked={tradeInChecked}
+      disabled={!selectedHarness}
+      onToggle={handleTradeInToggle}
+    />
+    <CheckboxCard
+      title="no trade-in"
+      checked={noTradeInChecked}
+      disabled={!selectedHarness}
+      checkedStyle="black"
+      onToggle={handleNoTradeInToggle}
+    />
     <div class="trade-in-details">
       Get $250 credit when you trade in your old comma device. Any comma device, in any condition.
       <a href="/shop/comma-four-trade-in">Instructions and Terms</a>

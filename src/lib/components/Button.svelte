@@ -13,7 +13,7 @@
   class:secondary={style == "secondary"}
   class:accent={style == "accent"}
   class:full-width={fullWidth}
-  class:disabled
+  class:disabled={disabled}
 >
   <slot></slot>
 </button>
@@ -85,5 +85,9 @@
     color: black;
     opacity: 0.5;
     background-color: #EAEAEA;
+  }
+
+  button:not(.disabled) {
+    text-decoration: underline;
   }
 </style>

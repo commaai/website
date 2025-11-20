@@ -7,11 +7,12 @@ export const products = {
     price: "$999",
     freeRush: true,
     images: [
-      "/src/lib/images/products/comma-four/four_screen_on.png",
+      "/src/lib/images/products/comma-four/four_front.png",
       "/src/lib/images/products/comma-four/four_angled.png",
       "/src/lib/images/products/comma-four/four_back.png",
       "/src/lib/images/products/comma-four/four_side.png",
       "/src/lib/images/products/comma-four/mounts.png",
+      "/src/lib/images/products/comma-four/four_obdc.png",
     ],
     notes: [],
     description: `
