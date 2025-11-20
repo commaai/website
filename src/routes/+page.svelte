@@ -38,15 +38,13 @@
   import ChevroletLogo from "$lib/icons/brands/chevrolet.svg?raw";
   import ChryslerLogo from "$lib/icons/brands/chrysler.svg?raw";
 
-  const HeroVideo = "/videos/hero/hero.m3u8";
   const LandscapeVideo = "/videos/hero-landscape/hero-landscape.m3u8";
   const PortraitVideoHLS = "/videos/hero-portrait/hero-portrait.m3u8";
   const storeUrl = import.meta.env.VITE_SHOPIFY_STORE_URL;
 
-  let videoElement;
-  let videoReady = false;
   let landscapeVideoElement;
   let portraitVideoElement;
+  let portraitVideoReady = false;
   let compatPulse = false;
   let compatShake = false;
 
@@ -133,9 +131,7 @@
       hls.attachMedia(videoEl);
       hls.on(Hls.Events.MANIFEST_PARSED, () => {
         if (index === 0) {
-          videoEl.play().catch(() => {
-            // Ignore autoplay restrictions
-          });
+          videoEl.play();
         }
       });
     } else if (videoEl.canPlayType('application/vnd.apple.mpegurl')) {
@@ -143,48 +139,13 @@
       videoEl.src = videos[index].src;
       videoEl.addEventListener('loadedmetadata', () => {
         if (index === 0) {
-          videoEl.play().catch(() => {
-            // Ignore autoplay restrictions
-          });
-        }
-      });
-    } else {
-      // Fallback for MP4 files
-      videoEl.src = videos[index].src;
-      videoEl.addEventListener('loadedmetadata', () => {
-        if (index === 0) {
-          videoEl.play().catch(() => {
-            // Ignore autoplay restrictions
-          });
+          videoEl.play();
         }
       });
     }
   }
 
   onMount(async () => {
-    // Initialize HLS.js for hero video
-    if (videoElement) {
-      // Show video once it starts playing
-      videoElement.addEventListener('playing', () => {
-        videoReady = true;
-      });
-
-      if (Hls.isSupported()) {
-        const hls = new Hls();
-        hls.loadSource(HeroVideo);
-        hls.attachMedia(videoElement);
-        hls.on(Hls.Events.MANIFEST_PARSED, () => {
-          videoElement.play();
-        });
-      } else if (videoElement.canPlayType('application/vnd.apple.mpegurl')) {
-        // Native HLS support (Safari)
-        videoElement.src = HeroVideo;
-        videoElement.addEventListener('loadedmetadata', () => {
-          videoElement.play();
-        });
-      }
-    }
-
     // Initialize landscape video
     if (landscapeVideoElement) {
       if (Hls.isSupported()) {
@@ -205,6 +166,11 @@
 
     // Initialize portrait video for mobile
     if (portraitVideoElement) {
+      // Show video once it starts playing
+      portraitVideoElement.addEventListener('playing', () => {
+        portraitVideoReady = true;
+      });
+
       if (Hls.isSupported()) {
         const hls = new Hls();
         hls.loadSource(PortraitVideoHLS);
@@ -259,10 +225,12 @@
 <div>
 <!--  <section class="light hero-video hero-section">-->
    <div class="mobile-portrait-video hide-desktop">
+<!--     <div class="portrait-video-container">-->
      <div class="portrait-video-container">
        <video
          bind:this={portraitVideoElement}
          class="portrait-video"
+         class:ready={portraitVideoReady}
          poster="/videos/hero-portrait/poster.jpg"
          muted
          playsinline
@@ -716,6 +684,11 @@
   .portrait-video-container {
     position: relative;
     width: 100%;
+    aspect-ratio: 3 / 4;
+    background-image: url('/videos/hero-portrait/poster.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 
   .portrait-video {
@@ -723,6 +696,12 @@
     height: auto;
     display: block;
     object-fit: contain;
+    opacity: 0;
+    transition: opacity 0.3s ease-in;
+
+    &.ready {
+      opacity: 1;
+    }
   }
 
   .portrait-video-text-overlay {
