@@ -27,7 +27,7 @@
     cursor: pointer;
     color: #222222;
     background-color: rgb(217, 217, 217);
-    padding: 1.25rem 3rem;
+    padding: 1.25rem 3.85rem;
     box-sizing: border-box;
     min-height: 84px;
     transition: border-color 0.2s;

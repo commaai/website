@@ -40,7 +40,7 @@
   .card {
     display: flex;
     margin: 1rem 0;
-    padding: 1rem 1rem 1rem 24px;
+    padding: 1.5rem 1rem 1.5rem 24px;
     align-items: center;
     color: black;
     background-color: rgb(217, 217, 217);

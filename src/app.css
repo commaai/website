@@ -236,12 +236,6 @@ section.dark + section.dark {
   padding-bottom: 1rem;
 }
 
-@media (max-width: 1160px) {
-  section:first-of-type {
-    padding-top: 10rem;
-  }
-}
-
 img {
   max-width: 100%;
 }

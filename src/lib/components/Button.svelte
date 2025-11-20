@@ -26,7 +26,7 @@
     text-transform: lowercase;
     letter-spacing: -0.06em;
     justify-content: left;
-    padding: 1rem 1rem 1rem 24px;
+    padding: 1.5rem 1rem 1.5rem 24px;
     font-size: 24px;
     font-weight: 400;
     display: flex;

@@ -428,6 +428,8 @@
   .fine-print-copy {
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
     /*background-color: #fafafa;*/
 
     & h2 {

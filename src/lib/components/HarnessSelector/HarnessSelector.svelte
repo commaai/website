@@ -119,7 +119,7 @@
         bind:this={inputRef}
         on:click={() => menuOpen = true}
         on:focus={() => menuOpen = true}
-        style={menuOpen ? 'padding: 14px 3rem' : ''}
+        style={menuOpen ? 'padding: 14px 4rem' : ''}
       />
     {:else if selection}
       <button class="clear" on:click={handleClear}>{@html CloseIcon}</button>
@@ -243,7 +243,7 @@
 
 .chevron {
   position: absolute;
-  top: 50%;
+  top: 48%;
   right: 13px;
   transform: translate(-50%, -50%) rotate(180deg);
   pointer-events: none;
@@ -255,8 +255,10 @@
 }
 
 .clear {
+  display: flex;
+  align-items: center;
   position: absolute;
-  left: 13px;
+  left: 1.15rem;
   height: 100%;
   padding: 0;
   cursor: pointer;
