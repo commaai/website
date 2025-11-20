@@ -1,5 +1,4 @@
 <script>
-  // import IconChevron from '$lib/icons/icon-chevron.svg?raw';
   import IconChevron from "$lib/icons/link_arrow.svg?raw";
   import { onMount } from 'svelte';
 
@@ -94,7 +93,6 @@
     display: grid;
     align-items: center;
     position: relative;
-    /*background-color: #EAEAEA;*/
     padding-right: 4rem;
 
     & > * {
