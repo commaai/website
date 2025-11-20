@@ -145,7 +145,7 @@
         {#if brand_images[brand_img_path]}
           <img src={brand_images[brand_img_path].default} alt="{make} car brand" />
         {/if}
-        <h3>{make} <span class="muted">({cars.length})</span></h3>
+        <h3>{make} ({cars.length})</h3>
       </div>
 
       {#each cars as car_info}
@@ -389,7 +389,7 @@
   }
 
   .car-make-header {
-    background-color: #000;
+    background-color: transparent;
     justify-content: flex-start;
     align-items: center;
     margin-top: 2rem;
@@ -398,22 +398,21 @@
     display: flex;
 
     & img {
-      width: 48px;
+      width: 64px;
       margin-right: 1rem;
+      mix-blend-mode: multiply;
     }
 
     & h3 {
-      color: #fff;
-      font-weight: 700;
-      font-size: 1.5em;
+      color: black;
+      font-weight: 400;
+      font-size: 36px;
       margin: 0;
-
-      & .muted {
-        color: #fff;
-        font-weight: 700;
-        opacity: .65;
-      }
     }
+  }
+
+  .car-make-header:nth-child(2n) {
+    background-color: #D9D9D9;
   }
 
   .car-row {
