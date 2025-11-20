@@ -10,7 +10,7 @@
       "package": "{{ car.package }}",
       "video": "{{ car.video or "" }}",
       "setup_video": "{{ car.setup_video or "" }}",
-      "longitudinal": {{ (car.openpilot_longitudinal or false) | tojson }},
+      "longitudinal": {{ (car.longitudinal_control or false) | tojson }},
       {% set harness_connector = car.car_parts.parts | selectattr('part_type', 'eq', PartType.connector) | first %}
       "harness_connector": "{{ harness_connector.value.name.replace(' connector','') if harness_connector else "" }}",
       "detail_sentence": "{{ car.detail_sentence }}",

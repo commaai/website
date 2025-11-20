@@ -1272,10 +1272,10 @@
       ]
     },
     {
-      "name": "Honda Civic Hybrid 2025",
+      "name": "Honda Civic Hybrid 2025-26",
       "model": "Civic Hybrid",
-      "years": "2025",
-      "year_list": "2025",
+      "years": "2025-26",
+      "year_list": "2025, 2026",
       "package": "All",
       "video": "",
       "setup_video": "",
@@ -1320,10 +1320,10 @@
       ]
     },
     {
-      "name": "Honda CR-V 2023-25",
+      "name": "Honda CR-V 2023-26",
       "model": "CR-V",
-      "years": "2023-25",
-      "year_list": "2023, 2024, 2025",
+      "years": "2023-26",
+      "year_list": "2023, 2024, 2025, 2026",
       "package": "All",
       "video": "",
       "setup_video": "",
@@ -1512,10 +1512,10 @@
       ]
     },
     {
-      "name": "Honda Odyssey 2021-25",
+      "name": "Honda Odyssey 2021-26",
       "model": "Odyssey",
-      "years": "2021-25",
-      "year_list": "2021, 2022, 2023, 2024, 2025",
+      "years": "2021-26",
+      "year_list": "2021, 2022, 2023, 2024, 2025, 2026",
       "package": "All",
       "video": "",
       "setup_video": "",
@@ -2983,7 +2983,7 @@
       "package": "Lexus Safety System+",
       "video": "",
       "setup_video": "",
-      "longitudinal": false,
+      "longitudinal": true,
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Lexus CT Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -3000,7 +3000,7 @@
       "package": "All",
       "video": "",
       "setup_video": "",
-      "longitudinal": false,
+      "longitudinal": true,
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Lexus ES</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -3033,7 +3033,7 @@
       "package": "All",
       "video": "",
       "setup_video": "",
-      "longitudinal": false,
+      "longitudinal": true,
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Lexus ES Hybrid</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -3130,7 +3130,7 @@
       "package": "All",
       "video": "",
       "setup_video": "",
-      "longitudinal": false,
+      "longitudinal": true,
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Lexus NX</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -3163,7 +3163,7 @@
       "package": "All",
       "video": "",
       "setup_video": "",
-      "longitudinal": false,
+      "longitudinal": true,
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Lexus NX Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -3228,7 +3228,7 @@
       "package": "Lexus Safety System+",
       "video": "",
       "setup_video": "",
-      "longitudinal": false,
+      "longitudinal": true,
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Lexus RX</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -3245,7 +3245,7 @@
       "package": "All",
       "video": "",
       "setup_video": "",
-      "longitudinal": false,
+      "longitudinal": true,
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Lexus RX</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -3278,7 +3278,7 @@
       "package": "Lexus Safety System+",
       "video": "",
       "setup_video": "",
-      "longitudinal": false,
+      "longitudinal": true,
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Lexus RX Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -3295,7 +3295,7 @@
       "package": "All",
       "video": "",
       "setup_video": "",
-      "longitudinal": false,
+      "longitudinal": true,
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Lexus RX Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -3510,6 +3510,8 @@
     }
   ],
   "Peugeot": [
+  ],
+  "Porsche": [
   ],
   "Ram": [
     {
@@ -3791,7 +3793,7 @@
       "detail_sentence": "openpilot upgrades your <strong>Škoda Fabia</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
         "Model-years 2022 and beyond may have a combined CAN gateway and BCM, which is supported by openpilot in software, but doesn\u0027t yet have a harness available from the comma store.",
-        "Some \u0160koda vehicles are equipped with heated windshields, which are known to block GPS signal needed for some comma 3X functionality."
+        "Some \u0160koda vehicles are equipped with heated windshields, which are known to block GPS signal needed for some comma four functionality."
       ],
       "setup_notes": [
       ]
@@ -3810,7 +3812,7 @@
       "footnotes": [
         "Model-years 2022 and beyond may have a combined CAN gateway and BCM, which is supported by openpilot in software, but doesn\u0027t yet have a harness available from the comma store.",
         "Not including the China market Kamiq, which is based on the (currently) unsupported PQ34 platform.",
-        "Some \u0160koda vehicles are equipped with heated windshields, which are known to block GPS signal needed for some comma 3X functionality."
+        "Some \u0160koda vehicles are equipped with heated windshields, which are known to block GPS signal needed for some comma four functionality."
       ],
       "setup_notes": [
       ]
@@ -3827,7 +3829,7 @@
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Škoda Karoq</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
-        "Some \u0160koda vehicles are equipped with heated windshields, which are known to block GPS signal needed for some comma 3X functionality."
+        "Some \u0160koda vehicles are equipped with heated windshields, which are known to block GPS signal needed for some comma four functionality."
       ],
       "setup_notes": [
       ]
@@ -3844,7 +3846,7 @@
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Škoda Kodiaq</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
-        "Some \u0160koda vehicles are equipped with heated windshields, which are known to block GPS signal needed for some comma 3X functionality."
+        "Some \u0160koda vehicles are equipped with heated windshields, which are known to block GPS signal needed for some comma four functionality."
       ],
       "setup_notes": [
       ]
@@ -3861,7 +3863,7 @@
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Škoda Octavia</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
-        "Some \u0160koda vehicles are equipped with heated windshields, which are known to block GPS signal needed for some comma 3X functionality."
+        "Some \u0160koda vehicles are equipped with heated windshields, which are known to block GPS signal needed for some comma four functionality."
       ],
       "setup_notes": [
       ]
@@ -3878,7 +3880,7 @@
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Škoda Octavia RS</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
-        "Some \u0160koda vehicles are equipped with heated windshields, which are known to block GPS signal needed for some comma 3X functionality."
+        "Some \u0160koda vehicles are equipped with heated windshields, which are known to block GPS signal needed for some comma four functionality."
       ],
       "setup_notes": [
       ]
@@ -3895,7 +3897,7 @@
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Škoda Octavia Scout</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
-        "Some \u0160koda vehicles are equipped with heated windshields, which are known to block GPS signal needed for some comma 3X functionality."
+        "Some \u0160koda vehicles are equipped with heated windshields, which are known to block GPS signal needed for some comma four functionality."
       ],
       "setup_notes": [
       ]
@@ -3913,7 +3915,7 @@
       "detail_sentence": "openpilot upgrades your <strong>Škoda Scala</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
         "Model-years 2022 and beyond may have a combined CAN gateway and BCM, which is supported by openpilot in software, but doesn\u0027t yet have a harness available from the comma store.",
-        "Some \u0160koda vehicles are equipped with heated windshields, which are known to block GPS signal needed for some comma 3X functionality."
+        "Some \u0160koda vehicles are equipped with heated windshields, which are known to block GPS signal needed for some comma four functionality."
       ],
       "setup_notes": [
       ]
@@ -3930,7 +3932,7 @@
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Škoda Superb</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
-        "Some \u0160koda vehicles are equipped with heated windshields, which are known to block GPS signal needed for some comma 3X functionality."
+        "Some \u0160koda vehicles are equipped with heated windshields, which are known to block GPS signal needed for some comma four functionality."
       ],
       "setup_notes": [
       ]
@@ -4051,7 +4053,7 @@
       "package": "Toyota Safety Sense P",
       "video": "",
       "setup_video": "",
-      "longitudinal": false,
+      "longitudinal": true,
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota Avalon</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -4068,7 +4070,7 @@
       "package": "All",
       "video": "",
       "setup_video": "",
-      "longitudinal": false,
+      "longitudinal": true,
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota Avalon</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -4085,7 +4087,7 @@
       "package": "All",
       "video": "",
       "setup_video": "",
-      "longitudinal": false,
+      "longitudinal": true,
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota Avalon</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -4118,7 +4120,7 @@
       "package": "All",
       "video": "",
       "setup_video": "",
-      "longitudinal": false,
+      "longitudinal": true,
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota Avalon Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -4281,7 +4283,7 @@
       "package": "All",
       "video": "",
       "setup_video": "",
-      "longitudinal": false,
+      "longitudinal": true,
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota Corolla</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -4394,7 +4396,7 @@
       "package": "All",
       "video": "https://www.youtube.com/watch?v=0wS0wXSLzoo",
       "setup_video": "",
-      "longitudinal": false,
+      "longitudinal": true,
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota Highlander</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -4427,7 +4429,7 @@
       "package": "All",
       "video": "",
       "setup_video": "",
-      "longitudinal": false,
+      "longitudinal": true,
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota Highlander Hybrid</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -4476,7 +4478,7 @@
       "package": "Toyota Safety Sense P",
       "video": "https://www.youtube.com/watch?v=8zopPJI8XQ0",
       "setup_video": "",
-      "longitudinal": false,
+      "longitudinal": true,
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota Prius</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -4493,7 +4495,7 @@
       "package": "All",
       "video": "https://www.youtube.com/watch?v=8zopPJI8XQ0",
       "setup_video": "",
-      "longitudinal": false,
+      "longitudinal": true,
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota Prius</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -4526,7 +4528,7 @@
       "package": "All",
       "video": "https://www.youtube.com/watch?v=8zopPJI8XQ0",
       "setup_video": "",
-      "longitudinal": false,
+      "longitudinal": true,
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota Prius Prime</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -4559,7 +4561,7 @@
       "package": "Toyota Safety Sense P",
       "video": "",
       "setup_video": "",
-      "longitudinal": false,
+      "longitudinal": true,
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota Prius v</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -4576,7 +4578,7 @@
       "package": "Toyota Safety Sense P",
       "video": "",
       "setup_video": "",
-      "longitudinal": false,
+      "longitudinal": true,
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota RAV4</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -4593,7 +4595,7 @@
       "package": "All",
       "video": "",
       "setup_video": "",
-      "longitudinal": false,
+      "longitudinal": true,
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota RAV4</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -4658,7 +4660,7 @@
       "package": "Toyota Safety Sense P",
       "video": "https://youtu.be/LhT5VzJVfNI?t=26",
       "setup_video": "",
-      "longitudinal": false,
+      "longitudinal": true,
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota RAV4 Hybrid</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -4675,7 +4677,7 @@
       "package": "All",
       "video": "https://youtu.be/LhT5VzJVfNI?t=26",
       "setup_video": "",
-      "longitudinal": false,
+      "longitudinal": true,
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota RAV4 Hybrid</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
@@ -4740,7 +4742,7 @@
       "package": "All",
       "video": "https://www.youtube.com/watch?v=q1UPOo4Sh68",
       "setup_video": "",
-      "longitudinal": false,
+      "longitudinal": true,
       "harness_connector": "Toyota A",
       "detail_sentence": "openpilot upgrades your <strong>Toyota Sienna</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
