@@ -63,12 +63,12 @@
       <p>
         comma connect is an app that lets you manage your openpilot experience. Recordings of your drives can be uploaded and stored for 3 days. Subscribe to connect Prime to keep your drives accessible for 1 year.
       </p>
-      <div class="bottom">
-        <a href="https://connect.comma.ai" class="link-away">
-          learn more
-          {@html LinkArrow}
-        </a>
-      </div>
+<!--      <div class="bottom">-->
+<!--        <a href="https://connect.comma.ai" class="link-away">-->
+<!--          learn more-->
+<!--          {@html LinkArrow}-->
+<!--        </a>-->
+<!--      </div>-->
     </div>
 
     <hr />

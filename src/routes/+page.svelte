@@ -276,15 +276,15 @@
      </div>
    </div>
    <div style="padding-top: 4rem;">
-     <Grid rowGap="0" columnGap="0" templateColumns="2fr 1fr" size="xlarge" reverse={true}>
+     <Grid rowGap="0" columnGap="0" templateColumns="2fr 1fr" size="large">
 
-      <div class="left-section-v2 light">
+      <div class="left-section-v2 light no-reorder">
         <div class="desktop-four-hero-image">
           <img src={FourFront} alt="comma four zoom"/>
         </div>
       </div>
       <!-- Buy now should be pushed down a bit -->
-      <div class="right-section-v2">
+      <div class="right-section-v2 no-bottom-border">
         <div>
           <div class="hero-title">Your car can do more.</div>
   <!--        comma her image-->
@@ -332,10 +332,12 @@
     </Grid>
   </div>
 
+  <hr/>
+
 <!--  <section class="light hero-section">-->
 <!--    <div class="left-section">-->
   <Grid rowGap="0" columnGap="0" templateColumns="2fr 1fr" size="xlarge">
-    <div class="left-section-v2">
+    <div class="left-section-v2 large hide-mobile">
       <div class="landscape-video-container">
       <video
         bind:this={landscapeVideoElement}
@@ -388,7 +390,7 @@
 <!--  </section>-->
   </Grid>
 
-  <hr/>
+  <hr class="hide-mobile"/>
 
 <!--  <section class="light hero-section">-->
   <Grid rowGap="0" columnGap="0" templateColumns="2fr 1fr" size="xlarge">
@@ -676,14 +678,14 @@
   }
 
   .hide-desktop {
-    @media screen and (min-width: 951px) {
+    @media screen and (min-width: 1025px) {
       display: none !important;
     }
   }
 
   .hide-mobile {
-    @media screen and (max-width: 950px) {
-      display: none;
+    @media screen and (max-width: 1024px) {
+      display: none !important;
     }
   }
 
@@ -745,6 +747,12 @@
     height: 2px;
     background-color: black;
     margin: 0;
+
+    &.hide-mobile {
+      @media screen and (max-width: 1350px) {
+        display: none;
+      }
+    }
   }
 
   .hero-section {
@@ -974,7 +982,7 @@
     left: 10%;
     position: absolute;
 
-    @media screen and (max-width: 1450px) {
+    @media screen and (max-width: 1024px) {
       display: none;
     }
   }
@@ -986,8 +994,30 @@
     align-items: center;
     justify-content: center;
 
-    @media screen and (max-width: 1350px) {
+    @media screen and (max-width: 1450px) {
       order: 2;
+    }
+
+    &.large {
+      @media screen and (max-width: 1450px) {
+        order: initial; /* Remove general rule */
+      }
+
+      @media screen and (max-width: 1024px) {
+        order: 2;
+      }
+    }
+
+    &.no-reorder {
+      @media screen and (max-width: 1450px) {
+        order: initial;
+      }
+
+      &.large {
+        @media screen and (max-width: 1024px) {
+          order: initial;
+        }
+      }
     }
 
   /*  select light to remove background color black*/
@@ -1016,6 +1046,9 @@
     @media screen and (max-width: 1350px) {
       padding: 20px;
       border-bottom: 2px solid black;
+      &.no-bottom-border {
+        border-bottom: none;
+      }
     }
 
     /*@media screen and (max-width: 1350px) {*/
@@ -1206,7 +1239,7 @@
     & .title {
       font-size: 40px;
 
-      @media screen and (max-width: 1350px) {
+      @media screen and (max-width: 1024px) {
         font-size: 20px;
       }
     }
@@ -1692,6 +1725,10 @@
     @media screen and (max-width: 698px) {
       display: flex;
     }
+  }
+
+  .four-image {
+    padding-bottom: 1.5rem;
   }
 
   .hero-image {
