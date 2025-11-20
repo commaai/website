@@ -25,10 +25,11 @@ body {
   font-size: 16px;
   font-weight: 400;
   line-height: 1.4;
+  letter-spacing: -0.06em;
 
   margin: 0;
   min-height: 100%;
-  background-color: #fff;
+  background-color: rgb(217, 217, 217);
   overflow-x: hidden;
 
   -webkit-tap-highlight-color: transparent;
@@ -63,8 +64,8 @@ body {
   --color-red: #ff4133;
   --color-foreground: white;
   --color-background: black;
-  --color-accent: #51ff00;
-  --color-accent-hover: #51b124;
+  --color-accent: #00FF40;
+  --color-accent-hover: #14CC42;
   --color-card-background: #f8f9fa;
   --color-card-background-hover: #e8eaec;
   --color-light: #EAEAEA;

@@ -1,6 +1,6 @@
 export const products = {
   "comma-four": {
-    title: "comma four",
+    title: "comma 4",
     id: "gid://shopify/Product/7964554231871",
     route: "/shop/four",
     category: "device",
@@ -10,7 +10,6 @@ export const products = {
       "/src/lib/images/products/comma-four/four_screen_on.png",
       "/src/lib/images/products/comma-four/four_side_2.png",
       "/src/lib/images/products/comma-four/four_back_2.png",
-      "/src/lib/images/products/comma-four/remount.jpg"
     ],
     notes: [],
     description: `

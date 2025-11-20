@@ -27,7 +27,7 @@
     padding: 1rem;
     align-items: center;
     color: black;
-    border: 1px solid #616161;
+    background-color: rgb(217, 217, 217);
 
     & hgroup {
       margin-left: 1rem;

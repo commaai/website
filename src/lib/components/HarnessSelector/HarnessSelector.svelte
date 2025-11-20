@@ -12,8 +12,8 @@
   import NoteCard from '$lib/components/NoteCard.svelte';
   import DropdownItem from './HarnessDropdownItem.svelte';
 
-  import ChevronIcon from '$lib/icons/icon-chevron.svg?raw';
-  import CloseIcon from '$lib/icons/ui/close.svg?raw';
+  import LinkArrow from "$lib/icons/link_arrow.svg?raw";
+  import CloseIcon from '$lib/icons/ui/close-new.svg?raw';
   import CarIcon from '$lib/icons/features/car.svg?raw';
 
   export let onChange;
@@ -69,7 +69,7 @@
   let inputValue = "";
   let inputRef;
 
-  $: filteredItems = $harnesses.filter(item => 
+  $: filteredItems = $harnesses.filter(item =>
     normalizeDiacritics(item.car.toLowerCase()).match(normalizeDiacritics(inputValue.toLowerCase()))
   );
 
@@ -139,7 +139,8 @@
         </div>
       </div>
     {/if}
-    <span class="chevron">{@html ChevronIcon}</span>
+<!--    <span class="chevron">{@html ChevronIcon}</span>-->
+    <span class="chevron">{@html LinkArrow}</span>
   </div>
   <div class="dropdown-content" class:show={menuOpen}>
     {#if inputValue !== ''}
@@ -197,10 +198,11 @@
   box-sizing: border-box;
   width: 100%;
   min-height: 84px;
-  border: 1px solid #a0a0a0;
+  border: none;
   padding: 14px;
   outline: none;
   font-size: 1rem;
+  background-color: rgb(217, 217, 217);
 
   &::placeholder {
     font-size: 1rem;
@@ -214,8 +216,7 @@
   align-items: center;
   cursor: pointer;
   color: #222222;
-  background-color: #fff;
-  border: 1px solid #a0a0a0;
+  background-color: rgb(217, 217, 217);
   padding: 1rem 3rem 1rem 1.5rem;
   box-sizing: border-box;
   min-height: 84px;
@@ -226,10 +227,11 @@
   }
 
   & .label {
-    font-size: 1rem;
-    font-weight: 600;
-    color: #515151;
+    font-size: 24px;
+    font-weight: 400;
+    color: black;
     text-wrap: balance;
+    text-decoration: underline;
   }
 
   & .accessory {
@@ -243,12 +245,12 @@
   position: absolute;
   top: 50%;
   right: 13px;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) rotate(180deg);
   pointer-events: none;
 
   & > svg {
-    width: 18px;
-    height: 12px;
+    width: 24px;
+    height: 24px;
   }
 }
 

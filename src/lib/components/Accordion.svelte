@@ -91,7 +91,7 @@
     display: grid;
     align-items: center;
     position: relative;
-    background-color: var(--background-color);
+    background-color: #EAEAEA;
     padding-right: 4rem;
 
     & > * {

@@ -19,7 +19,7 @@
   import SonataLandscape from "$lib/images/home/sonata_landscape.png";
   import Map from "$lib/images/home/map.png";
   import FourZoom from "$lib/images/home/four_zoom.png";
-  import LinkArrow from "$lib/images/home/link_arrow.svg?raw";
+  import LinkArrow from "$lib/icons/link_arrow.svg?raw";
   import ExperimentalIcon from "$lib/images/experimental.svg?raw";
   import WarrantyIcon from "$lib/icons/features/warranty.svg?raw";
   import MoneyBackIcon from "$lib/icons/features/money-back-guarantee.svg?raw";

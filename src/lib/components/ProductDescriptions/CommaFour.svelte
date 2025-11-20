@@ -22,7 +22,7 @@
 
   export let product;
   let additionalProductIds = [];
-  let disableBuyButtonText = "SELECT YOUR CAR";
+  let disableBuyButtonText = "add to cart";
 
   let showDisclaimerModal = false;
   let onProceed;
@@ -71,7 +71,7 @@
       disableBuyButtonText = null;
     } else {
       backordered = null;
-      disableBuyButtonText = "SELECT YOUR CAR";
+      disableBuyButtonText = "add to cart";
     }
     backordered = '1-12 weeks';
   }
@@ -103,29 +103,30 @@
   <div slot="shipping"></div>
 
   <span slot="price-accessory">
-    <div class="badge">
-      <Badge style="dark">Free rush shipping</Badge>
+
+    <br />
+
+    <div>
+      Select your car to receive the correct wiring harness for setup. New mounts and cables are included with all orders.<br><br>
+      You do not need a new harness if you’re upgrading from another comma device. All comma devices use the same harness.
     </div>
-
-    <hr />
-
-    <strong>Select a harness to connect the comma four to your car.</strong>
     <HarnessSelector
-      label="Select your car"
+      label="select your car"
       onChange={handleHarnessSelection}
       showNoHarnessOption={true}
     >
     </HarnessSelector>
-    <CheckboxCard title="$250 credit with trade-in" checked={tradeInChecked} onToggle={handleTradeInToggle}>
+    <CheckboxCard title="trade-in ($250 credit)" checked={tradeInChecked} onToggle={handleTradeInToggle}>
+<!--      Get $250 credit when you trade in your old comma device. Any comma device, in any condition.-->
+<!--      <a href="/shop/comma-four-trade-in">Instructions and Terms</a>-->
+    </CheckboxCard>
+    <div class="trade-in-details">
       Get $250 credit when you trade in your old comma device. Any comma device, in any condition.
       <a href="/shop/comma-four-trade-in">Instructions and Terms</a>
-    </CheckboxCard>
+    </div>
   </span>
 
   <div slot="notes">
-    <NoteCard title="Upgrading from another comma device?">
-      You do not need a new car harness. All comma devices use the same harness.
-    </NoteCard>
   </div>
 
   <div slot="description">
@@ -250,5 +251,18 @@
     background-color: rgba(134, 255, 78, 0.15);
     border-bottom: 2px solid #86ff4e;
     padding: 0 2px;
+  }
+
+  .trade-in-details {
+    font-size: 14px;
+
+    & a {
+      color: black;
+      border-bottom: 2px solid #616161;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
   }
 </style>

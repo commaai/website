@@ -158,8 +158,9 @@
 
 <style>
   h1 {
-    font-size: 2.5rem;
-    font-weight: 600;
+    font-size: 96px;
+    /*regular font*/
+    font-weight: 400;
   }
 
   .preview {
@@ -199,7 +200,7 @@
     }
 
     & .price {
-      font-size: 1.5rem;
+      font-size: 2rem;
     }
 
 

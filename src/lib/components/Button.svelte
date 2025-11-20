@@ -22,13 +22,13 @@
   button {
     background-color: var(--color-accent);
     border: none;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    justify-content: center;
-    padding: 1.25rem 4rem;
-    font-size: 1.125rem;
-    font-weight: 600;
+    text-align: left;
+    text-transform: lowercase;
+    letter-spacing: -0.06em;
+    justify-content: left;
+    padding: 1rem 1rem 1rem 24px;
+    font-size: 24px;
+    font-weight: 400;
     display: flex;
     width: fit-content;
     cursor: pointer;
@@ -82,7 +82,8 @@
 
   .disabled {
     cursor: not-allowed;
-    color: white;
-    background-color: var(--color-muted);
+    color: black;
+    opacity: 0.5;
+    background-color: #EAEAEA;
   }
 </style>

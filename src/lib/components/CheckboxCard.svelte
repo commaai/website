@@ -1,16 +1,27 @@
 <script>
-  import NoteCard from "./NoteCard.svelte";
-
   export let title;
+  export let subtitle = "";  // placed on the right side
   export let checked = false;
   export let onToggle;
 </script>
 
 <label class="checkbox-card" class:checked={checked}>
-  <NoteCard {title}>
-    <input type="checkbox" slot="icon" checked={checked} on:change={() => onToggle && onToggle()} />
-    <slot></slot>
-  </NoteCard>
+  <div class="card">
+    <div class="icon-slot">
+      <input type="checkbox" checked={checked} on:change={() => onToggle && onToggle()} />
+    </div>
+    <hgroup>
+      <span class="title-row">
+        <span class="title">{title}</span>
+        {#if subtitle}
+          <span class="subtitle">{subtitle}</span>
+        {/if}
+      </span>
+      <div>
+        <slot></slot>
+      </div>
+    </hgroup>
+  </div>
 </label>
 
 <style>
@@ -21,14 +32,60 @@
   }
 
   .checkbox-card :global(input[type="checkbox"]) {
-    width: 1.25rem;
-    height: 1.25rem;
+    display: none;
     cursor: pointer;
     accent-color: var(--color-accent);
   }
 
-  .checkbox-card.checked :global(.card hgroup span) {
-    background-color: #86ff4e;
+  .card {
+    display: flex;
+    margin: 1rem 0;
+    padding: 1rem 1rem 1rem 24px;
+    align-items: center;
+    color: black;
+    background-color: rgb(217, 217, 217);
+
+    & hgroup {
+      display: block !important;
+
+      & .title-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-top: 0.25rem;
+        margin-bottom: 0.25rem;
+        font-size: 24px;
+        text-transform: lowercase;
+        line-height: 1;
+        color: black;
+
+        & .subtitle {
+          text-transform: none;
+          font-weight: normal;
+        }
+      }
+
+      & div {
+        display: block;
+        color: #000000A6;
+        font-size: 0.875rem;
+        line-height: 1.25;
+      }
+
+      & a {
+        color: black;
+        border-bottom: 2px solid #616161;
+
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+
+  .checkbox-card.checked :global(.card) {
+    background-color: var(--color-accent);
     color: black;
   }
 </style>

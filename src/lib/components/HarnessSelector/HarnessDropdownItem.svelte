@@ -26,8 +26,7 @@
     align-items: center;
     cursor: pointer;
     color: #222222;
-    background-color: #fff;
-    border: 1px solid #a0a0a0;
+    background-color: rgb(217, 217, 217);
     padding: 1.25rem 3rem;
     box-sizing: border-box;
     min-height: 84px;
