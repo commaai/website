@@ -205,7 +205,7 @@
                           </hgroup>
                         </div>
 <!--                        <LinkButton-->
-                        <a href="/shop/comma-four?harness={car_info.name}" class="buy-button">
+                        <a href="/shop/comma-4?harness={car_info.name}" class="buy-button">
                           <div class="buy-now-text">buy now</div>
                           <div>$999</div>
                         </a>

@@ -53,7 +53,7 @@
               <h1>comma 4</h1>
               <span>${FOUR_PRICE}</span>
             </hgroup>
-            <LinkButton href="/shop/comma-four" style="secondary" fullWidth>
+            <LinkButton href="/shop/comma-4" style="secondary" fullWidth>
               Buy now
             </LinkButton>
             <p>

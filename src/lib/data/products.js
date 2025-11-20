@@ -1,5 +1,5 @@
 export const products = {
-  "comma-four": {
+  "comma-4": {
     title: "comma 4",
     id: "gid://shopify/Product/7964554231871",
     route: "/shop/four",
@@ -59,7 +59,7 @@ export const products = {
       {
         title: "Note",
         content: `A panda is not necessary if purchasing a
-        <a href="/shop/comma-four" target="_blank">comma 4</a>.
+        <a href="/shop/comma-4" target="_blank">comma 4</a>.
         <br /><br />
         A red panda is required if using a comma 3 on a CAN FD vehicle. Check
         <a href="https://github.com/commaai/openpilot/blob/master/docs/CARS.md" target="_blank" rel="noopener noreferrer">compatibility</a> to see if your car requires
@@ -101,7 +101,7 @@ export const products = {
           If you have a comma three, a red panda is needed to talk to CAN FD cars.
         </p>
         <p>
-          A red panda is not required for the <a href="/shop/comma-four">comma 4</a>.
+          A red panda is not required for the <a href="/shop/comma-4">comma 4</a>.
         </p>
         <p>
           The red panda does not have GPS support. It is not compatible with the
@@ -562,7 +562,7 @@ export const products = {
     `.trim()
   },
 
-  "comma-four-trade-in": {
+  "comma-4-trade-in": {
     title: "comma 4 trade-in",
     id: "gid://shopify/Product/7966994202687",
   },

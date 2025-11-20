@@ -250,7 +250,7 @@
         <div class="hero-price">
           <span class="hero-dollar">$</span><span class="hero-amount">999</span>
         </div>
-        <a href="/shop/comma-four" class="hero-buy-now">
+        <a href="/shop/comma-4" class="hero-buy-now">
           buy now
           {@html LinkArrow}
         </a>
@@ -286,7 +286,7 @@
           <li>100% local compute, no internet required</li>
           <li>310 ppi high resolution OLED display</li>
         </ul>
-        <a href="/shop/comma-four#tech-specs" class="link-away" style="padding-top: 0;">
+        <a href="/shop/comma-4#tech-specs" class="link-away" style="padding-top: 0;">
           tech specs
           {@html LinkArrow}
         </a>
@@ -297,7 +297,7 @@
           <div class="hero-price">
             <span class="hero-dollar">$</span><span class="hero-amount">999</span>
           </div>
-          <a href="/shop/comma-four" class="hero-buy-now">
+          <a href="/shop/comma-4" class="hero-buy-now">
             buy now
             {@html LinkArrow}
           </a>
@@ -342,7 +342,7 @@
       </div>
       <div class="hero-description">
         Send it back to us any time within 30 days for a full refund, no questions asked.
-        <a href="/shop/comma-four" class="link-away">
+        <a href="/shop/comma-4" class="link-away">
           no-risk trial
           {@html LinkArrow}
         </a>

@@ -10,6 +10,11 @@
     "cleanUrls": true,
     "redirects": [
       {
+        "source": "/shop/comma-four",
+        "destination": "/shop/comma-4",
+        "type": 302
+      },
+      {
         "source": "/four",
         "destination": "/shop/comma-four",
         "type": 302

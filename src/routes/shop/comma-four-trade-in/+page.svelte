@@ -17,7 +17,7 @@
       <hr>
       <strong>Trade-in Instructions</strong>
       <p>
-        1. Check the trade-in option on the <a href="/shop/comma-four" class="highlight">comma 4</a> product page. If you forgot to do this before placing your order, please contact <a href="/support" class="highlight">support</a>.
+        1. Check the trade-in option on the <a href="/shop/comma-4" class="highlight">comma 4</a> product page. If you forgot to do this before placing your order, please contact <a href="/support" class="highlight">support</a>.
       </p>
       <p>
         2. We ship you a new comma 4.

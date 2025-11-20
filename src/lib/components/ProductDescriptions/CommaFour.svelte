@@ -155,7 +155,7 @@
     />
     <div class="trade-in-details">
       Get $250 credit when you trade in your old comma device. Any comma device, in any condition.
-      <a href="/shop/comma-four-trade-in">Instructions and Terms</a>
+      <a href="/shop/comma-4-trade-in">Instructions and Terms</a>
     </div>
   </span>
 
