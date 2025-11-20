@@ -346,7 +346,7 @@
           <li>100% local compute, no internet required</li>
           <li>310 ppi high resolution OLED display</li>
         </ul>
-        <a href="/shop/comma-four" class="link-away" style="padding-top: 0;">
+        <a href="/shop/comma-four#tech-specs" class="link-away" style="padding-top: 0;">
           tech specs
           {@html LinkArrow}
         </a>
