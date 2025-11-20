@@ -555,7 +555,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /*width: 50%;*/
     height: 100%;
 
     & hr {
@@ -568,7 +567,6 @@
   }
 
   .plug-step {
-    /*flex: 1;*/
     display: flex;
 
     font-size: 64px;
@@ -576,8 +574,6 @@
     gap: 1rem;
     line-height: 0.9;
     letter-spacing: -0.06em;
-    /*text-align: center;*/
-    /*padding: 1rem;*/
 
     @media screen and (max-width: 1350px) {
       font-size: 48px;
@@ -593,10 +589,6 @@
   }
 
   .plug-hero-image {
-    /*flex: 1;*/
-    /*display: flex;*/
-    /*justify-content: center;*/
-    /*align-items: center;*/
     width: 100%;
     height: 100%;
 
@@ -609,14 +601,8 @@
     & img {
       width: 100%;
       line-height: 0;
-      /*width: 400px;*/
-      /*height: 400px;*/
       object-fit: contain;
       display: block;
-
-      /*@media screen and (max-width: 1450px) {*/
-      /*  display: none;*/
-      /*}*/
 
       @media screen and (max-width: 650px) {
         display: block;
@@ -669,7 +655,6 @@
       }
     }
 
-  /*  select light to remove background color black*/
     &.light {
       background-color: transparent;
     }
@@ -682,7 +667,6 @@
   .right-section-v2 {
     display: flex;
     height: 100%;
-    /*width: 33%;*/
     box-sizing: border-box;
     flex-direction: column;
     justify-content: space-between;
