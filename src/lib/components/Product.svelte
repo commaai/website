@@ -174,6 +174,7 @@
     & img {
       display: block;
       margin: 0 auto;
+      mix-blend-mode: multiply;
     }
   }
 
@@ -194,6 +195,7 @@
       width: 100%;
       height: 100%;
       object-fit: scale-down;
+      mix-blend-mode: multiply;
     }
   }
 
@@ -217,6 +219,7 @@
       width: 120px;
       height: 120px;
       object-fit: scale-down;
+      mix-blend-mode: multiply;
     }
   }
 
