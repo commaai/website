@@ -45,6 +45,7 @@
   let landscapeVideoElement;
   let portraitVideoElement;
   let portraitVideoReady = false;
+  let carouselVideoReady = [false, false, false];
   let compatPulse = false;
   let compatShake = false;
 
@@ -123,6 +124,11 @@
     videoEl.loop = false;
     videoEl.muted = true;
     videoEl.playsInline = true;
+
+    // Show video once it starts playing
+    videoEl.addEventListener('playing', () => {
+      carouselVideoReady[index] = true;
+    });
 
     // Use HLS.js for .m3u8 files
     if (Hls.isSupported()) {
@@ -427,9 +433,10 @@
     <div class="left-section-v2">
       <div class="video-carousel">
         {#each videos as video, index}
-          <div class="video-container" class:active={currentVideoIndex === index} on:click={() => switchToVideo(index)} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && switchToVideo(index)}>
+          <div class="video-container" class:active={currentVideoIndex === index} on:click={() => switchToVideo(index)} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && switchToVideo(index)} style="background-image: url('{video.poster}');">
             <video
               bind:this={videoElements[index]}
+              class:ready={carouselVideoReady[index]}
               poster={video.poster}
               muted
               playsinline
@@ -1611,6 +1618,10 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    aspect-ratio: 3 / 4;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
     @media screen and (max-width: 698px) {
       display: none;
@@ -1629,6 +1640,12 @@
     height: 100%;
     object-fit: cover;
     display: block;
+    opacity: 0;
+    transition: opacity 0.3s ease-in;
+
+    &.ready {
+      opacity: 1;
+    }
   }
 
   .video-overlay {
