@@ -102,7 +102,7 @@
 
   :global(.tab:nth-child(odd)) label,
   :global(.tab:nth-child(odd)) .content {
-    background-color: #D0D0D0;
+    background-color: #D9D9D9;
   }
   .chevron {
     position: absolute;
