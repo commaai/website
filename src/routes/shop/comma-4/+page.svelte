@@ -68,41 +68,42 @@
 
           <div class="title">Cameras</div>
           <div class="content">
-            4mp FCAM (idk fov)<br>
-            4mp wide angles (idk fov) x2<br>
+            4mp 60° ROAD-FACING CAMERA<br>
+            4mp 185° ROAD-FACING CAMERA<br>
+            4MP 185° DRIVER-FACING CAMERA<br>
             IR LED for attention monitoring at night
           </div>
 
           <div class="title">Components</div>
           <div class="content">
             Qualcomm Snapdragon <span class="max-gradient">845 MAX</span><br>
-            CAN FD integrated, STM32H7<br>
+            STM32H7 always on processor<br>
             anodized aluminum heatsink<br>
             noctua a4x10 fan
           </div>
 
           <div class="title">Storage</div>
           <div class="content">
-            128 GB Sandisk SSD (idk)
+            128 GB Sandisk UFS
           </div>
 
           <div class="title">Screen</div>
           <div class="content">
-            300 ppi OLED, 536 x 240 resolution
+            300 ppi OLED
+            536 x 240 resolution
           </div>
 
           <div class="title">Connectivity</div>
           <div class="content">
-            Quectel (idk)<br>
             lte<br>
             wi-fi<br>
-            high-precision gps
+            high-precision u-blox gps
           </div>
 
           <div class="title">Ports</div>
           <div class="content" style="margin-bottom: 0;">
             OBD-C port (usb-C w/ CAN)<br>
-            USB 3.1 Gen 2 port, VID 0x3801
+            USB 3.1 Gen 2 port (VID: 0x3801)
           </div>
 
 
