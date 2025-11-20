@@ -81,9 +81,9 @@
     <HeaderMenu/>
   </div>
   <div class="navbar-container">
-    <span class="comma-home-icon">
-      <a href="/">{@html CommaIcon}</a>
-    </span>
+<!--    <span class="comma-home-icon">-->
+<!--      <a href="/">{@html CommaIcon}</a>-->
+<!--    </span>-->
     <nav class="navbar-section-links">
       <a href="/">{@html CommaIcon}</a>
       <a href="/vehicles" class="hide-mobile-1">compatibility</a>

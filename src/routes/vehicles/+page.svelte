@@ -175,7 +175,7 @@
                         <div class="cards">
                           <CarNote image={CheckIcon} title="support">
                             {#if car_info.package !== 'All'}
-                              openpilot requires the car to come equipped with <b>{car_info.package}</b>.
+                              openpilot is compatible if the car is equipped with <b>{car_info.package}</b>.
                             {:else}
                               openpilot will work with <b>all packages and trims</b> of this car.
                             {/if}
