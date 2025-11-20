@@ -7,6 +7,7 @@
   import Faq from '$lib/components/Faq.svelte';
   import LinkButton from '$lib/components/LinkButton.svelte';
   import NoteCard from '$lib/components/NoteCard.svelte';
+  import CarNote from '$lib/components/CarNote.svelte';
 
   import { faq } from '$lib/constants/faq.svelte';
 
@@ -15,6 +16,8 @@
   import CarIcon from '$lib/icons/features/car.svg?raw';
 
   import CommaFourImage from '$lib/images/products/comma-four/four_screen_on.png';
+  import CheckIcon from '$lib/icons/ui/check.svg';
+  import ExperimentalIcon from '$lib/icons/experimental.svg';
 
   import { FOUR_PRICE } from '$lib/constants/prices.js';
   import { vehicleCountText } from '$lib/constants/vehicles.js';
@@ -166,17 +169,30 @@
                 </div>
                 <div class="detail-content" slot="content">
                   <div class="car-detail-content-wrapper">
-                    <Grid columns={2} rowGap="0" columnGap="2rem" templateColumns="3fr 2fr">
+                    <Grid columns={2} rowGap="0" columnGap="2rem" templateColumns="2fr 2fr">
                       <div>
-                        <div class="car-detail-tier">{@html car_info.detail_sentence }</div>
+<!--                        <div class="car-detail-tier">{@html car_info.detail_sentence }</div>-->
                         <div class="cards">
-                          <NoteCard title="Support" icon={CarIcon} style="elevated">
+                          <CarNote image={CheckIcon} title="support">
                             {#if car_info.package !== 'All'}
                               openpilot requires the car to come equipped with <b>{car_info.package}</b>.
                             {:else}
                               openpilot will work with <b>all packages and trims</b> of this car.
                             {/if}
-                          </NoteCard>
+                          </CarNote>
+                          {#if car_info.longitudinal}
+                            <div style="margin-top: 2rem;"></div>
+                            <CarNote image={ExperimentalIcon} title="experimental mode">
+                              This car supports experimental mode.
+                            </CarNote>
+                          {/if}
+<!--                          <NoteCard title="Support" icon={CarIcon} style="elevated">-->
+<!--                            {#if car_info.package !== 'All'}-->
+<!--                              openpilot requires the car to come equipped with <b>{car_info.package}</b>.-->
+<!--                            {:else}-->
+<!--                              openpilot will work with <b>all packages and trims</b> of this car.-->
+<!--                            {/if}-->
+<!--                          </NoteCard>-->
                           {#each car_info.footnotes as footnote}
                             <NoteCard title="Note" icon={InfoIcon} style="elevated">
                               {@html footnote}
@@ -186,28 +202,31 @@
                       </div>
                       <div class="device-promotion-card">
                         <div class="product-wrapper">
-                          <img src={CommaFourImage} loading="lazy" alt="comma four device" />
+                          <img src={CommaFourImage} loading="lazy" alt="comma 4 device" />
                           <hgroup>
-                            <strong>comma four</strong>
-                            <div class="understated-price">${FOUR_PRICE}</div>
+                            <strong>comma 4</strong>
+<!--                            <div class="understated-price">${FOUR_PRICE}</div>-->
                             {#if car_info.harness_connector !== "" }
-                              <strong>car harness: { car_info.harness_connector }</strong>
-                              <div class="understated-price">included</div>
+                              <div class="harness-included">{ car_info.harness_connector } harness included</div>
+<!--                              <div class="understated-price">included</div>-->
                             {/if}
                           </hgroup>
                         </div>
-                        <LinkButton
-                          href={`/shop/comma-four?harness=${car_info.name}`}
-                          style="primary"
-                          fullWidth
-                          thin
-                        >
-                          Buy now
-                        </LinkButton>
-                        <div class="description">
-                          <strong>30-day money-back trial</strong>
-                          <div>Don't love it? It's easy to return your device within <strong>30 days</strong> after receiving it for a full refund.</div>
-                        </div>
+<!--                        <LinkButton-->
+                        <div class="buy-button">
+<!--                          href={`/shop/comma-four?harness=${car_info.name}`}-->
+<!--                          style="primary"-->
+<!--                          fullWidth-->
+<!--                          thin-->
+<!--                        >-->
+                          <div class="buy-now-text">buy now</div>
+                          <div>$999</div>
+<!--                        </LinkButton>-->
+                          </div>
+<!--                        <div class="description">-->
+<!--                          <strong>30-day money-back trial</strong>-->
+<!--                          <div>Don't love it? It's easy to return your device within <strong>30 days</strong> after receiving it for a full refund.</div>-->
+<!--                        </div>-->
                       </div>
                     </Grid>
                   </div>
@@ -418,6 +437,10 @@
       font-weight: 400;
       font-size: 36px;
       margin: 0;
+
+      @media screen and (max-width: 768px) {
+        font-size: 24px;
+      }
     }
   }
 
@@ -449,6 +472,9 @@
     padding: 1.5rem 16px;
 
     & .car-details {
+      font-size: 20px;
+      /*jet brains*/
+      font-family: 'JetBrains Mono', monospace;
       display: flex;
       flex: 1;
 
@@ -504,10 +530,38 @@
   }
 
   .device-promotion-card {
-    background-color: rgba(68, 65, 58, .12);
-    border: 1px solid rgba(117, 93, 36, .25);
-    padding: .75rem;
+    /*background-color: rgba(68, 65, 58, .12);*/
+    /*border: 1px solid rgba(117, 93, 36, .25);*/
+    /*padding: .75rem;*/
     font-size: 14px;
+
+    /*green, items are row. items are pushed awaytfrom center so 1st div is left 2nd is right*/
+    & .buy-button {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      line-height: 1;
+      background-color: var(--color-accent);
+      color: black;
+      font-size: 42px;
+      letter-spacing: -0.06em;
+      padding: 1.25rem;
+      margin-top: 1rem;
+      cursor: pointer;
+      transition: all 0.2s;
+
+      & .buy-now-text {
+        text-decoration: underline;
+      }
+
+      @media screen and (max-width: 768px) {
+        & {
+          margin-left: -1rem;
+          margin-right: -1rem;
+          margin-bottom: -1rem;
+        }
+      }
+    }
 
     & .product-wrapper {
       justify-content: space-between;
@@ -526,22 +580,30 @@
       }
 
       & img {
-        width: 64px;
-        height: 64px;
-        padding: 0.25rem;
+        width: 80px;
+        height: 80px;
+        padding: 0.5rem;
         margin-right: .75rem;
-        background-color: #fff;
-        border: 1px solid #ccc;
+        border: 2px solid black;
         object-fit: contain;
       }
 
       & hgroup {
         flex: 1;
         margin-right: .75rem;
+        /*center items vertically*/
+
+        & .harness-included {
+          padding-top: 10px;
+          font-size: 20px;
+          line-height: 1;
+        }
 
         & strong {
-          font-size: 1rem;
+          font-size: 40px;
+          letter-spacing: -0.06em;
           font-weight: 600;
+          line-height: 1;
         }
 
         & .understated-price {
