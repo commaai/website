@@ -9,7 +9,7 @@
   import { faq } from "$lib/constants/faq.svelte";
 
   import FourImage from "$lib/images/products/comma-four/four_screen_on.png";
-  import FourExploded from "$lib/images/products/comma-four/four-exploded.png";
+  import FourExploded from "$lib/images/products/comma-four/four_exploded.png";
   import OBDCCableImage from "$lib/images/products/obd-c-cable/obd-c-cable-four.png";
   import ReplacementMountsImage from "$lib/images/products/replacement-mounts/replacement-mounts-four.png";
   import CarBrandCollageImage from "$lib/images/car-brand-collage.jpg";
