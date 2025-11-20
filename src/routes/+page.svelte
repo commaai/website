@@ -6,6 +6,7 @@
   import { vehicleHarnesses } from '$lib/utils/harnesses.js';
   import { selectedCar } from '../store';
   import { vehicleCountText } from '$lib/constants/vehicles.js';
+  import Grid from "$lib/components/Grid.svelte";
 
   // import FourImage from "$lib/images/products/comma-four/four_screen_on.png";
   // import FourSide from "$lib/images/products/comma-four/four_side_2.png";
@@ -14,6 +15,13 @@
   import FourBack from "$lib/images/home/hero/four_back.png";
   import FourSide from "$lib/images/home/hero/four_side.png";
   import FourAngled from "$lib/images/home/hero/four_angled.png";
+  import AdeebDm from "$lib/images/home/adeeb-dm.png";
+
+  import PlugImage from "$lib/images/home/plug-n-play/plug.png";
+  import StickImage from "$lib/images/home/plug-n-play/stick.png";
+  import PowerImage from "$lib/images/home/plug-n-play/power.png";
+  import RemountImage from "$lib/images/home/plug-n-play/remount.png";
+
   import FourPov from "$lib/images/home/four_pov.png";
   import Sonata from "$lib/images/home/sonata.png";
   import SonataLandscape from "$lib/images/home/sonata_landscape.png";
@@ -109,14 +117,14 @@
 <div>
   <section class="light hero-video hero-section">
     <div class="left-section">
-      <div class="hero-image-container">
+      <img src={FourFront} class="hide-mobile" alt="comma four zoom"/>
+      <div class="hero-image-container hide-desktop">
 <!--        <div class="hero-image-text-container">-->
 <!--          <img src={FourPov} alt="comma four pov"/>-->
 <!--          <div class="bottom-right">i8 East, San Diego</div>-->
 <!--        </div>-->
         <div class="hero-image-text-container">
-          <img src={Sonata} class="hide-desktop" alt="comma four zoom"/>
-          <img src={FourFront} class="hide-mobile" alt="comma four zoom"/>
+          <img src={Sonata} alt="comma four zoom"/>
           <div class="bottom-left">comma 4</div>
           <div class="bottom-left-2">plugged into a Hyundai Sonata</div>
         </div>
@@ -153,24 +161,26 @@
 <!--        </a>-->
       </div>
 
-      <!-- On mobile, four thumbnails will go vertically down the page, spanning all sections starting from "comma four" -->
-      <div class="four-thumbnails mobile">
-        {#each allFourImages as image}
-          <button
-            class="four-thumbnail"
-            class:active={currentFourImage === image.src}
-            on:click={() => selectFourImage(image.src)}
-            aria-label={`View ${image.name} view`}
-          >
-            <img src={image.src} alt={`comma four ${image.name}`}/>
-          </button>
-        {/each}
-      </div>
+<!--      &lt;!&ndash; On mobile, four thumbnails will go vertically down the page, spanning all sections starting from "comma four" &ndash;&gt;-->
+<!--      <div class="four-thumbnails mobile">-->
+<!--        {#each allFourImages as image}-->
+<!--          <button-->
+<!--            class="four-thumbnail"-->
+<!--            class:active={currentFourImage === image.src}-->
+<!--            on:click={() => selectFourImage(image.src)}-->
+<!--            aria-label={`View ${image.name} view`}-->
+<!--          >-->
+<!--            <img src={image.src} alt={`comma four ${image.name}`}/>-->
+<!--          </button>-->
+<!--        {/each}-->
+<!--      </div>-->
     </div>
   </section>
 
-  <section class="light hero-section">
-    <div class="left-section">
+<!--  <section class="light hero-section">-->
+<!--    <div class="left-section">-->
+  <Grid rowGap="0" columnGap="40px" templateColumns="2fr 1fr">
+    <div>
       <div class="hero-image-container">
 <!--        <div class="hero-image-text-container">-->
 <!--          <img src={FourPov} alt="comma four pov"/>-->
@@ -185,11 +195,10 @@
       </div>
     </div>
 
-    <div class="right-section">
+    <div class="right-section-v2">
 <!--      <div class="hero-title">tiny enough to forget</div>-->
       <div class="hero-description">
         The most AI per square inch, all running in complete silence.<br><br>
-        There when you need it, gone when you don't.<br><br>
         <ul>
           <li>modern AI trained on over 300 million miles of driving data</li>
           <li>360° onboard sensor suite</li>
@@ -201,32 +210,60 @@
           {@html LinkArrow}
         </a>
       </div>
+
+      <div class="hero-description">
+        works <i>with</i> you, not without you.<br><br>
+
+<!--        now $999 and buy now:-->
+
+        <div class="buy-now-container-v2">
+          <div class="hero-price">
+            <span class="hero-dollar">$</span><span class="hero-amount">999</span>
+          </div>
+          <a href="/shop/comma-four" class="hero-buy-now">
+            buy now
+            {@html LinkArrow}
+          </a>
+        </div>
+      </div>
     </div>
-  </section>
+<!--  </section>-->
+  </Grid>
 
-    <section class="light hero-section">
-<!--    <div class="left-section">-->
-<!--      <div class="hero-carousel">-->
-<!--        <div class="main-image-container">-->
-<!--          <img src={currentFourImage} alt="comma four" class="four-image"/>-->
-<!--        </div>-->
-<!--        <div class="four-thumbnails">-->
-<!--          {#each fourImages as image}-->
-<!--            <button-->
-<!--              class="four-thumbnail"-->
-<!--              class:active={currentFourImage === image.src}-->
-<!--              on:click={() => selectFourImage(image.src)}-->
-<!--              aria-label={`View ${image.name} view`}-->
-<!--            >-->
-<!--              <img src={image.src} alt={`comma four ${image.name}`}/>-->
-<!--            </button>-->
-<!--          {/each}-->
-<!--        </div>-->
-<!--      </div>-->
+  <hr/>
 
-<!--    </div>-->
+<!--  <section class="light hero-section">-->
+  <Grid rowGap="0" columnGap="40px" templateColumns="2fr 1fr">
+    <div class="plug-n-play-container">
 
-    <div class="right-section">
+<!--     left and right sections.-->
+<!--     right is full height square image-->
+<!--     left is three vertical bars with image on left and text on right. 2px black vertical bars separating them-->
+
+      <div class="plug-instructions">
+        <div class="plug-step">
+          <img src={PlugImage} alt="plug it in"/>
+          plug it in
+        </div>
+        <hr/>
+        <div class="plug-step">
+          <img src={StickImage} alt="stick it on"/>
+          stick it on
+        </div>
+        <hr/>
+        <div class="plug-step">
+          <img src={PowerImage} alt="power it up"/>
+          start it up
+        </div>
+      </div>
+
+      <div class="plug-hero-image">
+        <img src={RemountImage} alt="mount it"/>
+      </div>
+
+   </div>
+
+    <div class="right-section-v2">
       <div class="hero-title">Plug & play.</div>
       <div class="hero-description">
         comma 4 is designed to fit in your car like it was always meant to be there. So it’s easy to add on, and just as easy to remove.<br><br>
@@ -237,32 +274,16 @@
         </a>
       </div>
     </div>
-  </section>
+<!--  </section>-->
+  </Grid>
 
+  <hr/>
 
-    <section class="light hero-section">
-<!--    <div class="left-section">-->
-<!--      <div class="hero-carousel">-->
-<!--        <div class="main-image-container">-->
-<!--          <img src={currentFourImage} alt="comma four" class="four-image"/>-->
-<!--        </div>-->
-<!--        <div class="four-thumbnails">-->
-<!--          {#each fourImages as image}-->
-<!--            <button-->
-<!--              class="four-thumbnail"-->
-<!--              class:active={currentFourImage === image.src}-->
-<!--              on:click={() => selectFourImage(image.src)}-->
-<!--              aria-label={`View ${image.name} view`}-->
-<!--            >-->
-<!--              <img src={image.src} alt={`comma four ${image.name}`}/>-->
-<!--            </button>-->
-<!--          {/each}-->
-<!--        </div>-->
-<!--      </div>-->
+  <Grid rowGap="0" columnGap="40px" templateColumns="2fr 1fr">
+    <div>
+    </div>
 
-<!--    </div>-->
-
-    <div class="right-section">
+    <div class="right-section-v2">
       <div class="hero-title">See openpilot in action.</div>
       <div class="hero-description">
         comma 4 is powered by the openpilot ADAS software developed by comma. It learns how well your car drives and adapts to drive your car well.
@@ -272,31 +293,20 @@
         </a>
       </div>
     </div>
-  </section>
+  </Grid>
 
-      <section class="light hero-section">
-<!--    <div class="left-section">-->
-<!--      <div class="hero-carousel">-->
-<!--        <div class="main-image-container">-->
-<!--          <img src={currentFourImage} alt="comma four" class="four-image"/>-->
-<!--        </div>-->
-<!--        <div class="four-thumbnails">-->
-<!--          {#each fourImages as image}-->
-<!--            <button-->
-<!--              class="four-thumbnail"-->
-<!--              class:active={currentFourImage === image.src}-->
-<!--              on:click={() => selectFourImage(image.src)}-->
-<!--              aria-label={`View ${image.name} view`}-->
-<!--            >-->
-<!--              <img src={image.src} alt={`comma four ${image.name}`}/>-->
-<!--            </button>-->
-<!--          {/each}-->
-<!--        </div>-->
-<!--      </div>-->
+  <hr/>
 
-<!--    </div>-->
+<!--  <section class="light hero-section">-->
+  <Grid rowGap="0" columnGap="40px" templateColumns="2fr 1fr">
+    <div>
+<!--      TODO v2: black on top and bottom -->
+      <div class="hero-image-v2">
+        <img src={AdeebDm} alt="driver monitoring in action"/>
+      </div>
+    </div>
 
-    <div class="right-section">
+    <div class="right-section-v2">
       <div class="hero-title">Works <i>with</i> you, not without you.</div>
       <div class="hero-description">
         comma 4 makes sure you’re at your best behind the wheel.
@@ -306,7 +316,9 @@
         </a>
       </div>
     </div>
-  </section>
+    </Grid>
+
+  <hr/>
 
 <!--  <section class="light hero-section">-->
 <!--    <div class="left-section">-->
@@ -343,14 +355,17 @@
 <!--    </div>-->
 <!--  </section>-->
 
-  <section class="light hero-section mobile-direction-flip">
-    <div class="left-section" style="background-color: black; align-items: center;">
+<!--  <section class="light hero-section mobile-direction-flip">-->
+  <Grid rowGap="0" columnGap="40px" templateColumns="2fr 1fr">
+
+<!--    <div class="left-section" style="background-color: black; align-items: center;">-->
+    <div style="background-color: black; align-items: center;">
         <div class="map-image">
           <img src={Map} alt="openpilot map"/>
         </div>
     </div>
 
-    <div class="right-section">
+    <div class="right-section-v2">
       <div class="hero-title">better with every drive</div>
       <div class="hero-description">
         openpilot has driven over 150 million miles around the globe. It learns how well your car drives and adapts to drive your car well.<br><br>
@@ -361,7 +376,8 @@
         </a>
       </div>
     </div>
-  </section>
+<!--  </section>-->
+  </Grid>
 
   <!--  <section class="hero-image" style="background-image: url('/videos/hero/poster.jpg');" on:dragstart={handleDragStart} role="img" aria-label="Hero image">-->
 <!--    &lt;!&ndash; <img src={HeroImage} alt="Hero" draggable="false" /> &ndash;&gt;-->
@@ -468,6 +484,25 @@
     color: black;
   }
 
+  .hide-desktop {
+    @media screen and (min-width: 951px) {
+      display: none !important;
+    }
+  }
+
+  .hide-mobile {
+    @media screen and (max-width: 950px) {
+      display: none;
+    }
+  }
+
+  hr {
+    border: none;
+    height: 2px;
+    background-color: black;
+    margin: 0;
+  }
+
   .hero-section {
     display: flex;
     padding-bottom: 4rem;
@@ -556,21 +591,6 @@
     position: relative;
     color: #EAEAEA;
 
-    & .hide-mobile {
-      @media screen and (max-width: 950px) {
-        display: none;
-      }
-    }
-
-    & .hide-desktop {
-      display: none;
-
-      @media screen and (max-width: 950px) {
-        display: block;
-        width: 100%;
-      }
-    }
-
     & .bottom-left {
       position: absolute;
       bottom: 37px;
@@ -628,13 +648,93 @@
       /*padding-right: 10px; WHY NO WORK?*/
     }
 
-    & .hide-desktop {
-      display: none;
+  }
 
-      @media screen and (max-width: 950px) {
-        display: inline;
-      }
+  .plug-n-play-container {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch
+  }
+
+  .plug-instructions {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+
+    & hr {
+      width: 100%;
+      height: 2px;
+      border: none;
+      background-color: black;
+      margin: 0;
     }
+  }
+
+  .plug-step {
+    /*flex: 1;*/
+    display: flex;
+
+    font-size: 64px;
+    align-items: center;
+    gap: 1rem;
+    line-height: 0.9;
+    letter-spacing: -0.06em;
+    /*text-align: center;*/
+    /*padding: 1rem;*/
+
+    & img {
+      width: 200px;
+      height: 200px;
+      object-fit: contain;
+      display: block;
+    }
+  }
+
+  .plug-hero-image {
+    /*flex: 1;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+
+    & img {
+      /*width: 400px;*/
+      /*height: 400px;*/
+      object-fit: contain;
+      display: block;
+    }
+  }
+
+  .right-section-v2 {
+    display: flex;
+    /*height: 100%;*/
+    /*width: 33%;*/
+    /*padding-left: 40px;*/
+    /*padding-right: 40px;*/
+    flex-direction: column;
+    justify-content: space-between;
+    padding-right: 40px;
+    padding-top: 40px;
+    /*padding-bottom: 40px;*/
+
+    & li {
+      color: black;
+    }
+
+    /*@media screen and (max-width: 1300px) {*/
+    /*  width: 50%;*/
+    /*  !*min-height: 8rem;*!*/
+    /*  padding-left: 20px;*/
+    /*  padding-right: 20px;*/
+    /*  padding-top: 2rem;*/
+    /*}*/
+
+    /*@media screen and (max-width: 950px) {*/
+    /*  width: auto;*/
+    /*  !*padding-right: 10px; WHY NO WORK?*!*/
+    /*}*/
+
   }
 
   .hero-section:last-child .right-section {
@@ -795,6 +895,10 @@
     line-height: 1.2;
     letter-spacing: -0.06em;
 
+    & li {
+      color: black;
+    }
+
     @media screen and (max-width: 1300px) {
       padding-top: 8rem;
     }
@@ -838,22 +942,24 @@
     flex-direction: column;
   }
 
-  .hero-video .hero-price {
+  .hero-price {
     display: flex;
     align-items: flex-end;
   }
 
-  .hero-video .hero-dollar {
+  .hero-dollar {
     font-size: 20px;
+    color: black;
   }
 
-  .hero-video .hero-amount {
+  .hero-amount {
     font-size: 48px;
     line-height: 0.9;
     letter-spacing: -0.08em;
+    color: black;
   }
 
-  .hero-video .hero-buy-now {
+  .hero-buy-now {
     font-size: 48px;
     line-height: 1;
     letter-spacing: -0.08em;
@@ -865,7 +971,7 @@
     text-align: right;
   }
 
-  .hero-video .hero-buy-now :global(svg) {
+  .hero-buy-now :global(svg) {
     width: 40px;
     height: 40px;
   }
@@ -944,6 +1050,14 @@
     flex-direction: column;
     align-items: center;
     gap: 16px;
+    pointer-events: auto;
+  }
+
+  .buy-now-container-v2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: end;
     pointer-events: auto;
   }
 
