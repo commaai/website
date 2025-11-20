@@ -140,6 +140,10 @@
       });
     } else if (videoEl.canPlayType('application/vnd.apple.mpegurl')) {
       // Native HLS support (Safari)
+      // Ensure poster is set before src for iOS Safari
+      if (!videoEl.poster && videos[index].poster) {
+        videoEl.poster = videos[index].poster;
+      }
       videoEl.src = videos[index].src;
       videoEl.addEventListener('loadedmetadata', () => {
         if (index === 0) {
@@ -196,6 +200,10 @@
         });
       } else if (landscapeVideoElement.canPlayType('application/vnd.apple.mpegurl')) {
         // Native HLS support (Safari)
+        // Ensure poster is set before src for iOS Safari
+        if (!landscapeVideoElement.poster) {
+          landscapeVideoElement.poster = '/videos/hero-landscape/poster.jpg';
+        }
         landscapeVideoElement.src = LandscapeVideo;
         landscapeVideoElement.addEventListener('loadedmetadata', () => {
           landscapeVideoElement.play();
@@ -214,6 +222,10 @@
         });
       } else if (portraitVideoElement.canPlayType('application/vnd.apple.mpegurl')) {
         // Native HLS support (Safari)
+        // Ensure poster is set before src for iOS Safari
+        if (!portraitVideoElement.poster) {
+          portraitVideoElement.poster = '/videos/hero-portrait/poster.jpg';
+        }
         portraitVideoElement.src = PortraitVideoHLS;
         portraitVideoElement.addEventListener('loadedmetadata', () => {
           portraitVideoElement.play();
@@ -459,7 +471,7 @@
     <div class="left-section-v2">
       <div class="video-carousel">
         {#each videos as video, index}
-          <div class="video-container" class:active={currentVideoIndex === index} on:click={() => switchToVideo(index)} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && switchToVideo(index)}>
+          <div class="video-container" style="background-image: url('{video.poster}');" class:active={currentVideoIndex === index} on:click={() => switchToVideo(index)} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && switchToVideo(index)}>
             <video
               bind:this={videoElements[index]}
               poster={video.poster}
@@ -716,6 +728,10 @@
   .portrait-video-container {
     position: relative;
     width: 100%;
+    background-image: url('/videos/hero-portrait/poster.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 
   .portrait-video {
@@ -1569,6 +1585,10 @@
     position: relative;
     width: 100%;
     height: 100%;
+    background-image: url('/videos/hero-landscape/poster.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 
   .landscape-video {
@@ -1632,6 +1652,9 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
     @media screen and (max-width: 698px) {
       display: none;
