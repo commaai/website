@@ -213,16 +213,10 @@
                           </hgroup>
                         </div>
 <!--                        <LinkButton-->
-                        <div class="buy-button">
-<!--                          href={`/shop/comma-four?harness=${car_info.name}`}-->
-<!--                          style="primary"-->
-<!--                          fullWidth-->
-<!--                          thin-->
-<!--                        >-->
+                        <a href="/shop/comma-four?harness={car_info.name}" class="buy-button">
                           <div class="buy-now-text">buy now</div>
                           <div>$999</div>
-<!--                        </LinkButton>-->
-                          </div>
+                        </a>
 <!--                        <div class="description">-->
 <!--                          <strong>30-day money-back trial</strong>-->
 <!--                          <div>Don't love it? It's easy to return your device within <strong>30 days</strong> after receiving it for a full refund.</div>-->
@@ -549,6 +543,7 @@
       margin-top: 1rem;
       cursor: pointer;
       transition: all 0.2s;
+      text-decoration: none;
 
       & .buy-now-text {
         text-decoration: underline;
