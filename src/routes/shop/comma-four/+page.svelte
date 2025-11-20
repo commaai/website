@@ -77,7 +77,7 @@
         <img src={FourExploded} loading="lazy" alt="comma four exploded view">
 <!--      <img src={FourRemount} loading="lazy" alt="comma four device remounted on windshield">-->
       <div class="description" id="tech-specs">
-        <h1>tech specs</h1>
+        <h1 style="padding-bottom: 40px;">tech specs</h1>
         <div class="specs">
 <!--        Case-->
 <!--        -->
@@ -176,7 +176,7 @@
           </div>
 
           <div class="title">Ports</div>
-          <div class="content">
+          <div class="content" style="margin-bottom: 0;">
             OBD-C port (usb-C w/ CAN)<br>
             USB 3.1 Gen 2 port, VID 0x3801
           </div>
