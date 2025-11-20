@@ -9,7 +9,7 @@
   export let style = "light"; // or "dark"
   export let foregroundColor = null;
   export let backgroundColor = null;
-  export let alternateBackground = false; // Add this flag
+  export let alternateBackground = false;
 
   let contentEl, inputEl;
   onMount(() => {
