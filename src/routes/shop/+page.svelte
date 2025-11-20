@@ -419,12 +419,12 @@
 
     & .service-label {
       color: white;
-      background-color: black;
+      /*background-color: black;*/
       padding: 2rem;
 
       & hgroup {
         & * {
-          color: white;
+          color: black;
           line-height: 1.25;
         }
 
