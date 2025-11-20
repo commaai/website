@@ -1,18 +1,10 @@
 <script>
   import { onMount, tick } from 'svelte';
   import Hls from 'hls.js';
-  import { products as productsData } from '$lib/data/products.js';
-  import { getProduct } from '$lib/utils/shopify.js';
-  import { vehicleHarnesses } from '$lib/utils/harnesses.js';
-  import { selectedCar } from '../store';
   import { vehicleCountText } from '$lib/constants/vehicles.js';
   import Grid from "$lib/components/Grid.svelte";
 
-  // import FourImage from "$lib/images/products/comma-four/four_screen_on.png";
-  // import FourSide from "$lib/images/products/comma-four/four_side_2.png";
-  // import FourBack from "$lib/images/products/comma-four/four_back_2.png";
   import FourFront from "$lib/images/products/comma-four/four_screen_on.png";
-  import FourCutoff from "$lib/images/home/hero/four_cutoff.png";
   import FourBack from "$lib/images/home/hero/four_back.png";
   import FourSide from "$lib/images/home/hero/four_side.png";
   import FourAngled from "$lib/images/home/hero/four_angled.png";
@@ -23,15 +15,10 @@
   import PowerImage from "$lib/images/home/plug-n-play/power.png";
   import RemountImage from "$lib/images/home/plug-n-play/remount.png";
 
-  import FourPov from "$lib/images/home/four_pov.png";
-  import SonataLandscape from "$lib/images/home/sonata_landscape.png";
   import Map from "$lib/images/home/map.png";
-  import FourZoom from "$lib/images/home/four_zoom.png";
   import LinkArrow from "$lib/icons/link_arrow.svg?raw";
   import NextIcon from "$lib/icons/ui/next.svg?raw";
   import PlayIcon from "$lib/icons/ui/play-new.svg?raw";
-  import WarrantyIcon from "$lib/icons/features/warranty.svg?raw";
-  import MoneyBackIcon from "$lib/icons/features/money-back-guarantee.svg?raw";
   import ToyotaLogo from "$lib/icons/brands/toyota.svg?raw";
   import HyundaiLogo from "$lib/icons/brands/hyundai.svg?raw";
   import HondaLogo from "$lib/icons/brands/honda.svg?raw";
@@ -40,15 +27,12 @@
 
   const LandscapeVideo = "/videos/hero-landscape/hero-landscape.m3u8";
   const PortraitVideoHLS = "/videos/hero-portrait/hero-portrait.m3u8";
-  const storeUrl = import.meta.env.VITE_SHOPIFY_STORE_URL;
 
   let landscapeVideoElement;
   let landscapeVideoReady = false;
   let portraitVideoElement;
   let portraitVideoReady = false;
   let carouselVideoReady = [false, false, false];
-  let compatPulse = false;
-  let compatShake = false;
 
   // Video carousel state
   let currentVideoIndex = 0;
@@ -77,6 +61,10 @@
     videoElements.forEach((videoEl, index) => {
       if (videoEl) {
         if (index === currentVideoIndex) {
+          // Lazy-load video if not initialized yet (for videos other than the first)
+          if (index !== 0 && !hlsInstances[index] && !videoEl.src) {
+            initializeVideo(videoEl, index);
+          }
           if (videoEl.paused) {
             videoEl.currentTime = 0;
             videoEl.play().catch(() => {
@@ -114,8 +102,42 @@
     }
   }
 
+  let hlsInstances = [];
+
+  // HLS configuration optimized for short clips (1 minute max)
+  const hlsConfig = {
+    maxBufferLength: 5, // Maximum buffer length in seconds (clips are ~1min max)
+    maxMaxBufferLength: 10, // Maximum buffer length when buffer is low
+    maxBufferSize: 5 * 1000 * 1000, // Maximum buffer size in bytes (5MB, sufficient for short clips)
+    startLevel: -1, // Start at lowest quality, auto-switch up
+    capLevelToPlayerSize: true, // Cap quality to player size
+  };
+
+  function initializeHLS(videoEl, src, onReady) {
+    if (Hls.isSupported()) {
+      const hls = new Hls(hlsConfig);
+      hls.loadSource(src);
+      hls.attachMedia(videoEl);
+      hls.on(Hls.Events.MANIFEST_PARSED, () => {
+        if (onReady) onReady();
+      });
+      return hls;
+    } else if (videoEl.canPlayType('application/vnd.apple.mpegurl')) {
+      // Native HLS support (Safari)
+      videoEl.src = src;
+      videoEl.addEventListener('loadedmetadata', () => {
+        if (onReady) onReady();
+      });
+      return null;
+    }
+    return null;
+  }
+
   function initializeVideo(videoEl, index) {
     if (!videoEl) return;
+
+    // Don't initialize if already initialized
+    if (hlsInstances[index]) return;
 
     const handleEnded = () => {
       playNextVideo();
@@ -131,24 +153,13 @@
       carouselVideoReady[index] = true;
     });
 
-    // Use HLS.js for .m3u8 files
-    if (Hls.isSupported()) {
-      const hls = new Hls();
-      hls.loadSource(videos[index].src);
-      hls.attachMedia(videoEl);
-      hls.on(Hls.Events.MANIFEST_PARSED, () => {
-        if (index === 0) {
-          videoEl.play();
-        }
-      });
-    } else if (videoEl.canPlayType('application/vnd.apple.mpegurl')) {
-      // Native HLS support (Safari)
-      videoEl.src = videos[index].src;
-      videoEl.addEventListener('loadedmetadata', () => {
-        if (index === 0) {
-          videoEl.play();
-        }
-      });
+    const hls = initializeHLS(videoEl, videos[index].src, () => {
+      if (index === 0) {
+        videoEl.play();
+      }
+    });
+    if (hls) {
+      hlsInstances[index] = hls;
     }
   }
 
@@ -160,20 +171,9 @@
         landscapeVideoReady = true;
       });
 
-      if (Hls.isSupported()) {
-        const hls = new Hls();
-        hls.loadSource(LandscapeVideo);
-        hls.attachMedia(landscapeVideoElement);
-        hls.on(Hls.Events.MANIFEST_PARSED, () => {
-          landscapeVideoElement.play();
-        });
-      } else if (landscapeVideoElement.canPlayType('application/vnd.apple.mpegurl')) {
-        // Native HLS support (Safari)
-        landscapeVideoElement.src = LandscapeVideo;
-        landscapeVideoElement.addEventListener('loadedmetadata', () => {
-          landscapeVideoElement.play();
-        });
-      }
+      initializeHLS(landscapeVideoElement, LandscapeVideo, () => {
+        landscapeVideoElement.play();
+      });
     }
 
     // Initialize portrait video for mobile
@@ -183,29 +183,16 @@
         portraitVideoReady = true;
       });
 
-      if (Hls.isSupported()) {
-        const hls = new Hls();
-        hls.loadSource(PortraitVideoHLS);
-        hls.attachMedia(portraitVideoElement);
-        hls.on(Hls.Events.MANIFEST_PARSED, () => {
-          portraitVideoElement.play();
-        });
-      } else if (portraitVideoElement.canPlayType('application/vnd.apple.mpegurl')) {
-        // Native HLS support (Safari)
-        portraitVideoElement.src = PortraitVideoHLS;
-        portraitVideoElement.addEventListener('loadedmetadata', () => {
-          portraitVideoElement.play();
-        });
-      }
+      initializeHLS(portraitVideoElement, PortraitVideoHLS, () => {
+        portraitVideoElement.play();
+      });
     }
 
-    // Initialize video carousel
+    // Initialize video carousel - only initialize first video immediately
     await tick();
-    videoElements.forEach((videoEl, index) => {
-      if (videoEl) {
-        initializeVideo(videoEl, index);
-      }
-    });
+    if (videoElements[0]) {
+      initializeVideo(videoElements[0], 0);
+    }
   });
 
   function handleDragStart(e) {
