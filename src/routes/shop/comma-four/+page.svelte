@@ -1,28 +1,14 @@
 <script>
   import ProductPage from "../[product]/+page.svelte";
   import Grid from "$lib/components/Grid.svelte";
-  import LinkButton from "$lib/components/LinkButton.svelte";
-  import SetupGuide from "$lib/components/SetupGuide.svelte";
   import Faq from "$lib/components/Faq.svelte";
   import Space from "$lib/components/Space.svelte";
 
   import { faq } from "$lib/constants/faq.svelte";
 
-  import FourImage from "$lib/images/products/comma-four/four_screen_on.png";
   import FourExploded from "$lib/images/products/comma-four/four_exploded.png";
-  import OBDCCableImage from "$lib/images/products/obd-c-cable/obd-c-cable-four.png";
-  import ReplacementMountsImage from "$lib/images/products/replacement-mounts/replacement-mounts-four.png";
-  import CarBrandCollageImage from "$lib/images/car-brand-collage.jpg";
 
   import FourRemount from "$lib/images/home/plug-n-play/remount.png";
-  import MemoryIcon from "$lib/icons/features/memory.svg?raw";
-  import ThreeSixtyVisionIcon from "$lib/icons/features/360-vision.svg?raw";
-  import ProcessorIcon from "$lib/icons/features/processor.svg?raw";
-  import ConnectivityIcon from "$lib/icons/features/connectivity.svg?raw";
-  import MoonIcon from "$lib/icons/features/moon.svg?raw";
-  import DisplayIcon from "$lib/icons/features/display.svg?raw";
-  import CableIcon from "$lib/icons/features/cable.svg?raw";
-  import { vehicleCountText } from '$lib/constants/vehicles.js';
   import LinkArrow from "$lib/icons/link_arrow.svg?raw";
 
   export let data;
@@ -63,77 +49,15 @@
       <p>
         comma connect is an app that lets you manage your openpilot experience. Recordings of your drives can be uploaded and stored for 3 days. Subscribe to connect Prime to keep your drives accessible for 1 year.
       </p>
-<!--      <div class="bottom">-->
-<!--        <a href="https://connect.comma.ai" class="link-away">-->
-<!--          learn more-->
-<!--          {@html LinkArrow}-->
-<!--        </a>-->
-<!--      </div>-->
     </div>
 
     <hr />
 
     <Grid rowGap="0" templateColumns="0.5fr 0.5fr">
         <img src={FourExploded} loading="lazy" alt="comma 4 exploded view">
-<!--      <img src={FourRemount} loading="lazy" alt="comma 4 device remounted on windshield">-->
       <div class="description" id="tech-specs">
         <h1 style="padding-bottom: 40px;">tech specs</h1>
         <div class="specs">
-<!--        Case-->
-<!--        -->
-<!--        164 grams-->
-<!--        2.9 inches wide-->
-<!--        High temp PC-ABS automotive plastic-->
-<!--        -->
-<!--        -->
-<!--        -->
-<!--        -->
-<!--        Cameras-->
-<!--        -->
-<!--        4mp FCAM (idk fov)-->
-<!--        4mp wide angles (idk fov) x2-->
-<!--        IR LED for attention monitoring at night-->
-<!--        -->
-<!--        -->
-<!--        -->
-<!--        -->
-<!--        Components-->
-<!--         Qualcomm Snapdragon 845 MAX-->
-<!--        CAN FD integrated, STM32H7-->
-<!--        anodized aluminum heatsink-->
-<!--        noctua a4x10 fan-->
-<!--        -->
-<!--        -->
-<!--        -->
-<!--        -->
-<!--        Storage-->
-<!--        -->
-<!--        128 GB Sandisk SSD (idk)-->
-<!--        -->
-<!--        -->
-<!--        -->
-<!--        -->
-<!--        Screen-->
-<!--        -->
-<!--        300 ppi OLED, 536 x 240 resolution-->
-<!--        -->
-<!--        -->
-<!--        -->
-<!--        -->
-<!--        Connectivity-->
-<!--        -->
-<!--        Quectel (idk)-->
-<!--        lte-->
-<!--        wi-fi-->
-<!--        high-precision gps-->
-<!--        -->
-<!--        -->
-<!--        -->
-<!--        -->
-<!--        Ports-->
-<!--        -->
-<!--        OBD-C port (usb-C w/ CAN)-->
-<!--        USB 3.1 Gen 2 port, VID 0x3801-->
 
           <div class="title">Case</div>
           <div class="content">
@@ -186,14 +110,6 @@
       </div>
     </Grid>
 
-<!--    <Grid rowGap="0" templateColumns="0.5fr 0.5fr">-->
-<!--      <div></div>-->
-<!--      <a href="/setup" class="link-away">-->
-<!--          setup guide-->
-<!--          {@html LinkArrow}-->
-<!--        </a>-->
-<!--    </Grid>-->
-
   </div>
 </section>
 
@@ -203,7 +119,6 @@
     <Space multiplier={3} />
     <Faq topic={faq.trial} />
 
-<!--    <Grid templateColumns="0.5fr 1.25fr">-->
     <br>
       <div class="fine-print-copy">
         <h2>fine print</h2>
@@ -242,7 +157,6 @@
           of any state or local law or ordinance relating to the use of your comma device.
         </p>
       </div>
-<!--    </Grid>-->
 
   </div>
 </section>
