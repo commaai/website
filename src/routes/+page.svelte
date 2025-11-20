@@ -436,7 +436,7 @@
     <div class="right-section-v2">
       <div class="hero-title">better with every update</div>
       <div class="hero-description">
-        openpilot has driven over 150 million miles around the globe. As our users drive, openpilot continues to learns how to drive your car better.<br><br>
+        openpilot has driven over 150 million miles around the globe. As our users drive, openpilot continues to learn.<br><br>
         See openpilot in action on <a href="https://www.youtube.com/results?search_query=comma.ai+openpilot" target="_blank">YouTube</a> and contribute to the largest open-source robotics project in the world.<br><br>
         <a href="https://github.com/commaai/openpilot" class="link-away">
           github
