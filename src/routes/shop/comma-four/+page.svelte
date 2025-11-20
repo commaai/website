@@ -151,7 +151,7 @@
 
           <div class="title">Components</div>
           <div class="content">
-            Qualcomm Snapdragon 845 MAX<br>
+            Qualcomm Snapdragon <span class="max-gradient">845 MAX</span><br>
             CAN FD integrated, STM32H7<br>
             anodized aluminum heatsink<br>
             noctua a4x10 fan
