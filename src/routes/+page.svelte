@@ -512,8 +512,8 @@
       <div class="hero-title">Works <i>with</i> you, not without you.</div>
       <div class="hero-description">
         comma 4 makes sure you’re at your best behind the wheel.
-        <a href="/shop/comma-four" class="link-away">
-          tech specs?
+        <a href="https://github.com/commaai/openpilot" class="link-away">
+          openpilot
           {@html LinkArrow}
         </a>
       </div>
