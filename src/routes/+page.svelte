@@ -1485,6 +1485,17 @@
   .hero-image-v2 {
     /*display: block;*/
     line-height: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: right;
+    }
   }
 
   .landscape-video-container {
@@ -1496,7 +1507,7 @@
   .landscape-video {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
     display: block;
     line-height: 0;
   }
@@ -1570,7 +1581,7 @@
   .carousel-video {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
     display: block;
   }
 
@@ -1657,8 +1668,8 @@
     width: 64px;
     height: 64px;
     background-color: rgba(234, 234, 234, 0.4);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border: none;
     cursor: pointer;
     display: none;
@@ -1668,10 +1679,6 @@
     transition: background-color 0.2s ease;
 
     &:hover {
-      background-color: rgba(234, 234, 234, 0.5);
-    }
-
-    &:active {
       background-color: rgba(234, 234, 234, 0.6);
     }
 
