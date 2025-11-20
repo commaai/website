@@ -26,83 +26,113 @@
 
 <section id="vehicles" class="light">
   <div class="container">
-    <Grid columnGap="4rem" rowGap="2rem" templateColumns="1.25fr 1fr">
-      <div class="title">
-        openpilot supports {vehicleCountText} vehicles
-      </div>
+    <Grid columnGap="4rem" rowGap="2rem" templateColumns="0.75fr 1fr">
       <div class="description">
-        A supported vehicle is one that just works when you install a comma four.
-        All supported cars provide a better experience than any stock system.
-        Supported vehicles reference the US market unless otherwise specified.
+        <div class="title">
+          openpilot works with {vehicleCountText} cars
+        </div>
+<!--        A supported vehicle is one that just works when you install a comma four.-->
+<!--        All supported cars provide a better experience than any stock system.-->
+<!--        Supported vehicles reference the US market unless otherwise specified.-->
+
+
+        <div class="recommended-cars">
+          <hgroup>
+<!--            <span>Our favorite openpilot cars</span>-->
+            <p>Generally, newer Hyundai and Toyota models are great choices. These are some of our favorites:</p>
+          </hgroup>
+          <div class="recommended-car-columns">
+<!--            <Grid columns="4" size="large" wrapMode="single">-->
+              <div class="recommended-car-stack">
+                <strong>EV</strong>
+                <div>Kia EV6</div>
+                <div>Hyundai Ioniq 5</div>
+                <div>Toyota Prius 2021–22</div>
+              </div>
+              <div class="recommended-car-stack">
+                <strong>SUV</strong>
+                <div>Toyota Highlander 2020–23</div>
+                <div>Hyundai Palisade 2020–22</div>
+              </div>
+              <div class="recommended-car-stack">
+                <strong>Sedan</strong>
+                <div>Toyota Corolla 2020–22</div>
+                <div>Hyundai Sonata 2020–23</div>
+              </div>
+              <div class="recommended-car-stack">
+                <strong>Truck</strong>
+                <div>Ram 1500 2019–24</div>
+                <div>Chevrolet Silverado 1500 2020–⁠21</div>
+              </div>
+<!--            </Grid>-->
+          </div>
+        </div>
+      </div>
+
+      <div class="compatibility-make-links">
+        {#each Object.entries(vehicles) as [brand, cars]}
+          {#if cars.length !== 0}
+          {@const brand_img_path = `/src/lib/images/vehicles/brand-icons/Logo-${brand}.png`}
+          <div class="compatibility-make-element">
+            <a href="#{brand.toLowerCase()}" class="compatibility-make-anchor-link">
+              {#if brand_images[brand_img_path]}
+                <img src={brand_images[brand_img_path].default} loading="eager" alt="{brand} car brand" />
+              {/if}
+            </a>
+            <div class="compatibility-make-name">{brand}</div>
+          </div>
+          {/if}
+        {/each}
       </div>
     </Grid>
 
-    <div class="compatibility-make-links">
-      {#each Object.entries(vehicles) as [brand, cars]}
-        {#if cars.length !== 0}
-        {@const brand_img_path = `/src/lib/images/vehicles/brand-icons/Logo-${brand}.png`}
-        <div class="compatibility-make-element">
-          <a href="#{brand.toLowerCase()}" class="compatibility-make-anchor-link">
-            {#if brand_images[brand_img_path]}
-              <img src={brand_images[brand_img_path].default} loading="eager" alt="{brand} car brand" />
-            {/if}
-          </a>
-          <div class="compatibility-make-name">{brand}</div>
-        </div>
-        {/if}
-      {/each}
-    </div>
+<!--    <div class="compatibility-make-links">-->
+<!--      {#each Object.entries(vehicles) as [brand, cars]}-->
+<!--        {#if cars.length !== 0}-->
+<!--        {@const brand_img_path = `/src/lib/images/vehicles/brand-icons/Logo-${brand}.png`}-->
+<!--        <div class="compatibility-make-element">-->
+<!--          <a href="#{brand.toLowerCase()}" class="compatibility-make-anchor-link">-->
+<!--            {#if brand_images[brand_img_path]}-->
+<!--              <img src={brand_images[brand_img_path].default} loading="eager" alt="{brand} car brand" />-->
+<!--            {/if}-->
+<!--          </a>-->
+<!--          <div class="compatibility-make-name">{brand}</div>-->
+<!--        </div>-->
+<!--        {/if}-->
+<!--      {/each}-->
+<!--    </div>-->
 
-    <hgroup class="headline">
-      <span>Don't see your car?</span>
-      <p>
-        If you don't see your car, it means that it is not currently supported.
-      </p>
-      <p>
-        If you have a modern car and some programming skills, you can likely add support for your car.
-      </p>
-      <p>
-        Watch
-        <a href="https://youtu.be/XxPS5TpTUnI" class="highlight">this talk</a>
-        and check out the
-        <a href="https://github.com/commaai/openpilot/blob/master/docs/CARS.md#dont-see-your-car-here" class="highlight">docs</a>
-        to learn more.
-      </p>
-    </hgroup>
-
-    <p class="last-updated">Last updated: {compatibilityMeta.last_updated}</p>
-
-    <div class="recommended-cars">
-      <hgroup>
-        <span>Our favorite openpilot cars</span>
-        <p>Generally, newer Hyundai and Toyota models are great choices. These are some of our favorites:</p>
-      </hgroup>
-      <div class="recommended-car-columns">
-        <Grid columns="4" size="large" wrapMode="single">
-          <div class="recommended-car-stack">
-            <strong>EV</strong>
-            <div>Kia EV6</div>
-            <div>Hyundai Ioniq 5</div>
-            <div>Toyota Prius 2021–22</div>
-          </div>
-          <div class="recommended-car-stack">
-            <strong>SUV</strong>
-            <div>Toyota Highlander 2020–23</div>
-            <div>Hyundai Palisade 2020–22</div>
-          </div>
-          <div class="recommended-car-stack">
-            <strong>Sedan</strong>
-            <div>Toyota Corolla 2020–22</div>
-            <div>Hyundai Sonata 2020–23</div>
-          </div>
-          <div class="recommended-car-stack">
-            <strong>Truck</strong>
-            <div>Ram 1500 2019–24</div>
-            <div>Chevrolet Silverado 1500 2020–⁠21</div>
-          </div>
-        </Grid>
-      </div>
-    </div>
+<!--    <div class="recommended-cars">-->
+<!--      <hgroup>-->
+<!--        <span>Our favorite openpilot cars</span>-->
+<!--        <p>Generally, newer Hyundai and Toyota models are great choices. These are some of our favorites:</p>-->
+<!--      </hgroup>-->
+<!--      <div class="recommended-car-columns">-->
+<!--        <Grid columns="4" size="large" wrapMode="single">-->
+<!--          <div class="recommended-car-stack">-->
+<!--            <strong>EV</strong>-->
+<!--            <div>Kia EV6</div>-->
+<!--            <div>Hyundai Ioniq 5</div>-->
+<!--            <div>Toyota Prius 2021–22</div>-->
+<!--          </div>-->
+<!--          <div class="recommended-car-stack">-->
+<!--            <strong>SUV</strong>-->
+<!--            <div>Toyota Highlander 2020–23</div>-->
+<!--            <div>Hyundai Palisade 2020–22</div>-->
+<!--          </div>-->
+<!--          <div class="recommended-car-stack">-->
+<!--            <strong>Sedan</strong>-->
+<!--            <div>Toyota Corolla 2020–22</div>-->
+<!--            <div>Hyundai Sonata 2020–23</div>-->
+<!--          </div>-->
+<!--          <div class="recommended-car-stack">-->
+<!--            <strong>Truck</strong>-->
+<!--            <div>Ram 1500 2019–24</div>-->
+<!--            <div>Chevrolet Silverado 1500 2020–⁠21</div>-->
+<!--          </div>-->
+<!--        </Grid>-->
+<!--      </div>-->
+<!--    </div>-->
   </div>
 </section>
 
@@ -190,6 +220,24 @@
   </div>
 </section>
 
+<section class="light">
+  <div id="see-your-car" class="container" style="width:85%; max-width: 60rem">
+    <hgroup class="headline">
+      <span>Don't see your car?</span>
+      <p>
+        New car support is being worked on by the community all the time. If you have a modern car and some programming skills, you can likely add support for your car.
+      </p>
+      <p>
+        Watch
+        <a href="https://youtu.be/XxPS5TpTUnI" class="highlight">this talk</a>
+        and check out the
+        <a href="https://github.com/commaai/openpilot/blob/master/docs/CARS.md#dont-see-your-car-here" class="highlight">docs</a>
+        to learn more.
+      </p>
+    </hgroup>
+  </div>
+</section>
+
 <section class="light" id="faq">
   <div class="container">
     <Faq topic={faq.openpilot} title="openpilot FAQ" />
@@ -220,11 +268,12 @@
     padding-bottom: 0;
 
     & .title {
-      text-transform: uppercase;
-      font-family: Monument Extended Black, sans-serif;
-      font-size: 2rem;
-      font-weight: 600;
-      line-height: 1.2;
+      /*text-transform: uppercase;*/
+      /*font-family: Monument Extended Black, sans-serif;*/
+      font-size: 96px;
+      font-weight: 300;
+      line-height: 1;
+      letter-spacing: -0.06em;
 
       @media screen and (max-width: 512px) {
         font-size: 1.5rem;
@@ -235,34 +284,6 @@
       font-size: 1.25rem;
       font-weight: 400;
       line-height: 1.3;
-    }
-
-    & .headline {
-      margin: 3rem auto 0;
-
-      & span {
-        margin-bottom: 0.5rem;
-      }
-
-      & p {
-        margin: 0;
-        text-wrap: balance;
-      }
-    }
-
-    & hgroup {
-      text-align: center;
-      font-size: 1.25rem;
-
-      & span {
-        font-size: 1.5rem;
-        font-weight: 700;
-        display: block;
-      }
-
-      & p {
-        margin-top: 0.5rem;
-      }
     }
 
     & .compatibility-make-links {
@@ -293,16 +314,22 @@
       transition: all 0.2s;
       display: block;
 
-      @media (hover: hover) and (pointer: fine) {
-        &:hover {
-          transform: scale(1.02);
-          border: 1px solid rgba(0, 0, 0, .5);
-        }
+     & img {
+        mix-blend-mode: multiply;
       }
-      &:active {
-        transform: scale(1.02);
-        border: 1px solid rgba(0, 0, 0, .5);
-      }
+
+      /*@media (hover: hover) and (pointer: fine) {*/
+      /*  &:hover {*/
+      /*    transform: scale(1.02);*/
+      /*    mix-blend-mode: multiply;*/
+      /*    !*border: 1px solid rgba(0, 0, 0, .5);*!*/
+      /*  }*/
+      /*}*/
+      /*&:active {*/
+      /*  transform: scale(1.02);*/
+      /*  mix-blend-mode: multiply;*/
+      /*  !*border: 1px solid rgba(0, 0, 0, .5);*!*/
+      /*}*/
     }
 
 
@@ -313,6 +340,23 @@
     }
   }
 
+  #see-your-car {
+    & hgroup {
+      /*text-align: center;*/
+      font-size: 1.25rem;
+
+      & span {
+        font-size: 96px;
+        font-weight: 400;
+        display: block;
+      }
+
+      & p {
+        margin-top: 0.5rem;
+      }
+    }
+  }
+
   .last-updated {
     text-align: center;
     font-style: italic;
@@ -320,21 +364,24 @@
   }
 
   .recommended-cars {
-    width: 85%;
-    margin: 2rem auto;
-    background-color: var(--color-card-background);
-    border: 1px solid rgba(0, 0, 0, .4);
-    padding: 2rem 1rem;
+    /*width: 85%;*/
+    /*background-color: var(--color-card-background);*/
+    /*border: 1px solid rgba(0, 0, 0, .4);*/
+    /*padding: 2rem 1rem;*/
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    letter-spacing: -0.06em;
 
     & .recommended-car-columns {
       margin-top: 3rem;
 
       & .recommended-car-stack {
-        text-align: center;
+        /*text-align: center;*/
         font-size: 1.25rem;
+        font-family: 'JetBrains Mono', monospace;
+        margin-bottom: 2rem;
 
         & strong {
-          margin-bottom: .5rem;
           font-weight: 700;
         }
       }
@@ -370,8 +417,13 @@
   }
 
   .car-row {
-    background-color: var(--color-card-background);
-    border-bottom: 1px solid rgba(0, 0, 0, .4);
+    background-color: transparent;
+    /*border-bottom: 1px solid rgba(0, 0, 0, .4);*/
+  }
+
+  /*every other car-row background color is blue*/
+  .car-row:nth-child(2n) {
+    background-color: #D9D9D9;
   }
 
   .car-details-wrapper {
