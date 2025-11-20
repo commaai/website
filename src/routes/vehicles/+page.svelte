@@ -23,6 +23,38 @@
   import { vehicleCountText } from '$lib/constants/vehicles.js';
 
   const brand_images = import.meta.glob('$lib/images/vehicles/brand-icons/*.png', { eager: true });
+
+  import { onMount } from 'svelte';
+
+  onMount(() => {
+    // Expand all brand accordions on desktop (PC)
+    const mediaQuery = window.matchMedia('(min-width: 769px)');
+    
+    function expandBrandAccordions() {
+      if (mediaQuery.matches) {
+        const brandInputs = document.querySelectorAll('#compatibility-chart .container > .tab > input');
+        brandInputs.forEach(input => {
+          if (!input.checked) {
+            input.checked = true;
+            // Find the content element and show it
+            const contentEl = input.nextElementSibling?.nextElementSibling;
+            if (contentEl) {
+              contentEl.style.display = 'block';
+              contentEl.style.maxHeight = `${contentEl.scrollHeight}px`;
+            }
+          }
+        });
+      }
+    }
+
+    // Wait for accordions to render, then expand
+    setTimeout(expandBrandAccordions, 0);
+    mediaQuery.addEventListener('change', expandBrandAccordions);
+    
+    return () => {
+      mediaQuery.removeEventListener('change', expandBrandAccordions);
+    };
+  });
 </script>
 
 <section id="vehicles" class="light">
