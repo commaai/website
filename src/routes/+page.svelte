@@ -28,6 +28,7 @@
   import Map from "$lib/images/home/map.png";
   import FourZoom from "$lib/images/home/four_zoom.png";
   import LinkArrow from "$lib/icons/link_arrow.svg?raw";
+  import NextIcon from "$lib/icons/ui/next.svg?raw";
   import WarrantyIcon from "$lib/icons/features/warranty.svg?raw";
   import MoneyBackIcon from "$lib/icons/features/money-back-guarantee.svg?raw";
   import ToyotaLogo from "$lib/icons/brands/toyota.svg?raw";
@@ -43,6 +44,50 @@
   let videoReady = false;
   let compatPulse = false;
   let compatShake = false;
+
+  // Video carousel state
+  let currentVideoIndex = 0;
+  let videoElements = [];
+  const PortraitVideo = "/videos/hero/hero_portrait.mp4";
+  const videos = [
+    { src: PortraitVideo, label: "highway driving", subtitle: "chill mode" },
+    { src: PortraitVideo, label: "city driving", subtitle: "chill mode" },
+    { src: PortraitVideo, label: "country driving", subtitle: "chill mode" }
+  ];
+
+  function switchToVideo(index) {
+    currentVideoIndex = index;
+  }
+
+  function playNextVideo() {
+    if (currentVideoIndex < videos.length - 1) {
+      switchToVideo(currentVideoIndex + 1);
+    } else {
+      switchToVideo(0); // Loop back to first
+    }
+  }
+
+  function handleNextClick() {
+    playNextVideo();
+  }
+
+  // Pause inactive videos and play active one
+  $: {
+    videoElements.forEach((videoEl, index) => {
+      if (videoEl) {
+        if (index === currentVideoIndex) {
+          if (videoEl.paused) {
+            videoEl.currentTime = 0;
+            videoEl.play().catch(() => {
+              // Ignore play() errors (e.g., autoplay restrictions)
+            });
+          }
+        } else {
+          videoEl.pause();
+        }
+      }
+    });
+  }
 
   // Image carousel state
   let currentFourImage = FourFront;
@@ -68,8 +113,32 @@
     }
   }
 
+  function initializeVideo(videoEl, index) {
+    if (!videoEl) return;
+
+    const handleEnded = () => {
+      // When video ends, play the next one
+      playNextVideo();
+    };
+
+    videoEl.addEventListener('ended', handleEnded);
+    videoEl.loop = false; // Don't loop individual videos
+    videoEl.muted = true;
+    videoEl.playsInline = true;
+
+    // For MP4 files, we can use native video element
+    videoEl.src = videos[index].src;
+    videoEl.addEventListener('loadedmetadata', () => {
+      if (index === 0) {
+        videoEl.play().catch(() => {
+          // Ignore autoplay restrictions
+        });
+      }
+    });
+  }
+
   onMount(async () => {
-    // Initialize HLS.js
+    // Initialize HLS.js for hero video
     if (videoElement) {
       // Show video once it starts playing
       videoElement.addEventListener('playing', () => {
@@ -91,6 +160,14 @@
         });
       }
     }
+
+    // Initialize video carousel
+    await tick();
+    videoElements.forEach((videoEl, index) => {
+      if (videoEl) {
+        initializeVideo(videoEl, index);
+      }
+    });
   });
 
   function handleDragStart(e) {
@@ -285,7 +362,29 @@
 
   <Grid rowGap="0" columnGap="0" templateColumns="2fr 1fr" size="xlarge">
     <div class="left-section-v2">
-      carousel of videos showing openpilot in action
+      <div class="video-carousel">
+        {#each videos as video, index}
+          <div class="video-container" class:active={currentVideoIndex === index} on:click={() => switchToVideo(index)} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && switchToVideo(index)}>
+            <video
+              bind:this={videoElements[index]}
+              muted
+              playsinline
+              class="carousel-video"
+            >
+            </video>
+            {#if currentVideoIndex !== index}
+              <div class="video-overlay"></div>
+            {/if}
+            <div class="video-text-overlay">
+              <div class="video-title">{video.label}</div>
+              <div class="video-subtitle">{video.subtitle}</div>
+            </div>
+          </div>
+        {/each}
+        <button class="video-next-button" on:click={handleNextClick} aria-label="Next video">
+          {@html NextIcon}
+        </button>
+      </div>
     </div>
 
     <div class="right-section-v2">
@@ -1213,6 +1312,139 @@
   .hero-image-v2 {
     /*display: block;*/
     line-height: 0;
+  }
+
+  .video-carousel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+
+    @media screen and (max-width: 698px) {
+      flex-direction: column;
+    }
+  }
+
+  .video-container {
+    position: relative;
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    cursor: pointer;
+
+    @media screen and (max-width: 698px) {
+      display: none;
+      width: 100%;
+      flex: none;
+      cursor: default;
+
+      &.active {
+        display: flex;
+      }
+    }
+  }
+
+  .carousel-video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  .video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(234, 234, 234, 0.8);
+    z-index: 3;
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+
+  .video-container.active .video-overlay {
+    opacity: 0;
+  }
+
+  .video-text-overlay {
+    position: absolute;
+    bottom: 24px;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .video-title {
+    font-size: 36px;
+    color: #eaeaea;
+    line-height: 1.2;
+    letter-spacing: -0.06em;
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.65);
+
+    @media screen and (max-width: 950px) {
+      font-size: 32px;
+    }
+  }
+
+  .video-subtitle {
+    font-size: 36px;
+    color: rgba(234, 234, 234, 0.65);
+    line-height: 1.2;
+    letter-spacing: -0.06em;
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.65);
+
+    @media screen and (max-width: 950px) {
+      font-size: 14px;
+    }
+  }
+
+  .video-next-button {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    width: 64px;
+    height: 64px;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: none;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 4;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    &:active {
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    & svg {
+      width: 12px;
+      height: 24px;
+    }
+
+    @media screen and (max-width: 698px) {
+      display: flex;
+    }
   }
 
   .hero-image {
