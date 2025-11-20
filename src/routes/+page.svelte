@@ -179,7 +179,7 @@
 
 <!--  <section class="light hero-section">-->
 <!--    <div class="left-section">-->
-  <Grid rowGap="0" columnGap="40px" templateColumns="2fr 1fr">
+  <Grid rowGap="0" columnGap="0" templateColumns="2fr 1fr">
     <div>
       <div class="hero-image-container">
 <!--        <div class="hero-image-text-container">-->
@@ -187,8 +187,10 @@
 <!--          <div class="bottom-right">i8 East, San Diego</div>-->
 <!--        </div>-->
         <div class="hero-image-text-container">
-          <img src={SonataLandscape} class="hide-mobile" alt="comma four zoom"/>
-          <img src={FourFront} class="hide-desktop" alt="comma four zoom"/>
+          <div style="line-height: 0;">
+            <img src={SonataLandscape} class="hide-mobile" alt="comma four zoom"/>
+          </div>
+<!--          <img src={FourFront} class="hide-desktop" alt="comma four zoom"/>-->
           <div class="bottom-left">comma 4</div>
           <div class="bottom-left-2">plugged into a Hyundai Sonata</div>
         </div>
@@ -233,7 +235,7 @@
   <hr/>
 
 <!--  <section class="light hero-section">-->
-  <Grid rowGap="0" columnGap="40px" templateColumns="2fr 1fr">
+  <Grid rowGap="0" columnGap="0" templateColumns="2fr 1fr">
     <div class="plug-n-play-container">
 
 <!--     left and right sections.-->
@@ -279,7 +281,7 @@
 
   <hr/>
 
-  <Grid rowGap="0" columnGap="40px" templateColumns="2fr 1fr">
+  <Grid rowGap="0" columnGap="0" templateColumns="2fr 1fr">
     <div>
     </div>
 
@@ -298,8 +300,8 @@
   <hr/>
 
 <!--  <section class="light hero-section">-->
-  <Grid rowGap="0" columnGap="40px" templateColumns="2fr 1fr">
-    <div>
+  <Grid rowGap="0" columnGap="0" templateColumns="2fr 1fr">
+    <div class="left-section-v2">
 <!--      TODO v2: black on top and bottom -->
       <div class="hero-image-v2">
         <img src={AdeebDm} alt="driver monitoring in action"/>
@@ -356,10 +358,11 @@
 <!--  </section>-->
 
 <!--  <section class="light hero-section mobile-direction-flip">-->
-  <Grid rowGap="0" columnGap="40px" templateColumns="2fr 1fr">
+  <Grid rowGap="0" columnGap="0" templateColumns="2fr 1fr">
 
 <!--    <div class="left-section" style="background-color: black; align-items: center;">-->
-    <div style="background-color: black; align-items: center;">
+<!--    <div style="background-color: black; align-items: center;">-->
+    <div class="left-section-v2">
         <div class="map-image">
           <img src={Map} alt="openpilot map"/>
         </div>
@@ -706,17 +709,24 @@
     }
   }
 
+  .left-section-v2 {
+    height: 100%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+  }
+
   .right-section-v2 {
     display: flex;
-    /*height: 100%;*/
+    height: 100%;
     /*width: 33%;*/
-    /*padding-left: 40px;*/
-    /*padding-right: 40px;*/
+    box-sizing: border-box;
     flex-direction: column;
     justify-content: space-between;
+    padding-left: 40px;
     padding-right: 40px;
     padding-top: 40px;
-    /*padding-bottom: 40px;*/
+    padding-bottom: 40px;
 
     & li {
       color: black;
@@ -1183,6 +1193,10 @@
     100% { color: rgb(155,155,155); }
   }
 
+  .hero-image-v2 {
+    /*display: block;*/
+    line-height: 0;
+  }
 
   .hero-image {
     position: relative;
