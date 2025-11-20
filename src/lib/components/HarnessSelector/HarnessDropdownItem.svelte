@@ -27,7 +27,7 @@
     cursor: pointer;
     color: #222222;
     background-color: rgb(217, 217, 217);
-    padding: 14px 14px 14px 24px;
+    padding: 14px 52px 14px 24px;
     box-sizing: border-box;
     min-height: 84px;
     transition: border-color 0.2s;
@@ -46,7 +46,6 @@
   .title {
     font-size: 20px;
     font-weight: 600;
-    margin-right: 0.5rem;
   }
 
   .subtitle {
