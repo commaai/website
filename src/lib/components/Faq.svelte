@@ -84,7 +84,7 @@
     & .details {
       font-size: 1.25rem !important;
       line-height: 1.4;
-      padding: 0.25rem 0 1rem;
+      padding: 0.25rem 2rem 1rem;
 
       & *:first-child {
         margin-top: 0;

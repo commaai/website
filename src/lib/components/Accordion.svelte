@@ -69,9 +69,6 @@
     overflow: hidden;
     color: var(--foreground-color);
     transition: max-height 0.6s cubic-bezier(0, 1, 0, 1);
-    padding-left: 2rem;
-    padding-right: 2rem;
-    padding-bottom: 1rem;
   }
 
   .tab input:checked ~ .content {

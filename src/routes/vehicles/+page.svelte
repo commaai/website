@@ -141,80 +141,84 @@
     {#each Object.entries(vehicles) as [make, cars]}
       {#if cars.length !== 0}
       {@const brand_img_path = `/src/lib/images/vehicles/brand-icons/Logo-${make}.png`}
-      <div id={make.toLowerCase()} class="car-make-header">
-        {#if brand_images[brand_img_path]}
-          <img src={brand_images[brand_img_path].default} alt="{make} car brand" />
-        {/if}
-        <h3>{make} ({cars.length})</h3>
-      </div>
-
-      {#each cars as car_info}
-        <div class="car-row">
-          <Accordion backgroundColor="var(--color-card-background)">
-            <div slot="label">
-              <div class="car-details-wrapper">
-                <div class="car-details">
-                  <div class="model"><strong>{car_info.model}</strong></div>
-                  <div class="year">{car_info.year_list}</div>
-                </div>
-                <div class="video-icon-wrapper">
-                  {#if car_info.video !== ""}
-                    <a href={car_info.video} target="_blank">{@html YoutubeIcon}</a>
-                  {/if}
-                </div>
-              </div>
-            </div>
-            <div class="detail-content" slot="content">
-              <div class="car-detail-content-wrapper">
-                <Grid columns={2} rowGap="0" columnGap="2rem" templateColumns="3fr 2fr">
-                  <div>
-                    <div class="car-detail-tier">{@html car_info.detail_sentence }</div>
-                    <div class="cards">
-                      <NoteCard title="Support" icon={CarIcon} style="elevated">
-                        {#if car_info.package !== 'All'}
-                          openpilot requires the car to come equipped with <b>{car_info.package}</b>.
-                        {:else}
-                          openpilot will work with <b>all packages and trims</b> of this car.
-                        {/if}
-                      </NoteCard>
-                      {#each car_info.footnotes as footnote}
-                        <NoteCard title="Note" icon={InfoIcon} style="elevated">
-                          {@html footnote}
-                        </NoteCard>
-                      {/each}
-                    </div>
-                  </div>
-                  <div class="device-promotion-card">
-                    <div class="product-wrapper">
-                      <img src={CommaFourImage} loading="lazy" alt="comma four device" />
-                      <hgroup>
-                        <strong>comma four</strong>
-                        <div class="understated-price">${FOUR_PRICE}</div>
-                        {#if car_info.harness_connector !== "" }
-                          <strong>car harness: { car_info.harness_connector }</strong>
-                          <div class="understated-price">included</div>
-                        {/if}
-                      </hgroup>
-                    </div>
-                    <LinkButton
-                      href={`/shop/comma-four?harness=${car_info.name}`}
-                      style="primary"
-                      fullWidth
-                      thin
-                    >
-                      Buy now
-                    </LinkButton>
-                    <div class="description">
-                      <strong>30-day money-back trial</strong>
-                      <div>Don't love it? It's easy to return your device within <strong>30 days</strong> after receiving it for a full refund.</div>
-                    </div>
-                  </div>
-                </Grid>
-              </div>
-            </div>
-          </Accordion>
+      <Accordion id={make.toLowerCase()} backgroundColor="var(--color-card-background)">
+        <div slot="label" class="car-make-header">
+          {#if brand_images[brand_img_path]}
+            <img src={brand_images[brand_img_path].default} alt="{make} car brand" />
+          {/if}
+          <h3>{make} ({cars.length})</h3>
         </div>
-      {/each}
+
+        <div slot="content">
+          {#each cars as car_info}
+            <div class="car-row">
+              <Accordion backgroundColor="var(--color-card-background)">
+                <div slot="label">
+                  <div class="car-details-wrapper">
+                    <div class="car-details">
+                      <div class="model"><strong>{car_info.model}</strong></div>
+                      <div class="year">{car_info.year_list}</div>
+                    </div>
+                    <div class="video-icon-wrapper">
+                      {#if car_info.video !== ""}
+                        <a href={car_info.video} target="_blank">{@html YoutubeIcon}</a>
+                      {/if}
+                    </div>
+                  </div>
+                </div>
+                <div class="detail-content" slot="content">
+                  <div class="car-detail-content-wrapper">
+                    <Grid columns={2} rowGap="0" columnGap="2rem" templateColumns="3fr 2fr">
+                      <div>
+                        <div class="car-detail-tier">{@html car_info.detail_sentence }</div>
+                        <div class="cards">
+                          <NoteCard title="Support" icon={CarIcon} style="elevated">
+                            {#if car_info.package !== 'All'}
+                              openpilot requires the car to come equipped with <b>{car_info.package}</b>.
+                            {:else}
+                              openpilot will work with <b>all packages and trims</b> of this car.
+                            {/if}
+                          </NoteCard>
+                          {#each car_info.footnotes as footnote}
+                            <NoteCard title="Note" icon={InfoIcon} style="elevated">
+                              {@html footnote}
+                            </NoteCard>
+                          {/each}
+                        </div>
+                      </div>
+                      <div class="device-promotion-card">
+                        <div class="product-wrapper">
+                          <img src={CommaFourImage} loading="lazy" alt="comma four device" />
+                          <hgroup>
+                            <strong>comma four</strong>
+                            <div class="understated-price">${FOUR_PRICE}</div>
+                            {#if car_info.harness_connector !== "" }
+                              <strong>car harness: { car_info.harness_connector }</strong>
+                              <div class="understated-price">included</div>
+                            {/if}
+                          </hgroup>
+                        </div>
+                        <LinkButton
+                          href={`/shop/comma-four?harness=${car_info.name}`}
+                          style="primary"
+                          fullWidth
+                          thin
+                        >
+                          Buy now
+                        </LinkButton>
+                        <div class="description">
+                          <strong>30-day money-back trial</strong>
+                          <div>Don't love it? It's easy to return your device within <strong>30 days</strong> after receiving it for a full refund.</div>
+                        </div>
+                      </div>
+                    </Grid>
+                  </div>
+                </div>
+              </Accordion>
+            </div>
+          {/each}
+        </div>
+      </Accordion>
       {/if}
     {/each}
   </div>
@@ -392,8 +396,8 @@
     background-color: transparent;
     justify-content: flex-start;
     align-items: center;
-    margin-top: 2rem;
-    margin-bottom: 0;
+    /*margin-top: 2rem;*/
+    /*margin-bottom: 0;*/
     padding: 1rem;
     display: flex;
 
@@ -411,25 +415,32 @@
     }
   }
 
-  .car-make-header:nth-child(2n) {
-    background-color: #D9D9D9;
-  }
+/* Every other brand accordion label gets dark grey */
+:global(#compatibility-chart .container > .tab:nth-child(2n) > label) {
+  background-color: #D9D9D9;
+}
 
-  .car-row {
-    background-color: transparent;
-    /*border-bottom: 1px solid rgba(0, 0, 0, .4);*/
-  }
+/* Car accordions alternate independently within each brand */
+:global(.car-row .tab) {
+  background-color: #EAEAEA !important; /* light grey default */
+}
 
-  /*every other car-row background color is blue*/
-  .car-row:nth-child(2n) {
-    background-color: #D9D9D9;
-  }
+/* Every other car accordion gets dark grey */
+:global(.car-row:nth-child(odd) .tab label),
+:global(.car-row:nth-child(odd) .tab .content) {
+  background-color: #D9D9D9 !important; /* dark grey for odd (1st, 3rd, 5th) */
+}
+
+:global(.car-row:nth-child(even) .tab label),
+:global(.car-row:nth-child(even) .tab .content) {
+  background-color: #EAEAEA !important; /* light grey for even (2nd, 4th, 6th) */
+}
 
   .car-details-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 14px 16px;
+    padding: 1.5rem 16px;
 
     & .car-details {
       display: flex;
