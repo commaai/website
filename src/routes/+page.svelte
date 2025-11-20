@@ -215,6 +215,21 @@
   <link rel="preload" as="image" href="/videos/keeps-left/poster.jpg" />
   <link rel="preload" as="image" href="/videos/offramp/poster.jpg" />
   <link rel="preload" as="image" href="/videos/low-speed/poster.jpg" />
+<!--  &lt;!&ndash; Preload all home page images to prevent layout shift &ndash;&gt;-->
+<!--  <link rel="preload" as="image" href={FourFront} />-->
+<!--  <link rel="preload" as="image" href={FourCutoff} />-->
+<!--  <link rel="preload" as="image" href={FourBack} />-->
+<!--  <link rel="preload" as="image" href={FourSide} />-->
+<!--  <link rel="preload" as="image" href={FourAngled} />-->
+<!--  <link rel="preload" as="image" href={AdeebDm} />-->
+<!--  <link rel="preload" as="image" href={PlugImage} />-->
+<!--  <link rel="preload" as="image" href={StickImage} />-->
+<!--  <link rel="preload" as="image" href={PowerImage} />-->
+<!--  <link rel="preload" as="image" href={RemountImage} />-->
+<!--  <link rel="preload" as="image" href={FourPov} />-->
+<!--  <link rel="preload" as="image" href={SonataLandscape} />-->
+<!--  <link rel="preload" as="image" href={Map} />-->
+<!--  <link rel="preload" as="image" href={FourZoom} />-->
   <!--  TODO: why do we need this again? -->
   <style>
     body {

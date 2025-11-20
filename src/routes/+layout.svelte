@@ -149,6 +149,31 @@
     src: url("$lib/fonts/MonumentExtended/MonumentExtended-Black.woff2");
   }
 
+  /* Override @fontsource Inter to use font-display: block */
+  /*@font-face {*/
+  /*  font-family: 'Inter';*/
+  /*  font-style: normal;*/
+  /*  font-weight: 400;*/
+  /*  font-display: block;*/
+  /*  src: url('@fontsource/inter/files/inter-latin-400-normal.woff2') format('woff2');*/
+  /*}*/
+
+  /*@font-face {*/
+  /*  font-family: 'Inter';*/
+  /*  font-style: normal;*/
+  /*  font-weight: 600;*/
+  /*  font-display: block;*/
+  /*  src: url('@fontsource/inter/files/inter-latin-600-normal.woff2') format('woff2');*/
+  /*}*/
+
+  /*@font-face {*/
+  /*  font-family: 'Inter';*/
+  /*  font-style: normal;*/
+  /*  font-weight: 700;*/
+  /*  font-display: block;*/
+  /*  src: url('@fontsource/inter/files/inter-latin-700-normal.woff2') format('woff2');*/
+  /*}*/
+
   .navbar {
     position: fixed;
     top: 0;

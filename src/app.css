@@ -4,6 +4,15 @@ html {
   scroll-padding-top: 6rem;
 }
 
+/*!* Apple-style: Hide content until fonts are loaded *!*/
+/*.fonts-loading {*/
+/*  visibility: hidden;*/
+/*}*/
+
+/*.fonts-loading * {*/
+/*  visibility: hidden;*/
+/*}*/
+
 /* Stretch the main page content to fill 100% of the viewport height */
 body {
   & > div {

@@ -25,6 +25,19 @@
     %sveltekit.head%
   </head>
   <body data-sveltekit-preload-data="hover">
-    <div>%sveltekit.body%</div>
+<!--    <div class="fonts-loading">%sveltekit.body%</div>-->
+<!--    <script>-->
+<!--      // Apple-style: Hide content until fonts are loaded-->
+<!--      if (document.fonts && document.fonts.ready) {-->
+<!--        document.fonts.ready.then(() => {-->
+<!--          document.body.querySelector('.fonts-loading')?.classList.remove('fonts-loading');-->
+<!--        });-->
+<!--      } else {-->
+<!--        // Fallback: Show after short delay if fonts API not available-->
+<!--        setTimeout(() => {-->
+<!--          document.body.querySelector('.fonts-loading')?.classList.remove('fonts-loading');-->
+<!--        }, 100);-->
+<!--      }-->
+<!--    </script>-->
   </body>
 </html>
