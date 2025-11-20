@@ -11,7 +11,8 @@
   // import FourImage from "$lib/images/products/comma-four/four_screen_on.png";
   // import FourSide from "$lib/images/products/comma-four/four_side_2.png";
   // import FourBack from "$lib/images/products/comma-four/four_back_2.png";
-  import FourFront from "$lib/images/home/hero/four_front.png";
+  import FourFront from "$lib/images/products/comma-four/four_screen_on.png";
+  import FourCutoff from "$lib/images/home/hero/four_cutoff.png";
   import FourBack from "$lib/images/home/hero/four_back.png";
   import FourSide from "$lib/images/home/hero/four_side.png";
   import FourAngled from "$lib/images/home/hero/four_angled.png";
@@ -23,12 +24,12 @@
   import RemountImage from "$lib/images/home/plug-n-play/remount.png";
 
   import FourPov from "$lib/images/home/four_pov.png";
-  import Sonata from "$lib/images/home/sonata.png";
   import SonataLandscape from "$lib/images/home/sonata_landscape.png";
   import Map from "$lib/images/home/map.png";
   import FourZoom from "$lib/images/home/four_zoom.png";
   import LinkArrow from "$lib/icons/link_arrow.svg?raw";
   import NextIcon from "$lib/icons/ui/next.svg?raw";
+  import PlayIcon from "$lib/icons/ui/play-new.svg?raw";
   import WarrantyIcon from "$lib/icons/features/warranty.svg?raw";
   import MoneyBackIcon from "$lib/icons/features/money-back-guarantee.svg?raw";
   import ToyotaLogo from "$lib/icons/brands/toyota.svg?raw";
@@ -38,22 +39,24 @@
   import ChryslerLogo from "$lib/icons/brands/chrysler.svg?raw";
 
   const HeroVideo = "/videos/hero/hero.m3u8";
+  const LandscapeVideo = "/videos/hero-landscape/hero-landscape.m3u8";
+  const PortraitVideoHLS = "/videos/hero-portrait/hero-portrait.m3u8";
   const storeUrl = import.meta.env.VITE_SHOPIFY_STORE_URL;
 
   let videoElement;
   let videoReady = false;
   let landscapeVideoElement;
+  let portraitVideoElement;
   let compatPulse = false;
   let compatShake = false;
 
   // Video carousel state
   let currentVideoIndex = 0;
   let videoElements = [];
-  const PortraitVideo = "/videos/hero/hero_portrait.mp4";
   const videos = [
-    { src: PortraitVideo, label: "highway driving", subtitle: "chill mode" },
-    { src: PortraitVideo, label: "city driving", subtitle: "chill mode" },
-    { src: PortraitVideo, label: "country driving", subtitle: "chill mode" }
+    { src: "/videos/keeps-left/keeps-left.m3u8", poster: "/videos/keeps-left/poster.jpg", label: "scenic", subtitle: "experimental mode" },
+    { src: "/videos/offramp/offramp.m3u8", poster: "/videos/offramp/poster.jpg", label: "offramp", subtitle: "experimental mode" },
+    { src: "/videos/low-speed/low-speed.m3u8", poster: "/videos/low-speed/poster.jpg", label: "local", subtitle: "experimental mode" }
   ];
 
   function switchToVideo(index) {
@@ -119,19 +122,43 @@
     };
 
     videoEl.addEventListener('ended', handleEnded);
-    videoEl.loop = false; // Don't loop individual videos
+    videoEl.loop = false;
     videoEl.muted = true;
     videoEl.playsInline = true;
 
-    // For MP4 files, we can use native video element
-    videoEl.src = videos[index].src;
-    videoEl.addEventListener('loadedmetadata', () => {
-      if (index === 0) {
-        videoEl.play().catch(() => {
-          // Ignore autoplay restrictions
-        });
-      }
-    });
+    // Use HLS.js for .m3u8 files
+    if (Hls.isSupported()) {
+      const hls = new Hls();
+      hls.loadSource(videos[index].src);
+      hls.attachMedia(videoEl);
+      hls.on(Hls.Events.MANIFEST_PARSED, () => {
+        if (index === 0) {
+          videoEl.play().catch(() => {
+            // Ignore autoplay restrictions
+          });
+        }
+      });
+    } else if (videoEl.canPlayType('application/vnd.apple.mpegurl')) {
+      // Native HLS support (Safari)
+      videoEl.src = videos[index].src;
+      videoEl.addEventListener('loadedmetadata', () => {
+        if (index === 0) {
+          videoEl.play().catch(() => {
+            // Ignore autoplay restrictions
+          });
+        }
+      });
+    } else {
+      // Fallback for MP4 files
+      videoEl.src = videos[index].src;
+      videoEl.addEventListener('loadedmetadata', () => {
+        if (index === 0) {
+          videoEl.play().catch(() => {
+            // Ignore autoplay restrictions
+          });
+        }
+      });
+    }
   }
 
   onMount(async () => {
@@ -162,16 +189,34 @@
     if (landscapeVideoElement) {
       if (Hls.isSupported()) {
         const hls = new Hls();
-        hls.loadSource(HeroVideo);
+        hls.loadSource(LandscapeVideo);
         hls.attachMedia(landscapeVideoElement);
         hls.on(Hls.Events.MANIFEST_PARSED, () => {
           landscapeVideoElement.play();
         });
       } else if (landscapeVideoElement.canPlayType('application/vnd.apple.mpegurl')) {
         // Native HLS support (Safari)
-        landscapeVideoElement.src = HeroVideo;
+        landscapeVideoElement.src = LandscapeVideo;
         landscapeVideoElement.addEventListener('loadedmetadata', () => {
           landscapeVideoElement.play();
+        });
+      }
+    }
+
+    // Initialize portrait video for mobile
+    if (portraitVideoElement) {
+      if (Hls.isSupported()) {
+        const hls = new Hls();
+        hls.loadSource(PortraitVideoHLS);
+        hls.attachMedia(portraitVideoElement);
+        hls.on(Hls.Events.MANIFEST_PARSED, () => {
+          portraitVideoElement.play();
+        });
+      } else if (portraitVideoElement.canPlayType('application/vnd.apple.mpegurl')) {
+        // Native HLS support (Safari)
+        portraitVideoElement.src = PortraitVideoHLS;
+        portraitVideoElement.addEventListener('loadedmetadata', () => {
+          portraitVideoElement.play();
         });
       }
     }
@@ -193,6 +238,11 @@
 
 <svelte:head>
   <link rel="preload" as="image" href="/videos/hero/poster.jpg" />
+  <link rel="preload" as="image" href="/videos/hero-portrait/poster.jpg" />
+  <link rel="preload" as="image" href="/videos/hero-landscape/poster.jpg" />
+  <link rel="preload" as="image" href="/videos/keeps-left/poster.jpg" />
+  <link rel="preload" as="image" href="/videos/offramp/poster.jpg" />
+  <link rel="preload" as="image" href="/videos/low-speed/poster.jpg" />
   <!--  TODO: why do we need this again? -->
   <style>
     body {
@@ -207,81 +257,95 @@
 <!--<div class="gradient-overlay-top"></div>-->
 
 <div>
-  <section class="light hero-video hero-section">
-    <div class="left-section-v2">
-      <img src={FourFront} class="hide-mobile" alt="comma four zoom"/>
-      <div class="hero-image-container hide-desktop">
-<!--        <div class="hero-image-text-container">-->
-<!--          <img src={FourPov} alt="comma four pov"/>-->
-<!--          <div class="bottom-right">i8 East, San Diego</div>-->
-<!--        </div>-->
-        <div class="hero-image-text-container">
-          <img src={Sonata} alt="comma four zoom"/>
-          <div class="bottom-left">comma 4</div>
-          <div class="bottom-left-2">plugged into a Hyundai Sonata</div>
-        </div>
-      </div>
-    </div>
-    <!-- Buy now should be pushed down a bit -->
-    <div class="right-section">
-      <div>
-        <div class="hero-title">Your car can do more.</div>
-<!--        comma her image-->
-        <img src={FourFront} class="four-image hide-desktop" />
-        <div class="hero-description" style="padding-top: 0; padding-bottom: 8rem;">
-          <div class="title">Meet comma 4.<br><br></div>
-          Your car already has the right hardware, now it can have the right software.<br><br>
-          It only takes <a href="/setup">15 minutes</a> to upgrade your car to the best advanced driving assistance system in the world.<br><br>
-          comma 4 works with <a href="/vehicles">{vehicleCountText} car models</a>.
-        </div>
-      </div>
-<!--      <div class="hero-bottom" style="margin-top: 8rem;">-->
-      <div class="hero-bottom">
-        <div class="brand-icon-section">
-          {@html ToyotaLogo}
-          {@html HyundaiLogo}
-          {@html HondaLogo}
-          {@html ChevroletLogo}
-          {@html ChryslerLogo}
-        </div>
-<!--        <div class="hero-price">-->
-<!--          <span class="hero-dollar">$</span><span class="hero-amount">999</span>-->
-<!--        </div>-->
-<!--        <a href="/shop/comma-four" class="hero-buy-now">-->
-<!--          buy now-->
-<!--          {@html LinkArrow}-->
-<!--        </a>-->
-      </div>
+<!--  <section class="light hero-video hero-section">-->
+   <div class="mobile-portrait-video hide-desktop">
+     <div class="portrait-video-container">
+       <video
+         bind:this={portraitVideoElement}
+         class="portrait-video"
+         poster="/videos/hero-portrait/poster.jpg"
+         muted
+         playsinline
+         loop
+       >
+       </video>
+       <div class="portrait-video-text-overlay">
+         <div class="portrait-video-title">comma 4</div>
+         <div class="portrait-video-subtitle">plugged into a Hyundai Sonata</div>
+       </div>
+     </div>
+   </div>
+   <div style="padding-top: 4rem;">
+     <Grid rowGap="0" columnGap="0" templateColumns="2fr 1fr" size="xlarge" reverse={true}>
 
-<!--      &lt;!&ndash; On mobile, four thumbnails will go vertically down the page, spanning all sections starting from "comma four" &ndash;&gt;-->
-<!--      <div class="four-thumbnails mobile">-->
-<!--        {#each allFourImages as image}-->
-<!--          <button-->
-<!--            class="four-thumbnail"-->
-<!--            class:active={currentFourImage === image.src}-->
-<!--            on:click={() => selectFourImage(image.src)}-->
-<!--            aria-label={`View ${image.name} view`}-->
-<!--          >-->
-<!--            <img src={image.src} alt={`comma four ${image.name}`}/>-->
-<!--          </button>-->
-<!--        {/each}-->
-<!--      </div>-->
-    </div>
-  </section>
+      <div class="left-section-v2 light">
+        <div class="desktop-four-hero-image">
+          <img src={FourFront} alt="comma four zoom"/>
+        </div>
+      </div>
+      <!-- Buy now should be pushed down a bit -->
+      <div class="right-section-v2">
+        <div>
+          <div class="hero-title">Your car can do more.</div>
+  <!--        comma her image-->
+          <img src={FourFront} class="four-image hide-desktop" />
+          <div class="hero-description">
+            <div class="title">Meet comma 4.<br><br></div>
+            Your car already has the right hardware, now it can have the right software.<br><br>
+            It only takes <a href="/setup">15 minutes</a> to upgrade your car to the best advanced driving assistance system in the world.<br><br>
+            comma 4 works with <a href="/vehicles">{vehicleCountText} car models</a>.
+          </div>
+        </div>
+  <!--      <div class="hero-bottom" style="margin-top: 8rem;">-->
+        <div class="hero-bottom">
+          <div class="brand-icon-section">
+            {@html ToyotaLogo}
+            {@html HyundaiLogo}
+            {@html HondaLogo}
+            {@html ChevroletLogo}
+            {@html ChryslerLogo}
+          </div>
+  <!--        <div class="hero-price">-->
+  <!--          <span class="hero-dollar">$</span><span class="hero-amount">999</span>-->
+  <!--        </div>-->
+  <!--        <a href="/shop/comma-four" class="hero-buy-now">-->
+  <!--          buy now-->
+  <!--          {@html LinkArrow}-->
+  <!--        </a>-->
+        </div>
+
+  <!--      &lt;!&ndash; On mobile, four thumbnails will go vertically down the page, spanning all sections starting from "comma four" &ndash;&gt;-->
+  <!--      <div class="four-thumbnails mobile">-->
+  <!--        {#each allFourImages as image}-->
+  <!--          <button-->
+  <!--            class="four-thumbnail"-->
+  <!--            class:active={currentFourImage === image.src}-->
+  <!--            on:click={() => selectFourImage(image.src)}-->
+  <!--            aria-label={`View ${image.name} view`}-->
+  <!--          >-->
+  <!--            <img src={image.src} alt={`comma four ${image.name}`}/>-->
+  <!--          </button>-->
+  <!--        {/each}-->
+  <!--      </div>-->
+      </div>
+  <!--  </section>-->
+    </Grid>
+  </div>
 
 <!--  <section class="light hero-section">-->
 <!--    <div class="left-section">-->
   <Grid rowGap="0" columnGap="0" templateColumns="2fr 1fr" size="xlarge">
     <div class="left-section-v2">
       <div class="landscape-video-container">
-        <video
-          bind:this={landscapeVideoElement}
-          class="landscape-video"
-          muted
-          playsinline
-          loop
-        >
-        </video>
+      <video
+        bind:this={landscapeVideoElement}
+        class="landscape-video"
+        poster="/videos/hero-landscape/poster.jpg"
+        muted
+        playsinline
+        loop
+      >
+      </video>
         <div class="landscape-video-text-overlay">
           <div class="landscape-video-title">comma 4</div>
           <div class="landscape-video-subtitle">plugged into a Hyundai Sonata</div>
@@ -386,17 +450,20 @@
           <div class="video-container" class:active={currentVideoIndex === index} on:click={() => switchToVideo(index)} role="button" tabindex="0" on:keydown={(e) => e.key === 'Enter' && switchToVideo(index)}>
             <video
               bind:this={videoElements[index]}
+              poster={video.poster}
               muted
               playsinline
               class="carousel-video"
             >
             </video>
             {#if currentVideoIndex !== index}
-              <div class="video-overlay"></div>
+              <div class="video-overlay">
+                <div class="video-play-icon">{@html PlayIcon}</div>
+              </div>
             {/if}
             <div class="video-text-overlay">
               <div class="video-title">{video.label}</div>
-              <div class="video-subtitle">{video.subtitle}</div>
+<!--              <div class="video-subtitle">{video.subtitle}</div>-->
             </div>
           </div>
         {/each}
@@ -410,7 +477,7 @@
       <div class="hero-title">See openpilot in action.</div>
       <div class="hero-description">
         comma 4 is powered by the openpilot ADAS software developed by comma. It learns how well your car drives and adapts to drive your car well.
-        <a href="/" class="link-away">
+        <a href="https://blog.comma.ai" class="link-away">
           autonomy
           {@html LinkArrow}
         </a>
@@ -617,6 +684,59 @@
   .hide-mobile {
     @media screen and (max-width: 950px) {
       display: none;
+    }
+  }
+
+  .mobile-portrait-video {
+    width: 100%;
+    line-height: 0;
+    padding-top: 104px;
+  }
+
+  .portrait-video-container {
+    position: relative;
+    width: 100%;
+  }
+
+  .portrait-video {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+  }
+
+  .portrait-video-text-overlay {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    z-index: 2;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .portrait-video-title {
+    font-size: 36px;
+    color: #eaeaea;
+    line-height: 1.2;
+    letter-spacing: -0.06em;
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.65);
+
+    @media screen and (max-width: 950px) {
+      font-size: 32px;
+    }
+  }
+
+  .portrait-video-subtitle {
+    font-size: 36px;
+    color: rgba(234, 234, 234, 0.65);
+    line-height: 1.2;
+    letter-spacing: -0.06em;
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.65);
+
+    @media screen and (max-width: 950px) {
+      font-size: 14px;
     }
   }
 
@@ -844,6 +964,18 @@
       @media screen and (max-width: 650px) {
         display: block;
       }
+    }
+  }
+
+  .desktop-four-hero-image {
+    width: 50%;
+    max-width: 1000px;
+    top: -5%;
+    left: 10%;
+    position: absolute;
+
+    @media screen and (max-width: 1450px) {
+      display: none;
     }
   }
 
@@ -1089,6 +1221,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    padding-top: 4rem;
 
     & .brand-icon-section {
       display: flex;
@@ -1448,8 +1581,26 @@
     right: 0;
     bottom: 0;
     background-color: rgba(234, 234, 234, 0.8);
-    z-index: 3;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 2;
     pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .video-play-icon {
+    width: 48px;
+    height: 84px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & svg {
+      width: 48px;
+      height: 84px;
+    }
   }
 
   .video-container.active .video-overlay {
@@ -1461,7 +1612,7 @@
     bottom: 24px;
     left: 0;
     right: 0;
-    z-index: 2;
+    z-index: 3;
     pointer-events: none;
     display: flex;
     flex-direction: column;
@@ -1482,6 +1633,11 @@
     }
   }
 
+  .video-container:not(.active) .video-title {
+    color: black;
+    text-shadow: none;
+  }
+
   .video-subtitle {
     font-size: 36px;
     color: rgba(234, 234, 234, 0.65);
@@ -1500,7 +1656,7 @@
     right: 24px;
     width: 64px;
     height: 64px;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(234, 234, 234, 0.4);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
     border: none;
@@ -1512,16 +1668,18 @@
     transition: background-color 0.2s ease;
 
     &:hover {
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(234, 234, 234, 0.5);
     }
 
     &:active {
-      background-color: rgba(0, 0, 0, 0.6);
+      background-color: rgba(234, 234, 234, 0.6);
     }
 
     & svg {
       width: 12px;
       height: 24px;
+      color: black;
+      filter: invert(100%);
     }
 
     @media screen and (max-width: 698px) {
