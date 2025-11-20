@@ -159,8 +159,6 @@
     margin: 20px;
     z-index: 20;
 
-    /*background-color: #EAEAEA66;*/
-    /*backdrop-filter: blur(32px);*/
     overflow: visible;
   }
 
