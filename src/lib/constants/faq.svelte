@@ -277,7 +277,7 @@
           answer: `
             <p>
               Sign up for prime in <a href="https://connect.comma.ai/">comma connect</a>. With a
-              purchase of a comma four, you get a free month of comma prime, in which you
+              purchase of a comma 4, you get a free month of comma prime, in which you
               can cancel at any time. After that, you will be charged $24 a month
               (domestic only).
             </p>
@@ -437,16 +437,16 @@
           question: 'What is the 30-day money-back trial?',
           answer: `
             <p>
-              Every vehicle is a little different and the experience can be hard to describe which is why we offer this trial. If you don’t love the comma four, you can return it for a refund–no questions asked. All refunds must be initiated through <a href="https://comma.ai/returns">comma.ai/returns</a> within 30 calendar days of receiving your order.
+              Every vehicle is a little different and the experience can be hard to describe which is why we offer this trial. If you don’t love the comma 4, you can return it for a refund–no questions asked. All refunds must be initiated through <a href="https://comma.ai/returns">comma.ai/returns</a> within 30 calendar days of receiving your order.
             </p>
           `
         }, {
           question: 'When does the 30-day money-back trial start?',
           answer: `
-            The 30-day money-back trial starts the day your comma four is delivered (signature confirmation required for delivery). If you do decide to return your device, we ask that you get the return device in the mail within 30 days of receiving it.
+            The 30-day money-back trial starts the day your comma 4 is delivered (signature confirmation required for delivery). If you do decide to return your device, we ask that you get the return device in the mail within 30 days of receiving it.
           `
         }, {
-          question: 'How do I return my comma four?',
+          question: 'How do I return my comma 4?',
           answer: `
             To return your device, please request a return at <a href="https://comma.ai/returns">comma.ai/returns</a>. A prepaid return label (or return instructions if not in the US) will be automatically sent to you. $9.99 will be deducted from your refund if you choose to use this label.
           `
@@ -775,7 +775,7 @@
             </p>
           `
         }, {
-          question: 'My comma four is having issues. What should I do?',
+          question: 'My comma 4 is having issues. What should I do?',
           answer: `
             We recommend first trying to reflash your device at <a href="https://flash.comma.ai">flash.comma.ai</a> and to reseat all the cable connections. comma support is only able to look into issues on stock with a route where the issue occurs. If you are running a fork, we are unable to diagnose defective hardware without a route on stock. Once you have a route, please open a ticket at <a href="https://comma.ai/support">comma.ai/support</a>. Pictures, videos, and uploading logs via wi-fi are very helpful and often expedite the resolution process. Please also include any troubleshooting steps you have already taken. We also recommend reviewing the community <a href="https://github.com/commaai/openpilot/wiki">GitHub wiki</a> and <a href="https://discord.comma.ai">discord.comma.ai</a> for other troubleshooting.
           `
@@ -805,7 +805,7 @@
         }, {
           question: 'Can I get a review device? (I am a Reviewer / Media / YouTuber)',
           answer: `
-            We have a 30-day no questions asked return policy if you would like to experience a comma four for yourself.
+            We have a 30-day no questions asked return policy if you would like to experience a comma 4 for yourself.
           `
         }, {
           question: 'I\'d like to partner with comma.',

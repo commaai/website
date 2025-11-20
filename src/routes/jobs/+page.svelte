@@ -28,12 +28,12 @@
       The <strong class="highlight-green">operations team</strong> builds and maintains company infrastructure, including money, people, and logistics.
     </p>
     <p>
-      The operations and product teams work together to ship you the comma four, and the autonomy and product teams ship openpilot to run on your comma four.
+      The operations and product teams work together to ship you the comma 4, and the autonomy and product teams ship openpilot to run on your comma 4.
     </p>
 
     <div class="divider"></div>
     <pre>
-  comma is a profitable consumer electronics business. For every dollar we make, half goes to building comma fours and half goes to engineering to improve the product.
+  comma is a profitable consumer electronics business. For every dollar we make, half goes to building comma 4s and half goes to engineering to improve the product.
 
   No advertising, MBAs, or agenda beyond solving self-driving cars.
   <img src="https://pbs.twimg.com/media/GrU0TykaoAA2KOU?format=jpg&amp;name=large" style="width: 80%;">
@@ -71,7 +71,7 @@
     <h4>We're Actively Hiring</h4>
     <pre>
   <strong>Electronics Engineer</strong>
-  Design + ship hardware like the comma four and comma body // <a href="https://github.com/commaai/harness_tester_challenge">challenge</a>
+  Design + ship hardware like the comma 4 and comma body // <a href="https://github.com/commaai/harness_tester_challenge">challenge</a>
 
   <strong>Supply Chain Engineer</strong>
   Own comma’s end-to-end hardware supply chain—from vendor sourcing and cost negotiation to purchase orders, receiving, and inventory // challenge: <a href="https://github.com/commaai/operations_challenge">ops</a> or <a href="https://github.com/commaai/harness_tester_challenge">hardware</a>
@@ -83,7 +83,7 @@
 
   <strong>Software Engineer (Systems)</strong>
   Work on systems and infrastructure for <a href="https://github.com/commaai/openpilot">openpilot</a> // challenge: get a <a href="https://comma.ai/bounties">bounty</a> merged
-  You'll work on things like mainlining our kernel, bringing up new hardware, and making the comma four boot up in 5s.
+  You'll work on things like mainlining our kernel, bringing up new hardware, and making the comma 4 boot up in 5s.
 
   <strong>Car Interface Engineer</strong>
   Work on growing openpilot's car compatibility alongside our <a href="https://github.com/commaai/openpilot">community</a> // challenge: get a <a href="https://comma.ai/bounties">bounty</a> merged

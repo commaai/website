@@ -4,7 +4,7 @@
       title: "What comma support can help with",
       questions: [
         {
-          question: "Hardware support for an in-warranty comma four/3X",
+          question: "Hardware support for an in-warranty comma 4/3X",
           answer: `
             <div style="margin-left: 2rem">
               <strong>Before contacting support, first try these:</strong>

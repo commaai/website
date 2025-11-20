@@ -18,13 +18,13 @@ export const products = {
     description: `
       <strong>Description</strong>
       <p>
-        comma four is the next generation comma hardware designed to live in your car. It works on 325+ car models and adds the best ADAS in the world to your existing car. Ships in 1-12 weeks.
+        comma 4 is the next generation comma hardware designed to live in your car. It works on 325+ car models and adds the best ADAS in the world to your existing car. Ships in 1-12 weeks.
       </p>
       <p>
         It runs <a href="https://github.com/commaai/openpilot" target="_blank">openpilot</a>, which can drive for hours without driver action.
       </p>
       <p>
-        You need a <a href="/shop/car-harness" target="_blank">car harness</a> if you don't already have one, which is free with purchase of comma four. The car harness is our universal interface to your car. Use the car harness to connect your comma device to your vehicle.
+        You need a <a href="/shop/car-harness" target="_blank">car harness</a> if you don't already have one, which is free with purchase of comma 4. The car harness is our universal interface to your car. Use the car harness to connect your comma device to your vehicle.
       </p>
     `.trim(),
     hasCustomComponent: true
@@ -59,7 +59,7 @@ export const products = {
       {
         title: "Note",
         content: `A panda is not necessary if purchasing a
-        <a href="/shop/comma-four" target="_blank">comma four</a>.
+        <a href="/shop/comma-four" target="_blank">comma 4</a>.
         <br /><br />
         A red panda is required if using a comma 3 on a CAN FD vehicle. Check
         <a href="https://github.com/commaai/openpilot/blob/master/docs/CARS.md" target="_blank" rel="noopener noreferrer">compatibility</a> to see if your car requires
@@ -101,7 +101,7 @@ export const products = {
           If you have a comma three, a red panda is needed to talk to CAN FD cars.
         </p>
         <p>
-          A red panda is not required for the <a href="/shop/comma-four">comma four</a>.
+          A red panda is not required for the <a href="/shop/comma-four">comma 4</a>.
         </p>
         <p>
           The red panda does not have GPS support. It is not compatible with the
@@ -241,7 +241,7 @@ export const products = {
     description: `
       <strong>Description</strong>
       <p>
-        This is a replacement for the SIM that ships with the comma four to support <a href="https://connect.comma.ai/" target="_blank">comma prime</a>.
+        This is a replacement for the SIM that ships with the comma 4 to support <a href="https://connect.comma.ai/" target="_blank">comma prime</a>.
       </p>
       <p>
         See how to replace the SIM card in a comma 3/3X
@@ -363,23 +363,23 @@ export const products = {
     notes: [
       {
         title: "Note",
-        content: "comma four orders come with (2) mounts.",
+        content: "comma 4 orders come with (2) mounts.",
       },
       {
         title: "Note",
-        content: "comma four mounts are not compatible with comma 3X/three.",
+        content: "comma 4 mounts are not compatible with comma 3X/three.",
       }
     ],
     description: `
       <strong>Description</strong>
       <p>
-        comma four mounts are compatible with every vehicle openpilot supports.
+        comma 4 mounts are compatible with every vehicle openpilot supports.
       </p>
       <hr />
       <hgroup>
         <div>
           <span>Variant</span>
-          <strong>comma four</strong>
+          <strong>comma 4</strong>
         </div>
       </hgroup>
       <p>
@@ -563,7 +563,7 @@ export const products = {
   },
 
   "comma-four-trade-in": {
-    title: "comma four trade-in",
+    title: "comma 4 trade-in",
     id: "gid://shopify/Product/7966994202687",
   },
 

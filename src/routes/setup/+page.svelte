@@ -51,7 +51,7 @@
     </div>
   </div>
 </section>
- 
+
 <section class="light" id="guide">
   <div class="container">
     <SetupStep
@@ -94,7 +94,7 @@
       stepNumber={7}
       images={[Power1Image]}
       header="plug the comma power into the harness box"
-      body="The comma power allows your comma four to stay powered on if the car is off. This means no boot up time before each drive, and automatic software updates in the background. It is optional for driving functionality, but recommended."
+      body="The comma power allows your comma 4 to stay powered on if the car is off. This means no boot up time before each drive, and automatic software updates in the background. It is optional for driving functionality, but recommended."
     />
     <SetupStep
       stepNumber={8}
@@ -106,37 +106,37 @@
       stepNumber={9}
       images={[Trim4Image]}
       header="re-attach the rearview mirror cover trim"
-      body="Attach the cover plastic the same way you removed it, just backwards. You can route the OBD-C cable however you like, but leave some slack to make it easier to plug into your comma four next. Some of our cars have the cable wrapped around the mirror arm while others are routed through the trim; clean or messy, it's up to you :)"
+      body="Attach the cover plastic the same way you removed it, just backwards. You can route the OBD-C cable however you like, but leave some slack to make it easier to plug into your comma 4 next. Some of our cars have the cable wrapped around the mirror arm while others are routed through the trim; clean or messy, it's up to you :)"
     />
     <SetupStep
       stepNumber={10}
       images={[MountImage, Mount5Image]}
-      header="attach a mount to your comma four"
+      header="attach a mount to your comma 4"
       body="Use two thumbs to press the sides down and push up. It should slide on easily with a tight fit."
     />
     <SetupStep
       stepNumber={11}
       images={[Plug2Image]}
-      header="plug in your comma four"
+      header="plug in your comma 4"
       body="Do not peel off the red tape protector until you're ready to mount after the next step."
     />
     <SetupStep
       stepNumber={12}
       images={[Mount1Image, Mount2Image]}
-      header="find a good spot for your comma four"
-      body="The comma four must be mounted in the center of the windshield and high up. Hold it up to see how it fits with your car's trim.<br><br>Make sure the spot you like leaves enough room above the comma four to make it easy to unplug!"
+      header="find a good spot for your comma 4"
+      body="The comma 4 must be mounted in the center of the windshield and high up. Hold it up to see how it fits with your car's trim.<br><br>Make sure the spot you like leaves enough room above the comma 4 to make it easy to unplug!"
     />
     <SetupStep
       stepNumber={13}
       images={[Mount3Image]}
-      header="stick your comma four to the windshield"
-      body="When you're happy with the position, peel the red layer off the mount, and stick your comma four in place. Firmly press it upward to properly stick the mount to the windshield."
+      header="stick your comma 4 to the windshield"
+      body="When you're happy with the position, peel the red layer off the mount, and stick your comma 4 in place. Firmly press it upward to properly stick the mount to the windshield."
     />
     <SetupStep
       stepNumber={14}
       images={[UnmountImage, Unmount1Image]}
-      header="unplug your comma four and remove it from the mount"
-      body="Slide your comma four up towards your rearview mirror to unmount it."
+      header="unplug your comma 4 and remove it from the mount"
+      body="Slide your comma 4 up towards your rearview mirror to unmount it."
     />
     <SetupStep
       stepNumber={15}
@@ -153,8 +153,8 @@
     <SetupStep
       stepNumber={17}
       images={[RemountImage]}
-      header="re-place your comma four"
-      body="Slide your comma four back on to the mount and plug it in. Almost done, last step is cleanup."
+      header="re-place your comma 4"
+      body="Slide your comma 4 back on to the mount and plug it in. Almost done, last step is cleanup."
     />
     <SetupStep
       stepNumber={18}
@@ -165,8 +165,8 @@
     <SetupStep
       stepNumber={19}
       images={[PowerImage]}
-      header="start and set up your comma four"
-      body="You just upgraded your car to a whole new experience. Now you can setup your comma four in a few seconds and go for a drive!"
+      header="start and set up your comma 4"
+      body="You just upgraded your car to a whole new experience. Now you can setup your comma 4 in a few seconds and go for a drive!"
     />
   </div>
 </section>

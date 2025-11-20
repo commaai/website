@@ -32,7 +32,7 @@
         <div class="title">
           openpilot works with {vehicleCountText} cars
         </div>
-<!--        A supported vehicle is one that just works when you install a comma four.-->
+<!--        A supported vehicle is one that just works when you install a comma 4.-->
 <!--        All supported cars provide a better experience than any stock system.-->
 <!--        Supported vehicles reference the US market unless otherwise specified.-->
 

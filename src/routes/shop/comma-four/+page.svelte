@@ -36,7 +36,7 @@
     <hr />
 
     <Grid rowGap="0" templateColumns="0.5fr 0.5fr">
-      <img src={FourRemount} loading="lazy" alt="comma four device remounted on windshield">
+      <img src={FourRemount} loading="lazy" alt="comma 4 device remounted on windshield">
       <div class="description">
         <h1>how it looks</h1>
           <p>
@@ -74,8 +74,8 @@
     <hr />
 
     <Grid rowGap="0" templateColumns="0.5fr 0.5fr">
-        <img src={FourExploded} loading="lazy" alt="comma four exploded view">
-<!--      <img src={FourRemount} loading="lazy" alt="comma four device remounted on windshield">-->
+        <img src={FourExploded} loading="lazy" alt="comma 4 exploded view">
+<!--      <img src={FourRemount} loading="lazy" alt="comma 4 device remounted on windshield">-->
       <div class="description" id="tech-specs">
         <h1 style="padding-bottom: 40px;">tech specs</h1>
         <div class="specs">
@@ -199,7 +199,7 @@
 
 <section class="light" id="fine-print">
   <div class="container">
-    <Faq topic={faq.devices} title="comma four FAQ" />
+    <Faq topic={faq.devices} title="comma 4 FAQ" />
     <Space multiplier={3} />
     <Faq topic={faq.trial} />
 
@@ -223,13 +223,13 @@
         </p>
         <strong>Warranty</strong>
         <p>
-          1-year limited warranty against hardware defects. Open and repair the comma four at your own risk.
+          1-year limited warranty against hardware defects. Open and repair the comma 4 at your own risk.
           comma is not responsible for damages that may occur while repairing devices. We cannot provide shipping return labels for international devices.
           Any damage on arrival must be reported to comma support within 14 days of delivery.
         </p>
         <strong>Software</strong>
         <p>
-          The comma four does not ship with software capable of controlling a car.
+          The comma 4 does not ship with software capable of controlling a car.
           Open source software can be installed separately.
         </p>
         <strong>Windshield installation</strong>

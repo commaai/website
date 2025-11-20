@@ -214,7 +214,7 @@
 
       <div class="left-section-v2 light no-reorder">
         <div class="desktop-four-hero-image">
-          <img src={FourFront} alt="comma four zoom"/>
+          <img src={FourFront} alt="comma 4 zoom"/>
         </div>
       </div>
       <div class="right-section-v2 no-bottom-border">

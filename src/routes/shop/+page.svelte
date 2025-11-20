@@ -50,7 +50,7 @@
         <Grid columns={2} alignItems="center" size="large">
           <div class="product-content">
             <hgroup>
-              <h1>comma four</h1>
+              <h1>comma 4</h1>
               <span>${FOUR_PRICE}</span>
             </hgroup>
             <LinkButton href="/shop/comma-four" style="secondary" fullWidth>
@@ -62,7 +62,7 @@
             </p>
           </div>
           <div class="mobile-first">
-            <img src={FourImage} loading="lazy" alt="comma four device" />
+            <img src={FourImage} loading="lazy" alt="comma 4 device" />
           </div>
         </Grid>
       </div>
@@ -198,7 +198,7 @@
               </p>
               <p>
                 A car must be provided to comma prior to beginning the project.
-                The porting fee includes an installed working comma four when the
+                The porting fee includes an installed working comma 4 when the
                 car is returned and open sourcing of the required interface
                 hardware.<br />
               </p>
@@ -210,7 +210,7 @@
               <strong>Included</strong>
               <ul>
                 <li>Fully working port for openpilot</li>
-                <li>comma four installed in returned car</li>
+                <li>comma 4 installed in returned car</li>
                 <li>Completed in 12 weeks</li>
               </ul>
               <strong>Pricing</strong>
