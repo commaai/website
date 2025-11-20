@@ -426,6 +426,10 @@
     <div class="left-section-v2">
       <div class="map-image">
         <img src={Map} alt="openpilot map"/>
+        <div class="map-text-overlay">
+          <div class="map-title">30,000</div>
+          <div class="map-subtitle">active openpilot users globally</div>
+        </div>
       </div>
     </div>
 
@@ -554,6 +558,51 @@
 
   .map-image {
     line-height: 0;
+    position: relative;
+    width: 100%;
+
+    & img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+
+  .map-text-overlay {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    z-index: 2;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .map-title {
+    font-size: 36px;
+    color: #eaeaea;
+    line-height: 1.2;
+    letter-spacing: -0.06em;
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.65);
+
+    @media screen and (max-width: 950px) {
+      font-size: 32px;
+    }
+  }
+
+  .map-subtitle {
+    font-size: 36px;
+    color: rgba(234, 234, 234, 0.65);
+    line-height: 1.2;
+    letter-spacing: -0.06em;
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.65);
+    margin-top: -0.2em;
+
+    @media screen and (max-width: 950px) {
+      font-size: 14px;
+      margin-top: 0;
+    }
   }
 
   .plug-instructions {
