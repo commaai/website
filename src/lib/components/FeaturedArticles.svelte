@@ -39,15 +39,15 @@
     >
       <img src={RoadShowLogo} alt="Logo of Road Show" />
     </a>
-    <a
-      href="https://www.youtube.com/watch?v=pfTUNEi7DEE"
-      style="font-size: 1.75rem; font-weight: 800; font-style: italic;">JRGo</a
-    >
-    <a
-      href="https://www.thedrive.com/tech/36604/we-tested-openpilot-the-1199-device-that-adds-entry-level-autonomy-to-your-car/"
-    >
-      <img src={TheDriveLogo} alt="Logo of The Drive" />
-    </a>
+<!--    <a-->
+<!--      href="https://www.youtube.com/watch?v=pfTUNEi7DEE"-->
+<!--      style="font-size: 1.75rem; font-weight: 800; font-style: italic;">JRGo</a-->
+<!--    >-->
+<!--    <a-->
+<!--      href="https://www.thedrive.com/tech/36604/we-tested-openpilot-the-1199-device-that-adds-entry-level-autonomy-to-your-car/"-->
+<!--    >-->
+<!--      <img src={TheDriveLogo} alt="Logo of The Drive" />-->
+<!--    </a>-->
   </Grid>
 </div>
 
