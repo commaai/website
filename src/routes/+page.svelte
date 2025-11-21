@@ -59,21 +59,6 @@
 
 <svelte:head>
   <link rel="preload" as="image" href="/videos/hero/poster.jpg" />
-  <link rel="preload" as="image" href={DeviceImage} />
-  <link
-    rel="preload"
-    href={NHaasGroteskRoman}
-    as="font"
-    type="font/otf"
-    crossorigin="anonymous"
-  />
-  <link
-    rel="preload"
-    href={NHaasGrotesk75}
-    as="font"
-    type="font/otf"
-    crossorigin="anonymous"
-  />
 </svelte:head>
 
 <section class="hero-image" style="background-image: url('/videos/hero/poster.jpg');" on:dragstart={handleDragStart} role="img" aria-label="Hero image">
@@ -95,7 +80,7 @@
     <h2 class="muted">An AI upgrade for your car</h2>
     <Grid columns={2} rowGap="3rem">
       <img
-        src={DeviceImage}
+        src={DeviceImage.src || DeviceImage}
         loading="lazy"
         alt="comma four device"
       />

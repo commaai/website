@@ -1,49 +1,114 @@
 <script>
-  import vehicles from '$lib/vehicles.json';
-
-  // Get featured brands with at least one vehicle
-  const featuredBrands = ['Toyota', 'Honda', 'Hyundai', 'Kia', 'Lexus', 'Subaru'];
-
-  const featuredCars = featuredBrands
-    .filter(brand => vehicles[brand] && vehicles[brand].length > 0)
-    .map(brand => ({
-      brand,
-      count: vehicles[brand].length
-    }));
+  const featuredCars = [
+    {
+      make: "Hyundai",
+      model: "Sonata",
+      year: "2020-23",
+      brandIcon: "/brands/hyundai.svg",
+    },
+    {
+      make: "Hyundai",
+      model: "Palisade",
+      year: "2020-22",
+      brandIcon: "/brands/hyundai.svg",
+    },
+    {
+      make: "Kia",
+      model: "Niro EV",
+      year: "2019-23",
+      brandIcon: "/brands/kia.svg",
+    },
+    {
+      make: "Lexus",
+      model: "ES",
+      year: "2019-22",
+      brandIcon: "/brands/lexus.svg",
+    },
+    {
+      make: "Toyota",
+      model: "Corolla",
+      year: "2020-22",
+      brandIcon: "/brands/toyota.svg",
+    },
+    {
+      make: "Toyota",
+      model: "Rav4",
+      year: "2019-22",
+      brandIcon: "/brands/toyota.svg",
+    },
+  ];
 </script>
 
-<div class="featured-cars">
+<div class="table">
   {#each featuredCars as car}
-    <div class="car-item">
-      <span class="brand">{car.brand}</span>
-      <span class="count muted">{car.count} models</span>
+    <div class="compatibility-item">
+      <img
+        src={car.brandIcon}
+        loading="lazy"
+        alt="{car.make} logo"
+        class="car-brand-logo"
+      />
+      <div class="car">
+        <div class="car-identifier">{car.make} {car.model}</div>
+        <div class="car-year">{car.year}</div>
+      </div>
     </div>
+    <hr />
   {/each}
 </div>
 
 <style>
-  .featured-cars {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-bottom: 2rem;
+  .table {
+    mask: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 1) 0,
+        rgba(0, 0, 0, 1) 80%,
+        rgba(0, 0, 0, 0) 97%
+      )
+      100% 50% / 100% 100% repeat-x;
   }
 
-  .car-item {
-    display: flex;
-    justify-content: space-between;
+  .compatibility-item {
     align-items: center;
-    padding: 1rem 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    font-size: 1.125rem;
+
+    & .car-brand-logo {
+      width: 3rem;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    & .car {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      flex: 1;
+      margin: 0 0.875rem;
+    }
+
+    & .car-identifier {
+      width: 12rem;
+      line-height: 1.2;
+    }
+
+    @media screen and (max-width: 768px) {
+      & .car-identifier {
+        width: 100%;
+      }
+    }
+
+    & .car-year {
+      color: rgba(0, 0, 0, 0.5);
+      line-height: 1.2;
+      flex: 1;
+    }
   }
 
-  .brand {
-    font-size: 1.5rem;
-    font-weight: 600;
-  }
-
-  .count {
-    font-family: JetBrains Mono, monospace;
-    font-size: 1rem;
+  hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 3.875rem;
   }
 </style>
