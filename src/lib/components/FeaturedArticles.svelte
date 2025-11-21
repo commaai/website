@@ -81,14 +81,14 @@
     border: 1px solid #000;
     justify-content: center;
     align-items: center;
-    padding: 0.875rem;
+    padding: 1.25rem;
     text-decoration: none;
     max-width: 100%;
     height: 40px;
     transition: background-color 0.2s;
 
     & img {
-      height: 35px;
+      height: 45px;
       display: inline-block;
       vertical-align: middle;
       object-fit: contain;
