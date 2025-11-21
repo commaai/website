@@ -120,8 +120,7 @@
     </Grid>
     <h1 class="mt-4">Buy it, plug it in, and engage.</h1>
     <h3 class="muted">
-      comma four works with the car you already drive. It's like Tesla Autopilot
-      for your Toyota, Honda, and more.
+      comma four works on <a href="/vehicles" target="_blank">325+ car models</a>. It adds the best driver assistance in the world to your existing car.
     </h3>
   </div>
 </section>
