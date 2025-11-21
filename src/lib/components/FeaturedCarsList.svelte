@@ -1,40 +1,45 @@
 <script>
+  import HyundaiIcon from "$lib/icons/brands/hyundai.svg";
+  import LexusIcon from "$lib/icons/brands/lexus.svg";
+  import KiaIcon from "$lib/icons/brands/kia.svg";
+  import ToyotaIcon from "$lib/icons/brands/toyota.svg";
+
   const featuredCars = [
     {
       make: "Hyundai",
       model: "Sonata",
       year: "2020-23",
-      brandIcon: "/brands/hyundai.svg",
+      brandIcon: HyundaiIcon,
     },
     {
       make: "Hyundai",
       model: "Palisade",
       year: "2020-22",
-      brandIcon: "/brands/hyundai.svg",
+      brandIcon: HyundaiIcon,
     },
     {
       make: "Kia",
       model: "Niro EV",
       year: "2019-23",
-      brandIcon: "/brands/kia.svg",
+      brandIcon: KiaIcon,
     },
     {
       make: "Lexus",
       model: "ES",
       year: "2019-22",
-      brandIcon: "/brands/lexus.svg",
+      brandIcon: LexusIcon,
     },
     {
       make: "Toyota",
       model: "Corolla",
       year: "2020-22",
-      brandIcon: "/brands/toyota.svg",
+      brandIcon: ToyotaIcon,
     },
     {
       make: "Toyota",
       model: "Rav4",
       year: "2019-22",
-      brandIcon: "/brands/toyota.svg",
+      brandIcon: ToyotaIcon,
     },
   ];
 </script>

@@ -17,8 +17,6 @@
   import RecordingsIcon from "$lib/icons/features/recordings.svg?raw";
 
   const HeroVideo = "/videos/hero/hero.m3u8";
-  import NHaasGroteskRoman from "$lib/fonts/NHaasGrotesk/NHaasGroteskDSPro-55Rg.otf";
-  import NHaasGrotesk75 from "$lib/fonts/NHaasGrotesk/NHaasGroteskTXPro-75Bd.otf";
 
   let videoElement;
   let videoReady = false;
@@ -80,7 +78,7 @@
     <h2 class="muted">An AI upgrade for your car</h2>
     <Grid columns={2} rowGap="3rem">
       <img
-        src={DeviceImage.src || DeviceImage}
+        src={DeviceImage}
         loading="lazy"
         alt="comma four device"
       />
@@ -120,7 +118,8 @@
     </Grid>
     <h1 class="mt-4">Buy it, plug it in, and engage.</h1>
     <h3 class="muted">
-      comma four works on <a href="/vehicles" target="_blank">325+ car models</a>. It adds the best driver assistance in the world to your existing car.
+      comma four works with the car you already drive. It's like Tesla Autopilot
+      for your Toyota, Honda, and more.
     </h3>
   </div>
 </section>
@@ -195,22 +194,6 @@
 </section>
 
 <style>
-  @font-face {
-    font-display: block;
-    font-family: "NHaasGrotesk Roman";
-    font-style: normal;
-    font-weight: normal;
-    src: url("$lib/fonts/NHaasGrotesk/NHaasGroteskDSPro-55Rg.otf");
-  }
-
-  @font-face {
-    font-display: block;
-    font-family: "NHaasGrotesk 75";
-    font-style: normal;
-    font-weight: bold;
-    src: url("$lib/fonts/NHaasGrotesk/NHaasGroteskTXPro-75Bd.otf");
-  }
-
   .hero-image {
     position: relative;
     width: 100%;
