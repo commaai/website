@@ -120,27 +120,51 @@
 </main>
 
 <footer>
-  <div class="footer-content">
-    <div class="footer-left">
-      <h1>COMMA</h1>
-      <div class="copyright">© comma_ai 2025</div>
-    </div>
-    <div class="footer-right">
-      <div class="footer-links-grid">
-        <a href="https://connect.comma.ai">CONNECT</a>
-        <a href="https://github.com/commaai/openpilot/releases">RELEASES</a>
-        <a href="/jobs">JOBS</a>
-        <a href="/leaderboard.html">LEADERBOARD</a>
-        <a href="/vehicles">SUPPORTED CARS</a>
-        <a href="/support">SUPPORT</a>
-        <a href="/setup">SETUP GUIDE</a>
-        <a href="https://github.com/commaai">GITHUB</a>
-        <a href="https://twitter.com/comma_ai">TWITTER</a>
-        <a href="https://www.instagram.com/comma_ai">INSTAGRAM</a>
-        <a href="https://discord.comma.ai">DISCORD</a>
-        <a href="https://www.youtube.com/commaai">YOUTUBE</a>
-        <a href="/terms">TERMS & PRIVACY</a>
+  <div class="container">
+    <Grid columns={4} wrapMode="single" alignItems="start" size="large">
+      <div class="footer-links">
+        <strong>Product</strong>
+        <a href="/openpilot">openpilot</a>
+        <a class="badged" href="/shop/comma-four">
+          <span>comma four</span>
+          <Badge style="light" display="inline">new</Badge>
+        </a>
+        <a href="/connect">connect</a>
+        <a href="/vehicles">Compatibility</a>
+        <a href="/shop">Shop</a>
       </div>
+      <div class="footer-links">
+        <strong>Company</strong>
+        <a href="https://blog.comma.ai">Blog</a>
+        <a class="badged" href="/jobs.html">
+          <span>Jobs</span>
+          <Badge style="light" display="inline">we're hiring!</Badge>
+        </a>
+        <a class="badged" href="/leaderboard.html">
+          <span>Leaderboard</span>
+          <Badge style="accent" display="inline">New Challenge!</Badge>
+        </a>
+      </div>
+      <div class="footer-links">
+        <strong>Support</strong>
+        <a href="/support">Support & FAQs</a>
+        <a href="/setup">Setup Guides</a>
+        <a class="badged" href="https://discord.comma.ai/">
+          <span>Discord</span>
+          {@html ExternalIcon}
+        </a>
+      </div>
+      <div class="footer-links">
+        <div class="tagline">{@html CommaIcon}<span>make driving chill</span></div>
+        <SocialIcons size="1.5rem" />
+        <div class="mailing-list">
+          <MailingListForm style="primary" />
+        </div>
+      </div>
+    </Grid>
+    <div class="copyright">
+      <span>© comma_ai 2025</span>
+      <a href="/terms">Terms & Privacy</a>
     </div>
   </div>
 </footer>
@@ -355,167 +379,110 @@
   }
 
   footer {
-    background-color: #333;
-    padding: 0;
-    margin: 0;
-    position: relative;
-    z-index: 10;
-    border-top: 1px solid black;
+    color: #fff;
+    background-color: #000;
+    padding: 6rem 6rem 1.25rem;
 
-    & .footer-content {
-      background-color: #EAEAEA;
-      padding: 1rem;
+    @media screen and (max-width: 1024px) {
+      & {
+        padding: 2rem;
+      }
+
+      & .footer-links {
+        margin-bottom: 1rem;
+      }
+    }
+
+    & .container {
+      max-width: 1440px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    & .footer-links {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+
+      & strong {
+        color: #fff;
+        opacity: 0.65;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        font-size: 1rem;
+        font-weight: 600;
+      }
+
+      & a {
+        color: #fff;
+        font-size: 1.25rem;
+        transition: opacity 0.2s;
+      }
+
+      @media (hover: hover) and (pointer: fine) {
+        & a:hover {
+          opacity: 0.65;
+        }
+      }
+      & a:active {
+        opacity: 0.65;
+      }
+
+      & .badged {
+        display: flex;
+        align-items: center;
+        transition: opacity 0.2s;
+
+        & span {
+          margin-right: 0.75rem;
+        }
+
+        & div {
+          padding: 0.25rem 0.4rem;
+          text-wrap: nowrap;
+          margin: 0;
+        }
+      }
+
+      & .tagline {
+        display: flex;
+
+        & svg {
+          width: 16px;
+          height: 28px;
+          margin-right: 0.75rem;
+          color: white;
+        }
+
+        & span {
+          font-size: 1.2rem;
+          font-weight: 400;
+        }
+      }
+    }
+
+    & .mailing-list {
+      margin-top: 2rem;
+      width: 100%;
+      color: white;
+    }
+
+    @media only screen and (max-width: 1024px) and (min-width: 512px) {
+      & .mailing-list {
+        width: unset;
+      }
+    }
+
+    & .copyright {
       display: flex;
       justify-content: space-between;
-      align-items: flex-end;
-      width: 100%;
-      box-sizing: border-box;
-      overflow-x: auto;
-    }
-
-    & .footer-left {
-      display: flex;
-      flex-direction: row;
-      align-items: baseline;
-      gap: 2rem;
-    }
-
-    & h1 {
-      color: #000;
-      font-family: "Monument Extended Black", sans-serif;
-      font-size: 64px;
-      text-transform: uppercase;
-      margin: 0;
-      padding: 0;
-      line-height: 1;
-    }
-
-    & .footer-left .copyright {
-      color: black;
-      font-size: 0.875rem;
-      margin: 0;
-      padding: 0;
-      font-family: 'JetBrains Mono', monospace;
-      font-weight: 400;
-      line-height: 1;
-    }
-
-    & .footer-right {
-      display: flex;
       align-items: center;
-      align-self: center;
+      font-size: 0.875rem;
+      margin-top: 4rem;
+      opacity: 0.65;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.25);
     }
-
-    & .footer-links-grid {
-      display: grid;
-      grid-template-columns: repeat(6, auto);
-      gap: 0.75rem 60px;
-      justify-content: flex-end;
-      justify-items: end;
-      grid-auto-flow: row;
-      direction: rtl;
-
-      @media screen and (max-width: 1440px) {
-        grid-template-columns: repeat(4, auto);
-      }
-
-      @media screen and (max-width: 1170px) {
-        grid-template-columns: repeat(3, auto);
-      }
-
-      @media screen and (max-width: 471px) {
-        grid-template-columns: repeat(2, auto);
-      }
-
-      @media screen and (max-width: 300px) {
-        grid-template-columns: repeat(1, auto);
-      }
-    }
-
-    & .footer-links-grid a {
-      direction: ltr;
-      color: #000;
-      text-transform: uppercase;
-      font-size: 14px;
-      font-weight: 400;
-      text-decoration: none;
-      font-family: 'JetBrains Mono', monospace;
-      letter-spacing: 0.5px;
-      transition: opacity 0.2s;
-      line-height: 1;
-      text-align: right;
-      justify-self: end;
-      align-self: end;
-      width: 100%;
-      display: block;
-    }
-
-    & .footer-links-grid a:hover,
-    & .footer-links-grid a:active {
-      opacity: 0.6;
-    }
-
-    /*@media screen and (max-width: 1024px) {*/
-    /*  & .footer-content {*/
-    /*    padding: 1rem;*/
-    /*    flex-direction: column;*/
-    /*    gap: 2rem;*/
-    /*  }*/
-
-    /*  & .footer-right {*/
-    /*    align-items: flex-start;*/
-    /*    width: 100%;*/
-    /*  }*/
-
-    /*  & .footer-links-grid {*/
-    /*    grid-template-columns: repeat(auto-fit, minmax(120px, auto));*/
-    /*    justify-content: flex-start;*/
-    /*    width: 100%;*/
-    /*    gap: 1.5rem 1.5rem;*/
-    /*  }*/
-    /*}*/
-
-    @media screen and (max-width: 1010px) {
-      & .footer-content {
-        flex-direction: column;
-        align-items: start;
-        gap: 2rem;
-      }
-
-      & .footer-left {
-        order: 2;
-      }
-
-      & .footer-right {
-        order: 1;
-        align-self: flex-start;
-      }
-
-      & .footer-links-grid {
-        gap: 1rem 60px;
-        justify-content: flex-start;
-        justify-items: start;
-        direction: ltr;
-      }
-
-      & .footer-links-grid a {
-        text-align: left;
-        justify-self: start;
-      }
-    }
-
-    @media screen and (max-width: 500px) {
-      & .footer-left {
-        flex-direction: column;
-        gap: 1rem;
-      }
-    }
-
-    @media screen and (max-width: 698px) {
-      & h1 {
-        font-size: 48px;
-      }
-    }
-
   }
 </style>
