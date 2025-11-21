@@ -80,23 +80,23 @@
 
 <header class="navbar">
   <div class="navbar-container">
-    <!-- <div class="navbar-section-logo">
+    <div class="navbar-section-logo">
+      <a class="title" href="/">comma</a>
       <div class="menu-container">
         <HeaderMenu />
       </div>
-    </div> -->
+    </div>
     <nav class="navbar-section-links">
-      <a href="/" class:active={$page.url.pathname === '/'}>home</a>
-      <a href="/shop" class:active={$page.url.pathname.startsWith('/shop')}>shop</a>
-      <a href="/support" class:active={$page.url.pathname.startsWith('/support')}>faq</a>
-      <a href="/vehicles" class="hide-mobile-1" class:active={$page.url.pathname.startsWith('/vehicles')}>supported cars</a>
-      <a href="/jobs" class="hide-mobile-2" class:active={$page.url.pathname.startsWith('/jobs')}>jobs</a>
+      <a href="/openpilot">openpilot</a>
+      <a href="/shop/comma-four">comma four</a>
+      <a href="/vehicles">compatibility</a>
+      <a href="/jobs.html">jobs</a>
     </nav>
     <div class="navbar-section-buttons">
-      <!-- <a class="button shop" href="/shop">
+      <a class="button shop" href="/shop">
         {@html BasketIcon}
         Shop
-      </a> -->
+      </a>
       {#if $cartTotalQuantity > 0}
         <button class="button cart" on:click={openCart}>
           {@html CartIcon}
@@ -154,30 +154,23 @@
   }
 
   .navbar {
-    top: 1rem;
-    position: fixed;
-    left: 1rem;
-    right: 1rem;
-    width: auto;
-    z-index: 20;
-    border-radius: 0.5rem;
+    top: 0;
+    position: sticky;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 10;
 
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(245, 245, 245, 0.75);
     border-bottom: 1px solid #000;
     backdrop-filter: blur(10px);
-    overflow: visible;
   }
 
   .navbar-container {
     display: flex;
     align-items: stretch;
     justify-content: space-between;
-    border-radius: 0.5rem;
-    overflow: visible;
-
-    @media only screen and (max-width: 1160px) {
-      flex-wrap: wrap;
-    }
   }
 
   .navbar-section-logo {
@@ -220,70 +213,19 @@
     display: flex;
     flex: 1;
     align-items: center;
-    justify-content: left;
+    justify-content: center;
 
     & a {
-      color: #ffffff;
-      margin: 1.0rem 1.5rem;
+      color: #000;
+      margin: 0 1.75rem;
       font-family: Inter, sans-serif;
       font-size: 1.125rem;
-      white-space: nowrap;
-      transition: color 0.2s, text-shadow 0.2s;
-
-      &.active,
-      &:active {
-        color: var(--color-accent);
-        text-shadow: 0 0 8px var(--color-accent), 0 0 16px var(--color-accent);
-      }
-
-      @media (hover: hover) and (pointer: fine) {
-        &:hover {
-          color: var(--color-accent);
-          text-shadow: 0 0 8px var(--color-accent), 0 0 16px var(--color-accent);
-        }
-      }
-
-      @media only screen and (max-width: 710px) {
-        margin: 1.0rem 0.75rem;
-        font-size: 1rem;
-      }
     }
 
-    /*@media only screen and (max-width: 440px) {*/
-    /*  & a.hide-mobile-3 {*/
-    /*    display: none;*/
-    /*  }*/
-    /*}*/
-
-    @media only screen and (max-width: 405px) {
-      & a.hide-mobile-2 {
+    @media only screen and (max-width: 1280px) {
+      & {
         display: none;
       }
-    }
-
-    @media only screen and (max-width: 350px) {
-      & a.hide-mobile-1 {
-        display: none;
-      }
-    }
-  }
-
-  /* Wrap nav bar links earlier if cart button is showing */
-  /*@media (max-width: 540px) {*/
-  /*  .navbar-container:has(.cart) .navbar-section-links a.hide-mobile-3 {*/
-  /*    display: none;*/
-  /*  }*/
-  /*}*/
-
-  @media (max-width: 490px) {
-    .navbar-container:has(.cart) .navbar-section-links a.hide-mobile-2 {
-      display: none;
-    }
-  }
-
-  @media (max-width: 436px) {
-    .navbar-container:has(.cart) .navbar-section-links a.hide-mobile-1 {
-      display: none;
     }
   }
 
@@ -302,7 +244,7 @@
       color: #000;
       text-transform: uppercase;
       font-family: Inter, sans-serif;
-      border: none;
+      border-left: 1px solid #000;
       padding-left: 56px;
       padding-right: 56px;
       font-size: 1rem;
@@ -312,15 +254,6 @@
       align-items: center;
       cursor: pointer;
       background-color: var(--color-accent);
-
-      &:last-child {
-        border-top-right-radius: 0.5rem;
-        border-bottom-right-radius: 0.5rem;
-      }
-
-      &:not(:first-child) {
-        border-left: 1px solid #000;
-      }
 
       @media (hover: hover) and (pointer: fine) {
         &:hover {
@@ -332,7 +265,7 @@
       }
     }
 
-    @media only screen and (max-width: 1300px) {
+    @media only screen and (max-width: 768px) {
       /* show single button, with priority for cart */
       &.navbar-section-buttons > :first-child:not(:only-child) {
         display: none;
