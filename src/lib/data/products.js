@@ -8,9 +8,10 @@ export const products = {
     freeRush: true,
     images: [
       "/src/lib/images/products/comma-four/four_screen_on.png",
-      "/src/lib/images/products/comma-four/four_side_2.png",
-      "/src/lib/images/products/comma-four/four_back_2.png",
-      "/src/lib/images/products/comma-four/remount.jpg"
+      "/src/lib/images/products/comma-four/four_angled.png",
+      "/src/lib/images/products/comma-four/four_back.png",
+      "/src/lib/images/products/comma-four/four_side.png",
+      "/src/lib/images/products/comma-four/remount2.png"
     ],
     notes: [],
     description: `
