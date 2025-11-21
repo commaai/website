@@ -26,7 +26,7 @@
     <Grid columns={4}>
       <div class="stats-item">
         <div>{@html RoadIcon}</div>
-        <span>100+ million</span>
+        <span>300+ million</span>
         <span>Miles driven</span>
       </div>
       <div class="stats-item">
@@ -36,7 +36,7 @@
       </div>
       <div class="stats-item">
         <div>{@html CarIcon}</div>
-        <span>10,000+</span>
+        <span>20,000+</span>
         <span>Active users</span>
       </div>
       <div class="stats-item">
@@ -148,7 +148,7 @@
             </div>
             <div class="feature-item">
               <div>{@html ProcessorIcon}</div>
-              <span>Qualcomm snapdragon 845</span>
+              <span>Qualcomm snapdragon 845 MAX</span>
             </div>
             <div class="feature-item">
               <div>{@html ConnectivityIcon}</div>
@@ -156,7 +156,7 @@
             </div>
             <div class="feature-item">
               <div>{@html DisplayIcon}</div>
-              <span>6" BEAUTIFUL<br />OLED display</span>
+              <span>BEAUTIFUL<br />OLED display</span>
             </div>
             <div class="feature-item">
               <div>{@html MemoryIcon}</div>
@@ -180,7 +180,7 @@
         <h2>Proven on the road</h2>
       </hgroup>
       <p>
-        Our 10,000+ users have driven over 100+ million miles with a device
+        Our 20,000+ users have driven over 300 million miles with a device
         running openpilot. Over 56% of those miles were driven by openpilot,
         with the driver supervising.
       </p>
