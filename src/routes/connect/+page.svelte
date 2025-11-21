@@ -7,7 +7,7 @@
   import { faq } from '$lib/constants/faq.svelte';
 
   import ConnectHeroImage from "$lib/images/connect-app.png";
-  import Comma3XImage from "$lib/images/device-glow.png";
+  import CommaFourImage from "$lib/images/products/comma-four/four_screen_on.png";
 
   import RecordingsIcon from "$lib/icons/features/recordings.svg?raw";
   import TwentyFourSevenIcon from "$lib/icons/features/twenty-four-seven.png";
@@ -117,7 +117,7 @@
           <div class="icon"><img src={SnapshotIcon} loading="lazy" alt=""></div>
           <hgroup>
             <div>Take pictures remotely</div>
-            <span class="muted">Know what's going on around your car. comma 3X features HD road-facing and night-vision-enabled cabin cameras.</span>
+            <span class="muted">Know what's going on around your car. comma four features HD road-facing and night-vision-enabled cabin cameras.</span>
           </hgroup>
         </div>
         <div class="content">
@@ -181,11 +181,11 @@
     <div class="free-trial">
       <Grid alignItems="center" columnGap="3rem">
         <div>
-          <h2>Free 1-month trial with comma 3X purchase</h2>
-          <LinkButton href="/shop/comma-3x" style="secondary">Buy a comma 3X</LinkButton>
+          <h2>Free 1-month trial with comma four purchase</h2>
+          <LinkButton href="/shop" style="secondary">Shop comma four</LinkButton>
         </div>
         <div class="mobile-first">
-          <img src={Comma3XImage} loading="lazy" alt="comma 3X device" />
+          <img src={CommaFourImage} loading="lazy" alt="comma four device" />
         </div>
       </Grid>
     </div>
