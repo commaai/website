@@ -430,11 +430,6 @@
         "type": 302
       },
       {
-        "source": "/connect",
-        "destination": "https://connect.comma.ai",
-        "type": 302
-      },
-      {
         "source": "/shipping",
         "destination": "/faq",
         "type": 302
