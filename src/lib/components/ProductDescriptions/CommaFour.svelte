@@ -152,7 +152,7 @@
         </div>
         <div class="details" slot="content">
           See for yourself why Consumer Reports rated us as the
-          <a href="https://data.consumerreports.org/wp-content/uploads/2020/11/consumer-reports-active-driving-assistance-systems-november-16-2020.pdf">top ADAS system</a>.
+          <a href="https://data.consumerreports.org/wp-content/uploads/2020/11/consumer-reports-active-driving-assistance-systems-november-16-2020.pdf">top driver assistance system</a>.
           We think you’ll love it, but if you’re not satisfied, send it back for a full refund.
         </div>
       </Accordion>

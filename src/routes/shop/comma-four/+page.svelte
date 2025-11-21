@@ -221,7 +221,7 @@
     </div>
     <h2 class="guarantee">
       Try our 30-day money-back trial and see why 92% of buyers keep their comma four and why Consumer Reports rated us as the
-      <a href="https://data.consumerreports.org/wp-content/uploads/2020/11/consumer-reports-active-driving-assistance-systems-november-16-2020.pdf" class="highlight">top ADAS system.</a>
+      <a href="https://data.consumerreports.org/wp-content/uploads/2020/11/consumer-reports-active-driving-assistance-systems-november-16-2020.pdf" class="highlight">top driver assistance system.</a>
     </h2>
   </div>
 </section>

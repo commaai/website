@@ -43,8 +43,8 @@
           question: 'How does openpilot work?',
           answer: `
             openpilot works by connecting to your car's CAN network. Most modern cars
-            accept electronic steering, gas, and brake commands to allow for ADAS
-            features. openpilot can use these commands to provide much better ADAS
+            accept electronic steering, gas, and brake commands to allow for driver assistance
+            features. openpilot can use these commands to provide much better driver assistance
             features than the car manufacturers can provide.
           `
         }, {
@@ -421,8 +421,8 @@
               <a href="https://www.reddit.com/r/SelfDrivingCars/comments/b13cdp/open_pilot_and_insurance_coverage/">here</a>.
             </p>
             <p>
-              Insurance companies are beginning to understand the safety benefits of ADAS
-              and LKAS systems like openpilot and we have not heard of any providers
+              Insurance companies are beginning to understand the safety benefits of driver assistance
+              systems like openpilot and we have not heard of any providers
               rejecting coverage to comma hardware users.
             </p>
           `
