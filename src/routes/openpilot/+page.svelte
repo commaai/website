@@ -17,8 +17,11 @@
   import LocationIcon from "$lib/icons/features/location.svg?raw";
 
   import { vehicleCountText } from '$lib/constants/vehicles.js';
+  import ReleaseNote from "$lib/components/ReleaseNote.svelte";
 
   const contributorsCount = 1000;
+
+  export let data;
 </script>
 
 <section class="dark" id="about">
@@ -128,6 +131,12 @@
       <LinkButton href="https://github.com/commaai/openpilot">
         View on GitHub
       </LinkButton>
+      <div class="release-notes">
+        <h3>Latest Release Notes</h3>
+        {#each data.releaseNotes as release}
+          <ReleaseNote releaseNote={release} />
+        {/each}
+      </div>
     </article>
     <article>
       <hgroup>
