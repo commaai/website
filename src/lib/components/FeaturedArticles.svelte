@@ -1,6 +1,8 @@
 <script>
   import Grid from "$lib/components/Grid.svelte";
 
+  import LinusTechTipsLogo from "$lib/images/featured-articles/linus-tech-tips.svg";
+  import SnazzyLabsLogo from "$lib/images/featured-articles/snazzy-labs.png";
   import TheVergeLogo from "$lib/images/featured-articles/the-verge.svg";
   import CarAndDriverLogo from "$lib/images/featured-articles/car-and-driver.png";
   import ConsumerReportsLogo from "$lib/images/featured-articles/consumer-reports.png";
@@ -11,6 +13,13 @@
 <div class="featured-articles">
   <span>Featured in</span>
   <Grid columns={6} columnGap="0.5rem" size="large">
+    <a href="https://www.youtube.com/watch?v=GY8ruVimG8M">
+      <img src={LinusTechTipsLogo} alt="Logo of Linus Tech Tips" />
+    </a>
+    <a href="https://www.youtube.com/watch?v=GY8ruVimG8M">
+<!--      Snazzy Labs-->
+      <img src={SnazzyLabsLogo} alt="Logo of Snazzy Labs" />
+    </a>
     <a
       href="https://www.theverge.com/23548094/george-hotz-comma-3-driver-assist-hands-free-demo"
     >
