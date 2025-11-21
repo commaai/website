@@ -17,7 +17,6 @@
       <img src={LinusTechTipsLogo} alt="Logo of Linus Tech Tips" />
     </a>
     <a href="https://www.youtube.com/watch?v=GY8ruVimG8M">
-<!--      Snazzy Labs-->
       <img src={SnazzyLabsLogo} alt="Logo of Snazzy Labs" />
     </a>
     <a
