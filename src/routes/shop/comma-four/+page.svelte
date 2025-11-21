@@ -215,7 +215,7 @@
             comma four ships without software installed, so you need to install software.
             It is compatible with <a href="https://github.com/commaai/openpilot" class="highlight">openpilot</a> and works with a wide variety of community supported forks.
           </p>
-          <LinkButton href="https://github.com/commaai/openpilot" style="secondary" fullWidth={false}>Openpilot</LinkButton>
+          <LinkButton href="/openpilot" style="secondary" fullWidth={false}>openpilot</LinkButton>
         </div>
       </Grid>
     </div>
