@@ -90,7 +90,7 @@
       <a href="/openpilot">openpilot</a>
       <a href="/shop/comma-four">comma four</a>
       <a href="/vehicles">compatibility</a>
-      <a href="/jobs.html">jobs</a>
+      <a href="/jobs">jobs</a>
     </nav>
     <div class="navbar-section-buttons">
       <a class="button shop" href="/shop">
