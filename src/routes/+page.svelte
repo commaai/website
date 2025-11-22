@@ -401,7 +401,7 @@
   .device-image-container {
     position: relative;
     display: inline-block;
-    margin: 0 -2rem 0;
+    transform: scale(1.1);
 
     & img {
       display: block;
