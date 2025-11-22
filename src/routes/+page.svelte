@@ -49,37 +49,42 @@
     return null;
   }
 
-  // TODO: don't load both mobile and desktop videos on initial load
+  let landscapeHls = null;
+  let portraitHls = null;
+
   onMount(async () => {
-    // Initialize landscape video
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 769;
+
+    // Initialize both videos, but only start loading chunks for the visible one
     if (videoLandscapeElement) {
-      videoLandscapeElement.addEventListener('playing', () => {
-        videoLandscapeReady = true;
-      });
-      initializeHLS(videoLandscapeElement, HeroLandscapeVideo, () => {
-        videoLandscapeElement.play();
+      videoLandscapeElement.addEventListener('playing', () => videoLandscapeReady = true);
+      landscapeHls = initializeHLS(videoLandscapeElement, HeroLandscapeVideo, () => {
+        if (!isMobile) videoLandscapeElement.play();
       });
     }
 
-    // Initialize portrait video
     if (videoPortraitElement) {
-      videoPortraitElement.addEventListener('playing', () => {
-        videoPortraitReady = true;
-      });
-      initializeHLS(videoPortraitElement, HeroPortraitVideo, () => {
-        videoPortraitElement.play();
+      videoPortraitElement.addEventListener('playing', () => videoPortraitReady = true);
+      portraitHls = initializeHLS(videoPortraitElement, HeroPortraitVideo, () => {
+        if (isMobile) videoPortraitElement.play();
       });
     }
+
+    // After a delay, start loading chunks for the hidden video
+    setTimeout(() => {
+      (isMobile ? videoLandscapeElement : videoPortraitElement)?.play().catch(() => {});
+    }, 2000);
 
     // Initialize screen video
     if (screenVideoElement) {
-      screenVideoElement.addEventListener('playing', () => {
-        screenVideoReady = true;
-      });
-      initializeHLS(screenVideoElement, ScreenVideo, () => {
-        screenVideoElement.play();
-      });
+      screenVideoElement.addEventListener('playing', () => screenVideoReady = true);
+      initializeHLS(screenVideoElement, ScreenVideo, () => screenVideoElement.play());
     }
+
+    return () => {
+      landscapeHls?.destroy();
+      portraitHls?.destroy();
+    };
   });
 
   function handleDragStart(e) {
