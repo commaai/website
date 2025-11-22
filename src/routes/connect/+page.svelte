@@ -142,6 +142,24 @@
           <div class="cross">{@html CloseIcon}</div>
         </div>
       </div>
+
+      <div class="row">
+        <div class="feature-overview">
+          <div class="icon">{@html CommandLineIcon}</div>
+          <hgroup>
+            <div>commacare</div>
+            <span class="muted">Extend your comma four's standard one year warranty for an additional year. <a href="#what-is-commacare">See terms</a></span>
+          </hgroup>
+        </div>
+        <div class="content">
+          <div class="check">{@html CheckmarkIcon}</div>
+        </div>
+        <div class="content">
+          <div class="cross">{@html CloseIcon}</div>
+        </div>
+      </div>
+
+
     </div>
   </div>
 </section>
