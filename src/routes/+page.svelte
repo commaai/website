@@ -16,68 +16,36 @@
   import LocationIcon from "$lib/icons/features/location.svg?raw";
   import RecordingsIcon from "$lib/icons/features/recordings.svg?raw";
 
-  const HeroLandscapeVideo = "/videos/hero-landscape/hero-landscape.m3u8";
-  const HeroPortraitVideo = "/videos/hero-portrait/hero-portrait.m3u8";
-  const ScreenVideo = "/videos/screen-video/screen-video.m3u8";
+  const HeroVideo = "/videos/hero-landscape/hero-landscape.m3u8";
 
-  let videoLandscapeElement;
-  let videoLandscapeReady = false;
-  let videoPortraitElement;
-  let videoPortraitReady = false;
-  let screenVideoElement;
-  let screenVideoReady = false;
+  let videoElement;
+  let videoReady = false;
 
   // Hardcode GitHub star count (similar to contributors on openpilot page)
   const githubStars = 50000;
 
-  function initializeHLS(videoEl, src, onReady) {
-    if (Hls.isSupported()) {
-      const hls = new Hls();
-      hls.loadSource(src);
-      hls.attachMedia(videoEl);
-      hls.on(Hls.Events.MANIFEST_PARSED, () => {
-        if (onReady) onReady();
-      });
-      return hls;
-    } else if (videoEl.canPlayType('application/vnd.apple.mpegurl')) {
-      videoEl.src = src;
-      videoEl.addEventListener('loadedmetadata', () => {
-        if (onReady) onReady();
-      });
-      return null;
-    }
-    return null;
-  }
-
   onMount(async () => {
-    // Initialize landscape video
-    if (videoLandscapeElement) {
-      videoLandscapeElement.addEventListener('playing', () => {
-        videoLandscapeReady = true;
+    // Initialize HLS.js
+    if (videoElement) {
+      // Show video once it starts playing
+      videoElement.addEventListener('playing', () => {
+        videoReady = true;
       });
-      initializeHLS(videoLandscapeElement, HeroLandscapeVideo, () => {
-        videoLandscapeElement.play();
-      });
-    }
 
-    // Initialize portrait video
-    if (videoPortraitElement) {
-      videoPortraitElement.addEventListener('playing', () => {
-        videoPortraitReady = true;
-      });
-      initializeHLS(videoPortraitElement, HeroPortraitVideo, () => {
-        videoPortraitElement.play();
-      });
-    }
-
-    // Initialize screen video
-    if (screenVideoElement) {
-      screenVideoElement.addEventListener('playing', () => {
-        screenVideoReady = true;
-      });
-      initializeHLS(screenVideoElement, ScreenVideo, () => {
-        screenVideoElement.play();
-      });
+      if (Hls.isSupported()) {
+        const hls = new Hls();
+        hls.loadSource(HeroVideo);
+        hls.attachMedia(videoElement);
+        hls.on(Hls.Events.MANIFEST_PARSED, () => {
+          videoElement.play();
+        });
+      } else if (videoElement.canPlayType('application/vnd.apple.mpegurl')) {
+        // Native HLS support (Safari)
+        videoElement.src = HeroVideo;
+        videoElement.addEventListener('loadedmetadata', () => {
+          videoElement.play();
+        });
+      }
     }
   });
 
@@ -89,29 +57,13 @@
 
 <svelte:head>
   <link rel="preload" as="image" href="/videos/hero-landscape/poster.jpg" />
-  <link rel="preload" as="image" href="/videos/hero-portrait/poster.jpg" />
-  <link rel="preload" as="image" href="/videos/screen-video/poster.jpg" />
 </svelte:head>
 
-<section class="hero-image desktop" style="background-image: url('/videos/hero-landscape/poster.jpg');" on:dragstart={handleDragStart} role="img" aria-label="Hero image">
+<section class="hero-image" style="background-image: url('/videos/hero-landscape/poster.jpg');" on:dragstart={handleDragStart} role="img" aria-label="Hero image">
   <video
-    bind:this={videoLandscapeElement}
-    class:ready={videoLandscapeReady}
+    bind:this={videoElement}
+    class:ready={videoReady}
     poster="/videos/hero-landscape/poster.jpg"
-    autoplay
-    muted
-    loop
-    playsinline
-    draggable="false"
-  />
-</section>
-
-
-<section class="hero-image mobile" style="background-image: url('/videos/hero-portrait/poster.jpg');" on:dragstart={handleDragStart} role="img" aria-label="Hero image">
-  <video
-    bind:this={videoPortraitElement}
-    class:ready={videoPortraitReady}
-    poster="/videos/hero-portrait/poster.jpg"
     autoplay
     muted
     loop
@@ -271,19 +223,6 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-
-    &.desktop {
-      @media screen and (max-width: 768px) {
-        display: none;
-      }
-    }
-
-    &.mobile {
-      height: unset;
-      @media screen and (min-width: 769px) {
-        display: none;
-      }
-    }
 
     & video {
       width: 100%;
