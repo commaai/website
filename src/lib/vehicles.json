@@ -189,11 +189,11 @@
       "model": "Bolt EUV",
       "years": "2022-23",
       "year_list": "2022, 2023",
-      "package": "Premier or Premier Redline Trim without Super Cruise Package",
+      "package": "Premier or Premier Redline Trim, without Super Cruise Package",
       "video": "https://youtu.be/xvwzGMUA210",
       "setup_video": "",
       "harness_connector": "GM",
-      "detail_sentence": "openpilot is compatible with <strong>Chevrolet Bolt EUV 2022-23</strong> if it is equipped with <strong>Premier or Premier Redline Trim without Super Cruise Package</strong>.",
+      "detail_sentence": "openpilot is compatible with <strong>Chevrolet Bolt EUV 2022-23</strong> if it is equipped with <strong>Premier or Premier Redline Trim, without Super Cruise Package</strong>.",
       "footnotes": [
       ],
       "setup_notes": [
