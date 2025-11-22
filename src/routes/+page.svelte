@@ -18,11 +18,14 @@
 
   const HeroLandscapeVideo = "/videos/hero-landscape/hero-landscape.m3u8";
   const HeroPortraitVideo = "/videos/hero-portrait/hero-portrait.m3u8";
+  const ScreenVideo = "/videos/screen-video/screen-video.m3u8";
 
   let videoLandscapeElement;
   let videoLandscapeReady = false;
   let videoPortraitElement;
   let videoPortraitReady = false;
+  let screenVideoElement;
+  let screenVideoReady = false;
 
   // Hardcode GitHub star count (similar to contributors on openpilot page)
   const githubStars = 50000;
@@ -64,6 +67,16 @@
       });
       initializeHLS(videoPortraitElement, HeroPortraitVideo, () => {
         videoPortraitElement.play();
+      });
+    }
+
+    // Initialize screen video
+    if (screenVideoElement) {
+      screenVideoElement.addEventListener('playing', () => {
+        screenVideoReady = true;
+      });
+      initializeHLS(screenVideoElement, ScreenVideo, () => {
+        screenVideoElement.play();
       });
     }
   });
