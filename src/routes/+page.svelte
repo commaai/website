@@ -93,18 +93,18 @@
   <link rel="preload" as="image" href="/videos/screen-video/poster.jpg" />
 </svelte:head>
 
-<section class="hero-image desktop" style="background-image: url('/videos/hero-landscape/poster.jpg');" on:dragstart={handleDragStart} role="img" aria-label="Hero image">
-  <video
-    bind:this={videoLandscapeElement}
-    class:ready={videoLandscapeReady}
-    poster="/videos/hero-landscape/poster.jpg"
-    autoplay
-    muted
-    loop
-    playsinline
-    draggable="false"
-  />
-</section>
+<!--<section class="hero-image desktop" style="background-image: url('/videos/hero-landscape/poster.jpg');" on:dragstart={handleDragStart} role="img" aria-label="Hero image">-->
+<!--  <video-->
+<!--    bind:this={videoLandscapeElement}-->
+<!--    class:ready={videoLandscapeReady}-->
+<!--    poster="/videos/hero-landscape/poster.jpg"-->
+<!--    autoplay-->
+<!--    muted-->
+<!--    loop-->
+<!--    playsinline-->
+<!--    draggable="false"-->
+<!--  />-->
+<!--</section>-->
 
 
 <section class="hero-image mobile" style="background-image: url('/videos/hero-portrait/poster.jpg');" on:dragstart={handleDragStart} role="img" aria-label="Hero image">
@@ -258,8 +258,8 @@
     position: relative;
     /* Behind nav bar */
     margin: -66px 0 0;
-    width: 100%;
-    height: 100vh;
+    max-width: 100vw;
+    height: auto;
     overflow: hidden;
     padding: 0;
     user-select: none;
@@ -278,7 +278,7 @@
     }
 
     &.mobile {
-      height: unset;
+      /*height: unset;*/
       @media screen and (min-width: 769px) {
         display: none;
       }
@@ -286,8 +286,8 @@
 
     & video {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: auto;
+      object-fit: contain;
       object-position: center;
       display: block;
       user-select: none;
