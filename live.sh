@@ -10,4 +10,4 @@ fi
 
 bun upgrade
 bun install
-bun run dev -- --host
+bun run dev -- --open
