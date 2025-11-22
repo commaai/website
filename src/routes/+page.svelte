@@ -400,6 +400,7 @@
   .device-image-container {
     position: relative;
     display: inline-block;
+    margin: 0 -2rem 0;
 
     & img {
       display: block;
