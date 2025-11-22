@@ -16,14 +16,11 @@
   import LocationIcon from "$lib/icons/features/location.svg?raw";
   import RecordingsIcon from "$lib/icons/features/recordings.svg?raw";
 
-  const HeroLandscapeVideo = "/videos/hero-landscape/hero-landscape.m3u8";
-  const HeroPortraitVideo = "/videos/hero-portrait/hero-portrait.m3u8";
+  const HeroVideo = "/videos/hero-landscape/hero-landscape.m3u8";
   const ScreenVideo = "/videos/screen-video/screen-video.m3u8";
 
-  let videoLandscapeElement;
-  let videoLandscapeReady = false;
-  let videoPortraitElement;
-  let videoPortraitReady = false;
+  let videoElement;
+  let videoReady = false;
   let screenVideoElement;
   let screenVideoReady = false;
 
@@ -128,7 +125,10 @@
       <div class="device-image-container">
         <img
           src={DeviceImage}
+<<<<<<< HEAD
           loading="lazy"
+=======
+>>>>>>> upstream/master
           alt="comma four device"
         />
         <video
@@ -401,8 +401,6 @@
   .device-image-container {
     position: relative;
     display: inline-block;
-    padding: -2rem;
-    margin: 0 -2rem 0;
 
     & img {
       display: block;
@@ -416,7 +414,6 @@
       top: 63.97%; /* 1433 / 2240 */
       width: 40.21%; /* 1351 / 3360 */
       height: 25.80%; /* 578 / 2240 */
-      object-fit: fill;
       mix-blend-mode: screen;
       opacity: 0;
       transition: opacity 0.3s ease-in;

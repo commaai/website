@@ -41,6 +41,7 @@ async function initializeHarnesses() {
         make,
         car: model.name,
         package: model.package,
+        detailSentence: model.detail_sentence,
         backordered: harness?.backordered,  // these overrides are only shown if the harness is out of stock in Shopify
         setupNotes: model.setup_notes,
         setupVideo: model.setup_video,

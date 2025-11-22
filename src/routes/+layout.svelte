@@ -148,7 +148,7 @@
       <div class="footer-links">
         <strong>Support</strong>
         <a href="/support">Support & FAQs</a>
-        <a href="/setup">Setup Guides</a>
+        <a href="/setup">Setup Guide</a>
         <a class="badged" href="https://discord.comma.ai/">
           <span>Discord</span>
           {@html ExternalIcon}

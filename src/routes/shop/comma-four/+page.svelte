@@ -36,7 +36,7 @@
           comma four is the next generation comma hardware designed to live in your car. The comma four has three beautiful HDR cameras, two cameras to watch the road and one night-vision camera to see inside the car.
         </p>
         <p>
-          It runs <a class="highlight" href="https://github.com/commaai/openpilot" target="_blank">openpilot</a>, which can drive for hours without driver action.
+          It runs <a class="highlight" href="/openpilot">openpilot</a>, which can drive for hours without driver action.
         </p>
         <p>
           Besides cameras, the comma four has a suite of connectivity and sensors including cellular LTE, Wi-Fi, an IMU, high-precision GPS, and a microphone.
@@ -213,7 +213,7 @@
           </hgroup>
           <p>
             comma four ships without software installed, so you need to install software.
-            It is compatible with <a href="https://github.com/commaai/openpilot" class="highlight">openpilot</a> and works with a wide variety of community supported forks.
+            It is compatible with <a href="/openpilot" class="highlight">openpilot</a> and works with a wide variety of community supported forks.
           </p>
           <LinkButton href="/openpilot" style="secondary" fullWidth={false}>openpilot</LinkButton>
         </div>

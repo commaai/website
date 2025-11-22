@@ -69,7 +69,7 @@
   let inputValue = "";
   let inputRef;
 
-  $: filteredItems = $harnesses.filter(item => 
+  $: filteredItems = $harnesses.filter(item =>
     normalizeDiacritics(item.car.toLowerCase()).match(normalizeDiacritics(inputValue.toLowerCase()))
   );
 
@@ -163,10 +163,7 @@
 
 {#if selection && selection.package && !hideSupportNoteCard}
   <NoteCard title="Support" icon={CarIcon}>
-    {@html selection.package === 'All' ?
-      'openpilot will work with <strong>all packages and trims</strong> of this car.' :
-      `openpilot requires <strong>${selection.car}</strong> to come equipped with <strong>${selection.package}</strong>.`
-    }
+    {@html selection.detailSentence}
   </NoteCard>
 {/if}
 
