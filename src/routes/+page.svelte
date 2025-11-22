@@ -17,33 +17,52 @@
   import RecordingsIcon from "$lib/icons/features/recordings.svg?raw";
 
   const HeroVideo = "/videos/hero-landscape/hero-landscape.m3u8";
+  const ScreenVideo = "/videos/screen-video/screen-video.m3u8";
 
   let videoElement;
   let videoReady = false;
+  let screenVideoElement;
+  let screenVideoReady = false;
 
   // Hardcode GitHub star count (similar to contributors on openpilot page)
   const githubStars = 50000;
 
+  function initializeHLS(videoEl, src, onReady) {
+    if (Hls.isSupported()) {
+      const hls = new Hls();
+      hls.loadSource(src);
+      hls.attachMedia(videoEl);
+      hls.on(Hls.Events.MANIFEST_PARSED, () => {
+        if (onReady) onReady();
+      });
+      return hls;
+    } else if (videoEl.canPlayType('application/vnd.apple.mpegurl')) {
+      videoEl.src = src;
+      videoEl.addEventListener('loadedmetadata', () => {
+        if (onReady) onReady();
+      });
+      return null;
+    }
+    return null;
+  }
+
   onMount(async () => {
-    // Initialize HLS.js
+    // Initialize landscape video
     if (videoElement) {
-      // Show video once it starts playing
       videoElement.addEventListener('playing', () => {
         videoReady = true;
       });
+      initializeHLS(videoElement, HeroVideo, () => {
+        videoElement.play();
+      });
 
-      if (Hls.isSupported()) {
-        const hls = new Hls();
-        hls.loadSource(HeroVideo);
-        hls.attachMedia(videoElement);
-        hls.on(Hls.Events.MANIFEST_PARSED, () => {
-          videoElement.play();
+      // Initialize screen video
+      if (screenVideoElement) {
+        screenVideoElement.addEventListener('playing', () => {
+          screenVideoReady = true;
         });
-      } else if (videoElement.canPlayType('application/vnd.apple.mpegurl')) {
-        // Native HLS support (Safari)
-        videoElement.src = HeroVideo;
-        videoElement.addEventListener('loadedmetadata', () => {
-          videoElement.play();
+        initializeHLS(screenVideoElement, ScreenVideo, () => {
+          screenVideoElement.play();
         });
       }
     }
