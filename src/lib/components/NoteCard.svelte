@@ -53,9 +53,11 @@
       & a {
         color: black;
         border-bottom: 2px solid #616161;
+        background-image: none;
 
         &:hover {
           opacity: 0.8;
+          background-color: transparent;
         }
       }
     }
