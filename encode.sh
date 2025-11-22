@@ -6,7 +6,14 @@ cd $DIR
 
 VIDEO=${1:-~/Downloads/testvideo2_trash.MP4}
 VIDEO_NAME=${2:-hero}
-ENCODE_MODE=${3:-hw}
+HDR=${3:-no}
+ENCODE_MODE=${4:-hw}
+
+case "$HDR" in
+  hdr) HDR=yes ;;
+  *) HDR=no ;;
+esac
+
 case "$ENCODE_MODE" in
   hw|HW) ENCODE_MODE=hw ;;
   sw|SW|cpu) ENCODE_MODE=sw ;;
@@ -42,18 +49,25 @@ out=$DIR/static/videos/$VIDEO_NAME/
 rm -rf $out
 mkdir -p $out
 
-# Extract first frame as poster image for instant display (with HDR to SDR conversion)
-# Filter chain: linearize HDR -> convert to RGB float -> tonemap -> convert to SDR -> scale
+# Build filter chain based on HDR flag
+if [[ "$HDR" == "yes" ]]; then
+  # HDR to SDR conversion chain: linearize HDR -> convert to RGB float -> tonemap -> convert to SDR -> scale
+  FILTER_CHAIN="zscale=t=linear:npl=100,format=gbrpf32le,zscale=p=bt709,tonemap=tonemap=hable:desat=0,zscale=t=bt709:m=bt709:r=tv,format=yuv420p,scale=-2:1080"
+else
+  # SDR passthrough with scaling only
+  FILTER_CHAIN="scale=-2:1080"
+fi
+
+# Extract first frame as poster image
 echo "Extracting poster image..."
 ffmpeg -y -ss $START_OFFSET -i $VIDEO \
-  -vf "zscale=t=linear:npl=100,format=gbrpf32le,zscale=p=bt709,tonemap=tonemap=hable:desat=0,zscale=t=bt709:m=bt709:r=tv,format=yuv420p,scale=-2:1080" \
+  -vf "$FILTER_CHAIN" \
   -frames:v 1 $out/poster.jpg
 
-# Encode video segments (with HDR to SDR tone mapping)
-# Using hable tonemap algorithm for natural-looking results that preserve color accuracy
+# Encode video segments
 echo "Encoding video segments..."
 ffmpeg -y -ss $START_OFFSET -i $VIDEO -t $trim_duration \
-  -vf "zscale=t=linear:npl=100,format=gbrpf32le,zscale=p=bt709,tonemap=tonemap=hable:desat=0,zscale=t=bt709:m=bt709:r=tv,format=yuv420p,scale=-2:1080" -pix_fmt yuv420p \
+  -vf "$FILTER_CHAIN" -pix_fmt yuv420p \
   "${CODEC_ARGS[@]}" \
   -g 60 -keyint_min 60 -sc_threshold 0 -force_key_frames "expr:gte(t,n_forced*2)" -an \
   -f stream_segment -segment_format mpegts \
