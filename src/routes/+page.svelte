@@ -99,7 +99,6 @@
       <div class="device-image-container">
         <img
           src={DeviceImage}
-          loading="lazy"
           alt="comma four device"
         />
         <video
