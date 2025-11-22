@@ -49,41 +49,76 @@
     return null;
   }
 
-  let landscapeHls = null;
-  let portraitHls = null;
+  let heroHls = null;
+  let currentIsMobile = false;
 
-  onMount(async () => {
+  function initHeroVideo() {
     const isMobile = typeof window !== 'undefined' && window.innerWidth < 769;
 
-    // Initialize both videos, but only start loading chunks for the visible one
-    if (videoLandscapeElement) {
-      videoLandscapeElement.addEventListener('playing', () => videoLandscapeReady = true);
-      landscapeHls = initializeHLS(videoLandscapeElement, HeroLandscapeVideo, () => {
-        if (!isMobile) videoLandscapeElement.play();
-      });
+    // Clean up existing HLS instance
+    if (heroHls) {
+      heroHls.destroy();
+      heroHls = null;
     }
 
-    if (videoPortraitElement) {
-      videoPortraitElement.addEventListener('playing', () => videoPortraitReady = true);
-      portraitHls = initializeHLS(videoPortraitElement, HeroPortraitVideo, () => {
-        if (isMobile) videoPortraitElement.play();
-      });
+    // Reset ready states
+    videoPortraitReady = false;
+    videoLandscapeReady = false;
+
+    if (isMobile) {
+      // Initialize portrait video for mobile
+      if (videoPortraitElement) {
+        videoPortraitElement.addEventListener('playing', () => {
+          videoPortraitReady = true;
+        });
+        heroHls = initializeHLS(videoPortraitElement, HeroPortraitVideo, () => {
+          videoPortraitElement.play();
+        });
+      }
+    } else {
+      // Initialize landscape video for desktop
+      if (videoLandscapeElement) {
+        videoLandscapeElement.addEventListener('playing', () => {
+          videoLandscapeReady = true;
+        });
+        heroHls = initializeHLS(videoLandscapeElement, HeroLandscapeVideo, () => {
+          videoLandscapeElement.play();
+        });
+      }
     }
 
-    // After a delay, start loading chunks for the hidden video
-    setTimeout(() => {
-      (isMobile ? videoLandscapeElement : videoPortraitElement)?.play().catch(() => {});
-    }, 2000);
+    currentIsMobile = isMobile;
+  }
+
+  onMount(async () => {
+    // Initialize appropriate hero video based on screen size
+    initHeroVideo();
+
+    // Handle resize to switch videos when breakpoint is crossed
+    const handleResize = () => {
+      const isMobile = typeof window !== 'undefined' && window.innerWidth < 769;
+      
+      // Only reinitialize if we crossed the breakpoint
+      if (currentIsMobile !== isMobile) {
+        initHeroVideo();
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
 
     // Initialize screen video
     if (screenVideoElement) {
-      screenVideoElement.addEventListener('playing', () => screenVideoReady = true);
-      initializeHLS(screenVideoElement, ScreenVideo, () => screenVideoElement.play());
+      screenVideoElement.addEventListener('playing', () => {
+        screenVideoReady = true;
+      });
+      initializeHLS(screenVideoElement, ScreenVideo, () => {
+        screenVideoElement.play();
+      });
     }
 
     return () => {
-      landscapeHls?.destroy();
-      portraitHls?.destroy();
+      window.removeEventListener('resize', handleResize);
+      if (heroHls) heroHls.destroy();
     };
   });
 
