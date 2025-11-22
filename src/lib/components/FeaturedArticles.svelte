@@ -17,7 +17,6 @@
     </a>
     <a href="https://www.youtube.com/watch?v=GY8ruVimG8M">
       <img src={SnazzyLabsLogo} alt="Logo of Snazzy Labs" class="grayscale"/>
-<!--      Snazzy Labs-->
     </a>
     <a href="https://www.theverge.com/23548094/george-hotz-comma-3-driver-assist-hands-free-demo">
       <img src={TheVergeLogo} alt="Logo of The Verge"/>
@@ -31,15 +30,6 @@
     <a href="https://www.cnet.com/roadshow/news/comma-ai-assisted-driving-george-hotz-ces-2020/">
       <img src={RoadShowLogo} alt="Logo of Road Show"/>
     </a>
-    <!--    <a-->
-    <!--      href="https://www.youtube.com/watch?v=pfTUNEi7DEE"-->
-    <!--      style="font-size: 1.75rem; font-weight: 800; font-style: italic;">JRGo</a-->
-    <!--    >-->
-    <!--    <a-->
-    <!--      href="https://www.thedrive.com/tech/36604/we-tested-openpilot-the-1199-device-that-adds-entry-level-autonomy-to-your-car/"-->
-    <!--    >-->
-    <!--      <img src={TheDriveLogo} alt="Logo of The Drive" />-->
-    <!--    </a>-->
   </Grid>
 </div>
 
@@ -72,28 +62,17 @@
     border: 1px solid #000;
     justify-content: center;
     align-items: center;
-    padding: 1rem;
+    padding: 1.25rem;
     text-decoration: none;
     max-width: 100%;
     height: 40px;
     transition: background-color 0.2s;
-
-    font-size: 1.5rem;
-    font-weight: 800;
-    font-style: italic;
-
-    @media screen and (max-width: 500px) {
-      font-size: 1.25rem;
-      padding: 0.75rem;
-      height: 35px;
-    }
 
     & img {
       height: 45px;
       display: inline-block;
       vertical-align: middle;
       object-fit: contain;
-      /*padding: 1rem;*/
     }
 
     & img.grayscale {
