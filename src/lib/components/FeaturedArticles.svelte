@@ -14,11 +14,10 @@
   <span>Featured in</span>
   <Grid columns={6} columnGap="0.5rem" size="large">
     <a href="https://www.youtube.com/watch?v=GY8ruVimG8M">
-      <img src={LinusTechTipsLogo} alt="Logo of Linus Tech Tips" />
+      <img src={LinusTechTipsLogo} alt="Logo of Linus Tech Tips" class="grayscale"/>
     </a>
-    <a href="https://www.youtube.com/watch?v=GY8ruVimG8M">
-      <img src={SnazzyLabsLogo} alt="Logo of Snazzy Labs" />
-    </a>
+    <a href="https://www.youtube.com/watch?v=GY8ruVimG8M" style="font-size: 1.5rem; font-weight: 800; font-style: italic;">
+      Snazzy Labs</a>
     <a
       href="https://www.theverge.com/23548094/george-hotz-comma-3-driver-assist-hands-free-demo"
     >
@@ -91,6 +90,10 @@
       display: inline-block;
       vertical-align: middle;
       object-fit: contain;
+    }
+
+    & img.grayscale {
+      filter: grayscale(100%) brightness(20%);
     }
 
     @media (hover: hover) and (pointer: fine) {
