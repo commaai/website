@@ -163,8 +163,6 @@
   }
 
   .preview {
-    border: 1px solid rgba(0, 0, 0, 0.12);
-
     & img {
       display: block;
       margin: 0 auto;

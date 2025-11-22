@@ -8,7 +8,7 @@
   import Grid from "$lib/components/Grid.svelte";
   import { vehicleCountText } from '$lib/constants/vehicles.js';
 
-  import DeviceImage from "$lib/images/products/comma-four/four_front.png";
+  import DeviceImage from "$lib/images/products/comma-four/four_dark.png";
   import LaneCenteringIcon from "$lib/icons/features/lane-centering.svg?raw";
   import AdaptiveCruiseIcon from "$lib/icons/features/adaptive-cruise.svg?raw";
   import OtaUpdatesIcon from "$lib/icons/features/ota-updates.svg?raw";
@@ -399,6 +399,8 @@
   .device-image-container {
     position: relative;
     display: inline-block;
+    padding: -2rem;
+    margin: 0 -2rem 0;
 
     & img {
       display: block;
@@ -408,10 +410,10 @@
 
     & .screen-video-overlay {
       position: absolute;
-      left: 14.28%; /* 364 / 2549 */
-      top: 65.42%; /* 1317 / 2013 */
-      width: 51.12%; /* 1303 / 2549 */
-      height: 28.17%; /* 567 / 2013 */
+      left: 23.21%; /* 780 / 3360 */
+      top: 63.97%; /* 1433 / 2240 */
+      width: 40.21%; /* 1351 / 3360 */
+      height: 25.80%; /* 578 / 2240 */
       object-fit: fill;
       mix-blend-mode: screen;
       opacity: 0;
