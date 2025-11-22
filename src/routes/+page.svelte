@@ -16,36 +16,55 @@
   import LocationIcon from "$lib/icons/features/location.svg?raw";
   import RecordingsIcon from "$lib/icons/features/recordings.svg?raw";
 
-  const HeroVideo = "/videos/hero-landscape/hero-landscape.m3u8";
+  const HeroLandscapeVideo = "/videos/hero-landscape/hero-landscape.m3u8";
+  const HeroPortraitVideo = "/videos/hero-portrait/hero-portrait.m3u8";
 
-  let videoElement;
-  let videoReady = false;
+  let videoLandscapeElement;
+  let videoLandscapeReady = false;
+  let videoPortraitElement;
+  let videoPortraitReady = false;
 
   // Hardcode GitHub star count (similar to contributors on openpilot page)
   const githubStars = 50000;
 
-  onMount(async () => {
-    // Initialize HLS.js
-    if (videoElement) {
-      // Show video once it starts playing
-      videoElement.addEventListener('playing', () => {
-        videoReady = true;
+  function initializeHLS(videoEl, src, onReady) {
+    if (Hls.isSupported()) {
+      const hls = new Hls();
+      hls.loadSource(src);
+      hls.attachMedia(videoEl);
+      hls.on(Hls.Events.MANIFEST_PARSED, () => {
+        if (onReady) onReady();
       });
+      return hls;
+    } else if (videoEl.canPlayType('application/vnd.apple.mpegurl')) {
+      videoEl.src = src;
+      videoEl.addEventListener('loadedmetadata', () => {
+        if (onReady) onReady();
+      });
+      return null;
+    }
+    return null;
+  }
 
-      if (Hls.isSupported()) {
-        const hls = new Hls();
-        hls.loadSource(HeroVideo);
-        hls.attachMedia(videoElement);
-        hls.on(Hls.Events.MANIFEST_PARSED, () => {
-          videoElement.play();
-        });
-      } else if (videoElement.canPlayType('application/vnd.apple.mpegurl')) {
-        // Native HLS support (Safari)
-        videoElement.src = HeroVideo;
-        videoElement.addEventListener('loadedmetadata', () => {
-          videoElement.play();
-        });
-      }
+  onMount(async () => {
+    // Initialize landscape video
+    if (videoLandscapeElement) {
+      videoLandscapeElement.addEventListener('playing', () => {
+        videoLandscapeReady = true;
+      });
+      initializeHLS(videoLandscapeElement, HeroLandscapeVideo, () => {
+        videoLandscapeElement.play();
+      });
+    }
+
+    // Initialize portrait video
+    if (videoPortraitElement) {
+      videoPortraitElement.addEventListener('playing', () => {
+        videoPortraitReady = true;
+      });
+      initializeHLS(videoPortraitElement, HeroPortraitVideo, () => {
+        videoPortraitElement.play();
+      });
     }
   });
 
@@ -59,11 +78,25 @@
   <link rel="preload" as="image" href="/videos/hero-landscape/poster.jpg" />
 </svelte:head>
 
-<section class="hero-image" style="background-image: url('/videos/hero-landscape/poster.jpg');" on:dragstart={handleDragStart} role="img" aria-label="Hero image">
+<section class="hero-image desktop" style="background-image: url('/videos/hero-landscape/poster.jpg');" on:dragstart={handleDragStart} role="img" aria-label="Hero image">
   <video
-    bind:this={videoElement}
-    class:ready={videoReady}
+    bind:this={videoLandscapeElement}
+    class:ready={videoLandscapeReady}
     poster="/videos/hero-landscape/poster.jpg"
+    autoplay
+    muted
+    loop
+    playsinline
+    draggable="false"
+  />
+</section>
+
+
+<section class="hero-image mobile" style="background-image: url('/videos/hero-portrait/poster.jpg');" on:dragstart={handleDragStart} role="img" aria-label="Hero image">
+  <video
+    bind:this={videoPortraitElement}
+    class:ready={videoPortraitReady}
+    poster="/videos/hero-portrait/poster.jpg"
     autoplay
     muted
     loop
@@ -210,6 +243,19 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+
+    &.desktop {
+      @media screen and (max-width: 768px) {
+        display: none;
+      }
+    }
+
+    &.mobile {
+      height: unset;
+      @media screen and (min-width: 769px) {
+        display: none;
+      }
+    }
 
     & video {
       width: 100%;
