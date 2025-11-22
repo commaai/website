@@ -8,22 +8,6 @@
   import Grid from "$lib/components/Grid.svelte";
   import { vehicleCountText } from '$lib/constants/vehicles.js';
 
-  const videoConfig = {
-    hero: {
-      type: 'conditional',
-      mobile: '/videos/hero-portrait/hero-portrait.m3u8',
-      desktop: '/videos/hero-landscape/hero-landscape.m3u8',
-      mobilePoster: '/videos/hero-portrait/poster.jpg',
-      desktopPoster: '/videos/hero-landscape/poster.jpg',
-      breakpoint: 768
-    },
-    screenVideo: {
-      type: 'always',
-      source: '/videos/screen-video/screen-video.m3u8',
-      poster: '/videos/screen-video/poster.jpg'
-    }
-  };
-
   import DeviceImage from "$lib/images/products/comma-four/four_screen_on.png";
   import LaneCenteringIcon from "$lib/icons/features/lane-centering.svg?raw";
   import AdaptiveCruiseIcon from "$lib/icons/features/adaptive-cruise.svg?raw";
@@ -32,89 +16,37 @@
   import LocationIcon from "$lib/icons/features/location.svg?raw";
   import RecordingsIcon from "$lib/icons/features/recordings.svg?raw";
 
-  let heroVideoElement;
-  let screenVideoElement;
-  let heroVideoReady = false;
-  let screenVideoReady = false;
-  let isMobile = false;
-  let heroHls = null;
-  let screenHls = null;
+  const HeroVideo = "/videos/hero-landscape/hero-landscape.m3u8";
+
+  let videoElement;
+  let videoReady = false;
 
   // Hardcode GitHub star count (similar to contributors on openpilot page)
   const githubStars = 50000;
 
   onMount(async () => {
-    isMobile = typeof window !== 'undefined' && window.innerWidth < videoConfig.hero.breakpoint;
-
-    // Initialize hero video
-    if (heroVideoElement) {
-      heroVideoElement.addEventListener('playing', () => {
-        heroVideoReady = true;
-      });
-
-      const heroSource = isMobile ? videoConfig.hero.mobile : videoConfig.hero.desktop;
-      if (Hls.isSupported()) {
-        heroHls = new Hls();
-        heroHls.loadSource(heroSource);
-        heroHls.attachMedia(heroVideoElement);
-        heroHls.on(Hls.Events.MANIFEST_PARSED, () => {
-          heroVideoElement.play();
-        });
-      } else if (heroVideoElement.canPlayType('application/vnd.apple.mpegurl')) {
-        heroVideoElement.src = heroSource;
-        heroVideoElement.addEventListener('loadedmetadata', () => {
-          heroVideoElement.play();
-        });
-      }
-    }
-
-    // Initialize screen-video (always loads)
-    if (screenVideoElement) {
-      screenVideoElement.addEventListener('playing', () => {
-        screenVideoReady = true;
+    // Initialize HLS.js
+    if (videoElement) {
+      // Show video once it starts playing
+      videoElement.addEventListener('playing', () => {
+        videoReady = true;
       });
 
       if (Hls.isSupported()) {
-        screenHls = new Hls();
-        screenHls.loadSource(videoConfig.screenVideo.source);
-        screenHls.attachMedia(screenVideoElement);
-        screenHls.on(Hls.Events.MANIFEST_PARSED, () => {
-          screenVideoElement.play();
+        const hls = new Hls();
+        hls.loadSource(HeroVideo);
+        hls.attachMedia(videoElement);
+        hls.on(Hls.Events.MANIFEST_PARSED, () => {
+          videoElement.play();
         });
-      } else if (screenVideoElement.canPlayType('application/vnd.apple.mpegurl')) {
-        screenVideoElement.src = videoConfig.screenVideo.source;
-        screenVideoElement.addEventListener('loadedmetadata', () => {
-          screenVideoElement.play();
+      } else if (videoElement.canPlayType('application/vnd.apple.mpegurl')) {
+        // Native HLS support (Safari)
+        videoElement.src = HeroVideo;
+        videoElement.addEventListener('loadedmetadata', () => {
+          videoElement.play();
         });
       }
     }
-
-    // Handle resize to switch hero video
-    const handleResize = () => {
-      const wasMobile = isMobile;
-      isMobile = typeof window !== 'undefined' && window.innerWidth < videoConfig.hero.breakpoint;
-      if (wasMobile !== isMobile && heroVideoElement) {
-        if (heroHls) heroHls.destroy();
-        const heroSource = isMobile ? videoConfig.hero.mobile : videoConfig.hero.desktop;
-        if (Hls.isSupported()) {
-          heroHls = new Hls();
-          heroHls.loadSource(heroSource);
-          heroHls.attachMedia(heroVideoElement);
-          heroHls.on(Hls.Events.MANIFEST_PARSED, () => {
-            heroVideoElement.play();
-          });
-        } else if (heroVideoElement.canPlayType('application/vnd.apple.mpegurl')) {
-          heroVideoElement.src = heroSource;
-        }
-      }
-    };
-
-    window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      if (heroHls) heroHls.destroy();
-      if (screenHls) screenHls.destroy();
-    };
   });
 
   function handleDragStart(e) {
@@ -124,15 +56,14 @@
 </script>
 
 <svelte:head>
-  <link rel="preload" as="image" href={isMobile ? videoConfig.hero.mobilePoster : videoConfig.hero.desktopPoster} />
-  <link rel="preload" as="image" href={videoConfig.screenVideo.poster} />
+  <link rel="preload" as="image" href="/videos/hero-landscape/poster.jpg" />
 </svelte:head>
 
-<section class="hero-image" style="background-image: url('{isMobile ? videoConfig.hero.mobilePoster : videoConfig.hero.desktopPoster}');" on:dragstart={handleDragStart} role="img" aria-label="Hero image">
+<section class="hero-image" style="background-image: url('/videos/hero-landscape/poster.jpg');" on:dragstart={handleDragStart} role="img" aria-label="Hero image">
   <video
-    bind:this={heroVideoElement}
-    class:ready={heroVideoReady}
-    poster={isMobile ? videoConfig.hero.mobilePoster : videoConfig.hero.desktopPoster}
+    bind:this={videoElement}
+    class:ready={videoReady}
+    poster="/videos/hero-landscape/poster.jpg"
     autoplay
     muted
     loop
@@ -140,19 +71,6 @@
     draggable="false"
   />
 </section>
-
-<!-- Screen video that always loads -->
-<video
-  bind:this={screenVideoElement}
-  class:ready={screenVideoReady}
-  poster={videoConfig.screenVideo.poster}
-  autoplay
-  muted
-  loop
-  playsinline
-  draggable="false"
-  style="display: none;"
-/>
 
 <section class="dark" id="hero">
   <div class="container">
