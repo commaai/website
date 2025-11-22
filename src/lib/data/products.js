@@ -11,7 +11,7 @@ export const products = {
       "/src/lib/images/products/comma-four/four_angled.png",
       "/src/lib/images/products/comma-four/four_back.png",
       "/src/lib/images/products/comma-four/four_side.png",
-      "/src/lib/images/products/comma-four/remount2.png"
+      "/src/lib/images/products/comma-four/remount.png"
     ],
     notes: [],
     description: `
