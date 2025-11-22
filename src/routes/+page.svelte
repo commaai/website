@@ -93,18 +93,18 @@
   <link rel="preload" as="image" href="/videos/screen-video/poster.jpg" />
 </svelte:head>
 
-<!--<section class="hero-image desktop" style="background-image: url('/videos/hero-landscape/poster.jpg');" on:dragstart={handleDragStart} role="img" aria-label="Hero image">-->
-<!--  <video-->
-<!--    bind:this={videoLandscapeElement}-->
-<!--    class:ready={videoLandscapeReady}-->
-<!--    poster="/videos/hero-landscape/poster.jpg"-->
-<!--    autoplay-->
-<!--    muted-->
-<!--    loop-->
-<!--    playsinline-->
-<!--    draggable="false"-->
-<!--  />-->
-<!--</section>-->
+<section class="hero-image desktop" style="background-image: url('/videos/hero-landscape/poster.jpg');" on:dragstart={handleDragStart} role="img" aria-label="Hero image">
+  <video
+    bind:this={videoLandscapeElement}
+    class:ready={videoLandscapeReady}
+    poster="/videos/hero-landscape/poster.jpg"
+    autoplay
+    muted
+    loop
+    playsinline
+    draggable="false"
+  />
+</section>
 
 
 <section class="hero-image mobile" style="background-image: url('/videos/hero-portrait/poster.jpg');" on:dragstart={handleDragStart} role="img" aria-label="Hero image">
