@@ -89,6 +89,8 @@
 
 <svelte:head>
   <link rel="preload" as="image" href="/videos/hero-landscape/poster.jpg" />
+  <link rel="preload" as="image" href="/videos/hero-portrait/poster.jpg" />
+  <link rel="preload" as="image" href="/videos/screen-video/poster.jpg" />
 </svelte:head>
 
 <section class="hero-image desktop" style="background-image: url('/videos/hero-landscape/poster.jpg');" on:dragstart={handleDragStart} role="img" aria-label="Hero image">
