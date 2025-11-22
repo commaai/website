@@ -51,25 +51,45 @@
 
   // TODO: don't load both mobile and desktop videos on initial load
   onMount(async () => {
-    // Initialize landscape video
-    if (videoLandscapeElement) {
-      videoLandscapeElement.addEventListener('playing', () => {
-        videoLandscapeReady = true;
-      });
-      initializeHLS(videoLandscapeElement, HeroLandscapeVideo, () => {
-        videoLandscapeElement.play();
-      });
-    }
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 769;
+    const heroVideoElement = isMobile ? videoPortraitElement : videoLandscapeElement;
+    const heroVideo = isMobile ? HeroPortraitVideo : HeroLandscapeVideo;
 
-    // Initialize portrait video
-    if (videoPortraitElement) {
-      videoPortraitElement.addEventListener('playing', () => {
-        videoPortraitReady = true;
-      });
-      initializeHLS(videoPortraitElement, HeroPortraitVideo, () => {
-        videoPortraitElement.play();
-      });
+    // resize handler:
+    function handleResize() {
+      const currentlyMobile = window.innerWidth < 769;
+      // if (currentlyMobile !== isMobile) {
+      //   // Reload the page to switch videos
+      //   window.location.reload();
+      // }
+
+      if (currentlyMobile && !videoPortraitReady && videoPortraitElement) {
+        // Load portrait video
+        initializeHLS(videoPortraitElement, HeroPortraitVideo, () => {
+          videoPortraitElement.play();
+        });
+      } else if (!currentlyMobile && !videoLandscapeReady && videoLandscapeElement) {
+        // Load landscape video
+        initializeHLS(videoLandscapeElement, HeroLandscapeVideo, () => {
+          videoLandscapeElement.play();
+        });
+      }
+
     }
+    window.addEventListener('resize', handleResize);
+
+    // if (heroVideoElement) {
+    //   heroVideoElement.addEventListener('playing', () => {
+    //     if (isMobile) {
+    //       videoPortraitReady = true;
+    //     } else {
+    //       videoLandscapeReady = true;
+    //     }
+    //   });
+    //   initializeHLS(heroVideoElement, heroVideo, () => {
+    //     heroVideoElement.play();
+    //   });
+    // }
 
     // Initialize screen video
     if (screenVideoElement) {
