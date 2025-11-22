@@ -49,9 +49,19 @@
     return null;
   }
 
+  // TODO: don't load both mobile and desktop videos on initial load
   onMount(async () => {
-    // TODO: don't load both mobile and desktop videos on initial load
     // const isMobile = typeof window !== 'undefined' && window.innerWidth < 769;
+
+    // Initialize landscape video
+    if (videoLandscapeElement) {
+      videoLandscapeElement.addEventListener('playing', () => {
+        videoLandscapeReady = true;
+      });
+      initializeHLS(videoLandscapeElement, HeroLandscapeVideo, () => {
+        videoLandscapeElement.play();
+      });
+    }
 
     // Initialize portrait video
     if (videoPortraitElement) {
