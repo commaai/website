@@ -2,6 +2,7 @@
   import Grid from "$lib/components/Grid.svelte";
 
   import LinusTechTipsLogo from "$lib/images/featured-articles/linus-tech-tips.svg";
+  import SnazzyLabsLogo from "$lib/images/featured-articles/snazzy-labs.png";
   import TheVergeLogo from "$lib/images/featured-articles/the-verge.svg";
   import CarAndDriverLogo from "$lib/images/featured-articles/car-and-driver.png";
   import ConsumerReportsLogo from "$lib/images/featured-articles/consumer-reports.png";
@@ -10,11 +11,13 @@
 
 <div class="featured-articles">
   <span>Featured in</span>
-  <Grid columns={6} columnGap="0.5rem" size="large">
+  <Grid columns={6} columnGap="0.5rem" size="xlarge">
     <a href="https://www.youtube.com/watch?v=GY8ruVimG8M">
       <img src={LinusTechTipsLogo} alt="Logo of Linus Tech Tips" class="grayscale"/>
+      Linus Tech Tips
     </a>
-    <a href="https://www.youtube.com/watch?v=GY8ruVimG8M" style="font-size: 1.5rem; font-weight: 800; font-style: italic;">
+    <a href="https://www.youtube.com/watch?v=GY8ruVimG8M">
+      <img src={SnazzyLabsLogo} alt="Logo of Snazzy Labs" class="grayscale"/>
       Snazzy Labs
     </a>
     <a href="https://www.theverge.com/23548094/george-hotz-comma-3-driver-assist-hands-free-demo">
@@ -70,21 +73,34 @@
     border: 1px solid #000;
     justify-content: center;
     align-items: center;
-    padding: 1.25rem;
+    padding: 1rem;
+    gap: 1rem;
     text-decoration: none;
     max-width: 100%;
-    height: 40px;
+    /*height: 40px;*/
     transition: background-color 0.2s;
+
+    font-size: 1.5rem;
+    font-weight: 800;
+    font-style: italic;
+
+    @media screen and (max-width: 500px) {
+      font-size: 1.25rem;
+      padding: 0.75rem;
+      height: 35px;
+    }
 
     & img {
       height: 45px;
       display: inline-block;
       vertical-align: middle;
       object-fit: contain;
+      /*padding: 1rem;*/
     }
 
     & img.grayscale {
       filter: grayscale(100%) brightness(20%);
+      height: 20px;
     }
 
     @media (hover: hover) and (pointer: fine) {
