@@ -209,7 +209,7 @@
   }
 
   .vehicles-cover-image {
-    background-image: url("/videos/hero/poster.jpg");
+    background-image: url("/videos/hero-landscape/poster.jpg");
     background-position: 50% 30%;
     background-size: cover;
     background-attachment: scroll;
