@@ -55,10 +55,10 @@ echo "Encoding video segments..."
 ffmpeg -y -ss $START_OFFSET -i $VIDEO -t $trim_duration \
   -vf "zscale=t=linear:npl=100,format=gbrpf32le,zscale=p=bt709,tonemap=tonemap=hable:desat=0,zscale=t=bt709:m=bt709:r=tv,format=yuv420p,scale=-2:1080" -pix_fmt yuv420p \
   "${CODEC_ARGS[@]}" \
-  -g 60 -keyint_min 60 -sc_threshold 0 -force_key_frames "expr:gte(t,n_forced*5)" -an \
+  -g 60 -keyint_min 60 -sc_threshold 0 -force_key_frames "expr:gte(t,n_forced*2)" -an \
   -f stream_segment -segment_format mpegts \
   -segment_list $out/${VIDEO_NAME}.m3u8 -segment_list_type m3u8 \
-  -segment_time 5 \
+  -segment_time 2 \
   -reset_timestamps 1 \
   -bf 3 -b_ref_mode middle -spatial_aq 1 -aq-strength 8 -temporal_aq 1 -rc-lookahead 20 \
   $out/part_${UUID}_%03d.ts
