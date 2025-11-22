@@ -258,8 +258,8 @@
     position: relative;
     /* Behind nav bar */
     margin: -66px 0 0;
-    max-width: 100vw;
-    height: auto;
+    width: 100%;
+    height: 100vh;
     overflow: hidden;
     padding: 0;
     user-select: none;
@@ -278,7 +278,8 @@
     }
 
     &.mobile {
-      /*height: unset;*/
+      height: unset;
+      aspect-ratio: 3 / 4;
       @media screen and (min-width: 769px) {
         display: none;
       }
@@ -286,8 +287,8 @@
 
     & video {
       width: 100%;
-      height: auto;
-      object-fit: contain;
+      height: 100%;
+      object-fit: cover;
       object-position: center;
       display: block;
       user-select: none;
