@@ -16,7 +16,7 @@
   import LocationIcon from "$lib/icons/features/location.svg?raw";
   import RecordingsIcon from "$lib/icons/features/recordings.svg?raw";
 
-  const HeroVideo = "/videos/hero/hero.m3u8";
+  const HeroVideo = "/videos/hero-landscape/hero-landscape.m3u8";
 
   let videoElement;
   let videoReady = false;
@@ -56,14 +56,14 @@
 </script>
 
 <svelte:head>
-  <link rel="preload" as="image" href="/videos/hero/poster.jpg" />
+  <link rel="preload" as="image" href="/videos/hero-landscape/poster.jpg" />
 </svelte:head>
 
-<section class="hero-image" style="background-image: url('/videos/hero/poster.jpg');" on:dragstart={handleDragStart} role="img" aria-label="Hero image">
+<section class="hero-image" style="background-image: url('/videos/hero-landscape/poster.jpg');" on:dragstart={handleDragStart} role="img" aria-label="Hero image">
   <video
     bind:this={videoElement}
     class:ready={videoReady}
-    poster="/videos/hero/poster.jpg"
+    poster="/videos/hero-landscape/poster.jpg"
     autoplay
     muted
     loop
