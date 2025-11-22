@@ -8,7 +8,7 @@
   import Grid from "$lib/components/Grid.svelte";
   import { vehicleCountText } from '$lib/constants/vehicles.js';
 
-  import DeviceImage from "$lib/images/products/comma-four/four_screen_on.png";
+  import DeviceImage from "$lib/images/products/comma-four/four_dark.png";
   import LaneCenteringIcon from "$lib/icons/features/lane-centering.svg?raw";
   import AdaptiveCruiseIcon from "$lib/icons/features/adaptive-cruise.svg?raw";
   import OtaUpdatesIcon from "$lib/icons/features/ota-updates.svg?raw";
@@ -17,35 +17,54 @@
   import RecordingsIcon from "$lib/icons/features/recordings.svg?raw";
 
   const HeroVideo = "/videos/hero-landscape/hero-landscape.m3u8";
+  const ScreenVideo = "/videos/screen-video/screen-video.m3u8";
 
   let videoElement;
   let videoReady = false;
+  let screenVideoElement;
+  let screenVideoReady = false;
 
   // Hardcode GitHub star count (similar to contributors on openpilot page)
   const githubStars = 50000;
 
+  function initializeHLS(videoEl, src, onReady) {
+    if (Hls.isSupported()) {
+      const hls = new Hls();
+      hls.loadSource(src);
+      hls.attachMedia(videoEl);
+      hls.on(Hls.Events.MANIFEST_PARSED, () => {
+        if (onReady) onReady();
+      });
+      return hls;
+    } else if (videoEl.canPlayType('application/vnd.apple.mpegurl')) {
+      videoEl.src = src;
+      videoEl.addEventListener('loadedmetadata', () => {
+        if (onReady) onReady();
+      });
+      return null;
+    }
+    return null;
+  }
+
   onMount(async () => {
-    // Initialize HLS.js
+    // Initialize landscape video
     if (videoElement) {
-      // Show video once it starts playing
       videoElement.addEventListener('playing', () => {
         videoReady = true;
       });
+      initializeHLS(videoElement, HeroVideo, () => {
+        videoElement.play();
+      });
+    }
 
-      if (Hls.isSupported()) {
-        const hls = new Hls();
-        hls.loadSource(HeroVideo);
-        hls.attachMedia(videoElement);
-        hls.on(Hls.Events.MANIFEST_PARSED, () => {
-          videoElement.play();
-        });
-      } else if (videoElement.canPlayType('application/vnd.apple.mpegurl')) {
-        // Native HLS support (Safari)
-        videoElement.src = HeroVideo;
-        videoElement.addEventListener('loadedmetadata', () => {
-          videoElement.play();
-        });
-      }
+    // Initialize screen video
+    if (screenVideoElement) {
+      screenVideoElement.addEventListener('playing', () => {
+        screenVideoReady = true;
+      });
+      initializeHLS(screenVideoElement, ScreenVideo, () => {
+        screenVideoElement.play();
+      });
     }
   });
 
@@ -77,11 +96,23 @@
     <h1>comma four</h1>
     <h2 class="muted">An AI upgrade for your car</h2>
     <Grid columns={2} rowGap="3rem">
-      <img
-        src={DeviceImage}
-        loading="lazy"
-        alt="comma four device"
-      />
+      <div class="device-image-container">
+        <img
+          src={DeviceImage}
+          alt="comma four device"
+        />
+        <video
+          bind:this={screenVideoElement}
+          class:ready={screenVideoReady}
+          poster="/videos/screen-video/poster.jpg"
+          autoplay
+          muted
+          loop
+          playsinline
+          draggable="false"
+          class="screen-video-overlay"
+        />
+      </div>
       <div>
         <div class="mb-2">
           <Grid columns={2} columnGap="1rem" rowGap="1.25rem" size="small" wrapMode="none">
@@ -196,10 +227,11 @@
 <style>
   .hero-image {
     position: relative;
+    /* Behind nav bar */
+    margin: -66px 0 0;
     width: 100%;
     height: 100vh;
     overflow: hidden;
-    margin: 0;
     padding: 0;
     user-select: none;
     -webkit-user-drag: none;
@@ -245,7 +277,7 @@
       bottom: 0;
       left: 0;
       right: 0;
-      height: 420px;
+      height: 180px;
       background: linear-gradient(to bottom, transparent, black);
       z-index: 2;
       pointer-events: none;
@@ -319,6 +351,33 @@
     @media screen and (max-width: 768px) {
       & h4 {
         margin-bottom: 2rem;
+      }
+    }
+  }
+
+  .device-image-container {
+    position: relative;
+    display: inline-block;
+    margin: 0 -2rem 0;
+
+    & img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    & .screen-video-overlay {
+      position: absolute;
+      left: 23.21%; /* 780 / 3360 */
+      top: 63.97%; /* 1433 / 2240 */
+      width: 40.21%; /* 1351 / 3360 */
+      height: 25.80%; /* 578 / 2240 */
+      mix-blend-mode: screen;
+      opacity: 0;
+      transition: opacity 0.3s ease-in;
+
+      &.ready {
+        opacity: 1;
       }
     }
   }

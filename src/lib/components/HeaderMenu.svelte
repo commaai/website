@@ -30,7 +30,7 @@
       <a href="/shop">shop</a>
       <a href="/connect">connect</a>
       <a href="/vehicles">compatibility</a>
-      <a href="/setup">setup guides</a>
+      <a href="/setup">setup guide</a>
       <a href="/support">support & FAQs</a>
       <a href="https://blog.comma.ai">blog</a>
       <a href="/jobs.html">jobs - we're hiring!</a>

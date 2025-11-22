@@ -9,17 +9,6 @@
   import { faq } from '$lib/constants/faq.svelte';
 </script>
 
-<section class="light" id="faq">
-  <div class="container">
-    <h1>FAQs</h1>
-    {#each Object.keys(faq) as key}
-      <div class="faq-card">
-        <Faq topic={faq[key]} />
-      </div>
-    {/each}
-  </div>
-</section>
-
 <section class="light" id="support">
   <div class="container">
     <!-- <hr> -->
@@ -42,6 +31,17 @@
         </div>
       {/each}
     </div>
+  </div>
+</section>
+
+<section class="light" id="faq">
+  <div class="container">
+    <h1>FAQs</h1>
+    {#each Object.keys(faq) as key}
+      <div class="faq-card">
+        <Faq topic={faq[key]} />
+      </div>
+    {/each}
   </div>
 </section>
 
