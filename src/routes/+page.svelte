@@ -49,6 +49,7 @@
     return null;
   }
 
+  // TODO: don't load both mobile and desktop videos on initial load
   onMount(async () => {
     // Initialize landscape video
     if (videoLandscapeElement) {
