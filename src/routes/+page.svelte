@@ -55,16 +55,16 @@
       initializeHLS(videoElement, HeroVideo, () => {
         videoElement.play();
       });
+    }
 
-      // Initialize screen video
-      if (screenVideoElement) {
-        screenVideoElement.addEventListener('playing', () => {
-          screenVideoReady = true;
-        });
-        initializeHLS(screenVideoElement, ScreenVideo, () => {
-          screenVideoElement.play();
-        });
-      }
+    // Initialize screen video
+    if (screenVideoElement) {
+      screenVideoElement.addEventListener('playing', () => {
+        screenVideoReady = true;
+      });
+      initializeHLS(screenVideoElement, ScreenVideo, () => {
+        screenVideoElement.play();
+      });
     }
   });
 
@@ -359,7 +359,6 @@
   .device-image-container {
     position: relative;
     display: inline-block;
-    padding: -2rem;
     margin: 0 -2rem 0;
 
     & img {
