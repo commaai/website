@@ -372,7 +372,6 @@
       top: 63.97%; /* 1433 / 2240 */
       width: 40.21%; /* 1351 / 3360 */
       height: 25.80%; /* 578 / 2240 */
-      object-fit: fill;
       mix-blend-mode: screen;
       opacity: 0;
       transition: opacity 0.3s ease-in;
