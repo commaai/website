@@ -13,10 +13,10 @@
   <span>Featured in</span>
   <Grid columns={6} columnGap="0.5rem" size="large">
     <a href="https://www.youtube.com/watch?v=GY8ruVimG8M">
-      <img src={LinusTechTipsLogo} alt="Logo of Linus Tech Tips" class="grayscale"/>
+      <img src={LinusTechTipsLogo} alt="Logo of Linus Tech Tips" class="greyscale"/>
     </a>
     <a href="https://www.youtube.com/watch?v=GY8ruVimG8M">
-      <img src={SnazzyLabsLogo} alt="Logo of Snazzy Labs" class="grayscale"/>
+      <img src={SnazzyLabsLogo} alt="Logo of Snazzy Labs" class="greyscale"/>
     </a>
     <a href="https://www.theverge.com/23548094/george-hotz-comma-3-driver-assist-hands-free-demo">
       <img src={TheVergeLogo} alt="Logo of The Verge"/>
@@ -75,7 +75,7 @@
       object-fit: contain;
     }
 
-    & img.grayscale {
+    & img.greyscale {
       filter: grayscale(100%) brightness(20%);
     }
 
