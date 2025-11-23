@@ -637,7 +637,12 @@ export const products = {
       "/src/lib/images/products/body/comma-body-size.png",
       "/src/lib/images/products/body/comma-body-wheels.jpg"
     ],
-    notes: [],
+    notes: [
+      {
+        title: "Compatibility Notice",
+        content: "comma body is not yet compatible with comma four."
+      }
+    ],
     description: `
       <strong>Description</strong>
       <p>
