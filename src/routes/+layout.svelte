@@ -12,6 +12,7 @@
   import Badge from "$lib/components/Badge.svelte";
   import Grid from "$lib/components/Grid.svelte";
   import SocialIcons from "$lib/components/SocialIcons.svelte";
+  import HeaderBanner from "$lib/components/HeaderBanner.svelte";
   import MailingListForm from "$lib/components/MailingListForm.svelte";
 
   import CommaIcon from "$lib/icons/comma.svg?raw";
@@ -129,6 +130,8 @@
     bind:loading
   />
 {/if}
+
+<HeaderBanner />
 
 <main>
   <slot></slot>
