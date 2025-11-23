@@ -10,7 +10,7 @@
 
   import RecordingsIcon from "$lib/icons/features/recordings.svg?raw";
   import CalendarIcon from "$lib/icons/features/calendar.svg?raw";
-  import CurrencyIcon from "$lib/icons/features/currency.svg?raw";
+  import CarIcon from "$lib/icons/features/car.svg?raw";
   import BusinessIcon from "$lib/icons/features/business.svg?raw";
   import ContactIcon from "$lib/icons/features/contact.svg?raw";
   import ImmediateIcon from "$lib/icons/features/immediate.svg?raw";
@@ -59,8 +59,8 @@
               Buy now
             </LinkButton>
             <p>
-              Works with {vehicleCountText} cars.
-              <a class="highlight muted" href="/vehicles">Check compatibility</a>.
+              Works with {vehicleCountText} cars from 27 brands.
+              <a class="highlight muted" href="/vehicles">Is your car compatible?</a>
             </p>
           </div>
           <div class="mobile-first">
@@ -70,6 +70,16 @@
       </div>
       <div class="traits light">
         <Grid columns={3} alignItems="stretch" columnGap="0" rowGap="0">
+          <div class="trait">
+            <div>{@html CarIcon}</div>
+            <hgroup>
+              <h2>Works with {vehicleCountText} cars</h2>
+              <div>
+                Compatible with {vehicleCountText} vehicles.
+                <a class="highlight" href="/vehicles">Check compatibility</a>.
+              </div>
+            </hgroup>
+          </div>
           <div class="trait">
             <div>{@html RecordingsIcon}</div>
             <hgroup>
@@ -86,16 +96,6 @@
               <div>
                 See for yourself why Consumer Reports rated us as the
                 <a class="highlight" href="https://data.consumerreports.org/wp-content/uploads/2020/11/consumer-reports-active-driving-assistance-systems-november-16-2020.pdf" target="_blank">top ADAS system</a>.
-              </div>
-            </hgroup>
-          </div>
-          <div class="trait">
-            <div>{@html CurrencyIcon}</div>
-            <hgroup>
-              <h2>Pay over time</h2>
-              <div>
-                Split your purchase into 3, 6, or 12 monthly payments. On a
-                ${FOUR_PRICE} purchase, you may pay ${FOUR_AFFIRM_PRICE} for 12 months with a 15% APR.
               </div>
             </hgroup>
           </div>
