@@ -229,7 +229,7 @@ export const products = {
     notes: [
       {
         title: "Product Compatibility",
-        content: "This product is only for the comma 3/3X.",
+        content: "This product is only for the comma 3/3X. comma four has a built-in eSIM.",
       },
       {
         title: "Note",
@@ -240,12 +240,13 @@ export const products = {
     description: `
       <strong>Description</strong>
       <p>
-        This is a replacement for the SIM that ships with the comma four to support <a href="https://connect.comma.ai/" target="_blank">comma prime</a>.
+        This is a replacement for the SIM that ships with the comma 3X to support <a href="https://connect.comma.ai/" target="_blank">comma prime</a>. This is NOT needed or compatible with comma four, which uses a built-in eSIM.
       </p>
       <p>
         See how to replace the SIM card in a comma 3/3X
         <a href="/support#how-do-you-replace-the-sim-card-in-a-comma-3x" target="_blank">here</a>.
       </p>
+
     `.trim()
   },
 
