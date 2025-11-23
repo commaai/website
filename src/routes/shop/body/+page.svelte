@@ -57,7 +57,7 @@
             <span>Sensorium streaming</span>
           </div>
           <div class="details" slot="content">
-            The <a href="http://comma.ai/shop/products/three" target="_blank" class="highlight muted">comma 3X</a> has 3 cameras, broadcast with sub 100 ms latency through an H265 encoder.
+            The <a href="http://comma.ai/shop/comma-four" target="_blank" class="highlight muted">comma 3X</a> has 3 cameras, broadcast with sub 100 ms latency through an H265 encoder.
             Onboard, it has a Kalman filter running at 100Hz integrating the IMU and camera odometry to determine it's 3-DoF position.
             With the addition of a little <a href="https://www.youtube.com/watch?v=7Hlb8YX2-W8" target="_blank" class="highlight muted">SLAM</a>,
             it will be easy to get 6-DoF that exceeds the precision of VR headsets.
@@ -231,7 +231,7 @@
           Read more: <a href="https://blog.comma.ai/commabody/" target="_blank" class="highlight">Launching the comma body</a>
         </p>
         <p>
-          We recommend purchasing a <a href="/shop/comma-3x" target="_blank" class="highlight">comma 3X</a> from the comma Shop to operate the body.
+          We recommend purchasing a <a href="/shop/comma-four" target="_blank" class="highlight">comma 3X</a> from the comma Shop to operate the body.
         </p>
         <p>
           comma body software: <a href="https://github.com/commaai/body" target="_blank" class="highlight">GitHub</a>
