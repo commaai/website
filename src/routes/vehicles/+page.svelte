@@ -56,8 +56,12 @@
     <hgroup class="headline">
       <span>Don't see your car?</span>
       <p>
-        If you don't see your car, it means that it is not currently supported.
+        If you don't see your car, it's not currently supported, however new cars are added with each openpilot release.
       </p>
+      <p>
+        <a href="#mailing-list" class="highlight">Join the mailing list</a> to stay updated.
+      </p>
+      <br>
       <p>
         If you have a modern car and some programming skills, you can likely add support for your car.
       </p>

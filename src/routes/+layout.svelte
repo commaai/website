@@ -158,7 +158,7 @@
       <div class="footer-links">
         <div class="tagline">{@html CommaIcon}<span>make driving chill</span></div>
         <SocialIcons size="1.5rem" />
-        <div class="mailing-list">
+        <div id="mailing-list" class="mailing-list">
           <MailingListForm style="primary" />
         </div>
       </div>
