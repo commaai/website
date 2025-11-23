@@ -246,7 +246,6 @@ export const products = {
         See how to replace the SIM card in a comma 3/3X
         <a href="/support#how-do-you-replace-the-sim-card-in-a-comma-3x" target="_blank">here</a>.
       </p>
-
     `.trim()
   },
 
