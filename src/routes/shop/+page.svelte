@@ -4,6 +4,7 @@
   import ProductCard from "$lib/components/ProductCard.svelte";
   import Accordion from "$lib/components/Accordion.svelte";
   import Button from "$lib/components/Button.svelte";
+  import Badge from "$lib/components/Badge.svelte";
 
   import FourImage from "$lib/images/products/comma-four/four_screen_on.png";
 
@@ -16,7 +17,7 @@
   import AdaptiveCruiseIcon from "$lib/icons/features/adaptive-cruise.svg?raw";
   import LaneCenteringIcon from "$lib/icons/features/lane-centering.svg?raw";
 
-  import { FOUR_PRICE } from '$lib/constants/prices.js';
+  import { FOUR_PRICE, FOUR_AFFIRM_PRICE } from '$lib/constants/prices.js';
   import { vehicleCountText } from '$lib/constants/vehicles.js';
 
   import { addToCart } from "../../store";
@@ -49,6 +50,7 @@
       <div class="product-display gradient-bg">
         <Grid columns={2} alignItems="center" size="large">
           <div class="product-content">
+            <Badge style="accent">NEW DEVICE!</Badge>
             <hgroup>
               <h1>comma four</h1>
               <span>${FOUR_PRICE}</span>
@@ -63,6 +65,39 @@
           </div>
           <div class="mobile-first">
             <img src={FourImage} loading="lazy" alt="comma four device" />
+          </div>
+        </Grid>
+      </div>
+      <div class="traits light">
+        <Grid columns={3} alignItems="stretch" columnGap="0" rowGap="0">
+          <div class="trait">
+            <div>{@html RecordingsIcon}</div>
+            <hgroup>
+              <h2>Easy to plug in</h2>
+              <div>
+                Check out our step-by-step guide. Get set up in your car in 15 minutes.
+              </div>
+            </hgroup>
+          </div>
+          <div class="trait">
+            <div>{@html CalendarIcon}</div>
+            <hgroup>
+              <h2>30-day money-back trial</h2>
+              <div>
+                See for yourself why Consumer Reports rated us as the
+                <a class="highlight" href="https://data.consumerreports.org/wp-content/uploads/2020/11/consumer-reports-active-driving-assistance-systems-november-16-2020.pdf" target="_blank">top ADAS system</a>.
+              </div>
+            </hgroup>
+          </div>
+          <div class="trait">
+            <div>{@html CurrencyIcon}</div>
+            <hgroup>
+              <h2>Pay over time</h2>
+              <div>
+                Split your purchase into 3, 6, or 12 monthly payments. On a
+                ${FOUR_PRICE} purchase, you may pay ${FOUR_AFFIRM_PRICE} for 12 months with a 15% APR.
+              </div>
+            </hgroup>
           </div>
         </Grid>
       </div>
