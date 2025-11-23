@@ -622,5 +622,36 @@ export const products = {
         -> No warranty except DOA.
       </p>
     `.trim()
+  },
+
+  "body": {
+    title: "comma body",
+    id: "gid://shopify/Product/6920331296831",
+    route: "/shop/body",
+    category: "device",
+    price: "$999",
+    images: [
+      "/src/lib/images/products/body/comma-body.jpg",
+      "/src/lib/images/products/body/comma-body-devkit.jpeg",
+      "/src/lib/images/products/body/comma-body-display.jpeg",
+      "/src/lib/images/products/body/comma-body-size.png",
+      "/src/lib/images/products/body/comma-body-wheels.jpg"
+    ],
+    notes: [],
+    description: `
+      <strong>Description</strong>
+      <p>
+        The body is a robotics dev kit that can run <a href="https://github.com/commaai/openpilot" target="_blank">openpilot</a>, 
+        open source software with over a million hours of usage in the field.
+      </p>
+      <p>
+        We believe that in order to solve AI, you must be embedded in the real world.
+        The body is human scale, and has a human usable development environment.
+      </p>
+      <p>
+        It runs the same camera and logging software, so we'll be able to learn from the fleet of bodies in the same way we learn from our fleet of cars.
+      </p>
+    `.trim(),
+    forceOutOfStock: true
   }
 };
