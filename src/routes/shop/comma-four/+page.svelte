@@ -12,6 +12,7 @@
   import OBDCCableImage from "$lib/images/products/obd-c-cable/obd-c-cable-four.png";
   import ReplacementMountsImage from "$lib/images/products/replacement-mounts/replacement-mounts-four.png";
   import CarBrandCollageImage from "$lib/images/car-brand-collage.jpg";
+  import CoolingImage from "$lib/images/products/comma-four/cooling.png";
 
   import MemoryIcon from "$lib/icons/features/memory.svg?raw";
   import ThreeSixtyVisionIcon from "$lib/icons/features/360-vision.svg?raw";
@@ -148,7 +149,7 @@
             <span>Night-Vision</span>
           </div>
           <div class="contents">
-            IR LEDs for interior night-vision monitoring
+            IR LED for interior night-vision monitoring
           </div>
         </div>
         <div class="spec-card">
@@ -172,6 +173,13 @@
             </ul>
           </div>
         </div>
+      </div>
+    </Grid>
+    <hr />
+    <Grid rowGap="0" templateColumns="0.5fr 1.25fr">
+      <h2>Snapdragon 845 MAX</h2>
+      <div class="cooling-section">
+        <img src={CoolingImage} loading="lazy" alt="comma four cooling system">
       </div>
     </Grid>
     <hr />
