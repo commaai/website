@@ -26,6 +26,10 @@
   let videoPortraitReady = false;
   let screenVideoElement;
   let screenVideoReady = false;
+  let screenVideoCanvas;
+  let gl;
+  let program;
+  let animationFrame;
 
   // Hardcode GitHub star count (similar to contributors on openpilot page)
   const githubStars = 50000;
@@ -47,6 +51,156 @@
       return null;
     }
     return null;
+  }
+
+  function initWebGL() {
+    if (!screenVideoCanvas || !screenVideoElement) return;
+
+    gl = screenVideoCanvas.getContext('webgl', { 
+      premultipliedAlpha: false,
+      alpha: true,
+      preserveDrawingBuffer: false
+    });
+
+    if (!gl) return;
+
+    // Vertex shader
+    const vertexShaderSource = `
+      attribute vec2 a_position;
+      attribute vec2 a_texCoord;
+      varying vec2 v_texCoord;
+      void main() {
+        gl_Position = vec4(a_position, 0.0, 1.0);
+        v_texCoord = a_texCoord;
+      }
+    `;
+
+    // Fragment shader with better antialiasing using 4-tap bilinear filtering
+    const fragmentShaderSource = `
+      precision mediump float;
+      uniform sampler2D u_texture;
+      uniform vec2 u_textureSize;
+      varying vec2 v_texCoord;
+      
+      vec4 texture2D_bilinear(sampler2D tex, vec2 coord) {
+        vec2 texelSize = 1.0 / u_textureSize;
+        vec2 f = fract(coord * u_textureSize);
+        vec2 coord00 = floor(coord * u_textureSize) * texelSize;
+        vec2 coord10 = coord00 + vec2(texelSize.x, 0.0);
+        vec2 coord01 = coord00 + vec2(0.0, texelSize.y);
+        vec2 coord11 = coord00 + texelSize;
+        
+        vec4 tex00 = texture2D(tex, coord00);
+        vec4 tex10 = texture2D(tex, coord10);
+        vec4 tex01 = texture2D(tex, coord01);
+        vec4 tex11 = texture2D(tex, coord11);
+        
+        vec4 tex0 = mix(tex00, tex10, f.x);
+        vec4 tex1 = mix(tex01, tex11, f.x);
+        return mix(tex0, tex1, f.y);
+      }
+      
+      void main() {
+        gl_FragColor = texture2D_bilinear(u_texture, v_texCoord);
+      }
+    `;
+
+    function createShader(type, source) {
+      const shader = gl.createShader(type);
+      gl.shaderSource(shader, source);
+      gl.compileShader(shader);
+      if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+        console.error('Shader compile error:', gl.getShaderInfoLog(shader));
+        gl.deleteShader(shader);
+        return null;
+      }
+      return shader;
+    }
+
+    function createProgram(vertexSource, fragmentSource) {
+      const vertexShader = createShader(gl.VERTEX_SHADER, vertexShaderSource);
+      const fragmentShader = createShader(gl.FRAGMENT_SHADER, fragmentShaderSource);
+      if (!vertexShader || !fragmentShader) return null;
+
+      const program = gl.createProgram();
+      gl.attachShader(program, vertexShader);
+      gl.attachShader(program, fragmentShader);
+      gl.linkProgram(program);
+      if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+        console.error('Program link error:', gl.getProgramInfoLog(program));
+        gl.deleteProgram(program);
+        return null;
+      }
+      return program;
+    }
+
+    program = createProgram(vertexShaderSource, fragmentShaderSource);
+    if (!program) return;
+
+    // Set up geometry
+    const positionBuffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
+      -1, -1,  1, -1,  -1, 1,
+      -1, 1,   1, -1,  1, 1
+    ]), gl.STATIC_DRAW);
+
+    const texCoordBuffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, texCoordBuffer);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
+      0, 1,  1, 1,  0, 0,
+      0, 0,  1, 1,  1, 0
+    ]), gl.STATIC_DRAW);
+
+    // Create texture with nearest filtering (we'll do bilinear in shader)
+    const texture = gl.createTexture();
+    gl.bindTexture(gl.TEXTURE_2D, texture);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
+
+    function render() {
+      if (!gl || !program || !screenVideoElement || screenVideoElement.readyState < 2) {
+        animationFrame = requestAnimationFrame(render);
+        return;
+      }
+
+      const positionLoc = gl.getAttribLocation(program, 'a_position');
+      const texCoordLoc = gl.getAttribLocation(program, 'a_texCoord');
+      const textureLoc = gl.getUniformLocation(program, 'u_texture');
+      const textureSizeLoc = gl.getUniformLocation(program, 'u_textureSize');
+
+      gl.useProgram(program);
+
+      // Update texture from video
+      gl.bindTexture(gl.TEXTURE_2D, texture);
+      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, screenVideoElement);
+      
+      // Set texture size for bilinear filtering
+      gl.uniform2f(textureSizeLoc, screenVideoElement.videoWidth, screenVideoElement.videoHeight);
+
+      // Set up attributes
+      gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+      gl.enableVertexAttribArray(positionLoc);
+      gl.vertexAttribPointer(positionLoc, 2, gl.FLOAT, false, 0, 0);
+
+      gl.bindBuffer(gl.ARRAY_BUFFER, texCoordBuffer);
+      gl.enableVertexAttribArray(texCoordLoc);
+      gl.vertexAttribPointer(texCoordLoc, 2, gl.FLOAT, false, 0, 0);
+
+      gl.uniform1i(textureLoc, 0);
+
+      // Clear and draw
+      gl.clearColor(0, 0, 0, 0);
+      gl.clear(gl.COLOR_BUFFER_BIT);
+      gl.drawArrays(gl.TRIANGLES, 0, 6);
+
+      animationFrame = requestAnimationFrame(render);
+    }
+
+    // Start rendering loop
+    render();
   }
 
   // TODO: don't load both mobile and desktop videos on initial load
@@ -80,8 +234,18 @@
       });
       initializeHLS(screenVideoElement, ScreenVideo, () => {
         screenVideoElement.play();
+        // Initialize WebGL after video starts
+        setTimeout(() => {
+          initWebGL();
+        }, 100);
       });
     }
+
+    return () => {
+      if (animationFrame) {
+        cancelAnimationFrame(animationFrame);
+      }
+    };
   });
 
   function handleDragStart(e) {
@@ -142,6 +306,12 @@
           loop
           playsinline
           draggable="false"
+          class="screen-video-source"
+          style="display: none;"
+        />
+        <canvas
+          bind:this={screenVideoCanvas}
+          class:ready={screenVideoReady}
           class="screen-video-overlay"
         />
       </div>
@@ -412,15 +582,23 @@
       height: auto;
     }
 
+    & .screen-video-source {
+      display: none;
+    }
+
     & .screen-video-overlay {
       position: absolute;
-      left: 23.21%; /* 780 / 3360 */
-      top: 63.97%; /* 1433 / 2240 */
-      width: 40.21%; /* 1351 / 3360 */
-      height: 25.80%; /* 578 / 2240 */
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      /* Use transform to scale and position - WebGL handles high-quality downscaling */
+      transform: translate(23.21%, 63.97%) scale(0.4021, 0.258);
+      transform-origin: top left;
       mix-blend-mode: screen;
       opacity: 0;
       transition: opacity 0.3s ease-in;
+      pointer-events: none;
 
       &.ready {
         opacity: 1;
