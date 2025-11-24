@@ -26,16 +26,31 @@
   let videoPortraitReady = false;
   let screenVideoElement;
   let screenVideoReady = false;
+  let screenVideoCanvas;
+  let canvasCtx;
+  let animationFrame;
 
   // Hardcode GitHub star count (similar to contributors on openpilot page)
   const githubStars = 50000;
 
-  function initializeHLS(videoEl, src, onReady) {
+  function initializeHLS(videoEl, src, onReady, preferHigherQuality = false) {
     if (Hls.isSupported()) {
-      const hls = new Hls();
+      const hls = new Hls({
+        // Don't cap quality - use highest available for better downscaling
+        capLevelToPlayerSize: false,
+        // Prefer higher quality for better source material
+        abrEwmaDefaultEstimate: preferHigherQuality ? 10000000 : undefined,
+        abrBandWidthFactor: preferHigherQuality ? 0.95 : undefined,
+        abrBandWidthUpFactor: preferHigherQuality ? 0.9 : undefined,
+      });
       hls.loadSource(src);
       hls.attachMedia(videoEl);
       hls.on(Hls.Events.MANIFEST_PARSED, () => {
+        if (preferHigherQuality && hls.levels && hls.levels.length > 0) {
+          // Select the highest quality level for better downscaling
+          const highestLevel = hls.levels.length - 1;
+          hls.currentLevel = highestLevel;
+        }
         if (onReady) onReady();
       });
       return hls;
@@ -73,15 +88,71 @@
       });
     }
 
-    // Initialize screen video
-    if (screenVideoElement) {
+    // Initialize screen video with higher quality for better downscaling
+    if (screenVideoElement && screenVideoCanvas) {
+      canvasCtx = screenVideoCanvas.getContext('2d', { 
+        alpha: true,
+        desynchronized: true 
+      });
+      
+      // Enable high-quality image smoothing
+      if (canvasCtx) {
+        canvasCtx.imageSmoothingEnabled = true;
+        canvasCtx.imageSmoothingQuality = 'high';
+      }
+
       screenVideoElement.addEventListener('playing', () => {
         screenVideoReady = true;
       });
+      
       initializeHLS(screenVideoElement, ScreenVideo, () => {
         screenVideoElement.play();
-      });
+        
+        // Render video frames to canvas
+        function render() {
+          if (!canvasCtx || !screenVideoElement || !screenVideoCanvas) return;
+          
+          if (screenVideoElement.readyState >= 2) {
+            // Set canvas size to match CSS display size (with device pixel ratio for crisp rendering)
+            const container = screenVideoCanvas.parentElement;
+            if (container) {
+              const rect = container.getBoundingClientRect();
+              const dpr = window.devicePixelRatio || 1;
+              const displayWidth = rect.width * 0.4021; // CSS width percentage
+              const displayHeight = rect.height * 0.258; // CSS height percentage
+              
+              if (screenVideoCanvas.width !== displayWidth * dpr || 
+                  screenVideoCanvas.height !== displayHeight * dpr) {
+                screenVideoCanvas.width = displayWidth * dpr;
+                screenVideoCanvas.height = displayHeight * dpr;
+                screenVideoCanvas.style.width = displayWidth + 'px';
+                screenVideoCanvas.style.height = displayHeight + 'px';
+                canvasCtx.imageSmoothingEnabled = true;
+                canvasCtx.imageSmoothingQuality = 'high';
+              }
+              
+              // Draw video frame scaled to canvas size with high-quality smoothing
+              canvasCtx.drawImage(
+                screenVideoElement, 
+                0, 0, 
+                screenVideoCanvas.width, 
+                screenVideoCanvas.height
+              );
+            }
+          }
+          
+          animationFrame = requestAnimationFrame(render);
+        }
+        
+        render();
+      }, true); // preferHigherQuality = true
     }
+
+    return () => {
+      if (animationFrame) {
+        cancelAnimationFrame(animationFrame);
+      }
+    };
   });
 
   function handleDragStart(e) {
@@ -135,13 +206,17 @@
         />
         <video
           bind:this={screenVideoElement}
-          class:ready={screenVideoReady}
           poster="/videos/screen-video/poster.jpg"
           autoplay
           muted
           loop
           playsinline
           draggable="false"
+          style="display: none;"
+        />
+        <canvas
+          bind:this={screenVideoCanvas}
+          class:ready={screenVideoReady}
           class="screen-video-overlay"
         />
       </div>
@@ -414,13 +489,25 @@
 
     & .screen-video-overlay {
       position: absolute;
-      left: 23.21%; /* 780 / 3360 */
-      top: 63.97%; /* 1433 / 2240 */
-      width: 40.21%; /* 1351 / 3360 */
-      height: 25.80%; /* 578 / 2240 */
+      left: 23.21%;
+      top: 63.97%;
+      width: 40.21%;
+      height: 25.80%;
+      /* Additional scale for better AA - render larger then scale down */
+      transform: scale(1) translateZ(0);
+      transform-origin: top left;
       mix-blend-mode: screen;
       opacity: 0;
       transition: opacity 0.3s ease-in;
+      /* Clean AA methods */
+      image-rendering: optimizeQuality;
+      -webkit-font-smoothing: antialiased;
+      /* Subtle blur to smooth edges */
+      filter: blur(0.3px);
+      -webkit-filter: blur(0.3px);
+      /* Ensure GPU acceleration */
+      will-change: transform, opacity;
+      backface-visibility: hidden;
 
       &.ready {
         opacity: 1;
