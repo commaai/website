@@ -13,6 +13,7 @@
     text-decoration: none;
     color: black;
     background-color: var(--color-red);
+    z-index: 1;
   }
 
   .wrapper {
