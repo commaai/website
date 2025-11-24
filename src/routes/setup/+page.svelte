@@ -1,6 +1,7 @@
 <script>
   import Badge from "$lib/components/Badge.svelte";
   import Grid from "$lib/components/Grid.svelte";
+  import LinkButton from "$lib/components/LinkButton.svelte";
   import Faq from "$lib/components/Faq.svelte";
   import HarnessSelector from "$lib/components/HarnessSelector/HarnessSelector.svelte";
   import CheckmarkIcon from "$lib/icons/ui/checkmark.svg?raw";
@@ -43,6 +44,9 @@
   import WiresImage from "$lib/images/setup/comma-four/wires.jpg";
   import Wires1Image from "$lib/images/setup/comma-four/wires-1.jpg";
   import Wires2Image from "$lib/images/setup/comma-four/wires-2.jpg";
+
+  import ConnectImage from "$lib/images/setup/comma-3x/step-6.jpeg";
+  import CommaPowerImage from "$lib/images/products/comma-power/comma-power.jpg";
 
   let selectedVehicle = undefined;
   const handleHarnessSelection = (value) => {
@@ -195,7 +199,7 @@
       <Badge style="dark">Step 2 <span class="muted">of 19</span></Badge>
       <h2>remove the rearview mirror cover trim</h2>
       <Grid templateColumns="1.25fr 0.75fr">
-        <div>
+        <div class="image-grid">
           <img src={TrimImage} loading="lazy" alt="remove the rearview mirror cover trim" />
           <img src={Trim1Image} loading="lazy" alt="removal step 1" />
           <img src={Trim2Image} loading="lazy" alt="removal step 2" />
@@ -212,7 +216,7 @@
       <Badge style="dark">Step 3 <span class="muted">of 19</span></Badge>
       <h2>unplug the car's camera cable</h2>
       <Grid templateColumns="1.25fr 0.75fr">
-        <div>
+        <div class="image-grid">
           <img src={CameraImage} loading="lazy" alt="unplug the car's camera cable" />
           <img src={Camera1Image} loading="lazy" alt="camera unplug step 1" />
           <img src={Camera2Image} loading="lazy" alt="camera unplug step 2" />
@@ -276,7 +280,7 @@
       <Badge style="dark">Step 8 <span class="muted">of 19</span></Badge>
       <h2>connect the comma power to your car</h2>
       <Grid templateColumns="1.25fr 0.75fr">
-        <div>
+        <div class="image-grid">
           <img src={Obd1Image} loading="lazy" alt="connect the comma power" />
           <img src={ObdImage} loading="lazy" alt="OBD port connection" />
         </div>
@@ -303,7 +307,7 @@
       <Badge style="dark">Step 10 <span class="muted">of 19</span></Badge>
       <h2>attach a mount to your comma four</h2>
       <Grid templateColumns="1.25fr 0.75fr">
-        <div>
+        <div class="image-grid">
           <img src={MountImage} loading="lazy" alt="attach a mount" />
           <img src={Mount5Image} loading="lazy" alt="mount attachment" />
         </div>
@@ -326,7 +330,7 @@
       <Badge style="dark">Step 12 <span class="muted">of 19</span></Badge>
       <h2>find a good spot for your comma four</h2>
       <Grid templateColumns="1.25fr 0.75fr">
-        <div>
+        <div class="image-grid">
           <img src={Mount1Image} loading="lazy" alt="find a good spot" />
           <img src={Mount2Image} loading="lazy" alt="positioning" />
         </div>
@@ -353,7 +357,7 @@
       <Badge style="dark">Step 14 <span class="muted">of 19</span></Badge>
       <h2>unplug your comma four and remove it from the mount</h2>
       <Grid templateColumns="1.25fr 0.75fr">
-        <div>
+        <div class="image-grid">
           <img src={UnmountImage} loading="lazy" alt="unplug comma four" />
           <img src={Unmount1Image} loading="lazy" alt="remove from mount" />
         </div>
@@ -378,7 +382,7 @@
       <Badge style="dark">Step 16 <span class="muted">of 19</span></Badge>
       <h2>press your mount on</h2>
       <Grid templateColumns="1.25fr 0.75fr">
-        <div>
+        <div class="image-grid">
           <img src={PressImage} loading="lazy" alt="press your mount on" />
           <img src={Press1Image} loading="lazy" alt="pressing mount" />
         </div>
@@ -403,7 +407,7 @@
       <Badge style="dark">Step 18 <span class="muted">of 19</span></Badge>
       <h2>tidy up the wires</h2>
       <Grid templateColumns="1.25fr 0.75fr">
-        <div>
+        <div class="image-grid">
           <img src={WiresImage} loading="lazy" alt="tidy up the wires" />
           <img src={Wires1Image} loading="lazy" alt="wire management 1" />
           <img src={Wires2Image} loading="lazy" alt="wire management 2" />
@@ -423,6 +427,48 @@
         <p>You just upgraded your car to a whole new experience. Now you can setup your comma four in a few seconds and go for a drive!</p>
       </Grid>
     </div>
+
+    <hr />
+    <div class="step">
+      <Badge style="dark">OPTIONAL STEP</Badge>
+      <h2>Pair your device with comma connect</h2>
+      <Grid templateColumns="1.25fr 0.75fr">
+        <div>
+          <img src={ConnectImage} loading="lazy" alt="comma connect application logo" />
+        </div>
+        <div>
+          <p>
+            Pair your comma four with <a href="https://connect.comma.ai/" target="_blank" class="highlight">connect.comma.ai</a> on your phone to see your recorded drives
+          </p>
+          <br />
+          <LinkButton href="https://connect.comma.ai/" target="_blank" style="primary" fullWidth={true}>comma Connect</LinkButton>
+        </div>
+      </Grid>
+    </div>
+
+    <hr />
+    <div class="step">
+      <Badge style="dark">OPTIONAL STEP</Badge>
+      <h2>Add the comma power</h2>
+      <Grid templateColumns="1.25fr 0.75fr">
+        <div>
+          <img src={CommaPowerImage} loading="lazy" alt="comma power" />
+        </div>
+        <div>
+          <p>
+            Installing the comma power is entirely optional and can be done at any time.
+            Simply connect one end to your car's OBD-II port and the other to the harness box.
+          </p>
+          <p>
+            With a comma power:
+          </p>
+          <li>The start and end of every drive are recorded.</li>
+          <li>Your comma four remains powered and online while the car is off.</li>
+          <li>Your comma four downloads updates while the car is off.</li>
+        </div>
+      </Grid>
+    </div>
+
   </div>
 </section>
 
@@ -594,6 +640,17 @@
 
     & .card {
       margin-bottom: 1rem;
+    }
+
+    & .image-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+
+      & img {
+        width: 100%;
+        height: auto;
+      }
     }
   }
 
