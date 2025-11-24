@@ -78,11 +78,11 @@
 
     // Initialize screen video with higher quality for better downscaling
     if (screenVideoElement && screenVideoCanvas) {
-      canvasCtx = screenVideoCanvas.getContext('2d', { 
+      canvasCtx = screenVideoCanvas.getContext('2d', {
         alpha: true,
-        desynchronized: true 
+        desynchronized: true
       });
-      
+
       // Enable high-quality image smoothing
       if (canvasCtx) {
         canvasCtx.imageSmoothingEnabled = true;
@@ -92,24 +92,25 @@
       screenVideoElement.addEventListener('playing', () => {
         screenVideoReady = true;
       });
-      
+
       initializeHLS(screenVideoElement, ScreenVideo, () => {
         screenVideoElement.play();
-        
+
         // Render video frames to canvas
         function render() {
           if (!canvasCtx || !screenVideoElement || !screenVideoCanvas) return;
-          
+
           if (screenVideoElement.readyState >= 2) {
             // Set canvas size to match CSS display size (with device pixel ratio for crisp rendering)
             const container = screenVideoCanvas.parentElement;
             if (container) {
               const rect = container.getBoundingClientRect();
               const dpr = window.devicePixelRatio || 1;
-              const displayWidth = rect.width * 0.4021; // CSS width percentage
-              const displayHeight = rect.height * 0.258; // CSS height percentage
-              
-              if (screenVideoCanvas.width !== displayWidth * dpr || 
+              // Account for container's transform: scale(1.1) and use percentages relative to four image to match video aspect ratio (3360x2240)
+              const displayWidth = rect.width / 1.1 * 0.3839;
+              const displayHeight = rect.height / 1.1 * 0.258;
+
+              if (screenVideoCanvas.width !== displayWidth * dpr ||
                   screenVideoCanvas.height !== displayHeight * dpr) {
                 screenVideoCanvas.width = displayWidth * dpr;
                 screenVideoCanvas.height = displayHeight * dpr;
@@ -118,20 +119,20 @@
                 canvasCtx.imageSmoothingEnabled = true;
                 canvasCtx.imageSmoothingQuality = 'high';
               }
-              
+
               // Draw video frame scaled to canvas size with high-quality smoothing
               canvasCtx.drawImage(
-                screenVideoElement, 
-                0, 0, 
-                screenVideoCanvas.width, 
+                screenVideoElement,
+                0, 0,
+                screenVideoCanvas.width,
                 screenVideoCanvas.height
               );
             }
           }
-          
+
           animationFrame = requestAnimationFrame(render);
         }
-        
+
         render();
       });
     }
@@ -477,10 +478,10 @@
 
     & .screen-video-overlay {
       position: absolute;
-      left: 23.21%;
+      left: 24.21%;
       top: 63.97%;
-      width: 40.21%;
-      height: 25.80%;
+      /*width: 38.39%; !* 1290 / 3360 - matches video aspect ratio (2.233:1) with height 25.80% *!*/
+      /*height: 25.80%; !* 578 / 2240 *!*/
       /* Additional scale for better AA - render larger then scale down */
       transform: scale(1) translateZ(0);
       transform-origin: top left;
