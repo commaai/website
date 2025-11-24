@@ -31,16 +31,7 @@
   import Camera1Image from "$lib/images/setup/comma-four/camera-1.jpg";
   import Plug1Image from "$lib/images/setup/comma-four/plug-1.jpg";
   import PlugImage from "$lib/images/setup/comma-four/plug.jpg";
-  import StepTwoAImage from "$lib/images/setup/comma-3x/step-2a.jpeg";
-  import StepTwoBImage from "$lib/images/setup/comma-3x/step-2b.jpeg";
-  import StepFourAImage from "$lib/images/setup/comma-3x/step-4a.jpg";
-  import StepFourBImage from "$lib/images/setup/comma-3x/step-4b.png";
-  import StepFourCImage from "$lib/images/setup/comma-3x/step-4c.jpeg";
-  import StepFiveAImage from "$lib/images/setup/comma-3x/step-5a.jpeg";
-  import StepFiveBImage from "$lib/images/setup/comma-3x/step-5b.jpg";
-  import StepFiveCImage from "$lib/images/setup/comma-3x/step-5c.jpeg";
   import StepSixImage from "$lib/images/setup/comma-3x/step-6.jpeg";
-  import StepSevenImage from "$lib/images/setup/comma-3x/step-7.jpeg";
   import CommaPowerImage from "$lib/images/products/comma-power/comma-power.jpg";
 
   let selectedVehicle = undefined;
@@ -280,7 +271,7 @@
     <div class="step">
       <Badge style="dark">OPTIONAL STEP</Badge>
       <h2>Pair your device with comma connect</h2>
-      <Grid templateColumns="1.25fr 0.75fr">
+      <Grid templateColumns="0.875fr 0.75fr">
         <div>
           <img src={StepSixImage} loading="lazy" alt="comma connect application logo" />
         </div>
@@ -298,7 +289,7 @@
     <div class="step">
       <Badge style="dark">OPTIONAL STEP</Badge>
       <h2>Add the comma power</h2>
-      <Grid templateColumns="1.25fr 0.75fr">
+      <Grid templateColumns="0.875fr 0.75fr">
         <div>
           <img src={CommaPowerImage} loading="lazy" alt="comma power" />
         </div>
@@ -346,9 +337,6 @@
           font-size: 2rem;
           font-weight: normal;
         }
-      }
-
-      & .title {
       }
 
       & .media-container {
