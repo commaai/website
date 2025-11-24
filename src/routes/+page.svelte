@@ -33,24 +33,12 @@
   // Hardcode GitHub star count (similar to contributors on openpilot page)
   const githubStars = 50000;
 
-  function initializeHLS(videoEl, src, onReady, preferHigherQuality = false) {
+  function initializeHLS(videoEl, src, onReady) {
     if (Hls.isSupported()) {
-      const hls = new Hls({
-        // Don't cap quality - use highest available for better downscaling
-        capLevelToPlayerSize: false,
-        // Prefer higher quality for better source material
-        abrEwmaDefaultEstimate: preferHigherQuality ? 10000000 : undefined,
-        abrBandWidthFactor: preferHigherQuality ? 0.95 : undefined,
-        abrBandWidthUpFactor: preferHigherQuality ? 0.9 : undefined,
-      });
+      const hls = new Hls();
       hls.loadSource(src);
       hls.attachMedia(videoEl);
       hls.on(Hls.Events.MANIFEST_PARSED, () => {
-        if (preferHigherQuality && hls.levels && hls.levels.length > 0) {
-          // Select the highest quality level for better downscaling
-          const highestLevel = hls.levels.length - 1;
-          hls.currentLevel = highestLevel;
-        }
         if (onReady) onReady();
       });
       return hls;
@@ -145,7 +133,7 @@
         }
         
         render();
-      }, true); // preferHigherQuality = true
+      });
     }
 
     return () => {
