@@ -14,38 +14,20 @@
   import CommaFourDeviceImage from "$lib/images/products/comma-four/four_screen_on.png";
   import CarHarnessImage from "$lib/images/products/car-harness/car-harness.jpg";
 
-  import PowerImage from "$lib/images/setup/comma-four/power.jpg";
   import TrimImage from "$lib/images/setup/comma-four/trim.jpg";
-  import AlignImage from "$lib/images/setup/comma-four/align.jpg";
-  import CameraImage from "$lib/images/setup/comma-four/camera.jpg";
-  import Camera1Image from "$lib/images/setup/comma-four/camera-1.jpg";
-  import Camera2Image from "$lib/images/setup/comma-four/camera-2.jpg";
-  import MountImage from "$lib/images/setup/comma-four/mount.jpg";
-  import Mount1Image from "$lib/images/setup/comma-four/mount-1.jpg";
-  import Mount2Image from "$lib/images/setup/comma-four/mount-2.jpg";
-  import Mount3Image from "$lib/images/setup/comma-four/mount-3.jpg";
-  import Mount5Image from "$lib/images/setup/comma-four/mount-5.jpg";
-  import ObdImage from "$lib/images/setup/comma-four/obd.jpg";
-  import Obd1Image from "$lib/images/setup/comma-four/obd-1.jpg";
-  import ObdcImage from "$lib/images/setup/comma-four/obdc.jpg";
-  import PlugImage from "$lib/images/setup/comma-four/plug.jpg";
-  import Plug1Image from "$lib/images/setup/comma-four/plug-1.jpg";
-  import Plug2Image from "$lib/images/setup/comma-four/plug-2.jpg";
-  import Power1Image from "$lib/images/setup/comma-four/power-1.jpg";
-  import PressImage from "$lib/images/setup/comma-four/press.jpg";
-  import Press1Image from "$lib/images/setup/comma-four/press-1.jpg";
-  import RemountImage from "$lib/images/setup/comma-four/remount.jpg";
   import Trim1Image from "$lib/images/setup/comma-four/trim-1.jpg";
   import Trim2Image from "$lib/images/setup/comma-four/trim-2.jpg";
   import Trim3Image from "$lib/images/setup/comma-four/trim-3.jpg";
-  import Trim4Image from "$lib/images/setup/comma-four/trim-4.jpg";
-  import UnmountImage from "$lib/images/setup/comma-four/unmount.jpg";
-  import Unmount1Image from "$lib/images/setup/comma-four/unmount-1.jpg";
-  import WiresImage from "$lib/images/setup/comma-four/wires.jpg";
-  import Wires1Image from "$lib/images/setup/comma-four/wires-1.jpg";
-  import Wires2Image from "$lib/images/setup/comma-four/wires-2.jpg";
-
-  import ConnectImage from "$lib/images/setup/comma-3x/step-6.jpeg";
+  import StepTwoAImage from "$lib/images/setup/comma-3x/step-2a.jpeg";
+  import StepTwoBImage from "$lib/images/setup/comma-3x/step-2b.jpeg";
+  import StepFourAImage from "$lib/images/setup/comma-3x/step-4a.jpg";
+  import StepFourBImage from "$lib/images/setup/comma-3x/step-4b.png";
+  import StepFourCImage from "$lib/images/setup/comma-3x/step-4c.jpeg";
+  import StepFiveAImage from "$lib/images/setup/comma-3x/step-5a.jpeg";
+  import StepFiveBImage from "$lib/images/setup/comma-3x/step-5b.jpg";
+  import StepFiveCImage from "$lib/images/setup/comma-3x/step-5c.jpeg";
+  import StepSixImage from "$lib/images/setup/comma-3x/step-6.jpeg";
+  import StepSevenImage from "$lib/images/setup/comma-3x/step-7.jpeg";
   import CommaPowerImage from "$lib/images/products/comma-power/comma-power.jpg";
 
   let selectedVehicle = undefined;
@@ -85,7 +67,7 @@
           <div class="overview">
             <div>
               {@html RecordingsIcon}
-              <span>19 steps</span>
+              <span>5 steps</span>
             </div>
             <div class="divider" />
             <div>
@@ -185,246 +167,88 @@
       </div>
     </div>
 
-    <div class="step" id="step-1">
-      <Badge style="dark">Step 1 <span class="muted">of 19</span></Badge>
-      <h2>turn off your car</h2>
-      <Grid templateColumns="1.25fr 0.75fr">
-        <img src={PowerImage} loading="lazy" alt="turn off your car" />
-        <p>Ensure your vehicle is powered off before taking any additional steps.</p>
-      </Grid>
-    </div>
-    <hr />
-
-    <div class="step" id="step-2">
-      <Badge style="dark">Step 2 <span class="muted">of 19</span></Badge>
-      <h2>remove the rearview mirror cover trim</h2>
+        <div class="step" id="step-1">
+      <Badge style="dark">Step 1 <span class="muted">of 5</span></Badge>
+      <h2>Remove the rearview mirror cover trim</h2>
       <Grid templateColumns="1.25fr 0.75fr">
         <div class="image-grid">
           <img src={TrimImage} loading="lazy" alt="remove the rearview mirror cover trim" />
-          <img src={Trim1Image} loading="lazy" alt="removal step 1" />
-          <img src={Trim2Image} loading="lazy" alt="removal step 2" />
-          <img src={Trim3Image} loading="lazy" alt="removal step 3" />
+          <img src={Trim1Image} loading="lazy" alt="remove trim step 1" />
+          <img src={Trim2Image} loading="lazy" alt="remove trim step 2" />
+          <img src={Trim3Image} loading="lazy" alt="remove trim step 3" />
         </div>
         <p>
-          Removal method varies by car. Car trim plastics are often held in place by a mix of clips and hooks, some may require a firm tug to release. Angling the mirror out of the way is recommended. If you'd like to see how it's done, find a comma installation guide for your specific make on <a href="https://www.youtube.com/results?search_query=comma+install" class="highlight">YouTube</a>.<br><br>This is the hardest part, so take your time!
+          Removal method varies by car.
+          The durable plastic often requires a strong tug to pop it off on Hondas.
+          Toyotas often need a slide outward.
+          If you'd like to see how it's done, find a comma installation guide for your specific make on <a href="https://www.youtube.com/results?search_query=comma+install" class="highlight">YouTube</a>.
         </p>
       </Grid>
     </div>
     <hr />
-
+    <div class="step" id="step-2">
+      <Badge style="dark">Step 2 <span class="muted">of 5</span></Badge>
+      <h2>Connect car harness into the camera</h2>
+      <Grid templateColumns="1.25fr 0.75fr">
+        <div class="image-grid">
+          <img src={StepTwoAImage} loading="lazy" alt="unplug existing LKAS camera connector and plug it into the harness" />
+          <img src={StepTwoBImage} loading="lazy" alt="connector harness into LKAS camera connector and adhere harness box to the car" />
+        </div>
+        <ul>
+          <li>Unplug the existing LKAS camera connector and plug it into the harness.</li>
+          <li>Connect the other end of the harness back into the LKAS camera.</li>
+          <li>
+            Secure the harness – Find a place to place the harness box so the trim can still be installed over it.
+            Peel off adhesive sticker and attach the harness in place.
+          </li>
+        </ul>
+      </Grid>
+    </div>
+    <hr />
     <div class="step" id="step-3">
-      <Badge style="dark">Step 3 <span class="muted">of 19</span></Badge>
-      <h2>unplug the car's camera cable</h2>
+      <Badge style="dark">Step 3 <span class="muted">of 5</span></Badge>
+      <h2>Place mount high and centered on the windshield</h2>
       <Grid templateColumns="1.25fr 0.75fr">
         <div class="image-grid">
-          <img src={CameraImage} loading="lazy" alt="unplug the car's camera cable" />
-          <img src={Camera1Image} loading="lazy" alt="camera unplug step 1" />
-          <img src={Camera2Image} loading="lazy" alt="camera unplug step 2" />
+          <img src={StepFourAImage} loading="lazy" alt="approximate position on windshield to mount the comma device" />
+          <img src={StepFourBImage} loading="lazy" alt="preparation and instructions to adhere the mount to the windshield" />
+          <img src={StepFourCImage} loading="lazy" alt="emphasis to let mount adhesive cure for 48 hours before attaching the comma device" />
         </div>
-        <p>
-          Each vehicle's connector is slightly different, but all of them are held in place with a clip on the plug. If you feel like the cable isn't easy to pull out, make sure to press down all the way and hold to release the clip while pulling the connector out.
-        </p>
+        <div>
+          <ul>
+            <li>Mounting prep – Clean the mounting area with the included alcohol wipe and let it dry.</li>
+            <li>Vertical Positioning – Ensure the top of the mount is fully visible from the driver's seat.</li>
+            <li>Horizontal Positioning – Ensure the mount is centered horizontally, otherwise it will not properly center in the lane.</li>
+            <li>Adhere mount – Peel off the 3M tape's cover on the mount. Press firmly in the center of the mount, then the edges. Ensure no bubbles form.</li>
+            <li>Let the mount cure – The mount must cure for 48 hours before installing the comma device. Skipping this step will compromise the integrity of the mount.</li>
+          </ul>
+        </div>
       </Grid>
     </div>
     <hr />
-
     <div class="step" id="step-4">
-      <Badge style="dark">Step 4 <span class="muted">of 19</span></Badge>
-      <h2>plug the comma harness into the camera port</h2>
+      <Badge style="dark">Step 4 <span class="muted">of 5</span></Badge>
+      <h2>Plug in OBD-C and mount the device</h2>
       <Grid templateColumns="1.25fr 0.75fr">
-        <img src={PlugImage} loading="lazy" alt="plug the comma harness into the camera port" />
-        <p>
-          Plugs only fit in one way! If you feel unexpected resistance, check to see if you are plugging in the right orientation.
-        </p>
+        <div class="image-grid">
+          <img src={StepFiveAImage} loading="lazy" alt="plug in right-angle OBD-C cable into the harness box" />
+          <img src={StepFiveBImage} loading="lazy" alt="clean all three lenses with a microfiber cloth" />
+          <img src={StepFiveCImage} loading="lazy" alt="plug in OBD-C to back of the comma device and mount the device" />
+        </div>
+        <ul>
+          <li>Plug the right-angle OBD-C cable into the harness box – Ensure the cable is fully seated. Ensure the straight end is connected to the harness box.</li>
+          <li>Clean all three lenses with a microfiber cloth.</li>
+          <li>Plug in OBD-C and mount the device – Plug the OBD-C cable into the upper port on the back of the comma device. Make sure the cable is all the way in.</li>
+        </ul>
       </Grid>
     </div>
     <hr />
-
     <div class="step" id="step-5">
-      <Badge style="dark">Step 5 <span class="muted">of 19</span></Badge>
-      <h2>plug the car's camera wires into the other end of the harness box</h2>
+      <Badge style="dark">Step 5 <span class="muted">of 5</span></Badge>
+      <h2>Reinstall the rearview mirror cover trim</h2>
       <Grid templateColumns="1.25fr 0.75fr">
-        <img src={Plug1Image} loading="lazy" alt="plug the car's camera wires" />
-        <p>
-          The other end of the harness box has a corresponding connector for your car to plug into, make sure you hear a click when you plug each wire in. This completes the connection between the car camera and the harness box
-        </p>
-      </Grid>
-    </div>
-    <hr />
-
-    <div class="step" id="step-6">
-      <Badge style="dark">Step 6 <span class="muted">of 19</span></Badge>
-      <h2>plug the OBD-C cable into the harness box</h2>
-      <Grid templateColumns="1.25fr 0.75fr">
-        <img src={ObdcImage} loading="lazy" alt="plug the OBD-C cable" />
-        <p>
-          Some car kits include a long OBD-C cable for easier wire routing. Either end can be plugged in, however it is not recommended to use a non-official comma cable or plug a non-comma device into the harness box.
-        </p>
-      </Grid>
-    </div>
-    <hr />
-
-    <div class="step" id="step-7">
-      <Badge style="dark">Step 7 <span class="muted">of 19</span></Badge>
-      <h2>plug the comma power into the harness box</h2>
-      <Grid templateColumns="1.25fr 0.75fr">
-        <img src={Power1Image} loading="lazy" alt="plug the comma power" />
-        <p>
-          The comma power allows your comma four to stay powered on if the car is off. This means no boot up time before each drive, and automatic software updates in the background. It is optional for driving functionality, but recommended.
-        </p>
-      </Grid>
-    </div>
-    <hr />
-
-    <div class="step" id="step-8">
-      <Badge style="dark">Step 8 <span class="muted">of 19</span></Badge>
-      <h2>connect the comma power to your car</h2>
-      <Grid templateColumns="1.25fr 0.75fr">
-        <div class="image-grid">
-          <img src={Obd1Image} loading="lazy" alt="connect the comma power" />
-          <img src={ObdImage} loading="lazy" alt="OBD port connection" />
-        </div>
-        <p>
-          The comma power plugs into your car's OBD port, usually found in the driver footwell. It includes a thin and flexible cable to make it easy to push underneath trim and liner without first detaching those from your car.
-        </p>
-      </Grid>
-    </div>
-    <hr />
-
-    <div class="step" id="step-9">
-      <Badge style="dark">Step 9 <span class="muted">of 19</span></Badge>
-      <h2>re-attach the rearview mirror cover trim</h2>
-      <Grid templateColumns="1.25fr 0.75fr">
-        <img src={Trim4Image} loading="lazy" alt="re-attach the cover trim" />
-        <p>
-          Attach the cover plastic the same way you removed it, just backwards. You can route the OBD-C cable however you like, but leave some slack to make it easier to plug into your comma four next. Some of our cars have the cable wrapped around the mirror arm while others are routed through the trim; clean or messy, it's up to you :)
-        </p>
-      </Grid>
-    </div>
-    <hr />
-
-    <div class="step" id="step-10">
-      <Badge style="dark">Step 10 <span class="muted">of 19</span></Badge>
-      <h2>attach a mount to your comma four</h2>
-      <Grid templateColumns="1.25fr 0.75fr">
-        <div class="image-grid">
-          <img src={MountImage} loading="lazy" alt="attach a mount" />
-          <img src={Mount5Image} loading="lazy" alt="mount attachment" />
-        </div>
-        <p>Use two thumbs to press the sides down and push up. It should slide on easily with a tight fit.</p>
-      </Grid>
-    </div>
-    <hr />
-
-    <div class="step" id="step-11">
-      <Badge style="dark">Step 11 <span class="muted">of 19</span></Badge>
-      <h2>plug in your comma four</h2>
-      <Grid templateColumns="1.25fr 0.75fr">
-        <img src={Plug2Image} loading="lazy" alt="plug in your comma four" />
-        <p>Do not peel off the red tape protector until you're ready to mount after the next step.</p>
-      </Grid>
-    </div>
-    <hr />
-
-    <div class="step" id="step-12">
-      <Badge style="dark">Step 12 <span class="muted">of 19</span></Badge>
-      <h2>find a good spot for your comma four</h2>
-      <Grid templateColumns="1.25fr 0.75fr">
-        <div class="image-grid">
-          <img src={Mount1Image} loading="lazy" alt="find a good spot" />
-          <img src={Mount2Image} loading="lazy" alt="positioning" />
-        </div>
-        <p>
-          The comma four must be mounted in the center of the windshield and high up. Hold it up to see how it fits with your car's trim.<br><br>Make sure the spot you like leaves enough room above the comma four to make it easy to unplug!
-        </p>
-      </Grid>
-    </div>
-    <hr />
-
-    <div class="step" id="step-13">
-      <Badge style="dark">Step 13 <span class="muted">of 19</span></Badge>
-      <h2>stick your comma four to the windshield</h2>
-      <Grid templateColumns="1.25fr 0.75fr">
-        <img src={Mount3Image} loading="lazy" alt="stick to windshield" />
-        <p>
-          When you're happy with the position, peel the red layer off the mount, and stick your comma four in place. Firmly press it upward to properly stick the mount to the windshield.
-        </p>
-      </Grid>
-    </div>
-    <hr />
-
-    <div class="step" id="step-14">
-      <Badge style="dark">Step 14 <span class="muted">of 19</span></Badge>
-      <h2>unplug your comma four and remove it from the mount</h2>
-      <Grid templateColumns="1.25fr 0.75fr">
-        <div class="image-grid">
-          <img src={UnmountImage} loading="lazy" alt="unplug comma four" />
-          <img src={Unmount1Image} loading="lazy" alt="remove from mount" />
-        </div>
-        <p>Slide your comma four up towards your rearview mirror to unmount it.</p>
-      </Grid>
-    </div>
-    <hr />
-
-    <div class="step" id="step-15">
-      <Badge style="dark">Step 15 <span class="muted">of 19</span></Badge>
-      <h2>check your mount alignment</h2>
-      <Grid templateColumns="1.25fr 0.75fr">
-        <img src={AlignImage} loading="lazy" alt="check mount alignment" />
-        <p>
-          It's easiest to check your mount's alignment from outside of your car. You want to make sure its centered and level. We recommend doing this before the next step.
-        </p>
-      </Grid>
-    </div>
-    <hr />
-
-    <div class="step" id="step-16">
-      <Badge style="dark">Step 16 <span class="muted">of 19</span></Badge>
-      <h2>press your mount on</h2>
-      <Grid templateColumns="1.25fr 0.75fr">
-        <div class="image-grid">
-          <img src={PressImage} loading="lazy" alt="press your mount on" />
-          <img src={Press1Image} loading="lazy" alt="pressing mount" />
-        </div>
-        <p>
-          Firmly press up on your mount to fully attach the tape. Check for air bubbles from the outside to see which spots need more pressure.
-        </p>
-      </Grid>
-    </div>
-    <hr />
-
-    <div class="step" id="step-17">
-      <Badge style="dark">Step 17 <span class="muted">of 19</span></Badge>
-      <h2>re-place your comma four</h2>
-      <Grid templateColumns="1.25fr 0.75fr">
-        <img src={RemountImage} loading="lazy" alt="re-place your comma four" />
-        <p>Slide your comma four back on to the mount and plug it in. Almost done, last step is cleanup.</p>
-      </Grid>
-    </div>
-    <hr />
-
-    <div class="step" id="step-18">
-      <Badge style="dark">Step 18 <span class="muted">of 19</span></Badge>
-      <h2>tidy up the wires</h2>
-      <Grid templateColumns="1.25fr 0.75fr">
-        <div class="image-grid">
-          <img src={WiresImage} loading="lazy" alt="tidy up the wires" />
-          <img src={Wires1Image} loading="lazy" alt="wire management 1" />
-          <img src={Wires2Image} loading="lazy" alt="wire management 2" />
-        </div>
-        <p>
-          The included cable ties can be helpful for wire management, and the harness box has an additional sticky pad if you have room to mount it underneath the trim (some cars are a tight fit, and others have lots of space).<br><br>We find it's usually easy to gently stuff the wires under the trim when everything's attached.
-        </p>
-      </Grid>
-    </div>
-    <hr />
-
-    <div class="step" id="step-19">
-      <Badge style="dark">Step 19 <span class="muted">of 19</span></Badge>
-      <h2>start and set up your comma four</h2>
-      <Grid templateColumns="1.25fr 0.75fr">
-        <img src={PowerImage} loading="lazy" alt="start and set up" />
-        <p>You just upgraded your car to a whole new experience. Now you can setup your comma four in a few seconds and go for a drive!</p>
+        <img src={StepSevenImage} loading="lazy" alt="reinstall trim" />
+        <ul><li>Ensure the car harness fully fits inside the trim. Have the OBD-C cable come out of the top.</li></ul>
       </Grid>
     </div>
 
@@ -434,11 +258,11 @@
       <h2>Pair your device with comma connect</h2>
       <Grid templateColumns="1.25fr 0.75fr">
         <div>
-          <img src={ConnectImage} loading="lazy" alt="comma connect application logo" />
+          <img src={StepSixImage} loading="lazy" alt="comma connect application logo" />
         </div>
         <div>
           <p>
-            Pair your comma four with <a href="https://connect.comma.ai/" target="_blank" class="highlight">connect.comma.ai</a> on your phone to see your recorded drives
+            Pair your comma four with <a href="https://connect.comma.ai/" target="_blank" class="highlight">connect.comma.ai</a> on your phone to see your recorded drives.
           </p>
           <br />
           <LinkButton href="https://connect.comma.ai/" target="_blank" style="primary" fullWidth={true}>comma Connect</LinkButton>
@@ -462,9 +286,11 @@
           <p>
             With a comma power:
           </p>
-          <li>The start and end of every drive are recorded.</li>
-          <li>Your comma four remains powered and online while the car is off.</li>
-          <li>Your comma four downloads updates while the car is off.</li>
+          <ul>
+            <li>The start and end of every drive are recorded.</li>
+            <li>Your comma four remains powered and online while the car is off.</li>
+            <li>Your comma four downloads updates while the car is off.</li>
+          </ul>
         </div>
       </Grid>
     </div>
