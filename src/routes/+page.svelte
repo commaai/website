@@ -90,11 +90,11 @@
 
     // Initialize screen video with higher quality for better downscaling
     if (screenVideoElement && screenVideoCanvas) {
-      canvasCtx = screenVideoCanvas.getContext('2d', {
+      canvasCtx = screenVideoCanvas.getContext('2d', { 
         alpha: true,
-        desynchronized: true
+        desynchronized: true 
       });
-
+      
       // Enable high-quality image smoothing
       if (canvasCtx) {
         canvasCtx.imageSmoothingEnabled = true;
@@ -104,47 +104,24 @@
       screenVideoElement.addEventListener('playing', () => {
         screenVideoReady = true;
       });
-
+      
       initializeHLS(screenVideoElement, ScreenVideo, () => {
         screenVideoElement.play();
-
+        
         // Render video frames to canvas
         function render() {
           if (!canvasCtx || !screenVideoElement || !screenVideoCanvas) return;
-
+          
           if (screenVideoElement.readyState >= 2) {
-            // Set canvas size to match CSS display size while preserving video aspect ratio
+            // Set canvas size to match CSS display size (with device pixel ratio for crisp rendering)
             const container = screenVideoCanvas.parentElement;
-            if (container && screenVideoElement.videoWidth > 0 && screenVideoElement.videoHeight > 0) {
+            if (container) {
               const rect = container.getBoundingClientRect();
               const dpr = window.devicePixelRatio || 1;
-              // Account for container's transform: scale(1.1)
-              const unscaledWidth = rect.width / 1.1;
-              const unscaledHeight = rect.height / 1.1;
-
-              // Calculate target display size based on CSS percentages
-              const targetDisplayWidth = unscaledWidth * 0.4021;
-              const targetDisplayHeight = unscaledHeight * 0.258;
-
-              // Get video aspect ratio
-              const videoAspect = screenVideoElement.videoWidth / screenVideoElement.videoHeight;
-
-              // Calculate actual display size preserving aspect ratio
-              // Use the smaller dimension to ensure it fits within the target area
-              let displayWidth, displayHeight;
-              const targetAspect = targetDisplayWidth / targetDisplayHeight;
-
-              if (videoAspect > targetAspect) {
-                // Video is wider - fit to width
-                displayWidth = targetDisplayWidth;
-                displayHeight = targetDisplayWidth / videoAspect;
-              } else {
-                // Video is taller - fit to height
-                displayHeight = targetDisplayHeight;
-                displayWidth = targetDisplayHeight * videoAspect;
-              }
-
-              if (screenVideoCanvas.width !== displayWidth * dpr ||
+              const displayWidth = rect.width * 0.4021; // CSS width percentage
+              const displayHeight = rect.height * 0.258; // CSS height percentage
+              
+              if (screenVideoCanvas.width !== displayWidth * dpr || 
                   screenVideoCanvas.height !== displayHeight * dpr) {
                 screenVideoCanvas.width = displayWidth * dpr;
                 screenVideoCanvas.height = displayHeight * dpr;
@@ -153,20 +130,20 @@
                 canvasCtx.imageSmoothingEnabled = true;
                 canvasCtx.imageSmoothingQuality = 'high';
               }
-
+              
               // Draw video frame scaled to canvas size with high-quality smoothing
               canvasCtx.drawImage(
-                screenVideoElement,
-                0, 0,
-                screenVideoCanvas.width,
+                screenVideoElement, 
+                0, 0, 
+                screenVideoCanvas.width, 
                 screenVideoCanvas.height
               );
             }
           }
-
+          
           animationFrame = requestAnimationFrame(render);
         }
-
+        
         render();
       }, true); // preferHigherQuality = true
     }
@@ -525,6 +502,9 @@
       /* Clean AA methods */
       image-rendering: optimizeQuality;
       -webkit-font-smoothing: antialiased;
+      /* Subtle blur to smooth edges */
+      filter: blur(0.3px);
+      -webkit-filter: blur(0.3px);
       /* Ensure GPU acceleration */
       will-change: transform, opacity;
       backface-visibility: hidden;
