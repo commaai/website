@@ -177,7 +177,7 @@
     </Grid>
     <hr />
     <Grid rowGap="0" templateColumns="0.5fr 1.25fr">
-      <h2>Snapdragon 845 MAX</h2>
+      <h2>Snapdragon 845 <span class="max-gradient">MAX</span></h2>
       <div class="cooling-section">
         <img src={CoolingImage} loading="lazy" alt="comma four cooling system">
       </div>
