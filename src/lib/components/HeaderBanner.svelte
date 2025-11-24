@@ -1,5 +1,5 @@
 <!-- Alternative: New: comma four launches this Black Friday -->
-<a href="/shop/comma-four" target="_blank" class="banner">
+<a href="/shop/comma-four" class="banner">
   <div class="wrapper">
     <strong class="headline">
       Introducing comma four — Available now for Black Friday
