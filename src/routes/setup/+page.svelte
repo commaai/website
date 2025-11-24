@@ -24,6 +24,9 @@
   import AlignImage from "$lib/images/setup/comma-four/align.jpg";
   import Mount1Image from "$lib/images/setup/comma-four/mount-1.jpg";
   import PressImage from "$lib/images/setup/comma-four/press.jpg";
+  import ObdcImage from "$lib/images/setup/comma-four/obdc.jpg";
+  import Plug2Image from "$lib/images/setup/comma-four/plug-2.jpg";
+  import RemountImage from "$lib/images/setup/comma-four/remount.jpg";
   import StepTwoAImage from "$lib/images/setup/comma-3x/step-2a.jpeg";
   import StepTwoBImage from "$lib/images/setup/comma-3x/step-2b.jpeg";
   import StepFourAImage from "$lib/images/setup/comma-3x/step-4a.jpg";
@@ -236,16 +239,16 @@
     <div class="step" id="step-4">
       <Badge style="dark">Step 4 <span class="muted">of 5</span></Badge>
       <h2>Plug in OBD-C and mount the device</h2>
-      <Grid templateColumns="1.25fr 0.75fr">
+      <Grid templateColumns="0.875fr 0.75fr">
         <div class="image-grid">
-          <img src={StepFiveAImage} loading="lazy" alt="plug in right-angle OBD-C cable into the harness box" />
-          <img src={StepFiveBImage} loading="lazy" alt="clean all three lenses with a microfiber cloth" />
-          <img src={StepFiveCImage} loading="lazy" alt="plug in OBD-C to back of the comma device and mount the device" />
+          <img src={ObdcImage} loading="lazy" alt="plug OBD-C cable into harness box" />
+          <img src={Plug2Image} loading="lazy" alt="plug in comma four" />
+          <img src={RemountImage} loading="lazy" alt="mount the device" />
         </div>
         <ul>
           <li>Plug the OBD-C cable into the harness box – Ensure the cable is fully seated.</li>
-          <li>Clean all three lenses with a microfiber cloth.</li>
-          <li>Plug in OBD-C and mount the device – Plug the OBD-C cable into the upper port on the back of the comma device. Make sure the cable is all the way in.</li>
+          <li>Plug the OBD-C cable into the comma device. Make sure the cable is all the way in.</li>
+          <li>Mount the device – Ensure the device is fully seated into the mount.</li>
         </ul>
       </Grid>
     </div>
