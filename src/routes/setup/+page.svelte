@@ -244,7 +244,7 @@
         </div>
         <ul>
           <li>Plug the OBD-C cable into the harness box – Ensure the cable is fully seated.</li>
-          <li>Plug the OBD-C cable into your device. Make sure the cable is all the way in.</li>
+          <li>Plug the OBD-C cable into the comma four. Make sure the cable is all the way in.</li>
           <li>Mount the device – Ensure the device is fully seated into the mount.</li>
         </ul>
       </Grid>
@@ -277,7 +277,7 @@
         </div>
         <div>
           <p>
-            Pair your device with <a href="https://connect.comma.ai/" target="_blank" class="highlight">connect.comma.ai</a> on your phone to see your recorded drives.
+            Pair your comma four with <a href="https://connect.comma.ai/" target="_blank" class="highlight">connect.comma.ai</a> on your phone to see your recorded drives.
           </p>
           <br />
           <LinkButton href="https://connect.comma.ai/" target="_blank" style="primary" fullWidth={true}>comma Connect</LinkButton>
@@ -303,8 +303,8 @@
           </p>
           <ul>
             <li>The start and end of every drive are recorded.</li>
-            <li>Your device remains powered and online while the car is off.</li>
-            <li>Your device downloads updates while the car is off.</li>
+            <li>Your comma four remains powered and online while the car is off.</li>
+            <li>Your comma four downloads updates while the car is off.</li>
           </ul>
         </div>
       </Grid>
