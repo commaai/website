@@ -25,15 +25,16 @@
     tabindex="-1"
   >
     <div class="section-links">
+      <a href="/">home</a>
       <a href="/openpilot">openpilot</a>
       <a href="/shop/comma-four">comma four</a>
       <a href="/shop">shop</a>
       <a href="/connect">connect</a>
       <a href="/vehicles">compatibility</a>
-      <a href="/setup">setup guides</a>
+      <a href="/setup">setup guide</a>
       <a href="/support">support & FAQs</a>
       <a href="https://blog.comma.ai">blog</a>
-      <a href="/jobs.html">jobs - we're hiring!</a>
+      <a href="/jobs">jobs - we're hiring!</a>
     </div>
     <div class="news-feed">
       <div class="blog">

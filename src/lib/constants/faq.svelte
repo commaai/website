@@ -392,7 +392,7 @@
         {
           question: 'Do I need a comma prime monthly subscription to use the device?',
           answer: `
-            No. comma prime is completely optional and is not needed for any core functionality. comma prime can be activated, cancelled, and re-activated at any time.
+            <b>Absolutely not.</b> comma prime is completely optional and is not needed for any core functionality. comma prime can be activated, cancelled, and re-activated at any time.
           `
         }, {
           question: 'Does installing a comma device require permanent modifications to the car?',
@@ -407,13 +407,7 @@
               We recommend the mount be centered on the windshield below the trim (see pictures in the Installation Guide). Be sure to leave enough room to remove the trim in the future. First, clean the windshield with the included alcohol wipe. Ensure the top of the mount is fully visible from the driver’s seat. Adhere mount: peel off the 3M tape’s cover on the mount. Press firmly in the center of the mount, then the edges to ensure no bubbles form.
             </p>
             <p>
-              Let the mount cure: the mount must cure for 48 hours before installing the comma device. Skipping this step will compromise the integrity of the mount.
-            </p>
-            <p>
-              The 3X mount may be difficult to slide onto the device before it’s installed on the windshield. This is expected and will be easier to do once the mount is installed and fully cured. Some force may be necessary to initially slide the device on the mount. Before applying any force, ensure the device mount is parallel to the mount on the windshield so it will slide in correctly.
-            </p>
-            <p>
-              IT IS THE USER’S RESPONSIBILITY TO MOUNT THE DEVICE IN COMPLIANCE WITH ALL APPLICABLE LAWS AND ORDINANCES.
+              It is the user’s responsibility to mount the device in compliance with all applicable laws and ordinances.
             </p>
           `
         }, {
@@ -515,7 +509,7 @@
         }, {
           question: 'I got an email saying my order was marked as fraud?',
           answer: `
-            Our payment processor will occasionally flag an order for suspicious activity and when this happens our support team will reach out to you and request more information from an official comma email address. If you have purchased UPS 2nd Day Air shipping, it will go out with this speed as soon as the order is verified. If we do not hear back within 2 weeks, we may cancel your order.
+            Our payment processor will occasionally flag an order for suspicious activity. If this happens, reach out to our support team at <a href="https://comma.ai/support">comma.ai/support</a>.
           `
         }, {
           question: 'I ordered to the wrong address, now what?',
@@ -551,7 +545,7 @@
         }, {
           question: 'Do you offer any upgrades or trade-in discounts for the comma two, three, or 3X?',
           answer: `
-            Trade-in details can be <a href="/shop/comma-four-trade-in">found here</a>.
+            Yes! Trade-in details can be <a href="/shop/comma-four-trade-in">found here</a>.
           `
         }, {
           question: 'What do I need to know before making an international order?',
@@ -843,7 +837,7 @@
               comma support is for comma shop order and warranty related issues. Our inbox is not monitored; please open a support ticket on our <a href="https://comma.ai/support">comma.ai/support</a>.
             </p>
             <p>
-              comma does not provide support for openpilot. We recommend the <a https://discord.comma.ai>community Discord</a> or open an issue on openpilot’s GitHub.
+              comma does not provide support for openpilot. We recommend the <a href="https://discord.comma.ai">community Discord</a> or open an issue on openpilot’s GitHub.
             </p>
           `
         },

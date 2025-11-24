@@ -124,7 +124,7 @@
       <p>
         openpilot is developed by comma and by users like you. We welcome both
         pull requests and issues on
-        <a class="highlight" href="http://github.com/commaai/openpilot" target="_blank">GitHub</a>.
+        <a class="highlight" href="https://github.com/commaai/openpilot" target="_blank">GitHub</a>.
         Bug fixes and new car ports are strongly encouraged. Check out the
         <a class="highlight" href="https://github.com/commaai/openpilot/blob/master/docs/CONTRIBUTING.md" target="_blank">contributing docs</a>.
       </p>

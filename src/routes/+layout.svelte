@@ -63,6 +63,20 @@
         showCart.set(false);
       }
     });
+
+    // Focus mailing list input when hash is #mailing-list
+    const focusMailingList = () => {
+      if (window.location.hash === '#mailing-list') {
+        setTimeout(() => {
+          const input = document.querySelector('#mailing-list input[type="email"]');
+          if (input) input.focus();
+        }, 300);
+      }
+    };
+
+    // Check on load and on hash change
+    focusMailingList();
+    window.addEventListener('hashchange', focusMailingList);
   });
 
   printConsoleBanner();
@@ -87,6 +101,7 @@
       </div>
     </div>
     <nav class="navbar-section-links">
+      <a href="/" class:active={$page.url.pathname === '/'}>home</a>
       <a href="/openpilot" class:active={$page.url.pathname.startsWith('/openpilot')}>openpilot</a>
       <a href="/shop/comma-four" class:active={$page.url.pathname.startsWith('/shop/comma-four')}>comma four</a>
       <a href="/vehicles" class:active={$page.url.pathname.startsWith('/vehicles')}>compatibility</a>
@@ -148,7 +163,7 @@
       <div class="footer-links">
         <strong>Support</strong>
         <a href="/support">Support & FAQs</a>
-        <a href="/setup">Setup Guides</a>
+        <a href="/setup">Setup Guide</a>
         <a class="badged" href="https://discord.comma.ai/">
           <span>Discord</span>
           {@html ExternalIcon}
@@ -157,7 +172,7 @@
       <div class="footer-links">
         <div class="tagline">{@html CommaIcon}<span>make driving chill</span></div>
         <SocialIcons size="1.5rem" />
-        <div class="mailing-list">
+        <div id="mailing-list" class="mailing-list">
           <MailingListForm style="primary" />
         </div>
       </div>

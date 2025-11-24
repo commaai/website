@@ -5,7 +5,8 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 cd $DIR
 
 VIDEO=${1:-~/Downloads/testvideo2_trash.MP4}
-ENCODE_MODE=${2:-hw}
+VIDEO_NAME=${2:-hero}
+ENCODE_MODE=${3:-hw}
 case "$ENCODE_MODE" in
   hw|HW) ENCODE_MODE=hw ;;
   sw|SW|cpu) ENCODE_MODE=sw ;;
@@ -37,7 +38,7 @@ if (( $(echo "$trim_duration <= 0" | bc -l) )); then
   exit 1
 fi
 
-out=$DIR/static/videos/hero/
+out=$DIR/static/videos/$VIDEO_NAME/
 rm -rf $out
 mkdir -p $out
 
@@ -50,10 +51,10 @@ echo "Encoding video segments..."
 ffmpeg -y -ss $START_OFFSET -i $VIDEO -t $trim_duration \
   -vf "scale=-2:1080" -pix_fmt yuv420p \
   "${CODEC_ARGS[@]}" \
-  -g 60 -keyint_min 60 -sc_threshold 0 -force_key_frames "expr:gte(t,n_forced*5)" -an \
+  -g 60 -keyint_min 60 -sc_threshold 0 -force_key_frames "expr:gte(t,n_forced*2)" -an \
   -f stream_segment -segment_format mpegts \
-  -segment_list $out/hero.m3u8 -segment_list_type m3u8 \
-  -segment_time 5 \
+  -segment_list $out/${VIDEO_NAME}.m3u8 -segment_list_type m3u8 \
+  -segment_time 2 \
   -reset_timestamps 1 \
   -bf 3 -b_ref_mode middle -spatial_aq 1 -aq-strength 8 -temporal_aq 1 -rc-lookahead 20 \
   $out/part_${UUID}_%03d.ts

@@ -109,7 +109,7 @@
     <h4>Applying</h4>
     <pre>
   <strong>1. Challenge</strong>
-  Choose any of the challenges from the <a href="https://comma.ai/leaderboard">leaderboard</a> or <a href="https://comma.ai/bounties">bounties</a>, solve it, then reach into work@comma.ai.
+  Choose any of the challenges from the <a href="https://comma.ai/leaderboard">leaderboard</a> or <a href="https://comma.ai/bounties">bounties</a>, solve it, then reach out to work@comma.ai.
 
   <strong>2. Phone screen</strong>
   Typically, we do two phone calls. A quick intro and screen, then an in-depth technical interview with an engineer.

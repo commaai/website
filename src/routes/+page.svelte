@@ -8,7 +8,7 @@
   import Grid from "$lib/components/Grid.svelte";
   import { vehicleCountText } from '$lib/constants/vehicles.js';
 
-  import DeviceImage from "$lib/images/products/comma-four/four_screen_on.png";
+  import DeviceImage from "$lib/images/products/comma-four/four_dark.png";
   import LaneCenteringIcon from "$lib/icons/features/lane-centering.svg?raw";
   import AdaptiveCruiseIcon from "$lib/icons/features/adaptive-cruise.svg?raw";
   import OtaUpdatesIcon from "$lib/icons/features/ota-updates.svg?raw";
@@ -16,36 +16,71 @@
   import LocationIcon from "$lib/icons/features/location.svg?raw";
   import RecordingsIcon from "$lib/icons/features/recordings.svg?raw";
 
-  const HeroVideo = "/videos/hero/hero.m3u8";
+  const HeroLandscapeVideo = "/videos/hero-landscape/hero-landscape.m3u8";
+  const HeroPortraitVideo = "/videos/hero-portrait/hero-portrait.m3u8";
+  const ScreenVideo = "/videos/screen-video/screen-video.m3u8";
 
-  let videoElement;
-  let videoReady = false;
+  let videoLandscapeElement;
+  let videoLandscapeReady = false;
+  let videoPortraitElement;
+  let videoPortraitReady = false;
+  let screenVideoElement;
+  let screenVideoReady = false;
 
   // Hardcode GitHub star count (similar to contributors on openpilot page)
   const githubStars = 50000;
 
-  onMount(async () => {
-    // Initialize HLS.js
-    if (videoElement) {
-      // Show video once it starts playing
-      videoElement.addEventListener('playing', () => {
-        videoReady = true;
+  function initializeHLS(videoEl, src, onReady) {
+    if (Hls.isSupported()) {
+      const hls = new Hls();
+      hls.loadSource(src);
+      hls.attachMedia(videoEl);
+      hls.on(Hls.Events.MANIFEST_PARSED, () => {
+        if (onReady) onReady();
       });
+      return hls;
+    } else if (videoEl.canPlayType('application/vnd.apple.mpegurl')) {
+      videoEl.src = src;
+      videoEl.addEventListener('loadedmetadata', () => {
+        if (onReady) onReady();
+      });
+      return null;
+    }
+    return null;
+  }
 
-      if (Hls.isSupported()) {
-        const hls = new Hls();
-        hls.loadSource(HeroVideo);
-        hls.attachMedia(videoElement);
-        hls.on(Hls.Events.MANIFEST_PARSED, () => {
-          videoElement.play();
-        });
-      } else if (videoElement.canPlayType('application/vnd.apple.mpegurl')) {
-        // Native HLS support (Safari)
-        videoElement.src = HeroVideo;
-        videoElement.addEventListener('loadedmetadata', () => {
-          videoElement.play();
-        });
-      }
+  // TODO: don't load both mobile and desktop videos on initial load
+  onMount(async () => {
+    // const isMobile = typeof window !== 'undefined' && window.innerWidth < 769;
+
+    // Initialize landscape video
+    if (videoLandscapeElement) {
+      videoLandscapeElement.addEventListener('playing', () => {
+        videoLandscapeReady = true;
+      });
+      initializeHLS(videoLandscapeElement, HeroLandscapeVideo, () => {
+        videoLandscapeElement.play();
+      });
+    }
+
+    // Initialize portrait video
+    if (videoPortraitElement) {
+      videoPortraitElement.addEventListener('playing', () => {
+        videoPortraitReady = true;
+      });
+      initializeHLS(videoPortraitElement, HeroPortraitVideo, () => {
+        videoPortraitElement.play();
+      });
+    }
+
+    // Initialize screen video
+    if (screenVideoElement) {
+      screenVideoElement.addEventListener('playing', () => {
+        screenVideoReady = true;
+      });
+      initializeHLS(screenVideoElement, ScreenVideo, () => {
+        screenVideoElement.play();
+      });
     }
   });
 
@@ -56,14 +91,30 @@
 </script>
 
 <svelte:head>
-  <link rel="preload" as="image" href="/videos/hero/poster.jpg" />
+  <link rel="preload" as="image" href="/videos/hero-landscape/poster.jpg" />
+  <link rel="preload" as="image" href="/videos/hero-portrait/poster.jpg" />
+  <link rel="preload" as="image" href="/videos/screen-video/poster.jpg" />
 </svelte:head>
 
-<section class="hero-image" style="background-image: url('/videos/hero/poster.jpg');" on:dragstart={handleDragStart} role="img" aria-label="Hero image">
+<section class="hero-image desktop" style="background-image: url('/videos/hero-landscape/poster.jpg');" on:dragstart={handleDragStart} role="img" aria-label="Hero image">
   <video
-    bind:this={videoElement}
-    class:ready={videoReady}
-    poster="/videos/hero/poster.jpg"
+    bind:this={videoLandscapeElement}
+    class:ready={videoLandscapeReady}
+    poster="/videos/hero-landscape/poster.jpg"
+    autoplay
+    muted
+    loop
+    playsinline
+    draggable="false"
+  />
+</section>
+
+
+<section class="hero-image mobile" style="background-image: url('/videos/hero-portrait/poster.jpg');" on:dragstart={handleDragStart} role="img" aria-label="Hero image">
+  <video
+    bind:this={videoPortraitElement}
+    class:ready={videoPortraitReady}
+    poster="/videos/hero-portrait/poster.jpg"
     autoplay
     muted
     loop
@@ -77,11 +128,23 @@
     <h1>comma four</h1>
     <h2 class="muted">An AI upgrade for your car</h2>
     <Grid columns={2} rowGap="3rem">
-      <img
-        src={DeviceImage}
-        loading="lazy"
-        alt="comma four device"
-      />
+      <div class="device-image-container">
+        <img
+          src={DeviceImage}
+          alt="comma four device"
+        />
+        <video
+          bind:this={screenVideoElement}
+          class:ready={screenVideoReady}
+          poster="/videos/screen-video/poster.jpg"
+          autoplay
+          muted
+          loop
+          playsinline
+          draggable="false"
+          class="screen-video-overlay"
+        />
+      </div>
       <div>
         <div class="mb-2">
           <Grid columns={2} columnGap="1rem" rowGap="1.25rem" size="small" wrapMode="none">
@@ -111,7 +174,7 @@
             </div>
           </Grid>
         </div>
-        <LinkButton href="shop/comma-four" fullWidth={true} style="accent">
+        <LinkButton href="/shop/comma-four" fullWidth={true} style="accent">
           Buy now
         </LinkButton>
       </div>
@@ -119,7 +182,7 @@
     <h1 class="mt-4">Buy it, plug it in, and engage.</h1>
     <h3 class="muted">
       comma four works with the car you already drive. It's active driver assistance
-      for your Toyota, Honda, and more.
+      for your Toyota, Hyundai, Ford, and more.
     </h3>
   </div>
 </section>
@@ -196,10 +259,11 @@
 <style>
   .hero-image {
     position: relative;
+    /* Behind nav bar */
+    margin: -66px 0 0;
     width: 100%;
     height: 100vh;
     overflow: hidden;
-    margin: 0;
     padding: 0;
     user-select: none;
     -webkit-user-drag: none;
@@ -209,6 +273,20 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+
+    &.desktop {
+      @media screen and (max-width: 768px) {
+        display: none;
+      }
+    }
+
+    &.mobile {
+      height: unset;
+      aspect-ratio: 3 / 4;
+      @media screen and (min-width: 769px) {
+        display: none;
+      }
+    }
 
     & video {
       width: 100%;
@@ -245,7 +323,7 @@
       bottom: 0;
       left: 0;
       right: 0;
-      height: 420px;
+      height: 180px;
       background: linear-gradient(to bottom, transparent, black);
       z-index: 2;
       pointer-events: none;
@@ -319,6 +397,33 @@
     @media screen and (max-width: 768px) {
       & h4 {
         margin-bottom: 2rem;
+      }
+    }
+  }
+
+  .device-image-container {
+    position: relative;
+    display: inline-block;
+    transform: scale(1.1);
+
+    & img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    & .screen-video-overlay {
+      position: absolute;
+      left: 23.21%; /* 780 / 3360 */
+      top: 63.97%; /* 1433 / 2240 */
+      width: 40.21%; /* 1351 / 3360 */
+      height: 25.80%; /* 578 / 2240 */
+      mix-blend-mode: screen;
+      opacity: 0;
+      transition: opacity 0.3s ease-in;
+
+      &.ready {
+        opacity: 1;
       }
     }
   }

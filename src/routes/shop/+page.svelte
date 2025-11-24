@@ -4,12 +4,13 @@
   import ProductCard from "$lib/components/ProductCard.svelte";
   import Accordion from "$lib/components/Accordion.svelte";
   import Button from "$lib/components/Button.svelte";
+  import Badge from "$lib/components/Badge.svelte";
 
   import FourImage from "$lib/images/products/comma-four/four_screen_on.png";
 
   import RecordingsIcon from "$lib/icons/features/recordings.svg?raw";
   import CalendarIcon from "$lib/icons/features/calendar.svg?raw";
-  import CurrencyIcon from "$lib/icons/features/currency.svg?raw";
+  import CarIcon from "$lib/icons/features/car.svg?raw";
   import BusinessIcon from "$lib/icons/features/business.svg?raw";
   import ContactIcon from "$lib/icons/features/contact.svg?raw";
   import ImmediateIcon from "$lib/icons/features/immediate.svg?raw";
@@ -49,6 +50,7 @@
       <div class="product-display gradient-bg">
         <Grid columns={2} alignItems="center" size="large">
           <div class="product-content">
+            <Badge style="accent">NEW DEVICE!</Badge>
             <hgroup>
               <h1>comma four</h1>
               <span>${FOUR_PRICE}</span>
@@ -57,12 +59,45 @@
               Buy now
             </LinkButton>
             <p>
-              Works with {vehicleCountText} cars.
-              <a class="highlight muted" href="/vehicles">Check compatibility</a>.
+              Works with {vehicleCountText} cars from 27 brands.
+              <a class="highlight muted" href="/vehicles">Is your car compatible?</a>
             </p>
           </div>
           <div class="mobile-first">
             <img src={FourImage} loading="lazy" alt="comma four device" />
+          </div>
+        </Grid>
+      </div>
+      <div class="traits light">
+        <Grid columns={3} alignItems="stretch" columnGap="0" rowGap="0">
+          <div class="trait">
+            <div>{@html CarIcon}</div>
+            <hgroup>
+              <h2>Works with {vehicleCountText} cars</h2>
+              <div>
+                Compatible with {vehicleCountText} vehicles.
+                <a class="highlight" href="/vehicles">Check compatibility</a>.
+              </div>
+            </hgroup>
+          </div>
+          <div class="trait">
+            <div>{@html RecordingsIcon}</div>
+            <hgroup>
+              <h2>Easy to plug in</h2>
+              <div>
+                Check out our step-by-step guide. Get set up in your car in 15 minutes.
+              </div>
+            </hgroup>
+          </div>
+          <div class="trait">
+            <div>{@html CalendarIcon}</div>
+            <hgroup>
+              <h2>30-day money-back trial</h2>
+              <div>
+                See for yourself why Consumer Reports rated us as the
+                <a class="highlight" href="https://data.consumerreports.org/wp-content/uploads/2020/11/consumer-reports-active-driving-assistance-systems-november-16-2020.pdf" target="_blank">top ADAS system</a>.
+              </div>
+            </hgroup>
           </div>
         </Grid>
       </div>
