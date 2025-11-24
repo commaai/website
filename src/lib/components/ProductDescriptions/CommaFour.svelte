@@ -103,6 +103,8 @@
   <div slot="shipping"></div>
 
   <span slot="price-accessory">
+    <span class="muted-price">or $699 after trade-in of any comma device</span>
+
     <div class="badge">
       <Badge style="dark">Free rush shipping</Badge>
     </div>
@@ -197,6 +199,14 @@
 </Modal>
 
 <style>
+  .muted-price {
+    display: block;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    color: #999;
+    font-size: 1rem;
+  }
+
   .item {
     padding: 1rem 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.15);
