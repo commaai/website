@@ -492,8 +492,6 @@
       image-rendering: optimizeQuality;
       -webkit-font-smoothing: antialiased;
       /* Subtle blur to smooth edges */
-      filter: blur(0.3px);
-      -webkit-filter: blur(0.3px);
       /* Ensure GPU acceleration */
       will-change: transform, opacity;
       backface-visibility: hidden;
