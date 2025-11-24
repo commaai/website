@@ -18,6 +18,9 @@
   import Trim1Image from "$lib/images/setup/comma-four/trim-1.jpg";
   import Trim2Image from "$lib/images/setup/comma-four/trim-2.jpg";
   import Trim3Image from "$lib/images/setup/comma-four/trim-3.jpg";
+  import Trim4Image from "$lib/images/setup/comma-four/trim-4.jpg";
+  import WiresImage from "$lib/images/setup/comma-four/wires.jpg";
+  import Wires1Image from "$lib/images/setup/comma-four/wires-1.jpg";
   import AlignImage from "$lib/images/setup/comma-four/align.jpg";
   import Mount1Image from "$lib/images/setup/comma-four/mount-1.jpg";
   import PressImage from "$lib/images/setup/comma-four/press.jpg";
@@ -250,9 +253,17 @@
     <div class="step" id="step-5">
       <Badge style="dark">Step 5 <span class="muted">of 5</span></Badge>
       <h2>Reinstall the rearview mirror cover trim</h2>
-      <Grid templateColumns="1.25fr 0.75fr">
-        <img src={StepSevenImage} loading="lazy" alt="reinstall trim" />
-        <ul><li>Ensure the car harness fully fits inside the trim. Have the OBD-C cable come out of the top.</li></ul>
+      <Grid templateColumns="0.875fr 0.75fr">
+        <div class="image-grid">
+          <img src={Wires1Image} loading="lazy" alt="tidy up wires" />
+          <img src={Trim4Image} loading="lazy" alt="re-attach trim" />
+          <img src={WiresImage} loading="lazy" alt="wire management" />
+          <img src={TrimImage} loading="lazy" alt="reinstall trim" />
+        </div>
+        <ul>
+          <li>Ensure the car harness fully fits inside the trim.</li>
+          <li>Generally, it's best to have the OBD-C cable come out of the top.</li>
+        </ul>
       </Grid>
     </div>
 
