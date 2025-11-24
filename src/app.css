@@ -237,7 +237,7 @@ section.dark + section.dark {
 
 @media (max-width: 1160px) {
   section:first-of-type {
-    padding-top: 10rem;
+    padding-top: 3rem;
   }
 }
 
