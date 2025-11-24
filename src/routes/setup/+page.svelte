@@ -18,6 +18,9 @@
   import Trim1Image from "$lib/images/setup/comma-four/trim-1.jpg";
   import Trim2Image from "$lib/images/setup/comma-four/trim-2.jpg";
   import Trim3Image from "$lib/images/setup/comma-four/trim-3.jpg";
+  import AlignImage from "$lib/images/setup/comma-four/align.jpg";
+  import Mount1Image from "$lib/images/setup/comma-four/mount-1.jpg";
+  import PressImage from "$lib/images/setup/comma-four/press.jpg";
   import StepTwoAImage from "$lib/images/setup/comma-3x/step-2a.jpeg";
   import StepTwoBImage from "$lib/images/setup/comma-3x/step-2b.jpeg";
   import StepFourAImage from "$lib/images/setup/comma-3x/step-4a.jpg";
@@ -170,7 +173,7 @@
         <div class="step" id="step-1">
       <Badge style="dark">Step 1 <span class="muted">of 5</span></Badge>
       <h2>Remove the rearview mirror cover trim</h2>
-      <Grid templateColumns="1.25fr 0.75fr">
+      <Grid templateColumns="0.875fr 0.75fr">
         <div class="image-grid">
           <img src={TrimImage} loading="lazy" alt="remove the rearview mirror cover trim" />
           <img src={Trim1Image} loading="lazy" alt="remove trim step 1" />
@@ -208,19 +211,20 @@
     <div class="step" id="step-3">
       <Badge style="dark">Step 3 <span class="muted">of 5</span></Badge>
       <h2>Place mount high and centered on the windshield</h2>
-      <Grid templateColumns="1.25fr 0.75fr">
+      <Grid templateColumns="0.875fr 0.75fr">
         <div class="image-grid">
-          <img src={StepFourAImage} loading="lazy" alt="approximate position on windshield to mount the comma device" />
-          <img src={StepFourBImage} loading="lazy" alt="preparation and instructions to adhere the mount to the windshield" />
-          <img src={StepFourCImage} loading="lazy" alt="emphasis to let mount adhesive cure for 48 hours before attaching the comma device" />
+          <div class="crop-wrapper">
+            <img src={AlignImage} loading="lazy" alt="check mount alignment" />
+          </div>
+          <img src={Mount1Image} loading="lazy" alt="find a good spot for mount" />
+          <img src={PressImage} loading="lazy" alt="press mount on windshield" />
         </div>
         <div>
           <ul>
             <li>Mounting prep – Clean the mounting area with the included alcohol wipe and let it dry.</li>
-            <li>Vertical Positioning – Ensure the top of the mount is fully visible from the driver's seat.</li>
+            <li>Vertical Positioning – Ensure there is enough room for the cable when the device is mounted. Also ensure that when the device is mounted, you are able to see the screen from a seated position.</li>
             <li>Horizontal Positioning – Ensure the mount is centered horizontally, otherwise it will not properly center in the lane.</li>
             <li>Adhere mount – Peel off the 3M tape's cover on the mount. Press firmly in the center of the mount, then the edges. Ensure no bubbles form.</li>
-            <li>Let the mount cure – The mount must cure for 48 hours before installing the comma device. Skipping this step will compromise the integrity of the mount.</li>
           </ul>
         </div>
       </Grid>
@@ -236,7 +240,7 @@
           <img src={StepFiveCImage} loading="lazy" alt="plug in OBD-C to back of the comma device and mount the device" />
         </div>
         <ul>
-          <li>Plug the right-angle OBD-C cable into the harness box – Ensure the cable is fully seated. Ensure the straight end is connected to the harness box.</li>
+          <li>Plug the OBD-C cable into the harness box – Ensure the cable is fully seated.</li>
           <li>Clean all three lenses with a microfiber cloth.</li>
           <li>Plug in OBD-C and mount the device – Plug the OBD-C cable into the upper port on the back of the comma device. Make sure the cable is all the way in.</li>
         </ul>
@@ -471,11 +475,26 @@
     & .image-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
+      gap: 0.7rem;
+      align-items: start;
 
       & img {
         width: 100%;
         height: auto;
+      }
+
+      & .crop-wrapper {
+        overflow: hidden;
+        position: relative;
+        aspect-ratio: 1 / 1;
+
+        & img {
+          width: 100%;
+          height: 100%;
+          display: block;
+          object-fit: cover;
+          object-position: top;
+        }
       }
     }
   }
