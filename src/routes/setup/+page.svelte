@@ -27,6 +27,10 @@
   import ObdcImage from "$lib/images/setup/comma-four/obdc.jpg";
   import Plug2Image from "$lib/images/setup/comma-four/plug-2.jpg";
   import RemountImage from "$lib/images/setup/comma-four/remount.jpg";
+  import CameraImage from "$lib/images/setup/comma-four/camera.jpg";
+  import Camera1Image from "$lib/images/setup/comma-four/camera-1.jpg";
+  import Plug1Image from "$lib/images/setup/comma-four/plug-1.jpg";
+  import PlugImage from "$lib/images/setup/comma-four/plug.jpg";
   import StepTwoAImage from "$lib/images/setup/comma-3x/step-2a.jpeg";
   import StepTwoBImage from "$lib/images/setup/comma-3x/step-2b.jpeg";
   import StepFourAImage from "$lib/images/setup/comma-3x/step-4a.jpg";
@@ -198,10 +202,12 @@
     <div class="step" id="step-2">
       <Badge style="dark">Step 2 <span class="muted">of 5</span></Badge>
       <h2>Connect car harness into the camera</h2>
-      <Grid templateColumns="1.25fr 0.75fr">
+      <Grid templateColumns="0.875fr 0.75fr">
         <div class="image-grid">
-          <img src={StepTwoAImage} loading="lazy" alt="unplug existing LKAS camera connector and plug it into the harness" />
-          <img src={StepTwoBImage} loading="lazy" alt="connector harness into LKAS camera connector and adhere harness box to the car" />
+          <img src={CameraImage} loading="lazy" alt="unplug car's camera cable" />
+          <img src={Camera1Image} loading="lazy" alt="release camera connector clip" />
+          <img src={Plug1Image} loading="lazy" alt="plug car camera into harness" />
+          <img src={PlugImage} loading="lazy" alt="plug harness into camera port" />
         </div>
         <ul>
           <li>Unplug the existing LKAS camera connector and plug it into the harness.</li>
