@@ -480,21 +480,9 @@
       position: absolute;
       left: 24.21%;
       top: 63.97%;
-      /*width: 38.39%; !* 1290 / 3360 - matches video aspect ratio (2.233:1) with height 25.80% *!*/
-      /*height: 25.80%; !* 578 / 2240 *!*/
-      /* Additional scale for better AA - render larger then scale down */
-      transform: scale(1) translateZ(0);
-      transform-origin: top left;
       mix-blend-mode: screen;
       opacity: 0;
       transition: opacity 0.3s ease-in;
-      /* Clean AA methods */
-      image-rendering: optimizeQuality;
-      -webkit-font-smoothing: antialiased;
-      /* Subtle blur to smooth edges */
-      /* Ensure GPU acceleration */
-      will-change: transform, opacity;
-      backface-visibility: hidden;
 
       &.ready {
         opacity: 1;
