@@ -204,8 +204,8 @@
           <li>Unplug the existing LKAS camera connector and plug it into the harness.</li>
           <li>Connect the other end of the harness back into the LKAS camera.</li>
           <li>
-            Secure the harness – Find a place to place the harness box so the trim can still be installed over it.
-            Peel off adhesive sticker and attach the harness in place.
+            Secure the harness – Find a spot for the harness box so the trim can still be installed over it.
+            Peel off the adhesive sticker and attach the harness in place.
           </li>
         </ul>
       </Grid>
@@ -225,7 +225,7 @@
         <div>
           <ul>
             <li>Mounting prep – Clean the mounting area with the included alcohol wipe and let it dry.</li>
-            <li>Vertical Positioning – Ensure there is enough room for the cable when the device is mounted. Also ensure that when the device is mounted, you are able to see the screen from a seated position.</li>
+            <li>Vertical Positioning – Ensure there is enough room for the cable when the device is mounted, and that you can see the screen from a seated position.</li>
             <li>Horizontal Positioning – Ensure the mount is centered horizontally, otherwise it will not properly center in the lane.</li>
             <li>Adhere mount – Peel off the 3M tape's cover on the mount. Press firmly in the center of the mount, then the edges. Ensure no bubbles form.</li>
           </ul>
@@ -244,7 +244,7 @@
         </div>
         <ul>
           <li>Plug the OBD-C cable into the harness box – Ensure the cable is fully seated.</li>
-          <li>Plug the OBD-C cable into the comma device. Make sure the cable is all the way in.</li>
+          <li>Plug the OBD-C cable into your device. Make sure the cable is all the way in.</li>
           <li>Mount the device – Ensure the device is fully seated into the mount.</li>
         </ul>
       </Grid>
@@ -277,7 +277,7 @@
         </div>
         <div>
           <p>
-            Pair your comma four with <a href="https://connect.comma.ai/" target="_blank" class="highlight">connect.comma.ai</a> on your phone to see your recorded drives.
+            Pair your device with <a href="https://connect.comma.ai/" target="_blank" class="highlight">connect.comma.ai</a> on your phone to see your recorded drives.
           </p>
           <br />
           <LinkButton href="https://connect.comma.ai/" target="_blank" style="primary" fullWidth={true}>comma Connect</LinkButton>
@@ -303,8 +303,8 @@
           </p>
           <ul>
             <li>The start and end of every drive are recorded.</li>
-            <li>Your comma four remains powered and online while the car is off.</li>
-            <li>Your comma four downloads updates while the car is off.</li>
+            <li>Your device remains powered and online while the car is off.</li>
+            <li>Your device downloads updates while the car is off.</li>
           </ul>
         </div>
       </Grid>
