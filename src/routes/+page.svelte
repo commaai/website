@@ -29,6 +29,9 @@
   let screenVideoCanvas;
   let canvasCtx;
   let animationFrame;
+  let resizeObserver;
+  let container;
+  let updateCanvasSizeFn;
 
   // Hardcode GitHub star count (similar to contributors on openpilot page)
   const githubStars = 50000;
@@ -78,61 +81,83 @@
 
     // Initialize screen video with higher quality for better downscaling
     if (screenVideoElement && screenVideoCanvas) {
-      canvasCtx = screenVideoCanvas.getContext('2d', {
+      canvasCtx = screenVideoCanvas.getContext('2d', { 
         alpha: true,
-        desynchronized: true
+        desynchronized: true 
       });
-
+      
       // Enable high-quality image smoothing
       if (canvasCtx) {
         canvasCtx.imageSmoothingEnabled = true;
         canvasCtx.imageSmoothingQuality = 'high';
       }
 
+      container = screenVideoCanvas.parentElement;
+
+      // Function to update canvas size (called on resize/zoom)
+      updateCanvasSizeFn = function updateCanvasSize() {
+        if (!screenVideoCanvas || !container || !canvasCtx) return;
+        
+        const rect = container.getBoundingClientRect();
+        const dpr = window.devicePixelRatio || 1;
+        // Account for container's transform: scale(1.1) and use percentages relative to four image to match video aspect ratio (3360x2240)
+        const displayWidth = rect.width / 1.1 * 0.3839;
+        const displayHeight = rect.height / 1.1 * 0.258;
+        
+        // Always update to handle zoom changes
+        screenVideoCanvas.width = displayWidth * dpr;
+        screenVideoCanvas.height = displayHeight * dpr;
+        screenVideoCanvas.style.width = displayWidth + 'px';
+        screenVideoCanvas.style.height = displayHeight + 'px';
+        canvasCtx.imageSmoothingEnabled = true;
+        canvasCtx.imageSmoothingQuality = 'high';
+      };
+
+      // Set up resize/zoom detection
+      if (container) {
+        resizeObserver = new ResizeObserver(() => {
+          updateCanvasSizeFn();
+        });
+        resizeObserver.observe(container);
+      }
+
+      // Listen for visual viewport changes (handles mobile zoom)
+      if (typeof window !== 'undefined' && window.visualViewport) {
+        window.visualViewport.addEventListener('resize', updateCanvasSizeFn);
+        window.visualViewport.addEventListener('scroll', updateCanvasSizeFn);
+      }
+
+      // Also listen for regular window resize
+      if (typeof window !== 'undefined') {
+        window.addEventListener('resize', updateCanvasSizeFn);
+      }
+
       screenVideoElement.addEventListener('playing', () => {
         screenVideoReady = true;
+        // Initial size calculation
+        updateCanvasSizeFn();
       });
-
+      
       initializeHLS(screenVideoElement, ScreenVideo, () => {
         screenVideoElement.play();
-
-        // Render video frames to canvas
+        
+        // Render video frames to canvas (optimized - no size calculation in render loop)
         function render() {
           if (!canvasCtx || !screenVideoElement || !screenVideoCanvas) return;
-
+          
           if (screenVideoElement.readyState >= 2) {
-            // Set canvas size to match CSS display size (with device pixel ratio for crisp rendering)
-            const container = screenVideoCanvas.parentElement;
-            if (container) {
-              const rect = container.getBoundingClientRect();
-              const dpr = window.devicePixelRatio || 1;
-              // Account for container's transform: scale(1.1) and use percentages relative to four image to match video aspect ratio (3360x2240)
-              const displayWidth = rect.width / 1.1 * 0.3839;
-              const displayHeight = rect.height / 1.1 * 0.258;
-
-              if (screenVideoCanvas.width !== displayWidth * dpr ||
-                  screenVideoCanvas.height !== displayHeight * dpr) {
-                screenVideoCanvas.width = displayWidth * dpr;
-                screenVideoCanvas.height = displayHeight * dpr;
-                screenVideoCanvas.style.width = displayWidth + 'px';
-                screenVideoCanvas.style.height = displayHeight + 'px';
-                canvasCtx.imageSmoothingEnabled = true;
-                canvasCtx.imageSmoothingQuality = 'high';
-              }
-
-              // Draw video frame scaled to canvas size with high-quality smoothing
-              canvasCtx.drawImage(
-                screenVideoElement,
-                0, 0,
-                screenVideoCanvas.width,
-                screenVideoCanvas.height
-              );
-            }
+            // Just draw - size is handled by updateCanvasSize()
+            canvasCtx.drawImage(
+              screenVideoElement,
+              0, 0,
+              screenVideoCanvas.width,
+              screenVideoCanvas.height
+            );
           }
-
+          
           animationFrame = requestAnimationFrame(render);
         }
-
+        
         render();
       });
     }
@@ -140,6 +165,16 @@
     return () => {
       if (animationFrame) {
         cancelAnimationFrame(animationFrame);
+      }
+      if (resizeObserver) {
+        resizeObserver.disconnect();
+      }
+      if (typeof window !== 'undefined' && window.visualViewport && updateCanvasSizeFn) {
+        window.visualViewport.removeEventListener('resize', updateCanvasSizeFn);
+        window.visualViewport.removeEventListener('scroll', updateCanvasSizeFn);
+      }
+      if (typeof window !== 'undefined' && updateCanvasSizeFn) {
+        window.removeEventListener('resize', updateCanvasSizeFn);
       }
     };
   });
