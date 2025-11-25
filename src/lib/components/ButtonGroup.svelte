@@ -57,6 +57,10 @@
     align-items: stretch;
     gap: 1rem;
     margin: 1rem 0 0;
+
+    @media screen and (max-width: 1300px) {
+      flex-direction: column;
+    }
   }
 
   .button {
