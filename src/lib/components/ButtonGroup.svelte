@@ -6,12 +6,12 @@
   export let onSelect; // callback function when selection changes
 
   const handleSelect = (selectedValue) => {
-    console.log("Selected value:", selectedValue);
     if (value === selectedValue) {
       value = null;
     } else {
       value = selectedValue;
     }
+    console.log("Selected value:", value);
     onSelect && onSelect(value);
   };
 

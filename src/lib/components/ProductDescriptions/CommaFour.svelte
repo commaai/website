@@ -50,6 +50,7 @@
   let selectedHarness = null;
   let tradeInVariantId = null;
   let tradeInChecked = false;
+  let tradeInValue = null;
   let backordered = null;
 
   const updateAdditionalProductIds = () => {
@@ -62,20 +63,37 @@
     }
   }
 
+  const updateDisableBuyButtonText = () => {
+    if (!selectedHarness) {
+      disableBuyButtonText = "SELECT YOUR CAR";
+    } else if (tradeInValue === null) {
+      disableBuyButtonText = "SELECT TRADE IN";
+    } else if (selectedHarness === NO_HARNESS_OPTION) {
+      disableBuyButtonText = null;
+    } else {
+      disableBuyButtonText = null;
+    }
+  }
+
   const handleHarnessSelection = (value) => {
     selectedHarness = value;
     updateAdditionalProductIds();
     if (value === NO_HARNESS_OPTION) {
       backordered = null;
-      disableBuyButtonText = null;
     } else if (value) {
       backordered = value.currentlyNotInStock ? `ships in ${(value.backordered || '1-12 weeks')}` : null;
-      disableBuyButtonText = null;
     } else {
       backordered = null;
-      disableBuyButtonText = "SELECT YOUR CAR";
     }
     backordered = '1-12 weeks';
+    updateDisableBuyButtonText();
+  }
+
+  const handleTradeInSelection = (value) => {
+    tradeInValue = value;
+    tradeInChecked = value === 'trade-in';
+    updateAdditionalProductIds();
+    updateDisableBuyButtonText();
   }
 
   const handleTradeInToggle = () => {
@@ -131,8 +149,8 @@
 
     <ButtonGroup options={[
       {"label": "Add trade-in ($250 credit)", "value": "trade-in"},
-      {"label": "No trade-in", "value": "no trade-in"},
-      ]} onSelect={(val) => console.log(val)}>
+      {"label": "No trade-in", "value": "no-trade-in"},
+      ]} value={tradeInValue} onSelect={handleTradeInSelection}>
     </ButtonGroup>
 <!--    <hr/>-->
 
