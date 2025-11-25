@@ -109,10 +109,11 @@
   }
 
   .button .card hgroup .title-row .title {
-    font-family: JetBrains Mono, monospace;
-    font-size: 0.875rem;
+    /*font-family: JetBrains Mono, monospace;*/
+    /*font-size: 0.875rem;*/
+    font-size: 1rem;
     font-weight: 400;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
     line-height: 1.1;
     color: black;
   }
@@ -122,7 +123,6 @@
     font-size: 0.875rem;
     font-weight: 400;
     text-transform: none;
-    color: #666;
     text-align: right;
     line-height: 1.1;
   }
