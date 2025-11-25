@@ -61,14 +61,6 @@
 </section>
 
 <style>
-  #trade-in {
-    padding: 7rem 0 2rem;
-
-    @media only screen and (max-width: 1150px) {
-      padding: 10rem 0 2rem;
-    }
-  }
-
   h1 {
     font-size: 2.5rem;
     font-weight: 600;

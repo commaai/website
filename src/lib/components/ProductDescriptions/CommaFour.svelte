@@ -82,6 +82,12 @@
   }
 
   onMount(async () => {
+    // Autofill trade-in checkbox
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('trade-in') === '1') {
+      tradeInChecked = true;
+    }
+
     // Fetch trade-in product variant ID
     try {
       const tradeInProductId = productsData["comma-four-trade-in"]?.id;
@@ -99,7 +105,9 @@
   });
 </script>
 
-<Product {product} {additionalProductIds} {backordered} {beforeAddToCart} {getCartNote} priceOverride={FOUR_PRICE} disableBuyButtonText={disableBuyButtonText}>
+<Product {product} {additionalProductIds} {backordered} {beforeAddToCart} {getCartNote} priceOverride={FOUR_PRICE}
+         showDiscount={selectedHarness === NO_HARNESS_OPTION} discountAmount={50} tradeInCredit={250} tradeInSelected={tradeInChecked}
+         disableBuyButtonText={disableBuyButtonText}>
   <div slot="shipping"></div>
 
   <span slot="price-accessory">
