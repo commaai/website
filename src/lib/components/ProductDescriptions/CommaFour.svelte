@@ -303,6 +303,7 @@
     margin-top: 1rem;
   }
 
+<<<<<<< HEAD
   .paypal-offer-info {
     font-family: Helvetica, Arial, sans-serif;
     font-size: 12px;
@@ -315,6 +316,8 @@
     }
   }
 
+=======
+>>>>>>> upstream/master
   .price-due-today {
     font-size: 1rem;
     color: rgb(81, 81, 81);
