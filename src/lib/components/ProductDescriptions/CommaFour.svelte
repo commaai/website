@@ -138,15 +138,14 @@
   </div>
 
   <span slot="price-accessory">
-    <div class="paypal-message">
-      <div
-        data-pp-message
-        data-pp-style-layout="text"
-        data-pp-style-logo-type="inline"
-        data-pp-style-text-color="black"
-        data-pp-amount={priceDueToday}
-        data-pp-language="">
-      </div>
+    <div
+      class="paypal-message"
+      data-pp-message
+      data-pp-style-layout="text"
+      data-pp-style-logo-type="inline"
+      data-pp-style-text-color="black"
+      data-pp-amount={priceDueToday}
+      data-pp-language="">
     </div>
     <div class="badge">
       <Badge style="dark">Free rush shipping</Badge>
