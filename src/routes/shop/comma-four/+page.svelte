@@ -1,4 +1,7 @@
 <script>
+  import { onMount } from 'svelte';
+  import { afterNavigate } from '$app/navigation';
+  import { page } from '$app/stores';
   import ProductPage from "../[product]/+page.svelte";
   import Grid from "$lib/components/Grid.svelte";
   import LinkButton from "$lib/components/LinkButton.svelte";
@@ -31,6 +34,29 @@
   import { vehicleCountText } from '$lib/constants/vehicles.js';
 
   export let data;
+
+  const scrollToUi = () => {
+    if (window.location.hash === '#ui') {
+      setTimeout(() => {
+        const element = document.getElementById('ui');
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 300);
+    }
+  };
+
+  onMount(() => {
+    scrollToUi();
+    window.addEventListener('hashchange', scrollToUi);
+    return () => {
+      window.removeEventListener('hashchange', scrollToUi);
+    };
+  });
+
+  afterNavigate(() => {
+    scrollToUi();
+  });
 </script>
 
 <ProductPage {data} />
@@ -200,9 +226,11 @@
       </div>
     </Grid>
     <hr />
-    <Grid rowGap="0" templateColumns="0.5fr 1.25fr">
-      <h2>Expressive New Interface</h2>
-      <div class="ui-grid">
+    <div style="width: 0; height: 0;" id="test123"/>
+    <div id="ui">
+      <Grid rowGap="0" templateColumns="0.5fr 1.25fr">
+        <h2>Expressive New Interface</h2>
+        <div class="ui-grid">
         <div class="ui-card">
           <div class="device-container">
             <img src={DeviceFrameImage} alt="comma four device" class="device-frame" />
@@ -232,7 +260,8 @@
           <p>As openpilot's confidence in its ability to understand the scene goes up, the confidence ball rises and turns green.</p>
         </div>
       </div>
-    </Grid>
+      </Grid>
+    </div>
     <hr />
     <SetupGuide
       productName="comma four"
