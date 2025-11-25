@@ -116,6 +116,15 @@
       showNoHarnessOption={true}
     >
     </HarnessSelector>
+    <div class="trade-in">
+      <div class="title">
+      Trade-in
+      </div>
+      <div class="description">
+        Get $250 credit when you trade in your old comma device. Any comma device, in any condition.
+        <a href="/shop/comma-four-trade-in">Instructions and Terms.</a>
+      </div>
+    </div>
     <CheckboxCard title="$250 credit with trade-in" checked={tradeInChecked} onToggle={handleTradeInToggle}>
       Get $250 credit when you trade in your old comma device. Any comma device, in any condition.
       <a href="/shop/comma-four-trade-in">Instructions and Terms</a>
@@ -204,6 +213,20 @@
 
   .badge {
     margin: 1rem 0;
+  }
+
+  .trade-in {
+    & .title {
+      margin-top: 1rem;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    & .description {
+      font-size: 1rem;
+      color: #000000A6;
+    }
+
   }
 
   .harness-price {

@@ -69,7 +69,7 @@
   let inputValue = "";
   let inputRef;
 
-  $: filteredItems = $harnesses.filter(item => 
+  $: filteredItems = $harnesses.filter(item =>
     normalizeDiacritics(item.car.toLowerCase()).match(normalizeDiacritics(inputValue.toLowerCase()))
   );
 
