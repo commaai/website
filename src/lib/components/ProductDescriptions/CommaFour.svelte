@@ -120,7 +120,7 @@
          disableBuyButtonText={disableBuyButtonText}>
   <div slot="shipping"></div>
 
-  <div slot="price">
+  <div slot="price" class="price">
     {#if tradeInChecked && tradeInCredit > 0}
       <span class="price-after-tradein">{formatCurrency({ amount: priceAfterTradeIn, currencyCode: 'USD' }, 0)} after trade-in received</span>
       <span class="price-due-today">({formatCurrency({ amount: priceDueToday, currencyCode: 'USD' }, 0)} due today)</span>
@@ -281,14 +281,7 @@
     padding: 0 2px;
   }
 
-  :global(.price) {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-  }
-
   .price-after-tradein {
-    font-size: 1.5rem;
     font-weight: 400;
   }
 
