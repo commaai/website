@@ -148,7 +148,7 @@
       data-pp-language="">
     </div>
     <div class="paypal-offer-info">
-      Get 20% cash back when you Pay Later — Limited time offer through December 8, 2025.
+      Get 20% cash back when you Pay Later. Enjoy this limited time offer¹ on Pay Later purchases through December 8.
     </div>
     <div class="badge">
       <Badge style="dark">Free rush shipping</Badge>

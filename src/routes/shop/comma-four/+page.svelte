@@ -328,16 +328,16 @@
           </p>
           <strong>PayPal Pay Later</strong>
           <p>
-            Get 20% cash back when you Pay Later — Limited time offer through December 8, 2025. Save offer within PayPal account prior to purchase. Expires 12/8/25. 20% on up to max $1,250 spend per transaction (max 25K points or $250). Terms and exclusions apply. See <a href="https://www.paypal.com/promoterms" target="_blank" class="highlight">paypal.com/promoterms</a>.
+            Expires 12/08/25. Max $250 cash back per transaction, up to 1.5B points available. Terms and exclusions apply. See <a href="https://www.paypal.com/us/digital-wallet/ways-to-pay/buy-now-pay-later" target="_blank" class="highlight">paypal.com/buy-now-pay-later</a> and <a href="https://www.paypal.com/promoterms" target="_blank" class="highlight">paypal.com/promoterms</a> for details.
           </p>
           <p>
-            Pay in 4 is available to consumers upon approval for purchases of $30 to $1,500. Pay in 4 is always interest-free, with no late fees or sign-up fees. Subject to eligibility. See <a href="https://www.paypal.com/us/digital-wallet/ways-to-pay/buy-now-pay-later" target="_blank" class="highlight">paypal.com/buy-now-pay-later</a> for details.
+            Pay in 4 is available to consumers upon approval for purchases of $30 - $1500. Pay in 4 is currently not available to residents of MO. Offer availability depends on the merchant and also may not be available for recurring, subscription services. When applying, a soft credit check may be needed, but will not affect your credit score. You must be 18 years old or older to apply. PayPal, Inc.: Loans to CA residents are made or arranged pursuant to a CA Financing Law License. GA Installment Lender Licensee, NMLS #910457. NM residents: Find more disclosures related to Pay in 4. RI Small Loan Lender Licensee.
           </p>
           <p>
-            Pay Monthly subject to credit approval. Fixed APR 9.99-35.99%. Terms vary based on purchase amount and credit. Pay Monthly is available for purchases from $49 to $10,000 with $0 down at checkout. See <a href="https://www.paypal.com/us/digital-wallet/ways-to-pay/buy-now-pay-later" target="_blank" class="highlight">paypal.com/buy-now-pay-later</a> for details.
+            Pay Monthly is subject to consumer credit approval and eligibility. Fixed APR is 9.99-35.99%. Eligibility varies and exclusions may apply. Terms and rates vary based on purchase amount and your credit. Payments may change based on shipping, taxes, updates to your purchase, or missed payments. Availability depends on the merchant and may not be available for subscriptions or recurring payments. Pay Monthly is currently not available to residents of AK, CT, HI or WA. You must be 18 years old or older to apply. Missed payments may have an impact on your credit score. The lender for Pay Monthly is WebBank. PayPal, Inc. (NMLS #910457): RI Loan Broker Licensee. VT Loan Solicitation Licensee. VT residents: THIS IS A LOAN SOLICITATION ONLY. PAYPAL, INC. IS NOT THE LENDER. INFORMATION RECEIVED WILL BE SHARED WITH ONE OR MORE THIRD PARTIES IN CONNECTION WITH YOUR LOAN INQUIRY. THE LENDER MAY NOT BE SUBJECT TO ALL VERMONT LENDING LAWS. THE LENDER MAY BE SUBJECT TO FEDERAL LENDING LAWS.
           </p>
           <p>
-            When applying for PayPal Pay Later solutions, a soft credit check may be needed, but will not affect your credit score. You must be 18 years old or older to apply.
+            Important Credit Information: Pay in 4 and Pay Monthly are loan products. Missing payments or defaulting on these loans may negatively impact your credit score and credit history.
           </p>
       </div>
     </Grid>
