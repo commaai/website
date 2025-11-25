@@ -82,7 +82,7 @@
   }
 
   onMount(async () => {
-    // Get trade-in URL param
+    // Autofill trade-in checkbox
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('trade-in') === '1') {
       tradeInChecked = true;
