@@ -121,7 +121,7 @@
 
   <div slot="price" class="price">
     {#if tradeInChecked && tradeInCredit > 0}
-      <span class="price-after-tradein">{formatCurrency({ amount: priceAfterTradeIn, currencyCode: 'USD' }, 0)} after trade-in received</span>
+      <span>{formatCurrency({ amount: priceAfterTradeIn, currencyCode: 'USD' }, 0)} after trade-in received</span>
       <span class="price-due-today">({formatCurrency({ amount: priceDueToday, currencyCode: 'USD' }, 0)} due today)</span>
     {:else if showDiscount && discountAmount > 0}
       {formatCurrency({ amount: priceDueToday, currencyCode: 'USD' }, 0)}
@@ -278,10 +278,6 @@
     background-color: rgba(134, 255, 78, 0.15);
     border-bottom: 2px solid #86ff4e;
     padding: 0 2px;
-  }
-
-  .price-after-tradein {
-    font-weight: 400;
   }
 
   .price-due-today {
