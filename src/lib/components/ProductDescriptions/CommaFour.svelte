@@ -96,15 +96,11 @@
     updateDisableBuyButtonText();
   }
 
-  const handleTradeInToggle = () => {
-    tradeInChecked = !tradeInChecked;
-    updateAdditionalProductIds();
-  }
-
   onMount(async () => {
     // Autofill trade-in checkbox
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('trade-in') === '1') {
+      tradeInValue = 'trade-in';
       tradeInChecked = true;
     }
 
