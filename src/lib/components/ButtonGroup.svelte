@@ -20,19 +20,19 @@
 </script>
 
 <div class="button-group">
-  <label class="button" class:checked={value === option1.value} on:click={() => handleSelect(option1.value)}>
+  <button class="button" class:checked={value === option1.value} on:click={() => handleSelect(option1.value)}>
     <NoteCard title={option1.label || ''}>
       <div slot="icon"></div>
       <slot name="option1-content"></slot>
     </NoteCard>
-  </label>
+  </button>
 
-  <label class="button" class:checked={value === option2.value} on:click={() => handleSelect(option2.value)}>
+  <button class="button" class:checked={value === option2.value} on:click={() => handleSelect(option2.value)}>
     <NoteCard title={option2.label || ''}>
       <div slot="icon"></div>
       <slot name="option2-content"></slot>
     </NoteCard>
-  </label>
+  </button>
 </div>
 
 <style>
@@ -48,6 +48,11 @@
     display: flex;
     flex: 1;
     color: green;
+    border: none;
+    background: none;
+    padding: 0;
+    font: inherit;
+    text-align: inherit;
   }
 
   .button :global(.card) {
@@ -57,7 +62,7 @@
   }
 
   .button.checked :global(.card) {
-    background-color: #86ff4e;
+    background-color: var(--color-accent);
   }
 
   .button.checked :global(.card hgroup span) {
