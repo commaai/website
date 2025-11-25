@@ -102,6 +102,12 @@
   }
 
   onMount(async () => {
+    // Autofill trade-in checkbox
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('trade-in') === '1') {
+      tradeInChecked = true;
+    }
+
     // Fetch trade-in product variant ID
     try {
       const tradeInProductId = productsData["comma-four-trade-in"]?.id;
