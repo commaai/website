@@ -60,9 +60,6 @@
   $: priceDueToday = showDiscount ? FOUR_PRICE - discountAmount : FOUR_PRICE;
   $: priceAfterTradeIn = tradeInChecked ? priceDueToday - tradeInCredit : priceDueToday;
 
-  // Calculate PayPal amount dynamically (use priceDueToday, not priceAfterTradeIn, since PayPal is paid upfront)
-  $: paypalAmount = priceDueToday.toFixed(2);
-
   const updateAdditionalProductIds = () => {
     additionalProductIds = [];
     if (selectedHarness && selectedHarness !== NO_HARNESS_OPTION) {
@@ -147,7 +144,7 @@
         data-pp-style-layout="text"
         data-pp-style-logo-type="inline"
         data-pp-style-text-color="black"
-        data-pp-amount={paypalAmount}
+        data-pp-amount={priceDueToday}
         data-pp-language="">
       </div>
     </div>
