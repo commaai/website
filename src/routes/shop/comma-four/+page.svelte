@@ -1,7 +1,4 @@
 <script>
-  import { onMount } from 'svelte';
-  import { afterNavigate } from '$app/navigation';
-  import { page } from '$app/stores';
   import ProductPage from "../[product]/+page.svelte";
   import Grid from "$lib/components/Grid.svelte";
   import LinkButton from "$lib/components/LinkButton.svelte";
@@ -34,29 +31,6 @@
   import { vehicleCountText } from '$lib/constants/vehicles.js';
 
   export let data;
-
-  const scrollToUi = () => {
-    if (window.location.hash === '#ui') {
-      setTimeout(() => {
-        const element = document.getElementById('ui');
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }, 300);
-    }
-  };
-
-  onMount(() => {
-    scrollToUi();
-    window.addEventListener('hashchange', scrollToUi);
-    return () => {
-      window.removeEventListener('hashchange', scrollToUi);
-    };
-  });
-
-  afterNavigate(() => {
-    scrollToUi();
-  });
 </script>
 
 <ProductPage {data} />
