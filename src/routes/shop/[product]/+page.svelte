@@ -8,6 +8,15 @@
 
 <svelte:head>
   <title>{product.title} — comma shop</title>
+  {#if product.ogImage}
+    <!-- Open Graph / Facebook -->
+    <meta property="og:image" content={product.ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="628" />
+    <!-- Twitter -->
+    <meta name="twitter:image" content={product.ogImage} />
+    <meta name="twitter:image:alt" content={product.title} />
+  {/if}
 </svelte:head>
 
 <section class="light" id="product-item">
