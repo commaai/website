@@ -57,8 +57,7 @@
   $: showDiscount = selectedHarness === NO_HARNESS_OPTION;
 
   // Price calculations
-  $: originalPrice = FOUR_PRICE;
-  $: priceDueToday = showDiscount ? originalPrice - discountAmount : originalPrice;
+  $: priceDueToday = showDiscount ? FOUR_PRICE - discountAmount : FOUR_PRICE;
   $: priceAfterTradeIn = tradeInChecked ? priceDueToday - tradeInCredit : priceDueToday;
 
   const updateAdditionalProductIds = () => {
@@ -127,7 +126,7 @@
     {:else if showDiscount && discountAmount > 0}
       {formatCurrency({ amount: priceDueToday, currencyCode: 'USD' }, 0)}
     {:else}
-      {formatCurrency({ amount: originalPrice, currencyCode: 'USD' }, 0)}
+      {formatCurrency({ amount: FOUR_PRICE, currencyCode: 'USD' }, 0)}
     {/if}
   </div>
 
