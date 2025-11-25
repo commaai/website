@@ -230,12 +230,11 @@
 
     & .price-due-today {
       font-size: 1rem;
+      color: rgb(81, 81, 81);
     }
 
     & .price-original {
       text-decoration: line-through;
-      color: #666;
-      font-size: 1rem;
     }
 
     & .price-discounted {
