@@ -128,9 +128,7 @@
               <span class="price-after-tradein">{formatCurrency({ amount: priceAfterTradeIn, currencyCode: 'USD' }, 0)} after trade-in received</span>
               <span class="price-due-today">({formatCurrency({ amount: priceDueToday, currencyCode: 'USD' }, 0)} due today)</span>
             {:else if showDiscount && discountAmount > 0}
-              <span class="price-original">{formatCurrency({ amount: originalPrice, currencyCode: 'USD' }, 0)}</span>
-              <span class="price-discounted">{formatCurrency({ amount: priceDueToday, currencyCode: 'USD' }, 0)}</span>
-              <span class="discount-badge">Save ${discountAmount}</span>
+              {formatCurrency({ amount: priceDueToday, currencyCode: 'USD' }, 0)}
             {:else}
               {priceLabel}
             {/if}
@@ -227,12 +225,11 @@
 
     & .price-after-tradein {
       font-size: 1.5rem;
-      font-weight: 600;
+      font-weight: 400;
     }
 
     & .price-due-today {
       font-size: 1rem;
-      color: #666;
     }
 
     & .price-original {
