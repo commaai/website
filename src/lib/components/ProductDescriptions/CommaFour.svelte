@@ -2,6 +2,7 @@
   import Product from "$lib/components/Product.svelte";
   import NoteCard from "$lib/components/NoteCard.svelte";
   import CheckboxCard from "$lib/components/CheckboxCard.svelte";
+  import ButtonGroup from "$lib/components/ButtonGroup.svelte";
   import Accordion from "$lib/components/Accordion.svelte";
   import Badge from "$lib/components/Badge.svelte";
   import HarnessSelector from "$lib/components/HarnessSelector/HarnessSelector.svelte";
@@ -19,6 +20,7 @@
   import { onMount } from 'svelte';
   import { getProduct } from '$lib/utils/shopify';
   import { products as productsData } from '$lib/data/products.js';
+  import Button from "$lib/components/Button.svelte";
 
   export let product;
   let additionalProductIds = [];
@@ -116,6 +118,7 @@
       showNoHarnessOption={true}
     >
     </HarnessSelector>
+<!--    <hr/>-->
     <div class="trade-in">
       <div class="title">
       Trade-in
@@ -125,10 +128,18 @@
         <a href="/shop/comma-four-trade-in">Instructions and Terms.</a>
       </div>
     </div>
-    <CheckboxCard title="$250 credit with trade-in" checked={tradeInChecked} onToggle={handleTradeInToggle}>
-      Get $250 credit when you trade in your old comma device. Any comma device, in any condition.
-      <a href="/shop/comma-four-trade-in">Instructions and Terms</a>
-    </CheckboxCard>
+
+    <ButtonGroup options={[
+      {"label": "Add trade-in ($250 credit)", "value": "trade-in"},
+      {"label": "No trade-in", "value": "no trade-in"},
+      ]} onSelect={(val) => console.log(val)}>
+    </ButtonGroup>
+<!--    <hr/>-->
+
+<!--    <CheckboxCard title="$250 credit with trade-in" checked={tradeInChecked} onToggle={handleTradeInToggle}>-->
+<!--      Get $250 credit when you trade in your old comma device. Any comma device, in any condition.-->
+<!--      <a href="/shop/comma-four-trade-in">Instructions and Terms</a>-->
+<!--    </CheckboxCard>-->
   </span>
 
   <div slot="notes">
