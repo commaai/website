@@ -50,8 +50,7 @@ export async function load({ url, params }) {
           ...productInfo,
           images: resolvedImages
         },
-        descriptionComponent,
-        productId
+        descriptionComponent
       };
     }
     throw error(404, {

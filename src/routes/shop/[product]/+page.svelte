@@ -3,21 +3,11 @@
   import NoteCard from "$lib/components/NoteCard.svelte";
 
   export let data;
-  $: ({ product, descriptionComponent, productId } = data);
-  $: ogImage = productId ? `https://comma.ai/og-products/${productId}.png` : null;
+  $: ({ product, descriptionComponent } = data);
 </script>
 
 <svelte:head>
   <title>{product.title} — comma shop</title>
-  {#if ogImage}
-    <!-- Open Graph / Facebook -->
-    <meta property="og:image" content={ogImage} />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="628" />
-    <!-- Twitter -->
-    <meta name="twitter:image" content={ogImage} />
-    <meta name="twitter:image:alt" content={product.title} />
-  {/if}
 </svelte:head>
 
 <section class="light" id="product-item">
