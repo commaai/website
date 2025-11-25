@@ -138,11 +138,25 @@
     line-height: 1.25;
   }
 
-  .button.checked .card {
-    background-color: var(--color-accent);
+  .button:nth-child(1).checked .card {
+    /*background-color: var(--color-accent);*/
+    /*cool #51ff00 green gradient bottom left to top right*/
+    /*background: linear-gradient(135deg, #51ff00 0%, #00c800 100%);*/
+    background: linear-gradient(to bottom left, #51ff00 0%, #6CDA3A 100%);
+    /*border-color: var(--color-accent);*/
+    /*border: 4px solid var(--color-accent);*/
   }
 
-  .button.checked .card hgroup span {
+  .button:nth-child(2).checked .card {
+    background-color: black;
+    color: white;
+  }
+
+  .button:nth-child(1).checked .card hgroup span {
     color: black;
+  }
+
+  .button:nth-child(2).checked .card hgroup span {
+    color: white;
   }
 </style>
