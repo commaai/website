@@ -148,7 +148,7 @@
       data-pp-language="">
     </div>
     <div class="paypal-offer-info">
-      Get 20% cash back when you Pay Later. Enjoy this limited time offer¹ on Pay Later purchases through December 8.
+      Get 20% cash back when you Pay Later. Save <a href="https://www.paypal.com/us/digital-wallet/ways-to-pay/buy-now-pay-later" target="_blank">this offer</a> to take advantage of this limited time promotion on Pay Later purchases through December 8.
     </div>
     <div class="badge">
       <Badge style="dark">Free rush shipping</Badge>
@@ -308,6 +308,11 @@
     font-size: 12px;
     color: rgb(46, 46, 47);
     letter-spacing: normal;
+
+    & a {
+      color: #0070ba;
+      text-decoration: underline;
+    }
   }
 
   .price-due-today {
