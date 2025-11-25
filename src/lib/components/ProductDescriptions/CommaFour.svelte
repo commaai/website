@@ -2,6 +2,7 @@
   import Product from "$lib/components/Product.svelte";
   import NoteCard from "$lib/components/NoteCard.svelte";
   import CheckboxCard from "$lib/components/CheckboxCard.svelte";
+  import ButtonGroup from "$lib/components/ButtonGroup.svelte";
   import Accordion from "$lib/components/Accordion.svelte";
   import Badge from "$lib/components/Badge.svelte";
   import HarnessSelector from "$lib/components/HarnessSelector/HarnessSelector.svelte";
@@ -19,6 +20,7 @@
   import { onMount } from 'svelte';
   import { getProduct } from '$lib/utils/shopify';
   import { products as productsData } from '$lib/data/products.js';
+  import Button from "$lib/components/Button.svelte";
 
   export let product;
   let additionalProductIds = [];
@@ -48,6 +50,7 @@
   let selectedHarness = null;
   let tradeInVariantId = null;
   let tradeInChecked = false;
+  let tradeInValue = null;
   let backordered = null;
 
   const updateAdditionalProductIds = () => {
@@ -60,31 +63,44 @@
     }
   }
 
+  const updateDisableBuyButtonText = () => {
+    if (!selectedHarness) {
+      disableBuyButtonText = "SELECT YOUR CAR";
+    } else if (tradeInValue === null) {
+      disableBuyButtonText = "SELECT TRADE IN";
+    } else if (selectedHarness === NO_HARNESS_OPTION) {
+      disableBuyButtonText = null;
+    } else {
+      disableBuyButtonText = null;
+    }
+  }
+
   const handleHarnessSelection = (value) => {
     selectedHarness = value;
     updateAdditionalProductIds();
     if (value === NO_HARNESS_OPTION) {
       backordered = null;
-      disableBuyButtonText = null;
     } else if (value) {
       backordered = value.currentlyNotInStock ? `ships in ${(value.backordered || '1-12 weeks')}` : null;
-      disableBuyButtonText = null;
     } else {
       backordered = null;
-      disableBuyButtonText = "SELECT YOUR CAR";
     }
     backordered = '1-12 weeks';
+    updateDisableBuyButtonText();
   }
 
-  const handleTradeInToggle = () => {
-    tradeInChecked = !tradeInChecked;
+  const handleTradeInSelection = (value) => {
+    tradeInValue = value;
+    tradeInChecked = value === 'trade-in';
     updateAdditionalProductIds();
+    updateDisableBuyButtonText();
   }
 
   onMount(async () => {
     // Autofill trade-in checkbox
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('trade-in') === '1') {
+      tradeInValue = 'trade-in';
       tradeInChecked = true;
     }
 
@@ -124,10 +140,28 @@
       showNoHarnessOption={true}
     >
     </HarnessSelector>
-    <CheckboxCard title="$250 credit with trade-in" checked={tradeInChecked} onToggle={handleTradeInToggle}>
-      Get $250 credit when you trade in your old comma device. Any comma device, in any condition.
-      <a href="/shop/comma-four-trade-in">Instructions and Terms</a>
-    </CheckboxCard>
+<!--    <hr/>-->
+    <div class="trade-in">
+      <div class="title">
+      Trade-in
+      </div>
+      <div class="description">
+        Get $250 credit when you trade in your old comma device. Any comma device, in any condition.
+        <a href="/shop/comma-four-trade-in">Instructions and Terms.</a>
+      </div>
+    </div>
+
+    <ButtonGroup options={[
+      {"label": "Add trade‑in", "value": "trade-in", "subheader": "$250 credit"},
+      {"label": "No trade‑in", "value": "no-trade-in"},
+      ]} value={tradeInValue} onSelect={handleTradeInSelection}>
+    </ButtonGroup>
+<!--    <hr/>-->
+
+<!--    <CheckboxCard title="$250 credit with trade-in" checked={tradeInChecked} onToggle={handleTradeInToggle}>-->
+<!--      Get $250 credit when you trade in your old comma device. Any comma device, in any condition.-->
+<!--      <a href="/shop/comma-four-trade-in">Instructions and Terms</a>-->
+<!--    </CheckboxCard>-->
   </span>
 
   <div slot="notes">
@@ -212,6 +246,19 @@
 
   .badge {
     margin: 1rem 0;
+  }
+
+  .trade-in {
+    & .title {
+      margin-top: 1rem;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    & .description {
+      font-size: 1rem;
+      color: #000000A6;
+    }
   }
 
   .harness-price {
