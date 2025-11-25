@@ -326,6 +326,19 @@
             comma does not assume any responsibility for any fines, penalties, or damages that may be incurred as a result
             of any state or local law or ordinance relating to the use of your comma device.
           </p>
+          <strong>PayPal Pay Later</strong>
+          <p>
+            Get 20% cash back when you Pay Later — Limited time offer through December 8, 2025. Save offer within PayPal account prior to purchase. Expires 12/8/25. 20% on up to max $1,250 spend per transaction (max 25K points or $250). Terms and exclusions apply. See <a href="https://www.paypal.com/promoterms" target="_blank" class="highlight">paypal.com/promoterms</a>.
+          </p>
+          <p>
+            Pay in 4 is available to consumers upon approval for purchases of $30 to $1,500. Pay in 4 is always interest-free, with no late fees or sign-up fees. Subject to eligibility. See <a href="https://www.paypal.com/us/digital-wallet/ways-to-pay/buy-now-pay-later" target="_blank" class="highlight">paypal.com/buy-now-pay-later</a> for details.
+          </p>
+          <p>
+            Pay Monthly subject to credit approval. Fixed APR 9.99-35.99%. Terms vary based on purchase amount and credit. Pay Monthly is available for purchases from $49 to $10,000 with $0 down at checkout. See <a href="https://www.paypal.com/us/digital-wallet/ways-to-pay/buy-now-pay-later" target="_blank" class="highlight">paypal.com/buy-now-pay-later</a> for details.
+          </p>
+          <p>
+            When applying for PayPal Pay Later solutions, a soft credit check may be needed, but will not affect your credit score. You must be 18 years old or older to apply.
+          </p>
       </div>
     </Grid>
     <Faq topic={faq.devices} title="comma four FAQ" />

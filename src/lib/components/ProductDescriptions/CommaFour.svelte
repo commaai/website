@@ -147,6 +147,9 @@
       data-pp-amount={priceDueToday}
       data-pp-language="">
     </div>
+    <div class="paypal-offer-info">
+      Get 20% cash back when you Pay Later — Limited time offer through December 8, 2025.
+    </div>
     <div class="badge">
       <Badge style="dark">Free rush shipping</Badge>
     </div>
@@ -298,6 +301,13 @@
 
   .paypal-message {
     margin-top: 1rem;
+  }
+
+  .paypal-offer-info {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    color: rgb(46, 46, 47);
+    letter-spacing: normal;
   }
 
   .price-due-today {
