@@ -636,7 +636,7 @@
           question: 'What do I do if my device arrives damaged?',
           answer: `
             <p>
-            Please alert us to any issues with your order within 3 days of delivery by opening a <a href="https://commasupport.zendesk.com/hc/en-us/requests/new?ticket_form_id=29233377161623">support ticket here</a> and including pictures of both the product and packaging. We may not be responsible for damages if we are not notified within this window.
+            Please alert us to any issues with your order within 14 days of delivery by opening a <a href="https://commasupport.zendesk.com/hc/en-us/requests/new?ticket_form_id=29233377161623">support ticket here</a> and including pictures of both the product and packaging. We may not be responsible for damages if we are not notified within this window.
             </p>
             <p>
             If we receive a damaged device returned to us, we will deduct the cost of the repair from your return. We are not responsible for lost or damaged items mailed back to us and recommend using the original packaging to make a return or carefully padding your device when sending it back.
