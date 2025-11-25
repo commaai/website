@@ -50,6 +50,11 @@
   let tradeInChecked = false;
   let backordered = null;
 
+  // Calculate PayPal amount dynamically
+  $: paypalAmount = selectedHarness === NO_HARNESS_OPTION
+    ? (FOUR_PRICE - 50).toFixed(2)
+    : FOUR_PRICE.toFixed(2);
+
   const updateAdditionalProductIds = () => {
     additionalProductIds = [];
     if (selectedHarness && selectedHarness !== NO_HARNESS_OPTION) {
@@ -105,12 +110,30 @@
   });
 </script>
 
+<svelte:head>
+  <script
+    src="https://www.paypal.com/sdk/js?client-id=AUFLR5Zk9El_ATQigqwpSnsqkCBFtW1iuLEhFXMD-w8OUYziE5qCPNRRHQPdgKdQOSKn4_YqSxdK6Tpz&components=messages"
+    data-namespace="PayPalSDK">
+  </script>
+</svelte:head>
+
 <Product {product} {additionalProductIds} {backordered} {beforeAddToCart} {getCartNote} priceOverride={FOUR_PRICE}
          showDiscount={selectedHarness === NO_HARNESS_OPTION} discountAmount={50} tradeInCredit={250} tradeInSelected={tradeInChecked}
          disableBuyButtonText={disableBuyButtonText}>
   <div slot="shipping"></div>
 
-  <span slot="price-accessory">
+  <div slot="price-accessory">
+    <div class="paypal-message">
+      <div
+        data-pp-message
+        data-pp-style-layout="text"
+        data-pp-style-logo-type="inline"
+        data-pp-style-text-color="black"
+        data-pp-amount={paypalAmount}
+        data-pp-language="">
+      </div>
+    </div>
+
     <div class="badge">
       <Badge style="dark">Free rush shipping</Badge>
     </div>
@@ -128,7 +151,7 @@
       Get $250 credit when you trade in your old comma device. Any comma device, in any condition.
       <a href="/shop/comma-four-trade-in">Instructions and Terms</a>
     </CheckboxCard>
-  </span>
+  </div>
 
   <div slot="notes">
     <NoteCard title="Upgrading from another comma device?">
@@ -258,5 +281,9 @@
     background-color: rgba(134, 255, 78, 0.15);
     border-bottom: 2px solid #86ff4e;
     padding: 0 2px;
+  }
+
+  .paypal-message {
+    margin-top: 1rem;
   }
 </style>
