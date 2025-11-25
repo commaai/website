@@ -6,7 +6,6 @@ export const products = {
     category: "device",
     price: "$999",
     freeRush: true,
-    ogImage: "https://comma.ai/og-comma-four.png",
     images: [
       "/src/lib/images/products/comma-four/four_screen_on.png",
       "/src/lib/images/products/comma-four/four_angled.png",
