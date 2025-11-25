@@ -225,20 +225,10 @@ section {
   }
 }
 
-section:first-of-type {
-  padding-top: 7rem;
-}
-
 section.light + section.light,
 section.dark + section.dark {
   padding-top: 1rem;
   padding-bottom: 1rem;
-}
-
-@media (max-width: 1160px) {
-  section:first-of-type {
-    padding-top: 3rem;
-  }
 }
 
 img {
