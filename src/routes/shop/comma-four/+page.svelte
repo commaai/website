@@ -13,7 +13,7 @@
   import ReplacementMountsImage from "$lib/images/products/replacement-mounts/replacement-mounts-four.png";
   import CarBrandCollageImage from "$lib/images/car-brand-collage.jpg";
   import CoolingImage from "$lib/images/products/comma-four/cooling.png";
-  import DeviceFrameImage from "$lib/images/products/comma-four/four_dark.png";
+  import DeviceFrameImage from "$lib/images/products/comma-four/four_front.png";
 
   import SettingsVideo from "$lib/images/products/comma-four/settings.mp4";
   import EngageDisengageVideo from "$lib/images/products/comma-four/engage_disengage.mp4";
