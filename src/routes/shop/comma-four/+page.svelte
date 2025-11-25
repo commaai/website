@@ -15,6 +15,11 @@
   import CoolingImage from "$lib/images/products/comma-four/cooling.png";
   import DeviceFrameImage from "$lib/images/products/comma-four/four_dark.png";
 
+  import SettingsVideo from "$lib/images/products/comma-four/settings.mp4";
+  import EngageDisengageVideo from "$lib/images/products/comma-four/engage_disengage.mp4";
+  import SteeringArcVideo from "$lib/images/products/comma-four/steering_arc.mp4";
+  import ConfidenceBallVideo from "$lib/images/products/comma-four/confidence_ball.mp4";
+
   import MemoryIcon from "$lib/icons/features/memory.svg?raw";
   import ThreeSixtyVisionIcon from "$lib/icons/features/360-vision.svg?raw";
   import ProcessorIcon from "$lib/icons/features/processor.svg?raw";
@@ -192,36 +197,28 @@
         <div class="ui-card">
           <div class="device-container">
             <img src={DeviceFrameImage} alt="comma four device" class="device-frame" />
-            <video loop autoplay muted playsinline class="screen-overlay">
-              <source src="/src/lib/images/products/comma-four/settings.mp4" type="video/mp4">
-            </video>
+            <video loop autoplay muted playsinline class="screen-overlay" src={SettingsVideo}></video>
           </div>
           <p>Configure comma four entirely on the device. No app, subscription, or account required.</p>
         </div>
         <div class="ui-card">
           <div class="device-container">
             <img src={DeviceFrameImage} alt="comma four device" class="device-frame" />
-            <video loop autoplay muted playsinline class="screen-overlay">
-              <source src="/src/lib/images/products/comma-four/engage_disengage.mp4" type="video/mp4">
-            </video>
+            <video loop autoplay muted playsinline class="screen-overlay" src={EngageDisengageVideo}></video>
           </div>
           <p>comma four wakes up when you engage, and hibernates when you disengage.</p>
         </div>
         <div class="ui-card">
           <div class="device-container">
             <img src={DeviceFrameImage} alt="comma four device" class="device-frame" />
-            <video loop autoplay muted playsinline class="screen-overlay">
-              <source src="/src/lib/images/products/comma-four/steering_arc.mp4" type="video/mp4">
-            </video>
+            <video loop autoplay muted playsinline class="screen-overlay" src={SteeringArcVideo}></video>
           </div>
           <p>As openpilot approaches its steering limits, the steering arc grows to warn you.</p>
         </div>
         <div class="ui-card">
           <div class="device-container">
             <img src={DeviceFrameImage} alt="comma four device" class="device-frame" />
-            <video loop autoplay muted playsinline class="screen-overlay">
-              <source src="/src/lib/images/products/comma-four/confidence_ball.mp4" type="video/mp4">
-            </video>
+            <video loop autoplay muted playsinline class="screen-overlay" src={ConfidenceBallVideo}></video>
           </div>
           <p>As openpilot's confidence in its ability to understand the scene goes up, the confidence ball rises and turns green.</p>
         </div>
