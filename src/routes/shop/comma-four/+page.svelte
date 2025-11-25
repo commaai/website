@@ -272,7 +272,7 @@
           </hgroup>
           <p>
             comma four ships without software installed, so you need to install software.
-            It is compatible with <a href="/openpilot" class="highlight">openpilot</a> and works with a wide variety of community supported forks.
+            It is compatible with <a href="/openpilot" class="highlight">openpilot</a> and a wide variety of community forks.
           </p>
           <LinkButton href="/openpilot" style="secondary" fullWidth={false}>openpilot</LinkButton>
         </div>
