@@ -34,12 +34,14 @@
       <h2>Meet the comma four</h2>
       <div class="description">
         <p>
-          comma four is the next generation comma hardware designed to live in your car. The comma four has three beautiful HDR cameras, two cameras to watch the road and one night-vision camera to see inside the car.
+          comma four is the next generation comma hardware designed to live in your car.
+          comma four packs the same compute, sensor suite, and functionality as comma 3X into a package one-fifth the size, making it the ideal form factor for your windshield.
         </p>
         <p>
           It runs <a class="highlight" href="/openpilot">openpilot</a>, which can drive for hours without driver action.
         </p>
         <p>
+          The comma four has three beautiful HDR cameras, two cameras to watch the road and one night-vision camera to see inside the car.
           Besides cameras, the comma four has a suite of connectivity and sensors including cellular LTE, Wi-Fi, an IMU, high-precision GPS, and a microphone.
         </p>
       </div>
@@ -180,6 +182,36 @@
       <h2>Snapdragon 845 <span class="max-gradient">MAX</span></h2>
       <div class="cooling-section">
         <img src={CoolingImage} loading="lazy" alt="comma four cooling system">
+      </div>
+    </Grid>
+    <hr />
+    <Grid rowGap="0" templateColumns="0.5fr 1.25fr">
+      <h2>Expressive New Interface</h2>
+      <div class="ui-grid">
+        <div class="ui-card">
+          <video loop autoplay muted playsinline>
+            <source src="/src/lib/images/products/comma-four/settings.mp4" type="video/mp4">
+          </video>
+          <p>Configure comma four entirely on the device. No app, subscription, or account required.</p>
+        </div>
+        <div class="ui-card">
+          <video loop autoplay muted playsinline>
+            <source src="/src/lib/images/products/comma-four/engage_disengage.mp4" type="video/mp4">
+          </video>
+          <p>comma four wakes up when you engage, and hibernates when you disengage.</p>
+        </div>
+        <div class="ui-card">
+          <video loop autoplay muted playsinline>
+            <source src="/src/lib/images/products/comma-four/steering_arc.mp4" type="video/mp4">
+          </video>
+          <p>As openpilot approaches its steering limits, the steering arc grows to warn you.</p>
+        </div>
+        <div class="ui-card">
+          <video loop autoplay muted playsinline>
+            <source src="/src/lib/images/products/comma-four/confidence_ball.mp4" type="video/mp4">
+          </video>
+          <p>As openpilot's confidence in its ability to understand the scene goes up, the confidence ball rises and turns green.</p>
+        </div>
       </div>
     </Grid>
     <hr />
@@ -467,6 +499,31 @@
     }
   }
 
+  .ui-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .ui-card {
+    border: 1px solid #000;
+    overflow: hidden;
+
+    & video {
+      width: 100%;
+      display: block;
+      border-bottom: 1px solid #000;
+      border-radius: 12px;
+    }
+
+    & p {
+      padding: 1rem;
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+  }
+
   .mobile-hero {
     display: none;
     position: relative;
@@ -514,6 +571,10 @@
 
     .guarantee {
       font-size: 2rem;
+    }
+
+    .ui-grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>
