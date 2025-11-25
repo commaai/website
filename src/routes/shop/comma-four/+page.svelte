@@ -27,6 +27,7 @@
   import MoonIcon from "$lib/icons/features/moon.svg?raw";
   import DisplayIcon from "$lib/icons/features/display.svg?raw";
   import CableIcon from "$lib/icons/features/cable.svg?raw";
+  import LocationIcon from "$lib/icons/features/location.svg?raw";
   import { vehicleCountText } from '$lib/constants/vehicles.js';
 
   export let data;
@@ -44,10 +45,6 @@
         </p>
         <p>
           It runs <a class="highlight" href="/openpilot">openpilot</a>, which can drive for hours without driver action.
-        </p>
-        <p>
-          The comma four has three beautiful HDR cameras, two cameras to watch the road and one night-vision camera to see inside the car.
-          Besides cameras, the comma four has a suite of connectivity and sensors including cellular LTE, Wi-Fi, an IMU, high-precision GPS, and a microphone.
         </p>
       </div>
     </Grid>
@@ -121,6 +118,20 @@
         </div>
         <div class="spec-card">
           <div class="header">
+            <div>{@html LocationIcon}</div>
+            <span>Sensors</span>
+          </div>
+          <div class="contents">
+            <ul>
+              <li>3D Accelerometer</li>
+              <li>3D Gyroscope</li>
+              <li>High-precision GPS</li>
+              <li>Microphone</li>
+            </ul>
+          </div>
+        </div>
+        <div class="spec-card">
+          <div class="header">
             <div>{@html MemoryIcon}</div>
             <span>Can FD Enabled</span>
           </div>
@@ -146,7 +157,6 @@
             <ul>
               <li>LTE</li>
               <li>Wi-Fi</li>
-              <li>High-Precision GPS</li>
             </ul>
           </div>
         </div>
