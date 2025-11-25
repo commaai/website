@@ -200,6 +200,7 @@
       </div>
     </Grid>
     <hr />
+    <div style="width: 0; height: 0;" id="ui"/>
     <Grid rowGap="0" templateColumns="0.5fr 1.25fr">
       <h2>Expressive New Interface</h2>
       <div class="ui-grid">
