@@ -19,6 +19,7 @@
   import { onMount } from 'svelte';
   import { getProduct } from '$lib/utils/shopify';
   import { products as productsData } from '$lib/data/products.js';
+  import { formatCurrency } from "$lib/utils/currency";
 
   export let product;
   let additionalProductIds = [];
@@ -50,10 +51,17 @@
   let tradeInChecked = false;
   let backordered = null;
 
-  // Calculate PayPal amount dynamically
-  $: paypalAmount = selectedHarness === NO_HARNESS_OPTION
-    ? (FOUR_PRICE - 50).toFixed(2)
-    : FOUR_PRICE.toFixed(2);
+  // Trade-in and discount configuration
+  const discountAmount = 50;
+  const tradeInCredit = 250;
+  $: showDiscount = selectedHarness === NO_HARNESS_OPTION;
+
+  // Price calculations
+  $: priceDueToday = showDiscount ? FOUR_PRICE - discountAmount : FOUR_PRICE;
+  $: priceAfterTradeIn = tradeInChecked ? priceDueToday - tradeInCredit : priceDueToday;
+
+  // Calculate PayPal amount dynamically (use priceDueToday, not priceAfterTradeIn, since PayPal is paid upfront)
+  $: paypalAmount = priceDueToday.toFixed(2);
 
   const updateAdditionalProductIds = () => {
     additionalProductIds = [];
@@ -118,11 +126,21 @@
 </svelte:head>
 
 <Product {product} {additionalProductIds} {backordered} {beforeAddToCart} {getCartNote} priceOverride={FOUR_PRICE}
-         showDiscount={selectedHarness === NO_HARNESS_OPTION} discountAmount={50} tradeInCredit={250} tradeInSelected={tradeInChecked}
          disableBuyButtonText={disableBuyButtonText}>
   <div slot="shipping"></div>
 
-  <div slot="price-accessory">
+  <div slot="price" class="price">
+    {#if tradeInChecked && tradeInCredit > 0}
+      <span>{formatCurrency({ amount: priceAfterTradeIn, currencyCode: 'USD' }, 0)} after trade-in received</span>
+      <span class="price-due-today">({formatCurrency({ amount: priceDueToday, currencyCode: 'USD' }, 0)} due today)</span>
+    {:else if showDiscount && discountAmount > 0}
+      {formatCurrency({ amount: priceDueToday, currencyCode: 'USD' }, 0)}
+    {:else}
+      {formatCurrency({ amount: FOUR_PRICE, currencyCode: 'USD' }, 0)}
+    {/if}
+  </div>
+
+  <span slot="price-accessory">
     <div class="paypal-message">
       <div
         data-pp-message
@@ -133,7 +151,6 @@
         data-pp-language="">
       </div>
     </div>
-
     <div class="badge">
       <Badge style="dark">Free rush shipping</Badge>
     </div>
@@ -151,7 +168,7 @@
       Get $250 credit when you trade in your old comma device. Any comma device, in any condition.
       <a href="/shop/comma-four-trade-in">Instructions and Terms</a>
     </CheckboxCard>
-  </div>
+  </span>
 
   <div slot="notes">
     <NoteCard title="Upgrading from another comma device?">
@@ -285,5 +302,10 @@
 
   .paypal-message {
     margin-top: 1rem;
+  }
+
+  .price-due-today {
+    font-size: 1rem;
+    color: rgb(81, 81, 81);
   }
 </style>

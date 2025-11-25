@@ -19,10 +19,6 @@
   export let disableBuyButtonText = null;
   export let hideOutOfStockVariants = false;
   export let priceOverride = null;
-  export let showDiscount = false;
-  export let discountAmount = 0;
-  export let tradeInCredit = 0;
-  export let tradeInSelected = false;
 
   export let VariantSelector = null;
   function handleVariantSelection(variant) {
@@ -47,9 +43,6 @@
 
   $: highlightedImageSrc = product?.images[currentImageIndex];
   $: priceLabel = getPriceLabel(selectedVariant);
-  $: originalPrice = priceOverride || (selectedVariant?.price?.amount || product?.priceRange?.minVariantPrice?.amount || 0);
-  $: priceDueToday = showDiscount ? originalPrice - discountAmount : originalPrice;
-  $: priceAfterTradeIn = tradeInSelected ? priceDueToday - tradeInCredit : priceDueToday;
 
   async function addItem() {
     let note = "";
@@ -124,14 +117,9 @@
         <div class="variant-selector">
           <h1>{product?.title}</h1>
           <div class="price">
-            {#if tradeInSelected && tradeInCredit > 0}
-              <span class="price-after-tradein">{formatCurrency({ amount: priceAfterTradeIn, currencyCode: 'USD' }, 0)} after trade-in received</span>
-              <span class="price-due-today">({formatCurrency({ amount: priceDueToday, currencyCode: 'USD' }, 0)} due today)</span>
-            {:else if showDiscount && discountAmount > 0}
-              {formatCurrency({ amount: priceDueToday, currencyCode: 'USD' }, 0)}
-            {:else}
+            <slot name="price">
               {priceLabel}
-            {/if}
+            </slot>
           </div>
           <slot name="price-accessory"></slot>
           {#if VariantSelector}
@@ -223,15 +211,6 @@
       gap: 0.25rem;
     }
 
-    & .price-after-tradein {
-      font-size: 1.5rem;
-      font-weight: 400;
-    }
-
-    & .price-due-today {
-      font-size: 1rem;
-      color: rgb(81, 81, 81);
-    }
 
     & img {
       width: 120px;
