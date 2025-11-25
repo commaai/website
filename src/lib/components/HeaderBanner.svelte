@@ -2,7 +2,7 @@
 <a href="/shop/comma-four" class="banner">
   <div class="wrapper">
     <strong class="headline">
-      Introducing comma four — Available now for Black Friday
+      COMMA FOUR IS HERE! NEW DEVICE, LOWEST PRICE EVER
     </strong>
   </div>
 </a>
