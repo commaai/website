@@ -189,27 +189,35 @@
       <h2>Expressive New Interface</h2>
       <div class="ui-grid">
         <div class="ui-card">
-          <video loop autoplay muted playsinline>
-            <source src="/src/lib/images/products/comma-four/settings.mp4" type="video/mp4">
-          </video>
+          <div class="video-wrapper">
+            <video loop autoplay muted playsinline>
+              <source src="/src/lib/images/products/comma-four/settings.mp4" type="video/mp4">
+            </video>
+          </div>
           <p>Configure comma four entirely on the device. No app, subscription, or account required.</p>
         </div>
         <div class="ui-card">
-          <video loop autoplay muted playsinline>
-            <source src="/src/lib/images/products/comma-four/engage_disengage.mp4" type="video/mp4">
-          </video>
+          <div class="video-wrapper">
+            <video loop autoplay muted playsinline>
+              <source src="/src/lib/images/products/comma-four/engage_disengage.mp4" type="video/mp4">
+            </video>
+          </div>
           <p>comma four wakes up when you engage, and hibernates when you disengage.</p>
         </div>
         <div class="ui-card">
-          <video loop autoplay muted playsinline>
-            <source src="/src/lib/images/products/comma-four/steering_arc.mp4" type="video/mp4">
-          </video>
+          <div class="video-wrapper">
+            <video loop autoplay muted playsinline>
+              <source src="/src/lib/images/products/comma-four/steering_arc.mp4" type="video/mp4">
+            </video>
+          </div>
           <p>As openpilot approaches its steering limits, the steering arc grows to warn you.</p>
         </div>
         <div class="ui-card">
-          <video loop autoplay muted playsinline>
-            <source src="/src/lib/images/products/comma-four/confidence_ball.mp4" type="video/mp4">
-          </video>
+          <div class="video-wrapper">
+            <video loop autoplay muted playsinline>
+              <source src="/src/lib/images/products/comma-four/confidence_ball.mp4" type="video/mp4">
+            </video>
+          </div>
           <p>As openpilot's confidence in its ability to understand the scene goes up, the confidence ball rises and turns green.</p>
         </div>
       </div>
@@ -506,21 +514,21 @@
   }
 
   .ui-card {
-    border: 1px solid #000;
-    overflow: hidden;
+    & .video-wrapper {
+      overflow: hidden;
+      border-radius: 16px;
+      margin-bottom: 1rem;
+    }
 
     & video {
       width: 100%;
+      height: auto;
       display: block;
-      border-bottom: 1px solid #000;
-      border-radius: 12px;
     }
 
     & p {
-      padding: 1rem;
       margin: 0;
-      font-size: 1rem;
-      line-height: 1.5;
+      font-size: 1.25rem;
     }
   }
 
