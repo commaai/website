@@ -7,8 +7,12 @@
 
   const handleSelect = (selectedValue) => {
     console.log("Selected value:", selectedValue);
-    value = selectedValue;
-    onSelect && onSelect(selectedValue);
+    if (value === selectedValue) {
+      value = null;
+    } else {
+      value = selectedValue;
+    }
+    onSelect && onSelect(value);
   };
 
   $: option1 = options[0] || {};
