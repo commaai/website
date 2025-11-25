@@ -104,6 +104,10 @@
     gap: 0.5rem;
   }
 
+  .button:last-child .card hgroup .title-row {
+    justify-content: center;
+  }
+
   .button .card hgroup .title-row .title {
     font-family: JetBrains Mono, monospace;
     font-size: 0.875rem;
