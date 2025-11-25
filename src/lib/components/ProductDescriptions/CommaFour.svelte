@@ -150,9 +150,12 @@
     </div>
 
     <ButtonGroup options={[
-      {"label": "Add trade-in ($250 credit)", "value": "trade-in"},
+      {"label": "Add trade-in", "value": "trade-in"},
       {"label": "No trade-in", "value": "no-trade-in"},
       ]} value={tradeInValue} onSelect={handleTradeInSelection}>
+      <div slot="option1-content">
+        $250 credit
+      </div>
     </ButtonGroup>
 <!--    <hr/>-->
 
@@ -257,7 +260,6 @@
       font-size: 1rem;
       color: #000000A6;
     }
-
   }
 
   .harness-price {

@@ -55,10 +55,22 @@
     text-align: inherit;
   }
 
+  .button:first-child {
+    flex: 2;
+  }
+
+  .button:last-child {
+    flex: 1;
+  }
+
   .button :global(.card) {
     flex: 1;
     display: flex;
     margin: 0;
+  }
+
+  .button :global(.card hgroup) {
+    margin-left: 0;
   }
 
   .button.checked :global(.card) {
