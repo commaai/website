@@ -105,19 +105,9 @@
   });
 </script>
 
-<Product 
-  {product} 
-  {additionalProductIds} 
-  {backordered} 
-  {beforeAddToCart} 
-  {getCartNote} 
-  priceOverride={FOUR_PRICE} 
-  showDiscount={selectedHarness === NO_HARNESS_OPTION}
-  discountAmount={50}
-  tradeInCredit={250}
-  tradeInSelected={tradeInChecked}
-  disableBuyButtonText={disableBuyButtonText}
->
+<Product {product} {additionalProductIds} {backordered} {beforeAddToCart} {getCartNote} priceOverride={FOUR_PRICE}
+         showDiscount={selectedHarness === NO_HARNESS_OPTION} discountAmount={50} tradeInCredit={250} tradeInSelected={tradeInChecked}
+         disableBuyButtonText={disableBuyButtonText}>
   <div slot="shipping"></div>
 
   <span slot="price-accessory">
