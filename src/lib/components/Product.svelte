@@ -233,22 +233,6 @@
       color: rgb(81, 81, 81);
     }
 
-    & .price-original {
-      text-decoration: line-through;
-    }
-
-    & .price-discounted {
-      font-size: 1.5rem;
-      font-weight: 600;
-    }
-
-    & .discount-badge {
-      font-size: 0.875rem;
-      color: var(--color-accent);
-      font-weight: 600;
-    }
-
-
     & img {
       width: 120px;
       height: 120px;
