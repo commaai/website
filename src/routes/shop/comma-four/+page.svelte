@@ -13,6 +13,7 @@
   import ReplacementMountsImage from "$lib/images/products/replacement-mounts/replacement-mounts-four.png";
   import CarBrandCollageImage from "$lib/images/car-brand-collage.jpg";
   import CoolingImage from "$lib/images/products/comma-four/cooling.png";
+  import DeviceFrameImage from "$lib/images/products/comma-four/four_dark.png";
 
   import MemoryIcon from "$lib/icons/features/memory.svg?raw";
   import ThreeSixtyVisionIcon from "$lib/icons/features/360-vision.svg?raw";
@@ -189,32 +190,36 @@
       <h2>Expressive New Interface</h2>
       <div class="ui-grid">
         <div class="ui-card">
-          <div class="video-wrapper">
-            <video loop autoplay muted playsinline>
+          <div class="device-container">
+            <img src={DeviceFrameImage} alt="comma four device" class="device-frame" />
+            <video loop autoplay muted playsinline class="screen-overlay">
               <source src="/src/lib/images/products/comma-four/settings.mp4" type="video/mp4">
             </video>
           </div>
           <p>Configure comma four entirely on the device. No app, subscription, or account required.</p>
         </div>
         <div class="ui-card">
-          <div class="video-wrapper">
-            <video loop autoplay muted playsinline>
+          <div class="device-container">
+            <img src={DeviceFrameImage} alt="comma four device" class="device-frame" />
+            <video loop autoplay muted playsinline class="screen-overlay">
               <source src="/src/lib/images/products/comma-four/engage_disengage.mp4" type="video/mp4">
             </video>
           </div>
           <p>comma four wakes up when you engage, and hibernates when you disengage.</p>
         </div>
         <div class="ui-card">
-          <div class="video-wrapper">
-            <video loop autoplay muted playsinline>
+          <div class="device-container">
+            <img src={DeviceFrameImage} alt="comma four device" class="device-frame" />
+            <video loop autoplay muted playsinline class="screen-overlay">
               <source src="/src/lib/images/products/comma-four/steering_arc.mp4" type="video/mp4">
             </video>
           </div>
           <p>As openpilot approaches its steering limits, the steering arc grows to warn you.</p>
         </div>
         <div class="ui-card">
-          <div class="video-wrapper">
-            <video loop autoplay muted playsinline>
+          <div class="device-container">
+            <img src={DeviceFrameImage} alt="comma four device" class="device-frame" />
+            <video loop autoplay muted playsinline class="screen-overlay">
               <source src="/src/lib/images/products/comma-four/confidence_ball.mp4" type="video/mp4">
             </video>
           </div>
@@ -514,16 +519,27 @@
   }
 
   .ui-card {
-    & .video-wrapper {
-      overflow: hidden;
-      border-radius: 16px;
+    & .device-container {
+      position: relative;
+      display: inline-block;
+      width: 100%;
       margin-bottom: 1rem;
     }
 
-    & video {
+    & .device-frame {
+      display: block;
       width: 100%;
       height: auto;
-      display: block;
+    }
+
+    & .screen-overlay {
+      position: absolute;
+      left: 23.21%;
+      top: 63.97%;
+      width: 40.21%;
+      height: 25.80%;
+      mix-blend-mode: screen;
+      z-index: 2;
     }
 
     & p {
