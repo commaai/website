@@ -204,35 +204,35 @@
     <Grid rowGap="0" templateColumns="0.5fr 1.25fr">
       <h2>Expressive New Interface</h2>
       <div class="ui-grid">
-      <div class="ui-card">
-        <div class="device-container">
-          <img src={DeviceFrameImage} alt="comma four device" class="device-frame" />
-          <video loop autoplay muted playsinline class="screen-overlay" src={SettingsVideo}></video>
+        <div class="ui-card">
+          <div class="device-container">
+            <img src={DeviceFrameImage} alt="comma four device" class="device-frame" />
+            <video loop autoplay muted playsinline class="screen-overlay" src={SettingsVideo}></video>
+          </div>
+          <p>Configure comma four entirely on the device. No app, subscription, or account required.</p>
         </div>
-        <p>Configure comma four entirely on the device. No app, subscription, or account required.</p>
-      </div>
-      <div class="ui-card">
-        <div class="device-container">
-          <img src={DeviceFrameImage} alt="comma four device" class="device-frame" />
-          <video loop autoplay muted playsinline class="screen-overlay" src={EngageDisengageVideo}></video>
+        <div class="ui-card">
+          <div class="device-container">
+            <img src={DeviceFrameImage} alt="comma four device" class="device-frame" />
+            <video loop autoplay muted playsinline class="screen-overlay" src={EngageDisengageVideo}></video>
+          </div>
+          <p>comma four wakes up when you engage, and hibernates when you disengage.</p>
         </div>
-        <p>comma four wakes up when you engage, and hibernates when you disengage.</p>
-      </div>
-      <div class="ui-card">
-        <div class="device-container">
-          <img src={DeviceFrameImage} alt="comma four device" class="device-frame" />
-          <video loop autoplay muted playsinline class="screen-overlay" src={SteeringArcVideo}></video>
+        <div class="ui-card">
+          <div class="device-container">
+            <img src={DeviceFrameImage} alt="comma four device" class="device-frame" />
+            <video loop autoplay muted playsinline class="screen-overlay" src={SteeringArcVideo}></video>
+          </div>
+          <p>As openpilot approaches its steering limits, the steering arc grows to warn you.</p>
         </div>
-        <p>As openpilot approaches its steering limits, the steering arc grows to warn you.</p>
-      </div>
-      <div class="ui-card">
-        <div class="device-container">
-          <img src={DeviceFrameImage} alt="comma four device" class="device-frame" />
-          <video loop autoplay muted playsinline class="screen-overlay" src={ConfidenceBallVideo}></video>
+        <div class="ui-card">
+          <div class="device-container">
+            <img src={DeviceFrameImage} alt="comma four device" class="device-frame" />
+            <video loop autoplay muted playsinline class="screen-overlay" src={ConfidenceBallVideo}></video>
+          </div>
+          <p>As openpilot's confidence in its ability to understand the scene goes up, the confidence ball rises and turns green.</p>
         </div>
-        <p>As openpilot's confidence in its ability to understand the scene goes up, the confidence ball rises and turns green.</p>
       </div>
-    </div>
     </Grid>
     <hr />
     <SetupGuide
