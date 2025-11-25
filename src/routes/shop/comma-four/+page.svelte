@@ -40,8 +40,7 @@
       <h2>Meet the comma four</h2>
       <div class="description">
         <p>
-          comma four is the next generation comma hardware designed to live in your car.
-          comma four packs the same compute, sensor suite, and functionality as comma 3X into a package one-fifth the size, making it the ideal form factor for your windshield.
+          comma four is our next generation hardware. It packs the same compute, sensor suite, and functionality as comma 3X into a package one-fifth the size, making it the ideal form factor for your windshield.
         </p>
         <p>
           It runs <a class="highlight" href="/openpilot">openpilot</a>, which can drive for hours without driver action.
