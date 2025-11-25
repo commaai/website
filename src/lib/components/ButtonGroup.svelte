@@ -1,6 +1,4 @@
 <script>
-  import NoteCard from "./NoteCard.svelte";
-
   export let options = []; // Array of two options: [{value: 'option1', label: 'Label 1'}, {value: 'option2', label: 'Label 2'}]
   export let value = null; // Currently selected value
   export let onSelect; // callback function when selection changes
@@ -21,17 +19,35 @@
 
 <div class="button-group">
   <button class="button" class:checked={value === option1.value} on:click={() => handleSelect(option1.value)}>
-    <NoteCard title={option1.label || ''}>
-      <div slot="icon"></div>
-      <slot name="option1-content"></slot>
-    </NoteCard>
+    <div class="card">
+      <hgroup>
+        <span class="title-row">
+          <span class="title">{option1.label || ''}</span>
+          {#if option1.subheader}
+            <span class="subheader">{option1.subheader}</span>
+          {/if}
+        </span>
+        <div>
+          <slot name="option1-content"></slot>
+        </div>
+      </hgroup>
+    </div>
   </button>
 
   <button class="button" class:checked={value === option2.value} on:click={() => handleSelect(option2.value)}>
-    <NoteCard title={option2.label || ''}>
-      <div slot="icon"></div>
-      <slot name="option2-content"></slot>
-    </NoteCard>
+    <div class="card">
+      <hgroup>
+        <span class="title-row">
+          <span class="title">{option2.label || ''}</span>
+          {#if option2.subheader}
+            <span class="subheader">{option2.subheader}</span>
+          {/if}
+        </span>
+        <div>
+          <slot name="option2-content"></slot>
+        </div>
+      </hgroup>
+    </div>
   </button>
 </div>
 
@@ -56,28 +72,69 @@
   }
 
   .button:first-child {
-    flex: 2;
+    flex: 3;
   }
 
   .button:last-child {
-    flex: 1;
+    flex: 2;
   }
 
-  .button :global(.card) {
+  .button .card {
     flex: 1;
     display: flex;
     margin: 0;
+    padding: 1.5rem 1rem;
+    align-items: center;
+    color: black;
+    border: 1px solid #616161;
+    width: 100%;
   }
 
-  .button :global(.card hgroup) {
+  .button .card hgroup {
     margin-left: 0;
+    display: block !important;
+    width: 100%;
   }
 
-  .button.checked :global(.card) {
+  .button .card hgroup .title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 0.5rem;
+  }
+
+  .button .card hgroup .title-row .title {
+    font-family: JetBrains Mono, monospace;
+    font-size: 0.875rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 1.1;
+    color: black;
+  }
+
+  .button .card hgroup .title-row .subheader {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 400;
+    text-transform: none;
+    color: #666;
+    text-align: right;
+    line-height: 1.1;
+  }
+
+  .button .card hgroup div {
+    display: block;
+    color: #000000A6;
+    font-size: 0.875rem;
+    line-height: 1.25;
+  }
+
+  .button.checked .card {
     background-color: var(--color-accent);
   }
 
-  .button.checked :global(.card hgroup span) {
+  .button.checked .card hgroup span {
     color: black;
   }
 </style>

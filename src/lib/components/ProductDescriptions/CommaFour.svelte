@@ -150,12 +150,9 @@
     </div>
 
     <ButtonGroup options={[
-      {"label": "Add trade-in", "value": "trade-in"},
-      {"label": "No trade-in", "value": "no-trade-in"},
+      {"label": "Add trade‑in", "value": "trade-in", "subheader": "$250 credit"},
+      {"label": "No trade‑in", "value": "no-trade-in"},
       ]} value={tradeInValue} onSelect={handleTradeInSelection}>
-      <div slot="option1-content">
-        $250 credit
-      </div>
     </ButtonGroup>
 <!--    <hr/>-->
 
