@@ -14,7 +14,9 @@
   import MarkerIcon from "$lib/icons/features/marker.png";
   import SnapshotIcon from "$lib/icons/features/snapshot.png";
   import CommandLineIcon from "$lib/icons/features/command-line.svg?raw";
+  import CommacareIcon from "$lib/icons/features/commacare.svg?raw";
   import CheckmarkIcon from "$lib/icons/ui/checkmark.svg?raw";
+  import BlackCheckmarkIcon from "$lib/icons/ui/black-checkmark.svg?raw";
   import CloseIcon from "$lib/icons/ui/close.svg?raw";
 </script>
 
@@ -56,10 +58,10 @@
       <div class="row header">
         <div class="title">Features</div>
         <div class="content badge">
-          <span class="badge-prefix muted">connect</span><Badge style="dark" display="inline">prime & lite subscription</Badge>
+          <span class="badge-prefix muted">connect</span><Badge style="accent" display="inline">prime subscription</Badge>
         </div>
         <div class="content badge">
-          <span class="badge-prefix muted">connect</span><Badge style="dark" display="inline">free</Badge>
+          <span class="badge-prefix muted">connect</span><Badge style="dark" display="inline">lite subscription</Badge>
         </div>
       </div>
       <div class="row">
@@ -79,7 +81,25 @@
         </div>
         <div class="content">
           <div class="check">{@html CheckmarkIcon}</div>
-          <div>3 days of storage</div>
+          <div>1 year of storage</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="feature-overview">
+          <div class="icon">{@html CommacareIcon}</div>
+          <div>
+            <hgroup>
+              <div>commacare</div>
+              <span class="muted">Extend your comma four's standard one year warranty for an additional year. <a href="#what-is-commacare">See terms</a></span>
+            </hgroup>
+            <div class="mobile-badge"><Badge style="accent" display="inline-flex"><span class="check black">{@html BlackCheckmarkIcon}</span> COMMA PRIME EXCLUSIVE</Badge></div>
+          </div>
+        </div>
+        <div class="content">
+          <div class="check">{@html CheckmarkIcon}</div>
+        </div>
+        <div class="content">
+          <div class="cross">{@html CloseIcon}</div>
         </div>
       </div>
       <div class="row">
@@ -94,7 +114,7 @@
           <div class="check">{@html CheckmarkIcon}</div>
         </div>
         <div class="content">
-          <div class="cross">{@html CloseIcon}</div>
+          <div class="check">{@html CheckmarkIcon}</div>
         </div>
       </div>
       <div class="row">
@@ -109,7 +129,7 @@
           <div class="check">{@html CheckmarkIcon}</div>
         </div>
         <div class="content">
-          <div class="cross">{@html CloseIcon}</div>
+          <div class="check">{@html CheckmarkIcon}</div>
         </div>
       </div>
       <div class="row">
@@ -124,7 +144,7 @@
           <div class="check">{@html CheckmarkIcon}</div>
         </div>
         <div class="content">
-          <div class="cross">{@html CloseIcon}</div>
+          <div class="check">{@html CheckmarkIcon}</div>
         </div>
       </div>
       <div class="row">
@@ -139,7 +159,38 @@
           <div class="check">{@html CheckmarkIcon}</div>
         </div>
         <div class="content">
-          <div class="cross">{@html CloseIcon}</div>
+          <div class="check">{@html CheckmarkIcon}</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="height: 2rem;"></div>
+
+    <div id="features-table">
+      <div class="row header">
+        <div class="title">Free Features</div>
+        <div class="content badge">
+          <span class="badge-prefix muted">connect</span><Badge style="dark" display="inline">free</Badge>
+        </div>
+      </div>
+      <div class="row">
+        <div class="feature-overview">
+          <div class="icon">{@html RecordingsIcon}</div>
+          <div>
+            <hgroup>
+              <div>Cloud storage of drive videos</div>
+              <span class="muted">Review your driving history, access routes, and watch videos of past drives.</span>
+            </hgroup>
+            <div class="mobile-badge"><Badge style="dark" display="inline-flex"><span class="check">{@html CheckmarkIcon}</span> 3 days of storage</Badge></div>
+          </div>
+        </div>
+<!--        <div class="content">-->
+<!--          <div class="check">{@html CheckmarkIcon}</div>-->
+<!--          <div>1 year of storage</div>-->
+<!--        </div>-->
+        <div class="content">
+          <div class="check">{@html CheckmarkIcon}</div>
+          <div>3 days of storage</div>
         </div>
       </div>
     </div>
@@ -319,7 +370,13 @@
           }
         }
 
-        & .check { color: var(--color-accent-hover); }
+        & .check {
+          color: var(--color-accent-hover);
+
+          &.black {
+            color: black;
+          }
+        }
         & .cross { color: var(--color-red); }
 
         & .feature-overview {
