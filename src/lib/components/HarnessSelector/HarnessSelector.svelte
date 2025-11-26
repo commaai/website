@@ -27,17 +27,28 @@
   export let hideSupportNoteCard = false;
 
   let selection = undefined
+  let initialized = false;
+  let isSyncingFromValue = false;
 
   // Load harnesses based on the options
   $: harnesses = showVehicleHarnesses && showGenericHarnesses ? allHarnesses : showVehicleHarnesses ? vehicleHarnesses : genericHarnesses;
-  $: if (browser && $harnesses.length > 0) {
+  $: if (browser && $harnesses.length > 0 && !initialized) {
     if (value !== undefined) {
+      isSyncingFromValue = true;
       selection = value;
+      isSyncingFromValue = false;
     } else {
       setInitialSelection();
     }
+    initialized = true;
   }
-  $: if (selection !== undefined) {
+  // Sync external value prop to internal selection (only if different to avoid loops)
+  $: if (value !== undefined && value !== selection && initialized) {
+    isSyncingFromValue = true;
+    selection = value;
+    isSyncingFromValue = false;
+  }
+  $: if (selection !== undefined && initialized && !isSyncingFromValue) {
     // Don't update w/ initial state
     onChange(selection);
     updateQueryParams(selection);
