@@ -86,24 +86,6 @@
       </div>
       <div class="row">
         <div class="feature-overview">
-          <div class="icon">{@html CommacareIcon}</div>
-          <div>
-            <hgroup>
-              <div>commacare</div>
-              <span class="muted">Extend your comma four's standard one year warranty for an additional year. <a class="muted-link" href="#what-is-commacare">See Terms</a></span>
-            </hgroup>
-            <div class="mobile-badge"><Badge style="accent" display="inline-flex"><span class="check black">{@html BlackCheckmarkIcon}</span> COMMA PRIME EXCLUSIVE</Badge></div>
-          </div>
-        </div>
-        <div class="content">
-          <div class="check">{@html CheckmarkIcon}</div>
-        </div>
-        <div class="content">
-          <div class="cross">{@html CloseIcon}</div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="feature-overview">
           <div class="icon"><img src={TwentyFourSevenIcon} loading="lazy" alt=""></div>
           <hgroup>
             <div>24/7 connectivity</div>
@@ -160,6 +142,24 @@
         </div>
         <div class="content">
           <div class="check">{@html CheckmarkIcon}</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="feature-overview">
+          <div class="icon">{@html CommacareIcon}</div>
+          <div>
+            <hgroup>
+              <div>commacare</div>
+              <span class="muted">Extend your comma four's standard one year warranty for an additional year. <a class="muted-link" href="#what-is-commacare">See Terms</a></span>
+            </hgroup>
+            <div class="mobile-badge"><Badge style="accent" display="inline-flex"><span class="check black">{@html BlackCheckmarkIcon}</span> COMMA PRIME EXCLUSIVE</Badge></div>
+          </div>
+        </div>
+        <div class="content">
+          <div class="check">{@html CheckmarkIcon}</div>
+        </div>
+        <div class="content">
+          <div class="cross">{@html CloseIcon}</div>
         </div>
       </div>
     </div>
