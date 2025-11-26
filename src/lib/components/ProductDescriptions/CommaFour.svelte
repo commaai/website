@@ -111,11 +111,15 @@
     }
 
     // Autofill trade-in checkbox
+    // TODO: wait for tradeInVariantId to load
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('trade-in') === '1') {
-      tradeInChecked = true;
+      // tradeInChecked = true;
       // handleHarnessSelection(NO_HARNESS_OPTION);
-      harnessSelectorRef.setSelection(NO_HARNESS_OPTION);
+      if (harnessSelectorRef) {
+        harnessSelectorRef.setSelection(NO_HARNESS_OPTION);
+      }
+      handleTradeInToggle()
     }
   });
 </script>
