@@ -348,7 +348,7 @@
           question: 'What is commacare?',
           answer: `
             <p>
-              commacare extends your comma four's warranty for an additional year beyond the standard one-year  warranty, giving you two years of total coverage.
+              commacare extends your comma four's warranty for an additional year beyond the standard one-year warranty, giving you two years of total coverage.
             </p>
             <p>
               We've made commacare simple and straightforward:
