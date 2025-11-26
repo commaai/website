@@ -343,7 +343,7 @@
           margin: 2rem 0;
 
           @media screen and (max-width: 768px) {
-            margin: 2rem 0 0;
+            margin: 1rem 0 0;
             gap: 0.5rem;
           }
 
