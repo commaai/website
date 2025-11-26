@@ -14,8 +14,11 @@
   import MarkerIcon from "$lib/icons/features/marker.png";
   import SnapshotIcon from "$lib/icons/features/snapshot.png";
   import CommandLineIcon from "$lib/icons/features/command-line.svg?raw";
-  import CheckmarkIcon from "$lib/icons/ui/checkmark.svg?raw";
-  import CloseIcon from "$lib/icons/ui/close.svg?raw";
+  import CommacareIcon from "$lib/icons/features/commacare.svg?raw";
+  // import CheckmarkIcon from "$lib/icons/ui/checkmark.svg?raw";
+  import CheckmarkIcon from "$lib/icons/ui/check.svg?raw";
+  // import CloseIcon from "$lib/icons/ui/close.svg?raw";
+  import CloseIcon from "$lib/icons/ui/cross.svg?raw";
 </script>
 
 <div class="banner">
@@ -55,14 +58,16 @@
     <div id="features-table">
       <div class="row header">
         <div class="title">Features</div>
-        <div class="content badge">
-          <span class="badge-prefix muted">connect</span><Badge style="dark" display="inline">prime subscription</Badge>
-        </div>
-        <div class="content badge">
-          <span class="badge-prefix muted">connect</span><Badge style="dark" display="inline">lite subscription</Badge>
-        </div>
-        <div class="content badge">
-          <span class="badge-prefix muted">connect</span><Badge style="dark" display="inline">free</Badge>
+        <div class="content-wrapper">
+          <div class="content badge">
+            <Badge style="accent" display="inline">prime subscription</Badge>
+          </div>
+          <div class="content badge">
+            <Badge style="dark" display="inline">prime lite</Badge>
+          </div>
+          <div class="content badge">
+            <Badge style="light" display="inline">free</Badge>
+          </div>
         </div>
       </div>
       <div class="row">
@@ -73,20 +78,22 @@
               <div>Cloud storage of drive videos</div>
               <span class="muted">Review your driving history, access routes, and watch videos of past drives.</span>
             </hgroup>
-            <div class="mobile-badge"><Badge style="dark" display="inline-flex"><span class="check">{@html CheckmarkIcon}</span> 1 year of storage</Badge></div>
+<!--            <div class="mobile-badge"><Badge style="dark" display="inline-flex"><span class="check">{@html CheckmarkIcon}</span> 1 year of storage</Badge></div>-->
           </div>
         </div>
-        <div class="content">
-          <div class="check">{@html CheckmarkIcon}</div>
-          <div>1 year of storage</div>
-        </div>
-        <div class="content">
-          <div class="check">{@html CheckmarkIcon}</div>
-          <div>1 year of storage</div>
-        </div>
-        <div class="content">
-          <div class="check">{@html CheckmarkIcon}</div>
-          <div>3 days of storage</div>
+        <div class="content-wrapper">
+          <div class="content">
+            <div class="check">{@html CheckmarkIcon}</div>
+            <div>1 year of storage</div>
+          </div>
+          <div class="content">
+            <div class="check">{@html CheckmarkIcon}</div>
+            <div>1 year of storage</div>
+          </div>
+          <div class="content">
+            <div class="check">{@html CheckmarkIcon}</div>
+            <div>3 days of storage</div>
+          </div>
         </div>
       </div>
       <div class="row">
@@ -97,14 +104,16 @@
             <span class="muted">Always-on. Always LTE connected.</span>
           </hgroup>
         </div>
-        <div class="content">
-          <div class="check">{@html CheckmarkIcon}</div>
-        </div>
-        <div class="content">
-          <div class="cross">{@html CloseIcon}</div>
-        </div>
-        <div class="content">
-          <div class="cross">{@html CloseIcon}</div>
+        <div class="content-wrapper">
+          <div class="content">
+            <div class="check">{@html CheckmarkIcon}</div>
+          </div>
+          <div class="content">
+            <div class="cross">{@html CloseIcon}</div>
+          </div>
+          <div class="content">
+            <div class="cross">{@html CloseIcon}</div>
+          </div>
         </div>
       </div>
       <div class="row">
@@ -115,14 +124,16 @@
             <span class="muted">Always know your vehicle's location with a live map view.</span>
           </hgroup>
         </div>
-        <div class="content">
-          <div class="check">{@html CheckmarkIcon}</div>
-        </div>
-        <div class="content">
-          <div class="check">{@html CheckmarkIcon}</div>
-        </div>
-        <div class="content">
-          <div class="cross">{@html CloseIcon}</div>
+        <div class="content-wrapper">
+          <div class="content">
+            <div class="check">{@html CheckmarkIcon}</div>
+          </div>
+          <div class="content">
+            <div class="check">{@html CheckmarkIcon}</div>
+          </div>
+          <div class="content">
+            <div class="cross">{@html CloseIcon}</div>
+          </div>
         </div>
       </div>
       <div class="row">
@@ -133,14 +144,16 @@
             <span class="muted">Know what's going on around your car. comma four features HD road-facing and night-vision-enabled cabin cameras.</span>
           </hgroup>
         </div>
-        <div class="content">
-          <div class="check">{@html CheckmarkIcon}</div>
-        </div>
-        <div class="content">
-          <div class="check">{@html CheckmarkIcon}</div>
-        </div>
-        <div class="content">
-          <div class="cross">{@html CloseIcon}</div>
+        <div class="content-wrapper">
+          <div class="content">
+            <div class="check">{@html CheckmarkIcon}</div>
+          </div>
+          <div class="content">
+            <div class="check">{@html CheckmarkIcon}</div>
+          </div>
+          <div class="content">
+            <div class="cross">{@html CloseIcon}</div>
+          </div>
         </div>
       </div>
       <div class="row">
@@ -151,33 +164,37 @@
             <span class="muted">Easy way to connect and deploy code to your comma device.</span>
           </hgroup>
         </div>
-        <div class="content">
-          <div class="check">{@html CheckmarkIcon}</div>
-        </div>
-        <div class="content">
-          <div class="check">{@html CheckmarkIcon}</div>
-        </div>
-        <div class="content">
-          <div class="cross">{@html CloseIcon}</div>
+        <div class="content-wrapper">
+          <div class="content">
+            <div class="check">{@html CheckmarkIcon}</div>
+          </div>
+          <div class="content">
+            <div class="check">{@html CheckmarkIcon}</div>
+          </div>
+          <div class="content">
+            <div class="cross">{@html CloseIcon}</div>
+          </div>
         </div>
       </div>
 
       <div class="row">
         <div class="feature-overview">
-          <div class="icon">{@html CommandLineIcon}</div>
+          <div class="icon">{@html CommacareIcon}</div>
           <hgroup>
             <div>commacare</div>
             <span class="muted">Extend your comma four's standard one year warranty for an additional year. <a href="#what-is-commacare">See terms</a></span>
           </hgroup>
         </div>
-        <div class="content">
-          <div class="check">{@html CheckmarkIcon}</div>
-        </div>
-        <div class="content">
-          <div class="cross">{@html CloseIcon}</div>
-        </div>
-        <div class="content">
-          <div class="cross">{@html CloseIcon}</div>
+        <div class="content-wrapper">
+          <div class="content">
+            <div class="check">{@html CheckmarkIcon}</div>
+          </div>
+          <div class="content">
+            <div class="cross">{@html CloseIcon}</div>
+          </div>
+          <div class="content">
+            <div class="cross">{@html CloseIcon}</div>
+          </div>
         </div>
       </div>
 
@@ -332,25 +349,40 @@
       & .row {
         display: flex;
         padding: 1rem 0;
+        gap: 1rem;
         border-bottom: 1px solid rgba(0, 0, 0, .25);
+        flex-direction: row;
 
-        @media screen and (max-width: 768px) {
-          & > div:not(:first-child) {
-            display: none !important;
-          }
+        @media screen and (max-width: 500px) {
+          /*& > div:not(:first-child) {*/
+            flex-direction: column;
+            /*display: none !important;*/
+          /*}*/
         }
 
         & .title {
+          display: flex;
+          flex: 2;
           font-size: 1.25rem;
           font-weight: 600;
-          display: flex;
           width: 40%;
         }
 
+        & .content-wrapper {
+          display: flex;
+          flex: 3;
+          gap: 1rem;
+          flex-direction: row;
+          margin: 2rem 0;
+        }
+
         & .content {
+          display: flex;
+          flex: 1;
+          flex-direction: column;
+          gap: 20px;
           font-weight: 600;
           text-align: center;
-          margin: auto;
 
           &.badge {
             display: flex;
@@ -364,6 +396,7 @@
 
         & .feature-overview {
           display: flex;
+          flex: 2;
 
           & .icon {
             margin-right: 1rem;
@@ -372,7 +405,8 @@
           & hgroup {
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: start;
+            gap: 14px;
 
             & div {
               font-size: 1.25rem;
