@@ -371,7 +371,7 @@
 
             @media screen and (max-width: 768px) {
               display: block;
-              margin-bottom: 48px;
+              margin-bottom: 20px;
             }
           }
         }
