@@ -44,16 +44,7 @@
   }
 
   export function setSelection(newSelection) {
-    console.log('test', newSelection);
     selection = newSelection;
-    // Optionally call onChange if you want it to propagate
-    // onChange(newSelection);
-    // updateQueryParams(newSelection);
-    // if (newSelection?.car) {
-    //   selectedCar.set(newSelection.car);
-    // } else {
-    //   selectedCar.set('');
-    // }
   }
 
   function updateQueryParams(selectedHarness) {
@@ -70,6 +61,12 @@
 
   const setInitialSelection = () => {
     let carName = decodeURIComponent($page.url.searchParams.get('harness'));
+
+    if (carName === NO_HARNESS_OPTION.car) {
+      selection = NO_HARNESS_OPTION;
+      return;
+    }
+
     selection = $harnesses.find(harness => harness.car === carName) ?? null;
   }
 

@@ -26,6 +26,7 @@
   let disableBuyButtonText = "SELECT YOUR CAR";
 
   let harnessSelectorRef;
+  let checkboxCardRef;
 
   let showDisclaimerModal = false;
   let onProceed;
@@ -62,20 +63,31 @@
   $: priceDueToday = showDiscount ? FOUR_PRICE - discountAmount : FOUR_PRICE;
   $: priceAfterTradeIn = tradeInChecked ? priceDueToday - tradeInCredit : priceDueToday;
 
-  const updateAdditionalProductIds = () => {
-    additionalProductIds = [];
+  // const updateAdditionalProductIds = () => {
+  //   additionalProductIds = [];
+  //   if (selectedHarness && selectedHarness !== NO_HARNESS_OPTION) {
+  //     additionalProductIds.push(selectedHarness.id);
+  //   }
+  //   if (tradeInChecked && tradeInVariantId) {
+  //     additionalProductIds.push(tradeInVariantId);
+  //   }
+  // }
+
+  $: additionalProductIds = (() => {
+    const ids = [];
     if (selectedHarness && selectedHarness !== NO_HARNESS_OPTION) {
-      additionalProductIds.push(selectedHarness.id);
+      ids.push(selectedHarness.id);
     }
     if (tradeInChecked && tradeInVariantId) {
-      additionalProductIds.push(tradeInVariantId);
+      ids.push(tradeInVariantId);
     }
-  }
+    return ids;
+  })();
 
   const handleHarnessSelection = (value) => {
     console.log('Selected harness:', value);
     selectedHarness = value;
-    updateAdditionalProductIds();
+    // updateAdditionalProductIds();
     if (value === NO_HARNESS_OPTION) {
       backordered = null;
       disableBuyButtonText = null;
@@ -90,8 +102,9 @@
   }
 
   const handleTradeInToggle = () => {
+    console.log('Toggling trade-in. Currently:', tradeInChecked, 'new:', !tradeInChecked);
     tradeInChecked = !tradeInChecked;
-    updateAdditionalProductIds();
+    // updateAdditionalProductIds();
   }
 
   onMount(async () => {
@@ -111,15 +124,14 @@
     }
 
     // Autofill trade-in checkbox
-    // TODO: wait for tradeInVariantId to load
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('trade-in') === '1') {
-      // tradeInChecked = true;
-      // handleHarnessSelection(NO_HARNESS_OPTION);
+      if (checkboxCardRef) {
+        checkboxCardRef.setChecked(true);
+      }
       if (harnessSelectorRef) {
         harnessSelectorRef.setSelection(NO_HARNESS_OPTION);
       }
-      handleTradeInToggle()
     }
   });
 </script>
@@ -174,7 +186,7 @@
       showNoHarnessOption={true}
     >
     </HarnessSelector>
-    <CheckboxCard title="$250 credit with trade-in" checked={tradeInChecked} onToggle={handleTradeInToggle}>
+    <CheckboxCard bind:this={checkboxCardRef} title="$250 credit with trade-in" checked={tradeInChecked} onToggle={handleTradeInToggle}>
       Get $250 credit when you trade in your old comma device. Any comma device, in any condition.
       <a href="/shop/comma-four-trade-in">Instructions and Terms</a>
     </CheckboxCard>

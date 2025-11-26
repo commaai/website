@@ -4,6 +4,10 @@
   export let title;
   export let checked = false;
   export let onToggle;
+
+  export function setChecked(value) {
+    checked = value;
+  }
 </script>
 
 <label class="checkbox-card" class:checked={checked}>
