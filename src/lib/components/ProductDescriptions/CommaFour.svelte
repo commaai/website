@@ -98,6 +98,7 @@
     if (urlParams.get('trade-in') === '1') {
       if (checkboxCardRef) {
         checkboxCardRef.setChecked(true);
+        tradeInChecked = true;
       }
       if (harnessSelectorRef) {
         harnessSelectorRef.setSelection(NO_HARNESS_OPTION);

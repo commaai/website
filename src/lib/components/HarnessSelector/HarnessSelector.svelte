@@ -67,7 +67,11 @@
       return;
     }
 
-    selection = $harnesses.find(harness => harness.car === carName) ?? null;
+    // Parent may set selection, don't override if no harness param
+    let foundHarness = $harnesses.find(harness => harness.car === carName);
+    if (foundHarness) {
+      selection = foundHarness;
+    }
   }
 
   // Normalize diacritics for matching (e.g., "Škoda" -> "Skoda")
