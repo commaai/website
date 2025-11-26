@@ -17,6 +17,7 @@
   import CarIcon from '$lib/icons/features/car.svg?raw';
 
   export let onChange;
+  export let value = undefined; // Allow external control of selection
 
   export let label = "Select vehicle";
   export let placeholder = "Search for a vehicle or harness";
@@ -29,7 +30,13 @@
 
   // Load harnesses based on the options
   $: harnesses = showVehicleHarnesses && showGenericHarnesses ? allHarnesses : showVehicleHarnesses ? vehicleHarnesses : genericHarnesses;
-  $: if (browser && $harnesses.length > 0) setInitialSelection();
+  $: if (browser && $harnesses.length > 0) {
+    if (value !== undefined) {
+      selection = value;
+    } else {
+      setInitialSelection();
+    }
+  }
   $: if (selection !== undefined) {
     // Don't update w/ initial state
     onChange(selection);

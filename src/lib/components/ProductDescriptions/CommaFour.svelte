@@ -112,9 +112,7 @@
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('trade-in') === '1') {
       tradeInChecked = true;
-      console.log('selecting', NO_HARNESS_OPTION)
       handleHarnessSelection(NO_HARNESS_OPTION);
-      // update harness selector ???
     }
   });
 </script>
@@ -166,6 +164,7 @@
       label="Select your car"
       onChange={handleHarnessSelection}
       showNoHarnessOption={true}
+      value={selectedHarness}
     >
     </HarnessSelector>
     <CheckboxCard title="$250 credit with trade-in" checked={tradeInChecked} onToggle={handleTradeInToggle}>
