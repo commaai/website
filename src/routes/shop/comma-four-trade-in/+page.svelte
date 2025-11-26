@@ -36,7 +36,7 @@
         San Diego, CA 92110<br>
       </b></p>
       <p>
-        4. When the old comma device arrives, we credit $250 back to your comma four order. Please give us 1-2 business days to process the device once it arrives.
+        4. When the old comma device arrives, we apply your trade-in credit ($250) to your original payment method. Please give us 1-2 business days to process the device once it arrives.
       </p>
 
       <hr>
