@@ -139,11 +139,6 @@
           <div class="content-wrapper">
             {#each feature.features as featureItem, index}
               <div class="content">
-                <div class="mobile-badge-header">
-                  <Badge style={subscriptionTiers[index].style} display="inline">
-                    {subscriptionTiers[index].name}
-                  </Badge>
-                </div>
                 {#if featureItem === "check"}
                   <div class="check">{@html CheckmarkIcon}</div>
                 {:else if featureItem === "cross"}
@@ -316,14 +311,6 @@
             flex-direction: column;
             /*display: none !important;*/
           /*}*/
-        }
-
-        &.header {
-          @media screen and (max-width: 768px) {
-            & .content-wrapper {
-              display: none;
-            }
-          }
         }
 
         & .title {
