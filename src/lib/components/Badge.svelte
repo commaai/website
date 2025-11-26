@@ -4,6 +4,7 @@
 </script>
 
 <div
+  class="badge-container"
   class:dark={style == "dark"}
   class:light={style == "light"}
   class:accent={style == "accent"}
@@ -13,7 +14,7 @@
 </div>
 
 <style>
-  div {
+  .badge-container {
     font-family: JetBrains Mono, monospace;
     font-size: 0.875rem;
     text-transform: uppercase;

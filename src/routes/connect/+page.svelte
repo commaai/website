@@ -15,62 +15,9 @@
   import SnapshotIcon from "$lib/icons/features/snapshot.png";
   import CommandLineIcon from "$lib/icons/features/command-line.svg?raw";
   import CommacareIcon from "$lib/icons/features/commacare.svg?raw";
-  // import CheckmarkIcon from "$lib/icons/ui/checkmark.svg?raw";
-  import CheckmarkIcon from "$lib/icons/ui/check.svg?raw";
-  // import CloseIcon from "$lib/icons/ui/close.svg?raw";
-  import CloseIcon from "$lib/icons/ui/cross.svg?raw";
-
-  const subscriptionTiers = [
-    { name: "prime", style: "accent" },
-    { name: "prime lite", style: "dark" },
-    { name: "free", style: "light" }
-  ];
-
-  const features = [
-    {
-      title: "Cloud storage of drive videos",
-      subtitle: "Review your driving history, access routes, and watch videos of past drives.",
-      icon: RecordingsIcon,
-      iconType: "svg",
-      features: ["check", "check", "check"],
-      featureTexts: ["1 year of storage", "1 year of storage", "3 days of storage"]
-    },
-    {
-      title: "24/7 connectivity",
-      subtitle: "Always-on. Always LTE connected.",
-      icon: TwentyFourSevenIcon,
-      iconType: "img",
-      features: ["check", "cross", "cross"]
-    },
-    {
-      title: "Live GPS tracking",
-      subtitle: "Always know your vehicle's location with a live map view.",
-      icon: MarkerIcon,
-      iconType: "img",
-      features: ["check", "check", "cross"]
-    },
-    {
-      title: "Take pictures remotely",
-      subtitle: "Know what's going on around your car. comma four features HD road-facing and night-vision-enabled cabin cameras.",
-      icon: SnapshotIcon,
-      iconType: "img",
-      features: ["check", "check", "cross"]
-    },
-    {
-      title: "Simple SSH for developers",
-      subtitle: "Easy way to connect and deploy code to your comma device.",
-      icon: CommandLineIcon,
-      iconType: "svg",
-      features: ["check", "check", "cross"]
-    },
-    {
-      title: "commacare",
-      subtitle: "Extend your comma four's standard one year warranty for an additional year. <a href=\"#what-is-commacare\">See terms</a>",
-      icon: CommacareIcon,
-      iconType: "svg",
-      features: ["check", "cross", "cross"]
-    }
-  ];
+  import CheckmarkIcon from "$lib/icons/ui/checkmark.svg?raw";
+  import BlackCheckmarkIcon from "$lib/icons/ui/black-checkmark.svg?raw";
+  import CloseIcon from "$lib/icons/ui/close.svg?raw";
 </script>
 
 <div class="banner">
@@ -110,48 +57,142 @@
     <div id="features-table">
       <div class="row header">
         <div class="title">Features</div>
-        <div class="content-wrapper header">
-          {#each subscriptionTiers as tier}
-            <div class="content badge">
-              <Badge style={tier.style} display="inline">{tier.name}</Badge>
-            </div>
-          {/each}
+        <div class="content badge">
+          <span class="badge-prefix muted">connect</span><Badge style="accent" display="inline">prime subscription</Badge>
+        </div>
+        <div class="content badge">
+          <span class="badge-prefix muted">connect</span><Badge style="dark" display="inline">lite subscription</Badge>
         </div>
       </div>
-
-      {#each features as feature}
-        <div class="row">
-          <div class="feature-overview">
-            <div class="icon">
-              {#if feature.iconType === "img"}
-                <img src={feature.icon} loading="lazy" alt="" />
-              {:else}
-                {@html feature.icon}
-              {/if}
-            </div>
-            <div>
-              <hgroup>
-                <div>{feature.title}</div>
-                <span class="muted">{@html feature.subtitle}</span>
-              </hgroup>
-            </div>
-          </div>
-          <div class="content-wrapper">
-            {#each feature.features as featureItem, index}
-              <div class="content">
-                {#if featureItem === "check"}
-                  <div class="check">{@html CheckmarkIcon}</div>
-                {:else if featureItem === "cross"}
-                  <div class="cross">{@html CloseIcon}</div>
-                {/if}
-                {#if feature.featureTexts && feature.featureTexts[index]}
-                  <div>{feature.featureTexts[index]}</div>
-                {/if}
-              </div>
-            {/each}
+      <div class="row">
+        <div class="feature-overview">
+          <div class="icon">{@html RecordingsIcon}</div>
+          <div>
+            <hgroup>
+              <div>Cloud storage of drive videos</div>
+              <span class="muted">Review your driving history, access routes, and watch videos of past drives.</span>
+            </hgroup>
+            <div class="mobile-badge"><Badge style="dark" display="inline-flex"><span class="check">{@html CheckmarkIcon}</span> 1 year of storage</Badge></div>
           </div>
         </div>
-      {/each}
+        <div class="content">
+          <div class="check">{@html CheckmarkIcon}</div>
+          <div>1 year of storage</div>
+        </div>
+        <div class="content">
+          <div class="check">{@html CheckmarkIcon}</div>
+          <div>1 year of storage</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="feature-overview">
+          <div class="icon"><img src={TwentyFourSevenIcon} loading="lazy" alt=""></div>
+          <hgroup>
+            <div>24/7 connectivity</div>
+            <span class="muted">Always-on. Always LTE connected.</span>
+          </hgroup>
+        </div>
+        <div class="content">
+          <div class="check">{@html CheckmarkIcon}</div>
+        </div>
+        <div class="content">
+          <div class="check">{@html CheckmarkIcon}</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="feature-overview">
+          <div class="icon"><img src={MarkerIcon} loading="lazy" alt=""></div>
+          <hgroup>
+            <div>Live GPS tracking</div>
+            <span class="muted">Always know your vehicle's location with a live map view.</span>
+          </hgroup>
+        </div>
+        <div class="content">
+          <div class="check">{@html CheckmarkIcon}</div>
+        </div>
+        <div class="content">
+          <div class="check">{@html CheckmarkIcon}</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="feature-overview">
+          <div class="icon"><img src={SnapshotIcon} loading="lazy" alt=""></div>
+          <hgroup>
+            <div>Take pictures remotely</div>
+            <span class="muted">Know what's going on around your car. comma four features HD road-facing and night-vision-enabled cabin cameras.</span>
+          </hgroup>
+        </div>
+        <div class="content">
+          <div class="check">{@html CheckmarkIcon}</div>
+        </div>
+        <div class="content">
+          <div class="check">{@html CheckmarkIcon}</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="feature-overview">
+          <div class="icon">{@html CommandLineIcon}</div>
+          <hgroup>
+            <div>Simple SSH for developers</div>
+            <span class="muted">Easy way to connect and deploy code to your comma device.</span>
+          </hgroup>
+        </div>
+        <div class="content">
+          <div class="check">{@html CheckmarkIcon}</div>
+        </div>
+        <div class="content">
+          <div class="check">{@html CheckmarkIcon}</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="feature-overview">
+          <div class="icon">{@html CommacareIcon}</div>
+          <div>
+            <hgroup>
+              <div>commacare</div>
+              <span class="muted">Extend your comma four's standard one year warranty for an additional year. <a class="muted-link" href="#what-is-commacare">See Terms</a></span>
+            </hgroup>
+            <div class="mobile-badge"><Badge style="accent" display="inline-flex"><span class="check black">{@html BlackCheckmarkIcon}</span> COMMA PRIME EXCLUSIVE</Badge></div>
+          </div>
+        </div>
+        <div class="content">
+          <div class="check">{@html CheckmarkIcon}</div>
+        </div>
+        <div class="content">
+          <div class="cross">{@html CloseIcon}</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="height: 2rem;"></div>
+
+    <div id="features-table">
+      <div class="row header">
+        <div class="title">Free Features</div>
+        <div class="content badge">
+          <span class="badge-prefix muted">connect</span><Badge style="dark" display="inline">free</Badge>
+        </div>
+      </div>
+      <div class="row">
+        <div class="feature-overview">
+          <div class="icon">{@html RecordingsIcon}</div>
+          <div>
+            <hgroup>
+              <div>Cloud storage of drive videos</div>
+              <span class="muted">Review your driving history, access routes, and watch videos of past drives.</span>
+            </hgroup>
+            <div class="mobile-badge"><Badge style="dark" display="inline-flex"><span class="check">{@html CheckmarkIcon}</span> 3 days of storage</Badge></div>
+          </div>
+        </div>
+<!--        <div class="content">-->
+<!--          <div class="check">{@html CheckmarkIcon}</div>-->
+<!--          <div>1 year of storage</div>-->
+<!--        </div>-->
+        <div class="content">
+          <div class="check">{@html CheckmarkIcon}</div>
+          <div>3 days of storage</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -239,6 +280,14 @@
     }
   }
 
+  #connect :global(.badge-container) {
+    margin-bottom: 0 !important;
+  }
+
+  .muted-link {
+    text-decoration: underline;
+  }
+
   #connect {
     & h1 {
       font-size: 2.5rem;
@@ -286,7 +335,7 @@
     & .badge-prefix {
       font-family: JetBrains Mono, monospace;
       text-transform: uppercase;
-      margin-bottom: 0.5rem;
+      line-height: 1;
       margin-right: 0.5rem;
     }
 
@@ -302,73 +351,49 @@
       & .row {
         display: flex;
         padding: 1rem 0;
-        gap: 1rem;
         border-bottom: 1px solid rgba(0, 0, 0, .25);
-        flex-direction: row;
 
         @media screen and (max-width: 768px) {
-          /*& > div:not(:first-child) {*/
-            flex-direction: column;
-            /*display: none !important;*/
-          /*}*/
+          & > div:not(:first-child) {
+            display: none !important;
+          }
+        }
+
+        &.header {
+          gap: 12px;
         }
 
         & .title {
           display: flex;
-          flex: 2;
           align-items: center;
           font-size: 1.25rem;
           font-weight: 600;
           width: 40%;
         }
 
-        & .content-wrapper {
-          display: flex;
-          flex: 3;
-          gap: 1rem;
-          flex-direction: row;
-          margin: 2rem 0;
-
-          @media screen and (max-width: 768px) {
-            margin: 1rem 0 0;
-            gap: 0.5rem;
-          }
-
-          &.header {
-            margin: 0
-          }
-        }
-
         & .content {
-          display: flex;
-          flex: 1;
-          flex-direction: column;
-          gap: 20px;
           font-weight: 600;
           text-align: center;
+          margin: auto;
 
           &.badge {
             display: flex;
             align-items: center;
             justify-content: center;
           }
-
-          & .mobile-badge-header {
-            display: none;
-
-            @media screen and (max-width: 768px) {
-              display: block;
-              margin-bottom: 20px;
-            }
-          }
         }
 
-        & .check { color: var(--color-accent-hover); }
+        & .check {
+          color: var(--color-accent-hover);
+
+          &.black {
+            color: black;
+          }
+        }
         & .cross { color: var(--color-red); }
 
         & .feature-overview {
           display: flex;
-          flex: 2;
 
           & .icon {
             margin-right: 1rem;
@@ -377,7 +402,7 @@
           & hgroup {
             display: flex;
             flex-direction: column;
-            justify-content: start;
+            justify-content: center;
 
             & div {
               font-size: 1.25rem;
