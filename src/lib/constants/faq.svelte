@@ -356,7 +356,6 @@
             <ul>
               <li>commacare is included automatically with your comma prime subscription ($24/mo).</li>
               <li>You must start your prime subscription within the first 30 days of receiving your comma four to be eligible for commacare.</li>
-              <li>Your extended warranty remains active as long as your prime subscription is active.</li>
               <li>If you cancel your prime subscription, your commacare warranty ends immediately and cannot be resumed. The standard warranty terms will continue to apply for any remaining time in the first year.</li>
               <li>commacare is only available with prime ($24/mo). prime lite subscribers are not eligible for commacare.</li>
               <li>commacare provides the same coverage as the standard one-year warranty. It does not cover theft, loss, or accidental damage.</li>
