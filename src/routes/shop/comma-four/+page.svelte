@@ -104,11 +104,7 @@
             <span>Cameras</span>
           </div>
           <div class="contents">
-            <ul>
-              <li>Dual-cam 360° vision</li>
-              <li>Narrow cam for far-away objects</li>
-            </ul>
-            <span>3 cameras total</span>
+            Dual-cam 360° vision and a narrow cam to see far-away objects
           </div>
         </div>
         <div class="spec-card">
