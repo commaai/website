@@ -74,7 +74,6 @@
   })();
 
   const handleHarnessSelection = (value) => {
-    console.log('Selected harness:', value);
     selectedHarness = value;
     if (value === NO_HARNESS_OPTION) {
       backordered = null;
