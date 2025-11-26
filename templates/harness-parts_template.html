@@ -34,21 +34,18 @@
     <table>
       <tr>
         <th>Car</th>
-        <th>Angled mount</th>
         <th>Parts</th>
       </tr>
       {% for make, cars in group_by_make(all_car_docs).items() %}
       {% for car in cars | selectattr('support_type', 'eq', SupportType.UPSTREAM) -%}
 
-      {% set non_standard_device_parts = Device.threex not in car.car_parts.parts %}
+      {% set non_standard_device_parts = Device.four not in car.car_parts.parts %}
       {% set harness_connector = car.car_parts.parts | selectattr('part_type', 'eq', PartType.connector) | first %}
-      {% set non_standard_harness_parts = (BaseCarHarness("").parts != harness_connector.value.parts) if harness_connector else True %}
-      {% set angled_mount = Device.threex_angled_mount in car.car_parts.parts -%}
+      {% set non_standard_harness_parts = (BaseCarHarness("").parts != harness_connector.value.parts) if harness_connector else True -%}
 
-      {% if non_standard_device_parts or non_standard_harness_parts or angled_mount %}
+      {% if non_standard_device_parts or non_standard_harness_parts %}
       <tr>
         <td>{{ car.name }}</td>
-        <td>{{ "Yes" if angled_mount else "No" }}</td>
         <td>
           {% for part in car.car_parts.parts | sort(attribute='name') %}
           <li>{{ part.value.name }}:</li>

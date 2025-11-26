@@ -428,6 +428,11 @@
         "source": "/hack",
         "destination": "https://forms.gle/tRAGiwuAXXms3dxAA",
         "type": 302
+      },
+      {
+        "source": "/cashback",
+        "destination": "https://www.reddit.com/r/Comma_ai/comments/1p4eaof/ymmv_comma_four_200_cash_back_using_paypal_pay_in",
+        "type": 302
       }
     ]
   }

@@ -161,8 +161,7 @@
       data-pp-language="">
     </div>
     <div class="paypal-offer-info">
-      <span class="highlight">Limited Time Offer:</span>
-      Get 20% cash back when you checkout with PayPal Pay Later. Save <a href="https://www.paypal.com/us/digital-wallet/ways-to-pay/buy-now-pay-later" target="_blank">this offer</a> to take advantage of this promotion through December 8.
+      <span class="highlight">Get 20% cash back</span> when you check out with PayPal Pay Later. Save <a href="https://www.paypal.com/us/digital-wallet/ways-to-pay/buy-now-pay-later" target="_blank">this offer</a> to take advantage of this limited time offer through December 8. Subject to eligibility. <a href="#fine-print">Learn more</a>
     </div>
     <div class="badge">
       <Badge style="dark">Free rush shipping</Badge>
@@ -313,6 +312,7 @@
     background-color: rgba(134, 255, 78, 0.15);
     border-bottom: 2px solid #86ff4e;
     padding: 0 2px;
+    margin-bottom: -2px;
   }
 
   .paypal-message {
@@ -320,10 +320,8 @@
   }
 
   .paypal-offer-info {
-    font-family: Helvetica, Arial, sans-serif;
-    font-size: 12px;
+    font-size: 14px;
     color: rgb(46, 46, 47);
-    letter-spacing: normal;
     margin-top: 0.5rem;
 
     & a {

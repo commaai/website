@@ -91,6 +91,7 @@ jobs:
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_COMMA_WEB }}
           projectId: comma-web
           channelId: pr${{ needs.pr.outputs.number }}
+          expires: 5d
 
       - name: Comment URL on PR
         uses: thollander/actions-comment-pull-request@v3
