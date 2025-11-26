@@ -90,7 +90,7 @@
           <div>
             <hgroup>
               <div>commacare</div>
-              <span class="muted">Extend your comma four's standard one year warranty for an additional year. <a class="muted-link" href="#what-is-commacare">See Terms</a></span>
+              <span class="muted">Extend your comma four's standard one year warranty for an additional year. <a class="muted-link" href="#what-is-commacare">See Terms</a></span>
             </hgroup>
             <div class="mobile-badge"><Badge style="accent" display="inline-flex"><span class="check black">{@html BlackCheckmarkIcon}</span> COMMA PRIME EXCLUSIVE</Badge></div>
           </div>
