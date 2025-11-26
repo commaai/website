@@ -39,12 +39,13 @@
     </div>
 
     <div class="features-banner">
-      <Grid columns={5} columnGap="2rem" size="medium">
+      <Grid columns={6} wrapMode="double" columnGap="2rem" size="medium">
         <div class="icon">{@html RecordingsIcon}</div>
         <div class="icon"><img src={TwentyFourSevenIcon} loading="lazy" alt=""></div>
         <div class="icon"><img src={MarkerIcon} loading="lazy" alt=""></div>
         <div class="icon"><img src={SnapshotIcon} loading="lazy" alt=""></div>
         <div class="icon">{@html CommandLineIcon}</div>
+        <div class="icon">{@html CommacareIcon}</div>
       </Grid>
     </div>
 
