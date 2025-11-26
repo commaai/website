@@ -164,7 +164,6 @@
       label="Select your car"
       onChange={handleHarnessSelection}
       showNoHarnessOption={true}
-      value={selectedHarness}
     >
     </HarnessSelector>
     <CheckboxCard title="$250 credit with trade-in" checked={tradeInChecked} onToggle={handleTradeInToggle}>
