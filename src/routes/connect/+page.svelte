@@ -90,7 +90,7 @@
           <div>
             <hgroup>
               <div>commacare</div>
-              <span class="muted">Extend your comma four's standard one year warranty for an additional year. <a href="#what-is-commacare">See terms</a></span>
+              <span class="muted">Extend your comma four's standard one year warranty for an additional year. <a class="muted-link" href="#what-is-commacare">See Terms</a></span>
             </hgroup>
             <div class="mobile-badge"><Badge style="accent" display="inline-flex"><span class="check black">{@html BlackCheckmarkIcon}</span> COMMA PRIME EXCLUSIVE</Badge></div>
           </div>
@@ -280,6 +280,14 @@
     }
   }
 
+  #connect :global(.badge-container) {
+    margin-bottom: 0 !important;
+  }
+
+  .muted-link {
+    text-decoration: underline;
+  }
+
   #connect {
     & h1 {
       font-size: 2.5rem;
@@ -327,7 +335,7 @@
     & .badge-prefix {
       font-family: JetBrains Mono, monospace;
       text-transform: uppercase;
-      margin-bottom: 0.5rem;
+      line-height: 1;
       margin-right: 0.5rem;
     }
 
@@ -351,10 +359,15 @@
           }
         }
 
+        &.header {
+          gap: 12px;
+        }
+
         & .title {
+          display: flex;
+          align-items: center;
           font-size: 1.25rem;
           font-weight: 600;
-          display: flex;
           width: 40%;
         }
 
