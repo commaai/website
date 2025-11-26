@@ -41,7 +41,7 @@
 
       {% set non_standard_device_parts = Device.threex not in car.car_parts.parts %}
       {% set harness_connector = car.car_parts.parts | selectattr('part_type', 'eq', PartType.connector) | first %}
-      {% set non_standard_harness_parts = (BaseCarHarness("").parts != harness_connector.value.parts) if harness_connector else True %}
+      {% set non_standard_harness_parts = (BaseCarHarness("").parts != harness_connector.value.parts) if harness_connector else True -%}
 
       {% if non_standard_device_parts or non_standard_harness_parts %}
       <tr>
