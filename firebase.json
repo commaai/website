@@ -25,11 +25,6 @@
         "type": 301
       },
       {
-        "source": "/shop/comma-four-trade-in",
-        "destination": "/shop/comma-four",
-        "type": 301
-      },
-      {
         "source": "/bounties",
         "destination": "https://github.com/orgs/commaai/projects/26/views/1?pane=info",
         "type": 302

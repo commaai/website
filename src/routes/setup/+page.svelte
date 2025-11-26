@@ -85,7 +85,7 @@
             <div class="header">Parts:</div>
             <div class="contents">
               <div>
-                <Grid rowGap={0} columnGap="1rem" alignItems="center" size="small" wrapMode="none">
+                <Grid rowGap={0} columnGap="1rem" alignItems="center" size="small">
                   <div class="content-header">
                     <img src={CommaFourDeviceImage} loading="lazy" alt="comma four" />
                     <span><a href="/shop/comma-four" target="_blank" class="highlight">comma four</a> or comma 3X</span>
@@ -418,6 +418,10 @@
 
               & span {
                 white-space: nowrap;
+
+                @media screen and (max-width: 480px) {
+                  white-space: normal;
+                }
               }
             }
           }

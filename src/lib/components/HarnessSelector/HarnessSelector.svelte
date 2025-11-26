@@ -27,6 +27,10 @@
 
   let selection = undefined
 
+  export function setSelection(newSelection) {
+    selection = newSelection;
+  }
+
   // Load harnesses based on the options
   $: harnesses = showVehicleHarnesses && showGenericHarnesses ? allHarnesses : showVehicleHarnesses ? vehicleHarnesses : genericHarnesses;
   $: if (browser && $harnesses.length > 0) setInitialSelection();
@@ -57,7 +61,17 @@
 
   const setInitialSelection = () => {
     let carName = decodeURIComponent($page.url.searchParams.get('harness'));
-    selection = $harnesses.find(harness => harness.car === carName) ?? null;
+
+    if (carName === NO_HARNESS_OPTION.car) {
+      selection = NO_HARNESS_OPTION;
+      return;
+    }
+
+    // Parent may set selection, don't override if no harness param
+    let foundHarness = $harnesses.find(harness => harness.car === carName);
+    if (foundHarness) {
+      selection = foundHarness;
+    }
   }
 
   // Normalize diacritics for matching (e.g., "Škoda" -> "Skoda")
@@ -69,7 +83,7 @@
   let inputValue = "";
   let inputRef;
 
-  $: filteredItems = $harnesses.filter(item => 
+  $: filteredItems = $harnesses.filter(item =>
     normalizeDiacritics(item.car.toLowerCase()).match(normalizeDiacritics(inputValue.toLowerCase()))
   );
 

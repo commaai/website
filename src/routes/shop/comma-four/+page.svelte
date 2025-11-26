@@ -12,6 +12,13 @@
   import OBDCCableImage from "$lib/images/products/obd-c-cable/obd-c-cable-four.png";
   import ReplacementMountsImage from "$lib/images/products/replacement-mounts/replacement-mounts-four.png";
   import CarBrandCollageImage from "$lib/images/car-brand-collage.jpg";
+  import CoolingImage from "$lib/images/products/comma-four/cooling.png";
+  import DeviceFrameImage from "$lib/images/products/comma-four/four_front.png";
+
+  import SettingsVideo from "$lib/images/products/comma-four/settings.mp4";
+  import EngageDisengageVideo from "$lib/images/products/comma-four/engage_disengage.mp4";
+  import SteeringArcVideo from "$lib/images/products/comma-four/steering_arc.mp4";
+  import ConfidenceBallVideo from "$lib/images/products/comma-four/confidence_ball.mp4";
 
   import MemoryIcon from "$lib/icons/features/memory.svg?raw";
   import ThreeSixtyVisionIcon from "$lib/icons/features/360-vision.svg?raw";
@@ -20,6 +27,7 @@
   import MoonIcon from "$lib/icons/features/moon.svg?raw";
   import DisplayIcon from "$lib/icons/features/display.svg?raw";
   import CableIcon from "$lib/icons/features/cable.svg?raw";
+  import LocationIcon from "$lib/icons/features/location.svg?raw";
   import { vehicleCountText } from '$lib/constants/vehicles.js';
 
   export let data;
@@ -33,13 +41,10 @@
       <h2>Meet the comma four</h2>
       <div class="description">
         <p>
-          comma four is the next generation comma hardware designed to live in your car. The comma four has three beautiful HDR cameras, two cameras to watch the road and one night-vision camera to see inside the car.
+          comma four is our next generation hardware. It packs the same compute, sensor suite, and functionality as comma 3X into a package one-fifth the size, making it the ideal form factor for your windshield.
         </p>
         <p>
           It runs <a class="highlight" href="/openpilot">openpilot</a>, which can drive for hours without driver action.
-        </p>
-        <p>
-          Besides cameras, the comma four has a suite of connectivity and sensors including cellular LTE, Wi-Fi, an IMU, high-precision GPS, and a microphone.
         </p>
       </div>
     </Grid>
@@ -113,6 +118,20 @@
         </div>
         <div class="spec-card">
           <div class="header">
+            <div>{@html LocationIcon}</div>
+            <span>Sensors</span>
+          </div>
+          <div class="contents">
+            <ul>
+              <li>3D Accelerometer</li>
+              <li>3D Gyroscope</li>
+              <li>High-precision GPS</li>
+              <li>Microphone</li>
+            </ul>
+          </div>
+        </div>
+        <div class="spec-card">
+          <div class="header">
             <div>{@html MemoryIcon}</div>
             <span>Can FD Enabled</span>
           </div>
@@ -138,7 +157,6 @@
             <ul>
               <li>LTE</li>
               <li>Wi-Fi</li>
-              <li>High-Precision GPS</li>
             </ul>
           </div>
         </div>
@@ -148,7 +166,7 @@
             <span>Night-Vision</span>
           </div>
           <div class="contents">
-            IR LEDs for interior night-vision monitoring
+            IR LED for interior night-vision monitoring
           </div>
         </div>
         <div class="spec-card">
@@ -171,6 +189,48 @@
               <li>USB 3.1 Gen 2 port</li>
             </ul>
           </div>
+        </div>
+      </div>
+    </Grid>
+    <hr />
+    <Grid rowGap="0" templateColumns="0.5fr 1.25fr">
+      <h2>Snapdragon 845 <span class="max-gradient">MAX</span></h2>
+      <div class="cooling-section">
+        <img src={CoolingImage} loading="lazy" alt="comma four cooling system">
+      </div>
+    </Grid>
+    <hr />
+    <div style="width: 0; height: 0;" id="ui"/>
+    <Grid rowGap="0" templateColumns="0.5fr 1.25fr">
+      <h2>Expressive New Interface</h2>
+      <div class="ui-grid">
+        <div class="ui-card">
+          <div class="device-container">
+            <img src={DeviceFrameImage} alt="comma four device" class="device-frame" />
+            <video loop autoplay muted playsinline class="screen-overlay" src={SettingsVideo}></video>
+          </div>
+          <p>Configure comma four entirely on the device. No app, subscription, or account required.</p>
+        </div>
+        <div class="ui-card">
+          <div class="device-container">
+            <img src={DeviceFrameImage} alt="comma four device" class="device-frame" />
+            <video loop autoplay muted playsinline class="screen-overlay" src={EngageDisengageVideo}></video>
+          </div>
+          <p>comma four wakes up when you engage, and hibernates when you disengage.</p>
+        </div>
+        <div class="ui-card">
+          <div class="device-container">
+            <img src={DeviceFrameImage} alt="comma four device" class="device-frame" />
+            <video loop autoplay muted playsinline class="screen-overlay" src={SteeringArcVideo}></video>
+          </div>
+          <p>As openpilot approaches its steering limits, the steering arc grows to warn you.</p>
+        </div>
+        <div class="ui-card">
+          <div class="device-container">
+            <img src={DeviceFrameImage} alt="comma four device" class="device-frame" />
+            <video loop autoplay muted playsinline class="screen-overlay" src={ConfidenceBallVideo}></video>
+          </div>
+          <p>As openpilot's confidence in its ability to understand the scene goes up, the confidence ball rises and turns green.</p>
         </div>
       </div>
     </Grid>
@@ -213,7 +273,7 @@
           </hgroup>
           <p>
             comma four ships without software installed, so you need to install software.
-            It is compatible with <a href="/openpilot" class="highlight">openpilot</a> and works with a wide variety of community supported forks.
+            It is compatible with <a href="/openpilot" class="highlight">openpilot</a> and a wide variety of community forks.
           </p>
           <LinkButton href="/openpilot" style="secondary" fullWidth={false}>openpilot</LinkButton>
         </div>
@@ -265,6 +325,16 @@
             Always mount your device in a location that does not obstruct the driver's view of the road.
             comma does not assume any responsibility for any fines, penalties, or damages that may be incurred as a result
             of any state or local law or ordinance relating to the use of your comma device.
+          </p>
+          <strong>PayPal Pay Later</strong>
+          <p>
+            Save offer within PayPal account prior to purchase here: <a href="https://www.paypal.com/us/digital-wallet/ways-to-pay/buy-now-pay-later" target="_blank" class="highlight">https://www.paypal.com/us/digital-wallet/ways-to-pay/buy-now-pay-later</a>. Expires 12/8/25. 20% on up to max $1,250 spend per transaction (max 25K points or $250). 1.5B points available in total for this promo. See <a href="https://www.paypal.com/promoterms" target="_blank" class="highlight">paypal.com/promoterms</a>. Points can be redeemed for cash and more. Terms and exclusions apply. See <a href="https://www.paypal.com/rewardsterms" target="_blank" class="highlight">paypal.com/rewardsterms</a>.
+          </p>
+          <p>
+            Pay in 4 is available to consumers upon approval for purchases of $30 to $1,500. Pay in 4 is currently not available to residents of MO. Offer availability depends on the merchant and also may not be available for certain recurring, subscription services. When applying, a soft credit check may be needed, but will not affect your credit score. You must be 18 years old or older to apply: PayPal, Inc.: Loans to CA residents are made or arranged pursuant to a CA Financing Law License. GA Installment Lender Licensee, NMLS #910457. RI Small Loan Lender Licensee. NM residents: Find more disclosures related to Pay in 4.
+          </p>
+          <p>
+            Pay Monthly is subject to consumer credit approval and eligibility. In store single-use card is valid for one purchase and must be used within 24 hours of loan approval. Fixed APR is 9.99-35.99%. Terms and rates vary based on purchase amount and your credit. For example, a $200 purchase can be paid at 26% APR in 3 monthly payments ($69.56/mo.; $8.68 interest; $208.68 total of payments). A $600 purchase can be paid at 26% APR in 6 monthly payments ($107.76/mo.; $46.57 interest; $646.57 total of payments) or 12 monthly payments ($57.33/mo.; $88.01 interest; $688.01 total of payments). A $1,500 purchase can be paid at 26% APR in 24 monthly payments ($80.77/mo; $438.47 interest; $1,938.47 total of payments). Payments may change based on shipping, taxes, updates to your purchase, or missed payments. Availability depends on the merchant and may not be available for subscriptions or recurring payments. Pay Monthly is currently not available to residents of AK, CT, HI or WA. You must be 18 years old or older to apply. Missed payments may have an impact on your credit score. The lender for Pay Monthly is WebBank. PayPal, Inc. (NMLS #910457): RI Loan Broker Licensee. VT Loan Solicitation Licensee. VT residents: THIS IS A LOAN SOLICITATION ONLY. PAYPAL, INC. IS NOT THE LENDER. INFORMATION RECEIVED WILL BE SHARED WITH ONE OR MORE THIRD PARTIES IN CONNECTION WITH YOUR LOAN INQUIRY. THE LENDER MAY NOT BE SUBJECT TO ALL VERMONT LENDING LAWS. THE LENDER MAY BE SUBJECT TO FEDERAL LENDING LAWS.
           </p>
       </div>
     </Grid>
@@ -459,6 +529,42 @@
     }
   }
 
+  .ui-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .ui-card {
+    & .device-container {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+
+    & .device-frame {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    & .screen-overlay {
+      position: absolute;
+      left: 23.21%;
+      top: 63.97%;
+      width: 40.21%;
+      height: 25.80%;
+      mix-blend-mode: screen;
+      z-index: 2;
+    }
+
+    & p {
+      margin: 0;
+      font-size: 1.25rem;
+    }
+  }
+
   .mobile-hero {
     display: none;
     position: relative;
@@ -506,6 +612,10 @@
 
     .guarantee {
       font-size: 2rem;
+    }
+
+    .ui-grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>

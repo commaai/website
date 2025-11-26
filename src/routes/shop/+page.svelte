@@ -54,6 +54,7 @@
             <hgroup>
               <h1>comma four</h1>
               <span>${FOUR_PRICE}</span>
+              <span class="muted">or $699 after trade-in of any comma device</span>
             </hgroup>
             <LinkButton href="/shop/comma-four" style="secondary" fullWidth>
               Buy now
@@ -338,6 +339,11 @@
 
           &:first-of-type {
             font-size: 1.5rem;
+          }
+
+          &.muted {
+            font-size: 1rem;
+            margin-top: 0.25rem;
           }
         }
 

@@ -19,10 +19,13 @@
   import { onMount } from 'svelte';
   import { getProduct } from '$lib/utils/shopify';
   import { products as productsData } from '$lib/data/products.js';
+  import { formatCurrency } from "$lib/utils/currency";
 
   export let product;
-  let additionalProductIds = [];
   let disableBuyButtonText = "SELECT YOUR CAR";
+
+  let harnessSelectorRef;
+  let checkboxCardRef;
 
   let showDisclaimerModal = false;
   let onProceed;
@@ -50,19 +53,28 @@
   let tradeInChecked = false;
   let backordered = null;
 
-  const updateAdditionalProductIds = () => {
-    additionalProductIds = [];
+  // Trade-in and discount configuration
+  const discountAmount = 50;
+  const tradeInCredit = 250;
+  $: showDiscount = selectedHarness === NO_HARNESS_OPTION;
+
+  // Price calculations
+  $: priceDueToday = showDiscount ? FOUR_PRICE - discountAmount : FOUR_PRICE;
+  $: priceAfterTradeIn = tradeInChecked ? priceDueToday - tradeInCredit : priceDueToday;
+
+  $: additionalProductIds = (() => {
+    const ids = [];
     if (selectedHarness && selectedHarness !== NO_HARNESS_OPTION) {
-      additionalProductIds.push(selectedHarness.id);
+      ids.push(selectedHarness.id);
     }
     if (tradeInChecked && tradeInVariantId) {
-      additionalProductIds.push(tradeInVariantId);
+      ids.push(tradeInVariantId);
     }
-  }
+    return ids;
+  })();
 
   const handleHarnessSelection = (value) => {
     selectedHarness = value;
-    updateAdditionalProductIds();
     if (value === NO_HARNESS_OPTION) {
       backordered = null;
       disableBuyButtonText = null;
@@ -74,14 +86,31 @@
       disableBuyButtonText = "SELECT YOUR CAR";
     }
     backordered = '1-12 weeks';
+
+    // Reset trade-in checkbox
+    if (!value && checkboxCardRef) {
+      checkboxCardRef.setChecked(false);
+      tradeInChecked = false;
+    }
   }
 
   const handleTradeInToggle = () => {
     tradeInChecked = !tradeInChecked;
-    updateAdditionalProductIds();
   }
 
   onMount(async () => {
+    // Autofill trade-in checkbox
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('trade-in') === '1') {
+      if (checkboxCardRef) {
+        checkboxCardRef.setChecked(true);
+        tradeInChecked = true;
+      }
+      if (harnessSelectorRef) {
+        harnessSelectorRef.setSelection(NO_HARNESS_OPTION);
+      }
+    }
+
     // Fetch trade-in product variant ID
     try {
       const tradeInProductId = productsData["comma-four-trade-in"]?.id;
@@ -99,10 +128,42 @@
   });
 </script>
 
-<Product {product} {additionalProductIds} {backordered} {beforeAddToCart} {getCartNote} priceOverride={FOUR_PRICE} disableBuyButtonText={disableBuyButtonText}>
+<svelte:head>
+  <script
+    src="https://www.paypal.com/sdk/js?client-id=AUFLR5Zk9El_ATQigqwpSnsqkCBFtW1iuLEhFXMD-w8OUYziE5qCPNRRHQPdgKdQOSKn4_YqSxdK6Tpz&components=messages"
+    data-namespace="PayPalSDK">
+  </script>
+</svelte:head>
+
+<Product {product} {additionalProductIds} {backordered} {beforeAddToCart} {getCartNote} priceOverride={FOUR_PRICE}
+         disableBuyButtonText={disableBuyButtonText}>
   <div slot="shipping"></div>
 
+  <div slot="price" class="price">
+    {#if tradeInChecked && tradeInCredit > 0}
+      <span>{formatCurrency({ amount: priceAfterTradeIn, currencyCode: 'USD' }, 0)} after trade-in received</span>
+      <span class="price-due-today">({formatCurrency({ amount: priceDueToday, currencyCode: 'USD' }, 0)} due today)</span>
+    {:else if showDiscount && discountAmount > 0}
+      {formatCurrency({ amount: priceDueToday, currencyCode: 'USD' }, 0)}
+    {:else}
+      {formatCurrency({ amount: FOUR_PRICE, currencyCode: 'USD' }, 0)}
+    {/if}
+  </div>
+
   <span slot="price-accessory">
+    <div
+      class="paypal-message"
+      data-pp-message
+      data-pp-style-layout="text"
+      data-pp-style-logo-type="inline"
+      data-pp-style-text-color="black"
+      data-pp-amount={priceDueToday}
+      data-pp-language="">
+    </div>
+    <div class="paypal-offer-info">
+      <span class="highlight">Limited Time Offer:</span>
+      Get 20% cash back when you checkout with PayPal Pay Later. Save <a href="https://www.paypal.com/us/digital-wallet/ways-to-pay/buy-now-pay-later" target="_blank">this offer</a> to take advantage of this promotion through December 8.
+    </div>
     <div class="badge">
       <Badge style="dark">Free rush shipping</Badge>
     </div>
@@ -111,12 +172,14 @@
 
     <strong>Select a harness to connect the comma four to your car.</strong>
     <HarnessSelector
+      bind:this={harnessSelectorRef}
       label="Select your car"
       onChange={handleHarnessSelection}
       showNoHarnessOption={true}
     >
     </HarnessSelector>
-    <CheckboxCard title="$250 credit with trade-in" checked={tradeInChecked} onToggle={handleTradeInToggle}>
+    <CheckboxCard bind:this={checkboxCardRef} title="$250 credit with trade-in" checked={tradeInChecked} onToggle={handleTradeInToggle}
+                  disabled={disableBuyButtonText !== null}>
       Get $250 credit when you trade in your old comma device. Any comma device, in any condition.
       <a href="/shop/comma-four-trade-in">Instructions and Terms</a>
     </CheckboxCard>
@@ -250,5 +313,27 @@
     background-color: rgba(134, 255, 78, 0.15);
     border-bottom: 2px solid #86ff4e;
     padding: 0 2px;
+  }
+
+  .paypal-message {
+    margin-top: 1rem;
+  }
+
+  .paypal-offer-info {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    color: rgb(46, 46, 47);
+    letter-spacing: normal;
+    margin-top: 0.5rem;
+
+    & a {
+      color: #0070ba;
+      text-decoration: underline;
+    }
+  }
+
+  .price-due-today {
+    font-size: 1rem;
+    color: rgb(81, 81, 81);
   }
 </style>

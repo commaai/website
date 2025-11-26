@@ -18,6 +18,7 @@
   export let forceOutOfStock = false;
   export let disableBuyButtonText = null;
   export let hideOutOfStockVariants = false;
+  export let priceOverride = null;
 
   export let VariantSelector = null;
   function handleVariantSelection(variant) {
@@ -58,6 +59,9 @@
   }
 
   function getPriceLabel(_) {
+    if (priceOverride !== null) {
+      return formatCurrency({ amount: priceOverride, currencyCode: 'USD' }, 0);
+    }
     if (selectedVariant) {
       return formatCurrency(selectedVariant.price, 0);
     } else if (product.priceRange.minVariantPrice.amount !== product.priceRange.maxVariantPrice.amount) {
@@ -112,7 +116,11 @@
       <div>
         <div class="variant-selector">
           <h1>{product?.title}</h1>
-          <div class="price">{priceLabel}</div>
+          <div class="price">
+            <slot name="price">
+              {priceLabel}
+            </slot>
+          </div>
           <slot name="price-accessory"></slot>
           {#if VariantSelector}
             <svelte:component this={VariantSelector} onChange={handleVariantSelection} />
@@ -198,6 +206,9 @@
 
     & .price {
       font-size: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
     }
 
 
