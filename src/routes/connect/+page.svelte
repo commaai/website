@@ -60,7 +60,7 @@
         <div class="title">Features</div>
         <div class="content-wrapper">
           <div class="content badge">
-            <Badge style="accent" display="inline">prime subscription</Badge>
+            <Badge style="accent" display="inline">prime</Badge>
           </div>
           <div class="content badge">
             <Badge style="dark" display="inline">prime lite</Badge>
@@ -353,7 +353,7 @@
         border-bottom: 1px solid rgba(0, 0, 0, .25);
         flex-direction: row;
 
-        @media screen and (max-width: 500px) {
+        @media screen and (max-width: 768px) {
           /*& > div:not(:first-child) {*/
             flex-direction: column;
             /*display: none !important;*/
