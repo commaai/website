@@ -1,5 +1,4 @@
 <script>
-  import { onMount } from 'svelte';
   import ProductPage from "../[product]/+page.svelte";
   import Grid from "$lib/components/Grid.svelte";
   import LinkButton from "$lib/components/LinkButton.svelte";
@@ -32,17 +31,6 @@
   import { vehicleCountText } from '$lib/constants/vehicles.js';
 
   export let data;
-
-  // Handle seamless video looping
-  onMount(() => {
-    const videos = document.querySelectorAll('.screen-overlay');
-    videos.forEach((video) => {
-      video.addEventListener('ended', () => {
-        video.currentTime = 0;
-        video.play();
-      });
-    });
-  });
 </script>
 
 <ProductPage {data} />
@@ -223,28 +211,28 @@
         <div class="ui-card">
           <div class="device-container">
             <img src={DeviceFrameImage} alt="comma four device" class="device-frame" />
-            <video autoplay muted playsinline preload="auto" class="screen-overlay" src={SettingsVideo}></video>
+            <video loop autoplay muted playsinline class="screen-overlay" src={SettingsVideo}></video>
           </div>
           <p>Configure comma four entirely on the device. No app, subscription, or account required.</p>
         </div>
         <div class="ui-card">
           <div class="device-container">
             <img src={DeviceFrameImage} alt="comma four device" class="device-frame" />
-            <video autoplay muted playsinline preload="auto" class="screen-overlay" src={EngageDisengageVideo}></video>
+            <video loop autoplay muted playsinline class="screen-overlay" src={EngageDisengageVideo}></video>
           </div>
           <p>comma four wakes up when you engage, and hibernates when you disengage.</p>
         </div>
         <div class="ui-card">
           <div class="device-container">
             <img src={DeviceFrameImage} alt="comma four device" class="device-frame" />
-            <video autoplay muted playsinline preload="auto" class="screen-overlay" src={SteeringArcVideo}></video>
+            <video loop autoplay muted playsinline class="screen-overlay" src={SteeringArcVideo}></video>
           </div>
           <p>As openpilot approaches its steering limits, the steering arc grows to warn you.</p>
         </div>
         <div class="ui-card">
           <div class="device-container">
             <img src={DeviceFrameImage} alt="comma four device" class="device-frame" />
-            <video autoplay muted playsinline preload="auto" class="screen-overlay" src={ConfidenceBallVideo}></video>
+            <video loop autoplay muted playsinline class="screen-overlay" src={ConfidenceBallVideo}></video>
           </div>
           <p>As openpilot's confidence in its ability to understand the scene goes up, the confidence ball rises and turns green.</p>
         </div>
