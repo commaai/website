@@ -27,6 +27,10 @@
 
   let selection = undefined
 
+  export function setSelection(newSelection) {
+    selection = newSelection;
+  }
+
   // Load harnesses based on the options
   $: harnesses = showVehicleHarnesses && showGenericHarnesses ? allHarnesses : showVehicleHarnesses ? vehicleHarnesses : genericHarnesses;
   $: if (browser && $harnesses.length > 0) setInitialSelection();
@@ -41,10 +45,6 @@
     } else {
       selectedCar.set('');
     }
-  }
-
-  export function setSelection(newSelection) {
-    selection = newSelection;
   }
 
   function updateQueryParams(selectedHarness) {

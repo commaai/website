@@ -22,7 +22,6 @@
   import { formatCurrency } from "$lib/utils/currency";
 
   export let product;
-  let additionalProductIds = [];
   let disableBuyButtonText = "SELECT YOUR CAR";
 
   let harnessSelectorRef;
@@ -63,16 +62,6 @@
   $: priceDueToday = showDiscount ? FOUR_PRICE - discountAmount : FOUR_PRICE;
   $: priceAfterTradeIn = tradeInChecked ? priceDueToday - tradeInCredit : priceDueToday;
 
-  // const updateAdditionalProductIds = () => {
-  //   additionalProductIds = [];
-  //   if (selectedHarness && selectedHarness !== NO_HARNESS_OPTION) {
-  //     additionalProductIds.push(selectedHarness.id);
-  //   }
-  //   if (tradeInChecked && tradeInVariantId) {
-  //     additionalProductIds.push(tradeInVariantId);
-  //   }
-  // }
-
   $: additionalProductIds = (() => {
     const ids = [];
     if (selectedHarness && selectedHarness !== NO_HARNESS_OPTION) {
@@ -87,7 +76,6 @@
   const handleHarnessSelection = (value) => {
     console.log('Selected harness:', value);
     selectedHarness = value;
-    // updateAdditionalProductIds();
     if (value === NO_HARNESS_OPTION) {
       backordered = null;
       disableBuyButtonText = null;
@@ -102,9 +90,7 @@
   }
 
   const handleTradeInToggle = () => {
-    console.log('Toggling trade-in. Currently:', tradeInChecked, 'new:', !tradeInChecked);
     tradeInChecked = !tradeInChecked;
-    // updateAdditionalProductIds();
   }
 
   onMount(async () => {
