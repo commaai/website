@@ -371,6 +371,10 @@
     font-weight: bold;
   }
 
+  .cooling-section {
+    padding-top: 2rem;
+  }
+
   #description {
     & .description {
       & p:first-of-type {
