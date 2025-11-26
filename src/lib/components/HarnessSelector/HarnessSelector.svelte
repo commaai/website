@@ -43,6 +43,19 @@
     }
   }
 
+  export function setSelection(newSelection) {
+    console.log('test', newSelection);
+    selection = newSelection;
+    // Optionally call onChange if you want it to propagate
+    // onChange(newSelection);
+    // updateQueryParams(newSelection);
+    // if (newSelection?.car) {
+    //   selectedCar.set(newSelection.car);
+    // } else {
+    //   selectedCar.set('');
+    // }
+  }
+
   function updateQueryParams(selectedHarness) {
     const searchParams = new URLSearchParams();
     if (selectedHarness) {
@@ -69,7 +82,7 @@
   let inputValue = "";
   let inputRef;
 
-  $: filteredItems = $harnesses.filter(item => 
+  $: filteredItems = $harnesses.filter(item =>
     normalizeDiacritics(item.car.toLowerCase()).match(normalizeDiacritics(inputValue.toLowerCase()))
   );
 

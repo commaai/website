@@ -25,6 +25,8 @@
   let additionalProductIds = [];
   let disableBuyButtonText = "SELECT YOUR CAR";
 
+  let harnessSelectorRef;
+
   let showDisclaimerModal = false;
   let onProceed;
   let beforeAddToCart = (addToCart) => {
@@ -112,7 +114,8 @@
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('trade-in') === '1') {
       tradeInChecked = true;
-      handleHarnessSelection(NO_HARNESS_OPTION);
+      // handleHarnessSelection(NO_HARNESS_OPTION);
+      harnessSelectorRef.setSelection(NO_HARNESS_OPTION);
     }
   });
 </script>
@@ -161,6 +164,7 @@
 
     <strong>Select a harness to connect the comma four to your car.</strong>
     <HarnessSelector
+      bind:this={harnessSelectorRef}
       label="Select your car"
       onChange={handleHarnessSelection}
       showNoHarnessOption={true}
