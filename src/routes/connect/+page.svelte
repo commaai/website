@@ -15,10 +15,10 @@
   import SnapshotIcon from "$lib/icons/features/snapshot.png";
   import CommandLineIcon from "$lib/icons/features/command-line.svg?raw";
   import CommacareIcon from "$lib/icons/features/commacare.svg?raw";
-  // import CheckmarkIcon from "$lib/icons/ui/checkmark.svg?raw";
-  import CheckmarkIcon from "$lib/icons/ui/check.svg?raw";
-  // import CloseIcon from "$lib/icons/ui/close.svg?raw";
-  import CloseIcon from "$lib/icons/ui/cross.svg?raw";
+  import CheckmarkIcon from "$lib/icons/ui/checkmark.svg?raw";
+  // import CheckmarkIcon from "$lib/icons/ui/check.svg?raw";
+  import CloseIcon from "$lib/icons/ui/close.svg?raw";
+  // import CloseIcon from "$lib/icons/ui/cross.svg?raw";
 
   const subscriptionTiers = [
     { name: "prime", style: "accent" },
@@ -108,49 +108,74 @@
     </Grid>
 
     <div id="features-table">
-      <div class="row header">
-        <div class="title">Features</div>
-        <div class="content-wrapper header">
-          {#each subscriptionTiers as tier}
-            <div class="content badge">
-              <Badge style={tier.style} display="inline">{tier.name}</Badge>
-            </div>
-          {/each}
-        </div>
-      </div>
+<!--      <div class="row header">-->
+<!--        <div class="title">Features</div>-->
+<!--        <div class="content-wrapper header">-->
+<!--          {#each subscriptionTiers as tier}-->
+<!--            <div class="content badge">-->
+<!--              <Badge style={tier.style} display="inline">{tier.name}</Badge>-->
+<!--            </div>-->
+<!--          {/each}-->
+<!--        </div>-->
+<!--      </div>-->
 
-      {#each features as feature}
-        <div class="row">
-          <div class="feature-overview">
-            <div class="icon">
-              {#if feature.iconType === "img"}
-                <img src={feature.icon} loading="lazy" alt="" />
-              {:else}
-                {@html feature.icon}
-              {/if}
-            </div>
-            <div>
-              <hgroup>
-                <div>{feature.title}</div>
-                <span class="muted">{@html feature.subtitle}</span>
-              </hgroup>
-            </div>
-          </div>
-          <div class="content-wrapper">
-            {#each feature.features as featureItem, index}
-              <div class="content">
-                {#if featureItem === "check"}
-                  <div class="check">{@html CheckmarkIcon}</div>
-                {:else if featureItem === "cross"}
-                  <div class="cross">{@html CloseIcon}</div>
-                {/if}
-                {#if feature.featureTexts && feature.featureTexts[index]}
-                  <div>{feature.featureTexts[index]}</div>
-                {/if}
+      {#each subscriptionTiers as tier, index}
+        <div class="row header">
+          <div class="title">Features</div>
+          <div class="content-wrapper header">
+            <!--{#each subscriptionTiers as tier}-->
+              <div class="content badge">
+                <Badge style={tier.style} display="inline">{tier.name}</Badge>
               </div>
-            {/each}
+            <!--{/each}-->
           </div>
         </div>
+
+<!--        <div class="content badge">-->
+<!--          <Badge style={tier.style} display="inline">{tier.name}</Badge>-->
+<!--        </div>-->
+<!--        only features with check-->
+
+        {#each features as feature}
+          {#if feature.features[index] === "check"}
+            <div class="row">
+              <div class="feature-overview">
+                <div class="icon">
+                  {#if feature.iconType === "img"}
+                    <img src={feature.icon} loading="lazy" alt="" />
+                  {:else}
+                    {@html feature.icon}
+                  {/if}
+                </div>
+                <div>
+                  <hgroup>
+                    <div>{feature.title}</div>
+                    <span class="muted">{@html feature.subtitle}</span>
+                  </hgroup>
+                  {#if feature.featureTexts && feature.featureTexts[index]}
+                    <div class="mobile-badge"><Badge style="dark" display="inline-flex"><span class="check">{@html CheckmarkIcon}</span> {feature.featureTexts[index]}</Badge></div>
+                  {/if}
+                </div>
+              </div>
+              <div class="content-wrapper">
+                <!--{#each feature.features as featureItem, index}-->
+                <div class="content">
+                  <!--{#if featureItem === "check"}-->
+                  {#if feature.features[index] === "check"}
+                    <div class="check">{@html CheckmarkIcon}</div>
+                  <!--{:else if featureItem === "cross"}-->
+                  <!--  <div class="cross">{@html CloseIcon}</div>-->
+                  {/if}
+                  {#if feature.featureTexts && feature.featureTexts[index]}
+                    <div>{feature.featureTexts[index]}</div>
+                  {/if}
+                </div>
+                <!--{/each}-->
+              </div>
+            </div>
+          {/if}
+        {/each}
+        <div style="height: 4rem;"></div>
       {/each}
     </div>
   </div>
@@ -307,15 +332,18 @@
         flex-direction: row;
 
         @media screen and (max-width: 768px) {
-          /*& > div:not(:first-child) {*/
-            flex-direction: column;
-            /*display: none !important;*/
-          /*}*/
+          &:not(.header) > div:not(:first-child) {
+            display: none !important;
+          }
+          /*!*& > div:not(:first-child) {*!*/
+          /*  flex-direction: column;*/
+          /*  !*display: none !important;*!*/
+          /*!*}*!*/
         }
 
         & .title {
           display: flex;
-          flex: 2;
+          /*flex: 2;*/
           align-items: center;
           font-size: 1.25rem;
           font-weight: 600;
@@ -324,7 +352,7 @@
 
         & .content-wrapper {
           display: flex;
-          flex: 3;
+          /*flex: 3;*/
           gap: 1rem;
           flex-direction: row;
           margin: 2rem 0;
@@ -368,7 +396,7 @@
 
         & .feature-overview {
           display: flex;
-          flex: 2;
+          /*flex: 2;*/
 
           & .icon {
             margin-right: 1rem;
