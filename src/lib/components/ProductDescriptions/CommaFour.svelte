@@ -312,6 +312,7 @@
     background-color: rgba(134, 255, 78, 0.15);
     border-bottom: 2px solid #86ff4e;
     padding: 0 2px;
+    margin-bottom: -2px;
   }
 
   .paypal-message {
