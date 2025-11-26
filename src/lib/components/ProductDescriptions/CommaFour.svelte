@@ -94,6 +94,17 @@
   }
 
   onMount(async () => {
+    // Autofill trade-in checkbox
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('trade-in') === '1') {
+      if (checkboxCardRef) {
+        checkboxCardRef.setChecked(true);
+      }
+      if (harnessSelectorRef) {
+        harnessSelectorRef.setSelection(NO_HARNESS_OPTION);
+      }
+    }
+
     // Fetch trade-in product variant ID
     try {
       const tradeInProductId = productsData["comma-four-trade-in"]?.id;
@@ -107,17 +118,6 @@
       }
     } catch (error) {
       console.error('Failed to fetch trade-in product:', error);
-    }
-
-    // Autofill trade-in checkbox
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get('trade-in') === '1') {
-      if (checkboxCardRef) {
-        checkboxCardRef.setChecked(true);
-      }
-      if (harnessSelectorRef) {
-        harnessSelectorRef.setSelection(NO_HARNESS_OPTION);
-      }
     }
   });
 </script>
