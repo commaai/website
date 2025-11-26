@@ -391,7 +391,6 @@
             display: flex;
             flex-direction: column;
             justify-content: start;
-            gap: 14px;
 
             & div {
               font-size: 1.25rem;
