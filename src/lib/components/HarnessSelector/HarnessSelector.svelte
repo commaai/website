@@ -24,6 +24,7 @@
   export let showVehicleHarnesses = true; // If true, includes the harnesses by each vehicle model
   export let showGenericHarnesses = true; // If true, includes the generic/developer harnesses
   export let hideSupportNoteCard = false;
+  export let emphasize = false;           // adds visual emphasis to the dropdown when true
 
   let selection = undefined
 
@@ -146,7 +147,7 @@
         <slot name="accessoryLabel"/>
       </DropdownItem>
     {:else}
-      <div class="selection-placeholder" on:click={handleSelectClick} on:keydown={handleSelectKeyDown} role="button" tabindex="0">
+      <div class="selection-placeholder" class:emphasize on:click={handleSelectClick} on:keydown={handleSelectKeyDown} role="button" tabindex="0">
         <div class="label">{label}</div>
         <div class="accessory">
           <slot name="accessoryLabel"/>
@@ -233,10 +234,24 @@
   padding: 1rem 3rem 1rem 1.5rem;
   box-sizing: border-box;
   min-height: 84px;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, background-color 0.2s, box-shadow 0.2s;
 
   &:hover {
     border-color: #464646;
+  }
+
+  &.emphasize {
+    background: linear-gradient(135deg, #fffef5 0%, #fffbe6 100%);
+    border: 2px solid #d4a800;
+    box-shadow: 0 0 0 3px rgba(212, 168, 0, 0.15);
+  }
+
+  &.emphasize:hover {
+    border-color: #b89500;
+  }
+
+  &.emphasize .label {
+    color: #333;
   }
 
   & .label {

@@ -1,12 +1,14 @@
 <script>
   export let style = "dark";
   export let display = "block";
+  export let noMargin = false;
 </script>
 
 <div
   class:dark={style == "dark"}
   class:light={style == "light"}
   class:accent={style == "accent"}
+  class:no-margin={noMargin}
   style="display: {display}"
 >
   <slot></slot>
@@ -35,5 +37,9 @@
   .accent {
     background-color: var(--color-accent);
     color: var(--color-background);
+  }
+
+  .no-margin {
+    margin-bottom: 0;
   }
 </style>

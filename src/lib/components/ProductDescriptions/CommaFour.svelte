@@ -6,6 +6,7 @@
   import Badge from "$lib/components/Badge.svelte";
   import HarnessSelector from "$lib/components/HarnessSelector/HarnessSelector.svelte";
   import Modal from "$lib/components/Modal.svelte";
+  import PayPalPromo from "$lib/components/PayPalPromo.svelte";
 
   import ShippingIcon from "$lib/icons/features/shipping.svg?raw";
   import MoneyBackGuaranteeIcon from "$lib/icons/features/money-back-guarantee.svg?raw";
@@ -13,6 +14,9 @@
 
   import { FOUR_PRICE } from '$lib/constants/prices.js';
   import { NO_HARNESS_OPTION } from '$lib/constants/vehicles.js';
+
+  // PayPal promo end date: Dec 8, 2025 at 11:59:59 PM PT
+  const PAYPAL_PROMO_END_DATE = new Date('2025-12-09T07:59:59Z');
 </script>
 
 <script>
@@ -140,32 +144,26 @@
   <div slot="shipping"></div>
 
   <div slot="price" class="price">
-    {#if tradeInChecked && tradeInCredit > 0}
-      <span>{formatCurrency({ amount: priceAfterTradeIn, currencyCode: 'USD' }, 0)} after trade-in received</span>
-      <span class="price-due-today">({formatCurrency({ amount: priceDueToday, currencyCode: 'USD' }, 0)} due today)</span>
-    {:else if showDiscount && discountAmount > 0}
-      {formatCurrency({ amount: priceDueToday, currencyCode: 'USD' }, 0)}
-    {:else}
-      {formatCurrency({ amount: FOUR_PRICE, currencyCode: 'USD' }, 0)}
-    {/if}
+    <span class:strikethrough={tradeInChecked && tradeInCredit > 0}>
+      {#if showDiscount && discountAmount > 0}
+        {formatCurrency({ amount: priceDueToday, currencyCode: 'USD' }, 0)}
+      {:else}
+        {formatCurrency({ amount: FOUR_PRICE, currencyCode: 'USD' }, 0)}
+      {/if}
+    </span>
   </div>
 
+  <Badge slot="price-badge" style="dark" noMargin>Free rush shipping</Badge>
+
   <span slot="price-accessory">
-    <div
-      class="paypal-message"
-      data-pp-message
-      data-pp-style-layout="text"
-      data-pp-style-logo-type="inline"
-      data-pp-style-text-color="black"
-      data-pp-amount={priceDueToday}
-      data-pp-language="">
-    </div>
-    <div class="paypal-offer-info">
-      <span class="highlight">Get 20% cash back</span> when you check out with PayPal Pay Later. Save <a href="https://www.paypal.com/us/digital-wallet/ways-to-pay/buy-now-pay-later" target="_blank">this offer</a> to take advantage of this limited time offer through December 8. Subject to eligibility. <a href="#fine-print">Learn more</a>
-    </div>
-    <div class="badge">
-      <Badge style="dark">Free rush shipping</Badge>
-    </div>
+    {#if tradeInChecked && tradeInCredit > 0}
+      <div class="trade-in-note">
+        <span class="trade-in-final">{formatCurrency({ amount: priceAfterTradeIn, currencyCode: 'USD' }, 0)} final price</span>
+        <span class="trade-in-detail">−{formatCurrency({ amount: tradeInCredit, currencyCode: 'USD' }, 0)} credit applied <strong>after</strong> trade-in received</span>
+        <span class="trade-in-due-today">{formatCurrency({ amount: priceDueToday, currencyCode: 'USD' }, 0)} due today</span>
+      </div>
+    {/if}
+    <PayPalPromo endDate={PAYPAL_PROMO_END_DATE} amount={priceDueToday} />
 
     <hr />
 
@@ -175,6 +173,7 @@
       label="Select your car"
       onChange={handleHarnessSelection}
       showNoHarnessOption={true}
+      emphasize={selectedHarness === null}
     >
     </HarnessSelector>
     <CheckboxCard bind:this={checkboxCardRef} title="$250 credit with trade-in" checked={tradeInChecked} onToggle={handleTradeInToggle}
@@ -264,14 +263,6 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.15);
   }
 
-  .badge {
-    margin: 1rem 0;
-  }
-
-  .harness-price {
-    display: flex;
-  }
-
   .label {
     display: flex;
     align-items: center;
@@ -308,30 +299,47 @@
     margin: 2rem 0;
   }
 
-  .highlight {
-    background-color: rgba(134, 255, 78, 0.15);
-    border-bottom: 2px solid #86ff4e;
-    padding: 0 2px;
-    margin-bottom: -2px;
-  }
+  .strikethrough {
+    position: relative;
+    color: rgb(120, 120, 120);
 
-  .paypal-message {
-    margin-top: 1rem;
-  }
-
-  .paypal-offer-info {
-    font-size: 14px;
-    color: rgb(46, 46, 47);
-    margin-top: 0.5rem;
-
-    & a {
-      color: #0070ba;
-      text-decoration: underline;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: -4%;
+      width: 108%;
+      height: 0.1em;
+      background: #ff2b2bab;
+      transform: rotate(-15deg);
     }
   }
 
-  .price-due-today {
+  .trade-in-note {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    background: linear-gradient(135deg, rgba(134, 255, 78, 0.15), rgba(134, 255, 78, 0.05));
+    border-left: 7px solid var(--color-accent);
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .trade-in-final {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #1a7a1a;
+  }
+
+  .trade-in-detail {
     font-size: 1rem;
     color: rgb(81, 81, 81);
+  }
+
+  .trade-in-due-today {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #000;
+    margin-top: 0.25rem;
   }
 </style>

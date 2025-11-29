@@ -116,10 +116,13 @@
       <div>
         <div class="variant-selector">
           <h1>{product?.title}</h1>
-          <div class="price">
-            <slot name="price">
-              {priceLabel}
-            </slot>
+          <div class="price-row">
+            <div class="price">
+              <slot name="price">
+                {priceLabel}
+              </slot>
+            </div>
+            <slot name="price-badge"></slot>
           </div>
           <slot name="price-accessory"></slot>
           {#if VariantSelector}
@@ -204,8 +207,15 @@
       margin-bottom: 1rem;
     }
 
+    & .price-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+    }
+
     & .price {
-      font-size: 1.5rem;
+      font-size: 2.5rem;
       display: flex;
       flex-direction: column;
       gap: 0.25rem;

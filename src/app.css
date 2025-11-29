@@ -1,6 +1,7 @@
 @import './space.css';
 
 html {
+  scroll-behavior: smooth;
   scroll-padding-top: 6rem;
 }
 
