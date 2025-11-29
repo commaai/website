@@ -11,6 +11,7 @@
   import FourImage from "$lib/images/products/comma-four/four_screen_on.png";
   import OBDCCableImage from "$lib/images/products/obd-c-cable/obd-c-cable-four.png";
   import ReplacementMountsImage from "$lib/images/products/replacement-mounts/replacement-mounts-four.png";
+  import CarHarnessImage from "$lib/images/products/car-harness/car-harness.jpg";
   import CarBrandCollageImage from "$lib/images/car-brand-collage.jpg";
   import CoolingImage from "$lib/images/products/comma-four/cooling.png";
   import DeviceFrameImage from "$lib/images/products/comma-four/four_front.png";
@@ -63,6 +64,10 @@
         <div>
           <img src={ReplacementMountsImage} loading="lazy" alt="mount">
           <p>2 mounts</p>
+        </div>
+        <div>
+          <img src={CarHarnessImage} loading="lazy" alt="car harness">
+          <p>car harness <span style="color: var(--color-muted)">(optional)</span></p>
         </div>
       </div>
     </Grid>
@@ -393,21 +398,21 @@
     }
 
     & .box-contents {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
       text-align: center;
 
-      & > div {
-        width: 300px;
-        margin-bottom: 2rem;
+      @media screen and (max-width: 768px) {
+        grid-template-columns: 1fr;
+      }
 
-        & img {
-          max-height: 150px;
-        }
+      & img {
+        max-height: 150px;
+      }
 
-        & p {
-          margin: 0 2rem;
-        }
+      & p {
+        margin: 0 2rem;
       }
     }
 
