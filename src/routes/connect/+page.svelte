@@ -187,7 +187,7 @@
       </div>
       <div class="price-card">
         <div><Badge style="light" display="inline">Subscription</Badge><Badge style="dark" display="inline">Lite</Badge></div>
-        <span>$10/mo.</span>
+        <span>$14/mo.</span>
         <div class="muted">supply your own SIM card<br>(no data included)</div>
         <div class="muted">*works internationally</div>
       </div>

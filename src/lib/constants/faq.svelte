@@ -308,7 +308,7 @@
               With prime ($24/mo), domestic data is included.
             </p>
             <p>
-              With prime lite ($10/mo), no SIM card or cellular service is provided. You can choose to bring your own SIM card for the full prime experience.
+              With prime lite ($14/mo), no SIM card or cellular service is provided. You can choose to bring your own SIM card for the full prime experience.
             </p>
             <p>
               Note: your own SIM may require configuration to work with your comma device. We do not offer troubleshooting for third party data service.
