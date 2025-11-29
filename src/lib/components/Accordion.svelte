@@ -1,6 +1,7 @@
 <script>
   import IconChevron from '$lib/icons/icon-chevron.svg?raw';
   import { onMount } from 'svelte';
+  import { createEventDispatcher } from 'svelte';
 
   export let id = (Math.random() * 10e15).toString(16);
   export let type = "checkbox"; // or "radio"
@@ -8,6 +9,8 @@
   export let style = "light"; // or "dark"
   export let foregroundColor = null;
   export let backgroundColor = null;
+
+  const dispatch = createEventDispatcher();
 
   let contentEl, inputEl;
   onMount(() => {
@@ -27,6 +30,8 @@
         contentEl.style.maxHeight = '0px';
       });
     }
+    // Dispatch click event so parent components can handle it (e.g., update URL hash)
+    dispatch('click');
   }
 
   function onTransitionEnd() {
