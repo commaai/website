@@ -14,7 +14,7 @@
     contentEl.style.display = inputEl.checked ? 'block' : 'none';
   });
 
-  function toggleContent(event) {
+  function toggleContent() {
     if (inputEl.checked) {
       contentEl.style.display = 'block';
       contentEl.style.maxHeight = '0px';
