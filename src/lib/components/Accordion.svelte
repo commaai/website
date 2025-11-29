@@ -1,7 +1,6 @@
 <script>
   import IconChevron from '$lib/icons/icon-chevron.svg?raw';
   import { onMount } from 'svelte';
-  import { createEventDispatcher } from 'svelte';
 
   export let id = (Math.random() * 10e15).toString(16);
   export let type = "checkbox"; // or "radio"
@@ -10,14 +9,12 @@
   export let foregroundColor = null;
   export let backgroundColor = null;
 
-  const dispatch = createEventDispatcher();
-
   let contentEl, inputEl;
   onMount(() => {
     contentEl.style.display = inputEl.checked ? 'block' : 'none';
   });
 
-  function toggleContent() {
+  function toggleContent(event) {
     if (inputEl.checked) {
       contentEl.style.display = 'block';
       contentEl.style.maxHeight = '0px';
@@ -30,8 +27,6 @@
         contentEl.style.maxHeight = '0px';
       });
     }
-    // Dispatch click event so parent components can handle it (e.g., update URL hash)
-    dispatch('click');
   }
 
   function onTransitionEnd() {
@@ -49,7 +44,7 @@
     --background-color: {backgroundColor ?? (style === 'light' ? 'white' : 'black')};
   "
 >
-  <input {type} name={id} {id} {checked} on:click={toggleContent} bind:this={inputEl} />
+  <input {type} name={id} {id} {checked} on:click={toggleContent} on:click bind:this={inputEl} />
   <label for={id}>
     <slot name="label"></slot>
     <span class="chevron">{@html IconChevron}</span>
