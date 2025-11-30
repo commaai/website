@@ -262,7 +262,9 @@
     /* Behind nav bar */
     margin: -66px 0 0;
     width: 100%;
-    height: 100vh;
+    height: 80vh;
+    /*height: 100vh;*/
+    /*height: min(100vh, 900px);*/
     overflow: hidden;
     padding: 0;
     user-select: none;
