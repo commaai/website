@@ -83,7 +83,7 @@
     }
 
     & li {
-      font-size: 1rem;
+      font-size: 1.25rem;
     }
 
     & .support-card {

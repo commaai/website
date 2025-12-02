@@ -29,6 +29,12 @@
     }
   }
 
+  // Sync with exported prop
+  $: if (inputEl && contentEl && inputEl.checked !== checked) {
+    inputEl.checked = checked;
+    toggleContent();
+  }
+
   function onTransitionEnd() {
     if (!inputEl.checked) {
       contentEl.style.display = 'none';
@@ -44,7 +50,7 @@
     --background-color: {backgroundColor ?? (style === 'light' ? 'white' : 'black')};
   "
 >
-  <input {type} name={id} {id} {checked} on:click={toggleContent} bind:this={inputEl} />
+  <input {type} name={id} {id} {checked} on:click={toggleContent} on:click bind:this={inputEl} />
   <label for={id}>
     <slot name="label"></slot>
     <span class="chevron">{@html IconChevron}</span>
