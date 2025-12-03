@@ -10,8 +10,11 @@
   export let backgroundColor = null;
 
   let contentEl, inputEl;
+  let lastCheckedProp = checked;
+
   onMount(() => {
     contentEl.style.display = inputEl.checked ? 'block' : 'none';
+    lastCheckedProp = checked;
   });
 
   function toggleContent() {
@@ -27,6 +30,13 @@
         contentEl.style.maxHeight = '0px';
       });
     }
+  }
+
+  // Sync with exported prop
+  $: if (inputEl && contentEl && checked !== lastCheckedProp) {
+    inputEl.checked = checked;
+    lastCheckedProp = checked;
+    toggleContent();
   }
 
   function onTransitionEnd() {
