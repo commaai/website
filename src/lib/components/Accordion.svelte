@@ -29,12 +29,6 @@
     }
   }
 
-  // Sync with exported prop
-  $: if (inputEl && contentEl && inputEl.checked !== checked) {
-    inputEl.checked = checked;
-    toggleContent();
-  }
-
   function onTransitionEnd() {
     if (!inputEl.checked) {
       contentEl.style.display = 'none';
