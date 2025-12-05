@@ -2800,9 +2800,8 @@
       "video": "",
       "setup_video": "",
       "harness_connector": "Toyota A",
-      "detail_sentence": "openpilot upgrades your <strong>Lexus CT Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "detail_sentence": "openpilot upgrades your <strong>Lexus CT Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control.",
       "footnotes": [
-        "By default, this car will use the stock Adaptive Cruise Control (ACC) for longitudinal control. If the Driver Support Unit (DSU) is disconnected, openpilot ACC will replace stock ACC. \u003cb\u003e\u003ci\u003eNOTE: disconnecting the DSU disables Automatic Emergency Braking (AEB).\u003c/i\u003e\u003c/b\u003e"
       ],
       "setup_notes": [
       ]
@@ -2816,9 +2815,8 @@
       "video": "",
       "setup_video": "",
       "harness_connector": "Toyota A",
-      "detail_sentence": "openpilot upgrades your <strong>Lexus ES</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "detail_sentence": "openpilot upgrades your <strong>Lexus ES</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>.",
       "footnotes": [
-        "By default, this car will use the stock Adaptive Cruise Control (ACC) for longitudinal control. If the Driver Support Unit (DSU) is disconnected, openpilot ACC will replace stock ACC. \u003cb\u003e\u003ci\u003eNOTE: disconnecting the DSU disables Automatic Emergency Braking (AEB).\u003c/i\u003e\u003c/b\u003e"
       ],
       "setup_notes": [
       ]
@@ -2847,9 +2845,8 @@
       "video": "",
       "setup_video": "",
       "harness_connector": "Toyota A",
-      "detail_sentence": "openpilot upgrades your <strong>Lexus ES Hybrid</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "detail_sentence": "openpilot upgrades your <strong>Lexus ES Hybrid</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>.",
       "footnotes": [
-        "By default, this car will use the stock Adaptive Cruise Control (ACC) for longitudinal control. If the Driver Support Unit (DSU) is disconnected, openpilot ACC will replace stock ACC. \u003cb\u003e\u003ci\u003eNOTE: disconnecting the DSU disables Automatic Emergency Braking (AEB).\u003c/i\u003e\u003c/b\u003e"
       ],
       "setup_notes": [
       ]
@@ -2938,9 +2935,8 @@
       "video": "",
       "setup_video": "",
       "harness_connector": "Toyota A",
-      "detail_sentence": "openpilot upgrades your <strong>Lexus NX</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "detail_sentence": "openpilot upgrades your <strong>Lexus NX</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control.",
       "footnotes": [
-        "By default, this car will use the stock Adaptive Cruise Control (ACC) for longitudinal control. If the Driver Support Unit (DSU) is disconnected, openpilot ACC will replace stock ACC. \u003cb\u003e\u003ci\u003eNOTE: disconnecting the DSU disables Automatic Emergency Braking (AEB).\u003c/i\u003e\u003c/b\u003e"
       ],
       "setup_notes": [
       ]
@@ -2969,9 +2965,8 @@
       "video": "",
       "setup_video": "",
       "harness_connector": "Toyota A",
-      "detail_sentence": "openpilot upgrades your <strong>Lexus NX Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "detail_sentence": "openpilot upgrades your <strong>Lexus NX Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control.",
       "footnotes": [
-        "By default, this car will use the stock Adaptive Cruise Control (ACC) for longitudinal control. If the Driver Support Unit (DSU) is disconnected, openpilot ACC will replace stock ACC. \u003cb\u003e\u003ci\u003eNOTE: disconnecting the DSU disables Automatic Emergency Braking (AEB).\u003c/i\u003e\u003c/b\u003e"
       ],
       "setup_notes": [
       ]
@@ -3030,9 +3025,8 @@
       "video": "",
       "setup_video": "",
       "harness_connector": "Toyota A",
-      "detail_sentence": "openpilot upgrades your <strong>Lexus RX</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "detail_sentence": "openpilot upgrades your <strong>Lexus RX</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control.",
       "footnotes": [
-        "By default, this car will use the stock Adaptive Cruise Control (ACC) for longitudinal control. If the Driver Support Unit (DSU) is disconnected, openpilot ACC will replace stock ACC. \u003cb\u003e\u003ci\u003eNOTE: disconnecting the DSU disables Automatic Emergency Braking (AEB).\u003c/i\u003e\u003c/b\u003e"
       ],
       "setup_notes": [
       ]
@@ -3046,9 +3040,8 @@
       "video": "",
       "setup_video": "",
       "harness_connector": "Toyota A",
-      "detail_sentence": "openpilot upgrades your <strong>Lexus RX</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "detail_sentence": "openpilot upgrades your <strong>Lexus RX</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control.",
       "footnotes": [
-        "By default, this car will use the stock Adaptive Cruise Control (ACC) for longitudinal control. If the Driver Support Unit (DSU) is disconnected, openpilot ACC will replace stock ACC. \u003cb\u003e\u003ci\u003eNOTE: disconnecting the DSU disables Automatic Emergency Braking (AEB).\u003c/i\u003e\u003c/b\u003e"
       ],
       "setup_notes": [
       ]
@@ -3077,9 +3070,8 @@
       "video": "",
       "setup_video": "",
       "harness_connector": "Toyota A",
-      "detail_sentence": "openpilot upgrades your <strong>Lexus RX Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "detail_sentence": "openpilot upgrades your <strong>Lexus RX Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control.",
       "footnotes": [
-        "By default, this car will use the stock Adaptive Cruise Control (ACC) for longitudinal control. If the Driver Support Unit (DSU) is disconnected, openpilot ACC will replace stock ACC. \u003cb\u003e\u003ci\u003eNOTE: disconnecting the DSU disables Automatic Emergency Braking (AEB).\u003c/i\u003e\u003c/b\u003e"
       ],
       "setup_notes": [
       ]
@@ -3093,9 +3085,8 @@
       "video": "",
       "setup_video": "",
       "harness_connector": "Toyota A",
-      "detail_sentence": "openpilot upgrades your <strong>Lexus RX Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "detail_sentence": "openpilot upgrades your <strong>Lexus RX Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control.",
       "footnotes": [
-        "By default, this car will use the stock Adaptive Cruise Control (ACC) for longitudinal control. If the Driver Support Unit (DSU) is disconnected, openpilot ACC will replace stock ACC. \u003cb\u003e\u003ci\u003eNOTE: disconnecting the DSU disables Automatic Emergency Braking (AEB).\u003c/i\u003e\u003c/b\u003e"
       ],
       "setup_notes": [
       ]
@@ -3808,9 +3799,8 @@
       "video": "",
       "setup_video": "",
       "harness_connector": "Toyota A",
-      "detail_sentence": "openpilot upgrades your <strong>Toyota Avalon</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "detail_sentence": "openpilot upgrades your <strong>Toyota Avalon</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>.",
       "footnotes": [
-        "By default, this car will use the stock Adaptive Cruise Control (ACC) for longitudinal control. If the Driver Support Unit (DSU) is disconnected, openpilot ACC will replace stock ACC. \u003cb\u003e\u003ci\u003eNOTE: disconnecting the DSU disables Automatic Emergency Braking (AEB).\u003c/i\u003e\u003c/b\u003e"
       ],
       "setup_notes": [
       ]
@@ -3824,9 +3814,8 @@
       "video": "",
       "setup_video": "",
       "harness_connector": "Toyota A",
-      "detail_sentence": "openpilot upgrades your <strong>Toyota Avalon</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "detail_sentence": "openpilot upgrades your <strong>Toyota Avalon</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>.",
       "footnotes": [
-        "By default, this car will use the stock Adaptive Cruise Control (ACC) for longitudinal control. If the Driver Support Unit (DSU) is disconnected, openpilot ACC will replace stock ACC. \u003cb\u003e\u003ci\u003eNOTE: disconnecting the DSU disables Automatic Emergency Braking (AEB).\u003c/i\u003e\u003c/b\u003e"
       ],
       "setup_notes": [
       ]
@@ -3840,9 +3829,8 @@
       "video": "",
       "setup_video": "",
       "harness_connector": "Toyota A",
-      "detail_sentence": "openpilot upgrades your <strong>Toyota Avalon</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "detail_sentence": "openpilot upgrades your <strong>Toyota Avalon</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control.",
       "footnotes": [
-        "By default, this car will use the stock Adaptive Cruise Control (ACC) for longitudinal control. If the Driver Support Unit (DSU) is disconnected, openpilot ACC will replace stock ACC. \u003cb\u003e\u003ci\u003eNOTE: disconnecting the DSU disables Automatic Emergency Braking (AEB).\u003c/i\u003e\u003c/b\u003e"
       ],
       "setup_notes": [
       ]
@@ -3871,9 +3859,8 @@
       "video": "",
       "setup_video": "",
       "harness_connector": "Toyota A",
-      "detail_sentence": "openpilot upgrades your <strong>Toyota Avalon Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "detail_sentence": "openpilot upgrades your <strong>Toyota Avalon Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control.",
       "footnotes": [
-        "By default, this car will use the stock Adaptive Cruise Control (ACC) for longitudinal control. If the Driver Support Unit (DSU) is disconnected, openpilot ACC will replace stock ACC. \u003cb\u003e\u003ci\u003eNOTE: disconnecting the DSU disables Automatic Emergency Braking (AEB).\u003c/i\u003e\u003c/b\u003e"
       ],
       "setup_notes": [
       ]
@@ -4024,9 +4011,8 @@
       "video": "",
       "setup_video": "",
       "harness_connector": "Toyota A",
-      "detail_sentence": "openpilot upgrades your <strong>Toyota Corolla</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "detail_sentence": "openpilot upgrades your <strong>Toyota Corolla</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>.",
       "footnotes": [
-        "By default, this car will use the stock Adaptive Cruise Control (ACC) for longitudinal control. If the Driver Support Unit (DSU) is disconnected, openpilot ACC will replace stock ACC. \u003cb\u003e\u003ci\u003eNOTE: disconnecting the DSU disables Automatic Emergency Braking (AEB).\u003c/i\u003e\u003c/b\u003e"
       ],
       "setup_notes": [
       ]
@@ -4130,9 +4116,8 @@
       "video": "https://www.youtube.com/watch?v=0wS0wXSLzoo",
       "setup_video": "",
       "harness_connector": "Toyota A",
-      "detail_sentence": "openpilot upgrades your <strong>Toyota Highlander</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "detail_sentence": "openpilot upgrades your <strong>Toyota Highlander</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>.",
       "footnotes": [
-        "By default, this car will use the stock Adaptive Cruise Control (ACC) for longitudinal control. If the Driver Support Unit (DSU) is disconnected, openpilot ACC will replace stock ACC. \u003cb\u003e\u003ci\u003eNOTE: disconnecting the DSU disables Automatic Emergency Braking (AEB).\u003c/i\u003e\u003c/b\u003e"
       ],
       "setup_notes": [
       ]
@@ -4161,9 +4146,8 @@
       "video": "",
       "setup_video": "",
       "harness_connector": "Toyota A",
-      "detail_sentence": "openpilot upgrades your <strong>Toyota Highlander Hybrid</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "detail_sentence": "openpilot upgrades your <strong>Toyota Highlander Hybrid</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>.",
       "footnotes": [
-        "By default, this car will use the stock Adaptive Cruise Control (ACC) for longitudinal control. If the Driver Support Unit (DSU) is disconnected, openpilot ACC will replace stock ACC. \u003cb\u003e\u003ci\u003eNOTE: disconnecting the DSU disables Automatic Emergency Braking (AEB).\u003c/i\u003e\u003c/b\u003e"
       ],
       "setup_notes": [
       ]
@@ -4207,9 +4191,8 @@
       "video": "https://www.youtube.com/watch?v=8zopPJI8XQ0",
       "setup_video": "",
       "harness_connector": "Toyota A",
-      "detail_sentence": "openpilot upgrades your <strong>Toyota Prius</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "detail_sentence": "openpilot upgrades your <strong>Toyota Prius</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control.",
       "footnotes": [
-        "By default, this car will use the stock Adaptive Cruise Control (ACC) for longitudinal control. If the Driver Support Unit (DSU) is disconnected, openpilot ACC will replace stock ACC. \u003cb\u003e\u003ci\u003eNOTE: disconnecting the DSU disables Automatic Emergency Braking (AEB).\u003c/i\u003e\u003c/b\u003e"
       ],
       "setup_notes": [
       ]
@@ -4223,9 +4206,8 @@
       "video": "https://www.youtube.com/watch?v=8zopPJI8XQ0",
       "setup_video": "",
       "harness_connector": "Toyota A",
-      "detail_sentence": "openpilot upgrades your <strong>Toyota Prius</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "detail_sentence": "openpilot upgrades your <strong>Toyota Prius</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control.",
       "footnotes": [
-        "By default, this car will use the stock Adaptive Cruise Control (ACC) for longitudinal control. If the Driver Support Unit (DSU) is disconnected, openpilot ACC will replace stock ACC. \u003cb\u003e\u003ci\u003eNOTE: disconnecting the DSU disables Automatic Emergency Braking (AEB).\u003c/i\u003e\u003c/b\u003e"
       ],
       "setup_notes": [
       ]
@@ -4254,9 +4236,8 @@
       "video": "https://www.youtube.com/watch?v=8zopPJI8XQ0",
       "setup_video": "",
       "harness_connector": "Toyota A",
-      "detail_sentence": "openpilot upgrades your <strong>Toyota Prius Prime</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "detail_sentence": "openpilot upgrades your <strong>Toyota Prius Prime</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control.",
       "footnotes": [
-        "By default, this car will use the stock Adaptive Cruise Control (ACC) for longitudinal control. If the Driver Support Unit (DSU) is disconnected, openpilot ACC will replace stock ACC. \u003cb\u003e\u003ci\u003eNOTE: disconnecting the DSU disables Automatic Emergency Braking (AEB).\u003c/i\u003e\u003c/b\u003e"
       ],
       "setup_notes": [
       ]
@@ -4285,9 +4266,8 @@
       "video": "",
       "setup_video": "",
       "harness_connector": "Toyota A",
-      "detail_sentence": "openpilot upgrades your <strong>Toyota Prius v</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "detail_sentence": "openpilot upgrades your <strong>Toyota Prius v</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>.",
       "footnotes": [
-        "By default, this car will use the stock Adaptive Cruise Control (ACC) for longitudinal control. If the Driver Support Unit (DSU) is disconnected, openpilot ACC will replace stock ACC. \u003cb\u003e\u003ci\u003eNOTE: disconnecting the DSU disables Automatic Emergency Braking (AEB).\u003c/i\u003e\u003c/b\u003e"
       ],
       "setup_notes": [
       ]
@@ -4301,9 +4281,8 @@
       "video": "",
       "setup_video": "",
       "harness_connector": "Toyota A",
-      "detail_sentence": "openpilot upgrades your <strong>Toyota RAV4</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "detail_sentence": "openpilot upgrades your <strong>Toyota RAV4</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>.",
       "footnotes": [
-        "By default, this car will use the stock Adaptive Cruise Control (ACC) for longitudinal control. If the Driver Support Unit (DSU) is disconnected, openpilot ACC will replace stock ACC. \u003cb\u003e\u003ci\u003eNOTE: disconnecting the DSU disables Automatic Emergency Braking (AEB).\u003c/i\u003e\u003c/b\u003e"
       ],
       "setup_notes": [
       ]
@@ -4317,9 +4296,8 @@
       "video": "",
       "setup_video": "",
       "harness_connector": "Toyota A",
-      "detail_sentence": "openpilot upgrades your <strong>Toyota RAV4</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "detail_sentence": "openpilot upgrades your <strong>Toyota RAV4</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>.",
       "footnotes": [
-        "By default, this car will use the stock Adaptive Cruise Control (ACC) for longitudinal control. If the Driver Support Unit (DSU) is disconnected, openpilot ACC will replace stock ACC. \u003cb\u003e\u003ci\u003eNOTE: disconnecting the DSU disables Automatic Emergency Braking (AEB).\u003c/i\u003e\u003c/b\u003e"
       ],
       "setup_notes": [
       ]
@@ -4378,9 +4356,8 @@
       "video": "https://youtu.be/LhT5VzJVfNI?t=26",
       "setup_video": "",
       "harness_connector": "Toyota A",
-      "detail_sentence": "openpilot upgrades your <strong>Toyota RAV4 Hybrid</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "detail_sentence": "openpilot upgrades your <strong>Toyota RAV4 Hybrid</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>.",
       "footnotes": [
-        "By default, this car will use the stock Adaptive Cruise Control (ACC) for longitudinal control. If the Driver Support Unit (DSU) is disconnected, openpilot ACC will replace stock ACC. \u003cb\u003e\u003ci\u003eNOTE: disconnecting the DSU disables Automatic Emergency Braking (AEB).\u003c/i\u003e\u003c/b\u003e"
       ],
       "setup_notes": [
       ]
@@ -4394,9 +4371,8 @@
       "video": "https://youtu.be/LhT5VzJVfNI?t=26",
       "setup_video": "",
       "harness_connector": "Toyota A",
-      "detail_sentence": "openpilot upgrades your <strong>Toyota RAV4 Hybrid</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "detail_sentence": "openpilot upgrades your <strong>Toyota RAV4 Hybrid</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>.",
       "footnotes": [
-        "By default, this car will use the stock Adaptive Cruise Control (ACC) for longitudinal control. If the Driver Support Unit (DSU) is disconnected, openpilot ACC will replace stock ACC. \u003cb\u003e\u003ci\u003eNOTE: disconnecting the DSU disables Automatic Emergency Braking (AEB).\u003c/i\u003e\u003c/b\u003e"
       ],
       "setup_notes": [
       ]
@@ -4455,9 +4431,8 @@
       "video": "https://www.youtube.com/watch?v=q1UPOo4Sh68",
       "setup_video": "",
       "harness_connector": "Toyota A",
-      "detail_sentence": "openpilot upgrades your <strong>Toyota Sienna</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "detail_sentence": "openpilot upgrades your <strong>Toyota Sienna</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>.",
       "footnotes": [
-        "By default, this car will use the stock Adaptive Cruise Control (ACC) for longitudinal control. If the Driver Support Unit (DSU) is disconnected, openpilot ACC will replace stock ACC. \u003cb\u003e\u003ci\u003eNOTE: disconnecting the DSU disables Automatic Emergency Braking (AEB).\u003c/i\u003e\u003c/b\u003e"
       ],
       "setup_notes": [
       ]
