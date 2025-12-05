@@ -618,7 +618,7 @@ export const products = {
         -> We are not responsible for lost or damaged packages. Please be sure to have tracking on your package. Ship your device according to local laws and regulations.
       </p>
       <p>
-        -> No warranty except DOA.
+        -> No warranty except DOA, which must be reported within 14 days of delivery.
       </p>
     `.trim()
   },
