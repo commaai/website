@@ -40,16 +40,17 @@
     </p>
 
     <div class="divider"></div>
-    <pre>
-  One meeting a week, two great meals a day, and people who have passed a very high bar to get hired.
-
-  Perks:
-  - Chef-prepared lunch and dinner
-  - On-site gym and yoga studio
-  - 24/7 access to the comma fleet of cars
-  - Health, dental, and vision insurance
-  - Flexible time off
-    </pre>
+    <p>
+      One meeting a week, two great meals a day, and people who have passed a very high bar to get hired.
+    </p>
+    <p>
+      Perks:
+      - Chef-prepared lunch and dinner
+      - On-site gym and yoga studio
+      - 24/7 access to the comma fleet of cars
+      - Health, dental, and vision insurance
+      - Flexible time off
+    </p>
 
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
       <iframe src="https://www.youtube.com/embed/PFjssb7r_uU" title="Touring comma HQ + launching the new jobs page comma.ai/jobs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
@@ -57,15 +58,16 @@
 
     <div class="divider"></div>
     <h4>Who we're looking for</h4>
-    <pre>
-  We don't care where, or even if, you went to school. We don't care if you have a traditional background. We're just looking for people who can independently contribute to shipping openpilot.
+    <p>
+      We don't care where, or even if, you went to school. We don't care if you have a traditional background. We're just looking for people who can independently contribute to shipping openpilot.
+    </p>
+    <p>
+      We love a great GitHub, open source contributors, good projects, and competition winners.
 
-  We love a great GitHub, open source contributors, good projects, and competition winners.
-
-  Prove your skills with either of these:
-  1. <a href="https://comma.ai/bounties">Bounties</a>: contribute to our open source projects while getting paid
-  2. <a href="https://comma.ai/leaderboard">Challenges</a>: we made challenges for design, controls, hardware, and more.
-    </pre>
+      Prove your skills with either of these:
+      1. <a href="https://comma.ai/bounties">Bounties</a>: contribute to our open source projects while getting paid
+      2. <a href="https://comma.ai/leaderboard">Challenges</a>: we made challenges for design, controls, hardware, and more.
+    </p>
 
     <div class="divider"></div>
     <h4>We're Actively Hiring</h4>
