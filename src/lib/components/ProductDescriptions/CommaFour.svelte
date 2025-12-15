@@ -79,13 +79,13 @@
       backordered = null;
       disableBuyButtonText = null;
     } else if (value) {
-      backordered = value.currentlyNotInStock ? `ships in ${(value.backordered || '1-12 weeks')}` : null;
+      backordered = value.currentlyNotInStock ? `ships in ${(value.backordered || '4-12 weeks')}` : null;
       disableBuyButtonText = null;
     } else {
       backordered = null;
       disableBuyButtonText = "SELECT YOUR CAR";
     }
-    backordered = '1-12 weeks';
+    backordered = '4-12 weeks';
 
     // Reset trade-in checkbox
     if (!value && checkboxCardRef) {
@@ -233,7 +233,7 @@
   </p>
   {#if backordered}
     <p class="disclaimer warning">
-      The comma four is expected to ship out in 1-12 weeks.
+      The comma four is expected to ship out in 4-12 weeks.
       By adding this item to your cart you acknowledge that your order will be delayed.
     </p>
   {/if}
