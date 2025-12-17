@@ -16,7 +16,7 @@ export const products = {
     description: `
       <strong>Description</strong>
       <p>
-        comma four is the next generation comma hardware designed to live in your car. It works on 325+ car models and adds the best driver assistance in the world to your existing car. Ships in 1-12 weeks.
+        comma four is the next generation comma hardware designed to live in your car. It works on 325+ car models and adds the best driver assistance in the world to your existing car. Ships in 4-12 weeks.
       </p>
       <p>
         It runs <a href="https://github.com/commaai/openpilot" target="_blank">openpilot</a>, which can drive for hours without driver action.
@@ -618,7 +618,7 @@ export const products = {
         -> We are not responsible for lost or damaged packages. Please be sure to have tracking on your package. Ship your device according to local laws and regulations.
       </p>
       <p>
-        -> No warranty except DOA.
+        -> No warranty except DOA, which must be reported within 14 days of delivery.
       </p>
     `.trim()
   },

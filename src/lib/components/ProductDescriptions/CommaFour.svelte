@@ -79,13 +79,13 @@
       backordered = null;
       disableBuyButtonText = null;
     } else if (value) {
-      backordered = value.currentlyNotInStock ? `ships in ${(value.backordered || '1-12 weeks')}` : null;
+      backordered = value.currentlyNotInStock ? `ships in ${(value.backordered || '4-12 weeks')}` : null;
       disableBuyButtonText = null;
     } else {
       backordered = null;
       disableBuyButtonText = "SELECT YOUR CAR";
     }
-    backordered = '1-12 weeks';
+    backordered = '4-12 weeks';
 
     // Reset trade-in checkbox
     if (!value && checkboxCardRef) {
@@ -128,13 +128,6 @@
   });
 </script>
 
-<svelte:head>
-  <script
-    src="https://www.paypal.com/sdk/js?client-id=AUFLR5Zk9El_ATQigqwpSnsqkCBFtW1iuLEhFXMD-w8OUYziE5qCPNRRHQPdgKdQOSKn4_YqSxdK6Tpz&components=messages"
-    data-namespace="PayPalSDK">
-  </script>
-</svelte:head>
-
 <Product {product} {additionalProductIds} {backordered} {beforeAddToCart} {getCartNote} priceOverride={FOUR_PRICE}
          disableBuyButtonText={disableBuyButtonText}>
   <div slot="shipping"></div>
@@ -151,18 +144,6 @@
   </div>
 
   <span slot="price-accessory">
-    <div
-      class="paypal-message"
-      data-pp-message
-      data-pp-style-layout="text"
-      data-pp-style-logo-type="inline"
-      data-pp-style-text-color="black"
-      data-pp-amount={priceDueToday}
-      data-pp-language="">
-    </div>
-    <div class="paypal-offer-info">
-      <span class="highlight">Get 20% cash back</span> when you check out with PayPal Pay Later. Save <a href="https://www.paypal.com/us/digital-wallet/ways-to-pay/buy-now-pay-later" target="_blank">this offer</a> to take advantage of this limited time offer through December 8. Subject to eligibility. <a href="#fine-print">Learn more</a>
-    </div>
     <div class="badge">
       <Badge style="dark">Free rush shipping</Badge>
     </div>
@@ -252,7 +233,7 @@
   </p>
   {#if backordered}
     <p class="disclaimer warning">
-      The comma four is expected to ship out in 1-12 weeks.
+      The comma four is expected to ship out in 4-12 weeks.
       By adding this item to your cart you acknowledge that your order will be delayed.
     </p>
   {/if}
@@ -313,21 +294,6 @@
     border-bottom: 2px solid #86ff4e;
     padding: 0 2px;
     margin-bottom: -2px;
-  }
-
-  .paypal-message {
-    margin-top: 1rem;
-  }
-
-  .paypal-offer-info {
-    font-size: 14px;
-    color: rgb(46, 46, 47);
-    margin-top: 0.5rem;
-
-    & a {
-      color: #0070ba;
-      text-decoration: underline;
-    }
   }
 
   .price-due-today {

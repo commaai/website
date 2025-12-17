@@ -12,12 +12,12 @@
       {
         "source": "/four",
         "destination": "/shop/comma-four",
-        "type": 302
+        "type": 301
       },
       {
         "source": "/shop/comma-3x",
-        "destination": "/four",
-        "type": 302
+        "destination": "/shop/comma-four",
+        "type": 301
       },
       {
         "source": "/shop/comma-3x-trade-in",
