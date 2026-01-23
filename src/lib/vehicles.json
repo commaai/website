@@ -89,6 +89,21 @@
       ],
       "setup_notes": [
       ]
+    },
+    {
+      "name": "Acura TLX 2025",
+      "model": "TLX",
+      "years": "2025",
+      "year_list": "2025",
+      "package": "All",
+      "video": "",
+      "setup_video": "",
+      "harness_connector": "Honda Bosch C",
+      "detail_sentence": "openpilot upgrades your <strong>Acura TLX</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
+      "footnotes": [
+      ],
+      "setup_notes": [
+      ]
     }
   ],
   "Audi": [
