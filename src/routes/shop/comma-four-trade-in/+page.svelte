@@ -49,6 +49,9 @@
           your trade-in order number with your device when returning it. We reserve the right to cancel orders that do not follow this policy.
         </li>
         <li>
+          Devices sent in for trade-in cannot be returned, even if you cancel or return your order later.
+        </li>
+        <li>
           This offer is for new comma four purchases only.
         </li>
         <li>
