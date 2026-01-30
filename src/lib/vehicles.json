@@ -1449,6 +1449,21 @@
       ]
     },
     {
+      "name": "Honda Odyssey (Taiwan) 2018-19",
+      "model": "Odyssey (Taiwan)",
+      "years": "2018-19",
+      "year_list": "2018, 2019",
+      "package": "Honda Sensing",
+      "video": "",
+      "setup_video": "",
+      "harness_connector": "Honda Nidec",
+      "detail_sentence": "openpilot upgrades your <strong>Honda Odyssey (Taiwan)</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>. This car may not be able to take tight turns on its own. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "footnotes": [
+      ],
+      "setup_notes": [
+      ]
+    },
+    {
       "name": "Honda Passport 2019-25",
       "model": "Passport",
       "years": "2019-25",
@@ -2950,7 +2965,7 @@
       "video": "",
       "setup_video": "",
       "harness_connector": "Toyota A",
-      "detail_sentence": "openpilot upgrades your <strong>Lexus LS</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>.",
+      "detail_sentence": "openpilot upgrades your <strong>Lexus LS</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control.",
       "footnotes": [
       ],
       "setup_notes": [
