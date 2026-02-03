@@ -655,7 +655,7 @@
         }, {
           question: 'Do you offer a warranty?',
           answer: `
-            We offer a 1-year limited warranty against hardware defects. If you believe your hardware is defective, please fill out a support request at <a href="https://comma.ai/support">comma.ai/support</a>. We cannot provide shipping return labels for international devices with warranty issues.
+            We offer a 1-year limited warranty against hardware defects. If you believe your hardware is defective, please fill out a support request at <a href="https://comma.ai/support">comma.ai/support</a>.
           `
         }, {
           question: 'What is the return policy?',
