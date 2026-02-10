@@ -58,7 +58,7 @@
           </div>
           <div class="details" slot="content">
             The comma 3X has 3 cameras, broadcast with sub 100 ms latency through an H265 encoder.
-            Onboard, it has a Kalman filter running at 100Hz integrating the IMU and camera odometry to determine it's 3-DoF position.
+            Onboard, it has a Kalman filter running at 100Hz integrating the IMU and camera odometry to determine its 3-DoF position.
             With the addition of a little <a href="https://www.youtube.com/watch?v=7Hlb8YX2-W8" target="_blank" class="highlight muted">SLAM</a>,
             it will be easy to get 6-DoF that exceeds the precision of VR headsets.
             It also integrates with <a href="https://github.com/commaai/plotjuggler" target="_blank" class="highlight muted">Plotjuggler</a> for plotting and debugging.
