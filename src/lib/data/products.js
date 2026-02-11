@@ -402,7 +402,7 @@ export const products = {
         <strong>Includes:</strong>
       </p>
       <p>
-        (2) standard mounts with adhesive backing
+        (1) standard mount with adhesive backing
       </p>
       <p>
         (1) alcohol wipe
@@ -420,7 +420,7 @@ export const products = {
         <strong>Includes:</strong>
       </p>
       <p>
-        (2) 8 degree mounts with adhesive backing
+        (1) 8 degree mount with adhesive backing
       </p>
       <p>
         (1) alcohol wipe
@@ -645,7 +645,7 @@ export const products = {
     description: `
       <strong>Description</strong>
       <p>
-        The body is a robotics dev kit that can run <a href="https://github.com/commaai/openpilot" target="_blank">openpilot</a>, 
+        The body is a robotics dev kit that can run <a href="https://github.com/commaai/openpilot" target="_blank">openpilot</a>,
         open source software with over a million hours of usage in the field.
       </p>
       <p>
