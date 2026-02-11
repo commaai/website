@@ -420,7 +420,7 @@ export const products = {
         <strong>Includes:</strong>
       </p>
       <p>
-        (1) 8 degree mounts with adhesive backing
+        (1) 8 degree mount with adhesive backing
       </p>
       <p>
         (1) alcohol wipe
