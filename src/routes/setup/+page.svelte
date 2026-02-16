@@ -4,6 +4,7 @@
   import LinkButton from "$lib/components/LinkButton.svelte";
   import Faq from "$lib/components/Faq.svelte";
   import HarnessSelector from "$lib/components/HarnessSelector/HarnessSelector.svelte";
+  import Accordion from "$lib/components/Accordion.svelte";
   import CheckmarkIcon from "$lib/icons/ui/checkmark.svg?raw";
 
   import { faq } from "$lib/constants/faq.svelte";
@@ -268,46 +269,55 @@
     </div>
 
     <hr />
-    <div class="step">
-      <Badge style="dark">OPTIONAL STEP</Badge>
-      <h2>Pair your device with comma connect</h2>
-      <Grid templateColumns="0.875fr 0.75fr">
-        <div>
-          <img src={StepSixImage} loading="lazy" alt="comma connect application logo" />
+    <div class="optional-steps">
+      <Accordion style="dark">
+        <div class="optional-steps-label" slot="label">
+          <h2>Optional Steps</h2>
         </div>
-        <div>
-          <p>
-            Pair your comma four with <a href="https://connect.comma.ai/" target="_blank" class="highlight">connect.comma.ai</a> on your phone to see your recorded drives.
-          </p>
-          <br />
-          <LinkButton href="https://connect.comma.ai/" target="_blank" style="primary" fullWidth={true}>comma Connect</LinkButton>
-        </div>
-      </Grid>
-    </div>
+        <div class="optional-steps-content" slot="content">
+          <div class="step">
+            <Badge style="dark">OPTIONAL STEP</Badge>
+            <h2>Pair your device with comma connect</h2>
+            <Grid templateColumns="0.875fr 0.75fr">
+              <div>
+                <img src={StepSixImage} loading="lazy" alt="comma connect application logo" />
+              </div>
+              <div>
+                <p>
+                  Pair your comma four with <a href="https://connect.comma.ai/" target="_blank" class="highlight">connect.comma.ai</a> on your phone to see your recorded drives.
+                </p>
+                <br />
+                <LinkButton href="https://connect.comma.ai/" target="_blank" style="primary" fullWidth={true}>comma Connect</LinkButton>
+              </div>
+            </Grid>
+          </div>
 
-    <hr />
-    <div class="step">
-      <Badge style="dark">OPTIONAL STEP</Badge>
-      <h2>Add the comma power</h2>
-      <Grid templateColumns="0.875fr 0.75fr">
-        <div>
-          <img src={CommaPowerImage} loading="lazy" alt="comma power" />
+          <hr />
+          <div class="step">
+            <Badge style="dark">OPTIONAL STEP</Badge>
+            <h2>Add the comma power</h2>
+            <Grid templateColumns="0.875fr 0.75fr">
+              <div>
+                <img src={CommaPowerImage} loading="lazy" alt="comma power" />
+              </div>
+              <div>
+                <p>
+                  Installing the comma power is entirely optional and can be done at any time.
+                  Simply connect one end to your car's OBD-II port and the other to the harness box.
+                </p>
+                <p>
+                  With a comma power:
+                </p>
+                <ul>
+                  <li>The start and end of every drive are recorded.</li>
+                  <li>Your comma four remains powered and online while the car is off.</li>
+                  <li>Your comma four downloads updates while the car is off.</li>
+                </ul>
+              </div>
+            </Grid>
+          </div>
         </div>
-        <div>
-          <p>
-            Installing the comma power is entirely optional and can be done at any time.
-            Simply connect one end to your car's OBD-II port and the other to the harness box.
-          </p>
-          <p>
-            With a comma power:
-          </p>
-          <ul>
-            <li>The start and end of every drive are recorded.</li>
-            <li>Your comma four remains powered and online while the car is off.</li>
-            <li>Your comma four downloads updates while the car is off.</li>
-          </ul>
-        </div>
-      </Grid>
+      </Accordion>
     </div>
 
   </div>
@@ -563,6 +573,46 @@
           width: 100%;
           height: 100%;
         }
+      }
+    }
+  }
+
+  .optional-steps {
+    margin-bottom: 3rem;
+
+    & .optional-steps-label {
+      color: white;
+      background-color: black;
+      padding: 1.5rem 2rem;
+
+      & h2 {
+        margin: 0;
+        font-size: 1.75rem;
+        font-weight: 600;
+        color: white;
+      }
+    }
+
+    & .optional-steps-content {
+      border: 1px solid #000;
+      border-top: none;
+      padding: 2rem;
+      color: black;
+
+      & .step {
+        margin-bottom: 0;
+
+        & p, & li, & h2 {
+          color: black;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      & hr {
+        margin: 2rem 0;
       }
     }
   }
