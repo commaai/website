@@ -2385,6 +2385,21 @@
       ]
     },
     {
+      "name": "Kia K7 2017",
+      "model": "K7",
+      "years": "2017",
+      "year_list": "2017",
+      "package": "Smart Cruise Control (SCC)",
+      "video": "",
+      "setup_video": "",
+      "harness_connector": "Hyundai C",
+      "detail_sentence": "openpilot upgrades your <strong>Kia K7</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
+      "footnotes": [
+      ],
+      "setup_notes": [
+      ]
+    },
+    {
       "name": "Kia K8 Hybrid (with HDA II) 2023",
       "model": "K8 Hybrid (with HDA II)",
       "years": "2023",
