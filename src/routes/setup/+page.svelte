@@ -54,14 +54,14 @@
   <div class="container">
     <div class="header">
       <hgroup>
-        <span style="font-size: 1.5rem; margin-bottom: 0.5rem;">comma four & comma 3X</span>
+        <span style="font-size: 1.5rem; margin-bottom: 0.5rem;">comma four</span>
         <h2 style="font-size: 3rem; font-weight: 600;">Setup Guide</h2>
       </hgroup>
       <Grid columns={2} columnGap="5rem" rowGap="0" templateColumns="1.5fr 0.75fr" alignItems="start" size="large">
         <div class="title">
           <div class="media-container">
             <iframe
-              src="https://www.youtube.com/embed/hrA3czvBo2w?rel=0&amp;controls=1&amp;autoplay=0&amp;mute=0&amp;start=0"
+              src="https://www.youtube.com/embed/nw-U3FQVKxc?rel=0&amp;controls=1&amp;autoplay=0&amp;mute=0&amp;start=0"
               frameborder="0"
               allow="autoplay; encrypted-media"
               allowfullscreen=""
@@ -88,7 +88,7 @@
                 <Grid rowGap={0} columnGap="1rem" alignItems="center" size="small">
                   <div class="content-header">
                     <img src={CommaFourDeviceImage} loading="lazy" alt="comma four" />
-                    <span><a href="/shop/comma-four" target="_blank" class="highlight">comma four</a> or comma 3X</span>
+                    <span><a href="/shop/comma-four" target="_blank" class="highlight">comma four</a></span>
                   </div>
                   <span class="muted">$999</span>
                 </Grid>
