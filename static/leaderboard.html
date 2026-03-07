@@ -128,6 +128,27 @@ twq('config','oaolc');
 
 <body>
 
+<a href="https://comma.ai/hack" target="_blank" id="hack-banner" style="display:block;background-color:#51ff00;text-align:center;padding:1rem 0;font-family:monospace;font-size:1.25em;color:black;text-decoration:none;">
+  <b>COMMA_HACK is back!</b> March 27-29 @ comma HQ. 30 people, $10k in prizes. <span style="text-decoration:underline;">Apply here.</span>
+  <div id="hack-countdown" style="font-size:0.75em;margin-top:0.5rem;"></div>
+</a>
+<script>
+  (function() {
+    var end = new Date("2026-03-27T17:00:00.000Z").getTime();
+    var el = document.getElementById("hack-countdown");
+    function update() {
+      var d = end - Date.now();
+      if (d < 0) { el.style.display = "none"; return; }
+      var days = Math.floor(d / 86400000);
+      var hrs = Math.floor((d % 86400000) / 3600000);
+      var mins = Math.floor((d % 3600000) / 60000);
+      var secs = Math.floor((d % 60000) / 1000);
+      el.textContent = "Starts in " + days + " days, " + String(hrs).padStart(2,"0") + ":" + String(mins).padStart(2,"0") + ":" + String(secs).padStart(2,"0");
+    }
+    update();
+    setInterval(update, 1000);
+  })();
+</script>
 
 <h1>comma.ai leaderboard</h1>
 
