@@ -54,12 +54,10 @@
     </div>
 
     <hgroup class="headline">
-      <span>Don't see your car?</span>
       <p>
-        If you don't see your car, it's not currently supported, however new cars are added with each openpilot release.
-      </p>
-      <p>
+        This list shows the cars and features supported in openpilot release, and is updated with every release.
         <a href="#mailing-list" class="highlight">Join the mailing list</a> to stay updated.
+        Some forks or alpha versions of openpilot may support more cars or features, but we highly recommend using only openpilot release.
       </p>
       <br>
       <p>
