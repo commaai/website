@@ -57,6 +57,9 @@
       <p>
         This list shows the cars and features supported in openpilot release, and is updated with every release.
         <a href="#mailing-list" class="highlight">Join the mailing list</a> to stay updated.
+      </p>
+      <br>
+      <p>
         Some forks or alpha versions of openpilot may support more cars or features, but we highly recommend using only openpilot release.
       </p>
       <br>
