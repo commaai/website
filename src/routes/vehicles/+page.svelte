@@ -54,6 +54,7 @@
     </div>
 
     <hgroup class="headline">
+      <span>Don't see your car?</span>
       <p>
         This list shows the cars and features supported in openpilot release, and is updated with every release.
         <a href="#mailing-list" class="highlight">Join the mailing list</a> to stay updated.
