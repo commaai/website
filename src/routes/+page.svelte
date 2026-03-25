@@ -16,7 +16,7 @@
   import LocationIcon from "$lib/icons/features/location.svg?raw";
   import RecordingsIcon from "$lib/icons/features/recordings.svg?raw";
 
-  const R2_BASE = "https://pub-0842f7bef15641a987bbfa0d4d55f876.r2.dev";
+  const R2_BASE = "https://3comma.net";
   const HeroLandscapeVideo = `${R2_BASE}/hero-landscape/hero-landscape.m3u8`;
   const HeroPortraitVideo = `${R2_BASE}/hero-portrait/hero-portrait.m3u8`;
   const ScreenVideo = `${R2_BASE}/screen-video/screen-video.m3u8`;
