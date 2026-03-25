@@ -16,9 +16,10 @@
   import LocationIcon from "$lib/icons/features/location.svg?raw";
   import RecordingsIcon from "$lib/icons/features/recordings.svg?raw";
 
-  const HeroLandscapeVideo = "/videos/hero-landscape/hero-landscape.m3u8";
-  const HeroPortraitVideo = "/videos/hero-portrait/hero-portrait.m3u8";
-  const ScreenVideo = "/videos/screen-video/screen-video.m3u8";
+  const CDN_BASE = "https://3comma.net";
+  const HeroLandscapeVideo = `${CDN_BASE}/hero-landscape/hero-landscape.m3u8`;
+  const HeroPortraitVideo = `${CDN_BASE}/hero-portrait/hero-portrait.m3u8`;
+  const ScreenVideo = `${CDN_BASE}/screen-video/screen-video.m3u8`;
 
   let videoLandscapeElement;
   let videoLandscapeReady = false;
@@ -91,16 +92,16 @@
 </script>
 
 <svelte:head>
-  <link rel="preload" as="image" href="/videos/hero-landscape/poster.jpg" />
-  <link rel="preload" as="image" href="/videos/hero-portrait/poster.jpg" />
-  <link rel="preload" as="image" href="/videos/screen-video/poster.jpg" />
+  <link rel="preload" as="image" href="{CDN_BASE}/hero-landscape/poster.jpg" />
+  <link rel="preload" as="image" href="{CDN_BASE}/hero-portrait/poster.jpg" />
+  <link rel="preload" as="image" href="{CDN_BASE}/screen-video/poster.jpg" />
 </svelte:head>
 
-<section class="hero-image desktop" style="background-image: url('/videos/hero-landscape/poster.jpg');" on:dragstart={handleDragStart} role="img" aria-label="Hero image">
+<section class="hero-image desktop" style="background-image: url('{CDN_BASE}/hero-landscape/poster.jpg');" on:dragstart={handleDragStart} role="img" aria-label="Hero image">
   <video
     bind:this={videoLandscapeElement}
     class:ready={videoLandscapeReady}
-    poster="/videos/hero-landscape/poster.jpg"
+    poster="{CDN_BASE}/hero-landscape/poster.jpg"
     autoplay
     muted
     loop
@@ -110,11 +111,11 @@
 </section>
 
 
-<section class="hero-image mobile" style="background-image: url('/videos/hero-portrait/poster.jpg');" on:dragstart={handleDragStart} role="img" aria-label="Hero image">
+<section class="hero-image mobile" style="background-image: url('{CDN_BASE}/hero-portrait/poster.jpg');" on:dragstart={handleDragStart} role="img" aria-label="Hero image">
   <video
     bind:this={videoPortraitElement}
     class:ready={videoPortraitReady}
-    poster="/videos/hero-portrait/poster.jpg"
+    poster="{CDN_BASE}/hero-portrait/poster.jpg"
     autoplay
     muted
     loop
@@ -136,7 +137,7 @@
         <video
           bind:this={screenVideoElement}
           class:ready={screenVideoReady}
-          poster="/videos/screen-video/poster.jpg"
+          poster="{CDN_BASE}/screen-video/poster.jpg"
           autoplay
           muted
           loop
