@@ -11,6 +11,8 @@
     display: block;
     text-decoration: none;
     color: black;
+    position: relative;
+    z-index: 1;
     background-color: var(--color-accent);
   }
 
