@@ -1,0 +1,159 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Grid from "../components/Grid.astro";
+
+import { supportFaqs } from '$lib/constants/support.js';
+import { faq } from '$lib/constants/faq.js';
+---
+
+<Layout title="Support — comma.ai">
+  <section class="light" id="support">
+    <div class="container">
+      <h1>comma support</h1>
+      <div class="faq-sections">
+        {Object.values(supportFaqs).map((section: any) => (
+          <div class="faq-section">
+            {section.questions.map((entry: any) => (
+              <>
+                <details>
+                  <summary>
+                    <div class="label">
+                      <span>{entry.question}</span>
+                    </div>
+                  </summary>
+                  <div class="details">
+                    <Fragment set:html={entry.answer} />
+                  </div>
+                </details>
+                <hr />
+              </>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="light" id="faq">
+    <div class="container">
+      <h1>FAQs</h1>
+      {Object.keys(faq).map((key) => (
+        <div class="faq-card">
+          <h2>{faq[key].title}</h2>
+          {faq[key].questions.map((q) => (
+            <details class="faq-item">
+              <summary>{q.question}</summary>
+              <div class="faq-answer">
+                <Fragment set:html={q.answer} />
+              </div>
+            </details>
+          ))}
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>
+
+<style>
+  #support {
+    & h2 {
+      margin-bottom: 2rem;
+    }
+
+    & h3 {
+      font-size: 1.875rem;
+      font-weight: 600;
+      margin-top: 0;
+      margin-bottom: 2rem;
+    }
+
+    & :global(a) {
+      color: #000;
+      border-bottom: 2px solid #86ff4e;
+      background-color: rgba(134, 255, 78, 0.15);
+    }
+
+    & li {
+      font-size: 1.25rem;
+    }
+
+    & details {
+      & summary {
+        cursor: pointer;
+        list-style: none;
+      }
+
+      & summary::-webkit-details-marker {
+        display: none;
+      }
+    }
+  }
+
+  #faq {
+    & .faq-card {
+      margin-bottom: 3rem;
+    }
+
+    & .faq-item {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+      padding: 1rem 0;
+
+      & summary {
+        cursor: pointer;
+        font-size: 1.125rem;
+        font-weight: 600;
+        list-style: none;
+      }
+
+      & summary::-webkit-details-marker {
+        display: none;
+      }
+    }
+
+    & .faq-answer {
+      padding: 1rem 0;
+      font-size: 1.125rem;
+      line-height: 1.6;
+
+      & :global(a) {
+        color: #000;
+        border-bottom: 2px solid #86ff4e;
+        background-color: rgba(134, 255, 78, 0.15);
+      }
+    }
+  }
+
+  .faq-sections {
+    margin: 2rem 0;
+  }
+
+  .faq-section {
+    margin-bottom: 3rem;
+  }
+
+  .label {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 1rem 0;
+    margin-right: 0.75rem;
+  }
+
+  .details {
+    font-size: 1.25rem !important;
+    line-height: 1.4;
+    padding: 0.25rem 0 1rem;
+  }
+
+  .details :global(a) {
+    color: #000;
+    border-bottom: 2px solid #86ff4e;
+    background-color: rgba(134, 255, 78, 0.15);
+    text-decoration: none;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid var(--surface-2);
+    margin: 0;
+  }
+</style>

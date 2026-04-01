@@ -1,0 +1,133 @@
+---
+import IconChevron from '$lib/icons/icon-chevron.svg?raw';
+
+interface Props {
+  id?: string;
+  type?: "checkbox" | "radio";
+  checked?: boolean;
+  style?: "light" | "dark";
+  foregroundColor?: string | null;
+  backgroundColor?: string | null;
+}
+
+const {
+  id = Math.random().toString(16).slice(2),
+  type = "checkbox",
+  checked = false,
+  style = "light",
+  foregroundColor = null,
+  backgroundColor = null,
+} = Astro.props;
+
+const fgColor = foregroundColor ?? (style === 'light' ? 'black' : 'white');
+const bgColor = backgroundColor ?? (style === 'light' ? 'white' : 'black');
+---
+
+<div
+  class="tab"
+  style={`--foreground-color: ${fgColor}; --background-color: ${bgColor};`}
+>
+  <input {type} name={id} {id} checked={checked} class="accordion-input" />
+  <label for={id}>
+    <slot name="label" />
+    <span class="chevron"><Fragment set:html={IconChevron} /></span>
+  </label>
+  <div class="content">
+    <slot name="content" />
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('.tab').forEach((tab) => {
+    const input = tab.querySelector('.accordion-input');
+    const content = tab.querySelector('.content');
+    if (!input || !content) return;
+
+    // Set initial state
+    content.style.display = input.checked ? 'block' : 'none';
+
+    input.addEventListener('click', () => {
+      if (input.checked) {
+        content.style.display = 'block';
+        content.style.maxHeight = '0px';
+        requestAnimationFrame(() => {
+          content.style.maxHeight = `${content.scrollHeight}px`;
+        });
+      } else {
+        content.style.maxHeight = `${content.scrollHeight}px`;
+        requestAnimationFrame(() => {
+          content.style.maxHeight = '0px';
+        });
+      }
+    });
+
+    content.addEventListener('transitionend', () => {
+      if (!input.checked) {
+        content.style.display = 'none';
+      }
+      content.style.maxHeight = null;
+    });
+  });
+</script>
+
+<style>
+  .tab input {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+  }
+
+  .content {
+    max-height: 0;
+    overflow: hidden;
+    color: var(--foreground-color);
+    transition: max-height 0.6s cubic-bezier(0, 1, 0, 1);
+  }
+
+  .tab input:checked ~ .content {
+    max-height: 10000px;
+    transition: max-height 0.6s ease-in-out;
+    animation: allow-overflow 0.6s forwards;
+  }
+
+  @keyframes allow-overflow {
+    0% {
+      overflow: hidden;
+    }
+    99% {
+      overflow: hidden;
+    }
+    100% {
+      overflow: visible;
+    }
+  }
+
+  label {
+    cursor: pointer;
+    display: grid;
+    align-items: center;
+    position: relative;
+    background-color: var(--background-color);
+    padding-right: 4rem;
+
+    & > * {
+      color: var(--foreground-color);
+    }
+  }
+
+  .chevron {
+    position: absolute;
+    right: 2rem;
+    transition: transform 0.6s;
+    color: var(--foreground-color);
+    & > :global(svg) {
+      color: var(--foreground-color);
+      width: 18px;
+      height: 12px;
+    }
+  }
+
+  input:checked + label .chevron {
+    transform: rotate(180deg);
+  }
+</style>

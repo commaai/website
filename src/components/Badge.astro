@@ -1,0 +1,45 @@
+---
+interface Props {
+  style?: "dark" | "light" | "accent";
+  display?: string;
+}
+
+const { style = "dark", display = "block" } = Astro.props;
+---
+
+<div
+  class:list={[
+    { dark: style === "dark" },
+    { light: style === "light" },
+    { accent: style === "accent" },
+  ]}
+  style={`display: ${display}`}
+>
+  <slot />
+</div>
+
+<style>
+  div {
+    font-family: JetBrains Mono, monospace;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    width: fit-content;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .dark {
+    background-color: #232323;
+    color: #fff;
+  }
+
+  .light {
+    background-color: #fff;
+    color: black;
+  }
+
+  .accent {
+    background-color: var(--color-accent);
+    color: var(--color-background);
+  }
+</style>

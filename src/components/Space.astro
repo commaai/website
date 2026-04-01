@@ -1,0 +1,9 @@
+---
+interface Props {
+  multiplier?: number;
+}
+
+const { multiplier = 1 } = Astro.props;
+---
+
+<div style={`height: ${multiplier * 1}rem`} />

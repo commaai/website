@@ -1,0 +1,532 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Grid from "../components/Grid.astro";
+import LinkButton from "../components/LinkButton.astro";
+import NoteCard from "../components/NoteCard.astro";
+import Faq from "../components/Faq.astro";
+import CommunityBanner from "../components/CommunityBanner.astro";
+
+import { faq } from '$lib/constants/faq.js';
+
+import vehicles from '$lib/vehicles.json';
+import compatibilityMeta from '$lib/compatibility-meta.json';
+
+import YoutubeIcon from '$lib/icons/social/youtube.svg?raw';
+import InfoIcon from '$lib/icons/ui/info.svg?raw';
+import CarIcon from '$lib/icons/features/car.svg?raw';
+
+import CommaFourImage from '$lib/images/products/comma-four/four_screen_on.png';
+
+import { FOUR_PRICE } from '$lib/constants/prices.js';
+import { vehicleCountText } from '$lib/constants/vehicles.js';
+
+import { imgSrc } from "$lib/utils/img.js";
+
+const brand_images = import.meta.glob('/src/lib/images/vehicles/brand-icons/*.png', { eager: true, import: 'default' });
+const fourImgSrc = imgSrc(CommaFourImage);
+---
+
+<Layout title="Vehicles — comma.ai">
+  <div class="vehicles-cover-image"></div>
+
+  <section id="vehicles" class="light">
+    <div class="container">
+      <Grid columnGap="4rem" rowGap="2rem" templateColumns="1.25fr 1fr">
+        <div class="title">
+          openpilot supports {vehicleCountText} vehicles
+        </div>
+        <div class="description">
+          A supported vehicle is one that just works when you install a comma four.
+          All supported cars provide a better experience than any stock system.
+          Supported vehicles reference the US market unless otherwise specified.
+        </div>
+      </Grid>
+
+      <div class="compatibility-make-links">
+        {Object.entries(vehicles).map(([brand, cars]) => {
+          if ((cars).length === 0) return null;
+          const brand_img_path = `/src/lib/images/vehicles/brand-icons/Logo-${brand}.png`;
+          const brandImg = brand_images[brand_img_path];
+          return (
+            <div class="compatibility-make-element">
+              <a href={`#${brand.toLowerCase()}`} class="compatibility-make-anchor-link">
+                {brandImg && <img src={imgSrc(brandImg)} loading="eager" alt={`${brand} car brand`} />}
+              </a>
+              <div class="compatibility-make-name">{brand}</div>
+            </div>
+          );
+        })}
+      </div>
+
+      <hgroup class="headline">
+        <span>Don't see your car?</span>
+        <p>
+          If you don't see your car, it's not currently supported, however new cars are added with each openpilot release.
+        </p>
+        <p>
+          <a href="#mailing-list" class="highlight">Join the mailing list</a> to stay updated.
+        </p>
+        <br />
+        <p>
+          If you have a modern car and some programming skills, you can likely add support for your car.
+        </p>
+        <p>
+          Watch
+          <a href="https://youtu.be/XxPS5TpTUnI" class="highlight">this talk</a>
+          and check out the
+          <a href="https://github.com/commaai/openpilot/blob/master/docs/CARS.md#dont-see-your-car-here" class="highlight">docs</a>
+          to learn more.
+        </p>
+      </hgroup>
+
+      <p class="last-updated">Last updated: {(compatibilityMeta).last_updated}</p>
+
+      <div class="recommended-cars">
+        <hgroup>
+          <span>Our favorite openpilot cars</span>
+          <p>Generally, newer Hyundai and Toyota models are great choices. These are some of our favorites:</p>
+        </hgroup>
+        <div class="recommended-car-columns">
+          <Grid columns={4} size="large" wrapMode="single">
+            <div class="recommended-car-stack">
+              <strong>EV</strong>
+              <div>Kia EV6</div>
+              <div>Hyundai Ioniq 5</div>
+              <div>Toyota Prius 2021-22</div>
+            </div>
+            <div class="recommended-car-stack">
+              <strong>SUV</strong>
+              <div>Toyota Highlander 2020-23</div>
+              <div>Hyundai Palisade 2020-22</div>
+            </div>
+            <div class="recommended-car-stack">
+              <strong>Sedan</strong>
+              <div>Toyota Corolla 2020-22</div>
+              <div>Hyundai Sonata 2020-23</div>
+            </div>
+            <div class="recommended-car-stack">
+              <strong>Truck</strong>
+              <div>Ram 1500 2019-24</div>
+              <div>Chevrolet Silverado 1500 2020-21</div>
+            </div>
+          </Grid>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="light" id="compatibility-chart">
+    <div class="container" style="width:85%; max-width: 60rem">
+      {Object.entries(vehicles).map(([make, cars]) => {
+        if ((cars).length === 0) return null;
+        const brand_img_path = `/src/lib/images/vehicles/brand-icons/Logo-${make}.png`;
+        const brandImg = brand_images[brand_img_path];
+        return (
+          <>
+            <div id={make.toLowerCase()} class="car-make-header">
+              {brandImg && <img src={imgSrc(brandImg)} alt={`${make} car brand`} />}
+              <h3>{make} <span class="muted">({(cars).length})</span></h3>
+            </div>
+            {(cars).map((car_info) => (
+              <div class="car-row">
+                <details>
+                  <summary>
+                    <div class="car-details-wrapper">
+                      <div class="car-details">
+                        <div class="model"><strong>{car_info.model}</strong></div>
+                        <div class="year">{car_info.year_list}</div>
+                      </div>
+                      <div class="video-icon-wrapper">
+                        {car_info.video !== "" && (
+                          <a href={car_info.video} target="_blank"><Fragment set:html={YoutubeIcon} /></a>
+                        )}
+                      </div>
+                    </div>
+                  </summary>
+                  <div class="detail-content">
+                    <div class="car-detail-content-wrapper">
+                      <Grid columns={2} rowGap="0" columnGap="2rem" templateColumns="3fr 2fr">
+                        <div>
+                          <div class="car-detail-tier"><Fragment set:html={car_info.detail_sentence} /></div>
+                          <div class="cards">
+                            <NoteCard title="Support" icon={CarIcon} style="elevated">
+                              {car_info.package !== 'All' ? (
+                                <span>openpilot requires the car to come equipped with <b>{car_info.package}</b>.</span>
+                              ) : (
+                                <span>openpilot will work with <b>all packages and trims</b> of this car.</span>
+                              )}
+                            </NoteCard>
+                            {(car_info.footnotes).map((footnote) => (
+                              <NoteCard title="Note" icon={InfoIcon} style="elevated">
+                                <Fragment set:html={footnote} />
+                              </NoteCard>
+                            ))}
+                          </div>
+                        </div>
+                        <div class="device-promotion-card">
+                          <div class="product-wrapper">
+                            <img src={fourImgSrc} loading="lazy" alt="comma four device" />
+                            <hgroup>
+                              <strong>comma four</strong>
+                              <div class="understated-price">${FOUR_PRICE}</div>
+                              {car_info.harness_connector !== "" && (
+                                <>
+                                  <strong>car harness: {car_info.harness_connector}</strong>
+                                  <div class="understated-price">included</div>
+                                </>
+                              )}
+                            </hgroup>
+                          </div>
+                          <LinkButton
+                            href={`/shop/comma-four?harness=${car_info.name}`}
+                            style="primary"
+                            fullWidth
+                            thin
+                          >
+                            Buy now
+                          </LinkButton>
+                          <div class="promo-description">
+                            <strong>30-day money-back trial</strong>
+                            <div>Don't love it? It's easy to return your device within <strong>30 days</strong> after receiving it for a full refund.</div>
+                          </div>
+                        </div>
+                      </Grid>
+                    </div>
+                  </div>
+                </details>
+              </div>
+            ))}
+          </>
+        );
+      })}
+    </div>
+  </section>
+
+  <section class="light" id="faq">
+    <div class="container">
+      <Faq topic={faq.openpilot} title="openpilot FAQ" />
+    </div>
+  </section>
+
+  <section class="dark" id="community">
+    <div class="container">
+      <CommunityBanner />
+    </div>
+  </section>
+</Layout>
+
+<style>
+  section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .vehicles-cover-image {
+    background-image: url("/videos/hero-landscape/poster.jpg");
+    background-position: 50% 30%;
+    background-size: cover;
+    background-attachment: scroll;
+    height: 287px;
+  }
+
+  #vehicles {
+    padding-bottom: 0;
+
+    & .title {
+      text-transform: uppercase;
+      font-family: Monument Extended Black, sans-serif;
+      font-size: 2rem;
+      font-weight: 600;
+      line-height: 1.2;
+
+      @media screen and (max-width: 512px) {
+        font-size: 1.5rem;
+      }
+    }
+
+    & .description {
+      font-size: 1.25rem;
+      font-weight: 400;
+      line-height: 1.3;
+    }
+
+    & .headline {
+      margin: 3rem auto 0;
+
+      & span {
+        margin-bottom: 0.5rem;
+      }
+
+      & p {
+        margin: 0;
+        text-wrap: balance;
+      }
+    }
+
+    & hgroup {
+      text-align: center;
+      font-size: 1.25rem;
+
+      & span {
+        font-size: 1.5rem;
+        font-weight: 700;
+        display: block;
+      }
+
+      & p {
+        margin-top: 0.5rem;
+      }
+    }
+
+    & .compatibility-make-links {
+      display: grid;
+      grid-gap: 1rem;
+      grid-template-columns: repeat(auto-fit, 105px);
+      justify-content: space-between;
+      margin: 2rem 0 3rem;
+    }
+
+    & .compatibility-make-element {
+      width: 105px;
+      margin-bottom: 1.5rem;
+    }
+
+    @media screen and (max-width: 480px) {
+      & .compatibility-make-links {
+        grid-template-columns: repeat(auto-fit, 85px);
+      }
+      & .compatibility-make-element {
+        width: 85px;
+      }
+    }
+
+    & .compatibility-make-anchor-link {
+      border: 1px solid rgba(0, 0, 0, .12);
+      padding: 4px;
+      transition: all 0.2s;
+      display: block;
+
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          transform: scale(1.02);
+          border: 1px solid rgba(0, 0, 0, .5);
+        }
+      }
+      &:active {
+        transform: scale(1.02);
+        border: 1px solid rgba(0, 0, 0, .5);
+      }
+    }
+
+    & .compatibility-make-name {
+      text-align: center;
+      margin-top: .5rem;
+      line-height: 1.2;
+    }
+  }
+
+  .last-updated {
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+
+  .recommended-cars {
+    width: 85%;
+    margin: 2rem auto;
+    background-color: var(--color-card-background);
+    border: 1px solid rgba(0, 0, 0, .4);
+    padding: 2rem 1rem;
+
+    & .recommended-car-columns {
+      margin-top: 3rem;
+
+      & .recommended-car-stack {
+        text-align: center;
+        font-size: 1.25rem;
+
+        & strong {
+          margin-bottom: .5rem;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+
+  .car-make-header {
+    background-color: #000;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 2rem;
+    margin-bottom: 0;
+    padding: 1rem;
+    display: flex;
+
+    & img {
+      width: 48px;
+      margin-right: 1rem;
+    }
+
+    & h3 {
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.5em;
+      margin: 0;
+
+      & .muted {
+        color: #fff;
+        font-weight: 700;
+        opacity: .65;
+      }
+    }
+  }
+
+  .car-row {
+    background-color: var(--color-card-background);
+    border-bottom: 1px solid rgba(0, 0, 0, .4);
+
+    & details {
+      & summary {
+        cursor: pointer;
+        list-style: none;
+      }
+
+      & summary::-webkit-details-marker {
+        display: none;
+      }
+    }
+  }
+
+  .car-details-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 16px;
+
+    & .car-details {
+      display: flex;
+      flex: 1;
+
+      @media screen and (max-width: 768px) {
+        & {
+          flex-flow: column wrap;
+        }
+      }
+
+      & .model {
+        flex: 1;
+        margin-right: 8px;
+        font-weight: 600;
+        padding-right: 20px;
+      }
+
+      & .year {
+        flex: 2;
+      }
+    }
+
+    & .video-icon-wrapper {
+      width: 20px;
+      height: 20px;
+      margin-left: 2rem;
+
+      & :global(svg) {
+        color: #ff0000;
+      }
+    }
+  }
+
+  .detail-content {
+    width: 100% !important;
+  }
+
+  .car-detail-content-wrapper {
+    padding: 12px 16px 16px;
+    display: block;
+  }
+
+  .car-detail-tier {
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+  }
+
+  .device-promotion-card {
+    background-color: rgba(68, 65, 58, .12);
+    border: 1px solid rgba(117, 93, 36, .25);
+    padding: .75rem;
+    font-size: 14px;
+
+    & .product-wrapper {
+      justify-content: space-between;
+      align-items: center;
+      display: flex;
+      margin-bottom: 0.75rem;
+
+      & img {
+        width: 64px;
+        height: 64px;
+        padding: 0.25rem;
+        margin-right: .75rem;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        object-fit: contain;
+      }
+
+      & hgroup {
+        flex: 1;
+        margin-right: .75rem;
+
+        & strong {
+          font-size: 1rem;
+          font-weight: 600;
+        }
+
+        & .understated-price {
+          opacity: .65;
+        }
+
+        & div {
+          font-size: .875rem;
+        }
+      }
+    }
+
+    & .promo-description {
+      border-top: 1px solid rgba(117, 93, 36, .25);
+      margin: .5rem 0;
+      padding-top: .75rem;
+      font-size: 1rem;
+    }
+  }
+
+  #faq {
+    margin-bottom: 3rem;
+  }
+
+  .community-banner {
+    text-align: center;
+    padding: 3rem;
+
+    & h2 {
+      color: white;
+    }
+
+    & p {
+      color: white;
+      opacity: 0.65;
+    }
+
+    & .community-links {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      margin-top: 1rem;
+
+      & a {
+        color: white;
+        font-size: 1.25rem;
+        border-bottom: 1px solid white;
+      }
+    }
+  }
+</style>

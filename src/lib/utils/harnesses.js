@@ -1,8 +1,25 @@
-import { writable } from 'svelte/store';
 import Vehicles from '$lib/vehicles.json';
 import CarHarnesses from '$lib/constants/car-harnesses.json';
 
 import { getProduct } from '$lib/utils/shopify';
+
+// Simple store without Svelte
+function createStore(initialValue) {
+  let value = initialValue;
+  const listeners = new Set();
+  return {
+    get() { return value; },
+    set(newValue) {
+      value = newValue;
+      listeners.forEach(fn => fn(value));
+    },
+    subscribe(fn) {
+      listeners.add(fn);
+      fn(value);
+      return () => listeners.delete(fn);
+    }
+  };
+}
 
 async function fetchHarnessVariants() {
   const harnessResponse = await getProduct("gid://shopify/Product/4447447908415");
@@ -17,16 +34,15 @@ async function fetchHarnessVariants() {
 }
 
 let initialized = false;
-const vehicleHarnesses = writable([]); // List of vehicle model harnesses, excluding developer and generic make harnesses
-const genericHarnesses = writable([]); // List of developer and generic make harnesses
-const allHarnesses = writable([]); // List of all vehicle model harnesses, including developer and generic make harnesses
+const vehicleHarnesses = createStore([]);
+const genericHarnesses = createStore([]);
+const allHarnesses = createStore([]);
 
 async function initializeHarnesses() {
   if (initialized) return;
 
   const harnessInfo = await fetchHarnessVariants();
 
-  // Add harnesses for vehicles
   let vehiclesHarnessList = Object.entries(Vehicles).flatMap(([make, models]) => {
     return models.map(model => {
       if (model.name === 'comma body') return false;
@@ -41,7 +57,7 @@ async function initializeHarnesses() {
         make,
         car: model.name,
         package: model.package,
-        backordered: harness?.backordered,  // these overrides are only shown if the harness is out of stock in Shopify
+        backordered: harness?.backordered,
         setupNotes: model.setup_notes,
         setupVideo: model.setup_video,
       };
@@ -49,7 +65,6 @@ async function initializeHarnesses() {
   });
   vehicleHarnesses.set(vehiclesHarnessList);
 
-  // Add developer and generic make harnesses
   let genericHarnessList = CarHarnesses.map(harness => {
     return {
       ...harnessInfo[harness.id],
@@ -60,7 +75,6 @@ async function initializeHarnesses() {
   });
   genericHarnesses.set(genericHarnessList);
 
-  // Combine the two lists
   let allHarnessList = vehiclesHarnessList.concat(genericHarnessList);
   allHarnesses.set(allHarnessList);
 

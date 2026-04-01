@@ -9,7 +9,7 @@ node_modules
 
 # Output
 .output
-/.svelte-kit
+.astro
 /build
 .firebase
 firebase-debug.log

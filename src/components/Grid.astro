@@ -1,0 +1,75 @@
+---
+interface Props {
+  columns?: number;
+  alignItems?: string;
+  columnGap?: string;
+  rowGap?: string;
+  size?: "small" | "medium" | "large";
+  wrapMode?: "half" | "single" | "none";
+  templateColumns?: string;
+  lgColumnGap?: string;
+  lgTemplateColumns?: string;
+}
+
+const {
+  columns = 2,
+  alignItems = "flex-start",
+  columnGap = "3rem",
+  rowGap = "1.5rem",
+  size = "medium",
+  wrapMode = "half",
+  templateColumns = "repeat(var(--columns), 1fr)",
+  lgColumnGap,
+  lgTemplateColumns,
+} = Astro.props;
+
+const wrappedColumns = wrapMode === 'single' ? 1 : (wrapMode === 'half' ? Math.floor(columns / 2) : columns);
+---
+
+<div
+  class:list={[
+    "grid",
+    { small: size === "small" },
+    { medium: size === "medium" },
+    { large: size === "large" },
+  ]}
+  style={`--columns: ${columns}; --align-items: ${alignItems}; --column-gap: ${columnGap}; --row-gap: ${rowGap}; --wrapped-columns: ${wrappedColumns}; --template-columns: ${templateColumns}; --lg-column-gap: ${lgColumnGap ?? columnGap}; --lg-template-columns: ${lgTemplateColumns ?? templateColumns};`}
+>
+  <slot />
+</div>
+
+<style>
+  .grid {
+    grid-column-gap: var(--column-gap);
+    grid-row-gap: var(--row-gap);
+    margin-bottom: var(--margin-bottom);
+    grid-template-rows: auto auto;
+    grid-template-columns: var(--template-columns);
+    grid-auto-columns: 1fr;
+    display: grid;
+    align-items: var(--align-items);
+  }
+
+  @media (max-width: 480px) {
+    .grid.small {
+      grid-template-columns: repeat(var(--wrapped-columns), 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .grid.medium {
+      grid-template-columns: repeat(var(--wrapped-columns), 1fr);
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .grid.large {
+      grid-template-columns: repeat(var(--wrapped-columns), 1fr);
+    }
+
+    .grid {
+      grid-template-columns: var(--lg-template-columns);
+      column-gap: var(--lg-column-gap);
+    }
+  }
+</style>

@@ -1,0 +1,494 @@
+---
+import NoteCard from '../NoteCard.astro';
+
+import ChevronIcon from '$lib/icons/icon-chevron.svg?raw';
+import CloseIcon from '$lib/icons/ui/close.svg?raw';
+import CarIcon from '$lib/icons/features/car.svg?raw';
+
+interface Props {
+  label?: string;
+  placeholder?: string;
+  showNoHarnessOption?: boolean;
+  showVehicleHarnesses?: boolean;
+  showGenericHarnesses?: boolean;
+  hideSupportNoteCard?: boolean;
+}
+
+const {
+  label = "Select vehicle",
+  placeholder = "Search for a vehicle or harness",
+  showNoHarnessOption = false,
+  showVehicleHarnesses = true,
+  showGenericHarnesses = true,
+  hideSupportNoteCard = false,
+} = Astro.props;
+---
+
+<div
+  class="harness-selector"
+  data-label={label}
+  data-placeholder={placeholder}
+  data-show-no-harness={showNoHarnessOption ? "true" : "false"}
+  data-show-vehicle={showVehicleHarnesses ? "true" : "false"}
+  data-show-generic={showGenericHarnesses ? "true" : "false"}
+  data-hide-note-card={hideSupportNoteCard ? "true" : "false"}
+>
+  <div class="dropdown">
+    <div class="dropdown-top">
+      <button class="clear" style="display:none"><Fragment set:html={CloseIcon} /></button>
+      <div class="selection-placeholder" role="button" tabindex="0">
+        <div class="label">{label}</div>
+        <div class="accessory">
+          <slot name="accessoryLabel" />
+        </div>
+      </div>
+      <input
+        type="text"
+        placeholder={placeholder}
+        autocomplete="off"
+        class="search-input"
+        style="display:none"
+      />
+      <div class="selected-item" style="display:none"></div>
+      <span class="chevron"><Fragment set:html={ChevronIcon} /></span>
+    </div>
+    <div class="dropdown-content"></div>
+  </div>
+  <div class="support-note" style="display:none"></div>
+</div>
+
+<script>
+  import { allHarnesses, vehicleHarnesses, genericHarnesses } from '$lib/utils/harnesses';
+  import { selectedCar } from '../../store';
+  import { NO_HARNESS_OPTION } from '$lib/constants/vehicles.js';
+
+  document.querySelectorAll('.harness-selector').forEach((el) => {
+    const label = el.dataset.label;
+    const placeholder = el.dataset.placeholder;
+    const showNoHarnessOption = el.dataset.showNoHarness === 'true';
+    const showVehicle = el.dataset.showVehicle === 'true';
+    const showGeneric = el.dataset.showGeneric === 'true';
+    const hideNoteCard = el.dataset.hideNoteCard === 'true';
+
+    const dropdown = el.querySelector('.dropdown');
+    const dropdownTop = el.querySelector('.dropdown-top');
+    const dropdownContent = el.querySelector('.dropdown-content');
+    const searchInput = el.querySelector('.search-input');
+    const selectionPlaceholder = el.querySelector('.selection-placeholder');
+    const selectedItemEl = el.querySelector('.selected-item');
+    const clearBtn = el.querySelector('.clear');
+    const supportNote = el.querySelector('.support-note');
+
+    let menuOpen = false;
+    let selection = undefined;
+    let inputValue = '';
+    let harnesses = [];
+
+    // Determine which harness store to use
+    const harnessStore = showVehicle && showGeneric ? allHarnesses : showVehicle ? vehicleHarnesses : genericHarnesses;
+
+    // Normalize diacritics for matching
+    function normalizeDiacritics(str) {
+      return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    }
+
+    function getFilteredItems() {
+      if (!inputValue) return harnesses;
+      return harnesses.filter(item =>
+        normalizeDiacritics(item.car.toLowerCase()).match(normalizeDiacritics(inputValue.toLowerCase()))
+      );
+    }
+
+    function updateQueryParams(selectedHarness) {
+      const searchParams = new URLSearchParams();
+      if (selectedHarness) {
+        searchParams.set("harness", encodeURIComponent(selectedHarness.car));
+      }
+      const newUrl = `?${searchParams.toString()}`;
+      window.history.replaceState(null, null, newUrl);
+    }
+
+    function renderDropdownItem(item, isSelected) {
+      const div = document.createElement('div');
+      div.className = 'dropdown-item';
+      div.setAttribute('role', 'option');
+      div.setAttribute('aria-selected', isSelected ? 'true' : 'false');
+      div.setAttribute('tabindex', '0');
+
+      let subtitleHtml = '';
+      if (item.title) {
+        subtitleHtml = `<div class="subtitle">Harness: ${item.title}</div>`;
+      }
+
+      div.innerHTML = `
+        <div class="item-info">
+          <div class="item-title">${item.car || ''}</div>
+          ${subtitleHtml}
+        </div>
+      `;
+
+      return div;
+    }
+
+    function renderDropdown() {
+      dropdownContent.innerHTML = '';
+      if (!menuOpen) {
+        dropdownContent.style.display = 'none';
+        return;
+      }
+      dropdownContent.style.display = 'block';
+
+      const filtered = getFilteredItems();
+
+      if (inputValue !== '') {
+        if (filtered.length > 0) {
+          filtered.forEach(item => {
+            const el = renderDropdownItem(item, false);
+            el.addEventListener('click', () => handleOptionClick(item));
+            el.addEventListener('keydown', (e) => { if (e.key === 'Enter') handleOptionClick(item); });
+            dropdownContent.appendChild(el);
+          });
+        } else {
+          const el = renderDropdownItem({ car: 'No matching vehicles' }, false);
+          dropdownContent.appendChild(el);
+        }
+      } else {
+        if (showNoHarnessOption) {
+          const el = renderDropdownItem(NO_HARNESS_OPTION, false);
+          el.addEventListener('click', () => handleOptionClick(NO_HARNESS_OPTION));
+          el.addEventListener('keydown', (e) => { if (e.key === 'Enter') handleOptionClick(NO_HARNESS_OPTION); });
+          dropdownContent.appendChild(el);
+        }
+        harnesses.forEach(item => {
+          const el = renderDropdownItem(item, false);
+          el.addEventListener('click', () => handleOptionClick(item));
+          el.addEventListener('keydown', (e) => { if (e.key === 'Enter') handleOptionClick(item); });
+          dropdownContent.appendChild(el);
+        });
+      }
+    }
+
+    function renderState() {
+      if (menuOpen) {
+        searchInput.style.display = '';
+        searchInput.style.padding = '14px 3rem';
+        selectionPlaceholder.style.display = 'none';
+        selectedItemEl.style.display = 'none';
+        clearBtn.style.display = '';
+      } else if (selection) {
+        searchInput.style.display = 'none';
+        selectionPlaceholder.style.display = 'none';
+        selectedItemEl.style.display = 'flex';
+        clearBtn.style.display = '';
+
+        let subtitleHtml = '';
+        if (selection.title) {
+          subtitleHtml = `<div class="subtitle">Harness: ${selection.title}</div>`;
+        }
+        selectedItemEl.innerHTML = `
+          <div class="item-info">
+            <div class="item-title">${selection.car || ''}</div>
+            ${subtitleHtml}
+          </div>
+        `;
+      } else {
+        searchInput.style.display = 'none';
+        selectionPlaceholder.style.display = 'flex';
+        selectedItemEl.style.display = 'none';
+        clearBtn.style.display = 'none';
+      }
+
+      // Support note card
+      if (selection && selection.package && !hideNoteCard) {
+        supportNote.style.display = '';
+        const msg = selection.package === 'All'
+          ? 'openpilot will work with <strong>all packages and trims</strong> of this car.'
+          : `openpilot requires <strong>${selection.car}</strong> to come equipped with <strong>${selection.package}</strong>.`;
+        supportNote.innerHTML = `
+          <div class="note-card">
+            <hgroup>
+              <span>Support</span>
+              <div>${msg}</div>
+            </hgroup>
+          </div>
+        `;
+      } else {
+        supportNote.style.display = 'none';
+      }
+
+      renderDropdown();
+    }
+
+    function handleOptionClick(item) {
+      selection = item;
+      menuOpen = false;
+      inputValue = '';
+      searchInput.value = '';
+
+      if (selection?.car) {
+        selectedCar.set(selection.car);
+      } else {
+        selectedCar.set('');
+      }
+
+      updateQueryParams(selection);
+      renderState();
+
+      // Dispatch event for parent
+      el.dispatchEvent(new CustomEvent('harness-change', { detail: selection, bubbles: true }));
+    }
+
+    function handleClear() {
+      if (!inputValue) {
+        menuOpen = false;
+      } else {
+        inputValue = '';
+        searchInput.value = '';
+        searchInput.focus();
+      }
+      selection = null;
+      selectedCar.set('');
+      renderState();
+      el.dispatchEvent(new CustomEvent('harness-change', { detail: null, bubbles: true }));
+    }
+
+    function handleSelectClick() {
+      menuOpen = true;
+      renderState();
+      searchInput.focus();
+    }
+
+    // Click outside to close
+    document.addEventListener('click', (e) => {
+      if (!dropdown.contains(e.target)) {
+        menuOpen = false;
+        renderState();
+      }
+    });
+
+    clearBtn.addEventListener('click', handleClear);
+    selectionPlaceholder.addEventListener('click', handleSelectClick);
+    selectionPlaceholder.addEventListener('keydown', (e) => { if (e.key === 'Enter') handleSelectClick(); });
+
+    selectedItemEl.addEventListener('click', handleSelectClick);
+    selectedItemEl.addEventListener('keydown', (e) => { if (e.key === 'Enter') handleSelectClick(); });
+
+    searchInput.addEventListener('click', () => { menuOpen = true; renderDropdown(); });
+    searchInput.addEventListener('focus', () => { menuOpen = true; renderDropdown(); });
+    searchInput.addEventListener('input', () => {
+      inputValue = searchInput.value;
+      renderDropdown();
+    });
+
+    // Subscribe to harness store
+    harnessStore.subscribe((val) => {
+      harnesses = val || [];
+      if (harnesses.length > 0) {
+        // Set initial selection from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const carName = decodeURIComponent(urlParams.get('harness') || '');
+
+        if (carName === NO_HARNESS_OPTION.car) {
+          selection = NO_HARNESS_OPTION;
+          renderState();
+          el.dispatchEvent(new CustomEvent('harness-change', { detail: selection, bubbles: true }));
+        } else if (carName) {
+          const found = harnesses.find(h => h.car === carName);
+          if (found) {
+            selection = found;
+            renderState();
+            el.dispatchEvent(new CustomEvent('harness-change', { detail: selection, bubbles: true }));
+          }
+        }
+      }
+      renderDropdown();
+    });
+
+    // Expose setSelection method via data attribute
+    el._setSelection = function(newSelection) {
+      selection = newSelection;
+      if (selection?.car) {
+        selectedCar.set(selection.car);
+      } else {
+        selectedCar.set('');
+      }
+      updateQueryParams(selection);
+      renderState();
+      el.dispatchEvent(new CustomEvent('harness-change', { detail: selection, bubbles: true }));
+    };
+  });
+</script>
+
+<style>
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    margin: 1.25rem auto 0;
+    width: 100%;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    border: 1px solid #ddd;
+    z-index: 1;
+    width: 100%;
+    max-height: 400px;
+    overflow-y: auto;
+  }
+
+  .search-input {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 84px;
+    border: 1px solid #a0a0a0;
+    padding: 14px;
+    outline: none;
+    font-size: 1rem;
+
+    &::placeholder {
+      font-size: 1rem;
+      color: #656565;
+    }
+  }
+
+  .selection-placeholder {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    color: #222222;
+    background-color: #fff;
+    border: 1px solid #a0a0a0;
+    padding: 1rem 3rem 1rem 1.5rem;
+    box-sizing: border-box;
+    min-height: 84px;
+    transition: border-color 0.2s;
+
+    &:hover {
+      border-color: #464646;
+    }
+
+    & .label {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #515151;
+      text-wrap: balance;
+    }
+
+    & .accessory {
+      font-size: 1.25rem;
+      font-weight: 600;
+      text-wrap: nowrap;
+    }
+  }
+
+  .selected-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    color: #222222;
+    background-color: #fff;
+    border: 1px solid #a0a0a0;
+    padding: 1.25rem 3rem;
+    box-sizing: border-box;
+    min-height: 84px;
+    transition: border-color 0.2s;
+
+    &:hover {
+      border-color: #464646;
+    }
+  }
+
+  .chevron {
+    position: absolute;
+    top: 50%;
+    right: 13px;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+
+    & > :global(svg) {
+      width: 18px;
+      height: 12px;
+    }
+  }
+
+  .clear {
+    position: absolute;
+    left: 13px;
+    height: 100%;
+    padding: 0;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    z-index: 1;
+  }
+
+  :global(.dropdown-item) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    color: #222222;
+    background-color: #fff;
+    border: 1px solid #a0a0a0;
+    padding: 1.25rem 3rem;
+    box-sizing: border-box;
+    min-height: 84px;
+    transition: border-color 0.2s;
+
+    &:hover {
+      border-color: #464646;
+    }
+  }
+
+  :global(.item-info) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  :global(.item-title) {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-right: 0.5rem;
+  }
+
+  :global(.subtitle) {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: rgb(81, 81, 81);
+    margin-right: 0.5rem;
+  }
+
+  .support-note :global(.note-card) {
+    display: flex;
+    margin: 1rem 0;
+    padding: 1rem;
+    align-items: center;
+    color: black;
+    border: 1px solid #616161;
+
+    & :global(hgroup) {
+      display: block;
+
+      & :global(span) {
+        font-family: JetBrains Mono, monospace;
+        font-size: 0.875rem;
+        font-weight: 400;
+        text-transform: uppercase;
+        line-height: 1.1;
+        margin-bottom: 0.25rem;
+        color: black;
+      }
+
+      & :global(div) {
+        display: block;
+        color: #000000A6;
+        font-size: 0.875rem;
+        line-height: 1.25;
+      }
+    }
+  }
+</style>

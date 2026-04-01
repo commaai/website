@@ -1,0 +1,94 @@
+---
+interface Props {
+  value: number;
+  label: string;
+}
+
+const { value, label } = Astro.props;
+---
+
+<div class="steppable-input" data-value={value}>
+  <button
+    class="decrement-btn"
+    aria-label={`Decrement ${label}`}
+  >
+    -
+  </button>
+  <input
+    type="number"
+    min="0"
+    aria-label={label}
+    value={value}
+  />
+  <button
+    class="increment-btn"
+    aria-label={`Increment ${label}`}
+  >
+    +
+  </button>
+</div>
+
+<script>
+  document.querySelectorAll('.steppable-input').forEach((container) => {
+    const input = container.querySelector('input');
+    const decrementBtn = container.querySelector('.decrement-btn');
+    const incrementBtn = container.querySelector('.increment-btn');
+
+    if (!input || !decrementBtn || !incrementBtn) return;
+
+    decrementBtn.addEventListener('click', () => {
+      const nextValue = parseInt(input.value) - 1;
+      input.value = nextValue;
+      container.dispatchEvent(new CustomEvent('quantity-change', { detail: nextValue, bubbles: true }));
+    });
+
+    incrementBtn.addEventListener('click', () => {
+      const nextValue = parseInt(input.value) + 1;
+      input.value = nextValue;
+      container.dispatchEvent(new CustomEvent('quantity-change', { detail: nextValue, bubbles: true }));
+    });
+
+    input.addEventListener('change', () => {
+      const val = parseInt(input.value);
+      container.dispatchEvent(new CustomEvent('quantity-change', { detail: val, bubbles: true }));
+    });
+  });
+</script>
+
+<style>
+  div {
+    display: flex;
+    height: 35px;
+  }
+
+  input {
+    width: 45px;
+    text-align: center;
+    border: none;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    font-size: 1rem;
+    border-radius: 0;
+
+    &[type="number"],
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: textfield;
+      margin: 0;
+    }
+  }
+
+  button {
+    width: 2rem;
+    padding: 0;
+    border: 1px solid #000;
+    background-color: transparent;
+    color: black;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+  }
+</style>

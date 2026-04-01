@@ -1,4 +1,3 @@
-import { get } from 'svelte/store';
 import { cartId, cartCreatedAt, checkoutUrl, cartTotalQuantity } from '../../store';
 
 // GraphQL fragments for error handling
@@ -6,9 +5,9 @@ const USER_ERRORS_GQL = `userErrors { code field message }`;
 const WARNINGS_GQL = `warnings { code message target }`;
 
 export async function shopifyFetch({ query, variables }) {
-  const apiToken = import.meta.env.VITE_SHOPIFY_STOREFRONT_API_TOKEN;
-  const storeUrl = import.meta.env.VITE_SHOPIFY_STORE_URL;
-  const apiVersion = import.meta.env.VITE_SHOPIFY_API_VERSION || 'unstable';
+  const apiToken = import.meta.env.PUBLIC_SHOPIFY_STOREFRONT_API_TOKEN;
+  const storeUrl = import.meta.env.PUBLIC_SHOPIFY_STORE_URL;
+  const apiVersion = import.meta.env.PUBLIC_SHOPIFY_API_VERSION || 'unstable';
   const endpoint = `https://${storeUrl}/api/${apiVersion}/graphql.json`;
 
   if (apiVersion === 'unstable') {
@@ -42,10 +41,10 @@ export async function shopifyFetch({ query, variables }) {
 
 export async function loadCart() {
   let currentDate = Date.now();
-  let difference = currentDate - get(cartCreatedAt);
+  let difference = currentDate - cartCreatedAt.get();
   let totalDays = Math.ceil(difference / (1000 * 3600 * 24));
   let cartIdExpired = totalDays > 6;
-  if (get(cartId) === "undefined" || get(cartId) === "null" || cartIdExpired) {
+  if (cartId.get() === "undefined" || cartId.get() === "null" || cartIdExpired) {
     await createCart();
   }
   let response = await _loadCart();
@@ -116,7 +115,7 @@ export async function _loadCart() {
         }
       }
     `,
-    variables: { cartId: get(cartId) }
+    variables: { cartId: cartId.get() }
   });
 }
 

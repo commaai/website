@@ -1,0 +1,161 @@
+---
+import Accordion from './Accordion.astro';
+import Grid from './Grid.astro';
+
+interface Props {
+  topic: {
+    title: string;
+    image: string;
+    questions: Array<{ question: string; answer: string }>;
+  };
+  title?: string | null;
+}
+
+const { topic, title = null } = Astro.props;
+
+const displayTitle = title ?? topic.title;
+const headerId = displayTitle.toLowerCase().replace(/[^\w\s]/g, '').replaceAll(' ', '-');
+---
+
+<div>
+  <div class="header" id={headerId}>
+    <Grid columns={2} alignItems="center" rowGap="0" size="small">
+      <h1>{displayTitle}</h1>
+      <div class="mobile-first">
+        <img src={topic.image} loading="eager" alt={`${displayTitle} banner`} />
+      </div>
+    </Grid>
+  </div>
+  <div class="questions">
+    {topic.questions.map((entry) => {
+      const id = entry.question.toLowerCase().replace(/[^\w\s]/g, '').replaceAll(' ', '-');
+      return (
+        <Fragment>
+          <Accordion id={id}>
+            <div slot="label" class="label">
+              <span>{entry.question}</span>
+            </div>
+            <div class="details" slot="content">
+              <Fragment set:html={entry.answer} />
+            </div>
+          </Accordion>
+          <hr />
+        </Fragment>
+      );
+    })}
+  </div>
+</div>
+
+<script>
+  // Handle URL hash to auto-expand the matching accordion
+  function expandFromHash() {
+    const hash = window.location.hash.slice(1);
+    if (!hash) return;
+    const input = document.getElementById(hash);
+    if (input && input.tagName === 'INPUT') {
+      input.checked = true;
+      const content = input.closest('.tab')?.querySelector('.content');
+      if (content) {
+        content.style.display = 'block';
+      }
+      input.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  expandFromHash();
+  window.addEventListener('hashchange', expandFromHash);
+
+  // Update URL hash when an accordion is clicked
+  document.querySelectorAll('.questions .tab input').forEach((input) => {
+    input.addEventListener('click', () => {
+      history.replaceState(null, null, `#${input.id}`);
+    });
+  });
+</script>
+
+<style>
+  .header {
+    width: 100%;
+    background-color: #000;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+
+    & h1 {
+      font-size: 3rem;
+      font-weight: 600;
+      margin: 1rem 2rem;
+      color: white;
+      text-wrap: balance;
+
+      @media screen and (max-width: 1024px) {
+        & {
+          font-size: 2.5rem;
+        }
+      }
+
+      @media screen and (max-width: 480px) {
+        & {
+          font-size: 2rem;
+        }
+      }
+
+      @media screen and (max-width: 375px) {
+        & {
+          font-size: 1.5rem;
+        }
+      }
+    }
+
+    & img {
+      color: white;
+      width: 100%;
+    }
+  }
+
+  .questions {
+    & :global(.label) {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 1rem 0;
+      margin-right: 0.75rem;
+    }
+
+    & :global(.details) {
+      font-size: 1.25rem !important;
+      line-height: 1.4;
+      padding: 0.25rem 0 1rem;
+
+      & :global(*:first-child) {
+        margin-top: 0;
+      }
+
+      & :global(*:last-child) {
+        margin-bottom: 0;
+      }
+
+      & :global(a) {
+        color: #000;
+        border-bottom: 2px solid #86ff4e;
+        background-color: rgba(134, 255, 78, 0.15);
+      }
+
+      & :global(li) {
+        font-size: 1.25rem;
+      }
+
+      & :global(.video-container) {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 */
+        height: 0;
+
+        & :global(iframe) {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+</style>
