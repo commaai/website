@@ -85,7 +85,6 @@
       backordered = null;
       disableBuyButtonText = "SELECT YOUR CAR";
     }
-    backordered = '1-12 weeks';
 
     // Reset trade-in checkbox
     if (!value && checkboxCardRef) {
@@ -231,12 +230,6 @@
     The comma four does not ship with any software.
     Once you have the device you will be able to install any software you choose at your own risk.
   </p>
-  {#if backordered}
-    <p class="disclaimer warning">
-      The comma four is expected to ship out in 1-12 weeks.
-      By adding this item to your cart you acknowledge that your order will be delayed.
-    </p>
-  {/if}
 </Modal>
 
 <style>
