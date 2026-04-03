@@ -518,7 +518,7 @@
 
   .vehicle-notes {
     background-color: #f5f5f4;
-    border-radius: 12px;
+    border-radius: 0;
     padding: 2rem;
     margin-bottom: 3rem;
 
@@ -540,7 +540,7 @@
 
     & .setup-notes {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1.25fr 0.75fr;
       gap: 1.5rem;
       margin-top: 1.5rem;
       padding-top: 1.5rem;
