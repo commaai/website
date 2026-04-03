@@ -120,52 +120,55 @@
 
 <section class="light" id="guide">
   <div class="container">
-    <div class="vehicle-notes">
-      <div class="vehicle-notes-header">
-        <h3>Customize Your Guide</h3>
-        <p>Select your vehicle for installation notes specific to your car.</p>
-      </div>
-      <HarnessSelector
-        label="Select your vehicle"
-        placeholder="Search for your vehicle"
-        onChange={handleHarnessSelection}
-        showGenericHarnesses={false}
-        hideSupportNoteCard={true}
-      />
+    <div class="card vehicle-notes">
+      <div class="header">Customize Your Guide</div>
+      <div class="contents">
+        <p>Select your vehicle to get customized installation notes:</p>
+        <HarnessSelector
+          label="Select your vehicle"
+          placeholder="Search for your vehicle"
+          onChange={handleHarnessSelection}
+          showGenericHarnesses={false}
+          hideSupportNoteCard={true}
+        />
 
-      {#if selectedVehicle}
-        <div class="setup-notes">
-          {#if selectedVehicle.setupVideo}
-            <div>
-              <p class="note-heading">Setup Video</p>
-              <div class="media-container">
-                <iframe
-                  src={getVideoEmbedSrc(selectedVehicle.setupVideo)}
-                  frameborder="0"
-                  allow="autoplay; encrypted-media"
-                  title="{selectedVehicle.car} setup guide"
-                ></iframe>
-              </div>
-            </div>
-          {/if}
-          {#if selectedVehicle.setupNotes.length > 0}
-            <div>
-              <p class="note-heading">Setup Notes</p>
-              <ul>
-                {#each selectedVehicle.setupNotes as note}
-                  <li>{@html note}</li>
-                {/each}
-              </ul>
-            </div>
-          {/if}
-          {#if (selectedVehicle.setupNotes.length === 0) && !selectedVehicle.setupVideo}
-            <div class="no-notes">
-              {@html CheckmarkIcon}
-              <p>No specific setup notes for your vehicle. Follow the guide below.</p>
-            </div>
-          {/if}
-        </div>
-      {/if}
+        {#if selectedVehicle}
+          <div class="setup-notes">
+            <Grid templateColumns="1.25fr 0.75fr">
+              {#if selectedVehicle.setupVideo}
+                <div>
+                  <p class="note-heading">Setup Video:</p>
+                  <div class="media-container">
+                    <iframe
+                      src={getVideoEmbedSrc(selectedVehicle.setupVideo)}
+                      frameborder="0"
+                      allow="autoplay; encrypted-media"
+                      title="{selectedVehicle.car} setup guide"
+                    ></iframe>
+                  </div>
+                </div>
+              {/if}
+              {#if selectedVehicle.setupNotes.length > 0}
+                <div>
+                  <p class="note-heading">Setup Notes:</p>
+                  <ul>
+                    {#each selectedVehicle.setupNotes as note}
+                      <li>{@html note}</li>
+                    {/each}
+                  </ul>
+                </div>
+              {/if}
+              {#if (selectedVehicle.setupNotes.length === 0) && !selectedVehicle.setupVideo}
+                <div style="display: flex; align-items: center">
+                  <div style="display: flex;">{@html CheckmarkIcon}</div>
+                  <div style="margin-right: 0.5rem"/>
+                  <p>Follow the guide below. There are no specific setup notes for your vehicle.</p>
+                </div>
+              {/if}
+            </Grid>
+          </div>
+        {/if}
+      </div>
     </div>
 
         <div class="step" id="step-1">
@@ -517,43 +520,20 @@
   }
 
   .vehicle-notes {
-    background-color: #f5f5f4;
-    border-radius: 0;
-    padding: 2rem;
-    margin-bottom: 3rem;
+    margin-top: 1rem;
+    font-size: 1.25rem;
 
-    & .vehicle-notes-header {
-      margin-bottom: 1.25rem;
-
-      & h3 {
-        font-size: 1.5rem;
-        font-weight: 600;
-        margin: 0 0 0.25rem;
-      }
-
-      & p {
-        margin: 0;
-        font-size: 1rem;
-        color: #666;
-      }
+    & p {
+      margin: 0.25rem 0 0;
     }
 
     & .setup-notes {
-      display: grid;
-      grid-template-columns: 1.25fr 0.75fr;
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid #ddd;
-
-      @media screen and (max-width: 768px) {
-        grid-template-columns: 1fr;
-      }
+      width: 100%;
+      margin: 1rem 0 0.5rem;
 
       & .note-heading {
         font-weight: 600;
-        font-size: 1rem;
-        margin: 0 0 0.75rem;
+        margin-bottom: 0.5rem;
       }
 
       & ul {
@@ -563,7 +543,7 @@
 
       & li {
         margin-bottom: 0.5rem;
-        font-size: 1rem;
+        font-size: 1.25rem;
       }
 
       & a {
@@ -582,19 +562,6 @@
           left: 0;
           width: 100%;
           height: 100%;
-        }
-      }
-
-      & .no-notes {
-        grid-column: 1 / -1;
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-
-        & p {
-          margin: 0;
-          font-size: 1rem;
-          color: #333;
         }
       }
     }
