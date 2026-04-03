@@ -69,6 +69,9 @@
 
     // Parent may set selection, don't override if no harness param
     let foundHarness = $harnesses.find(harness => harness.car === carName);
+    if (!foundHarness && $selectedCar) {
+      foundHarness = $harnesses.find(harness => harness.car === $selectedCar);
+    }
     if (foundHarness) {
       selection = foundHarness;
     }
