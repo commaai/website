@@ -24,6 +24,7 @@
   export let showVehicleHarnesses = true; // If true, includes the harnesses by each vehicle model
   export let showGenericHarnesses = true; // If true, includes the generic/developer harnesses
   export let hideSupportNoteCard = false;
+  export let restoreSelection = false;
 
   let selection = undefined
 
@@ -69,7 +70,7 @@
 
     // Parent may set selection, don't override if no harness param
     let foundHarness = $harnesses.find(harness => harness.car === carName);
-    if (!foundHarness && $selectedCar) {
+    if (!foundHarness && restoreSelection && $selectedCar) {
       foundHarness = $harnesses.find(harness => harness.car === $selectedCar);
     }
     if (foundHarness) {

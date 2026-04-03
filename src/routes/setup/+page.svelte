@@ -130,6 +130,7 @@
           onChange={handleHarnessSelection}
           showGenericHarnesses={false}
           hideSupportNoteCard={true}
+          restoreSelection={true}
         />
 
         {#if selectedVehicle}
