@@ -40,16 +40,19 @@
     </p>
 
     <div class="divider"></div>
-    <pre>
-  One meeting a week, two great meals a day, and people who have passed a very high bar to get hired.
-
-  Perks:
-  - Chef-prepared lunch and dinner
-  - On-site gym and yoga studio
-  - 24/7 access to the comma fleet of cars
-  - Health, dental, and vision insurance
-  - Flexible time off
-    </pre>
+    <p>
+      One meeting a week, two great meals a day, and people who have passed a very high bar to get hired.
+    </p>
+    <p>
+      <strong>Perks:</strong>
+    </p>
+    <ul>
+      <li>Chef-prepared lunch and dinner</li>
+      <li>On-site gym and yoga studio</li>
+      <li>24/7 access to the comma fleet of cars</li>
+      <li>Health, dental, and vision insurance</li>
+      <li>Flexible time off</li>
+    </ul>
 
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
       <iframe src="https://www.youtube.com/embed/PFjssb7r_uU" title="Touring comma HQ + launching the new jobs page comma.ai/jobs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
@@ -57,68 +60,101 @@
 
     <div class="divider"></div>
     <h4>Who we're looking for</h4>
-    <pre>
-  We don't care where, or even if, you went to school. We don't care if you have a traditional background. We're just looking for people who can independently contribute to shipping openpilot.
-
-  We love a great GitHub, open source contributors, good projects, and competition winners.
-
-  Prove your skills with either of these:
-  1. <a href="https://comma.ai/bounties">Bounties</a>: contribute to our open source projects while getting paid
-  2. <a href="https://comma.ai/leaderboard">Challenges</a>: we made challenges for design, controls, hardware, and more.
-    </pre>
+    <p>
+      We don't care where, or even if, you went to school. We don't care if you have a traditional background. We're just looking for people who can independently contribute to shipping openpilot.
+    </p>
+    <p>
+      We love a great GitHub, open source contributors, good projects, and competition winners.
+    </p>
+    <p>
+      Prove your skills with either of these:
+    </p>
+    <ol>
+      <li><a href="https://comma.ai/bounties">Bounties</a>: contribute to our open source projects while getting paid</li>
+      <li><a href="https://comma.ai/leaderboard">Challenges</a>: we made challenges for design, controls, hardware, and more.</li>
+    </ol>
 
     <div class="divider"></div>
     <h4>We're Actively Hiring</h4>
-    <pre>
-  <strong>Electronics Engineer</strong>
-  Design + ship hardware like the comma four and comma body // <a href="https://github.com/commaai/harness_tester_challenge">challenge</a>
-
-  <strong>Supply Chain Engineer</strong>
-  Own comma’s end-to-end hardware supply chain—from vendor sourcing and cost negotiation to purchase orders, receiving, and inventory // challenge: <a href="https://github.com/commaai/operations_challenge">ops</a> or <a href="https://github.com/commaai/harness_tester_challenge">hardware</a>
-  Chinese language skills are a plus.
-
-  <strong>Software Engineer (Web)</strong>
-  Own the comma web and mobile experience // challenge: get a <a href="https://github.com/orgs/commaai/projects/26/views/9">web bounty</a> merged
-  Build an incredible <a href="https://x.com/comma_ai/status/1862940019327127765">companion app</a> for openpilot
-
-  <strong>Software Engineer (Systems)</strong>
-  Work on systems and infrastructure for <a href="https://github.com/commaai/openpilot">openpilot</a> // challenge: get a <a href="https://comma.ai/bounties">bounty</a> merged
-  You'll work on things like mainlining our kernel, bringing up new hardware, and making the comma four boot up in 5s.
-
-  <strong>Car Interface Engineer</strong>
-  Work on growing openpilot's car compatibility alongside our <a href="https://github.com/commaai/openpilot">community</a> // challenge: get a <a href="https://comma.ai/bounties">bounty</a> merged
-  Functional safety experience is a plus
-
-  <strong>Controls Engineer</strong>
-  Work on steering, gas, and brake controls for the 300 different cars openpilot supports // <a href="https://github.com/commaai/controls_challenge">challenge</a>
-
-  <strong>Autonomy Engineer</strong>
-  Work on infrastructure to train autonomous agents // <a href="https://github.com/commaai/controls_challenge">challenge</a>
-
-  <strong>Internship</strong>
-  All teams accept interns year-round // challenge: get on the <a href="https://comma.ai/leaderboard">leaderboard</a> or solve some <a href="https://comma.ai/bounties">bounties</a>
-
-  <strong>Pick &amp; Place Operator</strong>
-  Run the comma factory&#39;s circuit board line // Relevant experience required instead of a challenge
-
-  <strong>Technician</strong>
-  Maintain the comma compute cluster and comma fleet // Requirements: have built computers, good debugging skills, and detail orientedness
-    </pre>
+    <ul>
+    <li>
+      <strong>Electronics Engineer</strong>
+      <br>
+      Design + ship hardware like the comma four and comma body // <a href="https://github.com/commaai/harness_tester_challenge">challenge</a>
+    </li>
+    <li>
+      <strong>Supply Chain Engineer</strong>
+      <br>
+      Own comma’s end-to-end hardware supply chain—from vendor sourcing and cost negotiation to purchase orders, receiving, and inventory // challenge: <a href="https://github.com/commaai/operations_challenge">ops</a> or <a href="https://github.com/commaai/harness_tester_challenge">hardware</a>
+      Chinese language skills are a plus.
+    </li>
+    <li>
+      <strong>Software Engineer (Web)</strong>
+      <br>
+      Own the comma web and mobile experience // challenge: get a <a href="https://github.com/orgs/commaai/projects/26/views/9">web bounty</a> merged
+      Build an incredible <a href="https://x.com/comma_ai/status/1862940019327127765">companion app</a> for openpilot
+    </li>
+    <li>
+      <strong>Software Engineer (Systems)</strong>
+      <br>
+      Work on systems and infrastructure for <a href="https://github.com/commaai/openpilot">openpilot</a> // challenge: get a <a href="https://comma.ai/bounties">bounty</a> merged
+      You'll work on things like mainlining our kernel, bringing up new hardware, and making the comma four boot up in 5s.
+    </li>
+    <li>
+      <strong>Car Interface Engineer</strong>
+      <br>
+      Work on growing openpilot's car compatibility alongside our <a href="https://github.com/commaai/openpilot">community</a> // challenge: get a <a href="https://comma.ai/bounties">bounty</a> merged
+      Functional safety experience is a plus
+    </li>
+    <li>
+      <strong>Controls Engineer</strong>
+      <br>
+      Work on steering, gas, and brake controls for the 300 different cars openpilot supports // <a href="https://github.com/commaai/controls_challenge">challenge</a>
+    </li>
+    <li>
+      <strong>Autonomy Engineer</strong>
+      <br>
+      Work on infrastructure to train autonomous agents // <a href="https://github.com/commaai/controls_challenge">challenge</a>
+    </li>
+    <li>
+      <strong>Internship</strong>
+      <br>
+      All teams accept interns year-round // challenge: get on the <a href="https://comma.ai/leaderboard">leaderboard</a> or solve some <a href="https://comma.ai/bounties">bounties</a>
+    </li>
+    <li>
+      <strong>Pick &amp; Place Operator</strong>
+      <br>
+      Run the comma factory&#39;s circuit board line // Relevant experience required instead of a challenge
+    </li>
+    <li>
+      <strong>Technician</strong>
+      <br>
+      Maintain the comma compute cluster and comma fleet // Requirements: have built computers, good debugging skills, and detail orientedness
+    </li>
+    </ul>
 
     <div class="divider"></div>
     <h4>Applying</h4>
-    <pre>
-  <strong>1. Challenge</strong>
-  Choose any of the challenges from the <a href="https://comma.ai/leaderboard">leaderboard</a> or <a href="https://comma.ai/bounties">bounties</a>, solve it, then reach out to work@comma.ai.
-
-  <strong>2. Phone screen</strong>
-  Typically, we do two phone calls. A quick intro and screen, then an in-depth technical interview with an engineer.
-
-  <strong>3. Paid Micro-internship</strong>
-  We'll fly you out to meet the team and work on a real problem for a few days. In most cases, the project will be scoped such that you'll ship it to real users by the end.
-
-  If all goes well, we'll make you a full-time job offer.
-    </pre>
+    <ol>
+      <li>
+        <strong>Challenge</strong>
+        <br>
+        Choose any of the challenges from the <a href="https://comma.ai/leaderboard">leaderboard</a> or <a href="https://comma.ai/bounties">bounties</a>, solve it, then reach out to work@comma.ai.
+      </li>
+      <li>
+      <strong>Phone screen</strong>
+      <br>
+      Typically, we do two phone calls. A quick intro and screen, then an in-depth technical interview with an engineer.
+      </li>
+      <li>
+      <strong>Paid Micro-internship</strong>
+      <br>
+      We'll fly you out to meet the team and work on a real problem for a few days. In most cases, the project will be scoped such that you'll ship it to real users by the end.
+      </li>
+    </ol>
+    <p>
+      If all goes well, we'll make you a full-time job offer.
+    </p>
 
     <div class="divider"></div>
     <h4>FAQ</h4>
@@ -129,10 +165,7 @@
       <li><strong>Hiring for X?</strong> We're interested in anyone who can get a top spot on the leaderboard.</li>
       <li><strong>Any other requirements?</strong> Nope. We're just looking for people who do well on our challenges and can independently contribute to solving self-driving cars.</li>
     </ul>
-    <pre>
-
-    </pre>
-  </div>
+    </div>
 </section>
 
 <style>
@@ -163,54 +196,14 @@
   .jobs-page a:hover {
     text-decoration: underline;
   }
-  .jobs-page pre {
-    white-space: pre-wrap;
-  }
-  .jobs-page table {
-    border: none;
-    border-collapse: collapse;
-    counter-reset: rowNumber;
-  }
-  .jobs-page .ranked tr {
-    counter-increment: row-number;
-  }
-  .jobs-page .ranked tr td:first-child::before {
-    content: counter(row-number);
-  }
-  .jobs-page th, .jobs-page td {
-    padding: 8px;
-    text-align: left;
-    border: none;
-  }
-  .jobs-page th {
-    background-color: #f2f2f2;
-  }
-  .jobs-page tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  .jobs-page tr:nth-child(odd) {
-    background-color: #ffffff;
-  }
   .jobs-page .divider {
     border-top: 1px solid #000;
     margin: 20px 0;
-  }
-  .jobs-page .tag-green {
-    margin: 0;
-    padding: 5px;
-    font-weight: bold;
-    font-size: 0.75em;
-    width: fit-content;
-    display: inline-block;
-    background-color: #51ff00;
   }
   .jobs-page .highlight-green, .jobs-page h4 {
     display: inline;
     border-bottom: 4px solid #51ff0066;
     background-image: linear-gradient(145deg,#51ff0000,#51ff0066);
-  }
-  .jobs-page p, .jobs-page pre {
-    font-size: 1rem;
   }
   .jobs-page ul {
     list-style-type: none;
