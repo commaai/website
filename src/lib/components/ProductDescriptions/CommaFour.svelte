@@ -230,6 +230,10 @@
     The comma four does not ship with any software.
     Once you have the device you will be able to install any software you choose at your own risk.
   </p>
+  <p class="disclaimer">
+    Regardless of what software you choose to install, this device in no way substitutes for a licensed, sober, and attentive driver in the drivers seat.
+    <b>If you are not going to always pay careful attention while driving, do not buy this product.</b>
+  </p>
 </Modal>
 
 <style>

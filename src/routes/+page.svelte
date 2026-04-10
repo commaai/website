@@ -190,7 +190,7 @@
 
 <section class="light" id="compatibility">
   <div class="container">
-    <h1 class="mb-7 sm-mb-3">openpilot can drive for hours without driver action.</h1>
+    <h1 class="mb-7 sm-mb-3">comma four can run <a href="/openpilot" class="highlight">openpilot</a>.</h1>
     <Grid columns={2} rowGap="3rem">
       <h1>
         It works on {vehicleCountText} car models from 27 brands.
