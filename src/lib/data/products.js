@@ -16,10 +16,10 @@ export const products = {
     description: `
       <strong>Description</strong>
       <p>
-        comma four is the next generation comma hardware designed to live in your car. It works on 325+ car models and adds the best driver assistance in the world to your existing car. Ships in 4-12 weeks.
+        comma four is the next generation comma hardware designed to live in your car. It works on 325+ car models and adds the best driver assistance in the world to your existing car.
       </p>
       <p>
-        It runs <a href="https://github.com/commaai/openpilot" target="_blank">openpilot</a>, which can drive for hours without driver action.
+        It runs <a href="https://github.com/commaai/openpilot" target="_blank">openpilot</a>, which can drive for hours without driver intervention.
       </p>
       <p>
         You need a <a href="/shop/car-harness" target="_blank">car harness</a> if you don't already have one, which is free with purchase of comma four. The car harness is our universal interface to your car. Use the car harness to connect your comma device to your vehicle.
@@ -402,7 +402,7 @@ export const products = {
         <strong>Includes:</strong>
       </p>
       <p>
-        (2) standard mounts with adhesive backing
+        (1) standard mount with adhesive backing
       </p>
       <p>
         (1) alcohol wipe
@@ -420,7 +420,7 @@ export const products = {
         <strong>Includes:</strong>
       </p>
       <p>
-        (2) 8 degree mounts with adhesive backing
+        (1) 8 degree mount with adhesive backing
       </p>
       <p>
         (1) alcohol wipe
@@ -645,7 +645,7 @@ export const products = {
     description: `
       <strong>Description</strong>
       <p>
-        The body is a robotics dev kit that can run <a href="https://github.com/commaai/openpilot" target="_blank">openpilot</a>, 
+        The body is a robotics dev kit that can run <a href="https://github.com/commaai/openpilot" target="_blank">openpilot</a>,
         open source software with over a million hours of usage in the field.
       </p>
       <p>

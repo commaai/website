@@ -44,7 +44,7 @@
           comma four is our next generation hardware. It packs the same compute, sensor suite, and functionality as comma 3X into a package one-fifth the size, making it the ideal form factor for your windshield.
         </p>
         <p>
-          It runs <a class="highlight" href="/openpilot">openpilot</a>, which can drive for hours without driver action.
+          It runs <a class="highlight" href="/openpilot">openpilot</a>, which can drive for hours without driver intervention.
         </p>
       </div>
     </Grid>
@@ -309,7 +309,7 @@
           <strong>Warranty</strong>
           <p>
             1-year limited warranty against hardware defects. Open and repair the comma four at your own risk.
-            comma is not responsible for damages that may occur while repairing devices. We cannot provide shipping return labels for international devices.
+            comma is not responsible for damages that may occur while repairing devices.
             Any damage on arrival must be reported to comma support within 14 days of delivery.
           </p>
           <strong>Software</strong>

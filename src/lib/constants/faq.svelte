@@ -552,7 +552,7 @@
               We recommend verifying that your car is supported at <a href="/vehicles">comma.ai/vehicles</a>. All support is for US cars unless specified otherwise.
             </p>
             <p>
-              Our prices do not include customs duties and taxes that may apply when shipping to your country. These charges are typically determined by your local customs authority and are your responsibility to pay. The fees often range from $150-350 for a 3X and harness, but they can be more depending on your government. The 3X HS Code is 8525.81. If you refuse to pay these fees, comma is forced to cover them to receive the device back and they will be subtracted from the cost of your return refund.
+              Our prices do not include customs duties and taxes that may apply when shipping to your country. These charges are typically determined by your local customs authority and are your responsibility to pay. The fees often range from $150-350 for a comma four and harness, but they can be more depending on your government. The comma four HS Code is 8525.81. If you refuse to pay these fees, comma is forced to cover them to receive the device back and they will be subtracted from the cost of your return refund.
             </p>
             <p>
               Non-Refundable Duties and Taxes:
@@ -671,7 +671,7 @@
         }, {
           question: 'Do you offer a warranty?',
           answer: `
-            We offer a 1-year limited warranty against hardware defects. If you believe your hardware is defective, please fill out a support request at <a href="https://comma.ai/support">comma.ai/support</a>. We cannot provide shipping return labels for international devices with warranty issues.
+            We offer a 1-year limited warranty against hardware defects. If you believe your hardware is defective, please fill out a support request at <a href="https://comma.ai/support">comma.ai/support</a>.
           `
         }, {
           question: 'What is the return policy?',

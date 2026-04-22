@@ -79,13 +79,12 @@
       backordered = null;
       disableBuyButtonText = null;
     } else if (value) {
-      backordered = value.currentlyNotInStock ? `ships in ${(value.backordered || '4-12 weeks')}` : null;
+      backordered = value.currentlyNotInStock ? `ships in ${(value.backordered || '1-12 weeks')}` : null;
       disableBuyButtonText = null;
     } else {
       backordered = null;
       disableBuyButtonText = "SELECT YOUR CAR";
     }
-    backordered = '4-12 weeks';
 
     // Reset trade-in checkbox
     if (!value && checkboxCardRef) {
@@ -231,12 +230,10 @@
     The comma four does not ship with any software.
     Once you have the device you will be able to install any software you choose at your own risk.
   </p>
-  {#if backordered}
-    <p class="disclaimer warning">
-      The comma four is expected to ship out in 4-12 weeks.
-      By adding this item to your cart you acknowledge that your order will be delayed.
-    </p>
-  {/if}
+  <p class="disclaimer">
+    Regardless of what software you choose to install, this device in no way substitutes for a licensed, sober, and attentive driver in the drivers seat.
+    <b>If you are not going to always pay careful attention while driving, do not buy this product.</b>
+  </p>
 </Modal>
 
 <style>

@@ -66,7 +66,6 @@
     <ul>
       <li>OBD-II connector</li>
       <li>long OBD-C cable (9.5 ft)</li>
-      <li>USB-C coupler</li>
     </ul>
     <p><strong>Rivian A, Ford Q4, Nissan, and J533</strong></p>
     <ul>
@@ -74,14 +73,12 @@
       <li>harness connector</li>
       <li>harness box</li>
       <li>long OBD-C cable (9.5 ft)</li>
-      <li>USB-C coupler</li>
     </ul>
     <p><strong>Tesla A, Tesla B</strong></p>
     <ul>
       <li>harness connector</li>
       <li>harness box</li>
       <li>long OBD-C cable (9.5 ft)</li>
-      <li>USB-C coupler</li>
     </ul>
   </div>
 </Product>
