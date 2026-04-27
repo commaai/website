@@ -100,9 +100,6 @@
 
   <strong>Pick &amp; Place Operator</strong>
   Run the comma factory&#39;s circuit board line // Relevant experience required instead of a challenge
-
-  <strong>Technician</strong>
-  Maintain the comma compute cluster and comma fleet // Requirements: have built computers, good debugging skills, and detail orientedness
     </pre>
 
     <div class="divider"></div>
