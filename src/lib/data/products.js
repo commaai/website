@@ -290,6 +290,7 @@ export const products = {
   "harness-connector": {
     title: "harness connector",
     id: "gid://shopify/Product/4310075310143",
+    inventoryFromProductId: "gid://shopify/Product/4447447908415", // shares physical inventory with car-harness; matched by variant title
     route: "/shop/harness-connector",
     category: "accessories",
     price: "$50",

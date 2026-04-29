@@ -22,9 +22,14 @@
   export let priceOverride = null;
 
   export let VariantSelector = null;
+
+  // Per-variant timeline override carried by VariantSelector (e.g., harness
+  // JSON overrides like Tesla B's "4-8 weeks"). Only used when the selected
+  // variant is currentlyNotInStock; otherwise no backorder text is shown.
+  let variantBackordered = null;
   function handleVariantSelection(variant) {
     selectedVariantId = variant?.id || null;
-    backordered = variant?.currentlyNotInStock ? (variant.backordered || '1-12 weeks') : null;
+    variantBackordered = variant?.backordered || null;
   }
 
   let currentImageIndex = 0;
@@ -72,17 +77,22 @@
     }
   }
 
+  // Single source of truth: the static prop wins; otherwise, when the selected
+  // variant is currentlyNotInStock, use the per-variant override or the default.
+  $: effectiveBackordered = backordered
+    || (selectedVariant?.currentlyNotInStock ? (variantBackordered || '1-12 weeks') : null);
+
   let addToCartLabel;
   $: {
     if (disableBuyButtonText) {
       addToCartLabel = disableBuyButtonText;
     } else if (forceOutOfStock || (selectedVariant && !selectedVariant.availableForSale)) {
       addToCartLabel = "Out of stock";
-      if (backordered) {
-        addToCartLabel += ` (${backorderedPrefix}${backordered})`;
+      if (effectiveBackordered) {
+        addToCartLabel += ` (${backorderedPrefix}${effectiveBackordered})`;
       }
-    } else if (backordered) {
-      addToCartLabel = `Add to cart (${backorderedPrefix}${backordered})`;
+    } else if (effectiveBackordered) {
+      addToCartLabel = `Add to cart (${backorderedPrefix}${effectiveBackordered})`;
     } else {
       addToCartLabel = "Add to cart";
     }

@@ -39,11 +39,32 @@ export async function load({ url, params }) {
     }
   }
 
-  // Fetch from Shopify
-  const response = await getProduct(productInfo.id);
+  // Fetch from Shopify (in parallel with optional sibling for inventory overlay)
+  const [response, sourceResponse] = await Promise.all([
+    getProduct(productInfo.id),
+    productInfo.inventoryFromProductId ? getProduct(productInfo.inventoryFromProductId) : Promise.resolve(null),
+  ]);
   if (response.status === 200) {
     const product = response.body?.data?.product;
     if (product) {
+      // When this product shares physical stock with another Shopify product,
+      // overlay the sibling's inventory flags onto our variants by title match.
+      if (sourceResponse?.status === 200) {
+        const sourceVariants = sourceResponse.body?.data?.product?.variants?.nodes || [];
+        const sourceByTitle = new Map(sourceVariants.map(v => [v.title, v]));
+        product.variants = {
+          ...product.variants,
+          nodes: (product.variants?.nodes || []).map(v => {
+            const source = sourceByTitle.get(v.title);
+            if (!source) return v;
+            return {
+              ...v,
+              currentlyNotInStock: source.currentlyNotInStock,
+              availableForSale: source.availableForSale,
+            };
+          }),
+        };
+      }
       return {
         product: {
           ...product,
