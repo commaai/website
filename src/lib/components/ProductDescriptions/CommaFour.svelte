@@ -128,7 +128,6 @@
 </script>
 
 <Product {product} {additionalProductIds} {backordered} {beforeAddToCart} {getCartNote} priceOverride={FOUR_PRICE}
-         backorderedPrefix="ships in "
          disableBuyButtonText={disableBuyButtonText}>
   <div slot="shipping"></div>
 

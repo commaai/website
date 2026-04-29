@@ -6,7 +6,7 @@
   export let product;
 </script>
 
-<Product {product} VariantSelector={HarnessSelector} autoSelectFirstVariant={false} backorderedPrefix="ships in ">
+<Product {product} VariantSelector={HarnessSelector} autoSelectFirstVariant={false}>
   <div slot="notes">
     <NoteCard title="Compatibility">
       Harness compatibility based on the US car market.

@@ -15,7 +15,7 @@
   export let beforeAddToCart = null;
   export let getCartNote = null;
   export let backordered = null;
-  export let backorderedPrefix = "";
+  export let backorderedPrefix = "ships in ";
   export let forceOutOfStock = false;
   export let disableBuyButtonText = null;
   export let hideOutOfStockVariants = false;
