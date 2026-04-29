@@ -18,6 +18,7 @@
       <Product
         {product}
         backordered={product.backordered || null}
+        backorderedPrefix={product.backorderedPrefix ?? "ships in "}
         forceOutOfStock={product.forceOutOfStock || false}
         hideOutOfStockVariants={product.hideOutOfStockVariants || false}
       >

@@ -575,6 +575,7 @@ export const products = {
       "/src/lib/images/products/comma-3x/comma-3x.jpg"
     ],
     backordered: "4-12 weeks",
+    backorderedPrefix: "",
     notes: [],
     description: `
       <strong>Description</strong>
