@@ -47,6 +47,7 @@ export async function load({ url, params }) {
   if (response.status === 200) {
     const product = response.body?.data?.product;
     if (product) {
+      // TODO: remove and use product bundles
       // When this product shares physical stock with another Shopify product,
       // overlay the sibling's inventory flags onto our variants by title match.
       if (sourceResponse?.status === 200) {

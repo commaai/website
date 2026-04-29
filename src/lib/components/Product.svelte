@@ -24,8 +24,8 @@
   export let VariantSelector = null;
 
   // Per-variant timeline override carried by VariantSelector (e.g., harness
-  // JSON overrides like Tesla B's "4-8 weeks"). Only used when the selected
-  // variant is currentlyNotInStock; otherwise no backorder text is shown.
+  // JSON overrides like Tesla B's "4-8 weeks"). Treated as the authoritative
+  // backorder signal when present — shown regardless of Shopify stock state.
   let variantBackordered = null;
   function handleVariantSelection(variant) {
     selectedVariantId = variant?.id || null;
@@ -77,10 +77,11 @@
     }
   }
 
-  // Single source of truth: the static prop wins; otherwise, when the selected
-  // variant is currentlyNotInStock, use the per-variant override or the default.
+  // Priority: static prop > per-variant JSON override (always shown) >
+  // Shopify-driven default ('1-12 weeks' when currentlyNotInStock).
   $: effectiveBackordered = backordered
-    || (selectedVariant?.currentlyNotInStock ? (variantBackordered || '1-12 weeks') : null);
+    || variantBackordered
+    || (selectedVariant?.currentlyNotInStock ? '1-12 weeks' : null);
 
   let addToCartLabel;
   $: {
