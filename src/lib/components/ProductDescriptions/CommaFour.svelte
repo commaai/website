@@ -79,7 +79,7 @@
       backordered = null;
       disableBuyButtonText = null;
     } else if (value) {
-      backordered = value.currentlyNotInStock ? `ships in ${(value.backordered || '1-12 weeks')}` : null;
+      backordered = value.currentlyNotInStock ? (value.backordered || '1-12 weeks') : null;
       disableBuyButtonText = null;
     } else {
       backordered = null;
@@ -128,6 +128,7 @@
 </script>
 
 <Product {product} {additionalProductIds} {backordered} {beforeAddToCart} {getCartNote} priceOverride={FOUR_PRICE}
+         backorderedPrefix="ships in "
          disableBuyButtonText={disableBuyButtonText}>
   <div slot="shipping"></div>
 

@@ -6,8 +6,7 @@
   export let product;
 </script>
 
-<!-- TODO: support custom harness backorder overrides -->
-<Product {product} VariantSelector={HarnessSelector} autoSelectFirstVariant={false}>
+<Product {product} VariantSelector={HarnessSelector} autoSelectFirstVariant={false} backorderedPrefix="ships in ">
   <div slot="notes">
     <NoteCard title="Compatibility">
       Harness compatibility based on the US car market.

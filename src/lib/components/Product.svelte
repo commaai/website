@@ -15,6 +15,7 @@
   export let beforeAddToCart = null;
   export let getCartNote = null;
   export let backordered = null;
+  export let backorderedPrefix = "";
   export let forceOutOfStock = false;
   export let disableBuyButtonText = null;
   export let hideOutOfStockVariants = false;
@@ -23,7 +24,7 @@
   export let VariantSelector = null;
   function handleVariantSelection(variant) {
     selectedVariantId = variant?.id || null;
-    backordered = variant?.currentlyNotInStock ? 'backordered' : null;
+    backordered = variant?.currentlyNotInStock ? (variant.backordered || '1-12 weeks') : null;
   }
 
   let currentImageIndex = 0;
@@ -78,10 +79,10 @@
     } else if (forceOutOfStock || (selectedVariant && !selectedVariant.availableForSale)) {
       addToCartLabel = "Out of stock";
       if (backordered) {
-        addToCartLabel += ` (${backordered})`;
+        addToCartLabel += ` (${backorderedPrefix}${backordered})`;
       }
     } else if (backordered) {
-      addToCartLabel = `Add to cart (${backordered})`;
+      addToCartLabel = `Add to cart (${backorderedPrefix}${backordered})`;
     } else {
       addToCartLabel = "Add to cart";
     }
