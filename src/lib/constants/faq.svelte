@@ -308,7 +308,7 @@
               With prime ($24/mo), domestic data is included.
             </p>
             <p>
-              With prime lite ($10/mo), no SIM card or cellular service is provided. You can choose to bring your own SIM card for the full prime experience.
+              With prime lite ($14/mo), no SIM card or cellular service is provided. You can choose to bring your own SIM card for the full prime experience.
             </p>
             <p>
               Note: your own SIM may require configuration to work with your comma device. We do not offer troubleshooting for third party data service.
@@ -342,6 +342,22 @@
               you cancel your subscription.</li>
               <li>Your cancellation takes effect immediately. Your last paid monthly fee will be pro-rated and returned as credit on your account.</li>
               <li>You can sign back up at any time.</li>
+            </ul>
+          `
+        }, {
+          question: 'What is commacare?',
+          answer: `
+            <p>
+              commacare extends your comma four's warranty for an additional year beyond the standard one-year warranty, giving you two years of total coverage.
+            </p>
+            <p>
+              We've made commacare simple and straightforward:
+            </p>
+            <ul>
+              <li>commacare is included automatically with your comma prime ($24/mo) or prime lite ($14/mo) subscription.</li>
+              <li>You must start your prime subscription within the first 30 days of receiving your comma four to be eligible for commacare.</li>
+              <li>If you cancel your prime subscription, your commacare warranty ends immediately and cannot be resumed. The standard warranty terms will continue to apply for any remaining time in the first year.</li>
+              <li>commacare provides the same coverage as the standard one-year warranty. It does not cover theft, loss, or accidental damage.</li>
             </ul>
           `
         }, {
