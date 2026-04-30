@@ -18,6 +18,8 @@
 
   import { vehicleCountText } from '$lib/constants/vehicles.js';
   import ReleaseNote from "$lib/components/ReleaseNote.svelte";
+  import Faq from "$lib/components/Faq.svelte";
+  import { faq } from "$lib/constants/faq.svelte";
 
   const contributorsCount = 1000;
 
@@ -194,6 +196,12 @@
         with the driver supervising.
       </p>
     </article>
+  </div>
+</section>
+
+<section class="light" id="faq">
+  <div class="container">
+    <Faq topic={faq.openpilot} title="openpilot FAQ" />
   </div>
 </section>
 
