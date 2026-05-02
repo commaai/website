@@ -181,7 +181,7 @@
       </div>
     </Grid>
     <div class="copyright">
-      <span>© comma_ai 2025</span>
+      <span>© comma_ai 2026</span>
       <a href="/terms">Terms & Privacy</a>
     </div>
   </div>
