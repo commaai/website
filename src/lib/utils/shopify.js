@@ -1,14 +1,11 @@
-import { get } from 'svelte/store';
-import { cartId, cartCreatedAt, checkoutUrl, cartTotalQuantity } from '../../store';
-
 // GraphQL fragments for error handling
 const USER_ERRORS_GQL = `userErrors { code field message }`;
 const WARNINGS_GQL = `warnings { code message target }`;
 
 export async function shopifyFetch({ query, variables }) {
-  const apiToken = import.meta.env.VITE_SHOPIFY_STOREFRONT_API_TOKEN;
-  const storeUrl = import.meta.env.VITE_SHOPIFY_STORE_URL;
-  const apiVersion = import.meta.env.VITE_SHOPIFY_API_VERSION || 'unstable';
+  const apiToken = import.meta.env.PUBLIC_SHOPIFY_STOREFRONT_API_TOKEN || import.meta.env.VITE_SHOPIFY_STOREFRONT_API_TOKEN;
+  const storeUrl = import.meta.env.PUBLIC_SHOPIFY_STORE_URL || import.meta.env.VITE_SHOPIFY_STORE_URL;
+  const apiVersion = import.meta.env.PUBLIC_SHOPIFY_API_VERSION || import.meta.env.VITE_SHOPIFY_API_VERSION || 'unstable';
   const endpoint = `https://${storeUrl}/api/${apiVersion}/graphql.json`;
 
   if (apiVersion === 'unstable') {
@@ -40,24 +37,51 @@ export async function shopifyFetch({ query, variables }) {
   }
 }
 
-export async function loadCart() {
-  let currentDate = Date.now();
-  let difference = currentDate - get(cartCreatedAt);
-  let totalDays = Math.ceil(difference / (1000 * 3600 * 24));
-  let cartIdExpired = totalDays > 6;
-  if (get(cartId) === "undefined" || get(cartId) === "null" || cartIdExpired) {
-    await createCart();
-  }
-  let response = await _loadCart();
-  if (!response?.body?.data?.cart) {
-    console.log("setting up a new cart", response);
-    await createCart();
-    response = await _loadCart();
-  }
-  return response;
+export async function getProduct(id) {
+  return shopifyFetch({
+    query: /* graphql */ `
+      query getProductById($id: ID!) {
+        product(id: $id) {
+          title
+          id
+          priceRange {
+            maxVariantPrice {
+              amount
+              currencyCode
+            }
+            minVariantPrice {
+              amount
+              currencyCode
+            }
+          }
+          variants(first: 250) {
+            nodes {
+              id
+              title
+              availableForSale
+              currentlyNotInStock
+              price {
+                amount
+                currencyCode
+              }
+              image {
+                altText
+                height
+                url
+                width
+              }
+            }
+          }
+        }
+      }
+    `,
+    variables: {
+      id
+    }
+  });
 }
 
-export async function _loadCart() {
+export async function loadCartRemote(cartId) {
   return shopifyFetch({
     query: /* graphql */ `
       query GetCart($cartId: ID!) {
@@ -116,51 +140,7 @@ export async function _loadCart() {
         }
       }
     `,
-    variables: { cartId: get(cartId) }
-  });
-}
-
-export async function getProduct(id) {
-  return shopifyFetch({
-    query: /* graphql */ `
-      query getProductById($id: ID!) {
-        product(id: $id) {
-          title
-          id
-          priceRange {
-            maxVariantPrice {
-              amount
-              currencyCode
-            }
-            minVariantPrice {
-              amount
-              currencyCode
-            }
-          }
-          variants(first: 250) {
-            nodes {
-              id
-              title
-              availableForSale
-              currentlyNotInStock
-              price {
-                amount
-                currencyCode
-              }
-              image {
-                altText
-                height
-                url
-                width
-              }
-            }
-          }
-        }
-      }
-    `,
-    variables: {
-      id
-    }
+    variables: { cartId }
   });
 }
 
@@ -172,22 +152,16 @@ export async function createCart() {
           cart {
             checkoutUrl
             id
+            totalQuantity
           }
         }
       }
     `,
     variables: {}
-  }).then(response => {
-    cartId.set(response.body?.data?.cartCreate?.cart?.id)
-    cartCreatedAt.set(Date.now());
-    checkoutUrl.set(response.body?.data?.cartCreate?.cart?.checkoutUrl);
-    cartTotalQuantity.set(response.body?.data?.cartCreate?.cart?.totalQuantity)
   });
-
 }
 
-
-export async function updateCart({ cartId, lineId, variantId, quantity }) {
+export async function updateCartLine({ cartId, lineId, variantId, quantity }) {
   return shopifyFetch({
     query: /* graphql */ `
       mutation cartLinesUpdate($cartId: ID!, $lines: [CartLineUpdateInput!]!) {
@@ -198,19 +172,13 @@ export async function updateCart({ cartId, lineId, variantId, quantity }) {
       }
     `,
     variables: {
-      cartId: cartId,
-      lines: [
-        {
-          id: lineId,
-          merchandiseId: variantId,
-          quantity: quantity
-        }
-      ]
+      cartId,
+      lines: [{ id: lineId, merchandiseId: variantId, quantity }]
     }
   });
 }
 
-export async function addToCart({ cartId, variantId, additionalProductIds = [], note = "" }) {
+export async function addToCartRemote({ cartId, variantId, additionalProductIds = [], note = "" }) {
   const cartLinesResponse = await shopifyFetch({
     query: /* graphql */ `
       mutation addToCart($cartId: ID!, $lines: [CartLineInput!]!) {
@@ -238,9 +206,8 @@ export async function addToCart({ cartId, variantId, additionalProductIds = [], 
         }
       }
     `,
-
     variables: {
-      cartId: cartId,
+      cartId,
       lines: [{
         merchandiseId: variantId,
         quantity: 1
@@ -259,7 +226,6 @@ export async function addToCart({ cartId, variantId, additionalProductIds = [], 
     return cartLinesResponse;
   }
 
-  // Update the cart note
   if (note) {
     const cartNoteResponse = await shopifyFetch({
       query: /* graphql */ `
@@ -275,8 +241,8 @@ export async function addToCart({ cartId, variantId, additionalProductIds = [], 
         }
       `,
       variables: {
-        cartId: cartId,
-        note: note,
+        cartId,
+        note,
       },
     });
 

@@ -1,15 +1,20 @@
-// Dynamic import for all product images
+// Dynamic import for all product images. Resolved as { default: src } per Vite glob.
 const imageModules = import.meta.glob('/src/lib/images/products/**/*', {
   eager: true,
   import: 'default'
 });
 
-// Helper to resolve a single image path
-export function resolveImage(path) {
-  return imageModules[path];
+function toUrl(mod) {
+  if (!mod) return mod;
+  // Astro asset modules are objects { src, width, height, format }; raw imports are strings
+  if (typeof mod === 'string') return mod;
+  return mod.src ?? mod;
 }
 
-// Helper to resolve multiple image paths
+export function resolveImage(path) {
+  return toUrl(imageModules[path]);
+}
+
 export function resolveImages(paths) {
   return paths.map(path => resolveImage(path));
 }

@@ -1,0 +1,70 @@
+---
+import Grid from "./Grid.astro";
+import LinkButton from "./LinkButton.astro";
+
+import ImmediateIcon from "$lib/icons/features/immediate.svg?raw";
+
+const { productName = "", title = "Setup Guide", estimatedMinutes = 0, link, image } = Astro.props;
+---
+<Grid alignItems="center" size="large">
+  <div class="installation-guide">
+    <hgroup>
+      <span>{productName}</span>
+      <h2>{title}</h2>
+    </hgroup>
+    <div class="overview">
+      <div>
+        <Fragment set:html={ImmediateIcon} />
+        <span>{estimatedMinutes} min</span>
+      </div>
+    </div>
+    <LinkButton href={link} style="primary" fullWidth={true}>View Guide</LinkButton>
+  </div>
+  <div class="mobile-first">
+    <img src={image} loading="lazy" alt={productName} />
+  </div>
+</Grid>
+
+<style>
+  .installation-guide {
+    max-width: 80%;
+
+    @media screen and (max-width: 1024px) {
+      & {
+        max-width: 100%;
+      }
+    }
+
+    & hgroup {
+      & span {
+        display: block;
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    & .overview {
+      display: flex;
+      align-items: center;
+      max-width: 375px;
+      margin: 2rem 0;
+
+      & div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      & span {
+        margin-left: 1rem;
+      }
+
+      & .divider {
+        width: 1px;
+        height: 3rem;
+        background-color: rgba(0, 0, 0, 0.2);
+        margin: 0 2.5rem;
+      }
+    }
+  }
+</style>

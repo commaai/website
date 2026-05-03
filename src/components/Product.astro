@@ -1,0 +1,396 @@
+---
+import Grid from "./Grid.astro";
+import Button from "./Button.astro";
+import Select from "./Select.astro";
+import NoteCard from "./NoteCard.astro";
+
+import ShippingIcon from "$lib/icons/features/shipping.svg?raw";
+
+import { formatCurrency } from "$lib/utils/currency.js";
+
+const {
+  product,
+  additionalProductIds = [],
+  autoSelectFirstVariant = true,
+  backordered = null,
+  backorderedPrefix = "ships in ",
+  forceOutOfStock = false,
+  disableBuyButtonText = null,
+  hideOutOfStockVariants = false,
+  priceOverride = null,
+  productScope = product?.id ?? "default",
+} = Astro.props;
+
+const variants = hideOutOfStockVariants
+  ? product?.variants?.nodes.filter((v: any) => v.availableForSale) || []
+  : product?.variants?.nodes || [];
+
+const initialVariantId = autoSelectFirstVariant && variants.length > 0 ? variants[0].id : null;
+const initialVariant = variants.find((v: any) => v.id === initialVariantId);
+
+function priceLabel(variant: any) {
+  if (priceOverride !== null) {
+    return formatCurrency({ amount: priceOverride, currencyCode: 'USD' }, 0);
+  }
+  if (variant) return formatCurrency(variant.price, 0);
+  if (product.priceRange.minVariantPrice.amount !== product.priceRange.maxVariantPrice.amount) {
+    return `from ${formatCurrency(product.priceRange.minVariantPrice, 0)}`;
+  }
+  return formatCurrency(product.priceRange.minVariantPrice, 0);
+}
+
+const initialPriceLabel = priceLabel(initialVariant);
+
+let initialBuyText: string;
+if (disableBuyButtonText) {
+  initialBuyText = disableBuyButtonText;
+} else if (forceOutOfStock || (initialVariant && !initialVariant.availableForSale)) {
+  initialBuyText = "Out of stock";
+  if (backordered) initialBuyText += ` (${backorderedPrefix}${backordered})`;
+} else if (backordered) {
+  initialBuyText = `Add to cart (${backorderedPrefix}${backordered})`;
+} else {
+  initialBuyText = "Add to cart";
+}
+
+const variantsJson = JSON.stringify(variants.map((v: any) => ({
+  id: v.id,
+  title: v.title,
+  availableForSale: v.availableForSale,
+  currentlyNotInStock: v.currentlyNotInStock,
+  price: v.price,
+  image: v.image,
+  backordered: v.backordered ?? null,
+})));
+---
+{product && (
+  <Grid columns={2} rowGap="0" columnGap="6rem" templateColumns="1.25fr 0.75fr" lgTemplateColumns="1fr 1fr" lgColumnGap="2rem">
+    <div>
+      <div class="preview">
+        <img src={product.images[0]} alt="product preview" data-product-preview />
+      </div>
+      {product?.images?.length > 1 && (
+        <div class="product-images">
+          {product.images.map((image: string, i: number) => (
+            <button
+              class="variant"
+              role="tab"
+              aria-selected={i === 0 ? "true" : "false"}
+              aria-label={`View product variant ${i}`}
+              data-product-thumb
+              data-product-image={image}
+            >
+              <img src={image} alt={`product preview ${i + 1}`} />
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+    <div>
+      <div>
+        <div class="variant-selector">
+          <h1>{product?.title}</h1>
+          <div class="price">
+            <slot name="price">
+              <span data-price-label>{initialPriceLabel}</span>
+            </slot>
+          </div>
+          <slot name="price-accessory" />
+          <slot name="variant-selector">
+            {variants.length > 1 && initialVariant && (
+              <>
+                <img src={initialVariant.image?.url} alt="" data-variant-image />
+                <Select>
+                  {variants.map((option: any) => (
+                    <option value={option.id} selected={option.id === initialVariantId ? "selected" : undefined}>
+                      {option.title}
+                    </option>
+                  ))}
+                </Select>
+              </>
+            )}
+          </slot>
+        </div>
+        <Button
+          class="add-to-cart-btn"
+          style="accent"
+          fullWidth={true}
+          disabled={forceOutOfStock || !initialVariant || initialVariant?.availableForSale === false || disableBuyButtonText !== null}
+        >
+          <span data-buy-label>{initialBuyText}</span>
+        </Button>
+        <slot name="shipping">
+          <NoteCard title="Shipping" icon={ShippingIcon}>
+            {product?.freeRush
+              ? "Free Rush (UPS 2nd Day Air) shipping. $30 flat rate internationally."
+              : "Free US shipping, $30 flat rate internationally."}
+          </NoteCard>
+        </slot>
+        <slot name="notes" />
+        <hr />
+        <div class="description">
+          <slot name="description" />
+        </div>
+      </div>
+    </div>
+  </Grid>
+)}
+
+<script
+  is:inline
+  type="application/json"
+  data-product-config={productScope}
+  set:html={JSON.stringify({
+    productId: product?.id,
+    variants: JSON.parse(variantsJson),
+    initialVariantId,
+    backordered,
+    backorderedPrefix,
+    forceOutOfStock,
+    disableBuyButtonText,
+    additionalProductIds,
+    priceOverride,
+  })}
+/>
+
+<script>
+  import { addToCart } from '$scripts/cart.js';
+  import { formatCurrency } from '$lib/utils/currency.js';
+
+  function init() {
+    const configEl = document.querySelector('[data-product-config]');
+    if (!configEl) return;
+    const config = JSON.parse(configEl.textContent || '{}');
+
+    let selectedVariantId = config.initialVariantId;
+    let backordered = config.backordered;
+
+    const previewImg = document.querySelector('[data-product-preview]') as HTMLImageElement | null;
+    const thumbs = document.querySelectorAll('[data-product-thumb]');
+    thumbs.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const src = (btn as HTMLElement).dataset.productImage;
+        if (previewImg && src) previewImg.src = src;
+        thumbs.forEach((b) => b.setAttribute('aria-selected', 'false'));
+        btn.setAttribute('aria-selected', 'true');
+      });
+    });
+
+    const select = document.querySelector('.variant-selector select') as HTMLSelectElement | null;
+    const variantImage = document.querySelector('[data-variant-image]') as HTMLImageElement | null;
+    const priceLabelEl = document.querySelector('[data-price-label]');
+    const buyLabelEl = document.querySelector('[data-buy-label]');
+    const buyBtn = document.querySelector('.add-to-cart-btn') as HTMLButtonElement | null;
+
+    function getVariant(id: string | null) {
+      return config.variants.find((v: any) => v.id === id);
+    }
+
+    function priceLabel(variant: any) {
+      if (config.priceOverride != null) {
+        return formatCurrency({ amount: config.priceOverride, currencyCode: 'USD' }, 0);
+      }
+      if (variant) return formatCurrency(variant.price, 0);
+      return '';
+    }
+
+    function buyLabel() {
+      const variant = getVariant(selectedVariantId);
+      if (config.disableBuyButtonText) return config.disableBuyButtonText;
+      if (config.forceOutOfStock || (variant && !variant.availableForSale)) {
+        let lbl = 'Out of stock';
+        if (backordered) lbl += ` (${config.backorderedPrefix}${backordered})`;
+        return lbl;
+      }
+      if (backordered) return `Add to cart (${config.backorderedPrefix}${backordered})`;
+      return 'Add to cart';
+    }
+
+    function rerender() {
+      const variant = getVariant(selectedVariantId);
+      if (variantImage && variant?.image?.url) variantImage.src = variant.image.url;
+      if (priceLabelEl) priceLabelEl.textContent = priceLabel(variant);
+      if (buyLabelEl) buyLabelEl.textContent = buyLabel();
+      if (buyBtn) {
+        const disabled = config.forceOutOfStock || !variant || variant.availableForSale === false || !!config.disableBuyButtonText;
+        buyBtn.disabled = disabled;
+        buyBtn.classList.toggle('disabled', disabled);
+      }
+    }
+
+    if (select) {
+      select.addEventListener('change', () => {
+        selectedVariantId = select.value;
+        rerender();
+      });
+    }
+
+    // Hook variant selection from external sources (e.g. HarnessSelector inside slot)
+    document.addEventListener('product:variant', (e: any) => {
+      const variant = e.detail;
+      selectedVariantId = variant?.id ?? null;
+      backordered = variant?.currentlyNotInStock ? (variant.backordered || '1-12 weeks') : null;
+      rerender();
+    });
+    document.addEventListener('product:set-buy-text', (e: any) => {
+      config.disableBuyButtonText = e.detail;
+      rerender();
+    });
+    document.addEventListener('product:set-additional-ids', (e: any) => {
+      config.additionalProductIds = e.detail || [];
+    });
+
+    if (buyBtn) {
+      buyBtn.addEventListener('click', async () => {
+        if (buyBtn.disabled) return;
+        const variant = getVariant(selectedVariantId);
+        if (!variant) return;
+
+        // Allow ancestor scripts to intercept (used by CommaFour disclaimer modal)
+        const interceptEvent = new CustomEvent('product:before-add-to-cart', {
+          cancelable: true,
+          detail: {
+            proceed: async () => {
+              const note = (document as any)._productCartNote?.() ?? '';
+              await addToCart(variant.id, config.additionalProductIds, note);
+            },
+          },
+        });
+        const prevented = !document.dispatchEvent(interceptEvent);
+        if (prevented) return;
+
+        const note = (document as any)._productCartNote?.() ?? '';
+        await addToCart(variant.id, config.additionalProductIds, note);
+      });
+    }
+
+    rerender();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+</script>
+
+<style>
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+  }
+
+  .preview {
+    & img {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+
+  .product-images {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .variant {
+    width: 120px;
+    max-width: 25%;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    margin-top: 1rem;
+
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: scale-down;
+    }
+  }
+
+  .variant-selector {
+    margin: 1rem 0;
+
+    & h1 {
+      margin-bottom: 1rem;
+    }
+
+    & .price {
+      font-size: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+
+    & img {
+      width: 120px;
+      height: 120px;
+      object-fit: scale-down;
+    }
+  }
+
+  .description {
+    & :global(strong) {
+      font-size: 1.25rem;
+    }
+
+    & :global(hr) {
+      margin: 2rem 0;
+    }
+
+    & :global(hgroup) {
+      display: flex;
+      align-items: center;
+    }
+
+    & :global(hgroup img) {
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      margin-right: 1rem;
+      max-width: 150px;
+    }
+
+    & :global(hgroup div) {
+      display: flex;
+      flex-direction: column;
+    }
+
+    & :global(hgroup div span) {
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      font-family: JetBrains Mono, monospace;
+    }
+
+    & :global(hgroup div strong) {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    & :global(li) {
+      font-size: 1rem;
+    }
+
+    & :global(a) {
+      color: #000;
+      border-bottom: 2px solid #86ff4e;
+      background-color: rgba(134, 255, 78, 0.15);
+    }
+
+    & :global(.video-container) {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+    }
+
+    & :global(.video-container iframe) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  hr {
+    margin: 2rem 0;
+  }
+</style>

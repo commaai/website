@@ -1,0 +1,40 @@
+---
+import GithubIcon from "$lib/icons/social/github.svg?raw";
+import DiscordIcon from "$lib/icons/social/discord.svg?raw";
+import XIcon from "$lib/icons/social/x.svg?raw";
+import InstagramIcon from "$lib/icons/social/instagram.svg?raw";
+import YoutubeIcon from "$lib/icons/social/youtube.svg?raw";
+
+const { size = "24px" } = Astro.props;
+---
+<div class="social-icons" style={`--size: ${size}`}>
+  <a href="https://github.com/commaai" target="_blank" class="github" set:html={GithubIcon} />
+  <a href="https://twitter.com/comma_ai" target="_blank" class="twitter" set:html={XIcon} />
+  <a href="https://www.instagram.com/comma_ai" target="_blank" class="instagram" set:html={InstagramIcon} />
+  <a href="https://www.youtube.com/commaai" target="_blank" class="youtube" set:html={YoutubeIcon} />
+  <a href="https://discord.comma.ai" target="_blank" class="discord" set:html={DiscordIcon} />
+</div>
+
+<style>
+  .social-icons {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: start;
+    gap: 1rem;
+
+    & :global(svg) {
+      width: var(--size);
+      height: var(--size);
+
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          color: var(--color-accent);
+        }
+      }
+      &:active {
+        color: var(--color-accent);
+      }
+    }
+  }
+</style>

@@ -1,0 +1,485 @@
+---
+import "../styles/app.css";
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/600.css";
+import "@fontsource/inter/700.css";
+import "@fontsource/jetbrains-mono/400.css";
+
+import { XMLParser } from 'fast-xml-parser';
+
+import Badge from "$components/Badge.astro";
+import Grid from "$components/Grid.astro";
+import SocialIcons from "$components/SocialIcons.astro";
+import MailingListForm from "$components/MailingListForm.astro";
+import HeaderBanner from "$components/HeaderBanner.astro";
+import HeaderMenu from "$components/HeaderMenu.astro";
+import ShoppingCart from "$components/ShoppingCart.astro";
+
+import CommaIcon from "$lib/icons/comma.svg?raw";
+import CartIcon from "$lib/icons/ui/cart.svg?raw";
+import BasketIcon from "$lib/icons/ui/basket.svg?raw";
+import ExternalIcon from "$lib/icons/ui/external.svg?raw";
+
+const MonumentExtendedBlack = "/fonts/MonumentExtended-Black.woff2";
+
+const {
+  title = "comma.ai — make driving chill",
+  description = "An AI upgrade for your car",
+} = Astro.props;
+
+const pathname = Astro.url.pathname;
+
+// Build-time blog feed fetch (strict)
+const feed = await fetch("https://blog.comma.ai/feed").then((r) => r.text());
+const parsed = new XMLParser().parse(feed);
+const blogPosts = parsed.rss.channel.item
+  .map(({ title: itemTitle, guid, pubDate, "cb:readTime": readTime }: any) => {
+    const date = new Date(pubDate).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+    return { title: itemTitle, link: guid, date, readTime };
+  })
+  .slice(0, 3);
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link
+      rel="preload"
+      href={MonumentExtendedBlack}
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+
+    <!-- analytics -->
+    <script defer data-domain="comma.ai" src="https://plausible.io/js/script.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NKN922YQ1D"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-NKN922YQ1D');
+    </script>
+    <script is:inline>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:3254988,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+    <script is:inline>
+        !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init Rr Mr fi Cr Ar ci Tr Fr capture Mi calculateEventProperties Lr register register_once register_for_session unregister unregister_for_session Hr getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty Ur jr createPersonProfile zr kr Br opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing Dr debug M Nr getPageViewId captureTraceFeedback captureTraceMetric $r".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+        posthog.init('phc_4VfSi5FAChlAt5keSrxVWCaVyZTsYpFKqz2Bw60KLz', {
+            api_host: 'https://us.i.posthog.com',
+            defaults: '2025-05-24',
+            person_profiles: 'identified_only',
+        })
+    </script>
+
+    <!-- Twitter conversion tracking base code -->
+    <script is:inline>
+    !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+    },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='https://static.ads-twitter.com/uwt.js',
+    a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+    twq('config','oaolc');
+    </script>
+
+    <title>{title}</title>
+
+    <!-- Google SEO -->
+    <script type="application/ld+json" is:inline set:html={`{
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "url": "https://comma.ai",
+      "sameAs": [
+        "https://twitter.com/comma_ai",
+        "https://github.com/commaai"
+      ],
+      "name": "comma.ai",
+      "description": "An AI upgrade for your car. Make driving chill."
+    }`} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://comma.ai/" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="https://comma.ai/og-comma-four.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="628" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@comma_ai" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://comma.ai/og-comma-four.png" />
+    <meta name="twitter:image:alt" content="comma four" />
+
+    <slot name="head" />
+  </head>
+  <body>
+    <div>
+      <header class="navbar">
+        <div class="navbar-container">
+          <div class="navbar-section-logo">
+            <a class="title" href="/">comma</a>
+            <div class="menu-container">
+              <HeaderMenu blogPosts={blogPosts} />
+            </div>
+          </div>
+          <nav class="navbar-section-links">
+            <a href="/" class:list={[{ active: pathname === '/' }]}>home</a>
+            <a href="/openpilot" class:list={[{ active: pathname.startsWith('/openpilot') }]}>openpilot</a>
+            <a href="/shop/comma-four" class:list={[{ active: pathname.startsWith('/shop/comma-four') }]}>comma four</a>
+            <a href="/vehicles" class:list={[{ active: pathname.startsWith('/vehicles') }]}>compatibility</a>
+            <a href="/jobs" class:list={[{ active: pathname.startsWith('/jobs') }]}>jobs</a>
+          </nav>
+          <div class="navbar-section-buttons">
+            <a class="navbar-btn shop" href="/shop">
+              <Fragment set:html={BasketIcon} />
+              Shop
+            </a>
+            <button id="cart-button" class="navbar-btn cart" style="display: none;">
+              <Fragment set:html={CartIcon} />
+              <div class="cart-text">cart (<span id="cart-count">0</span>)</div>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <ShoppingCart />
+
+      <HeaderBanner />
+
+      <main>
+        <slot />
+      </main>
+
+      <footer>
+        <div class="container">
+          <Grid columns={4} wrapMode="single" alignItems="start" size="large">
+            <div class="footer-links">
+              <strong>Product</strong>
+              <a href="/openpilot">openpilot</a>
+              <a class="badged" href="/shop/comma-four">
+                <span>comma four</span>
+                <Badge style="light" display="inline">new</Badge>
+              </a>
+              <a href="/connect">connect</a>
+              <a href="/vehicles">Compatibility</a>
+              <a href="/shop">Shop</a>
+            </div>
+            <div class="footer-links">
+              <strong>Company</strong>
+              <a href="https://blog.comma.ai">Blog</a>
+              <a class="badged" href="/jobs">
+                <span>Jobs</span>
+                <Badge style="light" display="inline">we're hiring!</Badge>
+              </a>
+              <a class="badged" href="/leaderboard.html">
+                <span>Leaderboard</span>
+                <Badge style="accent" display="inline">New Challenge!</Badge>
+              </a>
+            </div>
+            <div class="footer-links">
+              <strong>Support</strong>
+              <a href="/support">Support & FAQs</a>
+              <a href="/setup">Setup Guide</a>
+              <a class="badged" href="https://discord.comma.ai/">
+                <span>Discord</span>
+                <Fragment set:html={ExternalIcon} />
+              </a>
+            </div>
+            <div class="footer-links">
+              <div class="tagline">
+                <Fragment set:html={CommaIcon} />
+                <span>make driving chill</span>
+              </div>
+              <SocialIcons size="1.5rem" />
+              <div id="mailing-list" class="mailing-list">
+                <MailingListForm style="primary" />
+              </div>
+            </div>
+          </Grid>
+          <div class="copyright">
+            <span>© comma_ai 2025</span>
+            <a href="/terms">Terms & Privacy</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      import "$scripts/cart-display.js";
+      import "$scripts/accordion.js";
+      import "$scripts/header-menu.js";
+    </script>
+
+    <style is:global>
+      @font-face {
+        font-display: block;
+        font-family: "Monument Extended Black";
+        font-style: normal;
+        src: url("/fonts/MonumentExtended-Black.woff2");
+      }
+    </style>
+
+    <style>
+      .navbar {
+        top: 0;
+        position: sticky;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        z-index: 10;
+
+        background-color: rgba(245, 245, 245, 0.75);
+        border-bottom: 1px solid #000;
+        backdrop-filter: blur(10px);
+      }
+
+      .navbar-container {
+        display: flex;
+        align-items: stretch;
+        justify-content: space-between;
+      }
+
+      .navbar-section-logo {
+        flex-direction: row-reverse;
+        align-items: center;
+        display: flex;
+        border-right: 1px solid #000;
+
+        & > .title {
+          font-family: "Monument Extended Black", sans-serif;
+          font-size: 20px;
+          color: black;
+          height: 20px;
+          text-transform: uppercase;
+          padding: 0 2rem;
+        }
+
+        @media only screen and (max-width: 1280px) {
+          border-right: none;
+        }
+
+        @media only screen and (max-width: 768px) {
+          flex: 1;
+
+          & > .title {
+            display: flex;
+            flex: 1;
+            justify-content: center;
+          }
+        }
+
+        @media only screen and (max-width: 375px) {
+          & > .title {
+            padding: 0 0.25rem;
+          }
+        }
+      }
+
+      .navbar-section-links {
+        display: flex;
+        flex: 1;
+        align-items: center;
+        justify-content: center;
+
+        & a {
+          color: #000;
+          margin: 0 1.75rem;
+          font-family: Inter, sans-serif;
+          font-size: 1.125rem;
+          transition: text-shadow 0.2s;
+        }
+
+        & a.active {
+          text-shadow: 0 0 8px rgba(81, 255, 0, 0.8),
+                       0 0 12px rgba(81, 255, 0, 0.5);
+        }
+
+        @media only screen and (max-width: 1280px) {
+          & {
+            display: none;
+          }
+        }
+      }
+
+      .navbar-section-buttons {
+        display: flex;
+
+        & .cart, & .shop {
+          border: none;
+        }
+
+        & .navbar-btn :global(svg) {
+          margin-right: 0.5rem;
+        }
+
+        & .navbar-btn {
+          color: #000;
+          text-transform: uppercase;
+          font-family: Inter, sans-serif;
+          border-left: 1px solid #000;
+          padding-left: 56px;
+          padding-right: 56px;
+          font-size: 1rem;
+          font-weight: 700;
+          letter-spacing: 1px;
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+          background-color: var(--color-accent);
+
+          @media (hover: hover) and (pointer: fine) {
+            &:hover {
+              background-color: var(--color-accent-hover);
+            }
+          }
+          &:active {
+            background-color: var(--color-accent-hover);
+          }
+        }
+
+        @media only screen and (max-width: 768px) {
+          &.navbar-section-buttons > :first-child:not(:only-child) {
+            display: none;
+          }
+
+          & .cart .cart-text {
+            display: none;
+          }
+
+          & .cart {
+            padding-left: 25px;
+            padding-right: 25px;
+          }
+
+          & .shop {
+            padding-left: 10px;
+            padding-right: 10px;
+          }
+        }
+      }
+
+      footer {
+        color: #fff;
+        background-color: #000;
+        padding: 6rem 6rem 1.25rem;
+
+        @media screen and (max-width: 1024px) {
+          & {
+            padding: 2rem;
+          }
+
+          & .footer-links {
+            margin-bottom: 1rem;
+          }
+        }
+
+        & .container {
+          max-width: 1440px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        & .footer-links {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.75rem;
+
+          & strong {
+            color: #fff;
+            opacity: 0.65;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 1rem;
+            font-weight: 600;
+          }
+
+          & a {
+            color: #fff;
+            font-size: 1.25rem;
+            transition: opacity 0.2s;
+          }
+
+          @media (hover: hover) and (pointer: fine) {
+            & a:hover {
+              opacity: 0.65;
+            }
+          }
+          & a:active {
+            opacity: 0.65;
+          }
+
+          & .badged {
+            display: flex;
+            align-items: center;
+            transition: opacity 0.2s;
+
+            & span {
+              margin-right: 0.75rem;
+            }
+
+            & div {
+              padding: 0.25rem 0.4rem;
+              text-wrap: nowrap;
+              margin: 0;
+            }
+          }
+
+          & .tagline {
+            display: flex;
+
+            & :global(svg) {
+              width: 16px;
+              height: 28px;
+              margin-right: 0.75rem;
+              color: white;
+            }
+
+            & span {
+              font-size: 1.2rem;
+              font-weight: 400;
+            }
+          }
+        }
+
+        & .mailing-list {
+          margin-top: 2rem;
+          width: 100%;
+          color: white;
+        }
+
+        @media only screen and (max-width: 1024px) and (min-width: 512px) {
+          & .mailing-list {
+            width: unset;
+          }
+        }
+
+        & .copyright {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-size: 0.875rem;
+          margin-top: 4rem;
+          opacity: 0.65;
+          padding-top: 20px;
+          border-top: 1px solid rgba(255, 255, 255, 0.25);
+        }
+      }
+    </style>
+  </body>
+</html>
