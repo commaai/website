@@ -22,10 +22,10 @@ import { vehicleCountText } from '$lib/constants/vehicles.js';
 
 const brand_images: Record<string, any> = import.meta.glob('$lib/images/vehicles/brand-icons/*.png', { eager: true });
 
-function brandImageSrc(brand: string) {
+function brandImage(brand: string) {
   const path = `/src/lib/images/vehicles/brand-icons/Logo-${brand}.png`;
   const mod = brand_images[path];
-  return mod?.default?.src ?? mod?.default;
+  return mod?.default ?? null;
 }
 ---
 <Layout title="Compatible Vehicles — comma.ai">
@@ -49,8 +49,8 @@ function brandImageSrc(brand: string) {
           cars.length !== 0 && (
             <div class="compatibility-make-element">
               <a href={`#${brand.toLowerCase()}`} class="compatibility-make-anchor-link">
-                {brandImageSrc(brand) && (
-                  <img src={brandImageSrc(brand)} loading="eager" alt={`${brand} car brand`} />
+                {brandImage(brand) && (
+                  <img src={brandImage(brand).src} width={brandImage(brand).width} height={brandImage(brand).height} alt={`${brand} car brand`} />
                 )}
               </a>
               <div class="compatibility-make-name">{brand}</div>
@@ -122,8 +122,8 @@ function brandImageSrc(brand: string) {
         cars.length !== 0 && (
           <>
             <div id={make.toLowerCase()} class="car-make-header">
-              {brandImageSrc(make) && (
-                <img src={brandImageSrc(make)} alt={`${make} car brand`} />
+              {brandImage(make) && (
+                <img src={brandImage(make).src} width={brandImage(make).width} height={brandImage(make).height} alt={`${make} car brand`} />
               )}
               <h3>{make} <span class="muted">({cars.length})</span></h3>
             </div>
@@ -166,7 +166,7 @@ function brandImageSrc(brand: string) {
                         </div>
                         <div class="device-promotion-card">
                           <div class="product-wrapper">
-                            <img src={CommaFourImage.src} loading="lazy" alt="comma four device" />
+                            <img src={CommaFourImage.src} alt="comma four device" />
                             <hgroup>
                               <strong>comma four</strong>
                               <div class="understated-price">${FOUR_PRICE}</div>

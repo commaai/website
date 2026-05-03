@@ -22,6 +22,11 @@ import ExternalIcon from "$lib/icons/ui/external.svg?raw";
 
 const MonumentExtendedBlack = "/fonts/MonumentExtended-Black.woff2";
 
+import Inter400 from "@fontsource/inter/files/inter-latin-400-normal.woff2?url";
+import Inter600 from "@fontsource/inter/files/inter-latin-600-normal.woff2?url";
+import Inter700 from "@fontsource/inter/files/inter-latin-700-normal.woff2?url";
+import JetBrainsMono400 from "@fontsource/jetbrains-mono/files/jetbrains-mono-latin-400-normal.woff2?url";
+
 const {
   title = "comma.ai — make driving chill",
   description = "An AI upgrade for your car",
@@ -50,13 +55,11 @@ const blogPosts = parsed.rss.channel.item
     <link rel="icon" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link
-      rel="preload"
-      href={MonumentExtendedBlack}
-      as="font"
-      type="font/woff2"
-      crossorigin="anonymous"
-    />
+    <link rel="preload" href={MonumentExtendedBlack} as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href={Inter400} as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href={Inter600} as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href={Inter700} as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href={JetBrainsMono400} as="font" type="font/woff2" crossorigin="anonymous" />
 
     <!-- analytics -->
     <script defer data-domain="comma.ai" src="https://plausible.io/js/script.js"></script>

@@ -41,7 +41,7 @@ function renderCart(state) {
       const variantTitle = merch.title !== 'Default Title' ? `<div class="variant">${merch.title}</div>` : '';
       return `
         <div class="item">
-          <img alt="${product.title}" decoding="async" loading="lazy" src="${img?.originalSrc ?? ''}" />
+          <img alt="${product.title}" decoding="async" src="${img?.originalSrc ?? ''}" />
           <div class="details">
             <div class="title">${product.title}</div>
             ${variantTitle}

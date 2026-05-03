@@ -19,7 +19,9 @@ const featuredCars = [
       <div class="compatibility-item">
         <img
           src={car.brandIcon.src}
-          loading="lazy"
+          width={car.brandIcon.width}
+          height={car.brandIcon.height}
+
           alt={`${car.make} logo`}
           class="car-brand-logo"
         />
