@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from "../layouts/Layout.astro";
 import LinkButton from "$components/LinkButton.astro";
 import FeaturedCarsList from "$components/FeaturedCarsList.astro";
@@ -60,8 +61,8 @@ const githubStars = 50000;
       <h2 class="muted">An AI upgrade for your car</h2>
       <Grid columns={2} rowGap="3rem">
         <div class="device-image-container">
-          <img
-            src={DeviceImage.src}
+          <Image loading="eager"
+            src={DeviceImage}
             alt="comma four device"
           />
           <video

@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import HyundaiIcon from "$lib/icons/brands/hyundai.svg";
 import LexusIcon from "$lib/icons/brands/lexus.svg";
 import KiaIcon from "$lib/icons/brands/kia.svg";
@@ -17,11 +18,8 @@ const featuredCars = [
   {featuredCars.map((car) => (
     <>
       <div class="compatibility-item">
-        <img
-          src={car.brandIcon.src}
-          width={car.brandIcon.width}
-          height={car.brandIcon.height}
-
+        <Image loading="eager"
+          src={car.brandIcon}
           alt={`${car.make} logo`}
           class="car-brand-logo"
         />

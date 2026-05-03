@@ -1,8 +1,9 @@
 ---
+import { Image } from 'astro:assets';
 const { product } = Astro.props;
 ---
 <a class="product-card" href={product.route}>
-  <img src={product.images[0]} alt={`${product.title} product`} />
+  <Image loading="eager" src={product.images[0]} alt={`${product.title} product`} />
   <div>
     <hgroup>
       <h2>{product.title}</h2>
@@ -36,6 +37,8 @@ const { product } = Astro.props;
     & img {
       display: inline-block;
       mix-blend-mode: multiply;
+      width: 100%;
+      height: auto;
     }
 
     & div {

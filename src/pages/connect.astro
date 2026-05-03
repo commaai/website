@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from "../layouts/Layout.astro";
 import Badge from "$components/Badge.astro";
 import Grid from "$components/Grid.astro";
@@ -22,7 +23,7 @@ import CloseIcon from "$lib/icons/ui/close.svg?raw";
 ---
 <Layout title="comma connect — comma.ai">
   <div class="banner" style={`background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('${VehiclesCoverImage.src}');`}>
-    <img src={ConnectHeroImage.src} alt="comma connect application" />
+    <Image loading="eager" src={ConnectHeroImage} alt="comma connect application" />
   </div>
 
   <section class="light" id="connect">
@@ -42,9 +43,9 @@ import CloseIcon from "$lib/icons/ui/close.svg?raw";
       <div class="features-banner">
         <Grid columns={6} wrapMode="double" columnGap="2rem" size="medium">
           <div class="icon" set:html={RecordingsIcon} />
-          <div class="icon"><img src={TwentyFourSevenIcon.src} alt="" /></div>
-          <div class="icon"><img src={MarkerIcon.src} alt="" /></div>
-          <div class="icon"><img src={SnapshotIcon.src} alt="" /></div>
+          <div class="icon"><Image loading="eager" src={TwentyFourSevenIcon} alt="" /></div>
+          <div class="icon"><Image loading="eager" src={MarkerIcon} alt="" /></div>
+          <div class="icon"><Image loading="eager" src={SnapshotIcon} alt="" /></div>
           <div class="icon" set:html={CommandLineIcon} />
           <div class="icon" set:html={CommacareIcon} />
         </Grid>
@@ -92,7 +93,7 @@ import CloseIcon from "$lib/icons/ui/close.svg?raw";
         </div>
         <div class="row">
           <div class="feature-overview">
-            <div class="icon"><img src={TwentyFourSevenIcon.src} alt="" /></div>
+            <div class="icon"><Image loading="eager" src={TwentyFourSevenIcon} alt="" /></div>
             <hgroup>
               <div>24/7 connectivity</div>
               <span class="muted">Always-on. Always LTE connected.</span>
@@ -107,7 +108,7 @@ import CloseIcon from "$lib/icons/ui/close.svg?raw";
         </div>
         <div class="row">
           <div class="feature-overview">
-            <div class="icon"><img src={MarkerIcon.src} alt="" /></div>
+            <div class="icon"><Image loading="eager" src={MarkerIcon} alt="" /></div>
             <hgroup>
               <div>Live GPS tracking</div>
               <span class="muted">Always know your vehicle's location with a live map view.</span>
@@ -122,7 +123,7 @@ import CloseIcon from "$lib/icons/ui/close.svg?raw";
         </div>
         <div class="row">
           <div class="feature-overview">
-            <div class="icon"><img src={SnapshotIcon.src} alt="" /></div>
+            <div class="icon"><Image loading="eager" src={SnapshotIcon} alt="" /></div>
             <hgroup>
               <div>Take pictures remotely</div>
               <span class="muted">Know what's going on around your car. comma four features HD road-facing and night-vision-enabled cabin cameras.</span>
@@ -210,7 +211,7 @@ import CloseIcon from "$lib/icons/ui/close.svg?raw";
             <LinkButton href="/shop" style="secondary">Shop comma four</LinkButton>
           </div>
           <div class="mobile-first">
-            <img src={CommaFourImage.src} alt="comma four device" />
+            <Image loading="eager" src={CommaFourImage} alt="comma four device" />
           </div>
         </Grid>
       </div>

@@ -231,6 +231,7 @@ section.dark + section.dark {
 
 img {
   max-width: 100%;
+  height: auto;
 }
 
 hr {

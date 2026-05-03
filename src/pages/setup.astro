@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from "../layouts/Layout.astro";
 import Badge from "$components/Badge.astro";
 import Grid from "$components/Grid.astro";
@@ -74,7 +75,7 @@ import CommaPowerImage from "$lib/images/products/comma-power/comma-power.jpg";
                 <div>
                   <Grid rowGap="0" columnGap="1rem" alignItems="center" size="small">
                     <div class="content-header">
-                      <img src={CommaFourDeviceImage.src} alt="comma four" />
+                      <Image loading="eager" src={CommaFourDeviceImage} alt="comma four" />
                       <span><a href="/shop/comma-four" target="_blank" class="highlight">comma four</a></span>
                     </div>
                     <span class="muted">$999</span>
@@ -89,7 +90,7 @@ import CommaPowerImage from "$lib/images/products/comma-power/comma-power.jpg";
               <div class="contents">
                 <div>
                   <div class="content-header">
-                    <img src={CarHarnessImage.src} alt="car harness" />
+                    <Image loading="eager" src={CarHarnessImage} alt="car harness" />
                     <a href="/shop/car-harness" target="_blank" class="highlight">car harness</a>
                   </div>
                 </div>
@@ -151,10 +152,10 @@ import CommaPowerImage from "$lib/images/products/comma-power/comma-power.jpg";
         <h2>Remove the rearview mirror cover trim</h2>
         <Grid templateColumns="0.875fr 0.75fr">
           <div class="image-grid">
-            <img src={TrimImage.src} alt="remove the rearview mirror cover trim" />
-            <img src={Trim1Image.src} alt="remove trim step 1" />
-            <img src={Trim2Image.src} alt="remove trim step 2" />
-            <img src={Trim3Image.src} alt="remove trim step 3" />
+            <Image loading="eager" src={TrimImage} alt="remove the rearview mirror cover trim" />
+            <Image loading="eager" src={Trim1Image} alt="remove trim step 1" />
+            <Image loading="eager" src={Trim2Image} alt="remove trim step 2" />
+            <Image loading="eager" src={Trim3Image} alt="remove trim step 3" />
           </div>
           <p>
             Removal method varies by car.
@@ -170,10 +171,10 @@ import CommaPowerImage from "$lib/images/products/comma-power/comma-power.jpg";
         <h2>Connect car harness into the camera</h2>
         <Grid templateColumns="0.875fr 0.75fr">
           <div class="image-grid">
-            <img src={CameraImage.src} alt="unplug car's camera cable" />
-            <img src={Camera1Image.src} alt="release camera connector clip" />
-            <img src={Plug1Image.src} alt="plug car camera into harness" />
-            <img src={PlugImage.src} alt="plug harness into camera port" />
+            <Image loading="eager" src={CameraImage} alt="unplug car's camera cable" />
+            <Image loading="eager" src={Camera1Image} alt="release camera connector clip" />
+            <Image loading="eager" src={Plug1Image} alt="plug car camera into harness" />
+            <Image loading="eager" src={PlugImage} alt="plug harness into camera port" />
           </div>
           <ul>
             <li>Unplug the existing LKAS camera connector and plug it into the harness.</li>
@@ -192,10 +193,10 @@ import CommaPowerImage from "$lib/images/products/comma-power/comma-power.jpg";
         <Grid templateColumns="0.875fr 0.75fr">
           <div class="image-grid">
             <div class="crop-wrapper">
-              <img src={AlignImage.src} alt="check mount alignment" />
+              <Image loading="eager" src={AlignImage} alt="check mount alignment" />
             </div>
-            <img src={Mount1Image.src} alt="find a good spot for mount" />
-            <img src={PressImage.src} alt="press mount on windshield" />
+            <Image loading="eager" src={Mount1Image} alt="find a good spot for mount" />
+            <Image loading="eager" src={PressImage} alt="press mount on windshield" />
           </div>
           <div>
             <ul>
@@ -213,9 +214,9 @@ import CommaPowerImage from "$lib/images/products/comma-power/comma-power.jpg";
         <h2>Plug in OBD-C and mount the device</h2>
         <Grid templateColumns="0.875fr 0.75fr">
           <div class="image-grid">
-            <img src={ObdcImage.src} alt="plug OBD-C cable into harness box" />
-            <img src={Plug2Image.src} alt="plug in comma four" />
-            <img src={RemountImage.src} alt="mount the device" />
+            <Image loading="eager" src={ObdcImage} alt="plug OBD-C cable into harness box" />
+            <Image loading="eager" src={Plug2Image} alt="plug in comma four" />
+            <Image loading="eager" src={RemountImage} alt="mount the device" />
           </div>
           <ul>
             <li>Plug the OBD-C cable into the harness box – Ensure the cable is fully seated.</li>
@@ -230,10 +231,10 @@ import CommaPowerImage from "$lib/images/products/comma-power/comma-power.jpg";
         <h2>Reinstall the rearview mirror cover trim</h2>
         <Grid templateColumns="0.875fr 0.75fr">
           <div class="image-grid">
-            <img src={Wires1Image.src} alt="tidy up wires" />
-            <img src={Trim4Image.src} alt="re-attach trim" />
-            <img src={WiresImage.src} alt="wire management" />
-            <img src={TrimImage.src} alt="reinstall trim" />
+            <Image loading="eager" src={Wires1Image} alt="tidy up wires" />
+            <Image loading="eager" src={Trim4Image} alt="re-attach trim" />
+            <Image loading="eager" src={WiresImage} alt="wire management" />
+            <Image loading="eager" src={TrimImage} alt="reinstall trim" />
           </div>
           <ul>
             <li>Ensure the car harness fully fits inside the trim.</li>
@@ -248,7 +249,7 @@ import CommaPowerImage from "$lib/images/products/comma-power/comma-power.jpg";
         <h2>Pair your device with comma connect</h2>
         <Grid templateColumns="0.875fr 0.75fr">
           <div>
-            <img src={StepSixImage.src} alt="comma connect application logo" />
+            <Image loading="eager" src={StepSixImage} alt="comma connect application logo" />
           </div>
           <div>
             <p>
@@ -266,7 +267,7 @@ import CommaPowerImage from "$lib/images/products/comma-power/comma-power.jpg";
         <h2>Add the comma power</h2>
         <Grid templateColumns="0.875fr 0.75fr">
           <div>
-            <img src={CommaPowerImage.src} alt="comma power" />
+            <Image loading="eager" src={CommaPowerImage} alt="comma power" />
           </div>
           <div>
             <p>

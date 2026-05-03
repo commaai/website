@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import Grid from "./Grid.astro";
 import Button from "./Button.astro";
 import Select from "./Select.astro";
@@ -67,20 +68,27 @@ const variantsJson = JSON.stringify(variants.map((v: any) => ({
   <Grid columns={2} rowGap="0" columnGap="6rem" templateColumns="1.25fr 0.75fr" lgTemplateColumns="1fr 1fr" lgColumnGap="2rem">
     <div>
       <div class="preview">
-        <img src={product.images[0]} alt="product preview" data-product-preview />
+        {product.images.map((image: any, i: number) => (
+          <Image loading="eager"
+            src={image}
+            alt="product preview"
+            class:list={['preview-img', { active: i === 0 }]}
+            data-preview-index={i}
+          />
+        ))}
       </div>
       {product?.images?.length > 1 && (
         <div class="product-images">
-          {product.images.map((image: string, i: number) => (
+          {product.images.map((image: any, i: number) => (
             <button
               class="variant"
               role="tab"
               aria-selected={i === 0 ? "true" : "false"}
               aria-label={`View product variant ${i}`}
               data-product-thumb
-              data-product-image={image}
+              data-thumb-index={i}
             >
-              <img src={image} alt={`product preview ${i + 1}`} />
+              <Image loading="eager" src={image} alt={`product preview ${i + 1}`} />
             </button>
           ))}
         </div>
@@ -165,14 +173,12 @@ const variantsJson = JSON.stringify(variants.map((v: any) => ({
     let selectedVariantId = config.initialVariantId;
     let backordered = config.backordered;
 
-    const previewImg = document.querySelector('[data-product-preview]') as HTMLImageElement | null;
-    const thumbs = document.querySelectorAll('[data-product-thumb]');
-    thumbs.forEach((btn) => {
+    const previews = Array.from(document.querySelectorAll<HTMLImageElement>('.preview-img'));
+    const thumbs = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-product-thumb]'));
+    thumbs.forEach((btn, i) => {
       btn.addEventListener('click', () => {
-        const src = (btn as HTMLElement).dataset.productImage;
-        if (previewImg && src) previewImg.src = src;
-        thumbs.forEach((b) => b.setAttribute('aria-selected', 'false'));
-        btn.setAttribute('aria-selected', 'true');
+        previews.forEach((p, j) => p.classList.toggle('active', i === j));
+        thumbs.forEach((b, j) => b.setAttribute('aria-selected', i === j ? 'true' : 'false'));
       });
     });
 
@@ -284,6 +290,16 @@ const variantsJson = JSON.stringify(variants.map((v: any) => ({
     & img {
       display: block;
       margin: 0 auto;
+      width: 100%;
+      height: auto;
+    }
+
+    & .preview-img {
+      display: none;
+    }
+
+    & .preview-img.active {
+      display: block;
     }
   }
 

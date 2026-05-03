@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from "../layouts/Layout.astro";
 import vehicles from '$lib/vehicles.json';
 import compatibilityMeta from '$lib/compatibility-meta.json';
@@ -50,7 +51,7 @@ function brandImage(brand: string) {
             <div class="compatibility-make-element">
               <a href={`#${brand.toLowerCase()}`} class="compatibility-make-anchor-link">
                 {brandImage(brand) && (
-                  <img src={brandImage(brand).src} width={brandImage(brand).width} height={brandImage(brand).height} alt={`${brand} car brand`} />
+                  <Image loading="eager" src={brandImage(brand)} alt={`${brand} car brand`} />
                 )}
               </a>
               <div class="compatibility-make-name">{brand}</div>
@@ -123,7 +124,7 @@ function brandImage(brand: string) {
           <>
             <div id={make.toLowerCase()} class="car-make-header">
               {brandImage(make) && (
-                <img src={brandImage(make).src} width={brandImage(make).width} height={brandImage(make).height} alt={`${make} car brand`} />
+                <Image loading="eager" src={brandImage(make)} alt={`${make} car brand`} />
               )}
               <h3>{make} <span class="muted">({cars.length})</span></h3>
             </div>
@@ -166,7 +167,7 @@ function brandImage(brand: string) {
                         </div>
                         <div class="device-promotion-card">
                           <div class="product-wrapper">
-                            <img src={CommaFourImage.src} alt="comma four device" />
+                            <Image loading="eager" src={CommaFourImage} alt="comma four device" />
                             <hgroup>
                               <strong>comma four</strong>
                               <div class="understated-price">${FOUR_PRICE}</div>

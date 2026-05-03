@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from "../../layouts/Layout.astro";
 import Product from "$components/Product.astro";
 import NoteCard from "$components/NoteCard.astro";
@@ -76,15 +77,15 @@ const product = {
         <h2>In the Box</h2>
         <div class="box-contents">
           <div>
-            <img src={FourImage.src} alt="comma four device">
+            <Image loading="eager" src={FourImage} alt="comma four device">
             <p>comma four</p>
           </div>
           <div>
-            <img src={OBDCCableImage.src} alt="2ft OBD-C cable">
+            <Image loading="eager" src={OBDCCableImage} alt="2ft OBD-C cable">
             <p>2ft OBD-C cable</p>
           </div>
           <div>
-            <img src={ReplacementMountsImage.src} alt="mount">
+            <Image loading="eager" src={ReplacementMountsImage} alt="mount">
             <p>2 mounts</p>
           </div>
         </div>
@@ -219,7 +220,7 @@ const product = {
       <Grid rowGap="0" templateColumns="0.5fr 1.25fr">
         <h2>Snapdragon 845 <span class="max-gradient">MAX</span></h2>
         <div class="cooling-section">
-          <img src={CoolingImage.src} alt="comma four cooling system">
+          <Image loading="eager" src={CoolingImage} alt="comma four cooling system">
         </div>
       </Grid>
       <hr />
@@ -229,28 +230,28 @@ const product = {
         <div class="ui-grid">
           <div class="ui-card">
             <div class="device-container">
-              <img src={DeviceFrameImage.src} alt="comma four device" class="device-frame" />
+              <Image loading="eager" src={DeviceFrameImage} alt="comma four device" class="device-frame" />
               <video loop autoplay muted playsinline class="screen-overlay" src={SettingsVideo}></video>
             </div>
             <p>Configure comma four entirely on the device. No app, subscription, or account required.</p>
           </div>
           <div class="ui-card">
             <div class="device-container">
-              <img src={DeviceFrameImage.src} alt="comma four device" class="device-frame" />
+              <Image loading="eager" src={DeviceFrameImage} alt="comma four device" class="device-frame" />
               <video loop autoplay muted playsinline class="screen-overlay" src={EngageDisengageVideo}></video>
             </div>
             <p>comma four wakes up when you engage, and hibernates when you disengage.</p>
           </div>
           <div class="ui-card">
             <div class="device-container">
-              <img src={DeviceFrameImage.src} alt="comma four device" class="device-frame" />
+              <Image loading="eager" src={DeviceFrameImage} alt="comma four device" class="device-frame" />
               <video loop autoplay muted playsinline class="screen-overlay" src={SteeringArcVideo}></video>
             </div>
             <p>As openpilot approaches its steering limits, the steering arc grows to warn you.</p>
           </div>
           <div class="ui-card">
             <div class="device-container">
-              <img src={DeviceFrameImage.src} alt="comma four device" class="device-frame" />
+              <Image loading="eager" src={DeviceFrameImage} alt="comma four device" class="device-frame" />
               <video loop autoplay muted playsinline class="screen-overlay" src={ConfidenceBallVideo}></video>
             </div>
             <p>As openpilot's confidence in its ability to understand the scene goes up, the confidence ball rises and turns green.</p>
@@ -263,7 +264,7 @@ const product = {
         title="Setup Guide"
         estimatedMinutes={15}
         link="/setup"
-        image={FourImage.src}
+        image={FourImage}
       />
     </div>
   </section>
@@ -283,12 +284,12 @@ const product = {
             </p>
             <LinkButton href="/vehicles" style="secondary" fullWidth={false}>View all {vehicleCountText} cars</LinkButton>
           </div>
-          <img src={CarBrandCollageImage.src} alt="collage of some supported car brands" />
+          <Image loading="eager" src={CarBrandCollageImage} alt="collage of some supported car brands" />
         </Grid>
       </div>
       <div class="compatibility">
         <Grid>
-          <img src={FourImage.src} alt="comma four device" />
+          <Image loading="eager" src={FourImage} alt="comma four device" />
           <div>
             <hgroup>
               <span>Software</span>

@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from "../../layouts/Layout.astro";
 import LinkButton from "$components/LinkButton.astro";
 import Grid from "$components/Grid.astro";
@@ -63,7 +64,7 @@ const accessoryProducts = componentOrder
               </p>
             </div>
             <div class="mobile-first">
-              <img src={FourImage.src} alt="comma four device" />
+              <Image loading="eager" src={FourImage} alt="comma four device" />
             </div>
           </Grid>
         </div>

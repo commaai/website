@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import Grid from "./Grid.astro";
 import LinkButton from "./LinkButton.astro";
 
@@ -21,7 +22,7 @@ const { productName = "", title = "Setup Guide", estimatedMinutes = 0, link, ima
     <LinkButton href={link} style="primary" fullWidth={true}>View Guide</LinkButton>
   </div>
   <div class="mobile-first">
-    <img src={image} alt={productName} />
+    <Image loading="eager" src={image} alt={productName} />
   </div>
 </Grid>
 

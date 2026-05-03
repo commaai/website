@@ -10,7 +10,7 @@ import CommaThreeSimInsertionImage from '$lib/images/comma-3x-sim-insertion.png'
 export const faq = {
   openpilot: {
     title: 'openpilot',
-    image: OpenpilotImage.src,
+    image: OpenpilotImage,
     questions: [
       {
         question: 'What is openpilot?',
@@ -269,7 +269,7 @@ export const faq = {
   },
   connect: {
     title: 'comma connect and prime',
-    image: ConnectImage.src,
+    image: ConnectImage,
     questions: [
       {
         question: 'How do I claim the free prime offer?',
@@ -384,7 +384,7 @@ export const faq = {
   },
   devices: {
     title: 'comma devices',
-    image: OtherTopicsImage.src,
+    image: OtherTopicsImage,
     questions: [
       {
         question: 'Do I need a comma prime monthly subscription to use the device?',
@@ -440,7 +440,7 @@ export const faq = {
   },
   trial: {
     title: 'Money-back trial',
-    image: ReturnPolicyImage.src,
+    image: ReturnPolicyImage,
     questions: [
       {
         question: 'What is the 30-day money-back trial?',
@@ -474,7 +474,7 @@ export const faq = {
   },
   shop: {
     title: 'Shop',
-    image: ShopImage.src,
+    image: ShopImage,
     questions: [
       {
         question: 'I would like to match a price change.',
@@ -571,7 +571,7 @@ export const faq = {
   },
   returns: {
     title: 'Shipping & Returns',
-    image: ShippingImage.src,
+    image: ShippingImage,
     questions: [
       {
         question: 'How do I make a return?',
@@ -707,7 +707,7 @@ export const faq = {
   },
   troubleshooting: {
     title: 'Hardware Troubleshooting',
-    image: OtherTopicsImage.src,
+    image: OtherTopicsImage,
     questions: [
       {
         question: 'Why is a stock route required to open a hardware support ticket?',
@@ -804,7 +804,7 @@ export const faq = {
   },
   other: {
     title: 'Other',
-    image: OtherTopicsImage.src,
+    image: OtherTopicsImage,
     questions: [
       {
         question: 'How can I invest in comma?',
