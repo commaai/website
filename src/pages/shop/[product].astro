@@ -1,0 +1,75 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Product from "$components/Product.astro";
+import NoteCard from "$components/NoteCard.astro";
+import CarHarnessDescription from "$components/ProductDescriptions/CarHarness.astro";
+import CommaFourDescription from "$components/ProductDescriptions/CommaFour.astro";
+
+import { products as productsData } from '$lib/data/products.js';
+import { resolveImages } from '$lib/utils/images.js';
+import { getProduct } from '$lib/utils/shopify.js';
+
+export async function getStaticPaths() {
+  // Routes that have their own page file or no description page
+  const explicit = new Set(['comma-four', 'body', 'comma-four-trade-in']);
+  return Object.keys(productsData)
+    .filter((slug) => !explicit.has(slug))
+    .filter((slug) => !!productsData[slug].route)
+    .map((slug) => ({ params: { product: slug } }));
+}
+
+const { product: productId } = Astro.params;
+const productInfo = productsData[productId];
+
+if (!productInfo) {
+  throw new Error(`Product "${productId}" not found`);
+}
+
+const resolvedImages = resolveImages(productInfo.images || []);
+
+const response = await getProduct(productInfo.id);
+if (response.status !== 200) {
+  throw new Error(`Error fetching product: ${response.status}`);
+}
+const shopifyProduct = response.body?.data?.product;
+if (!shopifyProduct) {
+  const message = response.body?.errors?.map((e: any) => e.message).join(', ') ?? 'Unknown error';
+  throw new Error(`Error fetching product: ${message}`);
+}
+
+const product = {
+  ...shopifyProduct,
+  ...productInfo,
+  images: resolvedImages,
+};
+
+const isCarHarness = productId === 'car-harness';
+---
+<Layout title={`${product.title} — comma shop`}>
+  <section class="light" id="product-item">
+    <div class="container">
+      {isCarHarness ? (
+        <CarHarnessDescription product={product} />
+      ) : (
+        <Product
+          product={product}
+          backordered={product.backordered || null}
+          backorderedPrefix={product.backorderedPrefix ?? "ships in "}
+          forceOutOfStock={product.forceOutOfStock || false}
+          hideOutOfStockVariants={product.hideOutOfStockVariants || false}
+        >
+          <div slot="notes">
+            {(product.notes || []).map((note: any) => (
+              <NoteCard title={note.title}>
+                <Fragment set:html={note.content} />
+              </NoteCard>
+            ))}
+          </div>
+          <div slot="description">
+            {product.description && <Fragment set:html={product.description} />}
+          </div>
+        </Product>
+      )}
+    </div>
+  </section>
+</Layout>

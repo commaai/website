@@ -1,0 +1,115 @@
+---
+const { label = "Get the latest updates", style = "accent" } = Astro.props;
+---
+<div class="mailing-list-form">
+  <form aria-label="Email Form" class:list={[style]}>
+    <label for="ml-email">{label}</label>
+    <input id="ml-email" maxlength="256" name="email" data-name="Email" placeholder="Enter your email" type="email" />
+    <input type="submit" data-wait="Please wait..." value="Subscribe" disabled />
+  </form>
+  <div class="success mailing-success" style="display: none;">
+    <p>Thanks for signing up! We only send emails we would want to receive.</p>
+  </div>
+  <div class="error mailing-error" style="display: none;">
+    <p>Oops! Something went wrong while submitting the form.</p>
+    <p class="mailing-error-message"></p>
+  </div>
+</div>
+
+<script>
+  import "$scripts/mailing-list.js";
+</script>
+
+<style>
+  form.primary {
+    & label {
+      color: rgba(2555, 255, 255, 0.65);
+    }
+    & input[type="email"] {
+      color: #fff;
+      background-color: transparent;
+      border: 1px solid rgba(2555, 255, 255, 0.65);
+      height: 2rem;
+      font-size: 1rem;
+    }
+    & input[type="submit"] {
+      color: white;
+      background-color: #525252;
+
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          background-color: #727171;
+        }
+      }
+      &:active {
+        background-color: #727171;
+      }
+    }
+  }
+
+  form.accent {
+    & input[type="submit"] {
+      color: black;
+      background-color: var(--color-accent);
+    }
+  }
+
+  label {
+    display: block;
+    text-transform: uppercase;
+    font-family: Inter, sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    letter-spacing: 0.5px;
+  }
+
+  input[type="email"] {
+    padding: 1.4rem 1rem;
+    border: 1px solid #000;
+    font-size: 0.875rem;
+    font-family: Inter, sans-serif;
+    margin-bottom: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+
+    &:active, &:focus, &:hover {
+      border-color: white !important;
+    }
+  }
+
+  input[type="submit"] {
+    border: none;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    justify-content: center;
+    padding: 1rem 4rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    font-family: Inter, sans-serif;
+    display: flex;
+    cursor: pointer;
+    transition: all 0.2s;
+    width: 100%;
+
+    &[disabled] {
+      cursor: not-allowed;
+    }
+  }
+
+  .success, .error {
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .success {
+    background-color: rgba(81, 255, 0, .1);
+    border: 1px solid rgba(81, 255, 0, .35);
+  }
+
+  .error {
+    background-color: rgba(255, 0, 0, .12);
+    border: 1px solid red;
+  }
+</style>

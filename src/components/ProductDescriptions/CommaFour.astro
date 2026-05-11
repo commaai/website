@@ -1,0 +1,363 @@
+---
+import Product from "../Product.astro";
+import NoteCard from "../NoteCard.astro";
+import CheckboxCard from "../CheckboxCard.astro";
+import Accordion from "../Accordion.astro";
+import Badge from "../Badge.astro";
+import HarnessSelector from "../HarnessSelector.astro";
+import Modal from "../Modal.astro";
+
+import ShippingIcon from "$lib/icons/features/shipping.svg?raw";
+import MoneyBackGuaranteeIcon from "$lib/icons/features/money-back-guarantee.svg?raw";
+import WarrantyIcon from "$lib/icons/features/warranty.svg?raw";
+
+import { FOUR_PRICE } from '$lib/constants/prices.js';
+import { products as productsData } from '$lib/data/products.js';
+
+const { product } = Astro.props;
+const tradeInProductId = productsData["comma-four-trade-in"]?.id;
+---
+<Product
+  product={product}
+  priceOverride={FOUR_PRICE}
+  disableBuyButtonText="SELECT YOUR CAR"
+>
+  <Fragment slot="shipping" />
+
+  <div slot="price" class="cf-price">
+    <span data-cf-price-default>${FOUR_PRICE}</span>
+    <span data-cf-price-after-tradein style="display: none;"></span>
+  </div>
+
+  <Fragment slot="price-accessory">
+    <div class="badge">
+      <Badge style="dark">Free rush shipping</Badge>
+    </div>
+
+    <hr />
+
+    <strong>Select a harness to connect the comma four to your car.</strong>
+    <HarnessSelector
+      id="cf-harness-selector"
+      label="Select your car"
+      showNoHarnessOption={true}
+    />
+    <CheckboxCard id="cf-tradein" title="$250 credit with trade-in">
+      Get $250 credit when you trade in your old comma device. Any comma device, in any condition.
+      <a href="/shop/comma-four-trade-in">Instructions and Terms</a>
+    </CheckboxCard>
+  </Fragment>
+
+  <div slot="notes">
+    <NoteCard title="Upgrading from another comma device?">
+      You do not need a new car harness. All comma devices use the same harness.
+    </NoteCard>
+  </div>
+
+  <div slot="description">
+    <div class="item">
+      <Accordion>
+        <div class="cf-label" slot="label">
+          <div set:html={ShippingIcon} />
+          <span>Free Rush (UPS 2nd Day Air) shipping</span>
+        </div>
+        <div class="cf-details" slot="content">
+          US only. Rush orders are fulfilled on the next business day.
+          <br /><br />
+          International shipping is $30 flat rate.
+          See fine print below for details. Common shipping questions are answered on
+          <a href="/support#shipping--returns" target="_blank">the FAQ</a>.
+        </div>
+      </Accordion>
+    </div>
+    <div class="item">
+      <Accordion>
+        <div class="cf-label" slot="label">
+          <div set:html={MoneyBackGuaranteeIcon} />
+          <span>Try our 30-day money-back trial</span>
+        </div>
+        <div class="cf-details" slot="content">
+          See for yourself why Consumer Reports rated us as the
+          <a href="https://data.consumerreports.org/wp-content/uploads/2020/11/consumer-reports-active-driving-assistance-systems-november-16-2020.pdf">top driver assistance system</a>.
+          We think you'll love it, but if you're not satisfied, send it back for a full refund.
+        </div>
+      </Accordion>
+    </div>
+    <div class="item">
+      <Accordion>
+        <div class="cf-label" slot="label">
+          <div set:html={WarrantyIcon} />
+          <span>1-year hardware warranty</span>
+        </div>
+        <div class="cf-details" slot="content">
+          1-year limited warranty against hardware defects.
+        </div>
+      </Accordion>
+    </div>
+  </div>
+</Product>
+
+<Modal
+  id="cf-disclaimer-modal"
+  title="Disclaimer"
+  primaryButtonId="cf-modal-proceed"
+  closeButtonId="cf-modal-close"
+>
+  <p class="disclaimer" data-cf-no-harness-warning style="display: none;">
+    A car harness is required to connect the comma four to your vehicle.
+    You currently have no car harness selected.
+  </p>
+  <p class="disclaimer">
+    The comma four does not ship with any software.
+    Once you have the device you will be able to install any software you choose at your own risk.
+  </p>
+  <p class="disclaimer">
+    Regardless of what software you choose to install, this device in no way substitutes for a licensed, sober, and attentive driver in the drivers seat.
+    <b>If you are not going to always pay careful attention while driving, do not buy this product.</b>
+  </p>
+</Modal>
+
+<script define:vars={{ FOUR_PRICE, tradeInProductId, NO_HARNESS_CAR: "I already have a car harness (‑5$50)" }}>
+  // Note: NO_HARNESS_CAR is the same string used in NO_HARNESS_OPTION but inlined to avoid duplicate imports.
+</script>
+
+<script>
+  import { getProduct } from '$lib/utils/shopify.js';
+  import { formatCurrency } from '$lib/utils/currency.js';
+  import { FOUR_PRICE } from '$lib/constants/prices.js';
+  import { NO_HARNESS_OPTION } from '$lib/constants/vehicles.js';
+  import { products as productsData } from '$lib/data/products.js';
+
+  const discountAmount = 50;
+  const tradeInCredit = 250;
+
+  function init() {
+    const selector = document.getElementById('cf-harness-selector');
+    const checkbox = document.querySelector('[data-id="cf-tradein"]') as HTMLLabelElement | null;
+    const checkboxInput = checkbox?.querySelector('input[type="checkbox"]') as HTMLInputElement | null;
+    const priceDefault = document.querySelector('[data-cf-price-default]') as HTMLElement | null;
+    const priceAfter = document.querySelector('[data-cf-price-after-tradein]') as HTMLElement | null;
+    const modalRoot = document.getElementById('cf-disclaimer-modal');
+    const modalProceedBtn = document.getElementById('cf-modal-proceed');
+    const modalCloseBtn = document.getElementById('cf-modal-close');
+    const noHarnessWarning = document.querySelector('[data-cf-no-harness-warning]') as HTMLElement | null;
+
+    let selectedHarness: any = null;
+    let tradeInVariantId: string | null = null;
+    let backordered: string | null = null;
+
+    function additionalProductIds() {
+      const ids: string[] = [];
+      if (selectedHarness && selectedHarness !== NO_HARNESS_OPTION && selectedHarness.car !== NO_HARNESS_OPTION.car) {
+        if (selectedHarness.id) ids.push(selectedHarness.id);
+      }
+      if (checkboxInput?.checked && tradeInVariantId) {
+        ids.push(tradeInVariantId);
+      }
+      return ids;
+    }
+
+    function isNoHarness() {
+      return selectedHarness && selectedHarness.car === NO_HARNESS_OPTION.car;
+    }
+
+    function priceDueToday() {
+      return isNoHarness() ? FOUR_PRICE - discountAmount : FOUR_PRICE;
+    }
+
+    function rerenderPrice() {
+      const due = priceDueToday();
+      if (checkboxInput?.checked && tradeInCredit > 0) {
+        const after = due - tradeInCredit;
+        if (priceDefault) priceDefault.style.display = 'none';
+        if (priceAfter) {
+          priceAfter.style.display = '';
+          priceAfter.innerHTML = `${formatCurrency({ amount: after, currencyCode: 'USD' }, 0)} after trade-in received <span class="price-due-today">(${formatCurrency({ amount: due, currencyCode: 'USD' }, 0)} due today)</span>`;
+        }
+      } else if (isNoHarness() && discountAmount > 0) {
+        if (priceDefault) {
+          priceDefault.style.display = '';
+          priceDefault.textContent = formatCurrency({ amount: due, currencyCode: 'USD' }, 0);
+        }
+        if (priceAfter) priceAfter.style.display = 'none';
+      } else {
+        if (priceDefault) {
+          priceDefault.style.display = '';
+          priceDefault.textContent = formatCurrency({ amount: FOUR_PRICE, currencyCode: 'USD' }, 0);
+        }
+        if (priceAfter) priceAfter.style.display = 'none';
+      }
+    }
+
+    function syncProduct() {
+      const variant = selectedHarness ? {
+        id: selectedHarness.id,
+        currentlyNotInStock: selectedHarness.currentlyNotInStock,
+        backordered: selectedHarness.backordered,
+        availableForSale: selectedHarness.availableForSale ?? true,
+      } : null;
+
+      // Push state to product
+      document.dispatchEvent(new CustomEvent('product:variant', { detail: variant }));
+      const buyText = selectedHarness ? null : 'SELECT YOUR CAR';
+      document.dispatchEvent(new CustomEvent('product:set-buy-text', { detail: buyText }));
+      document.dispatchEvent(new CustomEvent('product:set-additional-ids', { detail: additionalProductIds() }));
+    }
+
+    function getCartNote() {
+      if (selectedHarness?.car && selectedHarness.car !== NO_HARNESS_OPTION.car) {
+        const vehicleNote = `Vehicle: ${selectedHarness.car}`;
+        const backOrderedNote = backordered ? `${backordered} backordered` : 'in stock';
+        return `${vehicleNote} (${backOrderedNote})`;
+      }
+      return '';
+    }
+
+    (document as any)._productCartNote = getCartNote;
+
+    selector?.addEventListener('harness:change', (e: any) => {
+      const value = e.detail;
+      selectedHarness = value;
+      if (value === NO_HARNESS_OPTION || value?.car === NO_HARNESS_OPTION.car) {
+        backordered = null;
+      } else if (value) {
+        backordered = value.currentlyNotInStock ? (value.backordered || '1-12 weeks') : null;
+      } else {
+        backordered = null;
+        if (checkboxInput) checkboxInput.checked = false;
+      }
+      // Reflect into checkbox disabled state
+      if (checkbox && checkboxInput) {
+        const disabled = !value;
+        checkboxInput.disabled = disabled;
+        checkbox.classList.toggle('disabled', disabled);
+        if (disabled) checkboxInput.checked = false;
+        checkbox.classList.toggle('checked', checkboxInput.checked);
+      }
+      rerenderPrice();
+      syncProduct();
+    });
+
+    checkboxInput?.addEventListener('change', () => {
+      checkbox?.classList.toggle('checked', checkboxInput.checked);
+      rerenderPrice();
+      syncProduct();
+    });
+
+    // Initial: button is disabled
+    if (checkbox && checkboxInput) {
+      checkboxInput.disabled = true;
+      checkbox.classList.add('disabled');
+    }
+
+    // Disclaimer modal interception
+    document.addEventListener('product:before-add-to-cart', (e: any) => {
+      e.preventDefault();
+      const ids = additionalProductIds();
+      if (noHarnessWarning) {
+        noHarnessWarning.style.display = ids.length === 0 ? '' : 'none';
+      }
+      const proceedBtnLabel = backordered ? `Add to cart (ships in ${backordered})` : 'Add to cart';
+      if (modalProceedBtn) modalProceedBtn.textContent = proceedBtnLabel;
+      if (modalRoot) modalRoot.style.display = '';
+      const proceedHandler = async () => {
+        if (modalRoot) modalRoot.style.display = 'none';
+        await e.detail.proceed();
+        modalProceedBtn?.removeEventListener('click', proceedHandler);
+      };
+      modalProceedBtn?.addEventListener('click', proceedHandler, { once: true });
+    });
+
+    modalCloseBtn?.addEventListener('click', () => {
+      if (modalRoot) modalRoot.style.display = 'none';
+    });
+
+    // URL trade-in autofill
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('trade-in') === '1') {
+      // Wait until selector is initialized
+      const tryAutofill = () => {
+        if (selector && (selector as any)._harness) {
+          (selector as any)._harness.setSelection(NO_HARNESS_OPTION);
+          if (checkbox && checkboxInput) {
+            checkboxInput.disabled = false;
+            checkbox.classList.remove('disabled');
+            checkboxInput.checked = true;
+            checkbox.classList.add('checked');
+            rerenderPrice();
+            syncProduct();
+          }
+        } else {
+          setTimeout(tryAutofill, 50);
+        }
+      };
+      tryAutofill();
+    }
+
+    // Fetch trade-in product variant id
+    const tradeInProductId = productsData["comma-four-trade-in"]?.id;
+    if (tradeInProductId) {
+      getProduct(tradeInProductId).then((response) => {
+        if (response.status === 200) {
+          const tradeInProduct = response.body?.data?.product;
+          if (tradeInProduct?.variants?.nodes?.length > 0) {
+            tradeInVariantId = tradeInProduct.variants.nodes[0].id;
+          }
+        }
+      }).catch((err) => {
+        console.error('Failed to fetch trade-in product:', err);
+      });
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+</script>
+
+<style>
+  .item {
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  }
+
+  .badge {
+    margin: 1rem 0;
+  }
+
+  .cf-label {
+    display: flex;
+    align-items: center;
+    color: black;
+  }
+  .cf-label :global(div) {
+    height: 24px;
+    width: 2.5rem;
+  }
+  .cf-label :global(span) {
+    vertical-align: middle;
+    margin-right: 1rem;
+    color: black;
+  }
+
+  .cf-details {
+    max-width: 80%;
+    margin-left: 2.5rem;
+    margin-top: 0.875rem;
+  }
+
+  .disclaimer {
+    margin: 0;
+  }
+
+  hr {
+    margin: 2rem 0;
+  }
+
+  :global(.price-due-today) {
+    font-size: 1rem;
+    color: rgb(81, 81, 81);
+  }
+</style>

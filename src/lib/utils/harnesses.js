@@ -1,4 +1,3 @@
-import { writable } from 'svelte/store';
 import Vehicles from '$lib/vehicles.json';
 import CarHarnesses from '$lib/constants/car-harnesses.json';
 
@@ -16,14 +15,12 @@ async function fetchHarnessVariants() {
   }, {});
 }
 
-let initialized = false;
-const vehicleHarnesses = writable([]); // List of vehicle model harnesses, excluding developer and generic make harnesses
-const genericHarnesses = writable([]); // List of developer and generic make harnesses
-const allHarnesses = writable([]); // List of all vehicle model harnesses, including developer and generic make harnesses
+let _initPromise = null;
+let _vehicleHarnesses = [];
+let _genericHarnesses = [];
+let _allHarnesses = [];
 
-async function initializeHarnesses() {
-  if (initialized) return;
-
+async function _initialize() {
   const harnessInfo = await fetchHarnessVariants();
 
   // Add harnesses for vehicles
@@ -41,32 +38,33 @@ async function initializeHarnesses() {
         make,
         car: model.name,
         package: model.package,
-        backordered: harness?.backordered,  // these overrides are only shown if the harness is out of stock in Shopify
+        backordered: harness?.backordered,
         setupNotes: model.setup_notes,
         setupVideo: model.setup_video,
       };
     }).filter(Boolean);
   });
-  vehicleHarnesses.set(vehiclesHarnessList);
+  _vehicleHarnesses = vehiclesHarnessList;
 
   // Add developer and generic make harnesses
-  let genericHarnessList = CarHarnesses.map(harness => {
-    return {
-      ...harnessInfo[harness.id],
-      car: harness.title,
-      id: harness.id,
-      backordered: harness.backordered,
-    };
-  });
-  genericHarnesses.set(genericHarnessList);
+  let genericHarnessList = CarHarnesses.map(harness => ({
+    ...harnessInfo[harness.id],
+    car: harness.title,
+    id: harness.id,
+    backordered: harness.backordered,
+  }));
+  _genericHarnesses = genericHarnessList;
 
-  // Combine the two lists
-  let allHarnessList = vehiclesHarnessList.concat(genericHarnessList);
-  allHarnesses.set(allHarnessList);
-
-  initialized = true;
+  _allHarnesses = vehiclesHarnessList.concat(genericHarnessList);
 }
 
-initializeHarnesses();
+export function initializeHarnesses() {
+  if (!_initPromise) _initPromise = _initialize();
+  return _initPromise;
+}
 
-export { allHarnesses, vehicleHarnesses, genericHarnesses };
+export function getHarnesses({ vehicle = true, generic = true } = {}) {
+  if (vehicle && generic) return _allHarnesses;
+  if (vehicle) return _vehicleHarnesses;
+  return _genericHarnesses;
+}

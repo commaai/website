@@ -1,7 +1,5 @@
-import { dev } from '$app/environment';
-
 export function printConsoleBanner() {
-  if (!dev) {
+  if (import.meta.env.PROD) {
     console.log(`
                           .~ssos+.
                         +8888888888i,
