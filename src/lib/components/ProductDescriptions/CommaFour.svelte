@@ -206,7 +206,7 @@
           <span>1-year hardware warranty</span>
         </div>
         <div class="details" slot="content">
-          1-year limited warranty against hardware defects.
+          1-year limited warranty against hardware defects. Extend it with <a href="/connect#what-is-commacare">commacare</a>.
         </div>
       </Accordion>
     </div>

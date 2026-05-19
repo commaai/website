@@ -308,7 +308,7 @@
           </p>
           <strong>Warranty</strong>
           <p>
-            1-year limited warranty against hardware defects. Open and repair the comma four at your own risk.
+            1-year limited warranty against hardware defects. Extend it with <a href="/connect#what-is-commacare" class="highlight">commacare</a>. Open and repair the comma four at your own risk.
             comma is not responsible for damages that may occur while repairing devices.
             Any damage on arrival must be reported to comma support within 14 days of delivery.
           </p>
