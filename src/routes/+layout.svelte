@@ -131,7 +131,7 @@
   />
 {/if}
 
-<!--<HeaderBanner />-->
+<HeaderBanner />
 
 <main>
   <slot></slot>
