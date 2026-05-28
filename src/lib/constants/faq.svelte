@@ -526,6 +526,9 @@
               We offer a 10% discount on products with the purchase of 10+ (excluding
               parts). This discount will automatically be applied in the cart. No code
               necessary.
+              <b>
+                If you'd like to order more than 10 units, <a href="https://comma.ai/support">contact support</a> to discuss even deeper discounts that scale with quantity.
+              </b>
             </p>
             <p>
               If the discount is not automatically applied, please <a href="https://comma.ai/support">contact support</a>
