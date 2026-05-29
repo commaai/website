@@ -20,7 +20,7 @@ jobs:
           path: opendbc
       - name: Update vehicles and harness information
         run: |
-          cd opendbc && source setup.sh && scons -j8
+          cd opendbc && source setup.sh
           python ../scripts/compatibility.py
           cd .. && rm -rf opendbc
       - name: Check for meaningful changes
