@@ -31,6 +31,22 @@
       ]
     },
     {
+      "name": "Acura MDX 2022-24",
+      "model": "MDX",
+      "years": "2022-24",
+      "year_list": "2022, 2023, 2024",
+      "package": "All",
+      "video": "",
+      "setup_video": "",
+      "harness_connector": "Honda Bosch A",
+      "detail_sentence": "openpilot upgrades your <strong>Acura MDX</strong> with automated lane centering <strong>above 43 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
+      "footnotes": [
+        "Enabling longitudinal control (alpha) will disable all CMBS functionality, including AEB and FCW."
+      ],
+      "setup_notes": [
+      ]
+    },
+    {
       "name": "Acura MDX 2025-26",
       "model": "MDX",
       "years": "2025-26",
@@ -71,21 +87,23 @@
       "harness_connector": "Honda Bosch A",
       "detail_sentence": "openpilot upgrades your <strong>Acura RDX</strong> with automated lane centering <strong>above 3 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. This car may not be able to take tight turns on its own.",
       "footnotes": [
+        "Enabling longitudinal control (alpha) will disable all CMBS functionality, including AEB and FCW."
       ],
       "setup_notes": [
       ]
     },
     {
-      "name": "Acura TLX 2021",
+      "name": "Acura TLX 2021-22",
       "model": "TLX",
-      "years": "2021",
-      "year_list": "2021",
+      "years": "2021-22",
+      "year_list": "2021, 2022",
       "package": "All",
       "video": "",
       "setup_video": "",
       "harness_connector": "Honda Bosch A",
       "detail_sentence": "openpilot upgrades your <strong>Acura TLX</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
+        "Enabling longitudinal control (alpha) will disable all CMBS functionality, including AEB and FCW."
       ],
       "setup_notes": [
       ]
@@ -120,6 +138,7 @@
       "footnotes": [
       ],
       "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
       ]
     },
     {
@@ -135,6 +154,7 @@
       "footnotes": [
       ],
       "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
       ]
     },
     {
@@ -150,6 +170,7 @@
       "footnotes": [
       ],
       "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
       ]
     },
     {
@@ -165,6 +186,7 @@
       "footnotes": [
       ],
       "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
       ]
     },
     {
@@ -180,6 +202,7 @@
       "footnotes": [
       ],
       "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
       ]
     },
     {
@@ -195,6 +218,7 @@
       "footnotes": [
       ],
       "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
       ]
     }
   ],
@@ -383,6 +407,7 @@
       "footnotes": [
       ],
       "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
       ]
     }
   ],
@@ -1023,6 +1048,7 @@
       "harness_connector": "Honda Bosch A",
       "detail_sentence": "openpilot upgrades your <strong>Honda Accord</strong> with automated lane centering <strong>above 3 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. This car may not be able to take tight turns on its own.",
       "footnotes": [
+        "Enabling longitudinal control (alpha) will disable all CMBS functionality, including AEB and FCW."
       ],
       "setup_notes": [
       ]
@@ -1053,6 +1079,7 @@
       "harness_connector": "Honda Bosch A",
       "detail_sentence": "openpilot upgrades your <strong>Honda Accord Hybrid</strong> with automated lane centering <strong>above 3 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. This car may not be able to take tight turns on its own.",
       "footnotes": [
+        "Enabling longitudinal control (alpha) will disable all CMBS functionality, including AEB and FCW."
       ],
       "setup_notes": [
       ]
@@ -1083,6 +1110,7 @@
       "harness_connector": "Honda Bosch B",
       "detail_sentence": "openpilot upgrades your <strong>Honda City (Brazil only)</strong> with automated lane centering <strong>above 14 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
+        "Enabling longitudinal control (alpha) will disable all CMBS functionality, including AEB and FCW."
       ],
       "setup_notes": [
       ]
@@ -1113,7 +1141,8 @@
       "harness_connector": "Honda Bosch A",
       "detail_sentence": "openpilot upgrades your <strong>Honda Civic</strong> with automated lane centering <strong>above 2 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. This car may not be able to take tight turns on its own.",
       "footnotes": [
-        "2019 Honda Civic 1.6L Diesel Sedan does not have ALC below 12mph."
+        "2019 Honda Civic 1.6L Diesel Sedan does not have ALC below 12mph.",
+        "Enabling longitudinal control (alpha) will disable all CMBS functionality, including AEB and FCW."
       ],
       "setup_notes": [
       ]
@@ -1129,6 +1158,7 @@
       "harness_connector": "Honda Bosch B",
       "detail_sentence": "openpilot upgrades your <strong>Honda Civic</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
+        "Enabling longitudinal control (alpha) will disable all CMBS functionality, including AEB and FCW."
       ],
       "setup_notes": [
       ]
@@ -1144,6 +1174,7 @@
       "harness_connector": "Honda Bosch A",
       "detail_sentence": "openpilot upgrades your <strong>Honda Civic Hatchback</strong> with automated lane centering <strong>above 12 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. This car may not be able to take tight turns on its own.",
       "footnotes": [
+        "Enabling longitudinal control (alpha) will disable all CMBS functionality, including AEB and FCW."
       ],
       "setup_notes": [
       ]
@@ -1159,6 +1190,7 @@
       "harness_connector": "Honda Bosch A",
       "detail_sentence": "openpilot upgrades your <strong>Honda Civic Hatchback</strong> with automated lane centering <strong>above 12 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. This car may not be able to take tight turns on its own.",
       "footnotes": [
+        "Enabling longitudinal control (alpha) will disable all CMBS functionality, including AEB and FCW."
       ],
       "setup_notes": [
       ]
@@ -1174,6 +1206,7 @@
       "harness_connector": "Honda Bosch B",
       "detail_sentence": "openpilot upgrades your <strong>Honda Civic Hatchback</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
+        "Enabling longitudinal control (alpha) will disable all CMBS functionality, including AEB and FCW."
       ],
       "setup_notes": [
       ]
@@ -1189,6 +1222,7 @@
       "harness_connector": "Honda Bosch B",
       "detail_sentence": "openpilot upgrades your <strong>Honda Civic Hatchback Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
+        "Enabling longitudinal control (alpha) will disable all CMBS functionality, including AEB and FCW."
       ],
       "setup_notes": [
       ]
@@ -1204,6 +1238,7 @@
       "harness_connector": "Honda Bosch B",
       "detail_sentence": "openpilot upgrades your <strong>Honda Civic Hatchback Hybrid (Europe only)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
+        "Enabling longitudinal control (alpha) will disable all CMBS functionality, including AEB and FCW."
       ],
       "setup_notes": [
       ]
@@ -1219,6 +1254,7 @@
       "harness_connector": "Honda Bosch B",
       "detail_sentence": "openpilot upgrades your <strong>Honda Civic Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
+        "Enabling longitudinal control (alpha) will disable all CMBS functionality, including AEB and FCW."
       ],
       "setup_notes": [
       ]
@@ -1249,6 +1285,7 @@
       "harness_connector": "Honda Bosch A",
       "detail_sentence": "openpilot upgrades your <strong>Honda CR-V</strong> with automated lane centering <strong>above 15 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. This car may not be able to take tight turns on its own.",
       "footnotes": [
+        "Enabling longitudinal control (alpha) will disable all CMBS functionality, including AEB and FCW."
       ],
       "setup_notes": [
       ]
@@ -1279,6 +1316,7 @@
       "harness_connector": "Honda Bosch A",
       "detail_sentence": "openpilot upgrades your <strong>Honda CR-V Hybrid</strong> with automated lane centering <strong>above 12 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. This car may not be able to take tight turns on its own.",
       "footnotes": [
+        "Enabling longitudinal control (alpha) will disable all CMBS functionality, including AEB and FCW."
       ],
       "setup_notes": [
       ]
@@ -1309,6 +1347,7 @@
       "harness_connector": "Honda Bosch A",
       "detail_sentence": "openpilot upgrades your <strong>Honda e</strong> with automated lane centering <strong>above 3 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. This car may not be able to take tight turns on its own.",
       "footnotes": [
+        "Enabling longitudinal control (alpha) will disable all CMBS functionality, including AEB and FCW."
       ],
       "setup_notes": [
       ]
@@ -1369,6 +1408,7 @@
       "harness_connector": "Honda Bosch B",
       "detail_sentence": "openpilot upgrades your <strong>Honda HR-V</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
+        "Enabling longitudinal control (alpha) will disable all CMBS functionality, including AEB and FCW."
       ],
       "setup_notes": [
       ]
@@ -1384,6 +1424,7 @@
       "harness_connector": "Honda Bosch A",
       "detail_sentence": "openpilot upgrades your <strong>Honda Insight</strong> with automated lane centering <strong>above 3 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. This car may not be able to take tight turns on its own.",
       "footnotes": [
+        "Enabling longitudinal control (alpha) will disable all CMBS functionality, including AEB and FCW."
       ],
       "setup_notes": [
       ]
@@ -1399,6 +1440,7 @@
       "harness_connector": "Honda Bosch A",
       "detail_sentence": "openpilot upgrades your <strong>Honda Inspire</strong> with automated lane centering <strong>above 3 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. This car may not be able to take tight turns on its own.",
       "footnotes": [
+        "Enabling longitudinal control (alpha) will disable all CMBS functionality, including AEB and FCW."
       ],
       "setup_notes": [
       ]
@@ -1414,6 +1456,7 @@
       "harness_connector": "Honda Bosch A",
       "detail_sentence": "openpilot upgrades your <strong>Honda N-Box</strong> with automated lane centering <strong>above 11 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
+        "Enabling longitudinal control (alpha) will disable all CMBS functionality, including AEB and FCW."
       ],
       "setup_notes": [
       ]
@@ -1443,6 +1486,22 @@
       "setup_video": "",
       "harness_connector": "Honda Bosch A",
       "detail_sentence": "openpilot upgrades your <strong>Honda Odyssey</strong> with automated lane centering <strong>above 43 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. This car may not be able to take tight turns on its own.",
+      "footnotes": [
+        "Enabling longitudinal control (alpha) will disable all CMBS functionality, including AEB and FCW."
+      ],
+      "setup_notes": [
+      ]
+    },
+    {
+      "name": "Honda Odyssey (Singapore) 2021",
+      "model": "Odyssey (Singapore)",
+      "years": "2021",
+      "year_list": "2021",
+      "package": "Honda Sensing",
+      "video": "",
+      "setup_video": "",
+      "harness_connector": "Honda Nidec",
+      "detail_sentence": "openpilot upgrades your <strong>Honda Odyssey (Singapore)</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>. This car may not be able to take tight turns on its own. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
       ],
       "setup_notes": [
@@ -1760,6 +1819,21 @@
       "setup_video": "",
       "harness_connector": "Hyundai P",
       "detail_sentence": "openpilot upgrades your <strong>Hyundai Ioniq 6 (with HDA II)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
+      "footnotes": [
+      ],
+      "setup_notes": [
+      ]
+    },
+    {
+      "name": "Hyundai Ioniq 6 (without HDA II) 2023-24",
+      "model": "Ioniq 6 (without HDA II)",
+      "years": "2023-24",
+      "year_list": "2023, 2024",
+      "package": "Highway Driving Assist",
+      "video": "",
+      "setup_video": "",
+      "harness_connector": "Hyundai L",
+      "detail_sentence": "openpilot upgrades your <strong>Hyundai Ioniq 6 (without HDA II)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
       ],
       "setup_notes": [
@@ -2475,10 +2549,10 @@
       ]
     },
     {
-      "name": "Kia Niro EV (with HDA II) 2025",
+      "name": "Kia Niro EV (with HDA II) 2024-25",
       "model": "Niro EV (with HDA II)",
-      "years": "2025",
-      "year_list": "2025",
+      "years": "2024-25",
+      "year_list": "2024, 2025",
       "package": "Highway Driving Assist II",
       "video": "",
       "setup_video": "",
@@ -2550,10 +2624,10 @@
       ]
     },
     {
-      "name": "Kia Niro Hybrid 2023",
+      "name": "Kia Niro Hybrid 2023-24",
       "model": "Niro Hybrid",
-      "years": "2023",
-      "year_list": "2023",
+      "years": "2023-24",
+      "year_list": "2023, 2024",
       "package": "Smart Cruise Control (SCC)",
       "video": "",
       "setup_video": "",
@@ -3228,6 +3302,7 @@
       "footnotes": [
       ],
       "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
       ]
     },
     {
@@ -3243,6 +3318,7 @@
       "footnotes": [
       ],
       "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
       ]
     }
   ],
@@ -3280,10 +3356,10 @@
   ],
   "Nissan": [
     {
-      "name": "Nissan Altima 2019-20, 2024",
+      "name": "Nissan Altima 2019-24",
       "model": "Altima",
-      "years": "2019-20, 2024",
-      "year_list": "2019, 2020, 2024",
+      "years": "2019-24",
+      "year_list": "2019, 2020, 2021, 2022, 2023, 2024",
       "package": "ProPILOT Assist",
       "video": "",
       "setup_video": "",
@@ -3382,6 +3458,21 @@
       ]
     },
     {
+      "name": "Rivian R1S 2025",
+      "model": "R1S",
+      "years": "2025",
+      "year_list": "2025",
+      "package": "All",
+      "video": "",
+      "setup_video": "",
+      "harness_connector": "Rivian B",
+      "detail_sentence": "openpilot upgrades your <strong>Rivian R1S</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "footnotes": [
+      ],
+      "setup_notes": [
+      ]
+    },
+    {
       "name": "Rivian R1T 2022-24",
       "model": "R1T",
       "years": "2022-24",
@@ -3390,6 +3481,21 @@
       "video": "",
       "setup_video": "https://youtu.be/uaISd1j7Z4U",
       "harness_connector": "Rivian A",
+      "detail_sentence": "openpilot upgrades your <strong>Rivian R1T</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "footnotes": [
+      ],
+      "setup_notes": [
+      ]
+    },
+    {
+      "name": "Rivian R1T 2025",
+      "model": "R1T",
+      "years": "2025",
+      "year_list": "2025",
+      "package": "All",
+      "video": "",
+      "setup_video": "",
+      "harness_connector": "Rivian B",
       "detail_sentence": "openpilot upgrades your <strong>Rivian R1T</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
       ],
@@ -3411,6 +3517,7 @@
       "footnotes": [
       ],
       "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
       ]
     },
     {
@@ -3426,6 +3533,7 @@
       "footnotes": [
       ],
       "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
       ]
     }
   ],
@@ -3649,6 +3757,7 @@
         "Some \u0160koda vehicles are equipped with heated windshields, which are known to block GPS signal needed for some comma four functionality."
       ],
       "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
       ]
     },
     {
@@ -3665,6 +3774,7 @@
         "Some \u0160koda vehicles are equipped with heated windshields, which are known to block GPS signal needed for some comma four functionality."
       ],
       "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
       ]
     },
     {
@@ -3681,6 +3791,7 @@
         "Some \u0160koda vehicles are equipped with heated windshields, which are known to block GPS signal needed for some comma four functionality."
       ],
       "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
       ]
     },
     {
@@ -3697,6 +3808,7 @@
         "Some \u0160koda vehicles are equipped with heated windshields, which are known to block GPS signal needed for some comma four functionality."
       ],
       "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
       ]
     },
     {
@@ -3713,6 +3825,7 @@
         "Some \u0160koda vehicles are equipped with heated windshields, which are known to block GPS signal needed for some comma four functionality."
       ],
       "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
       ]
     },
     {
@@ -3746,6 +3859,7 @@
         "Some \u0160koda vehicles are equipped with heated windshields, which are known to block GPS signal needed for some comma four functionality."
       ],
       "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
       ]
     }
   ],
@@ -4512,6 +4626,7 @@
       "footnotes": [
       ],
       "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
       ]
     },
     {
@@ -4527,6 +4642,7 @@
       "footnotes": [
       ],
       "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
       ]
     },
     {
@@ -4542,6 +4658,7 @@
       "footnotes": [
       ],
       "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
       ]
     },
     {
@@ -4557,6 +4674,7 @@
       "footnotes": [
       ],
       "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
       ]
     },
     {
@@ -4572,6 +4690,7 @@
       "footnotes": [
       ],
       "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
       ]
     },
     {
@@ -4587,6 +4706,7 @@
       "footnotes": [
       ],
       "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
       ]
     },
     {
@@ -4602,6 +4722,7 @@
       "footnotes": [
       ],
       "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
       ]
     },
     {
@@ -4617,6 +4738,7 @@
       "footnotes": [
       ],
       "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
       ]
     },
     {
@@ -4632,6 +4754,7 @@
       "footnotes": [
       ],
       "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
       ]
     },
     {
@@ -4647,6 +4770,7 @@
       "footnotes": [
       ],
       "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
       ]
     },
     {
@@ -4662,6 +4786,7 @@
       "footnotes": [
       ],
       "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
       ]
     },
     {
@@ -4677,6 +4802,7 @@
       "footnotes": [
       ],
       "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
       ]
     },
     {
@@ -4692,6 +4818,7 @@
       "footnotes": [
       ],
       "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
       ]
     },
     {
@@ -4707,6 +4834,7 @@
       "footnotes": [
       ],
       "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
       ]
     },
     {
@@ -4722,6 +4850,7 @@
       "footnotes": [
       ],
       "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
       ]
     },
     {
@@ -4737,6 +4866,7 @@
       "footnotes": [
       ],
       "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
       ]
     },
     {
@@ -4752,6 +4882,7 @@
       "footnotes": [
       ],
       "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
       ]
     },
     {
@@ -4767,6 +4898,7 @@
       "footnotes": [
       ],
       "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
       ]
     },
     {
@@ -4782,6 +4914,7 @@
       "footnotes": [
       ],
       "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
       ]
     },
     {
@@ -4797,6 +4930,7 @@
       "footnotes": [
       ],
       "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
       ]
     },
     {
@@ -4812,6 +4946,7 @@
       "footnotes": [
       ],
       "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
       ]
     },
     {
@@ -4827,6 +4962,7 @@
       "footnotes": [
       ],
       "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
       ]
     },
     {
@@ -4858,6 +4994,7 @@
       "footnotes": [
       ],
       "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
       ]
     },
     {
@@ -4873,6 +5010,7 @@
       "footnotes": [
       ],
       "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
       ]
     },
     {
@@ -4936,6 +5074,7 @@
       "footnotes": [
       ],
       "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
       ]
     },
     {
@@ -4951,6 +5090,7 @@
       "footnotes": [
       ],
       "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
       ]
     },
     {
@@ -4966,6 +5106,7 @@
       "footnotes": [
       ],
       "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
       ]
     },
     {
@@ -4981,6 +5122,7 @@
       "footnotes": [
       ],
       "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
       ]
     },
     {
@@ -4996,6 +5138,7 @@
       "footnotes": [
       ],
       "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
       ]
     },
     {
@@ -5011,6 +5154,7 @@
       "footnotes": [
       ],
       "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
       ]
     },
     {
@@ -5026,6 +5170,7 @@
       "footnotes": [
       ],
       "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
       ]
     },
     {
@@ -5041,6 +5186,7 @@
       "footnotes": [
       ],
       "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
       ]
     }
   ]
