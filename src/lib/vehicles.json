@@ -610,10 +610,10 @@
       ]
     },
     {
-      "name": "Ford Focus 2018",
+      "name": "Ford Focus 2018-22",
       "model": "Focus",
-      "years": "2018",
-      "year_list": "2018",
+      "years": "2018-22",
+      "year_list": "2018, 2019, 2020, 2021, 2022",
       "package": "Adaptive Cruise Control with Lane Centering",
       "video": "",
       "setup_video": "",
@@ -626,10 +626,10 @@
       ]
     },
     {
-      "name": "Ford Focus Hybrid 2018",
+      "name": "Ford Focus Hybrid 2018-22",
       "model": "Focus Hybrid",
-      "years": "2018",
-      "year_list": "2018",
+      "years": "2018-22",
+      "year_list": "2018, 2019, 2020, 2021, 2022",
       "package": "Adaptive Cruise Control with Lane Centering",
       "video": "",
       "setup_video": "",
