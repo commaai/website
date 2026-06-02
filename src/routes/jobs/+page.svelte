@@ -79,7 +79,7 @@
 
   const jobs = [
     {
-      title: "Senior Software Engineer",
+      title: "Software Engineer",
       team: "openpilot & infrastructure",
       location: "On-site in San Diego, CA",
       description:
@@ -120,20 +120,7 @@
       ],
     },
     {
-      title: "Production Engineer",
-      team: "openpilot",
-      location: "On-site in San Diego, CA",
-      description:
-        "As a production engineer, you'll help us build and ship a new class of consumer electronics. You'll own the testing infrastructure and be responsible for the reliability and quality of the hardware we ship.",
-      qualifications: [
-        "Experience with embedded systems",
-        "Fluent in Python and at least one system programming language (C, C++, Rust)",
-        "Know things about hardware, CI, and testing",
-        "Having pull requests upstreamed to openpilot is a plus",
-      ],
-    },
-    {
-      title: "Senior Electronics Engineer",
+      title: "Electronics Engineer",
       team: "openpilot",
       location: "On-site in San Diego, CA",
       description:
@@ -144,44 +131,6 @@
         "Fluent in Python, Linux, Git and familiarity with C/C++",
         "High speed electronics design and designing for manufacturability experience preferred",
         "Preferred: experience with reverse engineering and sourcing parts",
-      ],
-    },
-    {
-      title: "Head of Production",
-      team: "operations",
-      location: "On-site in San Diego, CA",
-      description:
-        'As the Head of Production, you\'ll be responsible for building all the <a href="/shop/comma-four">comma 3Xs</a>, from managing the supply chain and getting all the parts to the office all the way to shipping the devices out.',
-      qualifications: [
-        "Know every part in a cellphone (aka a comma 3X)",
-        "Know things about supply chain, reverse logistics, electronics, and testing",
-        "Familiarity working in Linux, and ability to at least modify Python scripts",
-        "Preferred: Chinese language skills",
-      ],
-    },
-    {
-      title: "Interface Designer",
-      team: "operations",
-      location: "On-site in San Diego, CA",
-      description:
-        "Do you like making software that is easy to use and that looks great? The main focus of this position is the openpilot interface, but work extends to all design at comma (website/product/visual design). Knowledge of the self driving car space is not required, but enthusiasm is appreciated. Ideally, you can concept, design, and deliver independently.",
-      qualifications: [
-        "Have designed interfaces",
-        "Experience with iOS and Android design",
-        "Ability to deliver a quality experience",
-        "Strong design sense (UX/UI) and detail oriented",
-      ],
-    },
-    {
-      title: "Customer Service Engineer",
-      team: "operations",
-      location: "On-site in San Diego, CA",
-      description:
-        "Answer customer emails; resolve shop questions and requests; process orders, returns, and exchanges; create and improve existing support infrastructure.",
-      qualifications: [
-        "Excellent written communication skills",
-        "Extensive knowledge of comma products and services",
-        "Ideally, customer support experience",
       ],
     },
     {
@@ -197,8 +146,8 @@
       ],
     },
     {
-      title: "Pick and Place Assembly Operator",
-      team: "production",
+      title: "Head of Prototyping",
+      team: "hardware",
       location: "On-site in San Diego, CA",
       description:
         "You will be responsible for operating the pick and place machinery to accurately position surface mount components onto printed circuit boards (PCB's).",
@@ -381,7 +330,7 @@
           in your e-mail, we'll take you much more seriously.
         </p>
         <p class="challenge-copy">
-          After a programming challenge, we'll do a phone screen, and if that goes well, we will
+          After a challenge, we'll do a phone screen, and if that goes well, we will
           bring you out for a microinternship, where you'll meet the team and work on a real problem
           in our real codebase for a few days.
         </p>
