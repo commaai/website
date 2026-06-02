@@ -1,11 +1,13 @@
 <script>
   import LinkButton from "$lib/components/LinkButton.svelte";
   import ArrowRightIcon from "$lib/icons/arrow-right.svg?raw";
+  import IconChevron from "$lib/icons/icon-chevron.svg?raw";
 
   const ASSET_PATH = "/images/jobs";
   const JOBS_VIDEO_EMBED_URL = "https://www.youtube.com/embed/PFjssb7r_uU";
 
   let activeQuote = 0;
+  let expandedJobIndexes = new Set([0]);
 
   const quotes = [
     {
@@ -80,7 +82,7 @@
   const jobs = [
     {
       title: "Software Engineer",
-      team: "openpilot & infrastructure",
+      team: "openpilot",
       location: "On-site in San Diego, CA",
       description:
         "As part of the openpilot team, your responsibilities include developing new features, building simulation and testing infrastructure, and improving the tools our community uses to develop openpilot.",
@@ -159,22 +161,10 @@
       ],
     },
     {
-      title: "Technician",
-      team: "operations",
-      location: "On-site in San Diego, CA",
-      description:
-        "You'll maintain the internal comma fleet of cars and the comma compute cluster. You'll also assemble and standup new clusters of tiny boxes.",
-      qualifications: [
-        "Good debugging skills",
-        "Know how computers work",
-        "Experience working in a datacenter is a plus",
-      ],
-    },
-    {
       title: "Internships",
       location: "Paid and on-site in San Diego, CA",
       description:
-        'Internships are for people we would like to hire but can\'t because school. We\'re looking for engineers working in electrical engineering, maps, ML, controls, car hacking, production, and operations. The best way to get an internship with us is to submit good PRs to projects on our GitHub. We also talk to people with under 25% error on our <a href="https://github.com/commaai/calib_challenge" target="_blank" rel="noreferrer">Calibration Challenge</a>. Want to know more about what internships with us are like? Check out <a href="https://vivekaithal.co/posts/summer-at-comma-ai/" target="_blank" rel="noreferrer">this blog post by a recent intern (now employee)</a>.',
+        'Internships are for people we would like to hire but can\'t because school. We\'re looking for engineers working in electrical engineering, ML, controls, car hacking, production, and operations. The best way to get an internship with us is to submit good PRs to projects on our GitHub. We also talk to people with under 25% error on our <a href="https://github.com/commaai/calib_challenge" target="_blank" rel="noreferrer">Calibration Challenge</a>. Want to know more about what internships with us are like? Check out <a href="https://vivekaithal.co/posts/summer-at-comma-ai/" target="_blank" rel="noreferrer">this blog post by a recent intern (now employee)</a>.',
       qualifications: [],
     },
   ];
@@ -185,6 +175,18 @@
 
   function showNextQuote() {
     activeQuote = (activeQuote + 1) % quotes.length;
+  }
+
+  function toggleJob(index) {
+    const nextExpandedJobIndexes = new Set(expandedJobIndexes);
+
+    if (nextExpandedJobIndexes.has(index)) {
+      nextExpandedJobIndexes.delete(index);
+    } else {
+      nextExpandedJobIndexes.add(index);
+    }
+
+    expandedJobIndexes = nextExpandedJobIndexes;
   }
 </script>
 
@@ -375,31 +377,46 @@
         <p>All positions are on-site in San Diego, CA</p>
       </div>
 
-      <div>
-        {#each jobs as job}
-          <article class="job-item">
+      <div class="jobs-list">
+        {#each jobs as job, index}
+          <article class="job-item" class:expanded={expandedJobIndexes.has(index)}>
             <div class="job-header">
-              <div class="job-header-title">
-                <h3>{job.title}</h3>
-                <div class="job-subtitle">
-                  {#if job.team}
-                    <span class="job-team">{job.team}</span>
-                  {/if}
-                  <span class="job-location">{job.location}</span>
-                </div>
-              </div>
+              <button
+                type="button"
+                class="job-toggle"
+                aria-expanded={expandedJobIndexes.has(index)}
+                aria-controls={`job-panel-${index}`}
+                on:click={() => toggleJob(index)}
+              >
+                <span class="job-header-title">
+                  <span class="job-title">{job.title}</span>
+                  <span class="job-subtitle">
+                    {#if job.team}
+                      <span class="job-team">{job.team}</span>
+                    {/if}
+                    <span class="job-location">{job.location}</span>
+                  </span>
+                </span>
+                <span class="job-toggle-icon" aria-hidden="true">
+                  {@html IconChevron}
+                </span>
+              </button>
               <a class="apply-button" href="mailto:work@comma.ai">Email Us</a>
             </div>
 
-            <div class="job-description">{@html job.description}</div>
+            {#if expandedJobIndexes.has(index)}
+              <div class="job-panel" id={`job-panel-${index}`}>
+                <div class="job-description">{@html job.description}</div>
 
-            {#if job.qualifications.length > 0}
-              <div class="job-qualifications">Qualifications</div>
-              <ul>
-                {#each job.qualifications as qualification}
-                  <li>{qualification}</li>
-                {/each}
-              </ul>
+                {#if job.qualifications.length > 0}
+                  <div class="job-qualifications">Qualifications</div>
+                  <ul>
+                    {#each job.qualifications as qualification}
+                      <li>{qualification}</li>
+                    {/each}
+                  </ul>
+                {/if}
+              </div>
             {/if}
           </article>
         {/each}
@@ -489,9 +506,7 @@
   .large-text,
   .body-copy,
   .challenge-copy,
-  .trait-card p,
-  .job-description,
-  .job-item li {
+  .trait-card p {
     color: #000;
     font-size: clamp(1.0625rem, 1.35vw, 1.25rem);
     font-weight: 400;
@@ -777,14 +792,23 @@
   .openings-intro p {
     color: #000;
     font-size: 1.5rem;
+    line-height: 1.3;
+    margin: 1.5rem 0 0;
+  }
+
+  .openings-intro .section-title {
+    font-size: 2rem;
     line-height: 1.2;
-    margin: 1rem 0 0;
+  }
+
+  .jobs-list {
+    border-top: 1px solid #000;
   }
 
   .job-item {
     border-bottom: 1px solid #000;
-    margin-bottom: 3rem;
-    padding-bottom: 3rem;
+    margin-bottom: 0;
+    padding: 1.5rem 0;
   }
 
   .job-item:last-child {
@@ -794,28 +818,71 @@
   .job-header {
     align-items: center;
     display: flex;
+    gap: 1rem;
     justify-content: space-between;
-    margin-bottom: 1.25rem;
+    margin-bottom: 0;
+  }
+
+  .job-toggle {
+    align-items: center;
+    background: transparent;
+    border: 0;
+    color: #000;
+    cursor: pointer;
+    display: flex;
+    flex: 1;
+    font-family: inherit;
+    justify-content: space-between;
+    min-width: 0;
+    padding: 0;
+    text-align: left;
+  }
+
+  .job-toggle:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 4px;
   }
 
   .job-header-title {
+    display: block;
     flex: 1;
+    min-width: 0;
     margin-right: 1rem;
   }
 
-  .job-header h3 {
+  .job-title {
     color: #000;
-    font-size: 2rem;
-    font-weight: 400;
+    display: block;
+    font-size: 1.875rem;
+    font-weight: 600;
     line-height: 1.2;
     margin: 0;
+  }
+
+  .job-toggle-icon {
+    align-items: center;
+    color: #000;
+    display: flex;
+    flex: none;
+    height: 2rem;
+    justify-content: center;
+    transition: transform 0.2s;
+    width: 2rem;
+  }
+
+  .job-toggle-icon :global(svg) {
+    height: 12px;
+    width: 18px;
+  }
+
+  .job-item.expanded .job-toggle-icon {
+    transform: rotate(180deg);
   }
 
   .job-subtitle {
     align-items: center;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.75rem;
     margin-top: 0.75rem;
   }
 
@@ -831,6 +898,8 @@
   .job-team {
     border: 1px solid #000;
     display: inline-block;
+    flex: none;
+    margin-right: 0.75rem;
     opacity: 0.65;
     padding: 0.25rem 0.5rem;
   }
@@ -846,11 +915,13 @@
     flex: none;
     font-size: 0.875rem;
     font-weight: 600;
+    letter-spacing: 0.8px;
     line-height: 1.2;
     padding: 0.75rem 1rem;
     text-decoration: none;
     text-transform: uppercase;
     transition: opacity 0.2s;
+    white-space: nowrap;
   }
 
   .apply-button:hover,
@@ -858,7 +929,15 @@
     opacity: 0.8;
   }
 
+  .job-panel {
+    margin-top: 1.25rem;
+  }
+
   .job-description {
+    color: #000;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.4;
     margin-bottom: 1.5rem;
   }
 
@@ -869,12 +948,16 @@
 
   .job-item ul {
     color: #000;
-    margin: 0;
-    padding-left: 1.5rem;
+    margin: 0 0 10px;
+    padding-left: 2.5rem;
   }
 
   .job-item li {
-    margin-bottom: 0.45rem;
+    color: #000;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.4;
+    margin-bottom: 0;
   }
 
   @media screen and (max-width: 1024px) {
@@ -909,9 +992,21 @@
       flex-wrap: wrap;
     }
 
+    .job-toggle {
+      align-items: flex-start;
+    }
+
     .job-subtitle {
       align-items: flex-start;
       flex-direction: column;
+    }
+
+    .job-location {
+      margin-top: 0.5rem;
+    }
+
+    .job-team {
+      margin-right: 0;
     }
 
     .openings-intro {
@@ -951,9 +1046,7 @@
     .large-text,
     .body-copy,
     .challenge-copy,
-    .trait-card p,
-    .job-description,
-    .job-item li {
+    .trait-card p {
       font-size: 1rem;
       max-width: 100%;
       overflow-wrap: normal;
@@ -1012,9 +1105,12 @@
       font-size: 1.25rem;
     }
 
+    .openings-intro .section-title {
+      font-size: 1.5rem;
+    }
+
     .job-item {
-      margin-bottom: 2rem;
-      padding-bottom: 2rem;
+      padding: 1.25rem 0;
     }
 
     .job-header {
@@ -1022,13 +1118,21 @@
       flex-direction: column;
     }
 
+    .job-toggle {
+      width: 100%;
+    }
+
     .job-header-title {
-      margin-bottom: 1rem;
+      margin-bottom: 0;
       margin-right: 0;
     }
 
-    .job-header h3 {
+    .job-title {
       font-size: 1.5rem;
+    }
+
+    .job-panel {
+      margin-top: 1rem;
     }
 
     .job-team,
