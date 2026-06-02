@@ -3,6 +3,7 @@
   import ArrowRightIcon from "$lib/icons/arrow-right.svg?raw";
 
   const ASSET_PATH = "/images/jobs";
+  const JOBS_VIDEO_EMBED_URL = "https://www.youtube.com/embed/PFjssb7r_uU";
 
   let activeQuote = 0;
 
@@ -271,23 +272,17 @@
 
   <section class="jobs-video" aria-label="See how comma works">
     <div class="container">
-      <a
-        class="video-card"
-        href="https://youtube.com/watch?v=dBWhN9ANrn4"
-        target="_blank"
-        rel="noreferrer"
-      >
-        <img
-          class="play-icon"
-          src={`${ASSET_PATH}/icon-play-square-large-white.svg`}
-          alt=""
-          aria-hidden="true"
-        />
-        <span class="video-copy">
-          <span>Watch now</span>
-          <strong>See how we work</strong>
-        </span>
-      </a>
+      <div class="video-shell">
+        <iframe
+          class="video-frame"
+          src={JOBS_VIDEO_EMBED_URL}
+          title="Touring comma HQ + launching the new jobs page comma.ai/jobs"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+      </div>
     </div>
   </section>
 
@@ -579,58 +574,20 @@
     padding: 0 0 var(--jobs-section-y);
   }
 
-  .video-card {
-    align-items: center;
-    background-image:
-      linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
-      url("/images/jobs/theteam-optimized.jpeg");
-    background-position: 0 0, 50% 50%;
-    background-size: auto, cover;
-    color: #fff;
-    display: flex;
+  .video-shell {
     aspect-ratio: 16 / 9;
     min-height: 24rem;
     max-height: 42rem;
-    height: auto;
-    justify-content: center;
     overflow: hidden;
-    text-decoration: none;
-    transition: opacity 0.2s;
+    position: relative;
     width: 100%;
   }
 
-  .video-card:hover,
-  .video-card:focus-visible {
-    opacity: 0.92;
-  }
-
-  .play-icon {
-    height: 64px;
-    width: 64px;
-  }
-
-  .video-copy {
-    border-left: 1px solid #fff;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    margin-left: 1.25rem;
-    padding-left: 1.25rem;
-  }
-
-  .video-copy span {
-    color: #fff;
-    font-size: 1.25rem;
-    font-weight: 600;
-    line-height: 1.2;
-    text-transform: uppercase;
-  }
-
-  .video-copy strong {
-    color: #fff;
-    font-size: 2rem;
-    font-weight: 400;
-    line-height: 1.2;
+  .video-frame {
+    border: 0;
+    display: block;
+    height: 100%;
+    width: 100%;
   }
 
   .section-spacer {
@@ -989,8 +946,7 @@
       gap: 2rem;
     }
 
-    .video-card {
-      aspect-ratio: 4 / 3;
+    .video-shell {
       min-height: 0;
       max-height: none;
     }
@@ -1052,24 +1008,6 @@
       font-size: 1rem;
       max-width: 100%;
       overflow-wrap: normal;
-    }
-
-    .play-icon {
-      height: 48px;
-      width: 48px;
-    }
-
-    .video-copy {
-      margin-left: 1rem;
-      padding-left: 1rem;
-    }
-
-    .video-copy span {
-      font-size: 0.875rem;
-    }
-
-    .video-copy strong {
-      font-size: 1rem;
     }
 
     .section-spacer {
