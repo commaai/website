@@ -833,7 +833,7 @@
         }, {
           question: 'Are you hiring for any other roles?',
           answer: `
-            We're interested in anyone who can get a top spot on the <a href="/leaderboard">leaderboard</a>.
+            We're interested in anyone who can get a top spot on the <a href="https://comma.ai/leaderboard">leaderboard</a>.
           `
         }, {
           question: 'Any other requirements?',

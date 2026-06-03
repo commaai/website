@@ -121,7 +121,7 @@
     },
     {
       title: "Electronics Engineer",
-      team: "openpilot",
+      team: "product",
       location: "On-site in San Diego, CA",
       description:
         "Do you know every component in a cell phone? We are hiring an electrical engineer who wants to reduce BOM cost of the comma 3X.",
@@ -885,8 +885,7 @@
   }
 
   .job-team,
-  .job-location,
-  .job-qualifications {
+  .job-location {
     color: #000;
     font-family: "JetBrains Mono", monospace;
     font-size: 1rem;
@@ -933,13 +932,17 @@
 
   .job-description {
     color: #000;
-    font-size: 1rem;
+    font-size: 1.125rem;
     font-weight: 400;
-    line-height: 1.4;
+    line-height: 1.45;
     margin-bottom: 1.5rem;
   }
 
   .job-qualifications {
+    color: #000;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 1.0625rem;
+    line-height: 1.25;
     margin-bottom: 1.5rem;
     text-transform: uppercase;
   }
@@ -952,9 +955,9 @@
 
   .job-item li {
     color: #000;
-    font-size: 1rem;
+    font-size: 1.125rem;
     font-weight: 400;
-    line-height: 1.4;
+    line-height: 1.45;
     margin-bottom: 0;
   }
 
@@ -1134,8 +1137,7 @@
     }
 
     .job-team,
-    .job-location,
-    .job-qualifications {
+    .job-location {
       font-size: 0.875rem;
     }
 
