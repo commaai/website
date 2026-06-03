@@ -806,6 +806,43 @@
         },
       ]
     },
+    jobs: {
+      title: 'Jobs',
+      image: OtherTopicsImage,
+      questions: [
+        {
+          question: 'Do you sponsor visas?',
+          answer: `
+          <p>
+            Yes, we sponsor visas and green cards.
+            </p>
+            <p>
+            If we make you an offer, we'll make every reasonable effort to get you a visa and retain an immigration lawyer to help with this.
+            </p>
+          `
+        }, {
+          question: 'What\'s your remote work policy?',
+          answer: `
+            comma is IRL in San Diego, CA.
+          `
+        }, {
+          question: 'Do you offer internships?',
+          answer: `
+            Yes! All teams hire interns year-round.
+          `
+        }, {
+          question: 'Are you hiring for any other roles?',
+          answer: `
+            We're interested in anyone who can get a top spot on the <a href="/leaderboard">leaderboard</a>.
+          `
+        }, {
+          question: 'Any other requirements?',
+          answer: `
+            Nope. We're just looking for people who do well on our challenges and can independently contribute to solving self-driving cars.
+          `
+        },
+      ]
+    },
     other: {
       title: 'Other',
       image: OtherTopicsImage,

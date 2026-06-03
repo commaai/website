@@ -1,5 +1,7 @@
 <script>
+  import Faq from "$lib/components/Faq.svelte";
   import LinkButton from "$lib/components/LinkButton.svelte";
+  import { faq } from "$lib/constants/faq.svelte";
   import ArrowRightIcon from "$lib/icons/arrow-right.svg?raw";
   import IconChevron from "$lib/icons/icon-chevron.svg?raw";
 
@@ -27,28 +29,24 @@
     },
   ];
 
-  const traits = [
+  const processSteps = [
     {
-      title: "Competitors",
-      paragraphs: [
-        "People who have done well at math competitions (USAMO, IMO, PUTNAM), competition programming (ACM, USACO, codejam, topcoder), science fairs (ISEF, STS), or capture the flag (DEFCON, secuinside, GITS).",
-        "Competitions don't just select for ability, they also select for quickness. We are in a very competitive space.",
-      ],
+      label: "01",
+      title: "Challenge",
+      body:
+        'Choose a challenge from the <a href="https://comma.ai/leaderboard">leaderboard</a> or a <a href="https://comma.ai/bounties">bounty</a>, solve it, then reach out to <a href="mailto:work@comma.ai">work@comma.ai</a>.',
     },
     {
-      title: "Contributors",
-      paragraphs: [
-        "People who have contributed value to open source projects.",
-        "Show us your GitHub. Got stars? Code is never measured in quantity, but rather quality.",
-        "We value those who can do more with less code; software engineering doesn't have an external selection pressure for low part count and cost like EE and ME, but you pay massive costs down the line in debugging and upkeep.",
-      ],
+      label: "02",
+      title: "Phone screen",
+      body:
+        "Typically, we do two calls: a quick intro and screen, then an in-depth technical interview with an engineer.",
     },
     {
-      title: "Architects",
-      paragraphs: [
-        "People who can design good APIs and source layouts on the first try. This is crucial to working in teams and scaling.",
-        "Before you do work, you should be able to explain to a contractor what you want done. ME has a great divide between design and machining that software lacks; we want to try to fix that.",
-      ],
+      label: "03",
+      title: "Paid micro-internship",
+      body:
+        "We will fly you out to meet the team and work on a real problem for a few days. In most cases, the project is scoped so you ship to real users by the end. If all goes well, we will make a full-time offer.",
     },
   ];
 
@@ -303,16 +301,14 @@
     </div>
   </section>
 
-  <section class="jobs-section" aria-labelledby="looking-for">
+  <section class="jobs-section" aria-labelledby="hiring-process">
     <div class="container">
-      <h2 id="looking-for" class="section-title">We Are Looking For</h2>
+      <h2 id="hiring-process" class="section-title">Our Process</h2>
       <div class="traits-grid">
-        {#each traits as trait}
+        {#each processSteps as step}
           <article class="trait-card">
-            <h3>{trait.title}</h3>
-            {#each trait.paragraphs as paragraph}
-              <p>{paragraph}</p>
-            {/each}
+            <h3>{step.label}. {step.title}</h3>
+            <p>{@html step.body}</p>
           </article>
         {/each}
       </div>
@@ -322,19 +318,16 @@
   <section class="challenge-section dark" aria-labelledby="challenge-title">
     <div class="container challenge-grid">
       <div>
-        <p class="eyebrow">Programming challenge</p>
-        <h2 id="challenge-title">Are you a good fit?</h2>
+        <p class="eyebrow">Start here</p>
+        <h2 id="challenge-title">Ready to apply?</h2>
         <p class="challenge-copy">
-          Great, email your resume and GitHub to us:
-          <a href="mailto:work@comma.ai">work@comma.ai</a>.
-          If you include a good solution to our
-          <a href="https://github.com/commaai/calib_challenge" target="_blank" rel="noreferrer">programming challenge</a>
-          in your e-mail, we'll take you much more seriously.
+          Email your resume, GitHub, and challenge or bounty solution to
+          <a href="mailto:work@comma.ai">work@comma.ai</a>. We take applicants much more
+          seriously when they show working code.
         </p>
         <p class="challenge-copy">
-          After a challenge, we'll do a phone screen, and if that goes well, we will
-          bring you out for a microinternship, where you'll meet the team and work on a real problem
-          in our real codebase for a few days.
+          The calibration challenge is a good place to start, but any strong leaderboard
+          challenge or bounty submission works.
         </p>
         <LinkButton
           href="https://github.com/commaai/calib_challenge"
@@ -421,6 +414,12 @@
           </article>
         {/each}
       </div>
+    </div>
+  </section>
+
+  <section class="jobs-section" id="faq" aria-label="Jobs FAQ">
+    <div class="container">
+      <Faq topic={faq.jobs} title="Jobs FAQ" />
     </div>
   </section>
 </div>
@@ -693,10 +692,6 @@
     margin: 0;
   }
 
-  .trait-card p + p {
-    margin-top: 1rem;
-  }
-
   .challenge-section {
     background: #000;
     color: #fff;
@@ -726,6 +721,7 @@
     margin: 0 0 1.25rem;
   }
 
+  .trait-card :global(a),
   .challenge-copy a,
   .job-description :global(a) {
     border-bottom: 2px solid var(--color-accent);
@@ -733,6 +729,8 @@
     transition: background-color 0.2s;
   }
 
+  .trait-card :global(a:hover),
+  .trait-card :global(a:focus-visible),
   .challenge-copy a:hover,
   .challenge-copy a:focus-visible,
   .job-description :global(a:hover),
