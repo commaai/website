@@ -169,14 +169,16 @@
       description: `
         We're building <a href="https://sendcutsend.com/">SendCutSend</a> at home. The shop has
         a Haas VF2, lathe, 3D printers, and a budget for any other tools we'll need to bring
-        prototyping fully in-house. You'll be responsible for building prototypes for all comma
-        products, from comma four to the <a href="https://x.com/__tinygrad__/status/2040944508402360592">exabox</a>.
+        prototyping fully in-house.
+        You'll own parts from CAD to finished prototype: CAM, setup, fixturing, machining, inspection, and iteration with the hardware team.
+        You'll build prototypes for all future comma products, from comma four to the <a href="https://x.com/__tinygrad__/status/2040944508402360592">exabox</a>.
       `,
       qualifications: [
-        "Experience with CAM and CNC machining",
-        "Strong problem-solving skills and ability to just make things happen",
+        "Experience with CAM, CNC setup, and machining",
+        "Excellent attention to detail",
+        "Resourceful enough to take ambiguous part needs from sketch to working prototype",
         "Haas experience is a plus",
-        "CAD and mechanical engineering and design skills are a plus",
+        "Mechanical engineering and CAD skills are a plus",
       ],
     },
     {
