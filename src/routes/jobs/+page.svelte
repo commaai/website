@@ -86,8 +86,11 @@
       title: "Software Engineer",
       team: "openpilot",
       location: "On-site in San Diego, CA",
-      description:
-        "As part of the openpilot team, your responsibilities include developing new features, building simulation and testing infrastructure, and improving the tools our community uses to develop openpilot.",
+      description: `
+        As part of the openpilot team, your responsibilities include developing new features,
+        building simulation and testing infrastructure, and improving the tools our community
+        uses to develop openpilot.
+      `,
       qualifications: [
         "Ability to independently write, test, and ship software to thousands of users",
         "Write fast and efficient code that runs on hardware with limited compute resources",
@@ -101,8 +104,11 @@
       title: "Full Stack Developer",
       team: "openpilot",
       location: "On-site in San Diego, CA",
-      description:
-        'As part of the openpilot team, you will be responsible for developing new features and maintaining our web applications (and their back-end), such as <a href="/connect">comma connect</a>.',
+      description: `
+        As part of the openpilot team, you will be responsible for developing new features and
+        maintaining our web applications (and their back-end), such as
+        <a href="/connect">comma connect</a>.
+      `,
       qualifications: [
         "Fluent in JavaScript, HTML, CSS, Python, and MySQL",
         "Ability to independently write, test, and ship software to thousands of users",
@@ -114,8 +120,12 @@
       title: "Car Interface Engineer",
       team: "openpilot",
       location: "On-site in San Diego, CA",
-      description:
-        "As a car interface engineer, you'll own the 250+ cars supported by openpilot. You'll build tools, tests, and infrastructure to expand and improve the quality of the fleet alongside our community. You'll also be responsible for evolving our safety model as openpilot becomes more capable.",
+      description: `
+        As a car interface engineer, you'll own the 250+ cars supported by openpilot.
+        You'll build tools, tests, and infrastructure to expand and improve the quality of the fleet
+        alongside our community. You'll also be responsible for evolving our safety model as
+        openpilot becomes more capable.
+      `,
       qualifications: [
         "Fluent in Python and at least one system programming language (C, C++, Rust)",
         "Ability to independently write, test, and ship software to thousands of users",
@@ -127,8 +137,10 @@
       title: "Electronics Engineer",
       team: "product",
       location: "On-site in San Diego, CA",
-      description:
-        "Do you know every component in a cell phone? We are hiring an electrical engineer who wants to reduce BOM cost of the comma 3X.",
+      description: `
+        Do you know every component in a cell phone? We are hiring an electrical engineer who
+        wants to reduce BOM cost of the comma 3X.
+      `,
       qualifications: [
         "Know things about hardware, RF and PCB design",
         "Ability to independently design, test and ship hardware",
@@ -141,8 +153,9 @@
       title: "Infrastructure Engineer",
       team: "operations",
       location: "On-site in San Diego, CA",
-      description:
-        "As an infrastructure engineer, you'll work on our tooling, regression tests, and simulator.",
+      description: `
+        As an infrastructure engineer, you'll work on our tooling, regression tests, and simulator.
+      `,
       qualifications: [
         "Excellent Python and Linux skills, at least a familiarity with C/C++",
         "Having pull requests upstreamed to openpilot is a plus",
@@ -150,23 +163,34 @@
       ],
     },
     {
-      title: "Head of Prototyping",
+      title: "CNC Machinist (Head of Prototyping)",
       team: "hardware",
       location: "On-site in San Diego, CA",
-      description:
-        "You will be responsible for operating the pick and place machinery to accurately position surface mount components onto printed circuit boards (PCB's).",
+      description: `
+        We're building <a href="https://sendcutsend.com/">SendCutSend</a> at home. The shop has
+        a Haas VF2, lathe, 3D printers, and a budget for any other tools we'll need to bring
+        prototyping fully in-house. You'll be responsible for building prototypes for all comma
+        products, from comma four to the <a href="https://x.com/__tinygrad__/status/2040944508402360592">exabox</a>.
+      `,
       qualifications: [
-        "Previous experience operating pick and place machines in a manufacturing environment",
-        "Knowledge of surface mount technology and component identification",
-        "Ability to read and interpret production specifications and work instructions",
-        "Strong problem-solving skills and ability to troubleshoot machinery",
+        "Experience with CAM and CNC machining",
+        "Strong problem-solving skills and ability to just make things happen",
+        "Haas experience is a plus",
+        "CAD and mechanical engineering and design skills are a plus",
       ],
     },
     {
       title: "Internships / Co-op",
       location: "Paid and on-site in San Diego, CA",
-      description:
-        'Internships are for people we would like to hire but can\'t because school. We\'re looking for engineers working in electrical engineering, hardware, ML, controls, car hacking, production, and operations. The best way to get an internship with us is to submit good PRs to projects on our <a href="https://github.com/commaai">GitHub</a> or get a top spot on the <a href="/leaderboard">leaderboard</a>. Want to know more about what internships with us are like? Check out <a href="https://vivekaithal.co/posts/summer-at-comma-ai/" target="_blank" rel="noreferrer">this blog post by a former intern (now employee)</a>.',
+      description: `
+        Internships are for people we would like to hire but can't because school. We're looking for
+        engineers working in electrical engineering, hardware, ML, controls, car hacking, production,
+        and operations. The best way to get an internship with us is to submit good PRs to projects
+        on our <a href="https://github.com/commaai">GitHub</a> or get a top spot on the
+        <a href="/leaderboard">leaderboard</a>. Want to know more about what internships with us
+        are like? Check out
+        <a href="https://vivekaithal.co/posts/summer-at-comma-ai/" target="_blank" rel="noreferrer">this blog post by a former intern (now employee)</a>.
+      `,
       qualifications: [],
     },
   ];
