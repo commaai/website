@@ -46,7 +46,7 @@
       label: "03",
       title: "Paid micro-internship",
       body:
-        "We will fly you out to meet the team and work on a real problem for a few days. In most cases, the project is scoped so you ship to real users by the end. If all goes well, we will make a full-time offer.",
+        "We'll fly you out to meet the team and work on a real problem for a few days and hopefully ship it to real users. If all goes well, we will make a full-time offer.",
     },
   ];
 
@@ -54,6 +54,10 @@
     {
       icon: `${ASSET_PATH}/icon-jobs-benefit-health.svg`,
       text: "Health, dental, and vision insurance",
+    },
+    {
+      icon: `${ASSET_PATH}/icon-jobs-benefit-visa.svg`,
+      text: "Visa sponsorship",
     },
     {
       icon: `${ASSET_PATH}/icon-jobs-benefit-car.svg`,
@@ -159,10 +163,10 @@
       ],
     },
     {
-      title: "Internships",
+      title: "Internships / Co-op",
       location: "Paid and on-site in San Diego, CA",
       description:
-        'Internships are for people we would like to hire but can\'t because school. We\'re looking for engineers working in electrical engineering, ML, controls, car hacking, production, and operations. The best way to get an internship with us is to submit good PRs to projects on our GitHub. We also talk to people with under 25% error on our <a href="https://github.com/commaai/calib_challenge" target="_blank" rel="noreferrer">Calibration Challenge</a>. Want to know more about what internships with us are like? Check out <a href="https://vivekaithal.co/posts/summer-at-comma-ai/" target="_blank" rel="noreferrer">this blog post by a recent intern (now employee)</a>.',
+        'Internships are for people we would like to hire but can\'t because school. We\'re looking for engineers working in electrical engineering, hardware, ML, controls, car hacking, production, and operations. The best way to get an internship with us is to submit good PRs to projects on our <a href="https://github.com/commaai">GitHub</a> or get a top spot on the <a href="/leaderboard">leaderboard</a>. Want to know more about what internships with us are like? Check out <a href="https://vivekaithal.co/posts/summer-at-comma-ai/" target="_blank" rel="noreferrer">this blog post by a former intern (now employee)</a>.',
       qualifications: [],
     },
   ];
@@ -322,19 +326,18 @@
         <h2 id="challenge-title">Ready to apply?</h2>
         <p class="challenge-copy">
           Email your resume, GitHub, and challenge or bounty solution to
-          <a href="mailto:work@comma.ai">work@comma.ai</a>. We take applicants much more
-          seriously when they show working code.
+          <a href="mailto:work@comma.ai">work@comma.ai</a>.
         </p>
         <p class="challenge-copy">
-          The calibration challenge is a good place to start, but any strong leaderboard
+          The compression challenge is a good place to start, but any strong leaderboard
           challenge or bounty submission works.
         </p>
         <LinkButton
-          href="https://github.com/commaai/calib_challenge"
+          href="https://github.com/commaai/comma_video_compression_challenge"
           target="_blank"
           style="secondary"
         >
-          Try the calibration challenge
+          Try the compresion challenge
         </LinkButton>
       </div>
 
