@@ -160,12 +160,15 @@
     "title": "Rivian A"
   },
   {
+    "id": "gid://shopify/ProductVariant/43070600249407",
+    "title": "Rivian B"
+  },
+  {
     "id": "gid://shopify/ProductVariant/41514848944191",
     "title": "Tesla A"
   },
   {
     "id": "gid://shopify/ProductVariant/41514846814271",
-    "title": "Tesla B",
-    "backordered": "4-8 weeks"
+    "title": "Tesla B"
   }
 ]
