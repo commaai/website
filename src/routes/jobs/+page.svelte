@@ -112,10 +112,9 @@
         <a href="/connect">comma connect</a>.
       `,
       qualifications: [
+        "Built and shipped applications",
         "Fluent in JavaScript, HTML, CSS, Python, and MySQL",
         "Ability to independently write, test, and ship software to thousands of users",
-        "Built and shipped applications using React",
-        "Preferred: experience with Kubernetes or another container orchestrator (nomad, openshift, ECS)",
       ],
     },
     {
@@ -140,20 +139,20 @@
       team: "product",
       location: "On-site in San Diego, CA",
       description: `
-        Do you know every component in a cell phone? We are hiring an electrical engineer who
-        wants to reduce BOM cost of the comma 3X.
+        Do you know every component in a cell phone?
+        We're hiring an electrical engineer who wants to join the team building the next generation of comma products.
       `,
       qualifications: [
-        "Know things about hardware, RF and PCB design",
+        "Know things about hardware, RF, and PCB design",
         "Ability to independently design, test and ship hardware",
         "Fluent in Python, Linux, Git and familiarity with C/C++",
         "High speed electronics design and designing for manufacturability experience preferred",
-        "Preferred: experience with reverse engineering and sourcing parts",
+        "Reverse engineering experience is a plus",
       ],
     },
     {
       title: "Infrastructure Engineer",
-      team: "operations",
+      team: "openpilot",
       location: "On-site in San Diego, CA",
       description: `
         As an infrastructure engineer, you'll work on our tooling, regression tests, and simulator.
@@ -178,7 +177,7 @@
       qualifications: [
         "Experience with CAM, CNC setup, and machining",
         "Excellent attention to detail",
-        "Resourceful enough to take ambiguous part needs from sketch to working prototype",
+        "Resourceful enough to take ambiguous designs from sketch to working prototype",
         "Haas experience is a plus",
         "Mechanical engineering and CAD skills are a plus",
       ],
@@ -203,29 +202,11 @@
       ],
     },
     {
-      title: "Head of Prototyping",
-      team: "hardware",
-      location: "On-site in San Diego, CA",
-      description: `
-        We're building <a href="https://sendcutsend.com/">SendCutSend</a> at home.
-        This shop will build all prototypes for all future comma products, from new commas to the <a href="https://x.com/__tinygrad__/status/2039237968960118833">exabox</a>.
-
-        The shop already has a Haas VF2, manual lathe, and tons of 3D printers. We love buying tools.
-      `,
-      qualifications: [
-        "Experience with CAM, CNC setup, and machining",
-        "Excellent attention to detail",
-        "Resourceful enough to take ambiguous part needs from sketch to working prototype",
-        "Haas experience is a plus",
-        "Mechanical engineering and CAD skills are a plus",
-      ],
-    },
-    {
       title: "Internships / Co-op",
       location: "Paid and on-site in San Diego, CA",
       description: `
         Internships are for people we would like to hire but can't because school. We're looking for
-        engineers working in electrical engineering, hardware, ML, controls, car hacking, production,
+        engineers who want to work in electrical engineering, hardware, ML, controls, car hacking, manufacturing,
         and operations. The best way to get an internship with us is to submit good PRs to projects
         on our <a href="https://github.com/commaai">GitHub</a> or get a top spot on the
         <a href="/leaderboard">leaderboard</a>. Want to know more about what internships with us
