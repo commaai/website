@@ -434,7 +434,7 @@
           target="_blank"
           style="secondary"
         >
-          Try the compresion challenge
+          Try the compression challenge
         </LinkButton>
       </div>
 
