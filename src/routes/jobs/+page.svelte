@@ -10,6 +10,10 @@
 
   const ASSET_PATH = "/images/jobs";
   const JOBS_VIDEO_EMBED_URL = "https://www.youtube.com/embed/PFjssb7r_uU";
+  const DEFAULT_HOW_TO_APPLY = `
+    Do a <a href="https://comma.ai/bounties">bounty</a> or <a href="https://comma.ai/leaderboard">challenge</a>,
+    then email <a href="mailto:work@comma.ai">work@comma.ai</a> with what you built.
+  `;
 
   let activeQuote = 0;
   let expandedJobIndexes = new Set([0]);
@@ -136,6 +140,36 @@
       ],
     },
     {
+      title: "Controls Engineer",
+      team: "autonomy",
+      location: "On-site in San Diego, CA",
+      description: `
+        You'll work on steering, gas, and brake controls for the 300 different cars openpilot supports.
+      `,
+      qualifications: [
+        "Fluent in Python and comfortable working with large datasets",
+        "Strong understanding of controls, robotics, or autonomous systems",
+        "Ability to independently write, test, and ship software to thousands of users",
+      ],
+      howToApply:
+        'Do the <a href="https://github.com/commaai/controls_challenge">controls challenge</a>, then email <a href="mailto:work@comma.ai">work@comma.ai</a>.',
+    },
+    {
+      title: "Autonomy Engineer",
+      team: "autonomy",
+      location: "On-site in San Diego, CA",
+      description: `
+        You'll work on infrastructure to train autonomous agents.
+      `,
+      qualifications: [
+        "Fluent in Python and comfortable working with large datasets",
+        "Experience with ML infrastructure, training pipelines, or autonomous agents",
+        "Ability to independently write, test, and ship software to thousands of users",
+      ],
+      howToApply:
+        'Do the <a href="https://github.com/commaai/controls_challenge">controls challenge</a>, then email <a href="mailto:work@comma.ai">work@comma.ai</a>.',
+    },
+    {
       title: "Electronics Engineer",
       team: "product",
       location: "On-site in San Diego, CA",
@@ -182,6 +216,8 @@
         "Haas experience is a plus",
         "Mechanical engineering and CAD skills are a plus",
       ],
+      howToApply:
+        'Email <a href="mailto:work@comma.ai">work@comma.ai</a> with examples of cool projects you\'ve built.',
     },
     {
       title: "Office Manager",
@@ -201,6 +237,8 @@
         "Ability to self-motivate, prioritize, and work independently in a small, fast-moving team",
         "Preferred: experience with Shopify or similar operational tooling",
       ],
+      howToApply:
+        'Do the <a href="https://github.com/commaai/operations_challenge">operations challenge</a>, then email <a href="mailto:work@comma.ai">work@comma.ai</a>.',
     },
     {
       title: "Internships / Co-op",
@@ -215,6 +253,11 @@
         <a href="https://vivekaithal.co/posts/summer-at-comma-ai/" target="_blank" rel="noreferrer">this blog post by a former intern (turned employee)</a>.
       `,
       qualifications: [],
+      howToApply: `
+        The best way to get an internship with us is to submit good PRs to projects
+        on our <a href="https://github.com/commaai">GitHub</a> or get a top spot on the
+        <a href="/leaderboard">leaderboard</a>.
+      `,
     },
   ];
 
@@ -527,6 +570,11 @@
                     {/each}
                   </ul>
                 {/if}
+
+                <div class="job-how-to-apply">
+                  <div class="job-qualifications">How to apply</div>
+                  <p>{@html job.howToApply ?? DEFAULT_HOW_TO_APPLY}</p>
+                </div>
               </div>
             {/if}
           </article>
@@ -1151,6 +1199,27 @@
     font-weight: 400;
     line-height: 1.45;
     margin-bottom: 0;
+  }
+
+  .job-how-to-apply {
+    margin-top: 1.5rem;
+  }
+
+  .job-how-to-apply .job-qualifications {
+    margin-bottom: 0.75rem;
+  }
+
+  .job-how-to-apply p {
+    color: #000;
+    font-size: 1.125rem;
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  .job-how-to-apply :global(a) {
+    color: #000;
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
   }
 
   @media screen and (max-width: 1024px) {
