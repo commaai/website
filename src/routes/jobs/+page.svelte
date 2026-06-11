@@ -147,7 +147,7 @@
         You'll work on steering, gas, and brake controls for the 300 different cars openpilot supports.
       `,
       qualifications: [
-        "Fluent in Python and at least one system programming language (C, C++, Rust)",
+        "Fluent in Python and comfortable working with large datasets",
         "Strong understanding of controls, robotics, or autonomous systems",
         "Ability to independently write, test, and ship software to thousands of users",
       ],
