@@ -525,13 +525,13 @@
                 on:click={() => toggleJob(index)}
               >
                 <span class="job-header-title">
-                  <span class="job-title">{job.title}</span>
-                  <span class="job-subtitle">
+                  <span class="job-title-line">
+                    <span class="job-title">{job.title}</span>
                     {#if job.team}
                       <span class="job-team">{job.team}</span>
                     {/if}
-                    <span class="job-location">{job.location}</span>
                   </span>
+                  <span class="job-location">{job.location}</span>
                 </span>
                 <span class="job-toggle-icon" aria-hidden="true">
                   {@html IconChevron}
@@ -1009,19 +1009,34 @@
   }
 
   .job-header-title {
-    display: block;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
     flex: 1;
     min-width: 0;
     margin-right: 1rem;
   }
 
+  .job-title-line {
+    align-items: center;
+    column-gap: 0.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    min-width: 0;
+    row-gap: 0.5rem;
+    width: 100%;
+  }
+
   .job-title {
     color: #000;
     display: block;
+    flex: 0 1 auto;
     font-size: 1.875rem;
     font-weight: 600;
     line-height: 1.2;
     margin: 0;
+    min-width: 0;
+    overflow-wrap: anywhere;
   }
 
   .job-toggle-icon {
@@ -1044,13 +1059,6 @@
     transform: rotate(180deg);
   }
 
-  .job-subtitle {
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 0.75rem;
-  }
-
   .job-team,
   .job-location {
     color: #000;
@@ -1063,12 +1071,12 @@
     border: 1px solid #000;
     display: inline-block;
     flex: none;
-    margin-right: 0.75rem;
     opacity: 0.65;
     padding: 0.25rem 0.5rem;
   }
 
   .job-location {
+    margin-top: 0.75rem;
     opacity: 0.65;
     text-transform: uppercase;
   }
@@ -1258,19 +1266,6 @@
       align-items: flex-start;
     }
 
-    .job-subtitle {
-      align-items: flex-start;
-      flex-direction: column;
-    }
-
-    .job-location {
-      margin-top: 0.5rem;
-    }
-
-    .job-team {
-      margin-right: 0;
-    }
-
     .openings-intro {
       position: static;
     }
@@ -1391,6 +1386,27 @@
 
     .job-title {
       font-size: 1.5rem;
+    }
+
+    .job-title-line {
+      column-gap: 0.5rem;
+    }
+
+    .job-location {
+      display: none;
+      margin-top: 0.5rem;
+    }
+
+    .job-actions {
+      display: none;
+    }
+
+    .job-item.expanded .job-location {
+      display: block;
+    }
+
+    .job-item.expanded .job-actions {
+      display: flex;
     }
 
     .job-panel {
