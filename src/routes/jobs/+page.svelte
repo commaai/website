@@ -7,9 +7,11 @@
 
   const ASSET_PATH = "/images/jobs";
   const JOBS_VIDEO_EMBED_URL = "https://www.youtube.com/embed/PFjssb7r_uU";
+  const JOBS_VIDEO_PLAY_URL = `${JOBS_VIDEO_EMBED_URL}?autoplay=1&playsinline=1&rel=0`;
 
   let activeQuote = 0;
   let expandedJobIndexes = new Set([0]);
+  let showJobsVideo = false;
 
   const quotes = [
     {
@@ -182,6 +184,43 @@
       ],
     },
     {
+      title: "Office Manager",
+      team: "operations",
+      location: "On-site in San Diego, CA",
+      description: `
+        Looking for someone practical, organized, and calm who can keep comma's daily operations
+        running smoothly. You'll own the day-to-day details that make the office work, from
+        facilities and fleet logistics to purchasing support, employee logistics, events, records,
+        vendors, and one-off operational projects.
+      `,
+      qualifications: [
+        "Experience in operations, business, facilities, or office management",
+        "Excellent organizational skills and attention to detail",
+        "Comfortable with basic finance concepts like expenses, invoices, and budgets",
+        "Strong analytical and problem-solving abilities",
+        "Ability to self-motivate, prioritize, and work independently in a small, fast-moving team",
+        "Preferred: experience with Shopify or similar operational tooling",
+      ],
+    },
+    {
+      title: "Head of Prototyping",
+      team: "hardware",
+      location: "On-site in San Diego, CA",
+      description: `
+        We're building <a href="https://sendcutsend.com/">SendCutSend</a> at home.
+        This shop will build all prototypes for all future comma products, from new commas to the <a href="https://x.com/__tinygrad__/status/2039237968960118833">exabox</a>.
+
+        The shop already has a Haas VF2, manual lathe, and tons of 3D printers. We love buying tools.
+      `,
+      qualifications: [
+        "Experience with CAM, CNC setup, and machining",
+        "Excellent attention to detail",
+        "Resourceful enough to take ambiguous part needs from sketch to working prototype",
+        "Haas experience is a plus",
+        "Mechanical engineering and CAD skills are a plus",
+      ],
+    },
+    {
       title: "Internships / Co-op",
       location: "Paid and on-site in San Diego, CA",
       description: `
@@ -191,7 +230,7 @@
         on our <a href="https://github.com/commaai">GitHub</a> or get a top spot on the
         <a href="/leaderboard">leaderboard</a>. Want to know more about what internships with us
         are like? Check out
-        <a href="https://vivekaithal.co/posts/summer-at-comma-ai/" target="_blank" rel="noreferrer">this blog post by a former intern (now employee)</a>.
+        <a href="https://vivekaithal.co/posts/summer-at-comma-ai/" target="_blank" rel="noreferrer">this blog post by a former intern (turned employee)</a>.
       `,
       qualifications: [],
     },
@@ -252,15 +291,30 @@
   <section class="jobs-video" aria-label="See how comma works">
     <div class="container">
       <div class="video-shell">
-        <iframe
-          class="video-frame"
-          src={JOBS_VIDEO_EMBED_URL}
-          title="Touring comma HQ + launching the new jobs page comma.ai/jobs"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen
-        ></iframe>
+        {#if showJobsVideo}
+          <iframe
+            class="video-frame"
+            src={JOBS_VIDEO_PLAY_URL}
+            title="Touring comma HQ + launching the new jobs page comma.ai/jobs"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+        {:else}
+          <button
+            type="button"
+            class="video-placeholder"
+            aria-label="Play jobs video"
+            on:click={() => (showJobsVideo = true)}
+          >
+            <img
+              src={`${ASSET_PATH}/icon-play-square-large-white.svg`}
+              alt=""
+              aria-hidden="true"
+            />
+          </button>
+        {/if}
       </div>
     </div>
   </section>
@@ -580,6 +634,35 @@
     display: block;
     height: 100%;
     width: 100%;
+  }
+
+  .video-placeholder {
+    align-items: center;
+    background: #000;
+    border: 1px solid #000;
+    cursor: pointer;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    padding: 0;
+    transition: opacity 0.2s;
+    width: 100%;
+  }
+
+  .video-placeholder:hover,
+  .video-placeholder:focus-visible {
+    opacity: 0.9;
+  }
+
+  .video-placeholder:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 4px;
+  }
+
+  .video-placeholder img {
+    display: block;
+    height: 64px;
+    width: 64px;
   }
 
   .section-spacer {
