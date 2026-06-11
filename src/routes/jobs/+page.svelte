@@ -1,9 +1,12 @@
 <script>
+  import { onMount } from "svelte";
   import Faq from "$lib/components/Faq.svelte";
   import LinkButton from "$lib/components/LinkButton.svelte";
   import { faq } from "$lib/constants/faq.svelte";
   import ArrowRightIcon from "$lib/icons/arrow-right.svg?raw";
   import IconChevron from "$lib/icons/icon-chevron.svg?raw";
+  import CheckmarkIcon from "$lib/icons/ui/checkmark.svg?raw";
+  import LinkIcon from "$lib/icons/ui/link.svg?raw";
 
   const ASSET_PATH = "/images/jobs";
   const JOBS_VIDEO_EMBED_URL = "https://www.youtube.com/embed/PFjssb7r_uU";
@@ -216,6 +219,36 @@
       qualifications: [],
     },
   ];
+
+  const jobSlugs = jobs.map((job) =>
+    job.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")
+  );
+
+  let copiedJobIndex = null;
+  let copyResetTimeout;
+
+  onMount(() => {
+    const hash = decodeURIComponent(window.location.hash.slice(1));
+    const index = jobSlugs.indexOf(hash);
+    if (index !== -1) {
+      expandedJobIndexes = new Set([...expandedJobIndexes, index]);
+    }
+
+    return () => clearTimeout(copyResetTimeout);
+  });
+
+  async function copyJobLink(index) {
+    const url = `${window.location.origin}/jobs#${jobSlugs[index]}`;
+    try {
+      await navigator.clipboard.writeText(url);
+    } catch {
+      return;
+    }
+
+    copiedJobIndex = index;
+    clearTimeout(copyResetTimeout);
+    copyResetTimeout = setTimeout(() => (copiedJobIndex = null), 2000);
+  }
 
   function showPreviousQuote() {
     activeQuote = (activeQuote - 1 + quotes.length) % quotes.length;
@@ -436,7 +469,7 @@
 
       <div class="jobs-list">
         {#each jobs as job, index}
-          <article class="job-item" class:expanded={expandedJobIndexes.has(index)}>
+          <article class="job-item" id={jobSlugs[index]} class:expanded={expandedJobIndexes.has(index)}>
             <div class="job-header">
               <button
                 type="button"
@@ -458,7 +491,18 @@
                   {@html IconChevron}
                 </span>
               </button>
-              <a class="apply-button" href="mailto:work@comma.ai">Email Us</a>
+              <div class="job-actions">
+                <button
+                  type="button"
+                  class="share-button"
+                  title="Copy link to this job"
+                  aria-label={copiedJobIndex === index ? "Link copied" : `Copy link to ${job.title}`}
+                  on:click={() => copyJobLink(index)}
+                >
+                  {@html copiedJobIndex === index ? CheckmarkIcon : LinkIcon}
+                </button>
+                <a class="apply-button" href="mailto:work@comma.ai">Email Us</a>
+              </div>
             </div>
 
             {#if expandedJobIndexes.has(index)}
@@ -900,6 +944,7 @@
     border-bottom: 1px solid #000;
     margin-bottom: 0;
     padding: 1.5rem 0;
+    scroll-margin-top: 6rem;
   }
 
   .job-item:last-child {
@@ -997,6 +1042,42 @@
   .job-location {
     opacity: 0.65;
     text-transform: uppercase;
+  }
+
+  .job-actions {
+    align-items: stretch;
+    display: flex;
+    flex: none;
+    gap: 0.5rem;
+  }
+
+  .share-button {
+    align-items: center;
+    background: transparent;
+    border: 1px solid #000;
+    color: #000;
+    cursor: pointer;
+    display: flex;
+    flex: none;
+    justify-content: center;
+    padding: 0;
+    transition: opacity 0.2s;
+    width: 2.55rem;
+  }
+
+  .share-button:hover,
+  .share-button:focus-visible {
+    opacity: 0.6;
+  }
+
+  .share-button:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  .share-button :global(svg) {
+    height: 20px;
+    width: 20px;
   }
 
   .apply-button {
@@ -1235,6 +1316,7 @@
     }
 
     .apply-button {
+      flex: 1;
       text-align: center;
     }
   }
