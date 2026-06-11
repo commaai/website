@@ -10,11 +10,9 @@
 
   const ASSET_PATH = "/images/jobs";
   const JOBS_VIDEO_EMBED_URL = "https://www.youtube.com/embed/PFjssb7r_uU";
-  const JOBS_VIDEO_PLAY_URL = `${JOBS_VIDEO_EMBED_URL}?autoplay=1&playsinline=1&rel=0`;
 
   let activeQuote = 0;
   let expandedJobIndexes = new Set([0]);
-  let showJobsVideo = false;
 
   const quotes = [
     {
@@ -226,6 +224,9 @@
 
   let copiedJobIndex = null;
   let copyResetTimeout;
+  let emailTooltipIndex = null;
+  let emailTooltipText = "";
+  let emailTooltipTimeout;
 
   onMount(() => {
     const hash = decodeURIComponent(window.location.hash.slice(1));
@@ -234,8 +235,25 @@
       expandedJobIndexes = new Set([...expandedJobIndexes, index]);
     }
 
-    return () => clearTimeout(copyResetTimeout);
+    return () => {
+      clearTimeout(copyResetTimeout);
+      clearTimeout(emailTooltipTimeout);
+    };
   });
+
+  async function showApplyEmail(index) {
+    emailTooltipText = "work@comma.ai";
+    try {
+      await navigator.clipboard.writeText("work@comma.ai");
+      emailTooltipText = "Copied work@comma.ai";
+    } catch {
+      // clipboard unavailable; still show the address
+    }
+
+    emailTooltipIndex = index;
+    clearTimeout(emailTooltipTimeout);
+    emailTooltipTimeout = setTimeout(() => (emailTooltipIndex = null), 2500);
+  }
 
   async function copyJobLink(index) {
     const url = `${window.location.origin}/jobs#${jobSlugs[index]}`;
@@ -305,30 +323,15 @@
   <section class="jobs-video" aria-label="See how comma works">
     <div class="container">
       <div class="video-shell">
-        {#if showJobsVideo}
-          <iframe
-            class="video-frame"
-            src={JOBS_VIDEO_PLAY_URL}
-            title="Touring comma HQ + launching the new jobs page comma.ai/jobs"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-          ></iframe>
-        {:else}
-          <button
-            type="button"
-            class="video-placeholder"
-            aria-label="Play jobs video"
-            on:click={() => (showJobsVideo = true)}
-          >
-            <img
-              src={`${ASSET_PATH}/icon-play-square-large-white.svg`}
-              alt=""
-              aria-hidden="true"
-            />
-          </button>
-        {/if}
+        <iframe
+          class="video-frame"
+          src={JOBS_VIDEO_EMBED_URL}
+          title="Touring comma HQ + launching the new jobs page comma.ai/jobs"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
       </div>
     </div>
   </section>
@@ -501,7 +504,14 @@
                 >
                   {@html copiedJobIndex === index ? CheckmarkIcon : LinkIcon}
                 </button>
-                <a class="apply-button" href="mailto:work@comma.ai">Email Us</a>
+                <div class="apply-wrap">
+                  {#if emailTooltipIndex === index}
+                    <span class="email-tooltip" role="status">{emailTooltipText}</span>
+                  {/if}
+                  <button type="button" class="apply-button" on:click={() => showApplyEmail(index)}>
+                    Email Us
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -659,35 +669,6 @@
     display: block;
     height: 100%;
     width: 100%;
-  }
-
-  .video-placeholder {
-    align-items: center;
-    background: #000;
-    border: 1px solid #000;
-    cursor: pointer;
-    display: flex;
-    height: 100%;
-    justify-content: center;
-    padding: 0;
-    transition: opacity 0.2s;
-    width: 100%;
-  }
-
-  .video-placeholder:hover,
-  .video-placeholder:focus-visible {
-    opacity: 0.9;
-  }
-
-  .video-placeholder:focus-visible {
-    outline: 2px solid var(--color-accent);
-    outline-offset: 4px;
-  }
-
-  .video-placeholder img {
-    display: block;
-    height: 64px;
-    width: 64px;
   }
 
   .section-spacer {
@@ -1080,10 +1061,42 @@
     width: 20px;
   }
 
+  .apply-wrap {
+    display: flex;
+    flex: none;
+    position: relative;
+  }
+
+  .email-tooltip {
+    background: #000;
+    bottom: calc(100% + 0.625rem);
+    color: #fff;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.875rem;
+    line-height: 1.2;
+    padding: 0.5rem 0.75rem;
+    position: absolute;
+    right: 0;
+    white-space: nowrap;
+    z-index: 2;
+  }
+
+  .email-tooltip::after {
+    border: 6px solid transparent;
+    border-top-color: #000;
+    content: "";
+    position: absolute;
+    right: 1.5rem;
+    top: 100%;
+  }
+
   .apply-button {
     background: #000;
+    border: 0;
     color: #fff;
+    cursor: pointer;
     flex: none;
+    font-family: inherit;
     font-size: 0.875rem;
     font-weight: 600;
     letter-spacing: 0.8px;
@@ -1093,6 +1106,11 @@
     text-transform: uppercase;
     transition: opacity 0.2s;
     white-space: nowrap;
+  }
+
+  .apply-button:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
   }
 
   .apply-button:hover,
@@ -1313,6 +1331,10 @@
     .job-team,
     .job-location {
       font-size: 0.875rem;
+    }
+
+    .apply-wrap {
+      flex: 1;
     }
 
     .apply-button {
