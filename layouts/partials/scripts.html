@@ -7,4 +7,6 @@
 {{- with .Params.js }}{{ $entry = printf "js/pages/%s.js" . }}{{ $name = . }}{{ end -}}
 {{- with resources.Get $entry -}}
   {{- with . | js.Build (merge $opts (dict "targetPath" (printf "js/%s.js" $name))) | fingerprint }}<script type="module" src="{{ .RelPermalink }}"></script>{{ end -}}
+{{- else -}}
+  {{- errorf "scripts: page %s names missing JS bundle %s" $.RelPermalink $entry -}}
 {{- end -}}

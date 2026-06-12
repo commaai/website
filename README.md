@@ -27,7 +27,7 @@ use `./encode.sh <video_file.mp4>` to update the hero video
 - `assets/js/` — vanilla JS; `main.js` is the global shell (cart, menus), `pages/<name>.js` are per-page entries (each starts with `import '../main.js'`), bundled by Hugo's esbuild
 - `assets/css/site.css` — the stylesheet (scoped class names `svelte-*` are kept from the old build; HTML and CSS must agree on them)
 - `data/` — products, vehicles (regenerated nightly by the compatibility workflow), harnesses, faq
-- `static/img/` — images; each jpg/jpeg/png/gif has committed `.avif`/`.webp` siblings rendered by `partials/picture.html`. After adding images, run `bun run images` (uses sharp) and commit the variants.
+- `static/img/` — images; each jpg/jpeg/png/gif has committed `.avif`/`.webp` siblings rendered by `partials/picture.html`. After adding images, run `bun install && bun run images` (uses sharp) and commit the variants.
 
 Shopify Storefront credentials live in `hugo.toml` under `params.shopify` (dev store).
 Production overrides via env: `HUGO_PARAMS_SHOPIFY_STOREFRONTAPITOKEN` (set in CI).

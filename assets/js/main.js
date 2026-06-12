@@ -161,6 +161,7 @@ function buildSteppableInput(label, value, onChange) {
 function buildItem(item) {
   const el = document.createElement('div');
   el.className = 'item';
+  el.dataset.lineId = item.node.id;
 
   // dynamic-src images stay inside a bare <picture> wrapper (preprocessor)
   const picture = document.createElement('picture');
@@ -231,6 +232,20 @@ function checkout() {
 function renderDrawerContents() {
   const items = get(cartItems);
 
+  // Svelte updated quantity rows in place, so focus survived a cart reload;
+  // we rebuild the list, so capture and restore the focused stepper control.
+  let refocus = null;
+  const active = document.activeElement;
+  if (active && inventoryEl.contains(active)) {
+    const itemEl = active.closest('[data-line-id]');
+    if (itemEl) {
+      refocus = {
+        lineId: itemEl.dataset.lineId,
+        role: active.matches('input') ? 'input' : active.textContent,
+      };
+    }
+  }
+
   inventoryEl.textContent = '';
   if (items?.length === 0) {
     const empty = document.createElement('div');
@@ -240,6 +255,17 @@ function renderDrawerContents() {
   }
   for (const item of items || []) {
     inventoryEl.appendChild(buildItem(item));
+  }
+
+  if (refocus) {
+    const itemEl = inventoryEl.querySelector(`[data-line-id="${CSS.escape(refocus.lineId)}"]`);
+    if (itemEl) {
+      const target =
+        refocus.role === 'input'
+          ? itemEl.querySelector('input[type="number"]')
+          : [...itemEl.querySelectorAll('button')].find((b) => b.textContent === refocus.role);
+      if (target) target.focus();
+    }
   }
 
   footerEl.textContent = '';
