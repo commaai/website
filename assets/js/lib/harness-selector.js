@@ -107,6 +107,7 @@ export function initHarnessSelector({
   const rowEls = Array.from(content.querySelectorAll('.dropdown-item'));
   const prerendered = rowEls.length > 0;
   let mounted = prerendered;
+  let stockReady = false;
   const entries = [];
   if (config.noHarnessOption) {
     entries.push({ item: NO_HARNESS_OPTION, el: prerendered ? rowEls[0] : buildDropdownItem(NO_HARNESS_OPTION, false) });
@@ -250,6 +251,7 @@ export function initHarnessSelector({
   }
 
   function handleOptionClick(item) {
+    if (!stockReady) return; // rows are inert until the stock fetch resolves (original: $harnesses empty pre-fetch)
     menuOpen = false;
     applySelection(item);
   }
@@ -283,6 +285,7 @@ export function initHarnessSelector({
   });
 
   function setStock(stockInfo) {
+    stockReady = true;
     items.forEach(item => {
       const stock = stockInfo[item.id];
       if (stock) Object.assign(item, stock);

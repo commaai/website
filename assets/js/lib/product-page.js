@@ -233,9 +233,11 @@ export function initProductPage(overrides = {}) {
       ? nodes.filter(variant => variant.availableForSale)
       : nodes;
 
-    // keep the current selection when still present, else first variant
-    const ssrSelect = variantSelectorEl.querySelector(':scope > .select select');
-    let selectedId = state.selectedVariantId || (ssrSelect ? ssrSelect.value : null);
+    // keep the USER's selection when still present, else first FRESH variant —
+    // the build-snapshot <select> value must not survive the refetch (original
+    // Product.svelte reset selectedVariantId per view and auto-picked fresh
+    // variants[0])
+    let selectedId = state.selectedVariantId;
     if (selectedId && !state.variants.some(variant => variant.id === selectedId)) selectedId = null;
     if (!selectedId && config.autoSelectFirstVariant && state.variants.length > 0) {
       selectedId = state.variants[0].id;
