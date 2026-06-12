@@ -1,0 +1,16 @@
+{{- /*
+  CommaFour.svelte description slot: the three buy-box accordions
+  (Accordion.svelte scope svelte-f0pxdy, items/labels/details scope
+  svelte-1qobqhj). Pure-CSS open/close, no hash behavior (unlike the FAQ
+  accordions further down the page). The old build baked random hex ids
+  (e.g. 67c15e396205d.4); the port uses stable slugs — the normalize harness
+  canonicalizes Accordion ids, and the only hard requirement is
+  input[name][id] == label[for] and per-page uniqueness.
+*/ -}}
+<div class="item svelte-1qobqhj"><div class="tab svelte-f0pxdy" style="--foreground-color: black; --background-color: white;"><input type="checkbox" name="free-rush-ups-2nd-day-air-shipping" id="free-rush-ups-2nd-day-air-shipping"  class="svelte-f0pxdy"> <label for="free-rush-ups-2nd-day-air-shipping" class="svelte-f0pxdy"><div class="label svelte-1qobqhj" slot="label"><div>{{ partial "icon.html" "features/shipping.svg" }}</div> <span>Free Rush (UPS 2nd Day Air) shipping</span></div> <span class="chevron svelte-f0pxdy">{{ partial "icon.html" "icon-chevron.svg" }}</span></label> <div class="content svelte-f0pxdy"><div class="details svelte-1qobqhj" slot="content">US only. Rush orders are fulfilled on the next business day.
+          <br><br>
+          International shipping is $30 flat rate.
+          See fine print below for details. Common shipping questions are answered on
+          <a href="/support#shipping--returns" target="_blank">the FAQ</a>.</div></div> </div></div> <div class="item svelte-1qobqhj"><div class="tab svelte-f0pxdy" style="--foreground-color: black; --background-color: white;"><input type="checkbox" name="try-our-30day-moneyback-trial" id="try-our-30day-moneyback-trial"  class="svelte-f0pxdy"> <label for="try-our-30day-moneyback-trial" class="svelte-f0pxdy"><div class="label svelte-1qobqhj" slot="label"><div>{{ partial "icon.html" "features/money-back-guarantee.svg" }}</div> <span>Try our 30-day money-back trial</span></div> <span class="chevron svelte-f0pxdy">{{ partial "icon.html" "icon-chevron.svg" }}</span></label> <div class="content svelte-f0pxdy"><div class="details svelte-1qobqhj" slot="content">See for yourself why Consumer Reports rated us as the
+          <a href="https://data.consumerreports.org/wp-content/uploads/2020/11/consumer-reports-active-driving-assistance-systems-november-16-2020.pdf">top driver assistance system</a>.
+          We think you’ll love it, but if you’re not satisfied, send it back for a full refund.</div></div> </div></div> <div class="item svelte-1qobqhj"><div class="tab svelte-f0pxdy" style="--foreground-color: black; --background-color: white;"><input type="checkbox" name="1year-hardware-warranty" id="1year-hardware-warranty"  class="svelte-f0pxdy"> <label for="1year-hardware-warranty" class="svelte-f0pxdy"><div class="label svelte-1qobqhj" slot="label"><div>{{ partial "icon.html" "features/warranty.svg" }}</div> <span>1-year hardware warranty</span></div> <span class="chevron svelte-f0pxdy">{{ partial "icon.html" "icon-chevron.svg" }}</span></label> <div class="content svelte-f0pxdy"><div class="details svelte-1qobqhj" slot="content">1-year limited warranty against hardware defects. Extend it with <a href="/connect#what-is-commacare">commacare</a>.</div></div> </div></div>

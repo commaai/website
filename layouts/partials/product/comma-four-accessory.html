@@ -1,0 +1,15 @@
+{{- /*
+  CommaFour.svelte price-accessory slot (scope svelte-1qobqhj): badges row,
+  divider, harness prompt, the harness selector (377 rows: NO_HARNESS first,
+  then 333 vehicles + 43 generic harnesses) and the $250 trade-in CheckboxCard
+  (CheckboxCard.svelte scope svelte-3bw1mc over a NoteCard svelte-1328bir).
+  Rendered through product/product.html's `variantSelector` hook so it lands
+  right after the price slot, exactly where the prerendered span sits.
+  Initial SSR state: no "$xxx due today" span (trade-in unchecked), checkbox
+  unchecked + disabled (class string "checkbox-card svelte-3bw1mc  disabled"
+  — double space from the empty `checked` slot — and `  disabled` on the
+  input where `checked` would go). assets/js/pages/comma-four.js mutates all
+  of it at runtime.
+*/ -}}
+<span slot="price-accessory"><div class="badges svelte-1qobqhj"><div style="display: block" class="svelte-57k9f5 dark">Free rush shipping </div> </div> <hr class="svelte-1qobqhj"> <strong>Select a harness to connect the comma four to your car.</strong> {{ partial "product/harness-selector.html" (dict "label" "Select your car" "showNoHarnessOption" true) }}  <label class="checkbox-card svelte-3bw1mc  disabled"><div class="card svelte-1328bir"><div class="icon-slot"><input type="checkbox" slot="icon"  disabled></div> <hgroup><span>$250 credit with trade-in</span> <div>Get $250 credit when you trade in your old comma device. Any comma device, in any condition.
+      <a href="/shop/comma-four-trade-in">Instructions and Terms</a></div></hgroup> </div> </label></span>
