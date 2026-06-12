@@ -1,10 +1,6 @@
 <script>
 </script>
 
-<svelte:head>
-  <title>comma four trade-in — comma shop</title>
-</svelte:head>
-
 <section class="light" id="trade-in">
   <div class="container">
     <h1>comma four trade-in</h1>
@@ -97,4 +93,3 @@
     border-top: 1px solid rgba(0, 0, 0, 0.15);
   }
 </style>
-

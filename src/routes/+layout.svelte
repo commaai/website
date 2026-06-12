@@ -35,7 +35,70 @@
   import { onMount } from "svelte";
   import { page } from "$app/stores";
 
+  const SITE_URL = "https://comma.ai";
+  const DEFAULT_META = {
+    title: "comma.ai — make driving chill",
+    description: "An AI upgrade for your car",
+    image: `${SITE_URL}/og-comma-four.png`,
+    imageAlt: "comma four",
+  };
+  const ROUTE_META = {
+    "/jobs": {
+      title: "Jobs - comma",
+      description: "At comma.ai, we are solving self-driving cars while delivering shippable intermediaries.",
+    },
+    "/shop/comma-four-trade-in": {
+      title: "comma four trade-in — comma shop",
+      description: "Trade in any older comma device for $250 credit towards a brand new comma four.",
+    },
+  };
+
   let loading = false;
+  let pageMeta = DEFAULT_META;
+  let canonicalUrl = `${SITE_URL}/`;
+
+  function normalizePathname(pathname) {
+    return pathname === "/" ? pathname : pathname.replace(/\/$/, "");
+  }
+
+  function textFromHtml(html) {
+    return html
+      .replace(/<[^>]*>/g, " ")
+      .replace(/&nbsp;/g, " ")
+      .replace(/&amp;/g, "&")
+      .replace(/\s+([,.;:!?])/g, "$1")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
+  function truncateDescription(description) {
+    if (description.length <= 200) return description;
+    return `${description.slice(0, 197).trim()}...`;
+  }
+
+  function getProductDescription(product) {
+    if (!product?.description) return DEFAULT_META.description;
+    return truncateDescription(textFromHtml(product.description).replace(/^Description\s+/i, ""));
+  }
+
+  function getPageMeta(pageValue) {
+    if (pageValue.data?.product) {
+      return {
+        ...DEFAULT_META,
+        title: `${pageValue.data.product.title} — comma shop`,
+        description: getProductDescription(pageValue.data.product),
+      };
+    }
+
+    const pathname = normalizePathname(pageValue.url.pathname);
+    return {
+      ...DEFAULT_META,
+      ...(ROUTE_META[pathname] || {}),
+    };
+  }
+
+  $: pageMeta = getPageMeta($page);
+  $: canonicalUrl = `${SITE_URL}${normalizePathname($page.url.pathname) || "/"}`;
 
   async function openCart() {
     await loadCart();
@@ -84,6 +147,21 @@
 </script>
 
 <svelte:head>
+  <title>{pageMeta.title}</title>
+  <meta name="description" content={pageMeta.description} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:title" content={pageMeta.title} />
+  <meta property="og:description" content={pageMeta.description} />
+  <meta property="og:image" content={pageMeta.image} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="628" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@comma_ai" />
+  <meta name="twitter:title" content={pageMeta.title} />
+  <meta name="twitter:description" content={pageMeta.description} />
+  <meta name="twitter:image" content={pageMeta.image} />
+  <meta name="twitter:image:alt" content={pageMeta.imageAlt} />
   <link
     rel="preload"
     href={MonumentExtendedBlack}
