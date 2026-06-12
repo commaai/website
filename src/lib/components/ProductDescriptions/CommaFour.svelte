@@ -134,7 +134,6 @@
   <div slot="price" class="price">
     {#if tradeInChecked && tradeInCredit > 0}
       <span>{formatCurrency({ amount: priceAfterTradeIn, currencyCode: 'USD' }, 0)} after trade-in received</span>
-      <span class="price-due-today">({formatCurrency({ amount: priceDueToday, currencyCode: 'USD' }, 0)} due today)</span>
     {:else if showDiscount && discountAmount > 0}
       {formatCurrency({ amount: priceDueToday, currencyCode: 'USD' }, 0)}
     {:else}
@@ -143,8 +142,11 @@
   </div>
 
   <span slot="price-accessory">
-    <div class="badge">
+    <div class="badges">
       <Badge style="dark">Free rush shipping</Badge>
+      {#if tradeInChecked && tradeInCredit > 0}
+        <span class="price-due-today">{formatCurrency({ amount: priceDueToday, currencyCode: 'USD' }, 0)} due today</span>
+      {/if}
     </div>
 
     <hr />
@@ -242,7 +244,11 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.15);
   }
 
-  .badge {
+  .badges {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
     margin: 1rem 0;
   }
 
@@ -294,7 +300,9 @@
   }
 
   .price-due-today {
-    font-size: 1rem;
+    font-size: 0.875rem;
     color: rgb(81, 81, 81);
+    text-transform: uppercase;
+    font-family: JetBrains Mono, monospace;
   }
 </style>
