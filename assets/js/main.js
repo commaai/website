@@ -246,9 +246,12 @@ function renderDrawerContents() {
   if (items?.length !== 0) {
     const discount = get(cartDiscount);
     const subtotal = get(cartSubtotal);
+    // Svelte renders a collapsed-whitespace text node between sibling elements.
+    const space = () => footerEl.appendChild(document.createTextNode(' '));
     if (discount) {
       const subtotalAmountAfterDiscount = subtotal.amount - discount.amount;
       footerEl.appendChild(buildPriceRow('Bulk Order Discount', `-${formatCurrency(discount)}`));
+      space();
       const s = document.createElement('s');
       s.textContent = formatCurrency(subtotal);
       footerEl.appendChild(
@@ -260,11 +263,13 @@ function renderDrawerContents() {
     } else {
       footerEl.appendChild(buildPriceRow('Subtotal', formatCurrency(subtotal)));
     }
+    space();
 
     const disclaimer = document.createElement('div');
     disclaimer.className = 'disclaimer';
     disclaimer.textContent = 'Customs/duties/taxes are between you and your country.';
     footerEl.appendChild(disclaimer);
+    space();
 
     // Button.svelte: style="accent" fullWidth
     const checkoutBtn = document.createElement('button');
