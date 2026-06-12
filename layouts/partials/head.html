@@ -79,7 +79,9 @@ twq('config','oaolc');
 <meta name="twitter:image" content="https://comma.ai/og-comma-four.png" />
 <meta name="twitter:image:alt" content="comma four" />
 
-<link
+{{ with .Params.description }}<meta name="description" content="{{ . }}">
+{{ end }}{{ range .Params.preloadImages }}<link rel="preload" as="image" href="{{ . }}">
+{{ end }}<link
   rel="preload"
   href="/fonts/MonumentExtended-Black.woff2"
   as="font"

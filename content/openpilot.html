@@ -1,5 +1,8 @@
-{{ define "main" }}
-{{- /* vehicleCountText (src/lib/constants/vehicles.js): round(totalVehicles/25)*25 + "+" */ -}}
+---
+title: comma.ai — make driving chill
+js: openpilot
+---
+{{< body.inline >}}{{- /* vehicleCountText (src/lib/constants/vehicles.js): round(totalVehicles/25)*25 + "+" */ -}}
 {{- $totalVehicles := 0 -}}
 {{- range $brand, $models := site.Data.vehicles }}{{ $totalVehicles = add $totalVehicles (len $models) }}{{ end -}}
 {{- $vehicleCount := int (mul (math.Round (div (float $totalVehicles) site.Params.vehicleRoundTo)) site.Params.vehicleRoundTo) -}}
@@ -361,4 +364,4 @@
 </span></label> <div class="content svelte-f0pxdy"><div class="details" slot="content">
             Feedback, good or bad, can be given in the #openpilot-experience channel on
             our community <a href="https://discord.comma.ai/">Discord</a>.
-           </div></div> </div> <hr></div> </div></div> </section>{{ end }}
+           </div></div> </div> <hr></div> </div></div> </section>{{< /body.inline >}}

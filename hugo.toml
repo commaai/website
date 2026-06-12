@@ -8,6 +8,7 @@ disableHugoGeneratorInject = true
 enableRobotsTXT = false
 disableLiveReload = false
 capitalizeListTitles = false
+enableInlineShortcodes = true
 
 [params]
   vehicleRoundTo = 25

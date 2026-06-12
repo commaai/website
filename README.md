@@ -22,8 +22,8 @@ use `./encode.sh <video_file.mp4>` to update the hero video
 
 ## Layout
 
-- `layouts/` — templates (pages + `partials/` for header/footer/cart/product/...)
-- `content/` — one stub per page; front matter picks the layout, title, and page JS bundle
+- `content/` — every page lives here as ONE file: front matter (title, `js:` bundle, head extras) + the full page markup inside `{{< body.inline >}}`. Exception: the 17 `/shop` product pages are front-matter-only stubs stamped from `data/products.json` by the shared `layouts/shop/single.html` template.
+- `layouts/` — the shell (`baseof`, header/footer/cart partials, the shared product template); page markup does NOT live here
 - `assets/js/` — vanilla JS; `main.js` is the global shell (cart, menus), `pages/<name>.js` are per-page entries (each starts with `import '../main.js'`), bundled by Hugo's esbuild
 - `assets/css/site.css` — the stylesheet (scoped class names `svelte-*` are kept from the old build; HTML and CSS must agree on them)
 - `data/` — products, vehicles (regenerated nightly by the compatibility workflow), harnesses, faq

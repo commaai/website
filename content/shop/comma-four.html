@@ -1,13 +1,9 @@
-{{- /*
-  /shop/comma-four — src/routes/shop/comma-four/+page.svelte:
-  the generic ProductPage (Product.svelte via the product/product.html
-  partial, with every CommaFour.svelte slot/prop override) followed by the
-  three static marketing sections #description / #compatibility / #fine-print
-  (page scope svelte-1xdco7o), ported verbatim from the prerendered build.
-  Buy-box behaviors live in assets/js/pages/comma-four.js.
-*/ -}}
-{{- define "main" -}}
-{{- $key := "comma-four" -}}
+---
+title: "comma four — comma shop"
+js: comma-four
+type: page
+---
+{{< body.inline >}}{{- $key := "comma-four" -}}
 {{- $product := index site.Data.products $key -}}
 {{- if not $product }}{{ errorf "comma-four: product not found in data/products.json" }}{{ end -}}
 {{- $snapshot := partialCached "product/shopify-snapshot.html" $product.id $product.id -}}
@@ -203,4 +199,4 @@
               The buyer is responsible for international shipping costs to return a device. Please use tracking and insurance as we are not responsible for lost or stolen packages. Return information is provided by email after initiating a return at <a href="https://comma.ai/returns">comma.ai/returns</a>.
             </p>
            </div></div> </div> <hr></div> </div></div> </section>
-{{- end -}}
+{{< /body.inline >}}

@@ -1,11 +1,9 @@
-{{- /*
-  /shop/body — src/routes/shop/body/+page.svelte (scope svelte-prxxnf).
-  Renders the generic ProductPage TWICE (top + after #technical-specs, both
-  <section id="product-item"> — duplicate id is ground truth, keep it) around
-  bespoke marketing sections. +page.js forces forceOutOfStock=true.
-*/ -}}
-{{- define "main" -}}
-{{- $product := index site.Data.products "body" -}}
+---
+title: comma body — comma shop
+js: body
+type: page
+---
+{{< body.inline >}}{{- $product := index site.Data.products "body" -}}
 {{- if not $product }}{{ errorf "shop product \"body\" not found in data/products.json" }}{{ end -}}
 {{- $snapshot := partialCached "product/shopify-snapshot.html" $product.id $product.id -}}
 {{- $args := dict "key" "body" "product" $product "snapshot" $snapshot "forceOutOfStock" true -}}
@@ -99,4 +97,4 @@
 </svg>
 </span> <span class="svelte-13qdnfo">Developer Resources</span> <p class="svelte-13qdnfo">Check out the code behind the comma four and openpilot.
       Review, fork, and contribute to the open source ecosystem.</p> <a href="https://github.com/commaai/openpilot" target="_blank" class="svelte-slt5la  secondary  full-width">Visit our GitHub <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="svelte-slt5la"><path d="M15 19L13.59 17.59L18.17 13L2 13V11L18.17 11L13.58 6.41L15 5L22 12L15 19Z" fill="CurrentColor"></path></svg> </a></div> </div></div> </section>
-{{- end -}}
+{{< /body.inline >}}
