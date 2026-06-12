@@ -300,9 +300,7 @@
   }
 
   .price-due-today {
-    font-size: 0.875rem;
+    font-size: 1rem;
     color: rgb(81, 81, 81);
-    text-transform: uppercase;
-    font-family: JetBrains Mono, monospace;
   }
 </style>
