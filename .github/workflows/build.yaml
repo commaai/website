@@ -46,3 +46,5 @@ jobs:
         with:
           path: ./build
           overwrite: true
+          retention-days: 1
+          name: build-artifacts-${{ github.run_id }}
