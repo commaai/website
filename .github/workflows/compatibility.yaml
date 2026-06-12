@@ -28,7 +28,7 @@ jobs:
         run: |
           CHANGED_FILES="$(git diff --name-only)"
           echo "$CHANGED_FILES"
-          if [ "$(echo "$CHANGED_FILES" | wc -l)" -eq 1 ] && grep -qx 'src/lib/compatibility-meta.json' <<< "$CHANGED_FILES"; then
+          if [ "$(echo "$CHANGED_FILES" | wc -l)" -eq 1 ] && grep -qx 'data/compatibility_meta.json' <<< "$CHANGED_FILES"; then
             echo "skip_pr=true" >> "$GITHUB_OUTPUT"
           fi
       - name: Create Pull Request

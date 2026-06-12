@@ -8,9 +8,9 @@ node_modules
 !.vscode/extensions.json
 
 # Output
-.output
-/.svelte-kit
 /build
+/resources
+.hugo_build.lock
 .firebase
 firebase-debug.log
 
@@ -18,10 +18,3 @@ firebase-debug.log
 .DS_Store
 Thumbs.db
 
-# Env
-.env.local
-.env.production
-
-# Vite
-vite.config.js.timestamp-*
-vite.config.ts.timestamp-*
