@@ -1,9 +1,10 @@
+{{- /* Exactly ONE script bundle per page: js/pages/<name>.js when the page's front
+       matter sets `js: <name>` (the entry MUST start with `import '../main.js'` so
+       shell behaviors + shared module state live in the same bundle), else js/main.js. */ -}}
 {{- $opts := dict "minify" true "target" "es2020" "format" "esm" "params" (dict "shopify" site.Params.shopify) -}}
-{{- with resources.Get "js/main.js" -}}
-  {{- with . | js.Build (merge $opts (dict "targetPath" "js/main.js")) | fingerprint }}<script type="module" src="{{ .RelPermalink }}"></script>{{ end -}}
-{{- end -}}
-{{- with .Params.js -}}
-  {{- with resources.Get (printf "js/pages/%s.js" .) -}}
-    {{- with . | js.Build (merge $opts (dict "targetPath" (printf "js/%s.js" $.Params.js))) | fingerprint }}<script type="module" src="{{ .RelPermalink }}"></script>{{ end -}}
-  {{- end -}}
+{{- $entry := "js/main.js" -}}
+{{- $name := "main" -}}
+{{- with .Params.js }}{{ $entry = printf "js/pages/%s.js" . }}{{ $name = . }}{{ end -}}
+{{- with resources.Get $entry -}}
+  {{- with . | js.Build (merge $opts (dict "targetPath" (printf "js/%s.js" $name))) | fingerprint }}<script type="module" src="{{ .RelPermalink }}"></script>{{ end -}}
 {{- end -}}
