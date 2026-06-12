@@ -4,6 +4,7 @@ title = 'comma.ai — make driving chill'
 publishDir = 'build'
 uglyURLs = true
 disableKinds = ['taxonomy', 'term', 'RSS', 'sitemap', 'robotsTXT']
+disableHugoGeneratorInject = true
 enableRobotsTXT = false
 disableLiveReload = false
 capitalizeListTitles = false

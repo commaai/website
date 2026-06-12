@@ -1,4 +1,5 @@
 ---
 title: comma.ai — make driving chill
-js: shop
+layout: connect
+js: connect
 ---

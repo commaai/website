@@ -1,0 +1,364 @@
+{{ define "main" }}
+{{- /* vehicleCountText (src/lib/constants/vehicles.js): round(totalVehicles/25)*25 + "+" */ -}}
+{{- $totalVehicles := 0 -}}
+{{- range $brand, $models := site.Data.vehicles }}{{ $totalVehicles = add $totalVehicles (len $models) }}{{ end -}}
+{{- $vehicleCount := int (mul (math.Round (div (float $totalVehicles) site.Params.vehicleRoundTo)) site.Params.vehicleRoundTo) -}}
+<section class="dark" id="about"><div class="container"><div class="grid svelte-7tyzqm  medium" style="--columns: 4; --align-items: flex-start; --column-gap: 3rem; --row-gap: 1.5rem; --wrapped-columns: 2; --template-columns: repeat(var(--columns), 1fr); --lg-column-gap: 3rem; --lg-template-columns: repeat(var(--columns), 1fr);"><div class="stats-item svelte-40iujj"><div><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M26.6667 5.33331H24V26.6666H26.6667V5.33331Z" fill="currentColor" />
+  <path d="M7.99992 5.33331H5.33325V26.6666H7.99992V5.33331Z" fill="currentColor" />
+  <path d="M17.3334 5.33331H14.6667V10.6666H17.3334V5.33331Z" fill="currentColor" />
+  <path d="M17.3334 13.3333H14.6667V18.6666H17.3334V13.3333Z" fill="currentColor" />
+  <path d="M17.3334 21.3333H14.6667V26.6666H17.3334V21.3333Z" fill="currentColor" />
+</svg>
+</div> <span>300+ million</span> <span>Miles driven</span></div> <div class="stats-item svelte-40iujj"><div><svg width="32" height="32" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_1034_4128)">
+<path d="M6 11L16 16.7735V5.2265L6 11ZM42 11L32 5.2265V16.7735L42 11ZM15 12H24V10H15V12ZM24 12H33V10H24V12Z" fill="white"/>
+<circle cx="24" cy="47" r="21.5" fill="black" stroke="white" stroke-width="5"/>
+<path d="M24 38C14 38 5.66667 45.1667 0 47C0 47 2.13312 50.711 5.5 52.7327C5.5 52.7327 19.0594 56.7459 24 70C28.9406 56.7459 42.5 52.7327 42.5 52.7327C45.8669 50.711 48 47 48 47C42.6667 45.1667 34 38 24 38Z" fill="white"/>
+<circle cx="24" cy="47" r="4" fill="black"/>
+</g>
+<defs>
+<clipPath id="clip0_1034_4128">
+<rect width="48" height="48" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</div> <span>56%</span> <span>Miles driven are engaged</span></div> <div class="stats-item svelte-40iujj"><div><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M25.2267 6.67998C24.96 5.89331 24.2133 5.33331 23.3333 5.33331H8.66667C7.78667 5.33331 7.05333 5.89331 6.77333 6.67998L4 14.6666V25.3333C4 26.0666 4.6 26.6666 5.33333 26.6666H6.66667C7.4 26.6666 8 26.0666 8 25.3333V24H24V25.3333C24 26.0666 24.6 26.6666 25.3333 26.6666H26.6667C27.4 26.6666 28 26.0666 28 25.3333V14.6666L25.2267 6.67998ZM8.66667 20C7.56 20 6.66667 19.1066 6.66667 18C6.66667 16.8933 7.56 16 8.66667 16C9.77333 16 10.6667 16.8933 10.6667 18C10.6667 19.1066 9.77333 20 8.66667 20ZM23.3333 20C22.2267 20 21.3333 19.1066 21.3333 18C21.3333 16.8933 22.2267 16 23.3333 16C24.44 16 25.3333 16.8933 25.3333 18C25.3333 19.1066 24.44 20 23.3333 20ZM6.66667 13.3333L8.66667 7.33331H23.3333L25.3333 13.3333H6.66667Z" fill="currentColor" />
+</svg>
+</div> <span>20,000+</span> <span>Active users</span></div> <div class="stats-item svelte-40iujj"><div><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M16 17C18.1733 17 20.0933 17.52 21.6533 18.2C23.0933 18.84 24 20.28 24 21.84V24H8V21.8533C8 20.28 8.90667 18.84 10.3467 18.2133C11.9067 17.52 13.8267 17 16 17ZM5.33333 17.3333C6.8 17.3333 8 16.1333 8 14.6667C8 13.2 6.8 12 5.33333 12C3.86667 12 2.66667 13.2 2.66667 14.6667C2.66667 16.1333 3.86667 17.3333 5.33333 17.3333ZM6.84 18.8C6.34667 18.72 5.85333 18.6667 5.33333 18.6667C4.01333 18.6667 2.76 18.9467 1.62667 19.44C0.64 19.8667 0 20.8267 0 21.9067V24H6V21.8533C6 20.7467 6.30667 19.7067 6.84 18.8ZM26.6667 17.3333C28.1333 17.3333 29.3333 16.1333 29.3333 14.6667C29.3333 13.2 28.1333 12 26.6667 12C25.2 12 24 13.2 24 14.6667C24 16.1333 25.2 17.3333 26.6667 17.3333ZM32 21.9067C32 20.8267 31.36 19.8667 30.3733 19.44C29.24 18.9467 27.9867 18.6667 26.6667 18.6667C26.1467 18.6667 25.6533 18.72 25.16 18.8C25.6933 19.7067 26 20.7467 26 21.8533V24H32V21.9067ZM16 8C18.2133 8 20 9.78667 20 12C20 14.2133 18.2133 16 16 16C13.7867 16 12 14.2133 12 12C12 9.78667 13.7867 8 16 8Z" fill="currentColor"/>
+</svg>
+</div> <span>1000+</span> <span>Contributors</span></div> </div> <div class="headline sm-mb-4 svelte-40iujj"><h1>openpilot is an
+        <a class="highlight" href="https://github.com/commaai/openpilot" target="_blank">open source</a>
+        advanced driver assistance system that works on {{ $vehicleCount }}+ car models of Toyota,
+        Hyundai, Honda, and many other brands.</h1> <ul><li>Automated Lane Centering</li> <li>Adaptive Cruise Control</li> <li>Lane Change Assist</li> <li>Driver Monitoring (no wheel nags)</li> <li>Can drive for hours without intervention</li> <li>Open source and developed on GitHub</li></ul></div></div></section> <section class="light" id="benefits"><div class="container"><article class="svelte-40iujj"><hgroup><p>01</p> <h2>Makes driving chill</h2></hgroup> <p>Currently, openpilot performs the functions of Adaptive Cruise Control
+        (ACC) and Automated Lane Centering (ALC). openpilot can accelerate,
+        brake automatically for other vehicles, and steer to follow the
+        road/lane.</p> <p>When openpilot is enabled, a driver monitoring system watches the driver
+        and ensures the driver is attentive and ready to take over at all times.</p> <p></p> <p>When used correctly, these features reduce your workload as a driver,
+        and can make long drives relaxing instead of tedious.</p></article> <article class="svelte-40iujj"><hgroup><p>02</p> <h2>Connects to your car</h2></hgroup> <p>openpilot works by connecting to your car&#39;s CAN network. Modern cars
+        accept electronic steering, gas, and brake commands to allow for ADAS
+        features. openpilot can use these commands to provide much better ADAS
+        features than the car manufacturers can provide.</p></article> <article class="svelte-40iujj"><hgroup><p>03</p> <h2>Modern machine learning</h2></hgroup> <p>openpilot contains a state-of-the-art neural network that understands
+        the road scene and predicts where to drive. This neural network has
+        learned to drive by watching the millions of miles of driving data
+        openpilot has recorded. This makes openpilot exceptionally good at
+        nuanced situations such as driving in areas with faded lanelines,
+        different countries, and more.</p></article> <article class="svelte-40iujj"><hgroup><p>04</p> <h2>Open source and community supported</h2></hgroup> <p>openpilot is developed by comma and by users like you. We welcome both
+        pull requests and issues on
+        <a class="highlight" href="https://github.com/commaai/openpilot" target="_blank">GitHub</a>.
+        Bug fixes and new car ports are strongly encouraged. Check out the
+        <a class="highlight" href="https://github.com/commaai/openpilot/blob/master/docs/CONTRIBUTING.md" target="_blank">contributing docs</a>.</p> <a href="https://github.com/commaai/openpilot" target="_self" class="svelte-slt5la primary">View on GitHub <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="svelte-slt5la"><path d="M15 19L13.59 17.59L18.17 13L2 13V11L18.17 11L13.58 6.41L15 5L22 12L15 19Z" fill="CurrentColor"></path></svg> </a> {{ $feed := try (resources.GetRemote "https://blog.comma.ai/feed") }}
+{{- if $feed.Err -}}
+  {{- errorf "openpilot: failed to fetch blog feed: %s" $feed.Err -}}
+{{- else if not $feed.Value -}}
+  {{- errorf "openpilot: blog feed returned nil resource" -}}
+{{- end -}}
+{{- $data := $feed.Value.Content | transform.Unmarshal -}}
+{{- $items := $data.channel.item -}}
+{{- $releases := where $items "title" "like" `\bopenpilot\s+\d+\.\d+(\.\d+)?\b` -}}
+<div class="release-notes svelte-40iujj"><h3>Latest Release Notes</h3> {{ range $releases }}<div class="release-note svelte-s17iji"><div class="grid svelte-7tyzqm  medium" style="--columns: 2; --align-items: center; --column-gap: 3rem; --row-gap: 1.5rem; --wrapped-columns: 1; --template-columns: repeat(var(--columns), 1fr); --lg-column-gap: 3rem; --lg-template-columns: repeat(var(--columns), 1fr);"><picture><img src="{{ .cover }}" alt="{{ .title }} feature highlights" class="svelte-s17iji"></picture> <div><hgroup class="svelte-s17iji"><span>{{ time.AsTime .pubDate | time.Format "January 2, 2006" }}</span> <a class="highlight" href="{{ index .guid "#text" }}">{{ .title }}</a></hgroup> <p>{{ .excerpt }}</p></div> </div> </div>{{ end }}</div></article> <article class="svelte-40iujj"><hgroup><p>05</p> <h2>Try openpilot on the comma four</h2></hgroup> <p>Love it or return it. Every comma four comes with a 30-day money back
+        trial.</p> <div class="grid svelte-7tyzqm  medium" style="--columns: 2; --align-items: center; --column-gap: 3rem; --row-gap: 1.5rem; --wrapped-columns: 1; --template-columns: repeat(var(--columns), 1fr); --lg-column-gap: 3rem; --lg-template-columns: repeat(var(--columns), 1fr);"><picture><source srcset="/img/products/comma-four/four_screen_on.avif" type="image/avif"><source srcset="/img/products/comma-four/four_screen_on.webp" type="image/webp"> <img src="/img/products/comma-four/four_screen_on.png" loading="lazy" alt="comma four device"></picture> <div><div class="grid svelte-7tyzqm  medium" style="--columns: 2; --align-items: flex-start; --column-gap: 3rem; --row-gap: 1.5rem; --wrapped-columns: 1; --template-columns: repeat(var(--columns), 1fr); --lg-column-gap: 3rem; --lg-template-columns: repeat(var(--columns), 1fr);"><div class="feature-item svelte-40iujj"><div><svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M33 24C33 29.4013 31.9032 34.2418 30.1766 37.6949C28.4201 41.2079 26.1786 43 24 43C21.8214 43 19.5799 41.2079 17.8234 37.6949C16.0968 34.2418 15 29.4013 15 24C15 18.5987 16.0968 13.7582 17.8234 10.3051C19.5799 6.79209 21.8214 5 24 5C26.1786 5 28.4201 6.79209 30.1766 10.3051C31.9032 13.7582 33 18.5987 33 24Z" stroke="currentColor" stroke-width="2"/>
+  <circle cx="24" cy="24" r="19" stroke="currentColor" stroke-width="2"/>
+  <path d="M24 15C29.4013 15 34.2418 16.0968 37.6949 17.8234C41.2079 19.5799 43 21.8214 43 24C43 26.1786 41.2079 28.4201 37.6949 30.1766C34.2418 31.9032 29.4013 33 24 33C18.5987 33 13.7582 31.9032 10.3051 30.1766C6.79209 28.4201 5 26.1786 5 24C5 21.8214 6.79209 19.5799 10.3051 17.8234C13.7582 16.0968 18.5987 15 24 15Z" stroke="currentColor" stroke-width="2"/>
+  <path d="M12 19H36V29H14L12 28.0909V19Z" fill="black"/>
+  <path d="M16.496 28C15.9911 28 15.5502 27.9076 15.1733 27.7227C14.8036 27.5378 14.5156 27.2782 14.3093 26.944C14.1031 26.6098 14 26.2151 14 25.76H15.344C15.344 26.1084 15.4436 26.3822 15.6427 26.5813C15.8489 26.7733 16.1369 26.8693 16.5067 26.8693C16.8764 26.8693 17.1609 26.7698 17.36 26.5707C17.5591 26.3716 17.6587 26.1013 17.6587 25.76V25.152C17.6587 24.8036 17.5591 24.5333 17.36 24.3413C17.1609 24.1422 16.8764 24.0427 16.5067 24.0427H15.632V22.8373L17.3493 21.248H14.352V20.1067H18.704V21.312L16.5067 23.328V22.9013C17.2747 22.9013 17.8827 23.104 18.3307 23.5093C18.7787 23.9147 19.0027 24.4622 19.0027 25.152V25.76C19.0027 26.2151 18.8996 26.6098 18.6933 26.944C18.4871 27.2782 18.1956 27.5378 17.8187 27.7227C17.4418 27.9076 17.0009 28 16.496 28Z" fill="white"/>
+  <path d="M22.9665 28C22.4474 28 21.9887 27.8933 21.5905 27.68C21.1994 27.4596 20.8936 27.1538 20.6732 26.7627C20.4598 26.3644 20.3532 25.9058 20.3532 25.3867C20.3532 25.0169 20.4136 24.6293 20.5345 24.224C20.6625 23.8187 20.8367 23.4382 21.0572 23.0827L22.8918 20.1067H24.3745L22.0705 23.7333L22.1345 23.776C22.2767 23.5556 22.4687 23.3884 22.7105 23.2747C22.9523 23.1609 23.2225 23.104 23.5212 23.104C23.9407 23.104 24.3034 23.2036 24.6092 23.4027C24.9149 23.6018 25.1532 23.8791 25.3238 24.2347C25.4945 24.5902 25.5798 25.0062 25.5798 25.4827C25.5798 25.9876 25.4696 26.4284 25.2492 26.8053C25.0358 27.1822 24.7336 27.4773 24.3425 27.6907C23.9585 27.8969 23.4998 28 22.9665 28ZM22.9665 26.8693C23.3576 26.8693 23.6741 26.7449 23.9158 26.496C24.1576 26.24 24.2785 25.9093 24.2785 25.504C24.2785 25.0844 24.1576 24.7502 23.9158 24.5013C23.6741 24.2453 23.3576 24.1173 22.9665 24.1173C22.5754 24.1173 22.2589 24.2453 22.0172 24.5013C21.7754 24.7502 21.6545 25.0844 21.6545 25.504C21.6545 25.9093 21.7754 26.24 22.0172 26.496C22.2589 26.7449 22.5754 26.8693 22.9665 26.8693Z" fill="white"/>
+  <path d="M29.3623 28C28.8646 28 28.4343 27.9076 28.0717 27.7227C27.709 27.5307 27.4281 27.264 27.229 26.9227C27.0299 26.5742 26.9303 26.1653 26.9303 25.696V22.304C26.9303 21.8347 27.0299 21.4293 27.229 21.088C27.4281 20.7396 27.709 20.4729 28.0717 20.288C28.4343 20.096 28.8646 20 29.3623 20C29.8672 20 30.2974 20.096 30.653 20.288C31.0157 20.4729 31.2966 20.7396 31.4957 21.088C31.6948 21.4293 31.7943 21.8311 31.7943 22.2933V25.696C31.7943 26.1653 31.6948 26.5742 31.4957 26.9227C31.2966 27.264 31.0157 27.5307 30.653 27.7227C30.2974 27.9076 29.8672 28 29.3623 28ZM29.3623 26.8693C29.725 26.8693 30.0059 26.7662 30.205 26.56C30.4112 26.3538 30.5143 26.0658 30.5143 25.696V22.304C30.5143 21.9342 30.4112 21.6462 30.205 21.44C30.0059 21.2338 29.725 21.1307 29.3623 21.1307C28.9997 21.1307 28.7152 21.2338 28.509 21.44C28.3099 21.6462 28.2103 21.9342 28.2103 22.304V25.696C28.2103 26.0658 28.3134 26.3538 28.5197 26.56C28.7259 26.7662 29.0068 26.8693 29.3623 26.8693ZM27.1117 25.9307L30.717 22.0693H31.613L28.0077 25.9307H27.1117Z" fill="white"/>
+  <path d="M34.8693 23.0933C34.3928 23.0933 34.0053 22.9511 33.7066 22.6667C33.4151 22.3822 33.2693 22.0089 33.2693 21.5467C33.2693 21.0844 33.4151 20.7111 33.7066 20.4267C34.0053 20.1422 34.3928 20 34.8693 20C35.3528 20 35.7404 20.1422 36.0319 20.4267C36.3235 20.7111 36.4693 21.0844 36.4693 21.5467C36.4693 22.0089 36.3235 22.3822 36.0319 22.6667C35.7404 22.9511 35.3528 23.0933 34.8693 23.0933ZM34.8586 22.464C35.1217 22.464 35.3315 22.3787 35.4879 22.208C35.6515 22.0373 35.7333 21.8169 35.7333 21.5467C35.7333 21.2693 35.6515 21.0489 35.4879 20.8853C35.3315 20.7147 35.1253 20.6293 34.8693 20.6293C34.6062 20.6293 34.3964 20.7147 34.2399 20.8853C34.0835 21.0489 34.0053 21.2693 34.0053 21.5467C34.0053 21.8169 34.0835 22.0373 34.2399 22.208C34.3964 22.3787 34.6026 22.464 34.8586 22.464Z" fill="white"/>
+</svg>
+</div> <span>360° vision<br>W/ 3 cameras</span></div> <div class="feature-item svelte-40iujj"><div><svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M36 12H12V36H36V12ZM34 14H14V34H34V14Z" fill="currentColor"/>
+<rect x="18" y="18" width="12" height="12" fill="currentColor" stroke="black" stroke-width="2"/>
+<rect x="17" y="8" width="2" height="4" fill="currentColor"/>
+<rect x="17" y="36" width="2" height="4" fill="currentColor"/>
+<rect x="23" y="8" width="2" height="4" fill="currentColor"/>
+<rect x="23" y="36" width="2" height="4" fill="currentColor"/>
+<rect x="29" y="8" width="2" height="4" fill="currentColor"/>
+<rect x="29" y="36" width="2" height="4" fill="currentColor"/>
+<rect x="36" y="17" width="4" height="2" fill="currentColor"/>
+<rect x="36" y="23" width="4" height="2" fill="currentColor"/>
+<rect x="36" y="29" width="4" height="2" fill="currentColor"/>
+<rect x="8" y="17" width="4" height="2" fill="currentColor"/>
+<rect x="8" y="23" width="4" height="2" fill="currentColor"/>
+<rect x="8" y="29" width="4" height="2" fill="currentColor"/>
+</svg>
+</div> <span>Qualcomm snapdragon 845 MAX</span></div> <div class="feature-item svelte-40iujj"><div><svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.33331 19.9999L12 22.6666C18.6266 16.0399 29.3733 16.0399 36 22.6666L38.6666 19.9999C30.5733 11.9066 17.44 11.9066 9.33331 19.9999ZM20 30.6666L24 34.6666L28 30.6666C25.8 28.4533 22.2133 28.4533 20 30.6666ZM14.6666 25.3333L17.3333 27.9999C21.0133 24.3199 26.9866 24.3199 30.6666 27.9999L33.3333 25.3333C28.1866 20.1866 19.8266 20.1866 14.6666 25.3333Z" fill="currentColor"/>
+</svg>
+</div> <span>LTE &amp; WiFi</span></div> <div class="feature-item svelte-40iujj"><div><svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M41 13H1V29C1 32.3137 3.68629 35 7 35H47V19C47 15.6863 44.3137 13 41 13ZM9.70293 28.7759C10.1883 29.0186 10.7576 29.1399 11.4109 29.1399C12.0736 29.1399 12.6429 29.0186 13.1189 28.7759C13.5949 28.5239 13.9589 28.1739 14.2109 27.7259C14.4723 27.2686 14.6029 26.7319 14.6029 26.1159V21.6499C14.6029 21.0432 14.4723 20.5159 14.2109 20.0679C13.9589 19.6106 13.5949 19.2606 13.1189 19.0179C12.6429 18.7659 12.0736 18.6399 11.4109 18.6399C10.7576 18.6399 10.1883 18.7659 9.70293 19.0179C9.22693 19.2606 8.85827 19.6106 8.59693 20.0679C8.34493 20.5159 8.21893 21.0479 8.21893 21.6639V26.1159C8.21893 26.7319 8.34493 27.2686 8.59693 27.7259C8.85827 28.1739 9.22693 28.5239 9.70293 28.7759ZM12.4889 27.2219C12.2463 27.4739 11.8869 27.5999 11.4109 27.5999C10.9443 27.5999 10.5849 27.4739 10.3329 27.2219C10.0903 26.9606 9.96893 26.5919 9.96893 26.1159V21.6639C9.96893 21.1786 10.0903 20.8099 10.3329 20.5579C10.5756 20.3059 10.9349 20.1799 11.4109 20.1799C11.8869 20.1799 12.2463 20.3059 12.4889 20.5579C12.7316 20.8099 12.8529 21.1786 12.8529 21.6639V26.1159C12.8529 26.5919 12.7316 26.9606 12.4889 27.2219ZM17.0475 18.7799V28.9999H23.1375V27.3759H18.7975V18.7799H17.0475ZM25.232 28.9999V18.7799H31.364V20.3059H26.954V22.9659H30.874V24.4779H26.954V27.4739H31.364V28.9999H25.232ZM33.4445 18.7799V28.9999H36.4825C37.1732 28.9999 37.7705 28.8692 38.2745 28.6079C38.7879 28.3372 39.1845 27.9639 39.4645 27.4879C39.7445 27.0026 39.8845 26.4379 39.8845 25.7939V21.9719C39.8845 21.3186 39.7445 20.7539 39.4645 20.2779C39.1845 19.8019 38.7879 19.4332 38.2745 19.1719C37.7705 18.9106 37.1732 18.7799 36.4825 18.7799H33.4445ZM36.4825 27.3899H35.1945V20.3899H36.4825C36.9865 20.3899 37.3879 20.5346 37.6865 20.8239C37.9852 21.1039 38.1345 21.4866 38.1345 21.9719V25.7939C38.1345 26.2886 37.9852 26.6806 37.6865 26.9699C37.3879 27.2499 36.9865 27.3899 36.4825 27.3899Z" fill="currentColor"/>
+</svg>
+</div> <span>BEAUTIFUL<br>OLED display</span></div> <div class="feature-item svelte-40iujj"><div><svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M39 15H9V33H39V15ZM37 17H11V31H37V17Z" fill="currentColor"/>
+<rect x="15" y="11" width="2" height="3" fill="currentColor"/>
+<rect x="23" y="11" width="2" height="3" fill="currentColor"/>
+<rect x="19" y="11" width="2" height="3" fill="currentColor"/>
+<rect x="27" y="11" width="2" height="3" fill="currentColor"/>
+<rect x="31" y="11" width="2" height="3" fill="currentColor"/>
+<rect x="15" y="34" width="2" height="3" fill="currentColor"/>
+<rect x="23" y="34" width="2" height="3" fill="currentColor"/>
+<rect x="19" y="34" width="2" height="3" fill="currentColor"/>
+<rect x="27" y="34" width="2" height="3" fill="currentColor"/>
+<rect x="31" y="34" width="2" height="3" fill="currentColor"/>
+</svg>
+</div> <span>CAN FD ENABLED</span></div> <div class="feature-item svelte-40iujj"><div><svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M25.5 36L35.5 13L12.5 24L22.5 26L25.5 36Z" fill="currentColor" stroke="currentColor"/>
+</svg>
+</div> <span>High-precision GPS</span></div> </div> <div style="height: 3rem"></div> <a href="/shop/comma-four" target="_self" class="svelte-slt5la primary   full-width">Buy now <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="svelte-slt5la"><path d="M15 19L13.59 17.59L18.17 13L2 13V11L18.17 11L13.58 6.41L15 5L22 12L15 19Z" fill="CurrentColor"></path></svg> </a></div> </div></article> <article class="svelte-40iujj"><hgroup><p>06</p> <h2>Proven on the road</h2></hgroup> <p>Our 20,000+ users have driven over 300 million miles with a device
+        running openpilot. Over 56% of those miles were driven by openpilot,
+        with the driver supervising.</p></article></div></section> <section class="light" id="faq"><div class="container"><div><div class="header svelte-1olhv4k" id="openpilot-faq"><div class="grid svelte-7tyzqm small" style="--columns: 2; --align-items: center; --column-gap: 3rem; --row-gap: 0; --wrapped-columns: 1; --template-columns: repeat(var(--columns), 1fr); --lg-column-gap: 3rem; --lg-template-columns: repeat(var(--columns), 1fr);"><h1>openpilot FAQ</h1> <div class="mobile-first"><picture><img src="/img/faq/openpilot.svg" loading="eager" alt="openpilot FAQ banner"></picture></div> </div></div> <div class="questions svelte-1olhv4k">{{/* TODO: FAQ Q/A inlined verbatim from the SvelteKit build (faq.openpilot, 18 questions). Once the canonical data/faq.json (setup-support slice) lands, this can be generated from site.Data.faq instead. */}} <div class="tab svelte-f0pxdy" style="--foreground-color: black; --background-color: white;"><input type="checkbox" name="what-is-openpilot" id="what-is-openpilot"  class="svelte-f0pxdy"> <label for="what-is-openpilot" class="svelte-f0pxdy"><div slot="label" class="label"><span>What is openpilot?</span> </div> <span class="chevron svelte-f0pxdy"><svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.59 0.589996L6 5.17L1.41 0.589996L0 2L6 8L12 2L10.59 0.589996Z" fill="currentColor"/>
+</svg>
+</span></label> <div class="content svelte-f0pxdy"><div class="details" slot="content">
+            <p>
+              comma openpilot is an open source driver-assistance system. Currently,
+              openpilot performs the functions of Adaptive Cruise Control (ACC) and
+              Automated Lane Centering (ALC) for compatible vehicles. It performs
+              similarly to Tesla Autopilot and GM Super Cruise. openpilot can steer,
+              accelerate, and brake automatically for other vehicles within its lane.
+              Check it out on <a href="https://github.com/commaai/openpilot" target="_blank">GitHub</a>.
+            </p>
+            <p>
+              In order to enforce driver alertness, openpilot includes a camera based
+              Driver Monitoring (DM) system that alerts the driver when distracted or
+              asleep. However, even with an attentive driver, we must make further efforts
+              for the system to be safe. We have designed openpilot with two other safety
+              considerations:
+            </p>
+            <ol>
+              <li>The driver must always be capable to immediately retake manual control of
+              the vehicle, by stepping on either pedal or by pressing the cancel button.</li>
+              <li>The vehicle must not alter its trajectory too quickly for the driver to
+              safely react. This means that while the system is engaged, the actuators are
+              constrained to operate within reasonable limits.</li>
+            </ol>
+           </div></div> </div> <hr> <div class="tab svelte-f0pxdy" style="--foreground-color: black; --background-color: white;"><input type="checkbox" name="how-does-openpilot-work" id="how-does-openpilot-work"  class="svelte-f0pxdy"> <label for="how-does-openpilot-work" class="svelte-f0pxdy"><div slot="label" class="label"><span>How does openpilot work?</span> </div> <span class="chevron svelte-f0pxdy"><svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.59 0.589996L6 5.17L1.41 0.589996L0 2L6 8L12 2L10.59 0.589996Z" fill="currentColor"/>
+</svg>
+</span></label> <div class="content svelte-f0pxdy"><div class="details" slot="content">
+            openpilot works by connecting to your car's CAN network. Most modern cars
+            accept electronic steering, gas, and brake commands to allow for driver assistance
+            features. openpilot can use these commands to provide much better driver assistance
+            features than the car manufacturers can provide.
+           </div></div> </div> <hr> <div class="tab svelte-f0pxdy" style="--foreground-color: black; --background-color: white;"><input type="checkbox" name="is-my-car-compatible-with-openpilot" id="is-my-car-compatible-with-openpilot"  class="svelte-f0pxdy"> <label for="is-my-car-compatible-with-openpilot" class="svelte-f0pxdy"><div slot="label" class="label"><span>Is my car compatible with openpilot?</span> </div> <span class="chevron svelte-f0pxdy"><svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.59 0.589996L6 5.17L1.41 0.589996L0 2L6 8L12 2L10.59 0.589996Z" fill="currentColor"/>
+</svg>
+</span></label> <div class="content svelte-f0pxdy"><div class="details" slot="content">
+            A complete list of compatible vehicles can be found on our
+            <a href="/vehicles">Compatibility page</a>.
+           </div></div> </div> <hr> <div class="tab svelte-f0pxdy" style="--foreground-color: black; --background-color: white;"><input type="checkbox" name="what-should-i-buy-to-run-openpilot-in-my-car" id="what-should-i-buy-to-run-openpilot-in-my-car"  class="svelte-f0pxdy"> <label for="what-should-i-buy-to-run-openpilot-in-my-car" class="svelte-f0pxdy"><div slot="label" class="label"><span>What should I buy to run openpilot in my car?</span> </div> <span class="chevron svelte-f0pxdy"><svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.59 0.589996L6 5.17L1.41 0.589996L0 2L6 8L12 2L10.59 0.589996Z" fill="currentColor"/>
+</svg>
+</span></label> <div class="content svelte-f0pxdy"><div class="details" slot="content">
+            After verifying that your car is compatible, we recommend purchasing a comma
+            device in our <a href="/shop">shop</a>. Don't forget to purchase a
+            car harness to connect it to your vehicle. Add to cart, check out, and
+            you’re good to go!
+           </div></div> </div> <hr> <div class="tab svelte-f0pxdy" style="--foreground-color: black; --background-color: white;"><input type="checkbox" name="do-i-have-to-pay-attention" id="do-i-have-to-pay-attention"  class="svelte-f0pxdy"> <label for="do-i-have-to-pay-attention" class="svelte-f0pxdy"><div slot="label" class="label"><span>Do I have to pay attention?</span> </div> <span class="chevron svelte-f0pxdy"><svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.59 0.589996L6 5.17L1.41 0.589996L0 2L6 8L12 2L10.59 0.589996Z" fill="currentColor"/>
+</svg>
+</span></label> <div class="content svelte-f0pxdy"><div class="details" slot="content">
+            Yes, the driver must always be able to immediately retake manual control of
+            the vehicle, by stepping on the brake pedal or by pressing the cancel
+            button. When openpilot is engaged, a driver monitoring system actively
+            tracks driver awareness to help prevent distractions. The openpilot system
+            disengages if you are distracted. Drivers must keep their eyes on the road
+            at all times and be ready to take control of the car.
+           </div></div> </div> <hr> <div class="tab svelte-f0pxdy" style="--foreground-color: black; --background-color: white;"><input type="checkbox" name="what-is-the-openpilot-safety-model" id="what-is-the-openpilot-safety-model"  class="svelte-f0pxdy"> <label for="what-is-the-openpilot-safety-model" class="svelte-f0pxdy"><div slot="label" class="label"><span>What is the openpilot safety model?</span> </div> <span class="chevron svelte-f0pxdy"><svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.59 0.589996L6 5.17L1.41 0.589996L0 2L6 8L12 2L10.59 0.589996Z" fill="currentColor"/>
+</svg>
+</span></label> <div class="content svelte-f0pxdy"><div class="details" slot="content">
+            More info about the openpilot safety model can be found
+            <a href="https://github.com/commaai/openpilot/blob/master/docs/SAFETY.md">here</a>.
+           </div></div> </div> <hr> <div class="tab svelte-f0pxdy" style="--foreground-color: black; --background-color: white;"><input type="checkbox" name="what-are-the-limitations-of-openpilot-automated-lane-centering" id="what-are-the-limitations-of-openpilot-automated-lane-centering"  class="svelte-f0pxdy"> <label for="what-are-the-limitations-of-openpilot-automated-lane-centering" class="svelte-f0pxdy"><div slot="label" class="label"><span>What are the limitations of openpilot Automated Lane Centering?</span> </div> <span class="chevron svelte-f0pxdy"><svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.59 0.589996L6 5.17L1.41 0.589996L0 2L6 8L12 2L10.59 0.589996Z" fill="currentColor"/>
+</svg>
+</span></label> <div class="content svelte-f0pxdy"><div class="details" slot="content">
+            <p>
+              openpilot Automated Lane Centering (ALC) system does not automatically drive
+              the vehicle or reduce the amount of attention that must be paid to the area
+              in front of the vehicle. The driver must always keep control of the steering
+              wheel and be ready to correct the ALC system action at all times.
+            </p>
+            <p>
+              Many factors can impact the performance of openpilot ALC, causing it to be
+              unable to function as intended. These include, but are not limited to:
+            </p>
+            <ul>
+              <li>Poor visibility (heavy rain, snow, fog, etc.) or weather conditions are
+              interfering with sensor operation.</li>
+              <li>The road facing camera is obstructed, covered or damaged by mud, ice,
+              snow, etc.</li>
+              <li>Obstruction caused by applying excessive paint or adhesive products (such
+              as wraps, stickers, rubber coating, etc.) onto the vehicle.</li>
+              <li>The device is mounted incorrectly.</li>
+              <li>When in sharp curves, like on-off ramps, intersections etc...; openpilot
+              is designed to be limited in the amount of steering torque it can produce.</li>
+              <li>In the presence of restricted lanes or construction zones.</li>
+              <li>When driving on highly banked roads or in presence of strong cross-wind.</li>
+              <li>Extremely hot or cold temperatures.</li>
+              <li>Bright light (due to oncoming headlights, direct sunlight, etc.)</li>
+              <li>Driving on hills, narrow, or winding roads.</li>
+            </ul>
+            <p>
+              The list above does not represent an exhaustive list of situations that may
+              interfere with proper operation of openpilot components. It is the driver's
+              responsibility to be in control of the vehicle at all times.
+            </p>
+           </div></div> </div> <hr> <div class="tab svelte-f0pxdy" style="--foreground-color: black; --background-color: white;"><input type="checkbox" name="what-are-the-limitations-of-openpilot-adaptive-cruise-control" id="what-are-the-limitations-of-openpilot-adaptive-cruise-control"  class="svelte-f0pxdy"> <label for="what-are-the-limitations-of-openpilot-adaptive-cruise-control" class="svelte-f0pxdy"><div slot="label" class="label"><span>What are the limitations of openpilot Adaptive Cruise Control?</span> </div> <span class="chevron svelte-f0pxdy"><svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.59 0.589996L6 5.17L1.41 0.589996L0 2L6 8L12 2L10.59 0.589996Z" fill="currentColor"/>
+</svg>
+</span></label> <div class="content svelte-f0pxdy"><div class="details" slot="content">
+            <p>
+              openpilot Adaptive Cruise Control (ACC) is not a system that allows careless
+              or inattentive driving. It is still necessary for the driver to pay close
+              attention to the vehicle’s surroundings and to be ready to re-take control
+              of the gas and the brake at all times.
+            </p>
+            <p>
+              Many factors can impact the performance of openpilot ACC, causing it to be
+              unable to function as intended. These include, but are not limited to:
+            </p>
+            <ul>
+              <li>Poor visibility (heavy rain, snow, fog, etc.) or weather conditions are
+              interfering with sensor operation.</li>
+              <li>The road facing camera or radar are obstructed, covered, or damaged by
+              mud, ice, snow, etc.</li>
+              <li>Obstruction caused by applying excessive paint or adhesive products (such
+              as wraps, stickers, rubber coating, etc.) onto the vehicle.</li>
+              <li>The device is mounted incorrectly.</li>
+              <li>Approaching a toll booth.</li>
+              <li>When driving on roads with pedestrians, cyclists, etc...</li>
+              <li>In presence of traffic signs or stop lights, which are not detected by
+              openpilot at this time.</li>
+              <li>
+                When the posted speed limit is below the user selected set speed.
+                openpilot does not detect speed limits at this time.
+              </li>
+              <li>In presence of vehicles in the same lane that are not moving.</li>
+              <li>
+                When abrupt braking maneuvers are required. openpilot is designed to be
+                limited in the amount of deceleration and acceleration that it can produce.
+              </li>
+              <li>When surrounding vehicles perform close cut-ins from neighbor lanes.</li>
+              <li>Driving on hills, narrow, or winding roads.</li>
+              <li>Extremely hot or cold temperatures.</li>
+              <li>Bright light (due to oncoming headlights, direct sunlight, etc.)</li>
+              <li>Interference from other equipment that generates ultrasonic waves.</li>
+            </ul>
+            <p>
+              The list above does not represent an exhaustive list of situations that may
+              interfere with proper operation of openpilot components. It is the driver's
+              responsibility to be in control of the vehicle at all times.
+            </p>
+           </div></div> </div> <hr> <div class="tab svelte-f0pxdy" style="--foreground-color: black; --background-color: white;"><input type="checkbox" name="do-i-retain-my-car-factory-safety-features-with-openpilot-installed" id="do-i-retain-my-car-factory-safety-features-with-openpilot-installed"  class="svelte-f0pxdy"> <label for="do-i-retain-my-car-factory-safety-features-with-openpilot-installed" class="svelte-f0pxdy"><div slot="label" class="label"><span>Do I retain my car factory safety features with openpilot installed?</span> </div> <span class="chevron svelte-f0pxdy"><svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.59 0.589996L6 5.17L1.41 0.589996L0 2L6 8L12 2L10.59 0.589996Z" fill="currentColor"/>
+</svg>
+</span></label> <div class="content svelte-f0pxdy"><div class="details" slot="content">
+            <p>
+              When openpilot is enabled in settings, Lane Keep Assist (LKAS), and
+              Automated Lane Centering (ALC) are replaced by openpilot lateral control and
+              only function when openpilot is engaged. Lane Departure Warning (LDW) works
+              whether engaged or disengaged.
+            </p>
+            <p>
+              On certain cars, Adaptive Cruise Control (ACC) is replaced by openpilot
+              longitudinal control.
+            </p>
+            <p>
+              openpilot preserves any other vehicle safety features, including, but are
+              not limited to: AEB, auto high-beam, blind spot warning, and side collision
+              warning.
+            </p>
+           </div></div> </div> <hr> <div class="tab svelte-f0pxdy" style="--foreground-color: black; --background-color: white;"><input type="checkbox" name="does-openpilot-support-manual-transmission-cars-with-the-driver-shifting" id="does-openpilot-support-manual-transmission-cars-with-the-driver-shifting"  class="svelte-f0pxdy"> <label for="does-openpilot-support-manual-transmission-cars-with-the-driver-shifting" class="svelte-f0pxdy"><div slot="label" class="label"><span>Does openpilot support manual transmission cars (with the driver shifting)?</span> </div> <span class="chevron svelte-f0pxdy"><svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.59 0.589996L6 5.17L1.41 0.589996L0 2L6 8L12 2L10.59 0.589996Z" fill="currentColor"/>
+</svg>
+</span></label> <div class="content svelte-f0pxdy"><div class="details" slot="content">
+            On certain cars, manual transmissions are supported if they have the packages
+            listed in the compatibility table. If you’d like to learn more, join us on
+            <a href="https://discord.comma.ai/">Discord</a>, where some of our members are supporting
+            manual cars.
+           </div></div> </div> <hr> <div class="tab svelte-f0pxdy" style="--foreground-color: black; --background-color: white;"><input type="checkbox" name="how-does-openpilot-recognize-the-car-model-it-is-connected-to" id="how-does-openpilot-recognize-the-car-model-it-is-connected-to"  class="svelte-f0pxdy"> <label for="how-does-openpilot-recognize-the-car-model-it-is-connected-to" class="svelte-f0pxdy"><div slot="label" class="label"><span>How does openpilot recognize the car model it is connected to?</span> </div> <span class="chevron svelte-f0pxdy"><svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.59 0.589996L6 5.17L1.41 0.589996L0 2L6 8L12 2L10.59 0.589996Z" fill="currentColor"/>
+</svg>
+</span></label> <div class="content svelte-f0pxdy"><div class="details" slot="content">
+            <p>
+              If your car is on the list of supported cars, openpilot will automatically
+              recognize the model of your car by performing a scan of relevant ECU
+              firmware versions present in your car. The presence of certain ECU firmware
+              versions is an indication of the model year, car brand, car model, and trim.
+            </p>
+            <p>
+              If your car isn’t recognized as supported, your device will fall back to a
+              dashcam only mode, preserving the stock functionalities and the user will
+              receive a notification on the screen.
+            </p>
+           </div></div> </div> <hr> <div class="tab svelte-f0pxdy" style="--foreground-color: black; --background-color: white;"><input type="checkbox" name="how-do-i-update-openpilot" id="how-do-i-update-openpilot"  class="svelte-f0pxdy"> <label for="how-do-i-update-openpilot" class="svelte-f0pxdy"><div slot="label" class="label"><span>How do I update openpilot?</span> </div> <span class="chevron svelte-f0pxdy"><svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.59 0.589996L6 5.17L1.41 0.589996L0 2L6 8L12 2L10.59 0.589996Z" fill="currentColor"/>
+</svg>
+</span></label> <div class="content svelte-f0pxdy"><div class="details" slot="content">
+            All software updates are received over-the-air (OTA). openpilot will
+            automatically check for updates when connected to the internet. Your device
+            will notify you on the screen when an update is available and prompt you to
+            reboot the device to complete the update. You may also manually check for
+            updates in the settings, under the "software" tab.
+           </div></div> </div> <hr> <div class="tab svelte-f0pxdy" style="--foreground-color: black; --background-color: white;"><input type="checkbox" name="will-all-versions-of-openpilot-work-with-my-comma-device" id="will-all-versions-of-openpilot-work-with-my-comma-device"  class="svelte-f0pxdy"> <label for="will-all-versions-of-openpilot-work-with-my-comma-device" class="svelte-f0pxdy"><div slot="label" class="label"><span>Will all versions of openpilot work with my comma device?</span> </div> <span class="chevron svelte-f0pxdy"><svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.59 0.589996L6 5.17L1.41 0.589996L0 2L6 8L12 2L10.59 0.589996Z" fill="currentColor"/>
+</svg>
+</span></label> <div class="content svelte-f0pxdy"><div class="details" slot="content">
+            <p>
+              The comma 3X can only run openpilot 0.9.4 and above. Running earlier versions
+              requires making modifications to the software so that a newer AGNOS is installed.
+            </p>
+            <p>
+              If you face issues after installing an older version of openpilot, you can
+              re-flash AGNOS on your device by following the instructions at
+              <a href="https://flash.comma.ai">flash.comma.ai</a>.
+            </p>
+           </div></div> </div> <hr> <div class="tab svelte-f0pxdy" style="--foreground-color: black; --background-color: white;"><input type="checkbox" name="does-openpilot-work-at-all-speeds" id="does-openpilot-work-at-all-speeds"  class="svelte-f0pxdy"> <label for="does-openpilot-work-at-all-speeds" class="svelte-f0pxdy"><div slot="label" class="label"><span>Does openpilot work at all speeds?</span> </div> <span class="chevron svelte-f0pxdy"><svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.59 0.589996L6 5.17L1.41 0.589996L0 2L6 8L12 2L10.59 0.589996Z" fill="currentColor"/>
+</svg>
+</span></label> <div class="content svelte-f0pxdy"><div class="details" slot="content">
+            Supported speeds vary depending on the car. Please reference the supported
+            car list for vehicle specific speed limitations. Maximum speed is the same
+            as the maximum speed that stock ACC can be set to (car dependent) with a
+            hard limit at ~92mph.
+           </div></div> </div> <hr> <div class="tab svelte-f0pxdy" style="--foreground-color: black; --background-color: white;"><input type="checkbox" name="does-openpilot-work-outside-of-the-united-states-of-america" id="does-openpilot-work-outside-of-the-united-states-of-america"  class="svelte-f0pxdy"> <label for="does-openpilot-work-outside-of-the-united-states-of-america" class="svelte-f0pxdy"><div slot="label" class="label"><span>Does openpilot work outside of the United States of America?</span> </div> <span class="chevron svelte-f0pxdy"><svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.59 0.589996L6 5.17L1.41 0.589996L0 2L6 8L12 2L10.59 0.589996Z" fill="currentColor"/>
+</svg>
+</span></label> <div class="content svelte-f0pxdy"><div class="details" slot="content">
+            Yes, openpilot is not region locked and can be used in any country. You are
+            responsible for complying with local laws and regulations.
+           </div></div> </div> <hr> <div class="tab svelte-f0pxdy" style="--foreground-color: black; --background-color: white;"><input type="checkbox" name="what-is-a-fingerprint" id="what-is-a-fingerprint"  class="svelte-f0pxdy"> <label for="what-is-a-fingerprint" class="svelte-f0pxdy"><div slot="label" class="label"><span>What is a fingerprint?</span> </div> <span class="chevron svelte-f0pxdy"><svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.59 0.589996L6 5.17L1.41 0.589996L0 2L6 8L12 2L10.59 0.589996Z" fill="currentColor"/>
+</svg>
+</span></label> <div class="content svelte-f0pxdy"><div class="details" slot="content">
+            <p>
+              A fingerprint is the method openpilot uses to determine which vehicle it is
+              connected to.
+            </p>
+            <p>
+              Current methods use vehicle ECU firmware logging. openpilot will fingerprint
+              the vehicle on each start up.
+            </p>
+            <p>
+              If openpilot detects a firmware version not previously logged, it will need
+              to be added to the codebase. Guides on adding new firmware can be found
+              <a href="https://github.com/commaai/openpilot/wiki/Fingerprinting">here</a>.
+            </p>
+           </div></div> </div> <hr> <div class="tab svelte-f0pxdy" style="--foreground-color: black; --background-color: white;"><input type="checkbox" name="where-is-my-dongle-id" id="where-is-my-dongle-id"  class="svelte-f0pxdy"> <label for="where-is-my-dongle-id" class="svelte-f0pxdy"><div slot="label" class="label"><span>Where is my dongle ID?</span> </div> <span class="chevron svelte-f0pxdy"><svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.59 0.589996L6 5.17L1.41 0.589996L0 2L6 8L12 2L10.59 0.589996Z" fill="currentColor"/>
+</svg>
+</span></label> <div class="content svelte-f0pxdy"><div class="details" slot="content">
+            The dongle ID of your device can be found in Settings of the device in the
+            Device tab.
+           </div></div> </div> <hr> <div class="tab svelte-f0pxdy" style="--foreground-color: black; --background-color: white;"><input type="checkbox" name="how-do-i-leave-feedback-for-openpilot" id="how-do-i-leave-feedback-for-openpilot"  class="svelte-f0pxdy"> <label for="how-do-i-leave-feedback-for-openpilot" class="svelte-f0pxdy"><div slot="label" class="label"><span>How do I leave feedback for openpilot?</span> </div> <span class="chevron svelte-f0pxdy"><svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.59 0.589996L6 5.17L1.41 0.589996L0 2L6 8L12 2L10.59 0.589996Z" fill="currentColor"/>
+</svg>
+</span></label> <div class="content svelte-f0pxdy"><div class="details" slot="content">
+            Feedback, good or bad, can be given in the #openpilot-experience channel on
+            our community <a href="https://discord.comma.ai/">Discord</a>.
+           </div></div> </div> <hr></div> </div></div> </section>{{ end }}

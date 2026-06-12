@@ -1,0 +1,11 @@
+{{- /* ProductCard.svelte port (scope svelte-1hz5z8s). Takes one product dict
+       from data/products.json (uses .route, .title, .price, .images[0]).
+       <picture> mirrors the SvelteKit optimize-image preprocessor output for
+       the jpg/jpeg/png card thumbs; .avif/.webp variants are pre-harvested
+       siblings under static/img. img attrs stay in the prerendered order
+       (src, loading, alt) for ref-build DOM parity — do not reorder.
+       File intentionally ends without a newline so cards render back-to-back
+       (</a><a) exactly like the reference build. */ -}}
+{{- $img := index .images 0 -}}
+{{- $stem := strings.TrimSuffix (path.Ext $img) $img -}}
+<a class="product-card svelte-1hz5z8s" href="{{ .route }}"><picture><source srcset="{{ $stem }}.avif" type="image/avif"><source srcset="{{ $stem }}.webp" type="image/webp"> <img src="{{ $img }}" loading="lazy" alt="{{ .title }} product"></picture> <div class="svelte-1hz5z8s"><hgroup><h2>{{ .title }}</h2> <span>{{ .price }}</span></hgroup> <span>Buy</span></div> </a>
