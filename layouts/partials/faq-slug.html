@@ -1,0 +1,7 @@
+{{- /* Faq.svelte's slug rule, exactly:
+       str.toLowerCase().replace(/[^\w\s]/g, "").replaceAll(" ", "-")
+     lowercase -> strip every char that is not [A-Za-z0-9_] or whitespace
+     (kills ' ? & - ( ) , . /) -> EVERY space becomes a dash (consecutive
+     spaces produce consecutive dashes: "Shipping & Returns" -> "shipping--returns",
+     "Money-back" -> "moneyback"). Hugo's anchorize/urlize do NOT match. */ -}}
+{{- return replace (replaceRE `[^\w\s]` "" (lower .)) " " "-" -}}

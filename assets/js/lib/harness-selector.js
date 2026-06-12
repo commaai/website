@@ -100,12 +100,22 @@ export function initHarnessSelector({
   const placeholderEl = head.querySelector('.selection-placeholder');
   const content = root.querySelector('.dropdown-content');
 
-  // pair prerendered rows with metadata, in DOM order
+  // pair prerendered rows with metadata, in DOM order. Pages whose dropdown
+  // shipped empty in the old build (/setup — prerenderRows false) get their
+  // row elements built here but only mounted once the stock fetch resolves,
+  // matching the original "$harnesses filled" timing.
   const rowEls = Array.from(content.querySelectorAll('.dropdown-item'));
+  const prerendered = rowEls.length > 0;
+  let mounted = prerendered;
   const entries = [];
-  if (config.noHarnessOption) entries.push({ item: NO_HARNESS_OPTION, el: rowEls[0] });
+  if (config.noHarnessOption) {
+    entries.push({ item: NO_HARNESS_OPTION, el: prerendered ? rowEls[0] : buildDropdownItem(NO_HARNESS_OPTION, false) });
+  }
   items.forEach((item, i) => {
-    entries.push({ item, el: rowEls[i + (config.noHarnessOption ? 1 : 0)] });
+    entries.push({
+      item,
+      el: prerendered ? rowEls[i + (config.noHarnessOption ? 1 : 0)] : buildDropdownItem(item, false),
+    });
   });
   // filtering only ever runs over $harnesses (NO_HARNESS row is excluded)
   const itemEntries = config.noHarnessOption ? entries.slice(1) : entries;
@@ -160,7 +170,9 @@ export function initHarnessSelector({
       let filtered;
       try {
         const needle = normalizeDiacritics(inputValue.toLowerCase());
-        filtered = itemEntries.filter(entry =>
+        // before the rows are mounted the original filtered an empty
+        // $harnesses array -> "No matching vehicles"
+        filtered = (mounted ? itemEntries : []).filter(entry =>
           normalizeDiacritics(entry.item.car.toLowerCase()).match(needle)
         );
       } catch (e) {
@@ -177,8 +189,15 @@ export function initHarnessSelector({
       }
     } else {
       content.textContent = '';
-      entries.forEach(entry => content.appendChild(entry.el));
+      if (mounted) entries.forEach(entry => content.appendChild(entry.el));
     }
+  }
+
+  // first $harnesses fill on client-rendered dropdowns (no prerendered rows)
+  function mountRows() {
+    if (mounted) return;
+    mounted = true;
+    renderRows();
   }
 
   function renderSupportCard() {
@@ -268,9 +287,11 @@ export function initHarnessSelector({
       const stock = stockInfo[item.id];
       if (stock) Object.assign(item, stock);
     });
+    mountRows();
   }
 
   function setInitialSelection() {
+    mountRows();
     // param absent -> decodeURIComponent(null) -> the string "null" (kept)
     const carName = decodeURIComponent(new URLSearchParams(location.search).get('harness'));
 

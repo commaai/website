@@ -1,0 +1,21 @@
+{{- /*
+  Faq.svelte (scope svelte-1olhv4k) + its Accordion.svelte children (scope
+  svelte-f0pxdy) — header banner + one checkbox-hack accordion per question,
+  separated by unscoped <hr>. No open/close animation (content snaps), all
+  accordions unchecked at build time; assets/js/lib/faq.js adds the hash
+  deep-link behaviors at runtime.
+
+  Args (dict):
+    topic   topic dict from data/faq.json `topics` ({title, image, questions})
+    title   optional title override (/setup: "Frequently asked questions")
+
+  ids come from the exact Faq.svelte slug rule (partials/faq-slug.html).
+  Question/title text is escaped like Svelte text interpolation (& and < only,
+  so apostrophes stay raw). Answers are raw HTML, byte-preserved from
+  src/lib/constants/faq.svelte. `image` may be a data: URI — the old build
+  inlined 30-day/shipping/shop.svg — shipped verbatim.
+*/ -}}
+{{- $topic := .topic -}}
+{{- $title := .title | default $topic.title -}}
+{{- $titleHTML := replace (replace $title "&" "&amp;") "<" "&lt;" | safeHTML -}}
+<div><div class="header svelte-1olhv4k" id="{{ partial "faq-slug.html" $title }}"><div class="grid svelte-7tyzqm small" style="--columns: 2; --align-items: center; --column-gap: 3rem; --row-gap: 0; --wrapped-columns: 1; --template-columns: repeat(var(--columns), 1fr); --lg-column-gap: 3rem; --lg-template-columns: repeat(var(--columns), 1fr);"><h1>{{ $titleHTML }}</h1> <div class="mobile-first"><picture><img {{ printf "src=%q" $topic.image | safeHTMLAttr }} loading="eager" alt="{{ $titleHTML }} banner"></picture></div> </div></div> <div class="questions svelte-1olhv4k"> {{ range $i, $q := $topic.questions }}{{ if $i }} {{ end }}{{ $slug := partial "faq-slug.html" $q.question }}{{ $qHTML := replace (replace $q.question "&" "&amp;") "<" "&lt;" | safeHTML }}<div class="tab svelte-f0pxdy" style="--foreground-color: black; --background-color: white;"><input type="checkbox" name="{{ $slug }}" id="{{ $slug }}"  class="svelte-f0pxdy"> <label for="{{ $slug }}" class="svelte-f0pxdy"><div slot="label" class="label"><span>{{ $qHTML }}</span> </div> <span class="chevron svelte-f0pxdy">{{ partial "icon.html" "icon-chevron.svg" }}</span></label> <div class="content svelte-f0pxdy"><div class="details" slot="content">{{ $q.answer | safeHTML }} </div></div> </div> <hr>{{ end }}</div> </div>

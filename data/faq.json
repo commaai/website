@@ -1,0 +1,392 @@
+{
+  "order": [
+    "openpilot",
+    "connect",
+    "devices",
+    "trial",
+    "shop",
+    "returns",
+    "troubleshooting",
+    "jobs",
+    "other"
+  ],
+  "topics": {
+    "openpilot": {
+      "title": "openpilot",
+      "image": "/img/faq/openpilot.svg",
+      "questions": [
+        {
+          "question": "What is openpilot?",
+          "answer": "\n            <p>\n              comma openpilot is an open source driver-assistance system. Currently,\n              openpilot performs the functions of Adaptive Cruise Control (ACC) and\n              Automated Lane Centering (ALC) for compatible vehicles. It performs\n              similarly to Tesla Autopilot and GM Super Cruise. openpilot can steer,\n              accelerate, and brake automatically for other vehicles within its lane.\n              Check it out on <a href=\"https://github.com/commaai/openpilot\" target=\"_blank\">GitHub</a>.\n            </p>\n            <p>\n              In order to enforce driver alertness, openpilot includes a camera based\n              Driver Monitoring (DM) system that alerts the driver when distracted or\n              asleep. However, even with an attentive driver, we must make further efforts\n              for the system to be safe. We have designed openpilot with two other safety\n              considerations:\n            </p>\n            <ol>\n              <li>The driver must always be capable to immediately retake manual control of\n              the vehicle, by stepping on either pedal or by pressing the cancel button.</li>\n              <li>The vehicle must not alter its trajectory too quickly for the driver to\n              safely react. This means that while the system is engaged, the actuators are\n              constrained to operate within reasonable limits.</li>\n            </ol>\n          "
+        },
+        {
+          "question": "How does openpilot work?",
+          "answer": "\n            openpilot works by connecting to your car's CAN network. Most modern cars\n            accept electronic steering, gas, and brake commands to allow for driver assistance\n            features. openpilot can use these commands to provide much better driver assistance\n            features than the car manufacturers can provide.\n          "
+        },
+        {
+          "question": "Is my car compatible with openpilot?",
+          "answer": "\n            A complete list of compatible vehicles can be found on our\n            <a href=\"/vehicles\">Compatibility page</a>.\n          "
+        },
+        {
+          "question": "What should I buy to run openpilot in my car?",
+          "answer": "\n            After verifying that your car is compatible, we recommend purchasing a comma\n            device in our <a href=\"/shop\">shop</a>. Don't forget to purchase a\n            car harness to connect it to your vehicle. Add to cart, check out, and\n            you’re good to go!\n          "
+        },
+        {
+          "question": "Do I have to pay attention?",
+          "answer": "\n            Yes, the driver must always be able to immediately retake manual control of\n            the vehicle, by stepping on the brake pedal or by pressing the cancel\n            button. When openpilot is engaged, a driver monitoring system actively\n            tracks driver awareness to help prevent distractions. The openpilot system\n            disengages if you are distracted. Drivers must keep their eyes on the road\n            at all times and be ready to take control of the car.\n          "
+        },
+        {
+          "question": "What is the openpilot safety model?",
+          "answer": "\n            More info about the openpilot safety model can be found\n            <a href=\"https://github.com/commaai/openpilot/blob/master/docs/SAFETY.md\">here</a>.\n          "
+        },
+        {
+          "question": "What are the limitations of openpilot Automated Lane Centering?",
+          "answer": "\n            <p>\n              openpilot Automated Lane Centering (ALC) system does not automatically drive\n              the vehicle or reduce the amount of attention that must be paid to the area\n              in front of the vehicle. The driver must always keep control of the steering\n              wheel and be ready to correct the ALC system action at all times.\n            </p>\n            <p>\n              Many factors can impact the performance of openpilot ALC, causing it to be\n              unable to function as intended. These include, but are not limited to:\n            </p>\n            <ul>\n              <li>Poor visibility (heavy rain, snow, fog, etc.) or weather conditions are\n              interfering with sensor operation.</li>\n              <li>The road facing camera is obstructed, covered or damaged by mud, ice,\n              snow, etc.</li>\n              <li>Obstruction caused by applying excessive paint or adhesive products (such\n              as wraps, stickers, rubber coating, etc.) onto the vehicle.</li>\n              <li>The device is mounted incorrectly.</li>\n              <li>When in sharp curves, like on-off ramps, intersections etc...; openpilot\n              is designed to be limited in the amount of steering torque it can produce.</li>\n              <li>In the presence of restricted lanes or construction zones.</li>\n              <li>When driving on highly banked roads or in presence of strong cross-wind.</li>\n              <li>Extremely hot or cold temperatures.</li>\n              <li>Bright light (due to oncoming headlights, direct sunlight, etc.)</li>\n              <li>Driving on hills, narrow, or winding roads.</li>\n            </ul>\n            <p>\n              The list above does not represent an exhaustive list of situations that may\n              interfere with proper operation of openpilot components. It is the driver's\n              responsibility to be in control of the vehicle at all times.\n            </p>\n          "
+        },
+        {
+          "question": "What are the limitations of openpilot Adaptive Cruise Control?",
+          "answer": "\n            <p>\n              openpilot Adaptive Cruise Control (ACC) is not a system that allows careless\n              or inattentive driving. It is still necessary for the driver to pay close\n              attention to the vehicle’s surroundings and to be ready to re-take control\n              of the gas and the brake at all times.\n            </p>\n            <p>\n              Many factors can impact the performance of openpilot ACC, causing it to be\n              unable to function as intended. These include, but are not limited to:\n            </p>\n            <ul>\n              <li>Poor visibility (heavy rain, snow, fog, etc.) or weather conditions are\n              interfering with sensor operation.</li>\n              <li>The road facing camera or radar are obstructed, covered, or damaged by\n              mud, ice, snow, etc.</li>\n              <li>Obstruction caused by applying excessive paint or adhesive products (such\n              as wraps, stickers, rubber coating, etc.) onto the vehicle.</li>\n              <li>The device is mounted incorrectly.</li>\n              <li>Approaching a toll booth.</li>\n              <li>When driving on roads with pedestrians, cyclists, etc...</li>\n              <li>In presence of traffic signs or stop lights, which are not detected by\n              openpilot at this time.</li>\n              <li>\n                When the posted speed limit is below the user selected set speed.\n                openpilot does not detect speed limits at this time.\n              </li>\n              <li>In presence of vehicles in the same lane that are not moving.</li>\n              <li>\n                When abrupt braking maneuvers are required. openpilot is designed to be\n                limited in the amount of deceleration and acceleration that it can produce.\n              </li>\n              <li>When surrounding vehicles perform close cut-ins from neighbor lanes.</li>\n              <li>Driving on hills, narrow, or winding roads.</li>\n              <li>Extremely hot or cold temperatures.</li>\n              <li>Bright light (due to oncoming headlights, direct sunlight, etc.)</li>\n              <li>Interference from other equipment that generates ultrasonic waves.</li>\n            </ul>\n            <p>\n              The list above does not represent an exhaustive list of situations that may\n              interfere with proper operation of openpilot components. It is the driver's\n              responsibility to be in control of the vehicle at all times.\n            </p>\n          "
+        },
+        {
+          "question": "Do I retain my car factory safety features with openpilot installed?",
+          "answer": "\n            <p>\n              When openpilot is enabled in settings, Lane Keep Assist (LKAS), and\n              Automated Lane Centering (ALC) are replaced by openpilot lateral control and\n              only function when openpilot is engaged. Lane Departure Warning (LDW) works\n              whether engaged or disengaged.\n            </p>\n            <p>\n              On certain cars, Adaptive Cruise Control (ACC) is replaced by openpilot\n              longitudinal control.\n            </p>\n            <p>\n              openpilot preserves any other vehicle safety features, including, but are\n              not limited to: AEB, auto high-beam, blind spot warning, and side collision\n              warning.\n            </p>\n          "
+        },
+        {
+          "question": "Does openpilot support manual transmission cars (with the driver shifting)?",
+          "answer": "\n            On certain cars, manual transmissions are supported if they have the packages\n            listed in the compatibility table. If you’d like to learn more, join us on\n            <a href=\"https://discord.comma.ai/\">Discord</a>, where some of our members are supporting\n            manual cars.\n          "
+        },
+        {
+          "question": "How does openpilot recognize the car model it is connected to?",
+          "answer": "\n            <p>\n              If your car is on the list of supported cars, openpilot will automatically\n              recognize the model of your car by performing a scan of relevant ECU\n              firmware versions present in your car. The presence of certain ECU firmware\n              versions is an indication of the model year, car brand, car model, and trim.\n            </p>\n            <p>\n              If your car isn’t recognized as supported, your device will fall back to a\n              dashcam only mode, preserving the stock functionalities and the user will\n              receive a notification on the screen.\n            </p>\n          "
+        },
+        {
+          "question": "How do I update openpilot?",
+          "answer": "\n            All software updates are received over-the-air (OTA). openpilot will\n            automatically check for updates when connected to the internet. Your device\n            will notify you on the screen when an update is available and prompt you to\n            reboot the device to complete the update. You may also manually check for\n            updates in the settings, under the \"software\" tab.\n          "
+        },
+        {
+          "question": "Will all versions of openpilot work with my comma device?",
+          "answer": "\n            <p>\n              The comma 3X can only run openpilot 0.9.4 and above. Running earlier versions\n              requires making modifications to the software so that a newer AGNOS is installed.\n            </p>\n            <p>\n              If you face issues after installing an older version of openpilot, you can\n              re-flash AGNOS on your device by following the instructions at\n              <a href=\"https://flash.comma.ai\">flash.comma.ai</a>.\n            </p>\n          "
+        },
+        {
+          "question": "Does openpilot work at all speeds?",
+          "answer": "\n            Supported speeds vary depending on the car. Please reference the supported\n            car list for vehicle specific speed limitations. Maximum speed is the same\n            as the maximum speed that stock ACC can be set to (car dependent) with a\n            hard limit at ~92mph.\n          "
+        },
+        {
+          "question": "Does openpilot work outside of the United States of America?",
+          "answer": "\n            Yes, openpilot is not region locked and can be used in any country. You are\n            responsible for complying with local laws and regulations.\n          "
+        },
+        {
+          "question": "What is a fingerprint?",
+          "answer": "\n            <p>\n              A fingerprint is the method openpilot uses to determine which vehicle it is\n              connected to.\n            </p>\n            <p>\n              Current methods use vehicle ECU firmware logging. openpilot will fingerprint\n              the vehicle on each start up.\n            </p>\n            <p>\n              If openpilot detects a firmware version not previously logged, it will need\n              to be added to the codebase. Guides on adding new firmware can be found\n              <a href=\"https://github.com/commaai/openpilot/wiki/Fingerprinting\">here</a>.\n            </p>\n          "
+        },
+        {
+          "question": "Where is my dongle ID?",
+          "answer": "\n            The dongle ID of your device can be found in Settings of the device in the\n            Device tab.\n          "
+        },
+        {
+          "question": "How do I leave feedback for openpilot?",
+          "answer": "\n            Feedback, good or bad, can be given in the #openpilot-experience channel on\n            our community <a href=\"https://discord.comma.ai/\">Discord</a>.\n          "
+        }
+      ]
+    },
+    "connect": {
+      "title": "comma connect and prime",
+      "image": "/img/faq/connect.svg",
+      "questions": [
+        {
+          "question": "How do I claim the free prime offer?",
+          "answer": "\n            <p>\n              Sign up for prime in <a href=\"https://connect.comma.ai/\">comma connect</a>. With a\n              purchase of a comma four, you get a free month of comma prime, in which you\n              can cancel at any time. After that, you will be charged $24 a month\n              (domestic only).\n            </p>\n            <p>\n              Live outside the United States? You can still sign up for prime lite and optionally pair that\n              with your own active SIM card. comma prime data service is available in the United States and Puerto Rico only.\n            </p>\n          "
+        },
+        {
+          "question": "What is connect?",
+          "answer": "\n            <p>\n              connect (<a href=\"https://connect.comma.ai/\">connect.comma.ai</a>) is a dashboard of\n              your recent drives.\n            </p>\n            <p>\n              Your drives are accessible for 3 days (or 1 year with a comma prime\n              subscription).\n            </p>\n            <p>\n              connect provides other features such as battery voltage and remote snapshots.\n            </p>\n          "
+        },
+        {
+          "question": "What is the difference between prime and prime lite?",
+          "answer": "\n            <p>\n              With prime ($24/mo), domestic data is included.\n            </p>\n            <p>\n              With prime lite ($14/mo), no SIM card or cellular service is provided. You can choose to bring your own SIM card for the full prime experience.\n            </p>\n            <p>\n              Note: your own SIM may require configuration to work with your comma device. We do not offer troubleshooting for third party data service.\n            </p>\n          "
+        },
+        {
+          "question": "How do I transfer a prime subscription to a new device?",
+          "answer": "\n            We aren't able to transfer comma prime subscriptions between devices. To do\n            so, you must cancel your existing prime subscription through\n            <a href=\"https://connect.comma.ai/\">connect.comma.ai</a> and sign up with the new\n            device.\n          "
+        },
+        {
+          "question": "How do I cancel comma prime?",
+          "answer": "\n            <p>\n              We've made the Refund Policy as straightforward as we can, no hidden clauses\n              and no fine print.\n            </p>\n            <ul>\n              <li>You may cancel your subscription by selecting the \"Cancel subscription\" option\n              on <a href=\"https://connect.comma.ai/\">connect.comma.ai</a> in the settings cog -> \"Prime\n              Settings\". You can do this at any time without incurring a cancellation\n              fee. Upon canceling your comma prime membership, no further fees will be charged.</li>\n              <li>If you have a free trial period, we will charge your credit card with the\n              monthly subscription fee at the end of the trial period.</li>\n              <li>We will continue to charge your credit card account on a monthly basis\n              until you cancel your subscription. For example, if you joined on April 5\n              your credit card will be charged on May 5; June 5; July 5; and so on until\n              you cancel your subscription.</li>\n              <li>Your cancellation takes effect immediately. Your last paid monthly fee will be pro-rated and returned as credit on your account.</li>\n              <li>You can sign back up at any time.</li>\n            </ul>\n          "
+        },
+        {
+          "question": "What is commacare?",
+          "answer": "\n            <p>\n              commacare extends your comma four's warranty for up to an additional year beyond the standard one-year warranty, giving you two years of total coverage.\n            </p>\n            <p>\n              We've made commacare simple and straightforward:\n            </p>\n            <ul>\n              <li>commacare is included automatically with your comma prime ($24/mo) or prime lite ($14/mo) subscription.</li>\n              <li>You must start your prime subscription within the first 30 days of receiving your comma four to be eligible for commacare.</li>\n              <li>If you cancel your prime subscription, your commacare warranty ends immediately and cannot be resumed. The standard warranty terms will continue to apply for any remaining time in the first year.</li>\n              <li>commacare provides the same coverage as the standard one-year warranty. It does not cover theft, loss, or accidental damage.</li>\n            </ul>\n          "
+        },
+        {
+          "question": "I installed my own SIM card, but it's not working.",
+          "answer": "\n            <p>\n              We do not offer support for setting up third party cellular service. Note that lack of third party cellular connectivity, by itself, is not indicative of malfunctioning hardware as each carrier needs to be carefully configured to function properly. If you are not prepared to configure your SIM card to work with the device, we recommend prime over prime lite.\n            </p>\n            Some common issues include:\n            <ul>\n              <li>The APN is not set correctly on the device.</li>\n              <li>The device isn't whitelisted with your carrier.</li>\n              <li>The SIM card's service isn't active.</li>\n            </ul>\n          "
+        },
+        {
+          "question": "How do I switch between prime and prime lite?",
+          "answer": "\n            Currently, this requires cancelling your current subscription and resubscribing at the new tier.\n            Since the subscription is pro-rated, the cancellation happens immediately, and you can resubscribe immediately.\n            Your stored drives from the original subscription are not guaranteed to persist after this process.\n          "
+        }
+      ]
+    },
+    "devices": {
+      "title": "comma devices",
+      "image": "/img/faq/other.svg",
+      "questions": [
+        {
+          "question": "Do I need a comma prime monthly subscription to use the device?",
+          "answer": "\n            <b>Absolutely not.</b> comma prime is completely optional and is not needed for any core functionality. comma prime can be activated, cancelled, and re-activated at any time.\n          "
+        },
+        {
+          "question": "Does installing a comma device require permanent modifications to the car?",
+          "answer": "\n            Installing a comma device does not require any permanent modifications to\n            your car. Removing the comma device leaves your car in the same state as before the installation.\n          "
+        },
+        {
+          "question": "How do I mount my comma device?",
+          "answer": "\n            <p>\n              We recommend the mount be centered on the windshield below the trim (see pictures in the Installation Guide). Be sure to leave enough room to remove the trim in the future. First, clean the windshield with the included alcohol wipe. Ensure the top of the mount is fully visible from the driver’s seat. Adhere mount: peel off the 3M tape’s cover on the mount. Press firmly in the center of the mount, then the edges to ensure no bubbles form.\n            </p>\n            <p>\n              It is the user’s responsibility to mount the device in compliance with all applicable laws and ordinances.\n            </p>\n          "
+        },
+        {
+          "question": "Will installing a comma device void my warranty?",
+          "answer": "\n            <p>\n              From the FTC website: \"Simply using an aftermarket or recycled part does not\n              void your warranty. The Magnuson-Moss Warranty Act makes it illegal for\n              companies to void your warranty or deny coverage under the warranty simply\n              because you used an aftermarket or recycled part.\"\n            </p>\n            <p>\n              <a href=\"https://www.consumer.ftc.gov/articles/0138-auto-warranties-routine-maintenance\">https://www.consumer.ftc.gov/articles/0138-auto-warranties-routine-maintenance</a>\n            </p>\n          "
+        },
+        {
+          "question": "Will my insurance cover my car with a comma device installed?",
+          "answer": "\n            <p>\n              Contact your insurance provider directly; insurance coverage is between the\n              user and their insurance provider. comma hardware users have been able to\n              get coverage and discuss this on Reddit\n              <a href=\"https://www.reddit.com/r/SelfDrivingCars/comments/b13cdp/open_pilot_and_insurance_coverage/\">here</a>.\n            </p>\n            <p>\n              Insurance companies are beginning to understand the safety benefits of driver assistance\n              systems like openpilot and we have not heard of any providers\n              rejecting coverage to comma hardware users.\n            </p>\n          "
+        }
+      ]
+    },
+    "trial": {
+      "title": "Money-back trial",
+      "image": "data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='480'%20height='300'%20fill='none'%3e%3cpath%20fill='%23000'%20d='M0%200h480v300H0z'/%3e%3cpath%20fill='%23fff'%20fill-rule='evenodd'%20d='M318.166%2095.558H164.983v118.955h153.183V95.558Zm-7.295%207.295H172.278v104.366h138.593V102.853Z'%20clip-rule='evenodd'/%3e%3cpath%20fill='%23fff'%20fill-rule='evenodd'%20d='M310.501%2074.313H172.072v21.374h138.429V74.314ZM164.786%2067v36h153V67h-153Z'%20clip-rule='evenodd'/%3e%3cpath%20fill='%23fff'%20d='M201.786%2056h7v29h-7zM274.786%2056h7v29h-7zM219.078%20175c1.499%200%202.879.333%204.14%201%201.278.65%202.301%201.65%203.068%203%20.784%201.35%201.175%203.017%201.175%205s-.391%203.65-1.175%205c-.767%201.35-1.79%202.358-3.068%203.025-1.261.65-2.641.975-4.14.975h-13.292v-18h13.292Zm-2.556%2012.75c.886%200%201.618-.058%202.198-.175.579-.133%201.073-.467%201.482-1%20.409-.55.614-1.408.614-2.575%200-1.167-.205-2.017-.614-2.55-.409-.55-.903-.883-1.482-1-.58-.133-1.312-.2-2.198-.2h-4.346v7.5h4.346ZM253.933%20193h-6.799l-1.508-3.15h-10.122l-1.508%203.15h-6.799l8.818-18h9.1l8.818%2018Zm-13.368-13.7-2.914%206.05h5.828l-2.914-6.05ZM262.699%20181.75l5.164-6.75h7.923l-9.892%2012v6h-6.39v-6l-9.892-12h7.924l5.163%206.75Z'/%3e%3cpath%20fill='%23fff'%20stroke='%23000'%20d='M231.618%20138.327c1.724-.846%203.08-1.945%204.043-3.305%201.155-1.632%201.72-3.603%201.72-5.888%200-4.423-2.012-7.83-5.975-10.175-3.93-2.325-9.502-3.459-16.66-3.459-8.324%200-14.745%201.356-19.202%204.131-4.49%202.795-7.035%207.139-7.652%2012.961l-.058.553h15.531v-.5c0-2.126.745-3.556%202.17-4.414l.003-.002c1.529-.935%204.008-1.44%207.52-1.44%202.964%200%204.964.347%206.091.967l.009.005.008.004c.584.293.992.644%201.256%201.041.261.393.399.859.399%201.418%200%20.852-.26%201.475-.74%201.928-.498.429-1.466.812-3.011%201.09-1.524.275-3.701.416-6.546.416h-.5v9.474h.5c3.129%200%205.466.141%207.031.416l.012.002c1.584.238%202.553.643%203.038%201.129l.011.012.013.011c.507.445.795%201.118.795%202.106%200%201.267-.542%202.192-1.674%202.831-1.125.619-3.221.966-6.391.966-3.636%200-6.204-.464-7.778-1.329-1.482-.834-2.216-2.115-2.216-3.921v-.5h-16.133l.057.552c.409%203.942%201.58%207.204%203.539%209.755h-.001l.006.008c2.008%202.518%204.959%204.361%208.808%205.552%203.846%201.191%208.827%201.778%2014.924%201.778%207.441%200%2013.217-1.215%2017.271-3.706%204.084-2.509%206.149-6.138%206.149-10.836%200-2.371-.619-4.421-1.878-6.123-1.065-1.441-2.57-2.606-4.489-3.508Zm13.88%2012.906.002.002c2.064%203.562%205.096%206.331%209.076%208.308%203.985%201.978%208.749%202.957%2014.275%202.957%205.487%200%2010.231-.979%2014.216-2.957l.003-.002c3.978-2.017%207.009-4.804%209.072-8.365%202.101-3.556%203.144-7.64%203.144-12.237%200-4.557-1.044-8.62-3.144-12.175-2.064-3.562-5.096-6.33-9.075-8.307-3.985-1.978-8.729-2.957-14.216-2.957-5.526%200-10.29.979-14.275%202.957-3.98%201.977-7.012%204.745-9.076%208.307-2.061%203.516-3.083%207.58-3.083%2012.175%200%204.597%201.023%208.699%203.081%2012.294Zm31.021-19.991.008.008c1.76%201.692%202.681%204.225%202.681%207.689%200%203.507-.921%206.082-2.685%207.815-1.771%201.739-4.303%202.641-7.672%202.641-3.368%200-5.901-.902-7.671-2.641-1.764-1.733-2.685-4.308-2.685-7.815%200-3.508.902-6.061%202.623-7.751%201.769-1.699%204.321-2.583%207.733-2.583s5.94.904%207.668%202.637Z'/%3e%3cpath%20fill='%23414141'%20fill-rule='evenodd'%20d='M164.983%20195.635C139.318%20200.686%20123%20208.27%20123%20216.748c0%2015.21%2052.521%2027.54%20117.31%2027.54s117.31-12.33%20117.31-27.54c0-8.196-15.251-15.556-39.454-20.601v2.086c11.069%203.496%2017.577%207.77%2017.577%2012.385%200%2011.824-42.725%2021.41-95.43%2021.41-52.704%200-95.43-9.586-95.43-21.41%200-4.955%207.504-9.518%2020.1-13.146v-1.837Z'%20clip-rule='evenodd'/%3e%3c/svg%3e",
+      "questions": [
+        {
+          "question": "What is the 30-day money-back trial?",
+          "answer": "\n            <p>\n              Every vehicle is a little different and the experience can be hard to describe which is why we offer this trial. If you don’t love the comma four, you can return it for a refund–no questions asked. All refunds must be initiated through <a href=\"https://comma.ai/returns\">comma.ai/returns</a> within 30 calendar days of receiving your order.\n            </p>\n          "
+        },
+        {
+          "question": "When does the 30-day money-back trial start?",
+          "answer": "\n            The 30-day money-back trial starts the day your comma four is delivered (signature confirmation required for delivery). If you do decide to return your device, we ask that you get the return device in the mail within 30 days of receiving it.\n          "
+        },
+        {
+          "question": "How do I return my comma four?",
+          "answer": "\n            To return your device, please request a return at <a href=\"https://comma.ai/returns\">comma.ai/returns</a>. A prepaid return label (or return instructions if not in the US) will be automatically sent to you. $9.99 will be deducted from your refund if you choose to use this label.\n          "
+        },
+        {
+          "question": "Are international orders eligible for the trial?",
+          "answer": "\n            <p>\n              Yes. We ask that you get your return device in the mail within 30 days of receiving it.\n            </p>\n            <p>\n              The buyer is responsible for international shipping costs to return a device. Please use tracking and insurance as we are not responsible for lost or stolen packages. Return information is provided by email after initiating a return at <a href=\"https://comma.ai/returns\">comma.ai/returns</a>.\n            </p>\n          "
+        }
+      ]
+    },
+    "shop": {
+      "title": "Shop",
+      "image": "data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='480'%20height='300'%20fill='none'%3e%3cpath%20fill='%23000'%20d='M0%200h480v300H0z'/%3e%3cpath%20stroke='%23fff'%20stroke-width='15'%20d='m158%20117%2021.105%20100h121.79L322%20117H158Z'%20clip-rule='evenodd'/%3e%3cpath%20fill='%23fff'%20d='M292.965%20121.285a8.417%208.417%200%201%200%2011.903-11.903l-11.903%2011.903Zm-21.764-45.57-5.951-5.951-11.903%2011.903%205.952%205.951%2011.902-11.903Zm33.667%2033.667-33.667-33.667-11.902%2011.903%2033.666%2033.667%2011.903-11.903ZM187.035%20121.285a8.417%208.417%200%201%201-11.903-11.903l11.903%2011.903Zm21.764-45.57%205.951-5.951%2011.903%2011.903-5.951%205.951-11.903-11.903Zm-33.667%2033.667%2033.667-33.667%2011.903%2011.903-33.667%2033.667-11.903-11.903Z'/%3e%3cpath%20fill='%23414141'%20fill-rule='evenodd'%20d='M311.062%20205.249c15.338%203.799%2024.681%208.839%2024.681%2014.369%200%2011.824-42.725%2021.41-95.43%2021.41-52.704%200-95.43-9.586-95.43-21.41%200-5.46%209.109-10.442%2024.102-14.224l-.306-1.458C140.895%20208.972%20123%20216.869%20123%20225.748c0%2015.209%2052.521%2027.54%20117.31%2027.54s117.31-12.331%20117.31-27.54c0-8.94-18.145-16.885-46.26-21.916l-.298%201.417Z'%20clip-rule='evenodd'/%3e%3c/svg%3e",
+      "questions": [
+        {
+          "question": "I would like to match a price change.",
+          "answer": "\n            We do not offer price matching. Returns can be made at <a href=\"https://comma.ai/returns\">comma.ai/returns</a> within 30 days of receiving the order.\n          "
+        },
+        {
+          "question": "Is the 1-year hardware warranty transferable?",
+          "answer": "\n            Yes. Hardware in the comma shop comes with a 1 year limited warranty against\n            defects. If you have a device that was not purchased from the comma shop,\n            the 1 year warranty does transfer, but you must provide the original order\n            number and email address associated with the device. We cannot provide this\n            information for you.\n          "
+        },
+        {
+          "question": "How do I cancel or modify my order?",
+          "answer": "\n            <p>\n              To cancel your order: open your order confirmation email and click \"View Your Order\"; you will see the option to cancel on your order page. You can cancel your order for a full refund up until it ships.\n            </p>\n            <p>\n              An order cannot be modified; please cancel your order and make a new, correct order.\n            </p>\n            <p>\n              Occasionally, we will ship immediately, on the weekend, or during a holiday, so we cannot always guarantee that you or us can catch your order early enough to cancel or modify it.\n            </p>\n          "
+        },
+        {
+          "question": "I got an email saying my order was marked as fraud?",
+          "answer": "\n            Our payment processor will occasionally flag an order for suspicious activity. If this happens, reach out to our support team at <a href=\"https://comma.ai/support\">comma.ai/support</a>.\n          "
+        },
+        {
+          "question": "I ordered to the wrong address, now what?",
+          "answer": "\n            <p>\n              Domestic shipping only: if you ordered to the wrong address, please open a support ticket at <a href=\"https://comma.ai/support\">comma.ai/support</a> and we will do our best to recall the device to the comma warehouse and refund you once it has returned (can take 7-10+ days). We recommend you make a new purchase once we confirm the device has been recalled.\n            </p>\n            <p>\n              For international shipping, we do not have the ability to recall the device. Please open a ticket at <a href=\"https://comma.ai/support\">comma.ai/support</a> and we will do what we can to resolve the issue, but ultimately the customer is responsible for providing a correct delivery address.\n            </p>\n          "
+        },
+        {
+          "question": "Do you have wholesale and discounted bulk pricing?",
+          "answer": "\n            <p>\n              We offer a 10% discount on products with the purchase of 10+ (excluding\n              parts). This discount will automatically be applied in the cart. No code\n              necessary.\n              <b>\n                If you'd like to order more than 10 units, <a href=\"https://comma.ai/support\">contact support</a> to discuss even deeper discounts that scale with quantity.\n              </b>\n            </p>\n            <p>\n              If the discount is not automatically applied, please <a href=\"https://comma.ai/support\">contact support</a>\n              for assistance.\n            </p>\n            <p>\n              The <a href=\"/shop\">comma shop</a> is the official and only retailer of comma devices. comma does not sell devices in any other stores online.\n            </p>\n          "
+        },
+        {
+          "question": "Do you offer any discounts (Military, Senior, etc)?",
+          "answer": "\n            We do not offer discounts for specific groups.\n          "
+        },
+        {
+          "question": "Do you offer any upgrades or trade-in discounts for the comma two, three, or 3X?",
+          "answer": "\n            Yes! Trade-in details can be <a href=\"/shop/comma-four-trade-in\">found here</a>.\n          "
+        },
+        {
+          "question": "What do I need to know before making an international order?",
+          "answer": "\n            <p>\n              We recommend verifying that your car is supported at <a href=\"/vehicles\">comma.ai/vehicles</a>. All support is for US cars unless specified otherwise.\n            </p>\n            <p>\n              Our prices do not include customs duties and taxes that may apply when shipping to your country. These charges are typically determined by your local customs authority and are your responsibility to pay. The fees often range from $150-350 for a comma four and harness, but they can be more depending on your government. The comma four HS Code is 8525.81. If you refuse to pay these fees, comma is forced to cover them to receive the device back and they will be subtracted from the cost of your return refund.\n            </p>\n            <p>\n              Non-Refundable Duties and Taxes:\n              Please be aware that our store does not refund customs duties or taxes on international orders. These costs are paid directly to your government and are not recoverable through our store. You may be eligible for a duty refund directly from your local customs office, but this is subject to their policies. A link to your invoice is in your order confirmation email. We may be able to provide you with additional paperwork needed to retrieve these fees from your government by opening a support ticket.\n            </p>\n            <p>\n              Please carefully check that your mailing address is correct before placing an order as it is not possible to change or correct the address once your order has been placed. We are not responsible for devices delivered to incorrect addresses.\n            </p>\n          "
+        },
+        {
+          "question": "I would like to place an order outside of your online store.",
+          "answer": "\n            All orders must be made through our shop except those over $10,000 can be made via purchase order and wire. Please open a support ticket with a detailed list of items you would like to purchase (or a PO) and we will send you next steps.\n          "
+        }
+      ]
+    },
+    "returns": {
+      "title": "Shipping & Returns",
+      "image": "data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='480'%20height='300'%20fill='none'%3e%3cpath%20fill='%23000'%20d='M0%200h480v300H0z'/%3e%3cpath%20fill='%23414141'%20fill-rule='evenodd'%20d='M268%20186.148a488.796%20488.796%200%200%200-27.69-.772c-13.788%200-27.021.558-39.31%201.584v.311c11.988-1.217%2025.298-1.895%2039.313-1.895%209.629%200%2018.924.32%2027.687.915v-.143Zm26%202.935c25.199%203.854%2041.743%2010.345%2041.743%2017.703%200%2011.824-42.725%2021.41-95.43%2021.41-52.704%200-95.43-9.586-95.43-21.41%200-6.156%2011.579-11.704%2030.117-15.61v-1.141c-31.361%204.944-52%2013.346-52%2022.881%200%2015.21%2052.521%2027.54%20117.31%2027.54s117.31-12.33%20117.31-27.54c0-10.668-25.836-19.919-63.62-24.493v.66Z'%20clip-rule='evenodd'/%3e%3cg%20clip-path='url(%23a)'%3e%3cpath%20fill='%23fff'%20d='M155.117%20101.188a15.937%2015.937%200%200%201%2015.937-15.938h95.625a15.939%2015.939%200%200%201%2015.938%2015.938v15.937h10.837a15.944%2015.944%200%200%201%2012.432%205.982l15.735%2019.656a15.941%2015.941%200%200%201%203.496%209.966v22.833a15.938%2015.938%200%200%201-15.938%2015.938h-5.312a21.25%2021.25%200%200%201-42.5%200h-53.125a21.242%2021.242%200%200%201-6.368%2015.215%2021.253%2021.253%200%200%201-30.395-.647%2021.25%2021.25%200%200%201-5.716-15.471%2015.937%2015.937%200%200%201-10.646-15.035v-74.374Zm13.749%2079.22a21.231%2021.231%200%200%201%2018.397-10.167%2021.238%2021.238%200%200%201%2018.131%2010.634h58.82a21.36%2021.36%200%200%201%207.778-7.778v-71.909a5.314%205.314%200%200%200-5.313-5.313h-95.625a5.31%205.31%200%200%200-5.312%205.313v74.374a5.315%205.315%200%200%200%203.124%204.846Zm113.751-10.158a21.253%2021.253%200%200%201%2018.402%2010.625h8.16a5.314%205.314%200%200%200%205.313-5.313v-22.843a5.307%205.307%200%200%200-1.169-3.315l-15.725-19.656a5.31%205.31%200%200%200-4.144-1.998h-10.837v42.5Zm-95.625%2010.625a10.622%2010.622%200%200%200-10.625%2010.625%2010.624%2010.624%200%201%200%2010.625-10.625Zm95.625%200a10.622%2010.622%200%200%200-10.625%2010.625%2010.624%2010.624%200%201%200%2010.625-10.625Z'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='a'%3e%3cpath%20fill='%23fff'%20d='M155.117%2064h170v170h-170z'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e",
+      "questions": [
+        {
+          "question": "How do I make a return?",
+          "answer": "\n            <p>\n              If you're within 30 days of your order delivery, you can request a return at <a href=\"https://comma.ai/returns\">comma.ai/returns</a>.\n            </p>\n            <ul>\n              <li><strong>For U.S. returns:</strong> A prepaid return label will be provided when you submit your request. A $9.99 fee will be deducted from your refund if you choose to use this label.</li>\n              <li><strong>For international returns:</strong> The buyer is responsible for all shipping costs. Please use tracking and insurance, as we are not responsible for lost or stolen packages. A return address will be provided after you submit your request.</li>\n            </ul>\n            <p>\n              Please allow 2-5 business days for your return to be processed after we receive it. You will receive a confirmation email once it has been completed.\n            </p>\n            <p>\n              Original packaging is not required, but we are not responsible for damage due to poor packaging. If reusing a box, please remove or cover all barcodes and labels.\n            </p>\n            <p>\n              <strong>Please note:</strong> UPS 2nd Day Air and international shipping fees are non-refundable.\n            </p>\n          "
+        },
+        {
+          "question": "Can I exchange my order?",
+          "answer": "\n            We are unable to offer exchanges of any kind at this time. We request that if you have an issue you make a return via <a href=\"https://comma.ai/returns\">comma.ai/returns</a>.\n          "
+        },
+        {
+          "question": "How do international returns work?",
+          "answer": "\n            <p>\n              The buyer is responsible for all shipping costs, duties, and customs fees to return a device for both 30-day returns and warranty returns. comma covers the costs of sending a repair or replacement device, which will be valued at $1 (the buyer is always responsible for all taxes and duties).\n            </p>\n            <p>\n              Please use tracking and insurance, as we are not responsible for lost or stolen packages. Be sure to mark the package as \"Return of Goods\" and include HTS code 9801.00.10 on the customs form to avoid import charges. <strong>The customer is responsible for paying all duties and customs fees on the return.</strong>\n            </p>\n            <p>\n              Instructions on how to return your device will be provided after you request a return at <a href=\"https://comma.ai/returns\">comma.ai/returns</a>.\n            </p>\n          "
+        },
+        {
+          "question": "When will I receive my order?",
+          "answer": "\n            <p>\n              Orders placed after 7:00 AM PT will be shipped the next business day. You will receive an email with tracking information once your order ships. Please allow 1-2 days for the tracking to become active.\n            </p>\n            <p>\n              Most orders are delivered within 5-10 days, unless expedited. We are not responsible for delays in UPS 2nd Day Air shipping, purchase at your own risk. For international orders, shipping times can vary widely, so please be patient.\n            </p>\n            <p>\n              If your order hasn’t shipped within a few business days, please check your email for any updates from us regarding potential stock issues, address corrections, or fraud verifications. All shipping information is subject to change.\n            </p>\n          "
+        },
+        {
+          "question": "How can I cancel my order?",
+          "answer": "\n            <p>\n              To cancel your order: open your order confirmation email and click \"View Your Order\"; you will see the option to cancel on your order page. You can cancel your order for a full refund up until it ships.\n            </p>\n            <p>\n              An order cannot be modified; if you need to make a change, please cancel your order and make a new, correct order.\n            </p>\n            <p>\n              Occasionally, we will ship immediately, on the weekend, or during a holiday, so we cannot always guarantee that you or us can catch your order early enough to cancel or modify it.\n            </p>\n          "
+        },
+        {
+          "question": "Where does my order ship from?",
+          "answer": "\n            All orders ship from our warehouse in San Diego, California.\n          "
+        },
+        {
+          "question": "Where do we ship?",
+          "answer": "\n            We ship to the entire US and most countries. We ship internationally with a flat rate of $30. We do not ship to PO Boxes (with an exception for Military). If you reject an international package we will deduct any additional fees from your return. All US deliveries require signature confirmation at this time though subject to change.\n          "
+        },
+        {
+          "question": "What do I do if my device arrives damaged?",
+          "answer": "\n            <p>\n            Please alert us to any issues with your order within 3 days of delivery by opening a <a href=\"https://commasupport.zendesk.com/hc/en-us/requests/new?ticket_form_id=29233377161623\">support ticket here</a> and including pictures of both the product and packaging. We may not be responsible for damages if we are not notified within this window.\n            </p>\n            <p>\n            If we receive a damaged device returned to us, we will deduct the cost of the repair from your return. We are not responsible for lost or damaged items mailed back to us and recommend using the original packaging to make a return or carefully padding your device when sending it back.\n            <p>\n          "
+        },
+        {
+          "question": "My order has no recent tracking activity and is past the delivery date. What should I do?",
+          "answer": "\n            Please call UPS at <a href=\"tel:1-800-742-5877\">1-800-742-5877</a> or use their online contact form to report the issue. Provide your tracking number and explain the situation. If the package is confirmed lost or significantly delayed (over one week), please notify us so we can initiate an investigation and file a claim with UPS. We will keep you updated on the status of the investigation and arrange for any necessary reimbursement or replacement.\n          "
+        },
+        {
+          "question": "My order tracking shows delivered, but the package has not shown up yet?",
+          "answer": "\n            If your order is via USPS, please note that we will respond to your support ticket 3-4 days after to see if the order has finally shown up. Most delayed USPS orders do eventually arrive within a few days. If this is UPS and the device was signed for, there is little we can do on our end as this is considered a closed matter. If your UPS package was not delivered, please check tracking to see if your order may be at a UPS pickup location. If the order is shown as being returned to the comma warehouse, we will refund it and we recommend that you place a new order.\n          "
+        },
+        {
+          "question": "Do you offer a warranty?",
+          "answer": "\n            We offer a 1-year limited warranty against hardware defects. If you believe your hardware is defective, please fill out a support request at <a href=\"https://comma.ai/support\">comma.ai/support</a>.\n          "
+        },
+        {
+          "question": "What is the return policy?",
+          "answer": "\n            <p>\n              You can request a return within 30 days of the delivery date at <a href=\"https://comma.ai/returns\">comma.ai/returns</a>. For U.S. returns, we offer a prepaid return label for $9.99, which will be deducted from your refund if you choose to use it. International customers are responsible for return shipping costs and should use tracking and insurance, as we are not responsible for lost or stolen packages.\n            </p>\n            <p>\n              Please note that UPS 2nd Day Air and international shipping fees are non-refundable.\n            </p>\n            <p>\n              We reserve the right to cancel orders from customers who have made returns within 6 months of their most recent purchase.\n            </p>\n            <p>\n              If you return a device while having multiple orders within an eligible return window, we will refund the lowest price paid for the eligible devices. A full refund will be provided if all open orders are returned.\n            </p>\n            There are some items that are ineligible for return, including:\n            <ul>\n              <li>Parts</li>\n              <li>Repairs</li>\n              <li>Items marked as “Final Sale”</li>\n            </ul>\n            <p>\n              Only items purchased directly from the <a href=\"https://comma.ai\">comma shop</a> can be returned. We are not responsible for devices damaged due to poor packaging or for items lost without a tracking number.\n            </p>\n          "
+        },
+        {
+          "question": "How long does it take to receive my refund?",
+          "answer": "\n            Refunds can take 2-5 business days to process once we have received your return. If you have not received a refund within 1 week of delivery please open a comma shop support ticket on the <a href=\"https://comma.ai/support\">support page</a>. We will process your refund and reimburse the payment method you used for the original purchase which can take up to a week depending on your bank.\n          "
+        }
+      ]
+    },
+    "troubleshooting": {
+      "title": "Hardware Troubleshooting",
+      "image": "/img/faq/other.svg",
+      "questions": [
+        {
+          "question": "Why is a stock route required to open a hardware support ticket?",
+          "answer": "\n            <p>\n              It is our policy for a comma engineer to root cause every hardware issue, for both our understanding of any hardware failures and to provide you with the best experience.\n              A route on the latest stock openpilot is necessary before a ticket is sent to an engineer for review.\n              <strong>Any ticket with a route from third party software will be closed with a request for a new ticket with a stock route.</strong>\n            </p>\n\n            We cannot review logs from third party software for several reasons, including:\n            <ul>\n              <li>your issue may be directly caused by the third party software</li>\n              <li>the third party software may not be up to date with the latest openpilot</li>\n              <li>the third party software lacks the necessary logging for an engineer to review the issue</li>\n            </ul>\n          "
+        },
+        {
+          "question": "How do you replace the SIM card in a comma 3X?",
+          "answer": "\n            <p>\n              All comma 3Xs come with a SIM card. The SIM slot is a\n              push/pull mechanism, where you must push on the card to release it and then\n              guide it out.\n\n              <div class=\"video-container\">\n                <iframe\n                  src=\"https://www.youtube-nocookie.com/embed/t_XSGZyHjM4\"\n                  frameborder=\"0\"\n                  allow=\"autoplay; encrypted-media\"\n                  allowfullscreen=\"\"\n                  title=\"How to replace the SIM card in a comma 3X\"\n                ></iframe>\n              </div>\n            </p>\n            <p>\n              Make sure your SIM is inserted correctly by following the step-by-step guide\n              below:\n\n              <figure>\n                <img src=/img/comma-3x-sim-insertion.png alt=\"steps to insert comma 3X SIM card\">\n              </figure>\n            </p>\n\n            <strong>How to replace the SIM card in a comma 3X</strong>\n\n            <ol>\n              <li>With the comma 3X off and unplugged, tap/push the SIM card with the\n              big SIM card, credit card, or other narrow hard object to release the SIM\n              (you will hear a click).</li>\n              <li>Gently pull the SIM card from the SIM slot (try tweezers)</li>\n              <li>Push the SIM card into the SIM slot (with the metal contacts facing\n              downwards) with your fingernail or plastic card until you hear a click or\n              reach resistance. If you've done this step correctly, the SIM card should\n              stay completely recessed inside the comma 3X.</li>\n            </ol>\n            <p>\n              We recommend you clean the camera lenses with a microfiber cloth before\n              using the comma 3X again.\n            </p>\n            <strong>How to activate the new SIM card</strong>\n            <p>\n              Once your new SIM card is installed, your comma 3X will need to connect\n              to Wi-Fi to activate the SIM card. Best ways to get your comma 3X online:\n              hotspot from your phone, bring your car somewhere with Wi-Fi or connect your\n              comma 3X to a USB charger in a place with Wi-Fi. Your comma 3X\n              requires about 5 minutes of Wi-Fi connection and then can take up to 30\n              minutes to activate and might require a reboot. You will know the activation\n              started when the device displays \"CONNECT ONLINE\".\n            </p>\n            <p>\n              After the next reboot, your SIM card should connect to the internet and you\n              should have prime again!\n            </p>\n          "
+        },
+        {
+          "question": "My comma four is having issues. What should I do?",
+          "answer": "\n            We recommend first trying to reflash your device at <a href=\"https://flash.comma.ai\">flash.comma.ai</a> and to reseat all the cable connections. comma support is only able to look into issues on stock with a route where the issue occurs. If you are running a fork, we are unable to diagnose defective hardware without a route on stock. Once you have a route, please open a ticket at <a href=\"https://comma.ai/support\">comma.ai/support</a>. Pictures, videos, and uploading logs via wi-fi are very helpful and often expedite the resolution process. Please also include any troubleshooting steps you have already taken. We also recommend reviewing the community <a href=\"https://github.com/commaai/openpilot/wiki\">GitHub wiki</a> and <a href=\"https://discord.comma.ai\">discord.comma.ai</a> for other troubleshooting.\n          "
+        },
+        {
+          "question": "Performing a Factory Reset",
+          "answer": "\n            <p>\n              Reset the comma 3/3X by repeatedly tapping on the screen as soon as the device boots up.\n              After that, the factory reset screen will come up.\n            </p>\n            <p>\n              If this does not work, a more complete factory reset can be performed at <a href=\"https://flash.comma.ai\">flash.comma.ai</a>.\n            </p>\n          "
+        }
+      ]
+    },
+    "jobs": {
+      "title": "Jobs",
+      "image": "/img/faq/other.svg",
+      "questions": [
+        {
+          "question": "Do you sponsor visas?",
+          "answer": "\n          <p>\n            Yes, we sponsor visas and green cards.\n            </p>\n            <p>\n            If we make you an offer, we'll make every reasonable effort to get you a visa and retain an immigration lawyer to help with this.\n            </p>\n          "
+        },
+        {
+          "question": "What's your remote work policy?",
+          "answer": "\n            comma is IRL in San Diego, CA.\n          "
+        },
+        {
+          "question": "Do you offer internships?",
+          "answer": "\n            Yes! All teams hire interns year-round.\n          "
+        },
+        {
+          "question": "Are you hiring for any other roles?",
+          "answer": "\n            We're interested in anyone who can get a top spot on the <a href=\"https://comma.ai/leaderboard\">leaderboard</a>.\n          "
+        },
+        {
+          "question": "Any other requirements?",
+          "answer": "\n            Nope. We're just looking for people who do well on our challenges and can independently contribute to solving self-driving cars.\n          "
+        }
+      ]
+    },
+    "other": {
+      "title": "Other",
+      "image": "/img/faq/other.svg",
+      "questions": [
+        {
+          "question": "How can I invest in comma?",
+          "answer": "\n            comma is a private company and we are not seeking outside investment at this time.\n          "
+        },
+        {
+          "question": "Can I get a review device? (I am a Reviewer / Media / YouTuber)",
+          "answer": "\n            We have a 30-day no questions asked return policy if you would like to experience a comma four for yourself.\n          "
+        },
+        {
+          "question": "I'd like to partner with comma.",
+          "answer": "\n            <p>\n              We don't really know what that means. We offer wholesale pricing and these\n              <a href=\"/shop#services\">services</a>.\n            </p>\n            <p>\n              Car companies: <a href=\"https://blog.comma.ai/working-with-comma-a-guide-for-car-companies/\">How to work with us?</a>\n            </p>\n          "
+        },
+        {
+          "question": "Why haven't I heard back from support?",
+          "answer": "\n            <p>\n              comma support is for comma shop order and warranty related issues. Our inbox is not monitored; please open a support ticket on our <a href=\"https://comma.ai/support\">comma.ai/support</a>.\n            </p>\n            <p>\n              comma does not provide support for openpilot. We recommend the <a href=\"https://discord.comma.ai\">community Discord</a> or open an issue on openpilot’s GitHub.\n            </p>\n          "
+        }
+      ]
+    }
+  },
+  "supportFaqs": {
+    "needSupport": {
+      "title": "What comma support can help with",
+      "questions": [
+        {
+          "question": "Hardware support for an in-warranty comma four/3X",
+          "answer": "\n            <div style=\"margin-left: 2rem\">\n              <strong>Before contacting support, first try these:</strong>\n              <ul>\n                <li>Reseat all connections and cables; see the <a href=\"/setup\">setup guide</a>.</li>\n                <li>Ensure there's no third party hardware installed, including the mount, harness, and any cables.</li>\n                <li>Unplug the device for an hour to allow the device's supercapacitors to fully drain.</li>\n                <li>Ensure that the issue occurs while running the latest openpilot release.  <b>We cannot look into issues while running forks or other software.</b></li>\n                <li>Still having issues? Reflash the device to the factory default state with <a href=\"https://flash.comma.ai\">flash.comma.ai</a>.</li>\n              </ul>\n\n              <strong>GPS issues?</strong>\n              <p>\n                Ensure there's nothing blocking the device's view of the sky.\n                If you're still having issues, contact support and include a picture of the comma device on the windshield.\n              </p>\n\n              <strong>Issues after installing a fork?</strong>\n              <p>\n                Forks (aka third party software) can cause issues that may seem like hardware malfunctions, such as a blank screen or a fan malfunction.\n                Use the instructions below to restore your device to stock.\n              </p>\n\n              <strong>Restore your device to stock</strong>\n              <p>\n                Support can only troubleshoot issues that occur while using stock comma hardware and software.\n                </br></br>\n                For hardware, ensure you are only using a harness, cable, and mounts from the comma shop.\n                </br></br>\n                For software, first reflash the device with <a href=\"https://flash.comma.ai\">flash.comma.ai</a> to get the device to a clean factory state.\n                Then, install the latest openpilot release using the \"openpilot\" button in the setup.\n              </p>\n\n              <strong>Still having issues?</strong>\n              <p>\n                Open a ticket with <a href=\"https://commasupport.zendesk.com/hc/en-us/requests/new?ticket_form_id=14150133300887\">support</a>.\n                If you haven't followed <b>all</b> the steps above, we cannot look into your issue, and the ticket will be closed.\n              </p>\n            </div>\n            "
+        },
+        {
+          "question": "Support for a comma prime subscription",
+          "answer": "\n            First ensure your device is running the latest stock openpilot release.\n            We cannot look into issues while running forks or other software; see <a href=\"/support#why-is-a-stock-route-required-to-open-a-hardware-support-ticket\">here</a> for why.\n            <br></br>\n\n            Use <a href=\"https://connect.comma.ai\">connect.comma.ai</a> to manage and cancel your subscription.\n            </br></br>\n            If you still have issues, open a <a href=\"https://commasupport.zendesk.com/hc/en-us/requests/new?ticket_form_id=29233366516631\">ticket</a> with support.\n          "
+        },
+        {
+          "question": "I'm adding support for a new car and would like to extend my return window.",
+          "answer": "\n            If you're adding support for a new car, we can extend your return window to 90 days.\n            Open a <a href=\"https://commasupport.zendesk.com/hc/en-us/requests/new?ticket_form_id=29233363745559\">ticket</a> with support with your order number once you've placed the order.\n            Return window extensions are subject to approval.\n          "
+        },
+        {
+          "question": "My comma 3X is out of warranty and needs repair.",
+          "answer": "\n            We offer repairs at a flat-rate for out of warranty comma 3X devices.\n            More details on the <a href=\"/shop/comma-3x-out-of-warranty-repair\">shop</a>.\n          "
+        },
+        {
+          "question": "My older comma device is out of warranty and needs repair.",
+          "answer": "\n            We offer trade-ins for eligible devices.\n            More details on the <a href=\"/shop/comma-four-trade-in\">shop</a>.\n          "
+        },
+        {
+          "question": "I broke my device's screen.",
+          "answer": "\n            We offer <a href=\"/shop/comma-device-screen\">replacement screens</a> on the shop.\n          "
+        },
+        {
+          "question": "I need assistance with an active shop order.",
+          "answer": "\n            Process your return at <a href=\"https://comma.ai/returns\" target=\"_blank\" rel=\"noopener\">comma.ai/returns</a>.\n            Cancel or edit your existing order directly from your order confirmation email.\n            For other issues, open a <a href=\"https://commasupport.zendesk.com/hc/en-us/requests/new?ticket_form_id=29233377161623\">ticket</a> with support.\n          "
+        },
+        {
+          "question": "I'm ready to claim an openpilot bounty.",
+          "answer": "\n            Thanks for contributing! Open a <a href=\"https://commasupport.zendesk.com/hc/en-us/requests/new?ticket_form_id=29233607274775\">ticket</a> with support to claim.\n          "
+        }
+      ]
+    }
+  }
+}
