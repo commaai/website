@@ -2,7 +2,7 @@ import '../main.js';
 // Home page behaviors (port of src/routes/+page.svelte lines 1-92):
 // HLS hero/screen videos + dragstart suppression. Nothing else is
 // interactive on this page.
-import Hls from '../vendor/hls.mjs';
+import Hls from '../vendor/hls.min.js';
 
 const CDN = 'https://3comma.net';
 
