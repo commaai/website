@@ -14,4 +14,4 @@ if ! command -v hugo >/dev/null || ! hugo version | grep -q extended; then
   export PATH="$HOME/.local/bin:$PATH"
 fi
 
-hugo server --open
+hugo server --openBrowser
