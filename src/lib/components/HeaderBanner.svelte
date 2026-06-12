@@ -1,19 +1,18 @@
-<a href="/shop/comma-four" class="banner">
+<div class="banner">
   <div class="wrapper">
-    <strong class="headline">
-      THE WAIT IS OVER: COMMA FOUR IS NOW IN STOCK
-    </strong>
+    <p class="headline">
+      New open roles in San Diego.
+      <a href="/jobs" class="cta">Build with us -&gt;</a>
+    </p>
   </div>
-</a>
+</div>
 
 <style>
   .banner {
-    display: block;
-    text-decoration: none;
     color: black;
     position: relative;
     z-index: 1;
-    background-color: var(--color-accent);
+    background-color: var(--color-card-background-hover);
   }
 
   .wrapper {
@@ -31,14 +30,22 @@
     grid-row-gap: 0.5rem;
   }
 
-  strong {
-    display: block;
+  .headline {
+    font-family: Inter, sans-serif;
+    font-size: 1.25rem;
+    font-weight: 400;
     margin: 0 0.5rem;
-    font-family: JetBrains Mono, monospace;
-    text-decoration: none;
   }
 
-  .headline {
-    font-size: 1.25rem;
+  .cta {
+    color: inherit;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+  }
+
+  .cta:hover,
+  .cta:focus-visible {
+    text-decoration-thickness: 2px;
   }
 </style>
