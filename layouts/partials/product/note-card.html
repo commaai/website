@@ -1,0 +1,13 @@
+{{- /*
+  NoteCard.svelte (scope svelte-1328bir).
+  Args (dict):
+    title       card label (plain text)
+    contentHTML inner HTML of the body <div> — pass EXACTLY what should land
+                between <div> and </div> (products.json notes carry a trailing
+                space after the {@html} block in the old SSR output; plain-text
+                slots like the Shipping card do not — the caller decides)
+    icon        optional icon path under assets/icons (default "ui/info.svg")
+    elevated    optional bool — adds the `elevated` class (unused on shop pages)
+*/ -}}
+{{- $icon := .icon | default "ui/info.svg" -}}
+<div class="card svelte-1328bir{{ if .elevated }} elevated{{ end }}"><div class="icon-slot"> {{ partial "icon.html" $icon }} </div> <hgroup><span>{{ .title }}</span> <div>{{ .contentHTML | safeHTML }}</div></hgroup> </div>

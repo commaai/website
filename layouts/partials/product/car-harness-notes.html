@@ -1,0 +1,6 @@
+{{- /* CarHarness.svelte notes slot — two NoteCards (plain-text slots, so no
+       trailing space after the body text, unlike products.json notes). */ -}}
+{{- partial "product/note-card.html" (dict "title" "Compatibility" "contentHTML" "Harness compatibility based on the US car market.") -}}
+{{ partial "product/note-card.html" (dict "title" "Note" "contentHTML" `Does not include the
+      <a href="/shop/obd-c-cable" target="_blank">OBD-C cable</a>, sold
+      separately.`) -}}

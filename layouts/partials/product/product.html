@@ -1,0 +1,96 @@
+{{- /*
+  Product.svelte (scope svelte-vml9z1) + Select.svelte (svelte-zt3auu) +
+  Grid/Button/NoteCard wrappers — the generic product component used by every
+  /shop/<product> page (and reused by the comma-four / body / setup slices).
+
+  Args (dict):
+    key       product key in data/products.json (e.g. "panda")
+    product   the data/products.json entry
+    snapshot  build-time Shopify product (partial product/shopify-snapshot.html)
+
+  Optional overrides (defaults follow src/routes/shop/[product]/+page.svelte):
+    autoSelectFirstVariant  bool, default true (car-harness passes false)
+    variantSelector         partial path rendered instead of the variant
+                            image + <select> (e.g. "product/harness-selector.html")
+    variantSelectorArgs     dict passed to that partial
+    forceOutOfStock         bool, default product.forceOutOfStock (body page)
+    hideOutOfStockVariants  bool, default product.hideOutOfStockVariants
+    backordered             string, default product.backordered (unset today)
+    backorderedPrefix       string, default product.backorderedPrefix or "ships in "
+    disableBuyButtonText    string (comma-four: "SELECT YOUR CAR")
+    priceOverride           number (comma-four: 999)
+    priceHTML               replaces the price slot default ({priceLabel})
+    priceAccessoryHTML      fills the empty price-accessory slot
+    shippingHTML            replaces the default Shipping NoteCard
+    notesHTML               inner HTML of <div slot="notes"> (default: one
+                            NoteCard per product.notes entry)
+    descriptionHTML         inner HTML of <div slot="description"> (default:
+                            product.description verbatim)
+
+  Also emits the <script type="application/json" id="product-config"> tag read
+  by assets/js/lib/product-page.js (initProductPage) — stripped by the
+  normalize-diff harness, invisible to DOM parity.
+*/ -}}
+{{- $product := .product -}}
+{{- $snapshot := .snapshot -}}
+{{- $images := $product.images | default slice -}}
+{{- /* boolean props — `default` mistreats explicit false, so use isset */ -}}
+{{- $autoSel := true -}}
+{{- if isset . "autoSelectFirstVariant" }}{{ $autoSel = .autoSelectFirstVariant }}{{ end -}}
+{{- $forceOOS := false -}}
+{{- if isset . "forceOutOfStock" }}{{ $forceOOS = .forceOutOfStock }}{{ else if $product.forceOutOfStock }}{{ $forceOOS = true }}{{ end -}}
+{{- $hide := false -}}
+{{- if isset . "hideOutOfStockVariants" }}{{ $hide = .hideOutOfStockVariants }}{{ else if $product.hideOutOfStockVariants }}{{ $hide = true }}{{ end -}}
+{{- $backordered := "" -}}
+{{- if isset . "backordered" }}{{ $backordered = .backordered }}{{ else }}{{ with $product.backordered }}{{ $backordered = . }}{{ end }}{{ end -}}
+{{- $prefix := "ships in " -}}
+{{- if isset . "backorderedPrefix" }}{{ $prefix = .backorderedPrefix }}{{ else }}{{ with $product.backorderedPrefix }}{{ $prefix = . }}{{ end }}{{ end -}}
+{{- $disableText := .disableBuyButtonText | default "" -}}
+{{- /* variants (build-time snapshot), hideOutOfStockVariants filter applied */ -}}
+{{- $nodes := slice -}}
+{{- with $snapshot.variants }}{{ with .nodes }}{{ $nodes = . }}{{ end }}{{ end -}}
+{{- $variants := slice -}}
+{{- range $v := $nodes }}{{ if or (not $hide) $v.availableForSale }}{{ $variants = $variants | append $v }}{{ end }}{{ end -}}
+{{- $selected := dict -}}
+{{- $hasSelected := false -}}
+{{- if and $autoSel (gt (len $variants) 0) -}}
+  {{- $selected = index $variants 0 -}}
+  {{- $hasSelected = true -}}
+{{- end -}}
+{{- /* getPriceLabel — formatCurrency(price, 0) === "$" + amount.toFixed(0) */ -}}
+{{- $priceLabel := "" -}}
+{{- if isset . "priceOverride" -}}
+  {{- $priceLabel = printf "$%.0f" (float .priceOverride) -}}
+{{- else if $hasSelected -}}
+  {{- $priceLabel = printf "$%.0f" (float $selected.price.amount) -}}
+{{- else if ne $snapshot.priceRange.minVariantPrice.amount $snapshot.priceRange.maxVariantPrice.amount -}}
+  {{- $priceLabel = printf "from $%.0f" (float $snapshot.priceRange.minVariantPrice.amount) -}}
+{{- else -}}
+  {{- $priceLabel = printf "$%.0f" (float $snapshot.priceRange.minVariantPrice.amount) -}}
+{{- end -}}
+{{- /* buy button label + disabled */ -}}
+{{- $outOfStock := or $forceOOS (and $hasSelected (eq $selected.availableForSale false)) -}}
+{{- $buyLabel := "Add to cart" -}}
+{{- if ne $disableText "" -}}
+  {{- $buyLabel = $disableText -}}
+{{- else if $outOfStock -}}
+  {{- $buyLabel = "Out of stock" -}}
+  {{- if ne $backordered "" }}{{ $buyLabel = printf "Out of stock (%s%s)" $prefix $backordered }}{{ end -}}
+{{- else if ne $backordered "" -}}
+  {{- $buyLabel = printf "Add to cart (%s%s)" $prefix $backordered -}}
+{{- end -}}
+{{- $disabled := or $forceOOS (not $hasSelected) (and $hasSelected (eq $selected.availableForSale false)) (ne $disableText "") -}}
+<div class="grid svelte-7tyzqm  medium" style="--columns: 2; --align-items: flex-start; --column-gap: 6rem; --row-gap: 0; --wrapped-columns: 1; --template-columns: 1.25fr 0.75fr; --lg-column-gap: 2rem; --lg-template-columns: 1fr 1fr;"><div><div class="preview svelte-vml9z1">{{ partial "picture.html" (dict "src" (index $images 0) "attrs" (dict "alt" "product preview")) }}</div> {{ if gt (len $images) 1 }}<div class="product-images svelte-vml9z1">{{ range $i, $img := $images }}<button class="variant svelte-vml9z1" role="tab" aria-selected="{{ if eq $i 0 }}true{{ else }}false{{ end }}" aria-label="View product variant {{ $i }}">{{ partial "picture.html" (dict "src" $img "attrs" (dict "alt" (printf "product preview %d" (add $i 1)))) }} </button>{{ end }}</div>{{ end }}</div> <div><div><div class="variant-selector svelte-vml9z1"><h1 class="svelte-vml9z1">{{ $product.title }}</h1> <div class="price"> {{ with .priceHTML }}{{ . | safeHTML }}{{ else }}{{ $priceLabel }}{{ end }} </div> {{ with .priceAccessoryHTML }}{{ . | safeHTML }} {{ end }}{{ if .variantSelector }}{{ partial .variantSelector (.variantSelectorArgs | default dict) }} {{ else if and (gt (len $variants) 1) $hasSelected }}<picture><img src="{{ $selected.image.url }}" alt=""></picture> <div class="select svelte-zt3auu"><select class="svelte-zt3auu">{{ range $variants }}<option value="{{ .id }}">{{ .title }} </option>{{ end }}</select> </div>{{ end }}</div> <button class="svelte-1io34pc   accent full-width{{ if $disabled }} disabled{{ end }}">{{ $buyLabel }} </button>  {{ with .shippingHTML }}{{ . | safeHTML }}{{ else }}{{ $shippingText := "Free US shipping, $30 flat rate internationally." }}{{ if $product.freeRush }}{{ $shippingText = "Free Rush (UPS 2nd Day Air) shipping. $30 flat rate internationally." }}{{ end }}{{ partial "product/note-card.html" (dict "title" "Shipping" "icon" "features/shipping.svg" "contentHTML" $shippingText) }}{{ end }}  <div slot="notes">{{ with .notesHTML }}{{ . | safeHTML }}{{ else }}{{ range $note := $product.notes | default slice }}{{ partial "product/note-card.html" (dict "title" $note.title "contentHTML" (printf "%s " $note.content)) }}{{ end }}{{ end }}</div> <hr class="svelte-vml9z1"> <div class="description svelte-vml9z1"><div slot="description">{{ with .descriptionHTML }}{{ . | safeHTML }}{{ else }}{{ with $product.description }}{{ . | safeHTML }}{{ end }}{{ end }}</div></div></div></div></div>
+<script type="application/json" id="product-config">{{ dict
+  "key" .key
+  "id" $product.id
+  "autoSelectFirstVariant" $autoSel
+  "forceOutOfStock" $forceOOS
+  "hideOutOfStockVariants" $hide
+  "hasVariantSelector" (ne (.variantSelector | default "") "")
+  "hasPriceSlot" (ne (.priceHTML | default "") "")
+  "backordered" (cond (eq $backordered "") nil $backordered)
+  "backorderedPrefix" $prefix
+  "priceOverride" (cond (isset . "priceOverride") .priceOverride nil)
+  "disableBuyButtonText" (cond (eq $disableText "") nil $disableText)
+  | jsonify | safeJS }}</script>
