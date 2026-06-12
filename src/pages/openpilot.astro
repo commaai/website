@@ -1,0 +1,16 @@
+---
+import Base from '../layouts/Base.astro';
+import Layout from '../routes/+layout.svelte';
+import Page from '../routes/openpilot/+page.svelte';
+import { load } from '../routes/openpilot/+page.js';
+import { setupPage } from '$lib/shims/setup.js';
+
+const { blogPosts } = await setupPage(Astro);
+const data = await load({ fetch });
+---
+
+<Base>
+  <Layout client:load {blogPosts}>
+    <Page client:load {data} />
+  </Layout>
+</Base>

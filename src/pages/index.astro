@@ -1,0 +1,20 @@
+---
+import Base from '../layouts/Base.astro';
+import Layout from '../routes/+layout.svelte';
+import Page from '../routes/+page.svelte';
+import { setupPage } from '$lib/shims/setup.js';
+
+const { blogPosts } = await setupPage(Astro);
+const CDN_BASE = 'https://3comma.net';
+---
+
+<Base>
+  <Fragment slot="head">
+    <link rel="preload" as="image" href={`${CDN_BASE}/hero-landscape/poster.jpg`} />
+    <link rel="preload" as="image" href={`${CDN_BASE}/hero-portrait/poster.jpg`} />
+    <link rel="preload" as="image" href={`${CDN_BASE}/screen-video/poster.jpg`} />
+  </Fragment>
+  <Layout client:load {blogPosts}>
+    <Page client:load />
+  </Layout>
+</Base>

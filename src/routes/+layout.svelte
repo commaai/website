@@ -1,7 +1,6 @@
 <script>
   import "../app.css";
 
-  import MonumentExtendedBlack from "$lib/fonts/MonumentExtended/MonumentExtended-Black.woff2";
   import "@fontsource/inter/400.css";
   import "@fontsource/inter/600.css";
   import "@fontsource/inter/700.css";
@@ -34,6 +33,9 @@
 
   import { onMount } from "svelte";
   import { page } from "$app/stores";
+
+  export let blogPosts = [];
+  page.update((p) => ({ ...p, data: { ...p.data, blogPosts } }));
 
   let loading = false;
 
@@ -82,16 +84,6 @@
 
   printConsoleBanner();
 </script>
-
-<svelte:head>
-  <link
-    rel="preload"
-    href={MonumentExtendedBlack}
-    as="font"
-    type="font/woff2"
-    crossorigin="anonymous"
-  />
-</svelte:head>
 
 <header class="navbar">
   <div class="navbar-container">

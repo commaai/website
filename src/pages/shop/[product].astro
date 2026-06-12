@@ -1,0 +1,28 @@
+---
+import Base from '../../layouts/Base.astro';
+import Layout from '../../routes/+layout.svelte';
+import Page from '../../routes/shop/[product]/+page.svelte';
+import { load } from '../../routes/shop/[product]/+page.js';
+import { products } from '$lib/data/products.js';
+import { harnessesReady } from '$lib/utils/harnesses.js';
+import { setupPage } from '$lib/shims/setup.js';
+
+export function getStaticPaths() {
+  // routes with their own explicit page take priority over this dynamic one
+  const explicitRoutes = ['body', 'comma-four', 'comma-four-trade-in'];
+  return Object.keys(products)
+    .filter((product) => !explicitRoutes.includes(product))
+    .map((product) => ({ params: { product } }));
+}
+
+const { blogPosts } = await setupPage(Astro);
+const data = await load({ url: Astro.url, params: Astro.params });
+// SSR the harness-selector options (used by the car-harness description)
+await harnessesReady.catch(() => {});
+---
+
+<Base title={`${data.product.title} — comma shop`}>
+  <Layout client:load {blogPosts}>
+    <Page client:load {data} />
+  </Layout>
+</Base>

@@ -67,6 +67,6 @@ async function initializeHarnesses() {
   initialized = true;
 }
 
-initializeHarnesses();
+const harnessesReady = initializeHarnesses();
 
-export { allHarnesses, vehicleHarnesses, genericHarnesses };
+export { allHarnesses, vehicleHarnesses, genericHarnesses, harnessesReady };

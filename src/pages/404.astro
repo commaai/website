@@ -1,0 +1,14 @@
+---
+import Base from '../layouts/Base.astro';
+import Layout from '../routes/+layout.svelte';
+import ErrorPage from '../routes/+error.svelte';
+import { setupPage } from '$lib/shims/setup.js';
+
+const { blogPosts } = await setupPage(Astro, { status: 404, error: { message: 'Not Found' } });
+---
+
+<Base>
+  <Layout client:load {blogPosts}>
+    <ErrorPage client:load />
+  </Layout>
+</Base>

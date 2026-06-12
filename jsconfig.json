@@ -1,4 +1,14 @@
 {
-  "extends": "./.svelte-kit/tsconfig.json",
-  "exclude": [".svelte-kit", "node_modules", "build"]
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "$lib": ["src/lib"],
+      "$lib/*": ["src/lib/*"],
+      "$app/environment": ["src/lib/shims/app-environment.js"],
+      "$app/stores": ["src/lib/shims/app-stores.js"],
+      "$app/navigation": ["src/lib/shims/app-navigation.js"],
+      "@sveltejs/kit": ["src/lib/shims/sveltejs-kit.js"]
+    }
+  },
+  "exclude": [".astro", "node_modules", "build"]
 }

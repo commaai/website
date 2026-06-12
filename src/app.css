@@ -4,14 +4,16 @@ html {
   scroll-padding-top: 6rem;
 }
 
-/* Stretch the main page content to fill 100% of the viewport height */
+/* Stretch the main page content to fill 100% of the viewport height.
+   (descendant selector: the hydration island wrapper around <main> is
+   display:contents, transparent to layout but not to child combinators) */
 body {
   & > div {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 
-    & > main {
+    & main {
       flex: 1;
       display: flex;
       flex-direction: column;

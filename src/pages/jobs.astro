@@ -1,0 +1,20 @@
+---
+import Base from '../layouts/Base.astro';
+import Layout from '../routes/+layout.svelte';
+import Page from '../routes/jobs/+page.svelte';
+import { setupPage } from '$lib/shims/setup.js';
+
+const { blogPosts } = await setupPage(Astro);
+---
+
+<Base title="Jobs - comma">
+  <Fragment slot="head">
+    <meta
+      name="description"
+      content="At comma.ai, we are solving self-driving cars while delivering shippable intermediaries."
+    />
+  </Fragment>
+  <Layout client:load {blogPosts}>
+    <Page client:load />
+  </Layout>
+</Base>

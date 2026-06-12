@@ -1,0 +1,19 @@
+---
+import Base from '../../layouts/Base.astro';
+import Layout from '../../routes/+layout.svelte';
+import Page from '../../routes/shop/comma-four/+page.svelte';
+import { load } from '../../routes/shop/comma-four/+page.js';
+import { harnessesReady } from '$lib/utils/harnesses.js';
+import { setupPage } from '$lib/shims/setup.js';
+
+const { blogPosts } = await setupPage(Astro);
+const data = await load({ url: Astro.url, params: { product: 'comma-four' } });
+// SSR the harness-selector options in the comma-four description
+await harnessesReady.catch(() => {});
+---
+
+<Base title={`${data.product.title} — comma shop`}>
+  <Layout client:load {blogPosts}>
+    <Page client:load {data} />
+  </Layout>
+</Base>

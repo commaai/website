@@ -3,14 +3,14 @@
   "author": "comma.ai <x@comma.ai>",
   "version": "0.1.0",
   "engines": {
-    "node": ">=18.0.0 || >=20.0.0"
+    "node": ">=18.17.1 || >=20.3.0"
   },
   "private": true,
   "scripts": {
-    "prepare": "svelte-kit sync",
-    "dev": "vite dev",
-    "build": "vite build",
-    "preview": "vite preview",
+    "prepare": "astro sync",
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
     "deploy": "bunx firebase deploy"
   },
   "dependencies": {
@@ -20,13 +20,11 @@
     "hls.js": "^1.6.14"
   },
   "devDependencies": {
-    "@sveltejs/adapter-static": "^3.0.2",
-    "@sveltejs/kit": "^2.0.0",
-    "@sveltejs/vite-plugin-svelte": "^3.0.0",
+    "@astrojs/svelte": "^5.7.3",
     "@types/bun": "^1.2.4",
+    "astro": "^4.16.18",
     "magic-string": "^0.30.11",
     "svelte": "^4.2.7",
-    "vite": "^5.0.3",
     "vite-imagetools": "^7.0.4"
   },
   "type": "module"

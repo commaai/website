@@ -1,0 +1,14 @@
+---
+import Base from '../layouts/Base.astro';
+import Layout from '../routes/+layout.svelte';
+import Page from '../routes/shop/+page.svelte';
+import { setupPage } from '$lib/shims/setup.js';
+
+const { blogPosts } = await setupPage(Astro);
+---
+
+<Base>
+  <Layout client:load {blogPosts}>
+    <Page client:load />
+  </Layout>
+</Base>

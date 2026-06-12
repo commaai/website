@@ -1,0 +1,17 @@
+---
+import Base from '../layouts/Base.astro';
+import Layout from '../routes/+layout.svelte';
+import Page from '../routes/setup/+page.svelte';
+import { harnessesReady } from '$lib/utils/harnesses.js';
+import { setupPage } from '$lib/shims/setup.js';
+
+const { blogPosts } = await setupPage(Astro);
+// SSR the harness-selector options in the setup guide
+await harnessesReady.catch(() => {});
+---
+
+<Base>
+  <Layout client:load {blogPosts}>
+    <Page client:load />
+  </Layout>
+</Base>

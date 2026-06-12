@@ -1,0 +1,16 @@
+---
+import Base from '../../layouts/Base.astro';
+import Layout from '../../routes/+layout.svelte';
+import Page from '../../routes/shop/body/+page.svelte';
+import { load } from '../../routes/shop/body/+page.js';
+import { setupPage } from '$lib/shims/setup.js';
+
+const { blogPosts } = await setupPage(Astro);
+const data = await load({ url: Astro.url, params: { product: 'body' } });
+---
+
+<Base title={`${data.product.title} — comma shop`}>
+  <Layout client:load {blogPosts}>
+    <Page client:load {data} />
+  </Layout>
+</Base>

@@ -6,7 +6,7 @@
 
 <div class="page">
   {@html CommaIcon}
-  <h1>{$page.error.message}</h1>
+  <h1>{$page.error?.message ?? 'Not Found'}</h1>
   <span>An issue occurred. <a class="highlight" href="/">Click here</a> to go back to the homepage.</span>
 </div>
 

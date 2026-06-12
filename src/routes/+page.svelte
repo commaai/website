@@ -91,12 +91,6 @@
   }
 </script>
 
-<svelte:head>
-  <link rel="preload" as="image" href="{CDN_BASE}/hero-landscape/poster.jpg" />
-  <link rel="preload" as="image" href="{CDN_BASE}/hero-portrait/poster.jpg" />
-  <link rel="preload" as="image" href="{CDN_BASE}/screen-video/poster.jpg" />
-</svelte:head>
-
 <section class="hero-image desktop" style="background-image: url('{CDN_BASE}/hero-landscape/poster.jpg');" on:dragstart={handleDragStart} role="img" aria-label="Hero image">
   <video
     bind:this={videoLandscapeElement}

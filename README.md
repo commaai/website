@@ -1,6 +1,6 @@
 # https://comma.ai
 
-Built on [Svelte 4](https://svelte.dev).
+Built on [Astro](https://astro.build) with [Svelte 4](https://svelte.dev) components.
 
 ## Develop
 
