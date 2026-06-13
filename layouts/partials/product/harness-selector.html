@@ -1,0 +1,73 @@
+{{- /*
+  HarnessSelector.svelte (scope svelte-1dmkgpz; rows HarnessDropdownItem.svelte
+  scope svelte-1c3kfyc) — closed/empty initial state, with every dropdown row
+  prerendered (vehicles.json × car_harnesses.json join, vehicles first in the
+  raw file order of vehicles.json makes, then the generic/developer harnesses
+  in car_harnesses.json order; `comma body` skipped).
+
+  Args (dict, all optional):
+    label              placeholder label   (default "Select vehicle")
+    placeholder        search input placeholder
+                                           (default "Search for a vehicle or harness")
+    showNoHarnessOption  prepend the "I already have a car harness (‑$50)"
+                         row (comma-four only; default false)
+    showGenericHarnesses exclude the developer/generic-make harnesses when
+                         false (HarnessSelector.svelte showGenericHarnesses
+                         prop -> vehicleHarnesses store; /setup; default true)
+    prerenderRows        when false, emit the empty dropdown-content the old
+                         build shipped on pages whose rows were 100%
+                         client-rendered (/setup); the metadata config tag is
+                         still emitted and assets/js/lib/harness-selector.js
+                         builds the rows after the stock fetch (default true)
+
+  Runtime metadata (one object per rendered row, in DOM order, mirroring the
+  harness objects built by src/lib/utils/harnesses.js) is embedded in a
+  <script type="application/json" data-harness-config> tag consumed by
+  assets/js/lib/harness-selector.js. Stock flags (availableForSale /
+  currentlyNotInStock) are merged in at runtime from the page's product fetch.
+*/ -}}
+{{- $label := .label | default "Select vehicle" -}}
+{{- $placeholder := .placeholder | default "Search for a vehicle or harness" -}}
+{{- $showNoHarness := .showNoHarnessOption | default false -}}
+{{- $showGeneric := true -}}
+{{- if isset . "showGenericHarnesses" }}{{ $showGeneric = .showGenericHarnesses }}{{ end -}}
+{{- $prerenderRows := true -}}
+{{- if isset . "prerenderRows" }}{{ $prerenderRows = .prerenderRows }}{{ end -}}
+{{- $harnesses := site.Data.car_harnesses -}}
+{{- /* make order = raw key order of data/vehicles.json (Hugo sorts map keys,
+       the generated file does not — extract the order from the raw bytes) */ -}}
+{{- $makes := slice -}}
+{{- range findRE `(?m)^  ".+": \[` (os.ReadFile "data/vehicles.json") -}}
+  {{- $makes = $makes | append (strings.TrimSuffix "\": [" (strings.TrimPrefix "  \"" .)) -}}
+{{- end -}}
+{{- $items := slice -}}
+{{- range $make := $makes -}}
+  {{- range $model := index site.Data.vehicles $make -}}
+    {{- if ne $model.name "comma body" -}}
+      {{- $harness := dict -}}
+      {{- range $h := $harnesses -}}
+        {{- if eq $h.title $model.harness_connector -}}{{- $harness = $h -}}{{- end -}}
+      {{- end -}}
+      {{- if $harness.id -}}
+        {{- $item := dict
+              "id" $harness.id
+              "title" $harness.title
+              "make" $make
+              "car" $model.name
+              "package" $model.package
+              "setupNotes" $model.setup_notes
+              "setupVideo" $model.setup_video -}}
+        {{- with $harness.backordered }}{{ $item = merge $item (dict "backordered" .) }}{{ end -}}
+        {{- $items = $items | append $item -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- if $showGeneric -}}
+{{- range $h := $harnesses -}}
+  {{- $item := dict "car" $h.title "id" $h.id -}}
+  {{- with $h.backordered }}{{ $item = merge $item (dict "backordered" .) }}{{ end -}}
+  {{- $items = $items | append $item -}}
+{{- end -}}
+{{- end -}}
+<div class="dropdown svelte-1dmkgpz"><div><div class="selection-placeholder svelte-1dmkgpz" role="button" tabindex="0"><div class="label">{{ $label }}</div> <div class="accessory"></div></div> <span class="chevron svelte-1dmkgpz">{{ partial "icon.html" "icon-chevron.svg" }}</span></div> <div class="dropdown-content svelte-1dmkgpz"> {{ if $prerenderRows }}{{ if $showNoHarness }}<div class="dropdown-item svelte-1c3kfyc" role="option" aria-selected="false" tabindex="0"><div class="item-info svelte-1c3kfyc"><div class="title svelte-1c3kfyc">I already have a car harness (‑$50)</div> </div> <div class="accessory-label svelte-1c3kfyc"></div> </div>{{ end }}{{ range $item := $items }}<div class="dropdown-item svelte-1c3kfyc" role="option" aria-selected="false" tabindex="0"><div class="item-info svelte-1c3kfyc"><div class="title svelte-1c3kfyc">{{ $item.car }}</div> {{ with $item.title }}<div class="subtitle svelte-1c3kfyc">Harness: {{ . }}</div>{{ end }}</div> <div class="accessory-label svelte-1c3kfyc"></div> </div>{{ end }}{{ end }}</div><script type="application/json" data-harness-config>{{ dict "label" $label "placeholder" $placeholder "noHarnessOption" $showNoHarness "items" $items | jsonify | safeJS }}</script></div>

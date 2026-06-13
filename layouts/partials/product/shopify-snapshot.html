@@ -1,0 +1,47 @@
+{{- /*
+  Build-time Shopify product snapshot (replicates the prerender-time
+  getProduct() call in src/routes/shop/[product]/+page.js).
+
+  Usage (always through partialCached, keyed by the gid, so a product that is
+  fetched by several pages — e.g. the car-harness product on /shop/car-harness
+  and /shop/comma-four — only hits Shopify once per build):
+
+    {{ $snapshot := partialCached "product/shopify-snapshot.html" $gid $gid }}
+
+  Returns the GraphQL `product` object:
+    { title, id,
+      priceRange { minVariantPrice{amount currencyCode} maxVariantPrice{...} },
+      variants { nodes [ { id title availableForSale currentlyNotInStock
+                           price{amount currencyCode}
+                           image{altText height url width} } ] } }
+
+  Build hard-fails (errorf) when Shopify is unreachable or returns errors —
+  same policy as the blog-feed fetch in the header.
+*/ -}}
+{{- $gid := . -}}
+{{- $query := `query getProductById($id: ID!) { product(id: $id) { title id priceRange { maxVariantPrice { amount currencyCode } minVariantPrice { amount currencyCode } } variants(first: 250) { nodes { id title availableForSale currentlyNotInStock price { amount currencyCode } image { altText height url width } } } } }` -}}
+{{- $body := dict "query" $query "variables" (dict "id" $gid) | jsonify -}}
+{{- $opts := dict
+      "method" "post"
+      "body" $body
+      "headers" (dict
+        "Content-Type" "application/json"
+        "X-Shopify-Storefront-Access-Token" site.Params.shopify.storefrontApiToken) -}}
+{{- $url := printf "https://%s/api/%s/graphql.json" site.Params.shopify.storeUrl site.Params.shopify.apiVersion -}}
+{{- $product := dict -}}
+{{- $r := try (resources.GetRemote $url $opts) -}}
+{{- if $r.Err -}}
+  {{- errorf "shopify snapshot fetch failed for %s: %s" $gid $r.Err -}}
+{{- else if not $r.Value -}}
+  {{- errorf "shopify snapshot fetch for %s returned no response" $gid -}}
+{{- else -}}
+  {{- $data := $r.Value.Content | transform.Unmarshal -}}
+  {{- with $data.errors -}}
+    {{- errorf "shopify snapshot for %s returned errors: %v" $gid . -}}
+  {{- end -}}
+  {{- $product = $data.data.product -}}
+  {{- if not $product -}}
+    {{- errorf "shopify snapshot for %s: product not found" $gid -}}
+  {{- end -}}
+{{- end -}}
+{{- return $product -}}

@@ -1,0 +1,3 @@
+{{- /* Inline an SVG from assets/icons (replaces Svelte `?raw` imports).
+       Usage: {{ partial "icon.html" "ui/cart.svg" }} */ -}}
+{{- with resources.Get (printf "icons/%s" .) -}}{{ .Content | safeHTML }}{{- else -}}{{ errorf "icon not found: %s" . }}{{- end -}}

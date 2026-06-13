@@ -1,0 +1,3 @@
+# hugo server: directory-style URLs so clean links (/shop/comma-four) resolve in dev;
+# production builds flat files (shop/comma-four.html) served by firebase cleanUrls.
+uglyURLs = false

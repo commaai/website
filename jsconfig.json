@@ -1,4 +1,0 @@
-{
-  "extends": "./.svelte-kit/tsconfig.json",
-  "exclude": [".svelte-kit", "node_modules", "build"]
-}

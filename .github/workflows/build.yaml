@@ -16,42 +16,30 @@ permissions:
   contents: read
   pull-requests: write
 
+env:
+  HUGO_VERSION: 0.147.8
+
 jobs:
-  test:
-    name: Run tests
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: oven-sh/setup-bun@v2
-
-      - run: bun install --frozen-lockfile
-
   build:
     name: Build site
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: oven-sh/setup-bun@v2
 
-      - run: bun install --frozen-lockfile
-
-      - name: Cache imagetools directory
-        uses: actions/cache@v4
-        with:
-          path: ./node_modules/.cache/imagetools
-          key: imagetools-${{ hashFiles('**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.gif') }}
-          restore-keys: |
-            imagetools-
+      - name: Install Hugo
+        run: |
+          curl -sL "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz" | tar xz hugo
+          sudo mv hugo /usr/local/bin/hugo
 
       - if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
         name: Build (production)
-        run: bun run build
+        run: hugo --gc --cleanDestinationDir
         env:
-          VITE_SHOPIFY_STOREFRONT_API_TOKEN: ${{ secrets.VITE_SHOPIFY_STOREFRONT_API_TOKEN }}
+          HUGO_PARAMS_SHOPIFY_STOREFRONTAPITOKEN: ${{ secrets.VITE_SHOPIFY_STOREFRONT_API_TOKEN }}
 
       - if: github.event_name == 'pull_request' || github.ref != 'refs/heads/master'
         name: Build (development)
-        run: bun run build
+        run: hugo --gc --cleanDestinationDir
 
       - name: Upload built project
         uses: actions/upload-artifact@v4

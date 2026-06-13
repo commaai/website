@@ -1,0 +1,2 @@
+# vendored third-party builds: collapse in PR diffs
+assets/js/vendor/** linguist-generated=true linguist-vendored=true

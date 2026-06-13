@@ -1,0 +1,22 @@
+{{- /*
+  Generic /shop/<product> page (src/routes/shop/[product]/+page.svelte).
+  Product key = content file basename (content/shop/panda.md -> "panda").
+  car-harness gets its custom CarHarness.svelte layout: HarnessSelector as the
+  variant selector (no auto-selected variant) + hardcoded notes/description.
+*/ -}}
+{{- define "main" -}}
+{{- $key := .File.BaseFileName -}}
+{{- $product := index site.Data.products $key -}}
+{{- if not $product }}{{ errorf "shop product %q not found in data/products.json" $key }}{{ end -}}
+{{- $snapshot := partialCached "product/shopify-snapshot.html" $product.id $product.id -}}
+{{- $args := dict "key" $key "product" $product "snapshot" $snapshot -}}
+{{- if eq $key "car-harness" -}}
+  {{- $args = merge $args (dict
+        "autoSelectFirstVariant" false
+        "variantSelector" "product/harness-selector.html"
+        "variantSelectorArgs" (dict)
+        "notesHTML" (partial "product/car-harness-notes.html" .)
+        "descriptionHTML" (partial "product/car-harness-description.html" .)) -}}
+{{- end -}}
+<section class="light" id="product-item"><div class="container">{{ partial "product/product.html" $args }}</div></section>
+{{- end -}}

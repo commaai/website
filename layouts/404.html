@@ -1,0 +1,5 @@
+{{- /* 404 / error page. Ports src/routes/+error.svelte (scope svelte-177x5sy)
+       rendered inside the normal shell. The old build/404.html was a blank
+       SPA fallback that client-rendered this exact DOM with
+       $page.error.message === "Not Found"; Hugo prerenders it instead. */ -}}
+{{ define "main" }}<div class="page svelte-177x5sy">{{ partial "icon.html" "comma.svg" }} <h1 class="svelte-177x5sy">Not Found</h1> <span class="svelte-177x5sy">An issue occurred. <a class="highlight" href="/">Click here</a> to go back to the homepage.</span></div>{{ end }}
