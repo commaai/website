@@ -88,6 +88,39 @@
     },
   ];
 
+  const teams = [
+    {
+      name: "Autonomy",
+      description:
+        "Builds the autonomous agent software, along with all of the infrastructure needed for that.",
+    },
+    {
+      name: "Product",
+      description:
+        "Designs and manufactures the product, including the hardware, low-level software needed to run the agent software, as well as the app.",
+      children: [
+        {
+          name: "openpilot",
+          description:
+            "Work on systems and infrastructure for openpilot, grow car compatibility alongside the community, and build the comma web and mobile experience.",
+        },
+        {
+          name: "Hardware",
+          description: "Design and ship hardware like the comma four and comma body.",
+        },
+        {
+          name: "Production",
+          description: "Run the comma factory and manufacture the products we ship.",
+        },
+      ],
+    },
+    {
+      name: "Operations",
+      description:
+        "Builds and maintains company infrastructure, including money, people, and logistics.",
+    },
+  ];
+
   const jobs = [
     {
       title: "Software Engineer",
@@ -389,6 +422,41 @@
           driving cars. And the minute we do solve it, we already have thousands of users to deploy to.
           The second largest fleet outside Tesla, and likely to be the largest soon.
         </p>
+      </div>
+
+      <div class="section-spacer"></div>
+
+      <div class="split-grid teams-intro">
+        <h2 id="teams-title" class="section-title">Our Teams</h2>
+        <p class="large-text">
+          We work across autonomy, product, and operations to ship products that improve with every
+          mile.
+        </p>
+      </div>
+
+      <div class="teams-grid" aria-labelledby="teams-title">
+        {#each teams as team, index}
+          <article class="team-card">
+            <div class="team-heading">
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <h3>{team.name}</h3>
+            </div>
+            <div class="team-content">
+              <p>{team.description}</p>
+
+              {#if team.children}
+                <div class="subteams">
+                  {#each team.children as subteam}
+                    <div class="subteam">
+                      <h4>{subteam.name}</h4>
+                      <p>{subteam.description}</p>
+                    </div>
+                  {/each}
+                </div>
+              {/if}
+            </div>
+          </article>
+        {/each}
       </div>
 
       <div class="section-spacer"></div>
@@ -941,6 +1009,107 @@
     margin-left: 1rem;
   }
 
+  .teams-intro {
+    margin-bottom: clamp(1.75rem, 3vw, 2.5rem);
+  }
+
+  .teams-grid {
+    border-bottom: 1px solid #000;
+    border-top: 2px solid #000;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .team-card {
+    align-items: start;
+    border-top: 1px solid #000;
+    display: grid;
+    gap: clamp(1.5rem, 5vw, 5rem);
+    grid-template-columns: minmax(13rem, 0.42fr) minmax(0, 1fr);
+    min-width: 0;
+    padding: clamp(1.5rem, 3vw, 2.25rem) 0;
+    transition: background-color 0.2s, box-shadow 0.2s;
+  }
+
+  .team-card:first-child {
+    border-top: 0;
+  }
+
+  .team-card:hover {
+    background: #f7f7f7;
+    box-shadow: inset 4px 0 0 var(--color-accent);
+  }
+
+  .team-heading {
+    align-items: baseline;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 3rem minmax(0, 1fr);
+    min-width: 0;
+  }
+
+  .team-heading span {
+    color: rgba(0, 0, 0, 0.45);
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.875rem;
+    line-height: 1;
+  }
+
+  .team-heading h3 {
+    color: #000;
+    font-size: clamp(1.35rem, 2vw, 2rem);
+    font-weight: 600;
+    line-height: 1.05;
+    margin: 0;
+    overflow-wrap: anywhere;
+    text-transform: uppercase;
+  }
+
+  .team-content > p {
+    color: #000;
+    font-size: clamp(1.0625rem, 1.35vw, 1.25rem);
+    line-height: 1.4;
+    margin: 0;
+    max-width: 42rem;
+  }
+
+  .subteams {
+    border-top: 1px solid #000;
+    display: grid;
+    gap: 0;
+    margin-top: 1.5rem;
+    max-width: 48rem;
+  }
+
+  .subteam {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: minmax(8rem, 0.34fr) minmax(0, 1fr);
+    padding: 1rem 0;
+  }
+
+  .subteam:last-child {
+    border-bottom: 0;
+  }
+
+  .subteam h4 {
+    color: #000;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.25;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  .subteam p {
+    color: #000;
+    font-size: 1rem;
+    line-height: 1.4;
+    margin: 0;
+  }
+
   .openings-grid {
     display: grid;
     grid-template-columns: minmax(0, 0.5fr) minmax(0, 1fr);
@@ -1342,6 +1511,36 @@
     .trait-card + .trait-card {
       border-left: 0;
       border-top: 1px solid #000;
+    }
+
+    .team-card {
+      gap: 0.75rem;
+      grid-template-columns: 1fr;
+      padding: 1.25rem 0;
+    }
+
+    .team-heading {
+      gap: 0.75rem;
+      grid-template-columns: 2.5rem minmax(0, 1fr);
+    }
+
+    .team-heading h3 {
+      font-size: 1.4rem;
+    }
+
+    .team-content > p {
+      font-size: 1rem;
+      max-width: 100%;
+    }
+
+    .subteams {
+      margin-top: 1.25rem;
+      max-width: 100%;
+    }
+
+    .subteam {
+      gap: 0.5rem;
+      grid-template-columns: 1fr;
     }
 
     .challenge-section h2 {
