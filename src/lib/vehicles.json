@@ -3458,21 +3458,6 @@
       ]
     },
     {
-      "name": "Rivian R1S 2025",
-      "model": "R1S",
-      "years": "2025",
-      "year_list": "2025",
-      "package": "All",
-      "video": "",
-      "setup_video": "",
-      "harness_connector": "Rivian B",
-      "detail_sentence": "openpilot upgrades your <strong>Rivian R1S</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
-      "footnotes": [
-      ],
-      "setup_notes": [
-      ]
-    },
-    {
       "name": "Rivian R1T 2022-24",
       "model": "R1T",
       "years": "2022-24",
@@ -3481,21 +3466,6 @@
       "video": "",
       "setup_video": "https://youtu.be/uaISd1j7Z4U",
       "harness_connector": "Rivian A",
-      "detail_sentence": "openpilot upgrades your <strong>Rivian R1T</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
-      "footnotes": [
-      ],
-      "setup_notes": [
-      ]
-    },
-    {
-      "name": "Rivian R1T 2025",
-      "model": "R1T",
-      "years": "2025",
-      "year_list": "2025",
-      "package": "All",
-      "video": "",
-      "setup_video": "",
-      "harness_connector": "Rivian B",
       "detail_sentence": "openpilot upgrades your <strong>Rivian R1T</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
       ],
