@@ -14,7 +14,7 @@
     {
       year: "2021",
       title: "COMMA_CON 2021",
-      description: "comma three, controls, and the early end-to-end driving talks.",
+      description: "comma three launch, controls, and the early end-to-end driving talks.",
       url: "https://www.youtube.com/playlist?list=PLawfivpGQ-vq9zC2fqjDp-Q3qRUyKQR4y",
       embedUrl: "https://www.youtube.com/embed/hbLiehrC2DQ?list=PLawfivpGQ-vq9zC2fqjDp-Q3qRUyKQR4y",
     },
@@ -38,26 +38,7 @@
     then email <a href="mailto:work@comma.ai">work@comma.ai</a> with what you built.
   `;
 
-  let activeQuote = 0;
   let expandedJobIndexes = new Set([0]);
-
-  const quotes = [
-    {
-      text: "We have the best chance at solving self-driving cars because our approach involves actually shipping a product and proving it out as we go.",
-      author: "Greg",
-      team: "Infrastructure",
-    },
-    {
-      text: "At comma we are given the opportunity to try stuff. It's very easy, the barrier to do experiments and the time from the experiment to shipping the product is really short. That's what I love about comma.",
-      author: "Yassine",
-      team: "Research",
-    },
-    {
-      text: "I like comma specifically because we're building something that has never been built before. It's the new frontier, space exploration.",
-      author: "Nick",
-      team: "Hardware",
-    },
-  ];
 
   const processSteps = [
     {
@@ -334,14 +315,6 @@
     copyResetTimeout = setTimeout(() => (copiedJobIndex = null), 2000);
   }
 
-  function showPreviousQuote() {
-    activeQuote = (activeQuote - 1 + quotes.length) % quotes.length;
-  }
-
-  function showNextQuote() {
-    activeQuote = (activeQuote + 1) % quotes.length;
-  }
-
   function toggleJob(index) {
     const nextExpandedJobIndexes = new Set(expandedJobIndexes);
 
@@ -439,42 +412,13 @@
     </div>
   </section>
 
-  <section class="quote-section" aria-label="Employee quotes">
-    <div class="container quote-container">
-      <figure class="quote">
-        <blockquote>"{quotes[activeQuote].text}"</blockquote>
-        <figcaption>- {quotes[activeQuote].author}, {quotes[activeQuote].team}</figcaption>
-      </figure>
-
-      <div class="quote-controls" aria-label="Quote controls">
-        <button type="button" class="quote-arrow previous" aria-label="Previous quote" on:click={showPreviousQuote}>
-          {@html ArrowRightIcon}
-        </button>
-        <div class="quote-dots">
-          {#each quotes as quote, index}
-            <button
-              type="button"
-              class:active={activeQuote === index}
-              aria-label={`Show quote from ${quote.author}`}
-              aria-pressed={activeQuote === index}
-              on:click={() => (activeQuote = index)}
-            ></button>
-          {/each}
-        </div>
-        <button type="button" class="quote-arrow" aria-label="Next quote" on:click={showNextQuote}>
-          {@html ArrowRightIcon}
-        </button>
-      </div>
-    </div>
-  </section>
-
   <section class="comma-con-section jobs-section" aria-labelledby="comma-con-title">
     <div class="container">
       <div class="comma-con-header">
         <p class="eyebrow">COMMA_CON</p>
         <h2 id="comma-con-title" class="section-title">Hear from the team</h2>
         <p>
-          Watch talks from the engineers building openpilot, hardware, infrastructure, and autonomy.
+          Watch talks from the engineers building our hardware, infrastructure, and openpilot.
         </p>
       </div>
 
@@ -695,8 +639,7 @@
   .jobs-intro,
   .jobs-section,
   .benefits-section,
-  .challenge-section,
-  .quote-section {
+  .challenge-section {
     padding: var(--jobs-section-y) 0;
   }
 
@@ -801,96 +744,6 @@
   .photo-grid img {
     aspect-ratio: 4 / 3;
     object-fit: cover;
-  }
-
-  .quote-section {
-    border-bottom: 1px solid #000;
-    border-top: 1px solid #000;
-  }
-
-  .quote-container {
-    display: grid;
-    grid-template-rows: auto auto;
-    align-items: center;
-    gap: 3rem;
-  }
-
-  .quote {
-    margin: 0 auto;
-    max-width: 70rem;
-    text-align: center;
-  }
-
-  .quote blockquote {
-    border: 0;
-    color: #000;
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
-    font-style: normal;
-    line-height: 1.25;
-    margin: 0;
-    padding: 0;
-  }
-
-  .quote figcaption {
-    color: #000;
-    font-size: 1.25rem;
-    line-height: 1.2;
-    margin-top: 2rem;
-  }
-
-  .quote-controls {
-    display: grid;
-    grid-template-columns: 48px 1fr 48px;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .quote-arrow {
-    align-items: center;
-    background: #000;
-    border: 0;
-    color: #fff;
-    cursor: pointer;
-    display: flex;
-    height: 48px;
-    justify-content: center;
-    padding: 0;
-    transition: opacity 0.2s;
-    width: 48px;
-  }
-
-  .quote-arrow:hover,
-  .quote-arrow:focus-visible {
-    opacity: 0.75;
-  }
-
-  .quote-arrow.previous :global(svg) {
-    transform: rotate(180deg);
-  }
-
-  .quote-arrow :global(svg) {
-    height: 24px;
-    width: 24px;
-  }
-
-  .quote-dots {
-    display: flex;
-    justify-content: center;
-    gap: 4px;
-  }
-
-  .quote-dots button {
-    background: #e4e4e4;
-    border: 0;
-    cursor: pointer;
-    height: 4px;
-    padding: 0;
-    transition: background-color 0.2s;
-    width: 24px;
-  }
-
-  .quote-dots button.active {
-    background: #000;
   }
 
   .comma-con-section {
@@ -1482,24 +1335,6 @@
 
     .section-spacer {
       height: 3rem;
-    }
-
-    .quote blockquote {
-      font-size: 1.35rem;
-    }
-
-    .quote figcaption {
-      font-size: 1rem;
-      margin-top: 1.5rem;
-    }
-
-    .quote-controls {
-      grid-template-columns: 44px 1fr 44px;
-    }
-
-    .quote-arrow {
-      height: 44px;
-      width: 44px;
     }
 
     .comma-con-grid {
