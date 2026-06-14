@@ -10,31 +10,35 @@
 
   const ASSET_PATH = "/images/jobs";
   const JOBS_VIDEO_EMBED_URL = "https://www.youtube.com/embed/PFjssb7r_uU";
+  const COMMA_CON_PLAYLISTS = [
+    {
+      year: "2021",
+      title: "COMMA_CON 2021",
+      description: "comma three launch, controls, and the early end-to-end driving talks.",
+      url: "https://www.youtube.com/playlist?list=PLawfivpGQ-vq9zC2fqjDp-Q3qRUyKQR4y",
+      embedUrl: "https://www.youtube.com/embed/hbLiehrC2DQ?list=PLawfivpGQ-vq9zC2fqjDp-Q3qRUyKQR4y",
+    },
+    {
+      year: "2023",
+      title: "COMMA_CON 2023",
+      description: "Talks on models, infrastructure, product, and comma 3X.",
+      url: "https://www.youtube.com/playlist?list=PLawfivpGQ-vq9zC2fqjDp-Q3qRUyKQR4y",
+      embedUrl: "https://www.youtube.com/embed/zwFLMfqd7eY?list=PLawfivpGQ-vq9zC2fqjDp-Q3qRUyKQR4y",
+    },
+    {
+      year: "2025",
+      title: "COMMA_CON 2025",
+      description: "End-to-end driving, hardware, robotics, and the comma four announcement.",
+      url: "https://www.youtube.com/playlist?list=PLzFUMGbVxlQutNi3HJsEn7lwrdb-kymMV",
+      embedUrl: "https://www.youtube.com/embed/xyzvijWmfKg?list=PLzFUMGbVxlQutNi3HJsEn7lwrdb-kymMV",
+    },
+  ];
   const DEFAULT_HOW_TO_APPLY = `
     Do a <a href="https://comma.ai/bounties">bounty</a> or <a href="https://comma.ai/leaderboard">challenge</a>,
     then email <a href="mailto:work@comma.ai">work@comma.ai</a> with what you built.
   `;
 
-  let activeQuote = 0;
   let expandedJobIndexes = new Set([0]);
-
-  const quotes = [
-    {
-      text: "We have the best chance at solving self-driving cars because our approach involves actually shipping a product and proving it out as we go.",
-      author: "Greg",
-      team: "Infrastructure",
-    },
-    {
-      text: "At comma we are given the opportunity to try stuff. It's very easy, the barrier to do experiments and the time from the experiment to shipping the product is really short. That's what I love about comma.",
-      author: "Yassine",
-      team: "Research",
-    },
-    {
-      text: "I like comma specifically because we're building something that has never been built before. It's the new frontier, space exploration.",
-      author: "Nick",
-      team: "Hardware",
-    },
-  ];
 
   const processSteps = [
     {
@@ -311,14 +315,6 @@
     copyResetTimeout = setTimeout(() => (copiedJobIndex = null), 2000);
   }
 
-  function showPreviousQuote() {
-    activeQuote = (activeQuote - 1 + quotes.length) % quotes.length;
-  }
-
-  function showNextQuote() {
-    activeQuote = (activeQuote + 1) % quotes.length;
-  }
-
   function toggleJob(index) {
     const nextExpandedJobIndexes = new Set(expandedJobIndexes);
 
@@ -416,31 +412,41 @@
     </div>
   </section>
 
-  <section class="quote-section" aria-label="Employee quotes">
-    <div class="container quote-container">
-      <figure class="quote">
-        <blockquote>"{quotes[activeQuote].text}"</blockquote>
-        <figcaption>- {quotes[activeQuote].author}, {quotes[activeQuote].team}</figcaption>
-      </figure>
+  <section class="comma-con-section jobs-section" aria-labelledby="comma-con-title">
+    <div class="container">
+      <div class="comma-con-header">
+        <p class="eyebrow">COMMA_CON</p>
+        <h2 id="comma-con-title" class="section-title">Hear from the team</h2>
+        <p>
+          Watch talks from the engineers building our hardware, infrastructure, and openpilot.
+        </p>
+      </div>
 
-      <div class="quote-controls" aria-label="Quote controls">
-        <button type="button" class="quote-arrow previous" aria-label="Previous quote" on:click={showPreviousQuote}>
-          {@html ArrowRightIcon}
-        </button>
-        <div class="quote-dots">
-          {#each quotes as quote, index}
-            <button
-              type="button"
-              class:active={activeQuote === index}
-              aria-label={`Show quote from ${quote.author}`}
-              aria-pressed={activeQuote === index}
-              on:click={() => (activeQuote = index)}
-            ></button>
-          {/each}
-        </div>
-        <button type="button" class="quote-arrow" aria-label="Next quote" on:click={showNextQuote}>
-          {@html ArrowRightIcon}
-        </button>
+      <div class="comma-con-grid">
+        {#each COMMA_CON_PLAYLISTS as playlist}
+          <article class="comma-con-card">
+            <div class="comma-con-video">
+              <iframe
+                src={playlist.embedUrl}
+                title={`${playlist.title} playlist`}
+                frameborder="0"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div class="comma-con-card-body">
+              <p>{playlist.year}</p>
+              <h3>{playlist.title}</h3>
+              <span>{playlist.description}</span>
+              <a href={playlist.url} target="_blank" rel="noreferrer" class="comma-con-link">
+                Open playlist
+                <span aria-hidden="true">{@html ArrowRightIcon}</span>
+              </a>
+            </div>
+          </article>
+        {/each}
       </div>
     </div>
   </section>
@@ -633,8 +639,7 @@
   .jobs-intro,
   .jobs-section,
   .benefits-section,
-  .challenge-section,
-  .quote-section {
+  .challenge-section {
     padding: var(--jobs-section-y) 0;
   }
 
@@ -741,94 +746,112 @@
     object-fit: cover;
   }
 
-  .quote-section {
+  .comma-con-section {
+    background: #f5f5f5;
+  }
+
+  .comma-con-header {
+    max-width: 44rem;
+  }
+
+  .comma-con-header p:last-child {
+    color: #000;
+    font-size: clamp(1.0625rem, 1.35vw, 1.25rem);
+    line-height: 1.45;
+    margin: 1rem 0 0;
+  }
+
+  .comma-con-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+    margin-top: clamp(2rem, 4vw, 3rem);
+  }
+
+  .comma-con-card {
+    background: #fff;
+    border: 1px solid #000;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  .comma-con-video {
+    aspect-ratio: 16 / 9;
+    background: #000;
     border-bottom: 1px solid #000;
-    border-top: 1px solid #000;
+    overflow: hidden;
+    width: 100%;
   }
 
-  .quote-container {
-    display: grid;
-    grid-template-rows: auto auto;
-    align-items: center;
-    gap: 3rem;
-  }
-
-  .quote {
-    margin: 0 auto;
-    max-width: 70rem;
-    text-align: center;
-  }
-
-  .quote blockquote {
+  .comma-con-video iframe {
     border: 0;
-    color: #000;
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
-    font-style: normal;
-    line-height: 1.25;
-    margin: 0;
-    padding: 0;
+    display: block;
+    height: 100%;
+    width: 100%;
   }
 
-  .quote figcaption {
-    color: #000;
-    font-size: 1.25rem;
+  .comma-con-card-body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-height: 15rem;
+    padding: 1.25rem;
+  }
+
+  .comma-con-card-body p {
+    color: rgba(0, 0, 0, 0.6);
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.875rem;
     line-height: 1.2;
-    margin-top: 2rem;
+    margin: 0 0 0.75rem;
   }
 
-  .quote-controls {
-    display: grid;
-    grid-template-columns: 48px 1fr 48px;
+  .comma-con-card-body h3 {
+    color: #000;
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1.15;
+    margin: 0 0 0.75rem;
+    overflow-wrap: anywhere;
+    text-transform: uppercase;
+  }
+
+  .comma-con-card-body > span {
+    color: #000;
+    display: block;
+    font-size: 1rem;
+    line-height: 1.4;
+    margin-bottom: 1.5rem;
+  }
+
+  .comma-con-link {
     align-items: center;
-    gap: 1rem;
+    color: #000;
+    display: inline-flex;
+    font-size: 0.875rem;
+    font-weight: 700;
+    gap: 0.5rem;
+    line-height: 1.2;
+    margin-top: auto;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: fit-content;
   }
 
-  .quote-arrow {
-    align-items: center;
-    background: #000;
-    border: 0;
-    color: #fff;
-    cursor: pointer;
-    display: flex;
-    height: 48px;
-    justify-content: center;
-    padding: 0;
-    transition: opacity 0.2s;
-    width: 48px;
+  .comma-con-link:hover,
+  .comma-con-link:focus-visible {
+    opacity: 0.65;
   }
 
-  .quote-arrow:hover,
-  .quote-arrow:focus-visible {
-    opacity: 0.75;
+  .comma-con-link:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 4px;
   }
 
-  .quote-arrow.previous :global(svg) {
-    transform: rotate(180deg);
-  }
-
-  .quote-arrow :global(svg) {
-    height: 24px;
-    width: 24px;
-  }
-
-  .quote-dots {
-    display: flex;
-    justify-content: center;
-    gap: 4px;
-  }
-
-  .quote-dots button {
-    background: #e4e4e4;
-    border: 0;
-    cursor: pointer;
-    height: 4px;
-    padding: 0;
-    transition: background-color 0.2s;
-    width: 24px;
-  }
-
-  .quote-dots button.active {
-    background: #000;
+  .comma-con-link :global(svg) {
+    height: 16px;
+    width: 16px;
   }
 
   .traits-grid {
@@ -1238,6 +1261,7 @@
     .split-grid,
     .photo-grid,
     .challenge-grid,
+    .comma-con-grid,
     .openings-grid {
       grid-template-columns: 1fr;
     }
@@ -1313,22 +1337,22 @@
       height: 3rem;
     }
 
-    .quote blockquote {
-      font-size: 1.35rem;
+    .comma-con-grid {
+      gap: 1rem;
     }
 
-    .quote figcaption {
+    .comma-con-header p:last-child,
+    .comma-con-card-body > span {
       font-size: 1rem;
-      margin-top: 1.5rem;
     }
 
-    .quote-controls {
-      grid-template-columns: 44px 1fr 44px;
+    .comma-con-card-body {
+      min-height: 0;
+      padding: 1rem;
     }
 
-    .quote-arrow {
-      height: 44px;
-      width: 44px;
+    .comma-con-card-body h3 {
+      font-size: 1.2rem;
     }
 
     .traits-grid {
