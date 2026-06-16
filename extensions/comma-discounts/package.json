@@ -1,14 +1,35 @@
 {
   "name": "comma-discounts",
-  "version": "1.0.0",
-  "private": true,
-  "description": "comma free-harness + bulk order discount (Shopify Function)",
+  "version": "0.0.1",
+  "license": "UNLICENSED",
+  "type": "module",
   "scripts": {
-    "typegen": "shopify app function typegen",
-    "build": "shopify app function build",
-    "preview": "shopify app function run"
+    "shopify": "npm exec -- shopify",
+    "typegen": "npm exec -- shopify app function typegen",
+    "build": "npm exec -- shopify app function build",
+    "preview": "npm exec -- shopify app function run",
+    "test": "vitest"
+  },
+  "codegen": {
+    "schema": "schema.graphql",
+    "documents": "src/*.graphql",
+    "generates": {
+      "./generated/api.ts": {
+        "plugins": [
+          "typescript",
+          "typescript-operations"
+        ]
+      }
+    },
+    "config": {
+      "omitOperationSuffix": true
+    }
   },
   "dependencies": {
-    "@shopify/shopify_function": "^1.0.0"
+    "@shopify/shopify_function": "^2.0.1"
+  },
+  "devDependencies": {
+    "@shopify/shopify-function-test-helpers": "^1.0.0",
+    "vitest": "^3.2.4"
   }
 }

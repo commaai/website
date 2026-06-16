@@ -1,16 +1,27 @@
-api_version = "2025-01"
+api_version = "2026-04"
 
 [[extensions]]
-name = "comma-discounts"
+name = "t:name"
 handle = "comma-discounts"
 type = "function"
-description = "Free car harness with comma four + bulk order discount"
+uid = "95c2519e-677e-bbb6-8efd-2b2893810312d2103df5"
+description = "t:description"
 
-[[extensions.targeting]]
-target = "cart.lines.discounts.generate.run"
-input_query = "src/cart_lines_discounts_generate_run.graphql"
-export = "cart_lines_discounts_generate_run"
+  [[extensions.targeting]]
+  target = "cart.lines.discounts.generate.run"
+  input_query = "src/cart_lines_discounts_generate_run.graphql"
+  export = "cart-lines-discounts-generate-run"
 
-[extensions.build]
-command = ""
-watch = ["src/**/*.js"]
+  [[extensions.targeting]]
+  target = "cart.delivery-options.discounts.generate.run"
+  input_query = "src/cart_delivery_options_discounts_generate_run.graphql"
+  export = "cart-delivery-options-discounts-generate-run"
+
+  [extensions.build]
+  command = ""
+  path = "dist/function.wasm"
+
+  # Links this function to its admin settings UI so the discount is creatable
+  # from Discounts → Create → comma-discounts (instead of "Find this app…").
+  [extensions.ui]
+  handle = "comma-discount-settings"

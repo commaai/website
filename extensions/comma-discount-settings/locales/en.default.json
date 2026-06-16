@@ -1,0 +1,10 @@
+{
+  "name": "comma discount settings",
+  "description": "Turn on both so the function can apply the free harness (Product) and the 10% bulk discount (Order). The rules themselves live in the function code.",
+  "title": "comma discounts",
+  "discountClasses": {
+    "product": "Product — free car harness (one per comma four)",
+    "order": "Order — 10% bulk discount (10+ comma four)"
+  },
+  "error": "Unable to update discount types. Please try again."
+}

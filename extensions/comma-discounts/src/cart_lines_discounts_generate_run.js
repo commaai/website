@@ -1,48 +1,53 @@
-// comma free-harness + bulk order discount.
-//
-// Replaces Shopify's built-in discounts (which can only pick the single best
-// discount) so that the free-harness pairing and the bulk-tier order discount
-// can stack.
-//
-// Rules:
-//   - Each comma four pairs with one car harness to make that harness free.
-//     Free harnesses = min(#comma four, #car harness).
-//     e.g. 2 comma four + 3 harnesses => 2 free harnesses (you pay for 1).
-//   - At the bulk tier (>= BULK_TIER_PAIRS paired sets, i.e. >= 10 comma four
-//     AND >= 10 harnesses), every paired harness is free AND the whole order
-//     gets BULK_ORDER_DISCOUNT_PERCENT off the post-product-discount subtotal.
-//
-// The resulting discount allocations are read + displayed by the storefront
-// cart popup (see src/store.js getTotalDiscount / ShoppingCart.svelte).
-//
-// Product ids mirror src/lib/data/products.js. Update them here if they change.
-const COMMA_FOUR_PRODUCT_ID = "gid://shopify/Product/7964554231871";
-const CAR_HARNESS_PRODUCT_ID = "gid://shopify/Product/4447447908415";
-
-// How many comma four + harness pairs unlock the bulk order discount.
-const BULK_TIER_PAIRS = 10;
-// Order-level percentage taken off once the bulk tier is reached.
-const BULK_ORDER_DISCOUNT_PERCENT = "10.0";
-
-const NO_DISCOUNTS = { operations: [] };
+import {
+  DiscountClass,
+  OrderDiscountSelectionStrategy,
+  ProductDiscountSelectionStrategy,
+} from '../generated/api';
 
 /**
- * @param {{ cart: { lines: Array<any> }, discount: { discountClasses: string[] } }} input
+ * @typedef {import("../generated/api").CartInput} RunInput
+ * @typedef {import("../generated/api").CartLinesDiscountsGenerateRunResult} CartLinesDiscountsGenerateRunResult
  */
-export function cart_lines_discounts_generate_run(input) {
-  const lines = input?.cart?.lines ?? [];
-  if (lines.length === 0) return NO_DISCOUNTS;
 
-  // The discount must be created with both the PRODUCT and ORDER classes for
-  // both halves to apply (see README). Only emit what the discount allows.
-  const discountClasses = input?.discount?.discountClasses ?? [];
-  const canDiscountProducts = discountClasses.includes("PRODUCT");
-  const canDiscountOrder = discountClasses.includes("ORDER");
+// comma free-harness + bulk order discount.
+//
+// Rules:
+//   - Free car harness: one free harness per comma four in the cart.
+//     Free harnesses = min(#comma four, #car harness).
+//     e.g. 2 comma four + 3 harnesses => 2 free (you pay for 1). Adding a
+//     harness is optional — it's just free when you do.
+//   - Bulk order discount: >= BULK_TIER_QUANTITY comma four in the cart gets
+//     BULK_ORDER_DISCOUNT_PERCENT off the order. This does NOT require a
+//     harness — it triggers on comma four quantity alone.
+//
+// Product ids mirror src/lib/data/products.js — update here if they change.
+const COMMA_FOUR_PRODUCT_ID = 'gid://shopify/Product/7964554231871';
+const CAR_HARNESS_PRODUCT_ID = 'gid://shopify/Product/4447447908415';
+const BULK_TIER_QUANTITY = 10;
+const BULK_ORDER_DISCOUNT_PERCENT = 10;
+
+const NO_DISCOUNTS = {operations: []};
+
+/**
+ * @param {RunInput} input
+ * @returns {CartLinesDiscountsGenerateRunResult}
+ */
+export function cartLinesDiscountsGenerateRun(input) {
+  const lines = input.cart.lines;
+  if (!lines.length) return NO_DISCOUNTS;
+
+  const canDiscountProducts = input.discount.discountClasses.includes(
+    DiscountClass.Product,
+  );
+  const canDiscountOrder = input.discount.discountClasses.includes(
+    DiscountClass.Order,
+  );
+  if (!canDiscountProducts && !canDiscountOrder) return NO_DISCOUNTS;
 
   let commaFourQty = 0;
   const harnessLines = [];
   for (const line of lines) {
-    const productId = line?.merchandise?.product?.id;
+    const productId = line.merchandise?.product?.id;
     if (productId === COMMA_FOUR_PRODUCT_ID) {
       commaFourQty += line.quantity;
     } else if (productId === CAR_HARNESS_PRODUCT_ID) {
@@ -52,28 +57,25 @@ export function cart_lines_discounts_generate_run(input) {
 
   const harnessQty = harnessLines.reduce((sum, line) => sum + line.quantity, 0);
   const freeHarnessUnits = Math.min(commaFourQty, harnessQty);
-  if (freeHarnessUnits === 0) return NO_DISCOUNTS;
 
   const operations = [];
 
-  // --- Free harnesses (product discount) ---
-  if (canDiscountProducts) {
-    // Free the most expensive harness units first so the customer saves the
-    // most when harness variants are priced differently.
+  // Free harnesses (product discount). One per comma four; free the most
+  // expensive units first so the customer saves the most when harness variants
+  // are priced differently.
+  if (canDiscountProducts && freeHarnessUnits > 0) {
     const sorted = [...harnessLines].sort(
       (a, b) =>
         Number(b.cost.amountPerQuantity.amount) -
-        Number(a.cost.amountPerQuantity.amount)
+        Number(a.cost.amountPerQuantity.amount),
     );
 
-    // One candidate targeting each harness line for the number of free units on
-    // it. Targeting per-quantity handles partial lines (e.g. 2 free of 3).
     const targets = [];
     let remaining = freeHarnessUnits;
     for (const line of sorted) {
       if (remaining <= 0) break;
       const quantity = Math.min(remaining, line.quantity);
-      targets.push({ cartLine: { id: line.id, quantity } });
+      targets.push({cartLine: {id: line.id, quantity}});
       remaining -= quantity;
     }
 
@@ -81,33 +83,33 @@ export function cart_lines_discounts_generate_run(input) {
       productDiscountsAdd: {
         candidates: [
           {
-            message: "Free car harness",
+            message: 'Free car harness',
             targets,
-            value: { percentage: { value: "100.0" } },
+            value: {percentage: {value: 100}},
           },
         ],
-        selectionStrategy: "FIRST",
+        selectionStrategy: ProductDiscountSelectionStrategy.First,
       },
     });
   }
 
-  // --- Bulk order discount (order discount) ---
-  // Applies to the subtotal after the free harnesses are taken off, because
-  // Shopify applies product discounts before order discounts.
-  if (canDiscountOrder && freeHarnessUnits >= BULK_TIER_PAIRS) {
+  // Bulk order discount — triggered by comma four quantity alone (no harness
+  // required). Applied after any free harnesses come off, since Shopify applies
+  // product discounts before order discounts.
+  if (canDiscountOrder && commaFourQty >= BULK_TIER_QUANTITY) {
     operations.push({
       orderDiscountsAdd: {
         candidates: [
           {
-            message: "Bulk order discount",
-            targets: [{ orderSubtotal: { excludedCartLineIds: [] } }],
-            value: { percentage: { value: BULK_ORDER_DISCOUNT_PERCENT } },
+            message: 'Bulk order discount',
+            targets: [{orderSubtotal: {excludedCartLineIds: []}}],
+            value: {percentage: {value: BULK_ORDER_DISCOUNT_PERCENT}},
           },
         ],
-        selectionStrategy: "FIRST",
+        selectionStrategy: OrderDiscountSelectionStrategy.First,
       },
     });
   }
 
-  return operations.length > 0 ? { operations } : NO_DISCOUNTS;
+  return operations.length > 0 ? {operations} : NO_DISCOUNTS;
 }
