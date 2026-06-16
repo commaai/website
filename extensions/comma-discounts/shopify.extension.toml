@@ -1,8 +1,8 @@
 api_version = "2025-01"
 
 [[extensions]]
-name = "free-harness-discount"
-handle = "free-harness-discount"
+name = "comma-discounts"
+handle = "comma-discounts"
 type = "function"
 description = "Free car harness with comma four + bulk order discount"
 

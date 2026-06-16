@@ -1,4 +1,4 @@
-# free-harness-discount
+# comma-discounts
 
 A Shopify [discount function](https://shopify.dev/docs/apps/build/discounts/build-discount-function)
 that runs server-side in Shopify's cart/checkout and replaces our built-in
@@ -47,7 +47,7 @@ touch the SvelteKit/Vite app).
 shopify app config link
 
 # Install the function's deps (generates the Wasm wrapper too).
-cd extensions/free-harness-discount && npm install && cd -
+cd extensions/comma-discounts && npm install && cd -
 shopify app function typegen   # optional: generates input types
 ```
 
