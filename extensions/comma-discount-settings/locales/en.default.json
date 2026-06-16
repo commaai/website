@@ -1,9 +1,8 @@
 {
   "name": "comma discount settings",
-  "description": "Turn on both so the function can apply the free harness (Product) and the 10% bulk discount (Order). The rules themselves live in the function code.",
-  "title": "comma discounts",
+  "description": "Keep Order on — that's the 10% bulk discount on comma fours (10+ in the cart). The free harness and $50-off are separate native Shopify discounts; this function doesn't touch them.",
+  "title": "comma bulk discount",
   "discountClasses": {
-    "product": "Product — free car harness (one per comma four)",
     "order": "Order — 10% bulk discount (10+ comma four)"
   },
   "error": "Unable to update discount types. Please try again."

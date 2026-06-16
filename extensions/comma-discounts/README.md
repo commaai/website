@@ -1,14 +1,17 @@
 # comma-discounts
 
 A Shopify [discount function](https://shopify.dev/docs/apps/build/discounts/build-discount-function)
-that runs server-side in the cart/checkout and replaces our built-in discounts
-(which can only apply the single best discount) so the two offers can **stack**:
+that adds the one thing Shopify's native discounts can't: a **bulk discount that
+stacks**.
 
-1. **Free car harness** — each comma four pairs with one harness to make it
-   free. Free harnesses = `min(#comma four, #car harness)`.
-   So 2 comma four + 3 harnesses → 2 free, you pay for 1.
-2. **Bulk order discount** — ≥ 10 comma four in the cart gets 10% off the order.
-   No harness required — it triggers on comma four quantity alone.
+- **≥ 10 comma four in the cart → 10% off the comma four value** (only the comma
+  fours, computed after the native per-item discounts).
+
+The **free car harness** and **$50-off-comma-four** offers stay as **native
+Shopify automatic discounts** (Shopify picks the best per item). This function
+deliberately doesn't touch them — it emits an *order*-class discount scoped to
+the comma four lines, so it layers on top instead of competing with the native
+product discounts.
 
 This extension was scaffolded with `shopify app generate extension` (Discounts
 function → JavaScript). Our logic lives in
@@ -29,9 +32,8 @@ Tunables are constants at the top of `src/cart_lines_discounts_generate_run.js`:
 | Constant | Meaning |
 | --- | --- |
 | `COMMA_FOUR_PRODUCT_ID` | comma four product GID (mirror of `src/lib/data/products.js`) |
-| `CAR_HARNESS_PRODUCT_ID` | car harness product GID |
 | `BULK_TIER_QUANTITY` | comma four quantity that unlocks the bulk discount (`10`) |
-| `BULK_ORDER_DISCOUNT_PERCENT` | bulk order percentage off (`10`) |
+| `BULK_ORDER_DISCOUNT_PERCENT` | percentage off the comma four value (`10`) |
 
 After editing, re-run `shopify app deploy`.
 
