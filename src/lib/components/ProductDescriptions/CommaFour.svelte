@@ -18,20 +18,33 @@
 <script>
   import { onMount } from 'svelte';
   import { getProduct } from '$lib/utils/shopify';
+  import { addToCart } from '../../../store.js';
   import { products as productsData } from '$lib/data/products.js';
   import { formatCurrency } from "$lib/utils/currency";
 
   export let product;
   let disableBuyButtonText = "SELECT YOUR CAR";
 
+  // TEMP: comma four + harness bundle test. When a harness is selected, add this
+  // bundle's matching variant (one line) instead of separate comma four + harness.
+  const BUNDLE_PRODUCT_ID = "gid://shopify/Product/8209310384191";
+  let bundleVariantsByTitle = {};
+
   let harnessSelectorRef;
   let checkboxCardRef;
 
   let showDisclaimerModal = false;
   let onProceed;
-  let beforeAddToCart = (addToCart) => {
+  let beforeAddToCart = (defaultAdd) => {
     onProceed = () => {
-      addToCart();
+      if (bundleVariantId) {
+        // Add the single comma four + harness bundle variant (plus trade-in if
+        // selected) instead of separate comma four + harness lines.
+        const extras = tradeInChecked && tradeInVariantId ? [tradeInVariantId] : [];
+        addToCart(bundleVariantId, extras, getCartNote());
+      } else {
+        defaultAdd();
+      }
       showDisclaimerModal = false;
     }
     showDisclaimerModal = true;
@@ -73,6 +86,25 @@
     return ids;
   })();
 
+  // Resolve the bundle variant for the selected harness (matched by title).
+  $: bundleVariantId =
+    selectedHarness && selectedHarness !== NO_HARNESS_OPTION
+      ? bundleVariantsByTitle[selectedHarness.title]
+      : null;
+  $: if (
+    selectedHarness &&
+    selectedHarness !== NO_HARNESS_OPTION &&
+    Object.keys(bundleVariantsByTitle).length &&
+    !bundleVariantId
+  ) {
+    console.warn(
+      "[bundle] no bundle variant matched harness title:",
+      selectedHarness.title,
+      "— available:",
+      Object.keys(bundleVariantsByTitle)
+    );
+  }
+
   const handleHarnessSelection = (value) => {
     selectedHarness = value;
     if (value === NO_HARNESS_OPTION) {
@@ -98,6 +130,21 @@
   }
 
   onMount(async () => {
+    // TEMP: load the comma four + harness bundle variants (title -> variant id).
+    try {
+      const bundleResp = await getProduct(BUNDLE_PRODUCT_ID);
+      const nodes = bundleResp?.body?.data?.product?.variants?.nodes ?? [];
+      const map = {};
+      for (const v of nodes) map[v.title] = v.id;
+      bundleVariantsByTitle = map;
+      console.log("[bundle] loaded", nodes.length, "variants:", Object.keys(map));
+      if (!nodes.length) {
+        console.warn("[bundle] no variants for", BUNDLE_PRODUCT_ID, "— is it published to this storefront's sales channel?");
+      }
+    } catch (error) {
+      console.error("[bundle] failed to fetch bundle product:", error);
+    }
+
     // Autofill trade-in checkbox
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('trade-in') === '1') {

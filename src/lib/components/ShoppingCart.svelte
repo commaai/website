@@ -45,13 +45,18 @@
       <div class="empty">Your cart is empty.</div>
     {/if}
     {#each $cartItems as item}
+      {@const imageSrc = item.node.merchandise.product.images?.edges?.[0]?.node?.originalSrc}
       <div class="item">
-        <img
-          alt={item.node.merchandise.product.title}
-          decoding="async"
-          loading="lazy"
-          src={item.node.merchandise.product.images.edges[0].node.originalSrc}
-        />
+        {#if imageSrc}
+          <img
+            alt={item.node.merchandise.product.title}
+            decoding="async"
+            loading="lazy"
+            src={imageSrc}
+          />
+        {:else}
+          <div class="no-image" aria-hidden="true"></div>
+        {/if}
         <div class="details">
           <div class="title">
             {item.node.merchandise.product.title}
@@ -172,6 +177,14 @@
       & img {
         width: 65px;
         height: auto;
+      }
+
+      & .no-image {
+        width: 65px;
+        height: 65px;
+        flex-shrink: 0;
+        background: #f1f1f1;
+        border-radius: 4px;
       }
 
       & .details {
