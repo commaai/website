@@ -96,6 +96,7 @@ export async function _loadCart() {
                     id
                     title
                     product {
+                      id
                       images(first: 1) {
                         edges {
                           node {
@@ -207,6 +208,49 @@ export async function updateCart({ cartId, lineId, variantId, quantity }) {
         }
       ]
     }
+  });
+}
+
+// Generic cart-line mutations used by bundle reconciliation (see store.js).
+export async function addCartLines({ cartId, lines }) {
+  return shopifyFetch({
+    query: /* graphql */ `
+      mutation cartLinesAdd($cartId: ID!, $lines: [CartLineInput!]!) {
+        cartLinesAdd(cartId: $cartId, lines: $lines) {
+          ${USER_ERRORS_GQL}
+          ${WARNINGS_GQL}
+        }
+      }
+    `,
+    variables: { cartId, lines }
+  });
+}
+
+export async function updateCartLines({ cartId, lines }) {
+  return shopifyFetch({
+    query: /* graphql */ `
+      mutation cartLinesUpdate($cartId: ID!, $lines: [CartLineUpdateInput!]!) {
+        cartLinesUpdate(cartId: $cartId, lines: $lines) {
+          ${USER_ERRORS_GQL}
+          ${WARNINGS_GQL}
+        }
+      }
+    `,
+    variables: { cartId, lines }
+  });
+}
+
+export async function removeCartLines({ cartId, lineIds }) {
+  return shopifyFetch({
+    query: /* graphql */ `
+      mutation cartLinesRemove($cartId: ID!, $lineIds: [ID!]!) {
+        cartLinesRemove(cartId: $cartId, lineIds: $lineIds) {
+          ${USER_ERRORS_GQL}
+          ${WARNINGS_GQL}
+        }
+      }
+    `,
+    variables: { cartId, lineIds }
   });
 }
 
