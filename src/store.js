@@ -118,12 +118,15 @@ export const reconcileBundles = async () => {
   }
 
   try {
-    if (toRemove.length) await removeCartLines({ cartId: id, lineIds: toRemove });
-    if (toUpdate.length) await updateCartLines({ cartId: id, lines: toUpdate });
+    // Add the bundle line(s) first, then drop the loose lines — so a failed
+    // add can never leave the cart short of the comma four / harness.
     if (toAdd.length) await addCartLines({ cartId: id, lines: toAdd });
+    if (toUpdate.length) await updateCartLines({ cartId: id, lines: toUpdate });
+    if (toRemove.length) await removeCartLines({ cartId: id, lineIds: toRemove });
     await loadCart();
   } catch (error) {
     console.error("[bundle] reconcile failed:", error);
+    await loadCart();
   }
 };
 
