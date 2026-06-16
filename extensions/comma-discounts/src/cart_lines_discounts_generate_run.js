@@ -1,13 +1,3 @@
-import {
-  DiscountClass,
-  OrderDiscountSelectionStrategy,
-} from '../generated/api';
-
-/**
- * @typedef {import("../generated/api").CartInput} RunInput
- * @typedef {import("../generated/api").CartLinesDiscountsGenerateRunResult} CartLinesDiscountsGenerateRunResult
- */
-
 // comma bulk order discount.
 //
 // The free car harness ($0) and the $50-off-comma-four offers are handled by
@@ -26,16 +16,12 @@ const BULK_ORDER_DISCOUNT_PERCENT = 10;
 
 const NO_DISCOUNTS = {operations: []};
 
-/**
- * @param {RunInput} input
- * @returns {CartLinesDiscountsGenerateRunResult}
- */
 export function cartLinesDiscountsGenerateRun(input) {
   const lines = input.cart.lines;
   if (!lines.length) return NO_DISCOUNTS;
 
   // This function only emits an order-class discount.
-  if (!input.discount.discountClasses.includes(DiscountClass.Order)) {
+  if (!input.discount.discountClasses.includes('ORDER')) {
     return NO_DISCOUNTS;
   }
 
@@ -51,8 +37,9 @@ export function cartLinesDiscountsGenerateRun(input) {
 
   if (commaFourQty < BULK_TIER_QUANTITY) return NO_DISCOUNTS;
 
-  // Scope the order discount to the comma four lines by excluding everything
-  // else, so the percentage applies to the comma four value only.
+  // Order discounts only support excluding lines (there is no "include only"),
+  // so we exclude everything that isn't a comma four to scope the % to the
+  // comma fours.
   return {
     operations: [
       {
@@ -66,7 +53,7 @@ export function cartLinesDiscountsGenerateRun(input) {
               value: {percentage: {value: BULK_ORDER_DISCOUNT_PERCENT}},
             },
           ],
-          selectionStrategy: OrderDiscountSelectionStrategy.First,
+          selectionStrategy: 'FIRST',
         },
       },
     ],
