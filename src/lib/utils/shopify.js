@@ -91,6 +91,12 @@ export async function _loadCart() {
                     currencyCode
                   }
                 }
+                discountAllocations {
+                  discountedAmount {
+                    amount
+                    currencyCode
+                  }
+                }
                 merchandise {
                   ... on ProductVariant {
                     id
