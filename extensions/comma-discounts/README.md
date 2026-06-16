@@ -46,9 +46,9 @@ touch the SvelteKit/Vite app).
 # comma app, or create a new one when prompted.
 shopify app config link
 
-# Install the function's deps (generates the Wasm wrapper too).
+# Install the function's JS dependencies.
 cd extensions/comma-discounts && npm install && cd -
-shopify app function typegen   # optional: generates input types
+shopify app function typegen   # optional: generates input types from the query
 ```
 
 > The build/toolchain wiring (`package.json`, `shopify.extension.toml`
@@ -76,15 +76,16 @@ discount** that uses it, and it must:
 - be set to **combine** with your other discounts (e.g. VIP codes), or Shopify
   falls back to "apply the single best discount".
 
-The reliable way is the Admin GraphQL API (Admin → Apps → or any GraphQL
-client). Get the function id from `shopify app deploy` output or
-`shopify app function list`, then:
+The reliable way is the Admin GraphQL API (any GraphQL client). `functionHandle`
+is just this extension's `handle` from `shopify.extension.toml`
+(`comma-discounts`) — since Admin API 2025-10 you no longer look up a function
+id:
 
 ```graphql
 mutation {
   discountAutomaticAppCreate(automaticAppDiscount: {
     title: "Free harness + bulk",
-    functionId: "YOUR_FUNCTION_ID",
+    functionHandle: "comma-discounts",
     discountClasses: [PRODUCT, ORDER],
     startsAt: "2026-06-15T00:00:00Z",
     combinesWith: {
@@ -98,6 +99,9 @@ mutation {
   }
 }
 ```
+
+> On an Admin API version older than 2025-10, swap `functionHandle` for the
+> deprecated `functionId: "YOUR_FUNCTION_ID"` (from `shopify app deploy` output).
 
 For each VIP/code discount you want to stack on top, make sure its own
 **Combinations** settings also allow product + order discounts. Discounts that
