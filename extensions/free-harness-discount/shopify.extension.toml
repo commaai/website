@@ -1,0 +1,16 @@
+api_version = "2025-01"
+
+[[extensions]]
+name = "free-harness-discount"
+handle = "free-harness-discount"
+type = "function"
+description = "Free car harness with comma four + bulk order discount"
+
+  [[extensions.targeting]]
+  target = "cart.lines.discounts.generate.run"
+  input_query = "src/cart_lines_discounts_generate_run.graphql"
+  export = "cart_lines_discounts_generate_run"
+
+  [extensions.build]
+  command = ""
+  watch = ["src/**/*.js"]

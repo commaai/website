@@ -25,3 +25,9 @@ Thumbs.db
 # Vite
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# Shopify CLI (discount function)
+.shopify
+extensions/**/dist
+extensions/**/generated
+.env*.local

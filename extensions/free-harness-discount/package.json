@@ -1,0 +1,14 @@
+{
+  "name": "free-harness-discount",
+  "version": "1.0.0",
+  "private": true,
+  "description": "comma free-harness + bulk order discount (Shopify Function)",
+  "scripts": {
+    "typegen": "shopify app function typegen",
+    "build": "shopify app function build",
+    "preview": "shopify app function run"
+  },
+  "dependencies": {
+    "@shopify/shopify_function": "^1.0.0"
+  }
+}
