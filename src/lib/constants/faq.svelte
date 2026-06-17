@@ -325,7 +325,7 @@
             </p>
             
             <p>
-              Note: your stored drives from your original device will not be transfered to your new device.
+              Note: your stored drives from your original device will not be transferred to your new device.
             </p>
           `
         }, {
