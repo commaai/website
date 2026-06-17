@@ -57,9 +57,9 @@ async function ensureConfigDefinition() {
 // discount class. Create a separate discount per type so they report separately
 // in analytics.
 const TYPES = [
-  {value: "free_harness", label: "Free car harness (per paired comma four)", classes: ["product"]},
-  {value: "fifty_off", label: "$50 off comma four (no harness)", classes: ["product"]},
-  {value: "bulk", label: "Bulk order discount (10% at 10+ comma four)", classes: ["order"]},
+  {value: "free_harness", label: "FOUR INCLUDED HARNESS — harness free per paired comma four", classes: ["product"]},
+  {value: "fifty_off", label: "FOUR NO HARNESS — $50 off each comma four without a harness", classes: ["product"]},
+  {value: "bulk", label: "BULK ORDER — 10% off at 10+ comma four", classes: ["order"]},
 ];
 
 function App() {

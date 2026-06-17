@@ -9,14 +9,14 @@ in the settings panel); the function reads it and emits only that piece:
 
 | type (picked in the panel) | what it does |
 | --- | --- |
-| **Free car harness** | the harness paired with each comma four is free |
-| **$50 off comma four** | comma fours *without* a harness get $50 off each |
-| **Bulk order discount** | ≥ 10 comma four → 10% off the comma four value |
+| **FOUR INCLUDED HARNESS** | the harness paired with each comma four is free |
+| **FOUR NO HARNESS** | comma fours *without* a harness get $50 off each |
+| **BULK ORDER** | ≥ 10 comma four → 10% off the comma four value |
 
-Pairing: `pairs = min(#comma four, #car harness)`. Free harness frees those
-pairs; $50-off applies only to the **unpaired** comma fours — so a comma four
-never gets both. Bulk is an order-class discount scoped to the comma four lines,
-so it stacks on top.
+Pairing: `pairs = min(#comma four, #car harness)`. FOUR INCLUDED HARNESS frees
+those pairs; FOUR NO HARNESS applies only to the **unpaired** comma fours — so a
+comma four never gets both. BULK ORDER is an order-class discount scoped to the
+comma four lines, so it stacks on top.
 
 - Logic: [`src/cart_lines_discounts_generate_run.js`](src/cart_lines_discounts_generate_run.js)
 - Input query: [`src/cart_lines_discounts_generate_run.graphql`](src/cart_lines_discounts_generate_run.graphql)
@@ -27,9 +27,9 @@ Constants at the top of `cart_lines_discounts_generate_run.js`:
 
 | Constant | Meaning |
 | --- | --- |
-| `COMMA_FOUR_PRODUCT_ID` / `CAR_HARNESS_PRODUCT_ID` | product GIDs (mirror `src/lib/data/products.js`) |
+| `COMMA_FOUR_PRODUCT_ID` / `CAR_HARNESS_PRODUCT_ID` | product GIDs (mirror the storefront's `src/lib/data/products.js`) |
 | `FOUR_NO_HARNESS_AMOUNT` | $ off each unpaired comma four (`50`) |
-| `BULK_TIER_QUANTITY` | comma four qty that unlocks the bulk discount (`10`) |
+| `BULK_TIER_QUANTITY` | comma four qty that unlocks BULK ORDER (`10`) |
 | `BULK_ORDER_DISCOUNT_PERCENT` | bulk % off (`10`) |
 
 After editing, re-run `shopify app deploy`.
@@ -51,8 +51,5 @@ shopify app deploy        # builds + releases a new app version
 Do this once **per offer**, in the admin:
 
 **Discounts → Create discount → comma-discounts** → in the settings panel pick the
-**type**, set a title (e.g. "Free car harness"), Combinations, and Active → **Save**.
-
-Picking a type also sets the right discount class automatically. Because each is
-its own discount, they appear as separate lines in
-**Analytics → Reports → Sales by discount**. No GraphQL needed.
+**type**, set the **title to the offer name** (e.g. `FOUR NO HARNESS`),
+Combinations, and Active → **Save**.
