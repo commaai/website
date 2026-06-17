@@ -1,11 +1,11 @@
 api_version = "2026-04"
 
 [[extensions]]
-name = "t:name"
+name = "comma-discounts"
 handle = "comma-discounts"
 type = "function"
 uid = "95c2519e-677e-bbb6-8efd-2b2893810312d2103df5"
-description = "t:description"
+description = "comma four discount function"
 
   [[extensions.targeting]]
   target = "cart.lines.discounts.generate.run"
