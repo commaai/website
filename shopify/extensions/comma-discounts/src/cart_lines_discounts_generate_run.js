@@ -74,7 +74,7 @@ export function cartLinesDiscountsGenerateRun(input) {
           productDiscountsAdd: {
             candidates: [
               {
-                message: 'Free car harness',
+                message: 'FOUR INCLUDED HARNESS',
                 targets: allocate(sorted, pairs),
                 value: {percentage: {value: FREE_HARNESS_PERCENT}},
               },
@@ -97,7 +97,7 @@ export function cartLinesDiscountsGenerateRun(input) {
           productDiscountsAdd: {
             candidates: [
               {
-                message: '$50 off comma four',
+                message: 'FOUR NO HARNESS',
                 targets: allocate(commaFourLines, unpaired),
                 value: {
                   fixedAmount: {
@@ -125,7 +125,7 @@ export function cartLinesDiscountsGenerateRun(input) {
           orderDiscountsAdd: {
             candidates: [
               {
-                message: 'Bulk order discount',
+                message: 'BULK ORDER',
                 targets: [
                   {orderSubtotal: {excludedCartLineIds: nonCommaFourLineIds}},
                 ],
