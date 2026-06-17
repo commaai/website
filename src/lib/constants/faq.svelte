@@ -317,10 +317,16 @@
         }, {
           question: 'How do I transfer a prime subscription to a new device?',
           answer: `
-            We aren't able to transfer comma prime subscriptions between devices. To do
-            so, you must cancel your existing prime subscription through
-            <a href="https://connect.comma.ai/">connect.comma.ai</a> and sign up with the new
-            device.
+            <p>
+              We aren't able to transfer comma prime subscriptions between devices. To do
+              so, you must cancel your existing prime subscription through
+              <a href="https://connect.comma.ai/">connect.comma.ai</a> and sign up with the new
+              device.
+            </p>
+            
+            <p>
+              Note: your stored drives from your original device will not be transfered to your new device.
+            </p>
           `
         }, {
           question: 'How do I cancel comma prime?',
