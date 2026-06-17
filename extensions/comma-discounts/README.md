@@ -1,19 +1,25 @@
 # comma-discounts
 
-A Shopify [discount function](https://shopify.dev/docs/apps/build/discounts/build-discount-function)
-for the comma store, with a small admin UI (`../comma-discount-settings`) to turn
-it on.
+A Shopify discount function for the comma store, plus an admin settings panel
+(`../comma-discount-settings`) to configure it.
 
-**Current rule:** ≥ 10 comma four in the cart → **10% off the comma four value**.
-It's an order-class discount scoped to the comma four lines, so it stacks on top
-of the native per-item discounts (Shopify applies product discounts first, order
-discounts after).
+It powers three offers. Each is created as a **separate** automatic discount so
+they report separately in Shopify metrics. Each discount carries a `type` (picked
+in the settings panel); the function reads it and emits only that piece:
 
-The free car harness / $50-off-comma-four offers are native Shopify discounts;
-this function only adds the bulk tier (free-harness logic may move in here later).
+| type (picked in the panel) | what it does |
+| --- | --- |
+| **Free car harness** | the harness paired with each comma four is free |
+| **$50 off comma four** | comma fours *without* a harness get $50 off each |
+| **Bulk order discount** | ≥ 10 comma four → 10% off the comma four value |
+
+Pairing: `pairs = min(#comma four, #car harness)`. Free harness frees those
+pairs; $50-off applies only to the **unpaired** comma fours — so a comma four
+never gets both. Bulk is an order-class discount scoped to the comma four lines,
+so it stacks on top.
 
 - Logic: [`src/cart_lines_discounts_generate_run.js`](src/cart_lines_discounts_generate_run.js)
-- Input query (cart fields the function receives): [`src/cart_lines_discounts_generate_run.graphql`](src/cart_lines_discounts_generate_run.graphql)
+- Input query: [`src/cart_lines_discounts_generate_run.graphql`](src/cart_lines_discounts_generate_run.graphql)
 
 ## Changing the rules
 
@@ -21,9 +27,10 @@ Constants at the top of `cart_lines_discounts_generate_run.js`:
 
 | Constant | Meaning |
 | --- | --- |
-| `COMMA_FOUR_PRODUCT_ID` | comma four product GID (mirror of `src/lib/data/products.js`) |
-| `BULK_TIER_QUANTITY` | comma four quantity that unlocks the discount (`10`) |
-| `BULK_ORDER_DISCOUNT_PERCENT` | percentage off the comma four value (`10`) |
+| `COMMA_FOUR_PRODUCT_ID` / `CAR_HARNESS_PRODUCT_ID` | product GIDs (mirror `src/lib/data/products.js`) |
+| `FOUR_NO_HARNESS_AMOUNT` | $ off each unpaired comma four (`50`) |
+| `BULK_TIER_QUANTITY` | comma four qty that unlocks the bulk discount (`10`) |
+| `BULK_ORDER_DISCOUNT_PERCENT` | bulk % off (`10`) |
 
 After editing, re-run `shopify app deploy`.
 
@@ -34,19 +41,18 @@ After editing, re-run `shopify app deploy`.
 
 ## Deploy
 
-From the repo root:
-
 ```bash
 shopify app config link   # one-time: link to the comma app
 shopify app deploy        # builds + releases a new app version
 ```
 
-## Activate
+## Activate — create the 3 discounts
 
-Deploying only uploads the function — you create the discount once in the admin.
-The `comma-discount-settings` UI extension powers this, so it's just:
+Do this once **per offer**, in the admin:
 
-**Admin → Discounts → Create discount → comma-discounts** → in the settings panel
-tick **Order**, set a title + combinations + Active → **Save**.
+**Discounts → Create discount → comma-discounts** → in the settings panel pick the
+**type**, set a title (e.g. "Free car harness"), Combinations, and Active → **Save**.
 
-No GraphQL needed. The discount then shows in **Admin → Discounts** like any other.
+Picking a type also sets the right discount class automatically. Because each is
+its own discount, they appear as separate lines in
+**Analytics → Reports → Sales by discount**. No GraphQL needed.

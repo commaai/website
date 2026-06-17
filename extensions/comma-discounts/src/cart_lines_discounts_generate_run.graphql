@@ -3,6 +3,11 @@ query CartInput {
     lines {
       id
       quantity
+      cost {
+        amountPerQuantity {
+          amount
+        }
+      }
       merchandise {
         __typename
         ... on ProductVariant {
@@ -15,5 +20,8 @@ query CartInput {
   }
   discount {
     discountClasses
+    metafield(namespace: "$app:comma-discounts", key: "config") {
+      value
+    }
   }
 }
