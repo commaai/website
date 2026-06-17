@@ -1,0 +1,20 @@
+{
+  "name": "comma-shopify",
+  "author": "comma.ai <x@comma.ai>",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20.10.0"
+  },
+  "scripts": {
+    "dev": "shopify app dev",
+    "deploy": "shopify app deploy"
+  },
+  "dependencies": {
+    "@preact/signals": "^2.3.0",
+    "@shopify/shopify_function": "~2.0.0",
+    "@shopify/ui-extensions": "~2026.01.0",
+    "preact": "^10.10.0"
+  }
+}

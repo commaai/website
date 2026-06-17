@@ -1,0 +1,22 @@
+api_version = "2026-04"
+
+[[extensions]]
+name = "comma-discounts"
+handle = "comma-discounts"
+type = "function"
+uid = "95c2519e-677e-bbb6-8efd-2b2893810312d2103df5"
+description = "comma four discount function"
+
+  [[extensions.targeting]]
+  target = "cart.lines.discounts.generate.run"
+  input_query = "src/cart_lines_discounts_generate_run.graphql"
+  export = "cart-lines-discounts-generate-run"
+
+  [extensions.build]
+  command = ""
+  path = "dist/function.wasm"
+
+  # Links this function to its admin settings UI so the discount is creatable
+  # from Discounts → Create → comma-discounts (instead of "Find this app…").
+  [extensions.ui]
+  handle = "comma-discount-settings"

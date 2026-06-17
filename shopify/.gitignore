@@ -1,0 +1,5 @@
+# Shopify CLI (discount function)
+.shopify
+extensions/**/dist
+extensions/**/generated
+.env*.local
