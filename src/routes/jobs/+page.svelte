@@ -16,7 +16,7 @@
   `;
 
   let activeQuote = 0;
-  let expandedJobIndexes = new Set([0]);
+  let expandedJobIndexes = new Set();
 
   const quotes = [
     {
@@ -275,7 +275,7 @@
     const hash = decodeURIComponent(window.location.hash.slice(1));
     const index = jobSlugs.indexOf(hash);
     if (index !== -1) {
-      expandedJobIndexes = new Set([...expandedJobIndexes, index]);
+      expandedJobIndexes = new Set([index]);
     }
 
     return () => {
