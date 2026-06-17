@@ -6,10 +6,6 @@
   $: ({ product, descriptionComponent } = data);
 </script>
 
-<svelte:head>
-  <title>{product.title} — comma shop</title>
-</svelte:head>
-
 <section class="light" id="product-item">
   <div class="container">
     {#if descriptionComponent}
