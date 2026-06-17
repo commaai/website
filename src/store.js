@@ -33,11 +33,10 @@ if (browser) {
 export const loadCart = async () => {
   try {
     const shopifyResponse = await requestLoadCart(get(cartId));
-    const cart = shopifyResponse?.body?.data?.cart;
-    cartItems.set(cart?.lines?.edges);
-    cartDiscount.set(getTotalDiscount(cart));
-    cartSubtotal.set(getOriginalSubtotal(cart));
-    cartTotalQuantity.set(cart?.totalQuantity);
+    cartItems.set(shopifyResponse?.body?.data?.cart?.lines?.edges);
+    cartDiscount.set(getTotalDiscount(shopifyResponse?.body?.data?.cart?.discountAllocations));
+    cartSubtotal.set(shopifyResponse?.body?.data?.cart?.cost?.subtotalAmount);
+    cartTotalQuantity.set(shopifyResponse.body?.data?.cart?.totalQuantity);
 
   } catch (error) {
     console.error(error);
@@ -50,39 +49,12 @@ export const addToCart = async (itemId, additionalProductIds = [], note = "") =>
   showCart.set(true);
 }
 
-// Discounts can be applied at the cart level (order discounts) or per line item
-// (product discounts), so we gather both before totalling them up.
-const getDiscountAllocations = (cart) => {
-  const cartLevel = cart?.discountAllocations ?? [];
-  const lineLevel = (cart?.lines?.edges ?? []).flatMap(
-    (edge) => edge?.node?.discountAllocations ?? []
-  );
-  return [...cartLevel, ...lineLevel];
-}
-
-export const getTotalDiscount = (cart) => {
-  const discountAllocations = getDiscountAllocations(cart);
-  if (discountAllocations.length === 0) return null;
+export const getTotalDiscount = (discountAllocations) => {
+  if (!discountAllocations || discountAllocations.length === 0) return null;
 
   const discountAmount = discountAllocations.reduce((totalAmount, allocation) => {
     return totalAmount + Number(allocation.discountedAmount.amount);
   }, 0);
 
   return { amount: discountAmount, currencyCode: discountAllocations[0].discountedAmount.currencyCode };
-}
-
-// The pre-discount subtotal: sum of each line's cost before line-level discounts.
-// Shopify's cart cost.subtotalAmount already nets out product discounts, so summing
-// the line subtotals keeps the cart's "was / now" strikethrough correct for both
-// order- and product-level discounts.
-export const getOriginalSubtotal = (cart) => {
-  const edges = cart?.lines?.edges ?? [];
-  const currencyCode =
-    cart?.cost?.subtotalAmount?.currencyCode ??
-    edges[0]?.node?.estimatedCost?.subtotalAmount?.currencyCode;
-  const amount = edges.reduce((sum, edge) => {
-    return sum + Number(edge?.node?.estimatedCost?.subtotalAmount?.amount ?? 0);
-  }, 0);
-
-  return { amount, currencyCode };
 }
