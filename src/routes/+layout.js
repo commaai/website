@@ -6,7 +6,7 @@ export const prerender = true;
 export async function load({ fetch }) {
   let blogPosts = await fetch("https://blog.comma.ai/feed")
     .then((response) => response.text())
-    .then((str) => new XMLParser().parse(str))
+    .then((str) => new XMLParser({ htmlEntities: true }).parse(str))
     .then((data) => {
       const blogPosts = data.rss.channel.item
         .map(({ title, guid, pubDate, "cb:readTime": readTime }) => {

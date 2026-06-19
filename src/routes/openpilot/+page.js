@@ -7,7 +7,7 @@ const OPENPILOT_RELEASE_PATTERN = "\\bopenpilot\\s+\\d+\\.\\d+(?:\\.\\d+)?\\b";
 export async function load({ fetch }) {
   let releaseNotes = await fetch("https://blog.comma.ai/feed")
     .then((response) => response.text())
-    .then((str) => new XMLParser().parse(str))
+    .then((str) => new XMLParser({ htmlEntities: true }).parse(str))
     .then((data) => {
       const releaseNotes = data.rss.channel.item
         .filter((entry) => entry.title.match(OPENPILOT_RELEASE_PATTERN))
