@@ -159,6 +159,29 @@
             </p>
           `
         }, {
+          question: 'What are the limitations of openpilot Driver Monitoring?',
+          answer: `
+            <p>
+              openpilot Driver Monitoring (DM) should not be considered an exact
+              measurement of the alertness of the driver.
+            </p>
+            <p>
+              Many factors can impact the performance of openpilot DM, causing it to be
+              unable to function as intended. These include, but are not limited to:
+            </p>
+            <ul>
+              <li>Low light conditions, such as driving at night or in dark tunnels.</li>
+              <li>Bright light (due to oncoming headlights, direct sunlight, etc.).</li>
+              <li>The driver's face is partially or completely outside field of view of the driver facing camera.</li>
+              <li>The driver facing camera is obstructed, covered, or damaged.</li>
+            </ul>
+            <p>
+              The list above does not represent an exhaustive list of situations that may
+              interfere with proper operation of openpilot components. A driver should not
+              rely on openpilot DM to assess their level of attention.
+            </p>
+          `
+        }, {
           question: 'Do I retain my car factory safety features with openpilot installed?',
           answer: `
             <p>
