@@ -233,19 +233,6 @@
             updates in the settings, under the "software" tab.
           `
         }, {
-          question: 'Will all versions of openpilot work with my comma device?',
-          answer: `
-            <p>
-              The comma 3X can only run openpilot 0.9.4 and above. Running earlier versions
-              requires making modifications to the software so that a newer AGNOS is installed.
-            </p>
-            <p>
-              If you face issues after installing an older version of openpilot, you can
-              re-flash AGNOS on your device by following the instructions at
-              <a href="https://flash.comma.ai">flash.comma.ai</a>.
-            </p>
-          `
-        }, {
           question: 'Does openpilot work at all speeds?',
           answer: `
             Supported speeds vary depending on the car. Please reference the supported
