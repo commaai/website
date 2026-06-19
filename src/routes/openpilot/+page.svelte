@@ -83,8 +83,10 @@
         road/lane.
       </p>
       <p>
-        When openpilot is enabled, a driver monitoring system watches the driver
-        and ensures the driver is attentive and ready to take over at all times.
+        Like other ACC and ALC systems, openpilot requires the driver to be alert,
+        pay attention, and be ready to take over at all times.
+        To assist the driver in maintaining alertness, openpilot includes a driver
+        monitoring system that alerts when it detects driver distraction.
       </p>
       <p />
       <p>
