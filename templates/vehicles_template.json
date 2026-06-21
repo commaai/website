@@ -22,7 +22,8 @@
         {% for footnote in car.footnotes if footnote.value.setup_note %}
         {{ footnote.value.text | tojson }}{{ "" if loop.last else "," }}
         {% endfor %}
-      ]
+      ]{% if car.requires_comma_power %},
+      "requires_comma_power": true{% endif +%}
     }{{ "" if loop.last else "," }}
     {% endfor %}
   ]{{ "" if loop.last else "," }}
