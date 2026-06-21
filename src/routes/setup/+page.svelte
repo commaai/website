@@ -271,7 +271,7 @@
     </div>
 
     <hr />
-    <div class="step" id="step-6">
+    <div class="step" id="comma-power-step">
       <Badge style="dark">
         {#if requiresCommaPower}
           Step 6 <span class="muted">of {totalSteps}</span>
@@ -306,7 +306,7 @@
     </div>
 
     <hr />
-    <div class="step">
+    <div class="step" id="comma-connect-step">
       <Badge style="dark">OPTIONAL STEP</Badge>
       <h2>Pair your device with comma connect</h2>
       <Grid templateColumns="0.875fr 0.75fr">
