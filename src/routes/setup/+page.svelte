@@ -279,7 +279,7 @@
           OPTIONAL STEP
         {/if}
       </Badge>
-      <h2>{requiresCommaPower ? "Install comma power" : "Add the comma power"}</h2>
+      <h2>Add the comma power</h2>
       <Grid templateColumns="0.875fr 0.75fr">
         <div>
           <img src={CommaPowerImage} loading="lazy" alt="comma power" />
