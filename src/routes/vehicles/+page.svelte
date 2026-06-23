@@ -15,6 +15,7 @@
   import CarIcon from '$lib/icons/features/car.svg?raw';
 
   import CommaFourImage from '$lib/images/products/comma-four/four_screen_on.png';
+  import VehiclesBannerImage from '$lib/images/vehicles/kia-ev6-comma-four.jpg';
 
   import { FOUR_PRICE } from '$lib/constants/prices.js';
   import { vehicleCountText } from '$lib/constants/vehicles.js';
@@ -22,7 +23,7 @@
   const brand_images = import.meta.glob('$lib/images/vehicles/brand-icons/*.png', { eager: true });
 </script>
 
-<div class="vehicles-cover-image"></div>
+<img src={VehiclesBannerImage} alt="Vehicles banner" class="vehicles-cover-image" />
 
 <section id="vehicles" class="light">
   <div class="container">
@@ -213,11 +214,15 @@
   }
 
   .vehicles-cover-image {
-    background-image: url("/videos/hero-landscape/poster.jpg");
-    background-position: 50% 30%;
-    background-size: cover;
-    background-attachment: scroll;
-    height: 287px;
+    display: block;
+    width: 100%;
+    max-width: 2560px;
+    height: 25vw;
+    max-height: 365px;
+    min-height: 150px;
+    margin: 0 auto;
+    object-fit: cover;
+    object-position: 50% 43%;
   }
 
   #vehicles {
