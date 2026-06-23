@@ -3336,7 +3336,9 @@
       "footnotes": [
       ],
       "setup_notes": [
-      ]
+        "Mazda vehicles \u003cb\u003erequire\u003c/b\u003e comma power installation."
+      ],
+      "requires_comma_power": true
     },
     {
       "name": "Mazda CX-9 2021-23",
@@ -3351,7 +3353,9 @@
       "footnotes": [
       ],
       "setup_notes": [
-      ]
+        "Mazda vehicles \u003cb\u003erequire\u003c/b\u003e comma power installation."
+      ],
+      "requires_comma_power": true
     }
   ],
   "Nissan": [

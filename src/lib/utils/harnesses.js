@@ -44,6 +44,7 @@ async function initializeHarnesses() {
         backordered: harness?.backordered,  // these overrides are only shown if the harness is out of stock in Shopify
         setupNotes: model.setup_notes,
         setupVideo: model.setup_video,
+        requiresCommaPower: model.requires_comma_power === true,
       };
     }).filter(Boolean);
   });
