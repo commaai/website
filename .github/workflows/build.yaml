@@ -61,6 +61,11 @@ jobs:
           retention-days: 1
           name: build-artifacts-${{ github.run_id }}
 
+      # TODO: remove when https://github.com/firebase/firebase-tools/issues/10730 is fixed
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.18.0'
+
       - name: Deploy to prod
         if: github.event_name == 'push' && github.ref == 'refs/heads/master' && github.repository == 'commaai/website'
         uses: FirebaseExtended/action-hosting-deploy@v0

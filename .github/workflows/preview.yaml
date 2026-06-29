@@ -83,6 +83,11 @@ jobs:
           run-id: ${{ github.event.workflow_run.id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
+      # TODO: remove when https://github.com/firebase/firebase-tools/issues/10730 is fixed
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.18.0'
+
       - name: Deploy preview
         id: deploy
         uses: FirebaseExtended/action-hosting-deploy@v0
