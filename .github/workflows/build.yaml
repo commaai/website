@@ -63,7 +63,7 @@ jobs:
 
       - name: Deploy to prod
         if: github.event_name == 'push' && github.ref == 'refs/heads/master' && github.repository == 'commaai/website'
-        uses: FirebaseExtended/action-hosting-deploy@v0 # test
+        uses: FirebaseExtended/action-hosting-deploy@v0.10.0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_COMMA_WEB }}
