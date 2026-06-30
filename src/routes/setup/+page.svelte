@@ -38,6 +38,8 @@
   const handleHarnessSelection = (value) => {
     selectedVehicle = value;
   }
+  $: requiresCommaPower = selectedVehicle?.requiresCommaPower === true;
+  $: totalSteps = requiresCommaPower ? 6 : 5;
 
   function getVideoEmbedSrc(videoLink) {
     const url = new URL(videoLink);
@@ -71,7 +73,7 @@
           <div class="overview">
             <div>
               {@html RecordingsIcon}
-              <span>5 steps</span>
+              <span>{totalSteps} steps</span>
             </div>
             <div class="divider" />
             <div>
@@ -173,7 +175,7 @@
     </div>
 
         <div class="step" id="step-1">
-      <Badge style="dark">Step 1 <span class="muted">of 5</span></Badge>
+      <Badge style="dark">Step 1 <span class="muted">of {totalSteps}</span></Badge>
       <h2>Remove the rearview mirror cover trim</h2>
       <Grid templateColumns="0.875fr 0.75fr">
         <div class="image-grid">
@@ -192,7 +194,7 @@
     </div>
     <hr />
     <div class="step" id="step-2">
-      <Badge style="dark">Step 2 <span class="muted">of 5</span></Badge>
+      <Badge style="dark">Step 2 <span class="muted">of {totalSteps}</span></Badge>
       <h2>Connect car harness into the camera</h2>
       <Grid templateColumns="0.875fr 0.75fr">
         <div class="image-grid">
@@ -213,7 +215,7 @@
     </div>
     <hr />
     <div class="step" id="step-3">
-      <Badge style="dark">Step 3 <span class="muted">of 5</span></Badge>
+      <Badge style="dark">Step 3 <span class="muted">of {totalSteps}</span></Badge>
       <h2>Place mount high and centered on the windshield</h2>
       <Grid templateColumns="0.875fr 0.75fr">
         <div class="image-grid">
@@ -235,7 +237,7 @@
     </div>
     <hr />
     <div class="step" id="step-4">
-      <Badge style="dark">Step 4 <span class="muted">of 5</span></Badge>
+      <Badge style="dark">Step 4 <span class="muted">of {totalSteps}</span></Badge>
       <h2>Plug in OBD-C and mount the device</h2>
       <Grid templateColumns="0.875fr 0.75fr">
         <div class="image-grid">
@@ -252,7 +254,7 @@
     </div>
     <hr />
     <div class="step" id="step-5">
-      <Badge style="dark">Step 5 <span class="muted">of 5</span></Badge>
+      <Badge style="dark">Step 5 <span class="muted">of {totalSteps}</span></Badge>
       <h2>Reinstall the rearview mirror cover trim</h2>
       <Grid templateColumns="0.875fr 0.75fr">
         <div class="image-grid">
@@ -269,7 +271,42 @@
     </div>
 
     <hr />
-    <div class="step">
+    <div class="step" id="comma-power-step">
+      <Badge style="dark">
+        {#if requiresCommaPower}
+          Step 6 <span class="muted">of {totalSteps}</span>
+        {:else}
+          OPTIONAL STEP
+        {/if}
+      </Badge>
+      <h2>Add the comma power</h2>
+      <Grid templateColumns="0.875fr 0.75fr">
+        <div>
+          <img src={CommaPowerImage} loading="lazy" alt="comma power" />
+        </div>
+        <div>
+          <p>
+            {#if requiresCommaPower}
+              Installing comma power is required for this vehicle.
+            {:else}
+              Installing the comma power is entirely optional and can be done at any time.
+            {/if}
+            Simply connect one end to your car's OBD-II port and the other to the harness box.
+          </p>
+          <p>
+            With a comma power:
+          </p>
+          <ul>
+            <li>The start and end of every drive are recorded.</li>
+            <li>Your comma four remains powered and online while the car is off.</li>
+            <li>Your comma four downloads updates while the car is off.</li>
+          </ul>
+        </div>
+      </Grid>
+    </div>
+
+    <hr />
+    <div class="step" id="comma-connect-step">
       <Badge style="dark">OPTIONAL STEP</Badge>
       <h2>Pair your device with comma connect</h2>
       <Grid templateColumns="0.875fr 0.75fr">
@@ -282,31 +319,6 @@
           </p>
           <br />
           <LinkButton href="https://connect.comma.ai/" target="_blank" style="primary" fullWidth={true}>comma Connect</LinkButton>
-        </div>
-      </Grid>
-    </div>
-
-    <hr />
-    <div class="step">
-      <Badge style="dark">OPTIONAL STEP</Badge>
-      <h2>Add the comma power</h2>
-      <Grid templateColumns="0.875fr 0.75fr">
-        <div>
-          <img src={CommaPowerImage} loading="lazy" alt="comma power" />
-        </div>
-        <div>
-          <p>
-            Installing the comma power is entirely optional and can be done at any time.
-            Simply connect one end to your car's OBD-II port and the other to the harness box.
-          </p>
-          <p>
-            With a comma power:
-          </p>
-          <ul>
-            <li>The start and end of every drive are recorded.</li>
-            <li>Your comma four remains powered and online while the car is off.</li>
-            <li>Your comma four downloads updates while the car is off.</li>
-          </ul>
         </div>
       </Grid>
     </div>
