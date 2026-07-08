@@ -8,6 +8,8 @@
 
   import { faq } from "$lib/constants/faq.svelte";
 
+  import { FOUR_PRICE, FOUR_SALE, FOUR_STRIKETHROUGH_PRICE } from '$lib/constants/prices.js';
+
   import RecordingsIcon from "$lib/icons/features/recordings.svg?raw";
   import ImmediateIcon from "$lib/icons/features/immediate.svg?raw";
 
@@ -90,7 +92,16 @@
                     <img src={CommaFourDeviceImage} loading="lazy" alt="comma four" />
                     <span><a href="/shop/comma-four" target="_blank" class="highlight">comma four</a></span>
                   </div>
-                  <span class="muted">$999</span>
+                  {#if FOUR_SALE}
+                    <div class="price-group">
+                      {#if FOUR_STRIKETHROUGH_PRICE}
+                        <span class="muted strikethrough-price">${FOUR_STRIKETHROUGH_PRICE}</span>
+                      {/if}
+                      <span class="red-price">${FOUR_PRICE}</span>
+                    </div>
+                  {:else}
+                    <span class="muted">${FOUR_PRICE}</span>
+                  {/if}
                 </Grid>
               </div>
               <ul>
@@ -438,6 +449,22 @@
         }
       }
     }
+  }
+
+  .price-group {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.5rem;
+  }
+
+  .strikethrough-price {
+    text-decoration: line-through;
+  }
+
+  .red-price {
+    color: var(--color-red);
+    font-weight: 700;
   }
 
   .card {

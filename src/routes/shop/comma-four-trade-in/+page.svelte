@@ -1,4 +1,5 @@
 <script>
+  import { FOUR_TRADE_IN_CREDIT } from '$lib/constants/prices.js';
 </script>
 
 <svelte:head>
@@ -11,7 +12,7 @@
 
     <div class="content">
       <p>
-        Trade in any older comma device (EON, comma two, comma three, or comma 3X) for $250 credit towards a brand new comma four. Device can be in any condition as long as you are the original purchaser.
+        Trade in any older comma device (EON, comma two, comma three, or comma 3X) for ${FOUR_TRADE_IN_CREDIT} credit towards a brand new comma four. Device can be in any condition as long as you are the original purchaser.
       </p>
 
       <hr>
@@ -36,7 +37,7 @@
         San Diego, CA 92110<br>
       </b></p>
       <p>
-        4. When the old comma device arrives, we apply your trade-in credit ($250) to your original payment method. Please give us 1-2 business days to process the device once it arrives.
+        4. When the old comma device arrives, we apply your trade-in credit (${FOUR_TRADE_IN_CREDIT}) to your original payment method. Please give us 1-2 business days to process the device once it arrives.
       </p>
 
       <hr>

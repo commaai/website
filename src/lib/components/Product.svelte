@@ -19,7 +19,9 @@
   export let forceOutOfStock = false;
   export let disableBuyButtonText = null;
   export let hideOutOfStockVariants = false;
+  export let previousPrice = null;
   export let priceOverride = null;
+  export let sale = false;
 
   export let VariantSelector = null;
   function handleVariantSelection(variant) {
@@ -62,8 +64,7 @@
   function getPriceLabel(_) {
     if (priceOverride !== null) {
       return formatCurrency({ amount: priceOverride, currencyCode: 'USD' }, 0);
-    }
-    if (selectedVariant) {
+    } else if (selectedVariant) {
       return formatCurrency(selectedVariant.price, 0);
     } else if (product.priceRange.minVariantPrice.amount !== product.priceRange.maxVariantPrice.amount) {
       return `from ${formatCurrency(product.priceRange.minVariantPrice, 0)}`;
@@ -118,8 +119,11 @@
         <div class="variant-selector">
           <h1>{product?.title}</h1>
           <div class="price">
+            {#if previousPrice}
+              <div class="strikethrough-price">${previousPrice}</div>
+            {/if}
             <slot name="price">
-              {priceLabel}
+              <div class:sale-price={sale}>{priceLabel}</div>
             </slot>
           </div>
           <slot name="price-accessory"></slot>
@@ -212,6 +216,14 @@
       gap: 0.25rem;
     }
 
+    & .strikethrough-price {
+      text-decoration: line-through;
+    }
+
+    & .sale-price {
+      font-weight: 700;
+      color: var(--color-red);
+    }
 
     & img {
       width: 120px;

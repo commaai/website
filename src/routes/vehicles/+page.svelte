@@ -16,7 +16,7 @@
 
   import CommaFourImage from '$lib/images/products/comma-four/four_screen_on.png';
 
-  import { FOUR_PRICE } from '$lib/constants/prices.js';
+  import { FOUR_PRICE, FOUR_STRIKETHROUGH_PRICE, FOUR_SALE } from '$lib/constants/prices.js';
   import { vehicleCountText } from '$lib/constants/vehicles.js';
 
   const brand_images = import.meta.glob('$lib/images/vehicles/brand-icons/*.png', { eager: true });
@@ -163,7 +163,16 @@
                       <img src={CommaFourImage} loading="lazy" alt="comma four device" />
                       <hgroup>
                         <strong>comma four</strong>
-                        <div class="understated-price">${FOUR_PRICE}</div>
+                        {#if FOUR_SALE}
+                          <div style="display: flex; align-items: center;">
+                            {#if FOUR_STRIKETHROUGH_PRICE}
+                              <div class="understated-price strikethrough-price">${FOUR_STRIKETHROUGH_PRICE}</div>
+                            {/if}
+                            <div class="red-price">${FOUR_PRICE}</div>
+                          </div>
+                        {:else}
+                          <div class="understated-price">${FOUR_PRICE}</div>
+                        {/if}
                         {#if car_info.harness_connector !== "" }
                           <strong>car harness: { car_info.harness_connector }</strong>
                           <div class="understated-price">included</div>

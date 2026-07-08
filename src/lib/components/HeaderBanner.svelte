@@ -1,18 +1,17 @@
-<div class="banner">
+<a href="/shop/comma-four" target="_blank" class="banner">
   <div class="wrapper">
     <p class="headline">
-      New open roles in San Diego.
-      <a href="/jobs" class="cta">Build with us -&gt;</a>
+      🎇 4TH OF JULY SALE: TAKE $100 OFF A COMMA FOUR 🎇
     </p>
   </div>
-</div>
+</a>
 
 <style>
   .banner {
     color: black;
     position: relative;
     z-index: 1;
-    background-color: var(--color-card-background-hover);
+    background-color: var(--color-red);
   }
 
   .wrapper {
