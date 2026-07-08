@@ -219,6 +219,7 @@
     & .strikethrough-price {
       text-decoration: line-through;
     }
+
     & .sale-price {
       font-weight: 700;
       color: var(--color-red);
