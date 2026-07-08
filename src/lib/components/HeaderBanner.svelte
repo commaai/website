@@ -1,8 +1,8 @@
 <a href="/shop/comma-four" target="_blank" class="banner">
   <div class="wrapper">
-    <p class="headline">
+    <strong class="headline">
       🎇 4TH OF JULY SALE: TAKE $100 OFF A COMMA FOUR 🎇
-    </p>
+    </strong>
   </div>
 </a>
 
@@ -32,7 +32,6 @@
   .headline {
     font-family: Inter, sans-serif;
     font-size: 1.25rem;
-    font-weight: 400;
     margin: 0 0.5rem;
   }
 
