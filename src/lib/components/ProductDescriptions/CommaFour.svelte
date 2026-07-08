@@ -11,7 +11,7 @@
   import MoneyBackGuaranteeIcon from "$lib/icons/features/money-back-guarantee.svg?raw";
   import WarrantyIcon from "$lib/icons/features/warranty.svg?raw";
 
-  import { FOUR_PRICE } from '$lib/constants/prices.js';
+  import { FOUR_PRICE, FOUR_SALE, FOUR_STRIKETHROUGH_PRICE, FOUR_TRADE_IN_CREDIT, NO_HARNESS_DISCOUNT } from '$lib/constants/prices.js';
   import { NO_HARNESS_OPTION } from '$lib/constants/vehicles.js';
 </script>
 
@@ -54,13 +54,11 @@
   let backordered = null;
 
   // Trade-in and discount configuration
-  const discountAmount = 50;
-  const tradeInCredit = 250;
   $: showDiscount = selectedHarness === NO_HARNESS_OPTION;
 
   // Price calculations
-  $: priceDueToday = showDiscount ? FOUR_PRICE - discountAmount : FOUR_PRICE;
-  $: priceAfterTradeIn = tradeInChecked ? priceDueToday - tradeInCredit : priceDueToday;
+  $: priceDueToday = showDiscount ? FOUR_PRICE - NO_HARNESS_DISCOUNT : FOUR_PRICE;
+  $: priceAfterTradeIn = tradeInChecked ? priceDueToday - FOUR_TRADE_IN_CREDIT : priceDueToday;
 
   $: additionalProductIds = (() => {
     const ids = [];
@@ -128,13 +126,14 @@
 </script>
 
 <Product {product} {additionalProductIds} {backordered} {beforeAddToCart} {getCartNote} priceOverride={FOUR_PRICE}
+         previousPrice={FOUR_STRIKETHROUGH_PRICE} sale={FOUR_SALE}
          disableBuyButtonText={disableBuyButtonText}>
   <div slot="shipping"></div>
 
-  <div slot="price" class="price">
-    {#if tradeInChecked && tradeInCredit > 0}
+  <div slot="price" class="price" class:sale-price={FOUR_SALE}>
+    {#if tradeInChecked && FOUR_TRADE_IN_CREDIT > 0}
       <span>{formatCurrency({ amount: priceAfterTradeIn, currencyCode: 'USD' }, 0)} after trade-in received</span>
-    {:else if showDiscount && discountAmount > 0}
+    {:else if showDiscount && NO_HARNESS_DISCOUNT > 0}
       {formatCurrency({ amount: priceDueToday, currencyCode: 'USD' }, 0)}
     {:else}
       {formatCurrency({ amount: FOUR_PRICE, currencyCode: 'USD' }, 0)}
@@ -144,7 +143,7 @@
   <span slot="price-accessory">
     <div class="badges">
       <Badge style="dark">Free rush shipping</Badge>
-      {#if tradeInChecked && tradeInCredit > 0}
+      {#if tradeInChecked && FOUR_TRADE_IN_CREDIT > 0}
         <span class="price-due-today">{formatCurrency({ amount: priceDueToday, currencyCode: 'USD' }, 0)} due today</span>
       {/if}
     </div>
@@ -159,9 +158,9 @@
       showNoHarnessOption={true}
     >
     </HarnessSelector>
-    <CheckboxCard bind:this={checkboxCardRef} title="$250 credit with trade-in" checked={tradeInChecked} onToggle={handleTradeInToggle}
+    <CheckboxCard bind:this={checkboxCardRef} title="${FOUR_TRADE_IN_CREDIT} credit with trade-in" checked={tradeInChecked} onToggle={handleTradeInToggle}
                   disabled={disableBuyButtonText !== null}>
-      Get $250 credit when you trade in your old comma device. Any comma device, in any condition.
+      Get ${FOUR_TRADE_IN_CREDIT} credit when you trade in your old comma device. Any comma device, in any condition.
       <a href="/shop/comma-four-trade-in">Instructions and Terms</a>
     </CheckboxCard>
   </span>
@@ -302,5 +301,14 @@
   .price-due-today {
     font-size: 1rem;
     color: rgb(81, 81, 81);
+  }
+
+  .sale-price {
+    font-weight: 700;
+    color: var(--color-red);
+
+    & span {
+      color: var(--color-red);
+    }
   }
 </style>

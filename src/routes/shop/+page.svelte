@@ -17,7 +17,7 @@
   import AdaptiveCruiseIcon from "$lib/icons/features/adaptive-cruise.svg?raw";
   import LaneCenteringIcon from "$lib/icons/features/lane-centering.svg?raw";
 
-  import { FOUR_PRICE } from '$lib/constants/prices.js';
+  import { FOUR_PRICE, FOUR_TRADE_IN_CREDIT, NO_HARNESS_DISCOUNT, FOUR_SALE, FOUR_STRIKETHROUGH_PRICE } from '$lib/constants/prices.js';
   import { vehicleCountText } from '$lib/constants/vehicles.js';
 
   import { addToCart } from "../../store";
@@ -50,11 +50,16 @@
       <div class="product-display gradient-bg">
         <Grid columns={2} alignItems="center" size="large">
           <div class="product-content">
-            <Badge style="accent">NEW DEVICE!</Badge>
+            <Badge style="red">INDEPENDENCE DAY SALE!</Badge>
             <hgroup>
               <h1>comma four</h1>
-              <span>${FOUR_PRICE}</span>
-              <span class="muted">or $699 after trade-in of any comma device</span>
+              <span>
+                {#if FOUR_STRIKETHROUGH_PRICE}
+                  <span class="strikethrough-price">${FOUR_STRIKETHROUGH_PRICE}</span>
+                {/if}
+                <span class:sale-price={FOUR_SALE}>${FOUR_PRICE}</span>
+              </span>
+              <span class="muted">or ${FOUR_PRICE - FOUR_TRADE_IN_CREDIT - NO_HARNESS_DISCOUNT} after trade-in of any comma device</span>
             </hgroup>
             <LinkButton href="/shop/comma-four" style="secondary" fullWidth>
               Buy now
@@ -262,6 +267,15 @@
 
           &:first-of-type {
             font-size: 1.5rem;
+          }
+
+          & .strikethrough-price {
+            text-decoration: line-through;
+          }
+
+          & .sale-price {
+            font-weight: 700;
+            color: var(--color-red);
           }
 
           &.muted {

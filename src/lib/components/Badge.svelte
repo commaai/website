@@ -7,6 +7,7 @@
   class:dark={style == "dark"}
   class:light={style == "light"}
   class:accent={style == "accent"}
+  class:red={style == "red"}
   style="display: {display}"
 >
   <slot></slot>
@@ -35,5 +36,10 @@
   .accent {
     background-color: var(--color-accent);
     color: var(--color-background);
+  }
+
+  .red {
+    background-color: var(--color-red);
+    color: black;
   }
 </style>
