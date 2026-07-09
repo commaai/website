@@ -490,7 +490,7 @@
         {
           question: 'I would like to match a price change.',
           answer: `
-            We do not offer price matching. Returns can be made at <a href="https://comma.ai/returns">comma.ai/returns</a> within 30 days of receiving the order.
+            We do not offer price matching.
           `
         }, {
           question: 'Is the 1-year hardware warranty transferable?',
