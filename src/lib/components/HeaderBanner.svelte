@@ -1,8 +1,9 @@
 <a href="/shop/comma-four" target="_blank" class="banner">
   <div class="wrapper">
     <strong class="headline">
-      🎇 4TH OF JULY SALE: TAKE $100 OFF A COMMA FOUR 🎇
+      🎇 $100 OFF COMMA FOUR FOR INDEPENDENCE DAY 🎇
     </strong>
+    <span class="subline">while supplies last</span>
   </div>
 </a>
 
@@ -15,7 +16,7 @@
   }
 
   .wrapper {
-    padding: 1rem 0;
+    padding: 0.875rem 0;
     margin-left: auto;
     margin-right: auto;
     width: 85%;
@@ -26,13 +27,22 @@
 
     display: flex;
     flex-direction: column;
-    grid-row-gap: 0.5rem;
+    grid-row-gap: 0.15rem;
   }
 
   .headline {
     font-family: Inter, sans-serif;
     font-size: 1.25rem;
     margin: 0 0.5rem;
+  }
+
+  .subline {
+    color: black;
+    font-family: Inter, sans-serif;
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
   }
 
   .cta {
