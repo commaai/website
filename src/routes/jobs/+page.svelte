@@ -332,14 +332,6 @@
   }
 </script>
 
-<svelte:head>
-  <title>Jobs - comma</title>
-  <meta
-    name="description"
-    content="At comma.ai, we are solving self-driving cars while delivering shippable intermediaries."
-  />
-</svelte:head>
-
 <div class="jobs-page light">
   <section class="jobs-hero" aria-labelledby="jobs-title">
     <div class="container">

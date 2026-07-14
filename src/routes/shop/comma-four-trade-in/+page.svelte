@@ -2,10 +2,6 @@
   import { FOUR_TRADE_IN_CREDIT } from '$lib/constants/prices.js';
 </script>
 
-<svelte:head>
-  <title>comma four trade-in — comma shop</title>
-</svelte:head>
-
 <section class="light" id="trade-in">
   <div class="container">
     <h1>comma four trade-in</h1>

@@ -50,7 +50,8 @@ export async function load({ url, params }) {
           ...productInfo,
           images: resolvedImages
         },
-        descriptionComponent
+        descriptionComponent,
+        pageTitle: `${product.title} — comma shop`,
       };
     }
     throw error(404, {

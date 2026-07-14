@@ -35,6 +35,11 @@
   import { onMount } from "svelte";
   import { page } from "$app/stores";
 
+  import PageHead from "$lib/components/PageHead.svelte";
+
+  const DEFAULT_TITLE = "comma.ai — make driving chill";
+  const SITE_ORIGIN = "https://comma.ai";
+
   let loading = false;
 
   async function openCart() {
@@ -83,7 +88,13 @@
   printConsoleBanner();
 </script>
 
+<PageHead
+  title={$page.data?.pageTitle ?? DEFAULT_TITLE}
+  description={$page.data?.pageDescription}
+/>
+
 <svelte:head>
+  <meta property="og:url" content="{SITE_ORIGIN}{$page.url.pathname}" />
   <link
     rel="preload"
     href={MonumentExtendedBlack}
