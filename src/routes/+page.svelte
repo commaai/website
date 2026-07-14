@@ -127,7 +127,7 @@
 <section class="dark" id="hero">
   <div class="container">
     <h1>comma four</h1>
-    <h2 class="muted">Hands-Free Driving for the car you have.</h2>
+    <h2 class="muted">Hands free driving for the car you have</h2>
     <Grid columns={2} rowGap="3rem">
       <div class="device-image-container">
         <img
@@ -180,7 +180,7 @@
         </LinkButton>
       </div>
     </Grid>
-    <h1 class="mt-4">Make Driving Chill.</h1>
+    <h1 class="mt-4">Make Driving Chill</h1>
     <h3 class="muted">
       comma four helps control the steering, braking and acceleration of the car you already drive. It's upgraded active driver assistance
       for your Toyota, Hyundai, Ford, and more.
