@@ -127,7 +127,7 @@
 <section class="dark" id="hero">
   <div class="container">
     <h1>comma four</h1>
-    <h2 class="muted">Hands free driving for the car you have</h2>
+    <h2 class="muted">Hands free driving for the car you already have</h2>
     <Grid columns={2} rowGap="3rem">
       <div class="device-image-container">
         <img
@@ -182,7 +182,7 @@
     </Grid>
     <h1 class="mt-4">Make driving chill.</h1>
     <h3 class="muted">
-      comma four helps control the steering, braking and acceleration of the car you already drive. It's upgraded active driver assistance
+      comma helps control the steering, braking and acceleration of the car you already drive. It's upgraded active driver assistance
       for your Toyota, Hyundai, Ford, and more.
     </h3>
   </div>
@@ -210,7 +210,7 @@
   <div class="container">
     <SectionHeader leftLabel="comma" rightLabel="is real" />
     <h1>
-      300+ million miles driven and 20k users. comma four runs <a href="/openpilot" class="highlight">open source software</a> with no subscription required.
+      300+ million miles driven and 20k users. comma runs <a href="/openpilot" class="highlight">open source software</a> with no subscription required.
     </h1>
     <FeaturedArticles />
     <h1>
