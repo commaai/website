@@ -182,7 +182,7 @@
     </Grid>
     <h1 class="mt-4">Make Driving Chill.</h1>
     <h3 class="muted">
-      comma four helps control the steering, braking and acceleration of the car you already drive. It's active driver assistance
+      comma four helps control the steering, braking and acceleration of the car you already drive. It's upgraded active driver assistance
       for your Toyota, Hyundai, Ford, and more.
     </h3>
   </div>
