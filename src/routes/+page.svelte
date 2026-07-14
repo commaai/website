@@ -176,7 +176,7 @@
           </Grid>
         </div>
         <LinkButton href="/shop/comma-four" fullWidth={true} style="accent">
-          Try it risk-free for 30 days
+          Try it risk free for 30 days
         </LinkButton>
       </div>
     </Grid>
@@ -210,7 +210,7 @@
   <div class="container">
     <SectionHeader leftLabel="comma" rightLabel="is real" />
     <h1>
-      300+ million miles driven and 20k users. <a href="/openpilot" class="highlight">Open source software</a> with no subscription required.
+      300+ million miles driven and 20k users. comma four runs <a href="/openpilot" class="highlight">open source software</a> with no subscription required.
     </h1>
     <FeaturedArticles />
     <h1>
