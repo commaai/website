@@ -127,7 +127,7 @@
 <section class="dark" id="hero">
   <div class="container">
     <h1>comma four</h1>
-    <h2 class="muted">An AI upgrade for your car</h2>
+    <h2 class="muted">Hands-Free Driving for the car you have.</h2>
     <Grid columns={2} rowGap="3rem">
       <div class="device-image-container">
         <img
@@ -176,13 +176,13 @@
           </Grid>
         </div>
         <LinkButton href="/shop/comma-four" fullWidth={true} style="accent">
-          Buy now
+          Try it risk-free for 30 days
         </LinkButton>
       </div>
     </Grid>
-    <h1 class="mt-4">Buy it, plug it in, and engage.</h1>
+    <h1 class="mt-4">Make Driving Chill.</h1>
     <h3 class="muted">
-      comma four works with the car you already drive. It's active driver assistance
+      comma four helps control the steering, braking and acceleration of the car you already drive. It's active driver assistance
       for your Toyota, Hyundai, Ford, and more.
     </h3>
   </div>
@@ -190,7 +190,7 @@
 
 <section class="light" id="compatibility">
   <div class="container">
-    <h1 class="mb-7 sm-mb-3">comma four can run <a href="/openpilot" class="highlight">openpilot</a>.</h1>
+    <h1 class="mb-7 sm-mb-3">Install it yourself in 15 minutes.</h1>
     <Grid columns={2} rowGap="3rem">
       <h1>
         It works on {vehicleCountText} car models from 27 brands.
@@ -210,8 +210,7 @@
   <div class="container">
     <SectionHeader leftLabel="comma" rightLabel="is real" />
     <h1>
-      300+ million miles driven and 20k users. Our GitHub repo has
-      <a href="https://github.com/commaai/openpilot" target="_blank" class="highlight">{Math.floor(githubStars / 10000) * 10}k stars</a>.
+      300+ million miles driven and 20k users. <a href="/openpilot" class="highlight">Open source software</a> with no subscription required.
     </h1>
     <FeaturedArticles />
     <h1>
