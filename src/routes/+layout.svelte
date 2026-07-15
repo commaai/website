@@ -303,9 +303,17 @@
       cursor: pointer;
       background-color: var(--color-accent);
 
+      &.shop {
+        background-color: transparent;
+      }
+
       @media (hover: hover) and (pointer: fine) {
         &:hover {
           background-color: var(--color-accent-hover);
+        }
+
+        &.shop:hover {
+          background-color: var(--color-accent);
         }
       }
       &:active {
