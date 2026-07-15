@@ -17,14 +17,8 @@
   import RecordingsIcon from "$lib/icons/features/recordings.svg?raw";
 
   const CDN_BASE = "https://3comma.net";
-  const HeroLandscapeVideo = `${CDN_BASE}/hero-landscape/hero-landscape.m3u8`;
-  const HeroPortraitVideo = `${CDN_BASE}/hero-portrait/hero-portrait.m3u8`;
   const ScreenVideo = `${CDN_BASE}/screen-video/screen-video.m3u8`;
 
-  let videoLandscapeElement;
-  let videoLandscapeReady = false;
-  let videoPortraitElement;
-  let videoPortraitReady = false;
   let screenVideoElement;
   let screenVideoReady = false;
 
@@ -50,30 +44,7 @@
     return null;
   }
 
-  // TODO: don't load both mobile and desktop videos on initial load
   onMount(async () => {
-    // const isMobile = typeof window !== 'undefined' && window.innerWidth < 769;
-
-    // Initialize landscape video
-    if (videoLandscapeElement) {
-      videoLandscapeElement.addEventListener('playing', () => {
-        videoLandscapeReady = true;
-      });
-      initializeHLS(videoLandscapeElement, HeroLandscapeVideo, () => {
-        videoLandscapeElement.play();
-      });
-    }
-
-    // Initialize portrait video
-    if (videoPortraitElement) {
-      videoPortraitElement.addEventListener('playing', () => {
-        videoPortraitReady = true;
-      });
-      initializeHLS(videoPortraitElement, HeroPortraitVideo, () => {
-        videoPortraitElement.play();
-      });
-    }
-
     // Initialize screen video
     if (screenVideoElement) {
       screenVideoElement.addEventListener('playing', () => {
@@ -84,45 +55,11 @@
       });
     }
   });
-
-  function handleDragStart(e) {
-    e.preventDefault();
-    return false;
-  }
 </script>
 
 <svelte:head>
-  <link rel="preload" as="image" href="{CDN_BASE}/hero-landscape/poster.jpg" />
-  <link rel="preload" as="image" href="{CDN_BASE}/hero-portrait/poster.jpg" />
   <link rel="preload" as="image" href="{CDN_BASE}/screen-video/poster.jpg" />
 </svelte:head>
-
-<section class="hero-image desktop" style="background-image: url('{CDN_BASE}/hero-landscape/poster.jpg');" on:dragstart={handleDragStart} role="img" aria-label="Hero image">
-  <video
-    bind:this={videoLandscapeElement}
-    class:ready={videoLandscapeReady}
-    poster="{CDN_BASE}/hero-landscape/poster.jpg"
-    autoplay
-    muted
-    loop
-    playsinline
-    draggable="false"
-  />
-</section>
-
-
-<section class="hero-image mobile" style="background-image: url('{CDN_BASE}/hero-portrait/poster.jpg');" on:dragstart={handleDragStart} role="img" aria-label="Hero image">
-  <video
-    bind:this={videoPortraitElement}
-    class:ready={videoPortraitReady}
-    poster="{CDN_BASE}/hero-portrait/poster.jpg"
-    autoplay
-    muted
-    loop
-    playsinline
-    draggable="false"
-  />
-</section>
 
 <section class="dark" id="hero">
   <div class="container">
@@ -257,79 +194,6 @@
 </section>
 
 <style>
-  .hero-image {
-    position: relative;
-    /* Behind nav bar */
-    margin: -66px 0 0;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    padding: 0;
-    user-select: none;
-    -webkit-user-drag: none;
-    -khtml-user-drag: none;
-    -moz-user-drag: none;
-    -o-user-drag: none;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    &.desktop {
-      @media screen and (max-width: 768px) {
-        display: none;
-      }
-    }
-
-    &.mobile {
-      height: unset;
-      aspect-ratio: 3 / 4;
-      @media screen and (min-width: 769px) {
-        display: none;
-      }
-    }
-
-    & video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      display: block;
-      user-select: none;
-      -webkit-user-drag: none;
-      -khtml-user-drag: none;
-      -moz-user-drag: none;
-      -o-user-drag: none;
-      opacity: 0;
-      transition: opacity 0.3s ease-in;
-
-      &.ready {
-        opacity: 1;
-      }
-    }
-
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      pointer-events: none;
-    }
-
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 180px;
-      background: linear-gradient(to bottom, transparent, black);
-      z-index: 2;
-      pointer-events: none;
-    }
-  }
-
   #hero {
     & .feature-item {
       align-items: center;
