@@ -22,7 +22,6 @@
   import { updateCart } from '$lib/utils/shopify';
   import { printConsoleBanner } from '$lib/utils/console';
 
-  import HeaderBanner from "$lib/components/HeaderBanner.svelte";
   import HeaderMenu from "$lib/components/HeaderMenu.svelte";
   import ShoppingCart from "$lib/components/ShoppingCart.svelte";
   import {
@@ -129,8 +128,6 @@
     bind:loading
   />
 {/if}
-
-<HeaderBanner />
 
 <main>
   <slot></slot>
