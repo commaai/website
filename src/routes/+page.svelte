@@ -188,9 +188,8 @@
 
 <section class="light" id="installation">
   <div class="container">
-    <h1>
-      Plug it in yourself in <a href="/setup" class="highlight">15 minutes</a>.
-    </h1>
+    <h1><a href="/setup" class="highlight">Plug in and drive.</a></h1>
+    <span class="callout-label">Ready in under 15 minutes.</span>
   </div>
 </section>
 
