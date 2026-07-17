@@ -22,9 +22,6 @@
   let screenVideoElement;
   let screenVideoReady = false;
 
-  // Hardcode GitHub star count (similar to contributors on openpilot page)
-  const githubStars = 50000;
-
   function initializeHLS(videoEl, src, onReady) {
     if (Hls.isSupported()) {
       const hls = new Hls();
