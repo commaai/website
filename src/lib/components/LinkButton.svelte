@@ -39,8 +39,8 @@
     letter-spacing: 0.5px;
     text-transform: uppercase;
     justify-content: center;
-    padding: 1.25rem 3rem;
-    font-size: 1.125rem;
+    padding: var(--link-button-padding, 1.25rem 3rem);
+    font-size: var(--link-button-font-size, 1.125rem);
     font-weight: 600;
     width: fit-content;
     display: flex;
@@ -79,8 +79,7 @@
 
   @media screen and (max-width: 768px) {
     a {
-      padding-left: 2rem;
-      padding-right: 2rem;
+      padding: var(--link-button-padding, 1.25rem 2rem);
     }
   }
 
