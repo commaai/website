@@ -33,8 +33,8 @@
 
 {#if !completed}
   <form aria-label="Email Form" on:submit={handleFormSubmit} class:primary={style == "primary"} class:accent={style == "accent"}>
-    <label for="form">{label}</label>
-    <input maxlength="256" name="email" data-name="Email" placeholder="Enter your email" type="email" bind:value={email}>
+    <label for="mailing-list-email">{label}</label>
+    <input id="mailing-list-email" maxlength="256" name="email" data-name="Email" placeholder="Enter your email" type="email" bind:value={email}>
     <input type="submit" data-wait="Please wait..." value="Subscribe" disabled={email.length === 0}>
   </form>
 {:else}
@@ -45,7 +45,7 @@
   {:catch error}
     <div class="error">
       <p>Oops! Something went wrong while submitting the form.</p>
-      <p>{@html error.message}</p>
+      <p>{error.message}</p>
     </div>
   {/await}
 {/if}

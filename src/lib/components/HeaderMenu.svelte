@@ -1,15 +1,43 @@
 <script>
   import SocialIcons from "$lib/components/SocialIcons.svelte";
   import { page } from '$app/stores';
+  import { tick } from 'svelte';
+
+  let isOpen = false;
+  let menuElement;
+  let navElement;
+  let toggleElement;
+
+  async function toggleMenu() {
+    isOpen = !isOpen;
+    if (isOpen) {
+      await tick();
+      menuElement?.focus();
+    }
+  }
+
+  function handleWindowClick(event) {
+    if (isOpen && !navElement?.contains(event.target)) isOpen = false;
+  }
+
+  function handleWindowKeydown(event) {
+    if (event.key === 'Escape' && isOpen) {
+      isOpen = false;
+      toggleElement?.focus();
+    }
+  }
 </script>
 
-<nav aria-label="navigation menu">
+<svelte:window on:click={handleWindowClick} on:keydown={handleWindowKeydown} />
+
+<nav bind:this={navElement} aria-label="navigation menu">
   <button
+    bind:this={toggleElement}
     type="button"
     class="toggle-button"
-    aria-expanded="false"
+    aria-expanded={isOpen}
     aria-controls="menu-dropdown"
-    tabindex="0"
+    on:click={toggleMenu}
   >
     <svg viewBox="0 0 24 24" width="32" height="32">
       <rect x="3" y="5" width="18" height="2"></rect>
@@ -18,10 +46,10 @@
     </svg>
   </button>
   <div
+    bind:this={menuElement}
+    class:open={isOpen}
     class="menu-container"
     id="menu-dropdown"
-    role="dialog"
-    aria-modal="true"
     tabindex="-1"
   >
     <div class="section-links">
@@ -91,6 +119,8 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.25);
     color: white;
     display: none;
+    max-height: calc(100dvh - 65px);
+    overflow-y: auto;
 
     @media (hover: hover) and (pointer: fine) {
       & a:hover {
@@ -102,13 +132,12 @@
     }
   }
 
-  nav:focus-within {
+  nav:has(.menu-container.open) {
     & .toggle-button {
       background-color: black;
       color: white;
       transition: background-color 250ms, color 250ms;
       cursor: pointer;
-      pointer-events: none;
 
       & svg {
         fill: white;
@@ -123,6 +152,11 @@
         opacity: 1;
       }
     }
+  }
+
+  .menu-container.open {
+    opacity: 1;
+    display: flex;
   }
 
   .section-links {

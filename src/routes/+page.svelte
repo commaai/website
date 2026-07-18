@@ -68,23 +68,61 @@
   let screenVideoElement;
 
   function initializeHLS(videoElement, source) {
-    if (!videoElement) return;
+    if (!videoElement) return null;
 
     if (Hls.isSupported()) {
       const hls = new Hls({ startLevel: 0 });
       hls.loadSource(source);
       hls.attachMedia(videoElement);
       hls.on(Hls.Events.MANIFEST_PARSED, () => videoElement.play().catch(() => {}));
+      return hls;
     } else if (videoElement.canPlayType('application/vnd.apple.mpegurl')) {
       videoElement.src = source;
       videoElement.addEventListener('loadedmetadata', () => videoElement.play().catch(() => {}), { once: true });
     }
+
+    return null;
   }
 
   onMount(() => {
-    initializeHLS(heroLandscapeElement, HeroLandscapeVideo);
-    initializeHLS(heroPortraitElement, HeroPortraitVideo);
-    initializeHLS(screenVideoElement, ScreenVideo);
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (reducedMotion.matches) return;
+
+    const portraitViewport = window.matchMedia('(max-width: 768px)');
+    let activeHeroElement;
+    let heroHls;
+    let screenHls;
+
+    const loadVisibleHero = () => {
+      const nextElement = portraitViewport.matches ? heroPortraitElement : heroLandscapeElement;
+      if (nextElement === activeHeroElement) return;
+
+      heroHls?.destroy();
+      activeHeroElement?.pause();
+      activeHeroElement = nextElement;
+      heroHls = initializeHLS(
+        nextElement,
+        portraitViewport.matches ? HeroPortraitVideo : HeroLandscapeVideo,
+      );
+    };
+
+    loadVisibleHero();
+    portraitViewport.addEventListener('change', loadVisibleHero);
+
+    const screenObserver = new IntersectionObserver((entries) => {
+      if (entries[0]?.isIntersecting && !screenHls) {
+        screenHls = initializeHLS(screenVideoElement, ScreenVideo);
+        screenObserver.disconnect();
+      }
+    }, { rootMargin: '400px' });
+    screenObserver.observe(screenVideoElement);
+
+    return () => {
+      portraitViewport.removeEventListener('change', loadVisibleHero);
+      screenObserver.disconnect();
+      heroHls?.destroy();
+      screenHls?.destroy();
+    };
   });
 </script>
 
@@ -222,14 +260,14 @@
   }
 
   .home-container {
-    width: min(72rem, calc(100% - 3rem));
+    width: min(85%, 120rem);
     margin: 0 auto;
   }
 
   .home-hero {
     position: relative;
     height: calc(100svh - 65px);
-    min-height: 40rem;
+    height: calc(100dvh - 65px);
     overflow: hidden;
     padding: 0;
     color: #fff;
@@ -249,6 +287,14 @@
     object-position: center;
   }
 
+  .hero-landscape {
+    background: #000 url('/videos/hero-landscape/poster.jpg') center / cover no-repeat;
+  }
+
+  .hero-portrait {
+    background: #000 url('/videos/hero-portrait/poster.jpg') center top / cover no-repeat;
+  }
+
   .hero-portrait {
     display: none;
   }
@@ -262,9 +308,9 @@
   .hero-content {
     position: absolute;
     z-index: 2;
-    left: max(2rem, calc((100vw - 90rem) / 2));
+    left: max(7.5%, calc((100vw - 120rem) / 2));
     bottom: 7.5rem;
-    width: min(40rem, calc(100% - 4rem));
+    width: min(64rem, calc(100% - 4rem));
   }
 
   .hero-content h1,
@@ -272,7 +318,7 @@
   .install-section h2,
   .community-section h2,
   .careers-section h2 {
-    font-size: clamp(2rem, 3.2vw, 3.5rem);
+    font-size: clamp(2rem, 3.2vw, 4rem);
     font-weight: 700;
     letter-spacing: -.055em;
     line-height: .98;
@@ -355,8 +401,8 @@
   .brand-strip {
     position: absolute;
     z-index: 2;
-    left: max(2rem, calc((100vw - 90rem) / 2));
-    right: 0;
+    left: max(7.5%, calc((100vw - 120rem) / 2));
+    right: max(7.5%, calc((100vw - 120rem) / 2));
     bottom: .75rem;
     display: flex;
     align-items: center;
@@ -477,7 +523,7 @@
     display: grid;
     grid-template-columns: 1.08fr .92fr;
     gap: 5rem;
-    align-items: end;
+    align-items: start;
   }
 
   .install-media h2 {
@@ -502,7 +548,7 @@
   }
 
   .community-section h2 {
-    max-width: 65rem;
+    max-width: 100%;
   }
 
   .map-wrap {
@@ -693,7 +739,7 @@
 
     .home-hero {
       height: calc(100svh - 65px);
-      min-height: 43.5rem;
+      height: calc(100dvh - 65px);
     }
 
     .hero-landscape { display: none; }
@@ -945,9 +991,61 @@
     }
   }
 
+  @media (min-width: 769px) and (max-width: 1100px) {
+    .install-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  @media (max-height: 650px) and (max-width: 768px) {
+    .hero-content {
+      bottom: 5.8rem;
+    }
+
+    .hero-content h1 {
+      font-size: 1.4rem;
+    }
+
+    .hero-stats {
+      grid-template-columns: repeat(3, 1fr);
+      gap: .5rem;
+      margin: .55rem 0 .65rem;
+    }
+
+    .hero-stats strong {
+      font-size: .95rem;
+    }
+
+    .hero-stats span {
+      font-size: .52rem;
+      line-height: 1.05;
+    }
+
+    .hero-actions {
+      gap: .35rem;
+    }
+
+    .hero-actions .cta {
+      min-height: 2.35rem;
+      padding-block: .45rem;
+    }
+
+    .brand-logo {
+      flex-basis: 1.8rem;
+      width: 1.8rem;
+      height: 1.8rem;
+    }
+  }
+
   @media (max-width: 390px) {
-    .hero-content { bottom: 7rem; }
-    .hero-content h1 { font-size: 1.55rem; }
     .hero-stats { gap: .45rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-media video,
+    .device-wrap video {
+      display: none;
+    }
   }
 </style>

@@ -234,6 +234,13 @@
 
     @media only screen and (max-width: 1280px) {
       border-right: none;
+      flex: 1;
+
+      & > .title {
+        display: flex;
+        flex: 1;
+        justify-content: center;
+      }
     }
 
     @media only screen and (max-width: 768px) {
@@ -448,6 +455,11 @@
   footer.homepage-footer {
     padding-top: 4rem;
 
+    & .container {
+      width: min(85%, 120rem);
+      max-width: none;
+    }
+
     & .footer-links {
       gap: .5rem;
 
@@ -475,6 +487,12 @@
 
     @media screen and (max-width: 768px) {
       padding: 2.5rem 1rem 1rem;
+    }
+
+    @media screen and (min-width: 512px) and (max-width: 1024px) {
+      & :global(.grid) {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
   }
 </style>
