@@ -11,6 +11,7 @@ node_modules
 .output
 /.svelte-kit
 /build
+/artifacts
 .firebase
 firebase-debug.log
 
