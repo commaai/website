@@ -155,6 +155,28 @@
         'Do the <a href="https://github.com/commaai/controls_challenge">controls challenge</a>, then email <a href="mailto:work@comma.ai">work@comma.ai</a>.',
     },
     {
+      title: "Machine Learning Engineer",
+      team: "autonomy",
+      location: "On-site in San Diego, CA",
+      description: `
+        Conduct in-depth research to identify and implement enhancements to
+        learned driving simulator models. Maintain and enhance distributed neural network training
+        infrastructure. Improve scalability and reliability. Neural network training, dataset
+        preparation and analysis to improve the driving model Performance. Maintain and enhance
+        the validation and testing infrastructure for the driving model. Collaborate with cross-
+        functional teams to integrate research findings into product developments and
+        enhancements. All the above duties will be performed using skills in Algorithms and
+        Structured Programming, Languages and Human Training Modules, &amp; C++ Object
+        Programming &amp; Design.<br><br>
+        Job Location: San Diego, CA<br>
+        Terms and Conditions: Rate of pay is $125,000.00 Per Year<br>
+        Contact: Interested applicants may send their resumes to COMMA AI, Inc. Attn: Julie
+        Hendy, 3900 Harney St., San Diego, CA 92110. <br>Resume must specifically identify all
+        education relevant to job offered.
+      `,
+      qualifications: [],
+    },
+    {
       title: "Electronics Engineer",
       team: "product",
       location: "On-site in San Diego, CA",
