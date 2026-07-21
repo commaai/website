@@ -7,6 +7,7 @@
   import Faq from '$lib/components/Faq.svelte';
   import LinkButton from '$lib/components/LinkButton.svelte';
   import NoteCard from '$lib/components/NoteCard.svelte';
+  import CompatibilityChat from '$lib/components/CompatibilityChat.svelte';
 
   import { faq } from '$lib/constants/faq.svelte';
 
@@ -107,6 +108,8 @@
         </Grid>
       </div>
     </div>
+
+    <CompatibilityChat />
   </div>
 </section>
 
