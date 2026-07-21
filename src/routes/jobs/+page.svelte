@@ -163,8 +163,8 @@
         learned driving simulator models. Maintain and enhance distributed neural network training
         infrastructure. Improve scalability and reliability. Neural network training, dataset
         preparation and analysis to improve the driving model Performance. Maintain and enhance
-        the validation and testing infrastructure for the driving model. Collaborate with cross-
-        functional teams to integrate research findings into product developments and
+        the validation and testing infrastructure for the driving model. Collaborate with cross-functional
+        teams to integrate research findings into product developments and
         enhancements. All the above duties will be performed using skills in Algorithms and
         Structured Programming, Languages and Human Training Modules, &amp; C++ Object
         Programming &amp; Design.<br><br>
