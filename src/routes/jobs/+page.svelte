@@ -140,30 +140,15 @@
       ],
     },
     {
-      title: "Controls Engineer",
-      team: "autonomy",
-      location: "On-site in San Diego, CA",
-      description: `
-        You'll work on steering, gas, and brake controls for the 300 different cars openpilot supports.
-      `,
-      qualifications: [
-        "Fluent in Python and comfortable working with large datasets",
-        "Strong understanding of controls, robotics, or autonomous systems",
-        "Ability to independently write, test, and ship software to thousands of users",
-      ],
-      howToApply:
-        'Do the <a href="https://github.com/commaai/controls_challenge">controls challenge</a>, then email <a href="mailto:work@comma.ai">work@comma.ai</a>.',
-    },
-    {
       title: "Autonomy Engineer",
       team: "autonomy",
       location: "On-site in San Diego, CA",
       description: `
-        You'll work on infrastructure to train autonomous agents.
+        You'll build scalable pipelines to train machine learning models from real-world driving data.
       `,
       qualifications: [
-        "Fluent in Python and comfortable working with large datasets",
-        "Experience with ML infrastructure, training pipelines, or autonomous agents",
+        "Fluent in Python and comfortable building robust pipelines for large-scale datasets",
+        "Experience with machine learning training pipelines, efficient inference, or large-scale compute infrastructure",
         "Ability to independently write, test, and ship software to thousands of users",
       ],
       howToApply:
