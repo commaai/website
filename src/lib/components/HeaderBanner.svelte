@@ -16,7 +16,7 @@
   }
 
   .wrapper {
-    padding: 0.875rem 0;
+    padding: 1rem 0;
     margin-left: auto;
     margin-right: auto;
     width: 85%;
@@ -27,22 +27,14 @@
 
     display: flex;
     flex-direction: column;
-    grid-row-gap: 0.15rem;
+    grid-row-gap: 0.5rem;
   }
 
   .headline {
     font-family: Inter, sans-serif;
     font-size: 1.25rem;
+    font-weight: 400;
     margin: 0 0.5rem;
-  }
-
-  .subline {
-    color: black;
-    font-family: Inter, sans-serif;
-    font-size: 0.875rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
   }
 
   .cta {
