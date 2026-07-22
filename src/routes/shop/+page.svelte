@@ -50,7 +50,7 @@
       <div class="product-display gradient-bg">
         <Grid columns={2} alignItems="center" size="large">
           <div class="product-content">
-            <Badge style="red">INDEPENDENCE DAY SALE!</Badge>
+            <Badge style="accent">NEW DEVICE!</Badge>
             <hgroup>
               <h1>comma four</h1>
               <span>

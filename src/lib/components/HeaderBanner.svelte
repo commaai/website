@@ -1,18 +1,18 @@
-<a href="/shop/comma-four" target="_blank" class="banner">
+<div class="banner">
   <div class="wrapper">
-    <strong class="headline">
-      🎇 $100 OFF COMMA FOUR FOR INDEPENDENCE DAY 🎇
-    </strong>
-    <span class="subline">while supplies last</span>
+    <p class="headline">
+      New open roles in San Diego.
+      <a href="/jobs" class="cta">Build with us -&gt;</a>
+    </p>
   </div>
-</a>
+</div>
 
 <style>
   .banner {
     color: black;
     position: relative;
     z-index: 1;
-    background-color: var(--color-red);
+    background-color: var(--color-card-background-hover);
   }
 
   .wrapper {
