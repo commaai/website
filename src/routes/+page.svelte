@@ -17,8 +17,15 @@
   import RecordingsIcon from "$lib/icons/features/recordings.svg?raw";
 
   const CDN_BASE = "https://3comma.net";
-  const HeroLandscapeVideo = `${CDN_BASE}/hero-landscape/hero-landscape.m3u8`;
-  const HeroPortraitVideo = `${CDN_BASE}/hero-portrait/hero-portrait.m3u8`;
+  const AV1_FMP4_TYPE = 'video/mp4; codecs="av01.0.08M.08"';
+  const HeroLandscapeVideo = {
+    av1: `${CDN_BASE}/hero-landscape-av1/hero-landscape.m3u8`,
+    h264: `${CDN_BASE}/hero-landscape/hero-landscape.m3u8`,
+  };
+  const HeroPortraitVideo = {
+    av1: `${CDN_BASE}/hero-portrait-av1/hero-portrait.m3u8`,
+    h264: `${CDN_BASE}/hero-portrait/hero-portrait.m3u8`,
+  };
   const ScreenVideo = `${CDN_BASE}/screen-video/screen-video.m3u8`;
 
   let videoLandscapeElement;
@@ -31,13 +38,47 @@
   // Hardcode GitHub star count (similar to contributors on openpilot page)
   const githubStars = 50000;
 
-  function initializeHLS(videoEl, src, onReady) {
-    if (Hls.isSupported()) {
+  function mediaSourceSupports(mimeType) {
+    const MediaSourceConstructor = typeof Hls.getMediaSource === 'function'
+      ? Hls.getMediaSource()
+      : typeof window !== 'undefined'
+        ? window.MediaSource
+        : null;
+
+    return Boolean(MediaSourceConstructor?.isTypeSupported?.(mimeType));
+  }
+
+  function canUseHlsJsForAv1() {
+    return Boolean(
+      typeof Hls.isMSESupported === 'function' &&
+      Hls.isMSESupported() &&
+      mediaSourceSupports(AV1_FMP4_TYPE)
+    );
+  }
+
+  function canPlayAv1HLS(videoEl) {
+    const nativeHlsAv1 = videoEl.canPlayType('application/vnd.apple.mpegurl') &&
+      videoEl.canPlayType(AV1_FMP4_TYPE);
+
+    return canUseHlsJsForAv1() || Boolean(nativeHlsAv1);
+  }
+
+  function getPreferredVideoSource(videoEl, sources) {
+    return canPlayAv1HLS(videoEl) ? sources.av1 : sources.h264;
+  }
+
+  function initializeHLS(videoEl, src, onReady, onFatalError) {
+    const isAv1HlsSource = src.includes('-av1/');
+
+    if (Hls.isSupported() || (isAv1HlsSource && canUseHlsJsForAv1())) {
       const hls = new Hls();
       hls.loadSource(src);
       hls.attachMedia(videoEl);
       hls.on(Hls.Events.MANIFEST_PARSED, () => {
         if (onReady) onReady();
+      });
+      hls.on(Hls.Events.ERROR, (_event, data) => {
+        if (data.fatal && onFatalError) onFatalError(hls);
       });
       return hls;
     } else if (videoEl.canPlayType('application/vnd.apple.mpegurl')) {
@@ -45,9 +86,26 @@
       videoEl.addEventListener('loadedmetadata', () => {
         if (onReady) onReady();
       });
+      videoEl.addEventListener('error', () => {
+        if (onFatalError) onFatalError(null);
+      }, { once: true });
       return null;
     }
     return null;
+  }
+
+  function initializeHeroHLS(videoEl, sources, onReady) {
+    const preferredSrc = getPreferredVideoSource(videoEl, sources);
+
+    initializeHLS(videoEl, preferredSrc, onReady, (hls) => {
+      if (preferredSrc !== sources.av1) return;
+
+      if (hls) hls.destroy();
+      videoEl.pause();
+      videoEl.removeAttribute('src');
+      videoEl.load();
+      initializeHLS(videoEl, sources.h264, onReady);
+    });
   }
 
   // TODO: don't load both mobile and desktop videos on initial load
@@ -59,7 +117,7 @@
       videoLandscapeElement.addEventListener('playing', () => {
         videoLandscapeReady = true;
       });
-      initializeHLS(videoLandscapeElement, HeroLandscapeVideo, () => {
+      initializeHeroHLS(videoLandscapeElement, HeroLandscapeVideo, () => {
         videoLandscapeElement.play();
       });
     }
@@ -69,7 +127,7 @@
       videoPortraitElement.addEventListener('playing', () => {
         videoPortraitReady = true;
       });
-      initializeHLS(videoPortraitElement, HeroPortraitVideo, () => {
+      initializeHeroHLS(videoPortraitElement, HeroPortraitVideo, () => {
         videoPortraitElement.play();
       });
     }
