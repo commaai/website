@@ -93,7 +93,7 @@
   />
 </svelte:head>
 
-<header class="navbar">
+<header class="navbar" class:homepage={$page.url.pathname === '/'}>
   <div class="navbar-container">
     <div class="navbar-section-logo">
       <a class="title" href="/">comma</a>
@@ -131,13 +131,15 @@
   />
 {/if}
 
-<HeaderBanner />
+{#if $page.url.pathname !== '/'}
+  <HeaderBanner />
+{/if}
 
 <main>
   <slot></slot>
 </main>
 
-<footer>
+<footer class:homepage-footer={$page.url.pathname === '/'}>
   <div class="container">
     <Grid columns={4} wrapMode="single" alignItems="start" size="large">
       <div class="footer-links">
@@ -232,6 +234,13 @@
 
     @media only screen and (max-width: 1280px) {
       border-right: none;
+      flex: 1;
+
+      & > .title {
+        display: flex;
+        flex: 1;
+        justify-content: center;
+      }
     }
 
     @media only screen and (max-width: 768px) {
@@ -440,6 +449,50 @@
       opacity: 0.65;
       padding-top: 20px;
       border-top: 1px solid rgba(255, 255, 255, 0.25);
+    }
+  }
+
+  footer.homepage-footer {
+    padding-top: 4rem;
+
+    & .container {
+      width: min(85%, 120rem);
+      max-width: none;
+    }
+
+    & .footer-links {
+      gap: .5rem;
+
+      & strong {
+        font-size: .72rem;
+      }
+
+      & a {
+        font-size: .9rem;
+      }
+
+      & .tagline span {
+        font-size: .9rem;
+      }
+    }
+
+    & .mailing-list {
+      margin-top: 1.25rem;
+    }
+
+    & .copyright {
+      font-size: .68rem;
+      margin-top: 3rem;
+    }
+
+    @media screen and (max-width: 768px) {
+      padding: 2.5rem 1rem 1rem;
+    }
+
+    @media screen and (min-width: 512px) and (max-width: 1024px) {
+      & :global(.grid) {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
   }
 </style>
