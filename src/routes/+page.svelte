@@ -11,12 +11,10 @@
   import SetupVideo from "$lib/images/setup/comma-four/setup-boomerang.mp4";
   import MapDesktop from "$lib/images/home/map-desktop.svg";
   import MapMobile from "$lib/images/home/map-mobile.svg";
-  import LaneCenteringIcon from "$lib/icons/features/lane-centering.svg?raw";
-  import AdaptiveCruiseIcon from "$lib/icons/features/adaptive-cruise.svg?raw";
-  import OtaUpdatesIcon from "$lib/icons/features/ota-updates.svg?raw";
-  import ThreeSixtyVisionIcon from "$lib/icons/features/360-vision.svg?raw";
-  import LocationIcon from "$lib/icons/features/location.svg?raw";
-  import RecordingsIcon from "$lib/icons/features/recordings.svg?raw";
+  import LaneCenteringIcon from "$lib/icons/home/features/comma-four-lane-centering.svg";
+  import AdaptiveCruiseIcon from "$lib/icons/home/features/comma-four-adaptive-cruise.svg";
+  import ReducedFatigueIcon from "$lib/icons/home/features/comma-four-reduced-fatigue.svg";
+  import CloudDashcamIcon from "$lib/icons/home/features/comma-four-cloud-dashcam.svg";
 
   const CDN_BASE = "https://3comma.net";
   const HeroLandscapeVideo = `${CDN_BASE}/hero-landscape/hero-landscape.m3u8`;
@@ -128,9 +126,62 @@
 
 <section class="dark" id="hero">
   <div class="container">
-    <h1>comma four</h1>
-    <h2 class="muted">Hands free driving for the car you already have</h2>
-    <Grid columns={2} rowGap="3rem">
+    <Grid
+      columns={2}
+      columnGap="clamp(3rem, 7vw, 8rem)"
+      rowGap="3rem"
+      alignItems="center"
+      size="large"
+      wrapMode="single"
+    >
+      <div class="comma-four-content">
+        <h1>meet comma four</h1>
+        <h2>make driving chill with a hands-off, eyes-on driving experience</h2>
+
+        <div class="feature-grid">
+          <div class="feature-item">
+            <span class="feature-icon">
+              <img src={LaneCenteringIcon} alt="" width="72" height="38" />
+            </span>
+            <span>lane centering</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">
+              <img src={AdaptiveCruiseIcon} alt="" width="50" height="55" />
+            </span>
+            <span>adaptive cruise</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">
+              <img src={ReducedFatigueIcon} alt="" width="66" height="41" />
+            </span>
+            <span>reduced fatigue</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">
+              <img src={CloudDashcamIcon} alt="" width="66" height="66" />
+            </span>
+            <span>cloud dashcam</span>
+          </div>
+        </div>
+
+        <a class="comma-four-cta" href="/shop/comma-four">
+          <span>buy now for $999 risk-free</span>
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M15 19L13.59 17.59L18.17 13L2 13V11L18.17 11L13.58 6.41L15 5L22 12L15 19Z"
+              fill="currentColor"
+            />
+          </svg>
+        </a>
+      </div>
+
       <div class="device-image-container">
         <img
           src={DeviceImage}
@@ -148,45 +199,7 @@
           class="screen-video-overlay"
         />
       </div>
-      <div>
-        <div class="mb-2">
-          <Grid columns={2} columnGap="1rem" rowGap="1.25rem" size="small" wrapMode="none">
-            <div class="feature-item">
-              {@html LaneCenteringIcon}
-              <span>Lane<br />centering</span>
-            </div>
-            <div class="feature-item">
-              {@html RecordingsIcon}
-              <span>Dashcam<br />recording</span>
-            </div>
-            <div class="feature-item">
-              {@html AdaptiveCruiseIcon}
-              <span>Adaptive<br />cruise</span>
-            </div>
-            <div class="feature-item">
-              {@html OtaUpdatesIcon}
-              <span>OTA<br />updates</span>
-            </div>
-            <div class="feature-item">
-              {@html LocationIcon}
-              <span>Lane<br />changing</span>
-            </div>
-            <div class="feature-item">
-              {@html ThreeSixtyVisionIcon}
-              <span>360° vision</span>
-            </div>
-          </Grid>
-        </div>
-        <LinkButton href="/shop/comma-four" fullWidth={true} style="accent">
-          Try it risk free for 30 days
-        </LinkButton>
-      </div>
     </Grid>
-    <h1 class="mt-4">Make driving chill.</h1>
-    <h3 class="muted">
-      comma helps control the steering, braking and acceleration of the car you already drive. It's upgraded active driver assistance
-      for your Toyota, Hyundai, Ford, and more.
-    </h3>
   </div>
 </section>
 
@@ -357,38 +370,159 @@
   }
 
   #hero {
+    padding-bottom: 5rem;
+    padding-top: 2rem;
+
+    & .comma-four-content {
+      min-width: 0;
+    }
+
+    & .comma-four-content h1 {
+      font-size: clamp(3rem, 4vw, 4rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    & .comma-four-content h2 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      letter-spacing: -0.04em;
+      line-height: 1.2;
+      margin: 0;
+      max-width: 37rem;
+      opacity: 0.65;
+    }
+
+    & .feature-grid {
+      display: grid;
+      gap: 2.25rem 2.5rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin: 3.5rem 0;
+    }
+
     & .feature-item {
       align-items: center;
-      display: flex;
       color: white;
+      display: flex;
+      gap: 1.25rem;
+      min-width: 0;
+
+      & .feature-icon {
+        align-items: center;
+        display: flex;
+        flex: 0 0 4.5rem;
+        height: 4.125rem;
+        justify-content: center;
+      }
 
       & img {
-        border: 1px solid #000;
-        width: 52px;
-        margin-right: 0.5rem;
-        padding: 0.375rem;
-        display: inline-block;
+        display: block;
+        height: auto;
+        max-height: 4.125rem;
+        max-width: 4.5rem;
+        width: auto;
       }
+
+      & > span:last-child {
+        color: white;
+        font-size: 1.5rem;
+        font-weight: 400;
+        letter-spacing: -0.04em;
+        line-height: 1.1;
+      }
+    }
+
+    & .comma-four-cta {
+      align-items: center;
+      background-color: var(--color-accent);
+      box-sizing: border-box;
+      color: black;
+      display: flex;
+      font-size: 1.5rem;
+      font-weight: 500;
+      gap: 0.75rem;
+      justify-content: center;
+      letter-spacing: -0.04em;
+      max-width: 36.875rem;
+      min-height: 4.3125rem;
+      padding: 0.75rem 1.5rem;
+      transition: background-color 0.2s;
+      width: 100%;
 
       & span {
-        color: var(--color-muted);
-        text-transform: uppercase;
-        flex: 1;
-        font-family: JetBrains Mono, monospace;
-        font-size: 1rem;
-        font-weight: 400;
-        line-height: 1.25;
-        margin-left: 1rem;
+        color: black;
+      }
+
+      & svg {
+        flex: 0 0 auto;
       }
     }
 
-    & h3 {
-      line-height: 1.4;
+    @media (hover: hover) and (pointer: fine) {
+      & .comma-four-cta:hover {
+        background-color: var(--color-accent-hover);
+      }
     }
 
-    @media screen and (max-width: 375px) {
-      & .feature-item span {
-        font-size: 0.75rem;
+    & .comma-four-cta:active {
+      background-color: var(--color-accent-hover);
+    }
+
+    @media screen and (max-width: 1024px) {
+      & .device-image-container {
+        margin: 0 auto;
+        max-width: 48rem;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      padding-bottom: 2.5rem;
+      padding-top: 1.5rem;
+
+      & .container {
+        width: calc(100% - 2.5rem);
+      }
+
+      & .comma-four-content h1 {
+        font-size: 2.3rem;
+        margin-bottom: 0.75rem;
+      }
+
+      & .comma-four-content h2 {
+        font-size: 1.125rem;
+        line-height: 1.25;
+      }
+
+      & .feature-grid {
+        gap: 1.5rem 1rem;
+        margin: 2.25rem 0;
+      }
+
+      & .feature-item {
+        gap: 0.75rem;
+
+        & .feature-icon {
+          flex-basis: 2.5rem;
+          height: 2.25rem;
+        }
+
+        & img {
+          max-height: 2.25rem;
+          max-width: 2.5rem;
+        }
+
+        & > span:last-child {
+          font-size: 1rem;
+        }
+      }
+
+      & .comma-four-cta {
+        font-size: 1rem;
+        justify-content: space-between;
+        min-height: 3.6875rem;
+        padding: 0.75rem 1.25rem;
       }
     }
   }
