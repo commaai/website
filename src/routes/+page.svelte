@@ -468,6 +468,10 @@
   }
 
   @media screen and (max-width: 768px) {
+    section:not(.hero-image) {
+      padding-block: 1.25rem;
+    }
+
     .two-column-layout {
       grid-template-columns: minmax(0, 1fr);
     }
@@ -642,7 +646,7 @@
 
   #compatibility {
     & .setup-grid {
-      align-items: start;
+      align-items: stretch;
     }
 
     & .setup-overview,
@@ -663,8 +667,14 @@
       }
     }
 
+    & .setup-overview {
+      display: flex;
+      flex-direction: column;
+    }
+
     & .setup-media {
       aspect-ratio: 16 / 9;
+      margin-top: auto;
       overflow: hidden;
       width: 100%;
 

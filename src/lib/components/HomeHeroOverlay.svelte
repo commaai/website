@@ -92,7 +92,8 @@
       <a class="hero-action secondary" href="/shop/comma-four">
         <span>try risk-free for 30 days</span>
         <span class="action-detail">
-          <span>$0 due today</span>
+          <!-- TODO: Show after we have $0 down. -->
+          <!-- <span>$0 due today</span> -->
           <img class="action-arrow" src={ArrowWhite} alt="" width="22" height="15" />
         </span>
       </a>
