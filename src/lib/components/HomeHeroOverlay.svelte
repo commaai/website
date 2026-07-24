@@ -135,8 +135,10 @@
   }
 
   .hero-content {
+    --hero-gutter: clamp(1.25rem, 2.3vw, 3rem);
+
     box-sizing: border-box;
-    padding: 0 clamp(1.25rem, 2.3vw, 3rem) clamp(3.25rem, 6.9vh, 5.25rem);
+    padding: 0 var(--hero-gutter) var(--hero-gutter);
     pointer-events: auto;
     width: 100%;
   }
@@ -286,7 +288,6 @@
   .logo-viewport {
     flex: 1;
     height: 2.1875rem;
-    margin-right: calc(clamp(1.25rem, 2.3vw, 3rem) * -1);
     mask-image: linear-gradient(to right, transparent, black 3rem, black calc(100% - 3rem), transparent);
     min-width: 0;
     overflow: hidden;
@@ -349,7 +350,6 @@
       display: flex;
       flex: 1;
       flex-direction: column;
-      padding: 0 1.25rem 1.25rem;
     }
 
     h1 {
@@ -425,9 +425,8 @@
 
     .logo-viewport {
       flex: none;
-      margin-left: -1.25rem;
-      margin-right: -1.25rem;
-      width: calc(100% + 2.5rem);
+      margin-left: calc(0rem - var(--hero-gutter));
+      width: calc(100% + var(--hero-gutter));
     }
   }
 </style>

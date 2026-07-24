@@ -182,44 +182,10 @@
 
 <section class="dark" id="hero">
   <div class="container">
-    <Grid
-      columns={2}
-      columnGap="clamp(3rem, 7vw, 8rem)"
-      rowGap="3rem"
-      alignItems="center"
-      size="large"
-      wrapMode="single"
-    >
+    <div class="two-column-layout meet-grid">
       <div class="comma-four-content">
         <h1>meet comma four</h1>
         <h2>make driving chill with a hands-off, eyes-on driving experience</h2>
-
-        <div class="feature-grid desktop-features">
-          {#each commaFourFeatures as feature}
-            <div class="feature-item">
-              <span class="feature-icon">
-                {@html feature.icon}
-              </span>
-              <span>{feature.label}</span>
-            </div>
-          {/each}
-        </div>
-
-        <a class="comma-four-cta desktop-cta" href="/shop/comma-four">
-          <span>buy now for $999 risk-free</span>
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            aria-hidden="true"
-          >
-            <path
-              d="M15 19L13.59 17.59L18.17 13L2 13V11L18.17 11L13.58 6.41L15 5L22 12L15 19Z"
-              fill="currentColor"
-            />
-          </svg>
-        </a>
       </div>
 
       <div class="device-gallery">
@@ -259,7 +225,7 @@
         </div>
       </div>
 
-      <div class="feature-grid mobile-features">
+      <div class="feature-grid">
         {#each commaFourFeatures as feature}
           <div class="feature-item">
             <span class="feature-icon">
@@ -270,7 +236,7 @@
         {/each}
       </div>
 
-      <a class="comma-four-cta mobile-cta" href="/shop/comma-four">
+      <a class="comma-four-cta" href="/shop/comma-four">
         <span>buy now for $999 risk-free</span>
         <svg
           width="24"
@@ -285,17 +251,17 @@
           />
         </svg>
       </a>
-    </Grid>
+    </div>
   </div>
 </section>
 
 <section class="light" id="compatibility">
   <div class="container">
-    <div class="setup-grid">
+    <div class="two-column-layout setup-grid">
       <div class="setup-overview">
         <h1>
-          <span>plug it in yourself,</span>
-          <span>hit the road in 15 minutes.</span>
+          <span>plug it in & hit the</span>
+          <span>road in 15 minutes.</span>
         </h1>
         <div class="setup-media">
           <video
@@ -342,16 +308,16 @@
     </figure>
     <FeaturedArticles />
     <h1>
-      Follow us on 𝕏
-      <a href="https://twitter.com/comma_ai" target="_blank" class="highlight">@comma_ai</a>.
+      follow us on 𝕏
+      <a href="https://twitter.com/comma_ai" target="_blank" class="highlight">@comma_ai</a>
     </h1>
   </div>
 </section>
 
+
 <section class="light" id="recruit">
   <div class="container">
-    <SectionHeader leftLabel="Careers" rightLabel="We are hiring" />
-    <h1 class="mb-5 sm-mb-3">Join us in building the future.</h1>
+    <h1 class="mb-5 sm-mb-3">join us in building the future</h1>
     <Grid columns={2} columnGap="6rem" size="large">
       <Grid columns={2}>
         <div class="recruiting-card">
@@ -490,12 +456,36 @@
     }
   }
 
+  section:not(.hero-image) {
+    padding-block: 5rem;
+  }
+
+  .two-column-layout {
+    column-gap: clamp(3rem, 7vw, 8rem);
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+  }
+
+  @media screen and (max-width: 768px) {
+    .two-column-layout {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+
   #hero {
-    padding-bottom: 5rem;
-    padding-top: 2rem;
+    & .meet-grid {
+      align-items: start;
+      grid-template-areas:
+        "copy gallery"
+        "features gallery"
+        "cta gallery";
+    }
 
     & .comma-four-content {
+      grid-area: copy;
       min-width: 0;
+      width: 100%;
     }
 
     & .comma-four-content h1 {
@@ -518,12 +508,14 @@
     & .feature-grid {
       display: grid;
       gap: 2.25rem 2.5rem;
+      grid-area: features;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       margin: 3.5rem 0;
+      width: 100%;
     }
 
-    & .mobile-features {
-      display: none;
+    & .feature-item:nth-child(even) {
+      justify-self: end;
     }
 
     & .feature-item {
@@ -565,6 +557,7 @@
       font-size: 1.5rem;
       font-weight: 500;
       gap: 0.75rem;
+      grid-area: cta;
       justify-content: center;
       letter-spacing: -0.04em;
       min-height: 4.3125rem;
@@ -581,10 +574,6 @@
       }
     }
 
-    & .mobile-cta {
-      display: none;
-    }
-
     @media (hover: hover) and (pointer: fine) {
       & .comma-four-cta:hover {
         background-color: var(--color-accent-hover);
@@ -595,19 +584,18 @@
       background-color: var(--color-accent-hover);
     }
 
-    @media screen and (max-width: 1024px) {
-      & .device-gallery {
-        margin: 0 auto;
-        max-width: 48rem;
-      }
-    }
-
     @media screen and (max-width: 768px) {
-      padding-bottom: 2.5rem;
-      padding-top: 2.5rem;
-
       & .container {
         width: calc(100% - 2.5rem);
+      }
+
+      & .meet-grid {
+        grid-template-areas:
+          "copy"
+          "gallery"
+          "features"
+          "cta";
+        row-gap: 2rem;
       }
 
       & .comma-four-content h1 {
@@ -622,15 +610,6 @@
 
       & .feature-grid {
         gap: 1.5rem 1rem;
-        margin: 2.25rem 0;
-      }
-
-      & .desktop-features {
-        display: none;
-      }
-
-      & .mobile-features {
-        display: grid;
         margin: 0;
       }
 
@@ -658,25 +637,20 @@
         min-height: 3.6875rem;
         padding: 0.75rem 1.25rem;
       }
-
-      & .desktop-cta {
-        display: none;
-      }
-
-      & .mobile-cta {
-        display: flex;
-      }
     }
   }
 
   #compatibility {
-    padding-top: 3rem;
-
     & .setup-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.12fr) minmax(22rem, 1fr);
-      column-gap: clamp(4rem, 10vw, 14rem);
       align-items: start;
+    }
+
+    & .setup-overview,
+    & .compatibility-content,
+    & .featured-cars,
+    & .setup-cta {
+      min-width: 0;
+      width: 100%;
     }
 
     & .setup-overview h1 {
@@ -717,12 +691,6 @@
       }
     }
 
-    @media screen and (max-width: 1024px) {
-      & .setup-grid {
-        column-gap: 4rem;
-      }
-    }
-
     @media screen and (min-width: 769px) and (max-width: 1024px) {
       & .setup-overview h1 {
         font-size: 2.6vw;
@@ -730,16 +698,12 @@
     }
 
     @media screen and (max-width: 768px) {
-      padding-top: 1.5rem;
-      padding-bottom: 0.5rem;
-
       & .container {
         width: calc(100% - 2.5rem);
       }
 
       & .setup-grid {
-        display: flex;
-        flex-direction: column;
+        row-gap: 2rem;
       }
 
       & .setup-overview h1 {
@@ -858,6 +822,8 @@
   }
 
   .device-gallery {
+    align-self: center;
+    grid-area: gallery;
     min-width: 0;
     width: 100%;
   }
@@ -865,7 +831,6 @@
   .device-image-container {
     position: relative;
     width: 100%;
-    transform: scale(1.1);
   }
 
   .device-main-image {
