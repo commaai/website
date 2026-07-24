@@ -4,24 +4,44 @@
 
   import ArrowBlack from "$lib/icons/home/hero-arrow-black.svg";
   import ArrowWhite from "$lib/icons/home/hero-arrow-white.svg";
+  import AcuraLogo from "$lib/icons/home/brands/acura.svg";
+  import AudiLogo from "$lib/icons/home/brands/audi.svg";
   import ChevroletLogo from "$lib/icons/home/brands/chevrolet.svg";
+  import CupraLogo from "$lib/icons/home/brands/cupra.svg";
   import FordLogo from "$lib/icons/home/brands/ford.svg";
+  import GmcLogo from "$lib/icons/home/brands/gmc.svg";
   import HondaLogo from "$lib/icons/home/brands/honda.svg";
   import HyundaiLogo from "$lib/icons/home/brands/hyundai.svg";
+  import JeepLogo from "$lib/icons/home/brands/jeep.svg";
   import KiaLogo from "$lib/icons/home/brands/kia.svg";
   import LexusLogo from "$lib/icons/home/brands/lexus.svg";
+  import LincolnLogo from "$lib/icons/home/brands/lincoln.svg";
+  import ManLogo from "$lib/icons/home/brands/man.svg";
+  import MazdaLogo from "$lib/icons/home/brands/mazda.svg";
   import NissanLogo from "$lib/icons/home/brands/nissan.svg";
+  import RamLogo from "$lib/icons/home/brands/ram.svg";
+  import RivianLogo from "$lib/icons/home/brands/rivian.svg";
+  import SeatLogo from "$lib/icons/home/brands/seat.svg";
+  import SkodaLogo from "$lib/icons/home/brands/skoda.svg";
   import SubaruLogo from "$lib/icons/home/brands/subaru.svg";
+  import TeslaLogo from "$lib/icons/home/brands/tesla.svg";
   import ToyotaLogo from "$lib/icons/home/brands/toyota.svg";
   import VolkswagenLogo from "$lib/icons/home/brands/volkswagen.svg";
 
-  const stats = [
+  const MILES_ANCHOR_VALUE = 381_742_619;
+  const MILES_ANCHOR_TIME = Date.parse("2026-07-24T19:18:54Z");
+  // Rounded from the last 30 completed days in orm_routes5 (346,251 miles/day).
+  const MILES_PER_DAY = 346_000;
+  const MILES_PER_MILLISECOND = MILES_PER_DAY / 86_400_000;
+
+  let milesDriven = MILES_ANCHOR_VALUE;
+  $: stats = [
     {
       value: "30,000+",
       label: "cars on the road with a comma",
     },
     {
-      value: "381,742,619",
+      value: milesDriven.toLocaleString("en-US"),
       label: "miles driven",
     },
     {
@@ -31,20 +51,34 @@
   ];
 
   const brands = [
-    { name: "Toyota", logo: ToyotaLogo },
-    { name: "Hyundai", logo: HyundaiLogo },
-    { name: "Ford", logo: FordLogo },
-    { name: "Kia", logo: KiaLogo },
-    { name: "Honda", logo: HondaLogo },
-    { name: "Lexus", logo: LexusLogo },
-    { name: "Subaru", logo: SubaruLogo },
-    { name: "Volkswagen", logo: VolkswagenLogo },
+    { name: "Acura", logo: AcuraLogo },
+    { name: "Audi", logo: AudiLogo },
     { name: "Chevrolet", logo: ChevroletLogo },
+    { name: "Cupra", logo: CupraLogo },
+    { name: "Ford", logo: FordLogo },
+    { name: "GMC", logo: GmcLogo },
+    { name: "Honda", logo: HondaLogo },
+    { name: "Hyundai", logo: HyundaiLogo },
+    { name: "Jeep", logo: JeepLogo },
+    { name: "Kia", logo: KiaLogo },
+    { name: "Lexus", logo: LexusLogo },
+    { name: "Lincoln", logo: LincolnLogo },
+    { name: "MAN", logo: ManLogo },
+    { name: "Mazda", logo: MazdaLogo },
     { name: "Nissan", logo: NissanLogo },
+    { name: "RAM", logo: RamLogo },
+    { name: "Rivian", logo: RivianLogo },
+    { name: "SEAT", logo: SeatLogo },
+    { name: "Škoda", logo: SkodaLogo },
+    { name: "Subaru", logo: SubaruLogo },
+    { name: "Tesla", logo: TeslaLogo },
+    { name: "Toyota", logo: ToyotaLogo },
+    { name: "Volkswagen", logo: VolkswagenLogo },
   ];
 
   let logoViewportElement;
   let logoGroupCount = 2;
+  let logoDuration = 24;
   let logoSequenceWidth = 0;
 
   function measureLogoMarquee() {
@@ -55,16 +89,28 @@
     if (viewportWidth === 0 || sequenceWidth === 0) return;
 
     logoSequenceWidth = sequenceWidth;
+    logoDuration = Math.max(24, sequenceWidth / 30);
     logoGroupCount = Math.max(2, Math.ceil(viewportWidth / sequenceWidth) + 1);
   }
 
   onMount(() => {
+    const updateMilesDriven = () => {
+      const elapsed = Math.max(0, Date.now() - MILES_ANCHOR_TIME);
+      milesDriven = Math.floor(MILES_ANCHOR_VALUE + elapsed * MILES_PER_MILLISECOND);
+    };
+
+    updateMilesDriven();
+    const milesInterval = window.setInterval(updateMilesDriven, 250);
+
     const resizeObserver = new ResizeObserver(measureLogoMarquee);
     resizeObserver.observe(logoViewportElement);
     resizeObserver.observe(logoViewportElement.querySelector(".logo-group"));
     measureLogoMarquee();
 
-    return () => resizeObserver.disconnect();
+    return () => {
+      window.clearInterval(milesInterval);
+      resizeObserver.disconnect();
+    };
   });
 </script>
 
@@ -106,6 +152,7 @@
           class="logo-track"
           class:ready={logoSequenceWidth > 0}
           style:--logo-sequence-width={`${logoSequenceWidth}px`}
+          style:--logo-duration={`${logoDuration}s`}
         >
           {#each Array(logoGroupCount) as _, duplicate}
             <div class="logo-group">
@@ -179,6 +226,7 @@
 
   .stat-value {
     font-size: 3rem;
+    font-variant-numeric: tabular-nums;
     font-weight: 400;
     letter-spacing: -0.04em;
     line-height: 1;
@@ -296,11 +344,12 @@
 
   .logo-track {
     display: flex;
+    opacity: 0.5;
     width: max-content;
   }
 
   .logo-track.ready {
-    animation: logo-scroll 24s linear infinite;
+    animation: logo-scroll var(--logo-duration) linear infinite;
   }
 
   .logo-group {
