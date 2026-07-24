@@ -9,6 +9,10 @@
   import Grid from "$lib/components/Grid.svelte";
 
   import DeviceImage from "$lib/images/products/comma-four/four_dark.png";
+  import DeviceScreenOnImage from "$lib/images/products/comma-four/four_screen_on.png";
+  import DeviceAngledImage from "$lib/images/products/comma-four/four_angled.png";
+  import DeviceBackImage from "$lib/images/products/comma-four/four_back.png";
+  import DeviceSideImage from "$lib/images/products/comma-four/four_side.png";
   import SetupVideo from "$lib/images/setup/comma-four/setup-boomerang.mp4";
   import MapDesktop from "$lib/images/home/map-desktop.svg";
   import MapMobile from "$lib/images/home/map-mobile.svg";
@@ -21,6 +25,29 @@
   const HeroLandscapeVideo = `${CDN_BASE}/hero-landscape/hero-landscape.m3u8`;
   const HeroPortraitVideo = `${CDN_BASE}/hero-portrait/hero-portrait.m3u8`;
   const ScreenVideo = `${CDN_BASE}/screen-video/screen-video.m3u8`;
+  const deviceViews = [
+    {
+      image: DeviceImage,
+      thumbnail: DeviceScreenOnImage,
+      label: "front view",
+      hasLiveScreen: true,
+    },
+    {
+      image: DeviceAngledImage,
+      thumbnail: DeviceAngledImage,
+      label: "three-quarter view",
+    },
+    {
+      image: DeviceSideImage,
+      thumbnail: DeviceSideImage,
+      label: "side view",
+    },
+    {
+      image: DeviceBackImage,
+      thumbnail: DeviceBackImage,
+      label: "rear view",
+    },
+  ];
 
   let videoLandscapeElement;
   let videoLandscapeReady = false;
@@ -28,6 +55,8 @@
   let videoPortraitReady = false;
   let screenVideoElement;
   let screenVideoReady = false;
+  let selectedDeviceViewIndex = 0;
+  $: selectedDeviceView = deviceViews[selectedDeviceViewIndex];
 
   // Hardcode GitHub star count (similar to contributors on openpilot page)
   const githubStars = 50000;
@@ -191,22 +220,41 @@
         </a>
       </div>
 
-      <div class="device-image-container">
-        <img
-          src={DeviceImage}
-          alt="comma four device"
-        />
-        <video
-          bind:this={screenVideoElement}
-          class:ready={screenVideoReady}
-          poster="{CDN_BASE}/screen-video/poster.jpg"
-          autoplay
-          muted
-          loop
-          playsinline
-          draggable="false"
-          class="screen-video-overlay"
-        />
+      <div class="device-gallery">
+        <div class="device-image-container">
+          <img
+            class="device-main-image"
+            src={selectedDeviceView.image}
+            alt={`comma four ${selectedDeviceView.label}`}
+          />
+          <video
+            bind:this={screenVideoElement}
+            class:ready={screenVideoReady}
+            class:selected={selectedDeviceView.hasLiveScreen}
+            poster="{CDN_BASE}/screen-video/poster.jpg"
+            autoplay
+            muted
+            loop
+            playsinline
+            draggable="false"
+            class="screen-video-overlay"
+            aria-hidden="true"
+          />
+        </div>
+
+        <div class="device-thumbnails" role="group" aria-label="Choose a comma four view">
+          {#each deviceViews as view, index}
+            {#if index !== selectedDeviceViewIndex}
+              <button
+                type="button"
+                on:click={() => selectedDeviceViewIndex = index}
+                aria-label={`Show comma four ${view.label}`}
+              >
+                <img src={view.thumbnail} alt="" />
+              </button>
+            {/if}
+          {/each}
+        </div>
       </div>
     </Grid>
   </div>
@@ -216,7 +264,7 @@
   <div class="container">
     <div class="setup-grid">
       <div class="setup-overview">
-        <h1>plug it in yourself,<br />hit the road in 15 mins.</h1>
+        <h1>plug it in yourself,<br />hit the road in 15 minutes.</h1>
         <div class="setup-media">
           <video
             src={SetupVideo}
@@ -505,7 +553,7 @@
     }
 
     @media screen and (max-width: 1024px) {
-      & .device-image-container {
+      & .device-gallery {
         margin: 0 auto;
         max-width: 48rem;
       }
@@ -732,30 +780,87 @@
     }
   }
 
+  .device-gallery {
+    min-width: 0;
+    width: 100%;
+  }
+
   .device-image-container {
     position: relative;
-    display: inline-block;
+    width: 100%;
     transform: scale(1.1);
+  }
 
-    & img {
-      display: block;
-      width: 100%;
-      height: auto;
+  .device-main-image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .device-image-container .screen-video-overlay {
+    position: absolute;
+    left: 23.21%; /* 780 / 3360 */
+    top: 63.97%; /* 1433 / 2240 */
+    width: 40.21%; /* 1351 / 3360 */
+    height: 25.80%; /* 578 / 2240 */
+    mix-blend-mode: screen;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in;
+    visibility: hidden;
+  }
+
+  .device-image-container .screen-video-overlay.ready.selected {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .device-thumbnails {
+    align-items: center;
+    display: flex;
+    gap: 0.125rem;
+    justify-content: center;
+    margin: -0.5rem auto 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .device-thumbnails button {
+    background: transparent;
+    border: 1px solid transparent;
+    cursor: pointer;
+    height: clamp(5rem, 6vw, 6.9375rem);
+    opacity: 0.7;
+    padding: 0;
+    transition: border-color 0.2s, opacity 0.2s;
+    width: clamp(5rem, 6vw, 6.9375rem);
+  }
+
+  .device-thumbnails button:hover,
+  .device-thumbnails button:focus-visible {
+    opacity: 1;
+  }
+
+  .device-thumbnails button:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  .device-thumbnails img {
+    display: block;
+    height: 100%;
+    object-fit: contain;
+    width: 100%;
+  }
+
+  @media screen and (max-width: 768px) {
+    .device-thumbnails {
+      margin-top: -1rem;
     }
 
-    & .screen-video-overlay {
-      position: absolute;
-      left: 23.21%; /* 780 / 3360 */
-      top: 63.97%; /* 1433 / 2240 */
-      width: 40.21%; /* 1351 / 3360 */
-      height: 25.80%; /* 578 / 2240 */
-      mix-blend-mode: screen;
-      opacity: 0;
-      transition: opacity 0.3s ease-in;
-
-      &.ready {
-        opacity: 1;
-      }
+    .device-thumbnails button {
+      height: 5.5625rem;
+      width: 5.5625rem;
     }
   }
 </style>
