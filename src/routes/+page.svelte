@@ -4,6 +4,7 @@
   import LinkButton from "$lib/components/LinkButton.svelte";
   import FeaturedCarsList from "$lib/components/FeaturedCarsList.svelte";
   import FeaturedArticles from "$lib/components/FeaturedArticles.svelte";
+  import HomeHeroOverlay from "$lib/components/HomeHeroOverlay.svelte";
   import SectionHeader from "../lib/components/SectionHeader.svelte";
   import Grid from "$lib/components/Grid.svelte";
 
@@ -97,31 +98,39 @@
   <link rel="preload" as="image" href="{CDN_BASE}/screen-video/poster.jpg" />
 </svelte:head>
 
-<section class="hero-image desktop" style="background-image: url('{CDN_BASE}/hero-landscape/poster.jpg');" on:dragstart={handleDragStart} role="img" aria-label="Hero image">
-  <video
-    bind:this={videoLandscapeElement}
-    class:ready={videoLandscapeReady}
-    poster="{CDN_BASE}/hero-landscape/poster.jpg"
-    autoplay
-    muted
-    loop
-    playsinline
-    draggable="false"
-  />
+<section class="hero-image desktop" on:dragstart={handleDragStart} aria-label="comma driving highlights">
+  <div class="hero-video" style="background-image: url('{CDN_BASE}/hero-landscape/poster.jpg');">
+    <video
+      bind:this={videoLandscapeElement}
+      class:ready={videoLandscapeReady}
+      poster="{CDN_BASE}/hero-landscape/poster.jpg"
+      autoplay
+      muted
+      loop
+      playsinline
+      draggable="false"
+      aria-hidden="true"
+    />
+  </div>
+  <HomeHeroOverlay />
 </section>
 
 
-<section class="hero-image mobile" style="background-image: url('{CDN_BASE}/hero-portrait/poster.jpg');" on:dragstart={handleDragStart} role="img" aria-label="Hero image">
-  <video
-    bind:this={videoPortraitElement}
-    class:ready={videoPortraitReady}
-    poster="{CDN_BASE}/hero-portrait/poster.jpg"
-    autoplay
-    muted
-    loop
-    playsinline
-    draggable="false"
-  />
+<section class="hero-image mobile" on:dragstart={handleDragStart} aria-label="comma driving highlights">
+  <div class="hero-video" style="background-image: url('{CDN_BASE}/hero-portrait/poster.jpg');">
+    <video
+      bind:this={videoPortraitElement}
+      class:ready={videoPortraitReady}
+      poster="{CDN_BASE}/hero-portrait/poster.jpg"
+      autoplay
+      muted
+      loop
+      playsinline
+      draggable="false"
+      aria-hidden="true"
+    />
+  </div>
+  <HomeHeroOverlay />
 </section>
 
 <section class="dark" id="hero">
@@ -309,9 +318,7 @@
     -khtml-user-drag: none;
     -moz-user-drag: none;
     -o-user-drag: none;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background: black;
 
     &.desktop {
       @media screen and (max-width: 768px) {
@@ -320,52 +327,79 @@
     }
 
     &.mobile {
-      height: unset;
-      aspect-ratio: 3 / 4;
+      height: auto;
+
       @media screen and (min-width: 769px) {
         display: none;
       }
     }
 
-    & video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      display: block;
-      user-select: none;
-      -webkit-user-drag: none;
-      -khtml-user-drag: none;
-      -moz-user-drag: none;
-      -o-user-drag: none;
-      opacity: 0;
-      transition: opacity 0.3s ease-in;
+    & .hero-video {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      inset: 0;
+      position: absolute;
 
-      &.ready {
-        opacity: 1;
+      & video {
+        display: block;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        opacity: 0;
+        transition: opacity 0.3s ease-in;
+        user-select: none;
+        width: 100%;
+        -webkit-user-drag: none;
+        -khtml-user-drag: none;
+        -moz-user-drag: none;
+        -o-user-drag: none;
+
+        &.ready {
+          opacity: 1;
+        }
+      }
+
+      &::before,
+      &::after {
+        content: '';
+        pointer-events: none;
+        position: absolute;
+        z-index: 2;
+      }
+
+      &::before {
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.9), transparent);
+        bottom: 0;
+        left: 0;
+        top: 0;
+        width: min(52rem, 42%);
+      }
+
+      &::after {
+        background: linear-gradient(to bottom, transparent, black);
+        bottom: 0;
+        height: 11.25rem;
+        left: 0;
+        right: 0;
       }
     }
 
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      pointer-events: none;
-    }
+    @media screen and (max-width: 768px) {
+      & .hero-video {
+        aspect-ratio: 402 / 465;
+        inset: auto;
+        position: relative;
+        width: 100%;
 
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 180px;
-      background: linear-gradient(to bottom, transparent, black);
-      z-index: 2;
-      pointer-events: none;
+        &::before {
+          display: none;
+        }
+
+        &::after {
+          height: 4.4375rem;
+        }
+      }
     }
   }
 
