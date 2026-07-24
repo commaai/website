@@ -9,6 +9,7 @@
   import { vehicleCountText } from '$lib/constants/vehicles.js';
 
   import DeviceImage from "$lib/images/products/comma-four/four_dark.png";
+  import SetupVideo from "$lib/images/setup/comma-four/installation-boomerang.mp4";
   import LaneCenteringIcon from "$lib/icons/features/lane-centering.svg?raw";
   import AdaptiveCruiseIcon from "$lib/icons/features/adaptive-cruise.svg?raw";
   import OtaUpdatesIcon from "$lib/icons/features/ota-updates.svg?raw";
@@ -190,19 +191,33 @@
 
 <section class="light" id="compatibility">
   <div class="container">
-    <h1 class="mb-7 sm-mb-3">Plug it in yourself in 15 minutes.</h1>
-    <Grid columns={2} rowGap="3rem">
-      <h1>
-        It works on {vehicleCountText} car models from 27 brands.
-        <span class="muted">Is your car supported?</span>
-      </h1>
-      <div>
-        <FeaturedCarsList />
-        <LinkButton href="/vehicles" style="primary" fullWidth={true}>
-          View all {vehicleCountText} cars
-        </LinkButton>
+    <div class="setup-grid">
+      <div class="setup-overview">
+        <h1>plug it in yourself,<br />hit the road in 15 mins.</h1>
+        <div class="setup-media">
+          <video
+            src={SetupVideo}
+            poster="{CDN_BASE}/hero-landscape/poster.jpg"
+            aria-label="A stop-motion demonstration of installing a comma device"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+          ></video>
+        </div>
       </div>
-    </Grid>
+      <div class="compatibility-content">
+        <div class="featured-cars">
+          <FeaturedCarsList />
+        </div>
+        <div class="setup-cta">
+          <LinkButton href="/vehicles" style="primary" fullWidth={true}>
+            see all {vehicleCountText} supported cars
+          </LinkButton>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -363,6 +378,89 @@
     @media screen and (max-width: 375px) {
       & .feature-item span {
         font-size: 0.75rem;
+      }
+    }
+  }
+
+  #compatibility {
+    padding-top: 3rem;
+
+    & .setup-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.12fr) minmax(22rem, 1fr);
+      column-gap: clamp(4rem, 10vw, 14rem);
+      align-items: start;
+    }
+
+    & .setup-overview h1 {
+      margin-bottom: 3.75rem;
+    }
+
+    & .setup-media {
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      width: 100%;
+
+      & video {
+        display: block;
+        height: 100%;
+        object-fit: cover;
+        width: 100%;
+      }
+    }
+
+    & .compatibility-content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    & .setup-cta {
+      margin-top: 1rem;
+
+      & :global(a) {
+        font-weight: 500;
+        letter-spacing: -0.04em;
+        text-transform: none;
+      }
+    }
+
+    @media screen and (max-width: 1024px) {
+      & .setup-grid {
+        column-gap: 4rem;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      padding-top: 1.5rem;
+      padding-bottom: 0.5rem;
+
+      & .container {
+        width: calc(100% - 2.5rem);
+      }
+
+      & .setup-grid {
+        display: flex;
+        flex-direction: column;
+      }
+
+      & .setup-overview h1 {
+        font-size: 1.75rem;
+        margin-bottom: 1.5rem;
+      }
+
+      & .compatibility-content {
+        width: 100%;
+      }
+
+      & .setup-cta {
+        margin-bottom: 1rem;
+        margin-top: 1.5rem;
+        order: -1;
+
+        & :global(a) {
+          min-height: 3.6875rem;
+          padding: 1rem 1.25rem;
+        }
       }
     }
   }
