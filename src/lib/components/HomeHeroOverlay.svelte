@@ -43,6 +43,7 @@
     {
       value: milesDriven.toLocaleString("en-US"),
       label: "miles driven",
+      live: true,
     },
     {
       value: "#2",
@@ -125,7 +126,12 @@
       {#each stats as stat}
         <div class="stat">
           <span class="stat-value">{stat.value}</span>
-          <span class="stat-label">{stat.label}</span>
+          <span class="stat-label">
+            {#if stat.live}
+              <span class="live-dot" aria-label="live estimate"></span>
+            {/if}
+            {stat.label}
+          </span>
         </div>
       {/each}
     </div>
@@ -233,11 +239,24 @@
   }
 
   .stat-label {
+    align-items: center;
+    display: flex;
     font-size: 1rem;
     font-weight: 500;
+    gap: 0.375rem;
     letter-spacing: -0.04em;
     line-height: 1.2;
     margin-top: 0.9375rem;
+  }
+
+  .live-dot {
+    animation: live-pulse 2s ease-out infinite;
+    background: #86ff4e;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 rgba(134, 255, 78, 0.65);
+    flex: 0 0 auto;
+    height: 0.5rem;
+    width: 0.5rem;
   }
 
   .hero-actions {
@@ -374,7 +393,15 @@
     }
   }
 
+  @keyframes live-pulse {
+    70%,
+    100% {
+      box-shadow: 0 0 0 0.3rem rgba(134, 255, 78, 0);
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
+    .live-dot,
     .logo-track.ready {
       animation: none;
     }
