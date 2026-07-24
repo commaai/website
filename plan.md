@@ -17,3 +17,10 @@ things we will not be changing
 * anything in the footer, e.g. font sizes, width, etc!
 * anything on pages other than the root/home
 * anything in a global widget that's used elsewhre
+
+---
+
+supplemental assets exported from figma
+* vehicle brand logos: Toyota, Hyundai, Ford, Kia, Honda, Lexus, Subaru, Volkswagen, Chevrolet, and Nissan
+* comma four feature icons: lane centering, adaptive cruise, 360 camera, and cloud dashcam
+* complete map artwork with dots: desktop and mobile
