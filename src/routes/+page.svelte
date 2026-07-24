@@ -6,10 +6,9 @@
   import FeaturedArticles from "$lib/components/FeaturedArticles.svelte";
   import SectionHeader from "../lib/components/SectionHeader.svelte";
   import Grid from "$lib/components/Grid.svelte";
-  import { vehicleCountText } from '$lib/constants/vehicles.js';
 
   import DeviceImage from "$lib/images/products/comma-four/four_dark.png";
-  import SetupVideo from "$lib/images/setup/comma-four/installation-boomerang.mp4";
+  import SetupVideo from "$lib/images/setup/comma-four/installation-progress-fill.mp4";
   import LaneCenteringIcon from "$lib/icons/features/lane-centering.svg?raw";
   import AdaptiveCruiseIcon from "$lib/icons/features/adaptive-cruise.svg?raw";
   import OtaUpdatesIcon from "$lib/icons/features/ota-updates.svg?raw";
@@ -213,7 +212,7 @@
         </div>
         <div class="setup-cta">
           <LinkButton href="/vehicles" style="primary" fullWidth={true}>
-            see all {vehicleCountText} supported cars
+            see all supported cars
           </LinkButton>
         </div>
       </div>
