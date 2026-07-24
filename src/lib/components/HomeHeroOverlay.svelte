@@ -1,4 +1,5 @@
 <script>
+  import { onMount } from "svelte";
   import { vehicleCountText } from "$lib/constants/vehicles.js";
 
   import ArrowBlack from "$lib/icons/home/hero-arrow-black.svg";
@@ -41,6 +42,30 @@
     { name: "Chevrolet", logo: ChevroletLogo },
     { name: "Nissan", logo: NissanLogo },
   ];
+
+  let logoViewportElement;
+  let logoGroupCount = 2;
+  let logoSequenceWidth = 0;
+
+  function measureLogoMarquee() {
+    const logoGroupElement = logoViewportElement?.querySelector(".logo-group");
+    const viewportWidth = logoViewportElement?.getBoundingClientRect().width ?? 0;
+    const sequenceWidth = logoGroupElement?.getBoundingClientRect().width ?? 0;
+
+    if (viewportWidth === 0 || sequenceWidth === 0) return;
+
+    logoSequenceWidth = sequenceWidth;
+    logoGroupCount = Math.max(2, Math.ceil(viewportWidth / sequenceWidth) + 1);
+  }
+
+  onMount(() => {
+    const resizeObserver = new ResizeObserver(measureLogoMarquee);
+    resizeObserver.observe(logoViewportElement);
+    resizeObserver.observe(logoViewportElement.querySelector(".logo-group"));
+    measureLogoMarquee();
+
+    return () => resizeObserver.disconnect();
+  });
 </script>
 
 <div class="hero-overlay">
@@ -75,12 +100,20 @@
 
     <div class="hero-compatibility">
       <p>works with {vehicleCountText} models across 27 brands</p>
-      <div class="logo-viewport" aria-hidden="true">
-        <div class="logo-track">
-          {#each [0, 1] as duplicate}
+      <div class="logo-viewport" aria-hidden="true" bind:this={logoViewportElement}>
+        <div
+          class="logo-track"
+          class:ready={logoSequenceWidth > 0}
+          style:--logo-sequence-width={`${logoSequenceWidth}px`}
+        >
+          {#each Array(logoGroupCount) as _, duplicate}
             <div class="logo-group">
               {#each brands as brand}
-                <img src={brand.logo} alt="" title={duplicate === 0 ? brand.name : undefined} />
+                <img
+                  src={brand.logo}
+                  alt=""
+                  title={duplicate === 0 ? brand.name : undefined}
+                />
               {/each}
             </div>
           {/each}
@@ -261,9 +294,12 @@
   }
 
   .logo-track {
-    animation: logo-scroll 24s linear infinite;
     display: flex;
     width: max-content;
+  }
+
+  .logo-track.ready {
+    animation: logo-scroll 24s linear infinite;
   }
 
   .logo-group {
@@ -284,12 +320,12 @@
 
   @keyframes logo-scroll {
     to {
-      transform: translateX(-50%);
+      transform: translateX(calc(-1 * var(--logo-sequence-width)));
     }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .logo-track {
+    .logo-track.ready {
       animation: none;
     }
   }
