@@ -567,7 +567,6 @@
       gap: 0.75rem;
       justify-content: center;
       letter-spacing: -0.04em;
-      max-width: 36.875rem;
       min-height: 4.3125rem;
       padding: 0.75rem 1.5rem;
       transition: background-color 0.2s;
