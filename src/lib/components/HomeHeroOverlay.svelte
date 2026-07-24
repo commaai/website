@@ -144,7 +144,6 @@
   h1 {
     color: white;
     font-size: clamp(3rem, 4vw, 4rem);
-    font-weight: 700;
     letter-spacing: -0.04em;
     line-height: 1;
     margin: 0;
@@ -339,13 +338,17 @@
 
   @media screen and (max-width: 768px) {
     .hero-overlay {
-      display: block;
+      display: flex;
+      flex: 1;
       inset: auto;
       margin-top: -8.9375rem;
       position: relative;
     }
 
     .hero-content {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
       padding: 0 1.25rem 1.25rem;
     }
 
@@ -409,7 +412,8 @@
     .hero-compatibility {
       flex-direction: column;
       gap: 1.0625rem;
-      margin-top: 1.25rem;
+      margin-top: auto;
+      padding-top: 1.25rem;
     }
 
     .hero-compatibility p {

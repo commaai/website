@@ -8,7 +8,7 @@
   import SectionHeader from "../lib/components/SectionHeader.svelte";
   import Grid from "$lib/components/Grid.svelte";
 
-  import DeviceImage from "$lib/images/products/comma-four/four_dark.png";
+  import DeviceImage from "$lib/images/products/comma-four/four_front.png";
   import DeviceScreenOnImage from "$lib/images/products/comma-four/four_screen_on.png";
   import DeviceAngledImage from "$lib/images/products/comma-four/four_angled.png";
   import DeviceBackImage from "$lib/images/products/comma-four/four_back.png";
@@ -16,15 +16,33 @@
   import SetupVideo from "$lib/images/setup/comma-four/setup-boomerang.mp4";
   import MapDesktop from "$lib/images/home/map-desktop.svg";
   import MapMobile from "$lib/images/home/map-mobile.svg";
-  import LaneCenteringIcon from "$lib/icons/home/features/comma-four-lane-centering.svg";
-  import AdaptiveCruiseIcon from "$lib/icons/home/features/comma-four-adaptive-cruise.svg";
-  import ReducedFatigueIcon from "$lib/icons/home/features/comma-four-reduced-fatigue.svg";
-  import CloudDashcamIcon from "$lib/icons/home/features/comma-four-cloud-dashcam.svg";
+  import LaneCenteringIcon from "$lib/icons/features/lane-centering.svg?raw";
+  import AdaptiveCruiseIcon from "$lib/icons/features/adaptive-cruise.svg?raw";
+  import ReducedFatigueIcon from "$lib/icons/features/moon.svg?raw";
+  import CloudDashcamIcon from "$lib/icons/features/recordings.svg?raw";
 
   const CDN_BASE = "https://3comma.net";
   const HeroLandscapeVideo = `${CDN_BASE}/hero-landscape/hero-landscape.m3u8`;
   const HeroPortraitVideo = `${CDN_BASE}/hero-portrait/hero-portrait.m3u8`;
   const ScreenVideo = `${CDN_BASE}/screen-video/screen-video.m3u8`;
+  const commaFourFeatures = [
+    {
+      icon: LaneCenteringIcon,
+      label: "lane centering",
+    },
+    {
+      icon: AdaptiveCruiseIcon,
+      label: "adaptive cruise",
+    },
+    {
+      icon: ReducedFatigueIcon,
+      label: "reduced fatigue",
+    },
+    {
+      icon: CloudDashcamIcon,
+      label: "cloud dashcam",
+    },
+  ];
   const deviceViews = [
     {
       image: DeviceImage,
@@ -176,34 +194,18 @@
         <h1>meet comma four</h1>
         <h2>make driving chill with a hands-off, eyes-on driving experience</h2>
 
-        <div class="feature-grid">
-          <div class="feature-item">
-            <span class="feature-icon">
-              <img src={LaneCenteringIcon} alt="" width="72" height="38" />
-            </span>
-            <span>lane centering</span>
-          </div>
-          <div class="feature-item">
-            <span class="feature-icon">
-              <img src={AdaptiveCruiseIcon} alt="" width="50" height="55" />
-            </span>
-            <span>adaptive cruise</span>
-          </div>
-          <div class="feature-item">
-            <span class="feature-icon">
-              <img src={ReducedFatigueIcon} alt="" width="66" height="41" />
-            </span>
-            <span>reduced fatigue</span>
-          </div>
-          <div class="feature-item">
-            <span class="feature-icon">
-              <img src={CloudDashcamIcon} alt="" width="66" height="66" />
-            </span>
-            <span>cloud dashcam</span>
-          </div>
+        <div class="feature-grid desktop-features">
+          {#each commaFourFeatures as feature}
+            <div class="feature-item">
+              <span class="feature-icon">
+                {@html feature.icon}
+              </span>
+              <span>{feature.label}</span>
+            </div>
+          {/each}
         </div>
 
-        <a class="comma-four-cta" href="/shop/comma-four">
+        <a class="comma-four-cta desktop-cta" href="/shop/comma-four">
           <span>buy now for $999 risk-free</span>
           <svg
             width="24"
@@ -256,6 +258,33 @@
           {/each}
         </div>
       </div>
+
+      <div class="feature-grid mobile-features">
+        {#each commaFourFeatures as feature}
+          <div class="feature-item">
+            <span class="feature-icon">
+              {@html feature.icon}
+            </span>
+            <span>{feature.label}</span>
+          </div>
+        {/each}
+      </div>
+
+      <a class="comma-four-cta mobile-cta" href="/shop/comma-four">
+        <span>buy now for $999 risk-free</span>
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          aria-hidden="true"
+        >
+          <path
+            d="M15 19L13.59 17.59L18.17 13L2 13V11L18.17 11L13.58 6.41L15 5L22 12L15 19Z"
+            fill="currentColor"
+          />
+        </svg>
+      </a>
     </Grid>
   </div>
 </section>
@@ -264,7 +293,10 @@
   <div class="container">
     <div class="setup-grid">
       <div class="setup-overview">
-        <h1>plug it in yourself,<br />hit the road in 15 minutes.</h1>
+        <h1>
+          <span>plug it in yourself,</span>
+          <span>hit the road in 15 minutes.</span>
+        </h1>
         <div class="setup-media">
           <video
             src={SetupVideo}
@@ -375,7 +407,11 @@
     }
 
     &.mobile {
+      display: flex;
+      flex-direction: column;
       height: auto;
+      min-height: 100vh;
+      min-height: 100dvh;
 
       @media screen and (min-width: 769px) {
         display: none;
@@ -436,7 +472,10 @@
     @media screen and (max-width: 768px) {
       & .hero-video {
         aspect-ratio: 402 / 465;
+        flex: none;
         inset: auto;
+        min-height: 0;
+        overflow: hidden;
         position: relative;
         width: 100%;
 
@@ -461,7 +500,6 @@
 
     & .comma-four-content h1 {
       font-size: clamp(3rem, 4vw, 4rem);
-      font-weight: 700;
       letter-spacing: -0.04em;
       line-height: 1;
       margin-bottom: 1rem;
@@ -484,6 +522,10 @@
       margin: 3.5rem 0;
     }
 
+    & .mobile-features {
+      display: none;
+    }
+
     & .feature-item {
       align-items: center;
       color: white;
@@ -499,12 +541,10 @@
         justify-content: center;
       }
 
-      & img {
+      & .feature-icon :global(svg) {
         display: block;
-        height: auto;
-        max-height: 4.125rem;
-        max-width: 4.5rem;
-        width: auto;
+        height: 3rem;
+        width: 3rem;
       }
 
       & > span:last-child {
@@ -542,6 +582,10 @@
       }
     }
 
+    & .mobile-cta {
+      display: none;
+    }
+
     @media (hover: hover) and (pointer: fine) {
       & .comma-four-cta:hover {
         background-color: var(--color-accent-hover);
@@ -561,7 +605,7 @@
 
     @media screen and (max-width: 768px) {
       padding-bottom: 2.5rem;
-      padding-top: 1.5rem;
+      padding-top: 2.5rem;
 
       & .container {
         width: calc(100% - 2.5rem);
@@ -582,6 +626,15 @@
         margin: 2.25rem 0;
       }
 
+      & .desktop-features {
+        display: none;
+      }
+
+      & .mobile-features {
+        display: grid;
+        margin: 0;
+      }
+
       & .feature-item {
         gap: 0.75rem;
 
@@ -590,9 +643,9 @@
           height: 2.25rem;
         }
 
-        & img {
-          max-height: 2.25rem;
-          max-width: 2.5rem;
+        & .feature-icon :global(svg) {
+          height: 2rem;
+          width: 2rem;
         }
 
         & > span:last-child {
@@ -605,6 +658,14 @@
         justify-content: space-between;
         min-height: 3.6875rem;
         padding: 0.75rem 1.25rem;
+      }
+
+      & .desktop-cta {
+        display: none;
+      }
+
+      & .mobile-cta {
+        display: flex;
       }
     }
   }
@@ -620,7 +681,13 @@
     }
 
     & .setup-overview h1 {
+      font-size: clamp(2rem, 3.3vw, 3.5rem);
       margin-bottom: 3.75rem;
+
+      & span {
+        display: block;
+        white-space: nowrap;
+      }
     }
 
     & .setup-media {
@@ -657,6 +724,12 @@
       }
     }
 
+    @media screen and (min-width: 769px) and (max-width: 1024px) {
+      & .setup-overview h1 {
+        font-size: 2.6vw;
+      }
+    }
+
     @media screen and (max-width: 768px) {
       padding-top: 1.5rem;
       padding-bottom: 0.5rem;
@@ -690,11 +763,16 @@
         }
       }
     }
+
+    @media screen and (max-width: 360px) {
+      & .setup-overview h1 {
+        font-size: 1.5rem;
+      }
+    }
   }
 
   #social {
     & .map-headline {
-      font-weight: 700;
       letter-spacing: -0.04em;
       margin-bottom: 0;
     }
