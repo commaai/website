@@ -8,7 +8,9 @@
   import Grid from "$lib/components/Grid.svelte";
 
   import DeviceImage from "$lib/images/products/comma-four/four_dark.png";
-  import SetupVideo from "$lib/images/setup/comma-four/installation-progress-fill.mp4";
+  import SetupVideo from "$lib/images/setup/comma-four/setup-boomerang.mp4";
+  import MapDesktop from "$lib/images/home/map-desktop.svg";
+  import MapMobile from "$lib/images/home/map-mobile.svg";
   import LaneCenteringIcon from "$lib/icons/features/lane-centering.svg?raw";
   import AdaptiveCruiseIcon from "$lib/icons/features/adaptive-cruise.svg?raw";
   import OtaUpdatesIcon from "$lib/icons/features/ota-updates.svg?raw";
@@ -196,7 +198,6 @@
         <div class="setup-media">
           <video
             src={SetupVideo}
-            poster="{CDN_BASE}/hero-landscape/poster.jpg"
             aria-label="A stop-motion demonstration of installing a comma device"
             autoplay
             muted
@@ -222,10 +223,21 @@
 
 <section class="dark" id="social">
   <div class="container">
-    <SectionHeader leftLabel="comma" rightLabel="is real" />
-    <h1>
-      300+ million miles driven and 20k users. comma runs <a href="/openpilot" class="highlight">open source software</a> with no subscription required.
+    <h1 class="map-headline">
+      comma runs <a href="/openpilot" class="highlight">open source software</a>, driving all over the world with no subscription needed
     </h1>
+    <figure class="activity-map">
+      <figcaption>daily active users</figcaption>
+      <picture>
+        <source media="(max-width: 768px)" srcset={MapMobile} />
+        <img
+          src={MapDesktop}
+          alt="Map showing daily active comma users around the world"
+          width="1120"
+          height="549"
+        />
+      </picture>
+    </figure>
     <FeaturedArticles />
     <h1>
       Follow us on 𝕏
@@ -459,6 +471,60 @@
         & :global(a) {
           min-height: 3.6875rem;
           padding: 1rem 1.25rem;
+        }
+      }
+    }
+  }
+
+  #social {
+    & .map-headline {
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      margin-bottom: 0;
+    }
+
+    & .activity-map {
+      margin: 5rem auto 0;
+      max-width: 70rem;
+      width: 100%;
+
+      & figcaption {
+        color: var(--color-foreground);
+        font-size: 1.5rem;
+        font-weight: 400;
+        letter-spacing: -0.04em;
+        line-height: 1;
+        margin-bottom: 1.5rem;
+        opacity: 0.65;
+        text-align: center;
+      }
+
+      & picture,
+      & img {
+        display: block;
+        width: 100%;
+      }
+
+      & img {
+        height: auto;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      & .container {
+        width: calc(100% - 2.5rem);
+      }
+
+      & .map-headline {
+        font-size: 1.75rem;
+      }
+
+      & .activity-map {
+        margin-top: 2.5rem;
+        max-width: 21.1875rem;
+
+        & figcaption {
+          display: none;
         }
       }
     }
