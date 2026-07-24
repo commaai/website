@@ -140,34 +140,42 @@
       ],
     },
     {
-      title: "Controls Engineer",
+      title: "Autonomy Engineer",
       team: "autonomy",
       location: "On-site in San Diego, CA",
       description: `
-        You'll work on steering, gas, and brake controls for the 300 different cars openpilot supports.
+        You'll build scalable pipelines to train machine learning models from real-world driving data.
       `,
       qualifications: [
-        "Fluent in Python and comfortable working with large datasets",
-        "Strong understanding of controls, robotics, or autonomous systems",
+        "Fluent in Python and comfortable building robust pipelines for large-scale datasets",
+        "Experience with machine learning training pipelines, efficient inference, or large-scale compute infrastructure",
         "Ability to independently write, test, and ship software to thousands of users",
       ],
       howToApply:
         'Do the <a href="https://github.com/commaai/controls_challenge">controls challenge</a>, then email <a href="mailto:work@comma.ai">work@comma.ai</a>.',
     },
     {
-      title: "Autonomy Engineer",
+      title: "Machine Learning Engineer",
       team: "autonomy",
       location: "On-site in San Diego, CA",
       description: `
-        You'll work on infrastructure to train autonomous agents.
+        Conduct in-depth research to identify and implement enhancements to
+        learned driving simulator models. Maintain and enhance distributed neural network training
+        infrastructure. Improve scalability and reliability. Neural network training, dataset
+        preparation and analysis to improve the driving model Performance. Maintain and enhance
+        the validation and testing infrastructure for the driving model. Collaborate with cross-functional
+        teams to integrate research findings into product developments and
+        enhancements. All the above duties will be performed using skills in Algorithms and
+        Structured Programming, Languages and Human Training Modules, &amp; C++ Object
+        Programming &amp; Design.<br><br>
+        Job Location: San Diego, CA<br>
+        Terms and Conditions: Rate of pay is $125,000.00 Per Year<br>
+        Contact: Interested applicants may send their resumes to COMMA AI, Inc. Attn: Julie
+        Hendy, 3900 Harney St., San Diego, CA 92110. <br>Resume must specifically identify all
+        education relevant to job offered.
       `,
-      qualifications: [
-        "Fluent in Python and comfortable working with large datasets",
-        "Experience with ML infrastructure, training pipelines, or autonomous agents",
-        "Ability to independently write, test, and ship software to thousands of users",
-      ],
-      howToApply:
-        'Do the <a href="https://github.com/commaai/controls_challenge">controls challenge</a>, then email <a href="mailto:work@comma.ai">work@comma.ai</a>.',
+      qualifications: [],
+      howToApply: '',
     },
     {
       title: "Electronics Engineer",
@@ -571,10 +579,12 @@
                   </ul>
                 {/if}
 
-                <div class="job-how-to-apply">
-                  <div class="job-qualifications">How to apply</div>
-                  <p>{@html job.howToApply ?? DEFAULT_HOW_TO_APPLY}</p>
-                </div>
+                {#if job.howToApply ?? DEFAULT_HOW_TO_APPLY}
+                  <div class="job-how-to-apply">
+                    <div class="job-qualifications">How to apply</div>
+                    <p>{@html job.howToApply ?? DEFAULT_HOW_TO_APPLY}</p>
+                  </div>
+                {/if}
               </div>
             {/if}
           </article>
