@@ -280,9 +280,21 @@
           <FeaturedCarsList />
         </div>
         <div class="setup-cta">
-          <LinkButton href="/vehicles" style="primary" fullWidth={true}>
+          <a class="setup-cta-link" href="/vehicles">
             <span class="setup-cta-label">see all supported cars</span>
-          </LinkButton>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M15 19L13.59 17.59L18.17 13L2 13V11L18.17 11L13.58 6.41L15 5L22 12L15 19Z"
+                fill="currentColor"
+              />
+            </svg>
+          </a>
         </div>
       </div>
     </div>
@@ -295,7 +307,7 @@
       comma runs <a href="/openpilot" class="highlight">open source software</a>, driving all over the world with no subscription needed
     </h1>
     <figure class="activity-map">
-      <figcaption>openpilot driving worldwide</figcaption>
+      <figcaption>daily active users</figcaption>
       <div class="map-preview">
         <img
           class="map-base"
@@ -366,7 +378,6 @@
     height: 100vh;
     overflow: hidden;
     padding: 0;
-    user-select: none;
     -webkit-user-drag: none;
     -khtml-user-drag: none;
     -moz-user-drag: none;
@@ -701,15 +712,41 @@
     & .setup-cta {
       margin-top: 1rem;
 
-      & :global(a) {
+      & .setup-cta-link {
+        align-items: center;
+        background: black;
+        box-sizing: border-box;
+        color: white;
+        display: flex;
+        font-size: 1.5rem;
         font-weight: 500;
+        gap: 0.75rem;
+        justify-content: center;
         letter-spacing: -0.04em;
+        min-height: 4.3125rem;
+        padding: 0.75rem 1.5rem;
+        transition: opacity 0.2s;
+        width: 100%;
+
+        & svg {
+          flex: 0 0 auto;
+        }
       }
 
       & .setup-cta-label {
-        color: inherit;
+        color: white;
         text-transform: lowercase;
       }
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      & .setup-cta-link:hover {
+        opacity: 0.75;
+      }
+    }
+
+    & .setup-cta-link:active {
+      opacity: 0.75;
     }
 
     @media screen and (min-width: 769px) and (max-width: 1024px) {
@@ -737,9 +774,11 @@
         margin-top: 1.5rem;
         order: -1;
 
-        & :global(a) {
+        & .setup-cta-link {
+          font-size: 1rem;
+          justify-content: space-between;
           min-height: 3.6875rem;
-          padding: 1rem 1.25rem;
+          padding: 0.75rem 1.25rem;
         }
       }
     }

@@ -48,11 +48,14 @@
   }
 
   span {
-    opacity: 0.5;
-    text-align: center;
-    font-size: 1.25rem;
-    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+    opacity: 0.65;
     display: block;
+    text-align: center;
   }
 
   a {

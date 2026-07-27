@@ -201,7 +201,6 @@
 
   .stat-value {
     font-size: 3rem;
-    font-variant-numeric: tabular-nums;
     font-weight: 400;
     letter-spacing: -0.04em;
     line-height: 1;
@@ -378,6 +377,7 @@
     .hero-action > span {
       white-space: nowrap;
     }
+
   }
 
   @media screen and (max-width: 768px) {
