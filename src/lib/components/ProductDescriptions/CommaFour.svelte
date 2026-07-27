@@ -251,10 +251,6 @@
     margin: 1rem 0;
   }
 
-  .harness-price {
-    display: flex;
-  }
-
   .label {
     display: flex;
     align-items: center;
@@ -289,13 +285,6 @@
 
   hr {
     margin: 2rem 0;
-  }
-
-  .highlight {
-    background-color: rgba(134, 255, 78, 0.15);
-    border-bottom: 2px solid #86ff4e;
-    padding: 0 2px;
-    margin-bottom: -2px;
   }
 
   .price-due-today {
