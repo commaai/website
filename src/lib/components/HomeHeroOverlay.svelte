@@ -59,7 +59,12 @@
     { name: "Volkswagen", logo: VolkswagenLogo },
   ];
 
-  let milesDriven = MILES_ANCHOR_VALUE;
+  function estimateMilesDriven(now = Date.now()) {
+    const elapsed = Math.max(0, now - MILES_ANCHOR_TIME);
+    return Math.floor(MILES_ANCHOR_VALUE + elapsed * MILES_PER_MILLISECOND);
+  }
+
+  let milesDriven = estimateMilesDriven();
   $: stats = [
     {
       value: "30,000+",
@@ -78,8 +83,7 @@
 
   onMount(() => {
     const updateMilesDriven = () => {
-      const elapsed = Math.max(0, Date.now() - MILES_ANCHOR_TIME);
-      milesDriven = Math.floor(MILES_ANCHOR_VALUE + elapsed * MILES_PER_MILLISECOND);
+      milesDriven = estimateMilesDriven();
     };
 
     updateMilesDriven();
@@ -129,7 +133,7 @@
       <p>works with {vehicleCountText} models across 27 brands</p>
       <div class="logo-viewport" aria-hidden="true">
         <div class="logo-track">
-          {#each Array(2) as _, duplicate}
+          {#each Array(4) as _, duplicate}
             <div class="logo-group">
               {#each brands as brand}
                 <img
@@ -354,7 +358,7 @@
 
   @keyframes logo-scroll {
     to {
-      transform: translateX(-50%);
+      transform: translateX(-25%);
     }
   }
 
