@@ -7,7 +7,6 @@
 
   export let productName = "";
   export let title = "Setup Guide";
-  export let stepCount = 0;
   export let estimatedMinutes = 0;
   export let link;
   export let image;

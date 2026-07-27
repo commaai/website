@@ -1,6 +1,6 @@
 <script>
   import { onMount } from 'svelte';
-  import Hls from 'hls.js';
+  import Hls from 'hls.js/light';
   import LinkButton from "$lib/components/LinkButton.svelte";
   import FeaturedCarsList from "$lib/components/FeaturedCarsList.svelte";
   import FeaturedArticles from "$lib/components/FeaturedArticles.svelte";

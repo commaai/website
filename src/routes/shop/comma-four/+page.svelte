@@ -559,51 +559,7 @@
     }
   }
 
-  .mobile-hero {
-    display: none;
-    position: relative;
-    color: white;
-
-    & hgroup {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 100%;
-
-      text-align: center;
-      text-transform: uppercase;
-
-      & h1 {
-        color: white;
-        text-transform: uppercase;
-        font-family:
-          Monument Extended Black,
-          sans-serif;
-        margin-bottom: 1rem;
-      }
-
-      & h2 {
-        color: white;
-        font-family: JetBrains Mono, monospace;
-        font-weight: 400;
-        font-size: 1rem;
-      }
-    }
-
-    & video {
-      width: 100%;
-      height: 40vh;
-      object-fit: cover;
-      margin: 2rem 0;
-    }
-  }
-
   @media screen and (max-width: 768px) {
-    .mobile-hero {
-      display: block;
-    }
-
     .guarantee {
       font-size: 2rem;
     }
