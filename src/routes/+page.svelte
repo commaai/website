@@ -13,7 +13,6 @@
   import DeviceBackImage from "$lib/images/products/comma-four/four_back.png";
   import DeviceSideImage from "$lib/images/products/comma-four/four_side.png";
   import SetupVideo from "$lib/images/setup/comma-four/setup-boomerang.mp4";
-  import MapBase from "$lib/images/home/map-base.svg";
   import MapDensityCrisp from "$lib/images/home/map-density-crisp.svg";
   import LaneCenteringIcon from "$lib/icons/features/lane-centering.svg?raw";
   import AdaptiveCruiseIcon from "$lib/icons/features/adaptive-cruise.svg?raw";
@@ -309,14 +308,6 @@
       <figcaption>daily active users</figcaption>
       <div class="map-preview">
         <img
-          class="map-base"
-          src={MapBase}
-          alt=""
-          width="1120"
-          height="549"
-        />
-        <img
-          class="map-overlay"
           src={MapDensityCrisp}
           alt="Map showing comma driving activity around the world"
           width="1120"
@@ -806,16 +797,10 @@
 
       & .map-preview {
         aspect-ratio: 1120 / 549;
-        position: relative;
       }
 
       & img {
         height: auto;
-      }
-
-      & .map-overlay {
-        inset: 0;
-        position: absolute;
       }
     }
 
