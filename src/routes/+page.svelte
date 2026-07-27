@@ -4,7 +4,6 @@
   import FeaturedCarsList from "$lib/components/FeaturedCarsList.svelte";
   import FeaturedArticles from "$lib/components/FeaturedArticles.svelte";
   import HomeHeroOverlay from "$lib/components/HomeHeroOverlay.svelte";
-  import SectionHeader from "../lib/components/SectionHeader.svelte";
   import Grid from "$lib/components/Grid.svelte";
 
   import DeviceImage from "$lib/images/products/comma-four/four_front.png";
@@ -64,71 +63,79 @@
       label: "rear view",
     },
   ];
-  let videoLandscapeElement;
-  let videoLandscapeReady = false;
-  let videoPortraitElement;
-  let videoPortraitReady = false;
+  let heroVideoElement;
+  let heroVideoReady = false;
   let screenVideoElement;
   let screenVideoReady = false;
   let selectedDeviceViewIndex = 0;
   $: selectedDeviceView = deviceViews[selectedDeviceViewIndex];
 
-  // Hardcode GitHub star count (similar to contributors on openpilot page)
-  const githubStars = 50000;
-
   function initializeHLS(videoEl, src, onReady) {
+    const handleReady = () => onReady?.();
+
     if (Hls.isSupported()) {
       const hls = new Hls();
       hls.loadSource(src);
       hls.attachMedia(videoEl);
-      hls.on(Hls.Events.MANIFEST_PARSED, () => {
-        if (onReady) onReady();
-      });
-      return hls;
+      hls.on(Hls.Events.MANIFEST_PARSED, handleReady);
+
+      return () => {
+        hls.off(Hls.Events.MANIFEST_PARSED, handleReady);
+        hls.destroy();
+      };
     } else if (videoEl.canPlayType('application/vnd.apple.mpegurl')) {
       videoEl.src = src;
-      videoEl.addEventListener('loadedmetadata', () => {
-        if (onReady) onReady();
-      });
-      return null;
+      videoEl.addEventListener('loadedmetadata', handleReady, { once: true });
+
+      return () => {
+        videoEl.removeEventListener('loadedmetadata', handleReady);
+        videoEl.pause();
+        videoEl.removeAttribute('src');
+        videoEl.load();
+      };
     }
-    return null;
+
+    return () => {};
   }
 
-  // TODO: don't load both mobile and desktop videos on initial load
   onMount(() => {
-    // const isMobile = typeof window !== 'undefined' && window.innerWidth < 769;
+    const mobileHeroQuery = window.matchMedia('(max-width: 768px)');
+    const handleHeroPlaying = () => heroVideoReady = true;
+    const handleScreenPlaying = () => screenVideoReady = true;
+    let destroyHeroHLS = () => {};
+    let destroyScreenHLS = () => {};
 
-    // Initialize landscape video
-    if (videoLandscapeElement) {
-      videoLandscapeElement.addEventListener('playing', () => {
-        videoLandscapeReady = true;
-      });
-      initializeHLS(videoLandscapeElement, HeroLandscapeVideo, () => {
-        videoLandscapeElement.play();
-      });
-    }
+    const playVideo = (videoEl) => {
+      videoEl.play().catch(() => {});
+    };
 
-    // Initialize portrait video
-    if (videoPortraitElement) {
-      videoPortraitElement.addEventListener('playing', () => {
-        videoPortraitReady = true;
-      });
-      initializeHLS(videoPortraitElement, HeroPortraitVideo, () => {
-        videoPortraitElement.play();
-      });
-    }
+    const loadHeroVideo = () => {
+      destroyHeroHLS();
+      heroVideoReady = false;
+      const source = mobileHeroQuery.matches ? HeroPortraitVideo : HeroLandscapeVideo;
+      destroyHeroHLS = initializeHLS(heroVideoElement, source, () => playVideo(heroVideoElement));
+    };
 
-    // Initialize screen video
+    heroVideoElement.addEventListener('playing', handleHeroPlaying);
+    mobileHeroQuery.addEventListener('change', loadHeroVideo);
+    loadHeroVideo();
+
     if (screenVideoElement) {
-      screenVideoElement.addEventListener('playing', () => {
-        screenVideoReady = true;
-      });
-      initializeHLS(screenVideoElement, ScreenVideo, () => {
-        screenVideoElement.play();
-      });
+      screenVideoElement.addEventListener('playing', handleScreenPlaying);
+      destroyScreenHLS = initializeHLS(
+        screenVideoElement,
+        ScreenVideo,
+        () => playVideo(screenVideoElement),
+      );
     }
 
+    return () => {
+      mobileHeroQuery.removeEventListener('change', loadHeroVideo);
+      heroVideoElement.removeEventListener('playing', handleHeroPlaying);
+      screenVideoElement?.removeEventListener('playing', handleScreenPlaying);
+      destroyHeroHLS();
+      destroyScreenHLS();
+    };
   });
 
   function handleDragStart(e) {
@@ -138,35 +145,21 @@
 </script>
 
 <svelte:head>
-  <link rel="preload" as="image" href="{CDN_BASE}/hero-landscape/poster.jpg" />
-  <link rel="preload" as="image" href="{CDN_BASE}/hero-portrait/poster.jpg" />
+  <link rel="preload" as="image" href="{CDN_BASE}/hero-landscape/poster.jpg" media="(min-width: 769px)" />
+  <link rel="preload" as="image" href="{CDN_BASE}/hero-portrait/poster.jpg" media="(max-width: 768px)" />
   <link rel="preload" as="image" href="{CDN_BASE}/screen-video/poster.jpg" />
 </svelte:head>
 
-<section class="hero-image desktop" on:dragstart={handleDragStart} aria-label="comma driving highlights">
-  <div class="hero-video" style="background-image: url('{CDN_BASE}/hero-landscape/poster.jpg');">
+<section
+  class="hero-image"
+  on:dragstart={handleDragStart}
+  aria-label="comma driving highlights"
+  style="--hero-landscape-poster: url('{CDN_BASE}/hero-landscape/poster.jpg'); --hero-portrait-poster: url('{CDN_BASE}/hero-portrait/poster.jpg');"
+>
+  <div class="hero-video">
     <video
-      bind:this={videoLandscapeElement}
-      class:ready={videoLandscapeReady}
-      poster="{CDN_BASE}/hero-landscape/poster.jpg"
-      autoplay
-      muted
-      loop
-      playsinline
-      draggable="false"
-      aria-hidden="true"
-    />
-  </div>
-  <HomeHeroOverlay />
-</section>
-
-
-<section class="hero-image mobile" on:dragstart={handleDragStart} aria-label="comma driving highlights">
-  <div class="hero-video" style="background-image: url('{CDN_BASE}/hero-portrait/poster.jpg');">
-    <video
-      bind:this={videoPortraitElement}
-      class:ready={videoPortraitReady}
-      poster="{CDN_BASE}/hero-portrait/poster.jpg"
+      bind:this={heroVideoElement}
+      class:ready={heroVideoReady}
       autoplay
       muted
       loop
@@ -382,25 +375,8 @@
     -o-user-drag: none;
     background: black;
 
-    &.desktop {
-      @media screen and (max-width: 768px) {
-        display: none;
-      }
-    }
-
-    &.mobile {
-      display: flex;
-      flex-direction: column;
-      height: auto;
-      min-height: 100vh;
-      min-height: 100dvh;
-
-      @media screen and (min-width: 769px) {
-        display: none;
-      }
-    }
-
     & .hero-video {
+      background-image: var(--hero-landscape-poster);
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
@@ -452,8 +428,15 @@
     }
 
     @media screen and (max-width: 768px) {
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      min-height: 100vh;
+      min-height: 100dvh;
+
       & .hero-video {
         aspect-ratio: 402 / 465;
+        background-image: var(--hero-portrait-poster);
         flex: none;
         inset: auto;
         min-height: 0;

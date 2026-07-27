@@ -223,9 +223,9 @@
 
   .live-dot {
     animation: live-pulse 2s ease-out infinite;
-    background: #86ff4e;
+    background: var(--color-accent);
     border-radius: 50%;
-    box-shadow: 0 0 0 0 rgba(134, 255, 78, 0.65);
+    box-shadow: 0 0 0 0 rgba(81, 255, 0, 0.65);
     flex: 0 0 auto;
     height: 0.5rem;
     width: 0.5rem;
@@ -365,7 +365,7 @@
   @keyframes live-pulse {
     70%,
     100% {
-      box-shadow: 0 0 0 0.3rem rgba(134, 255, 78, 0);
+      box-shadow: 0 0 0 0.3rem rgba(81, 255, 0, 0);
     }
   }
 
