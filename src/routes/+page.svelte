@@ -14,6 +14,8 @@
   import DeviceBackImage from "$lib/images/products/comma-four/four_back.png";
   import DeviceSideImage from "$lib/images/products/comma-four/four_side.png";
   import SetupVideo from "$lib/images/setup/comma-four/setup-boomerang.mp4";
+  import MapBase from "$lib/images/home/map-base.svg";
+  import MapDensityCrisp from "$lib/images/home/map-density-crisp.svg";
   import LaneCenteringIcon from "$lib/icons/features/lane-centering.svg?raw";
   import AdaptiveCruiseIcon from "$lib/icons/features/adaptive-cruise.svg?raw";
   import ReducedFatigueIcon from "$lib/icons/features/moon.svg?raw";
@@ -297,14 +299,14 @@
       <div class="map-preview">
         <img
           class="map-base"
-          src="/map-studies/base.svg"
+          src={MapBase}
           alt=""
           width="1120"
           height="549"
         />
         <img
           class="map-overlay"
-          src="/map-studies/8-pearl-routes.svg?v=selected-1"
+          src={MapDensityCrisp}
           alt="Map showing comma driving activity around the world"
           width="1120"
           height="549"
@@ -477,6 +479,10 @@
       padding-block: 1.25rem;
     }
 
+    section:not(.hero-image) > .container {
+      width: calc(100% - 2.5rem);
+    }
+
     .two-column-layout {
       grid-template-columns: minmax(0, 1fr);
     }
@@ -594,10 +600,6 @@
     }
 
     @media screen and (max-width: 768px) {
-      & .container {
-        width: calc(100% - 2.5rem);
-      }
-
       & .meet-grid {
         grid-template-areas:
           "copy"
@@ -717,10 +719,6 @@
     }
 
     @media screen and (max-width: 768px) {
-      & .container {
-        width: calc(100% - 2.5rem);
-      }
-
       & .setup-grid {
         row-gap: 2rem;
       }
@@ -797,10 +795,6 @@
     }
 
     @media screen and (max-width: 768px) {
-      & .container {
-        width: calc(100% - 2.5rem);
-      }
-
       & .map-headline {
         font-size: 1.75rem;
       }
