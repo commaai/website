@@ -759,15 +759,14 @@
         margin-bottom: 1.5rem;
       }
 
+      & .setup-media {
+        aspect-ratio: 1;
+      }
+
       & .compatibility-content {
         width: 100%;
       }
 
-      & .setup-cta {
-        margin-bottom: 1rem;
-        margin-top: 1.5rem;
-        order: -1;
-      }
     }
 
     @media screen and (max-width: 360px) {
@@ -828,11 +827,6 @@
       & .activity-map {
         margin-top: 2.5rem;
         max-width: 100%;
-
-        & figcaption {
-          display: none;
-        }
-
       }
     }
   }
