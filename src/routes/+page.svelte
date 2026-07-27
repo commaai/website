@@ -1,7 +1,6 @@
 <script>
   import { onMount } from 'svelte';
   import Hls from 'hls.js';
-  import LinkButton from "$lib/components/LinkButton.svelte";
   import FeaturedCarsList from "$lib/components/FeaturedCarsList.svelte";
   import FeaturedArticles from "$lib/components/FeaturedArticles.svelte";
   import HomeHeroOverlay from "$lib/components/HomeHeroOverlay.svelte";
@@ -236,7 +235,7 @@
         {/each}
       </div>
 
-      <a class="comma-four-cta" href="/shop/comma-four">
+      <a class="homepage-cta comma-four-cta" href="/shop/comma-four">
         <span>buy now for $999 risk-free</span>
         <svg
           width="24"
@@ -261,7 +260,7 @@
       <div class="setup-overview">
         <h1>
           <span>plug it in & hit the</span>
-          <span>road in 15 minutes.</span>
+          <span>road in 15 minutes</span>
         </h1>
         <div class="setup-media">
           <video
@@ -280,7 +279,7 @@
           <FeaturedCarsList />
         </div>
         <div class="setup-cta">
-          <a class="setup-cta-link" href="/vehicles">
+          <a class="homepage-cta dark-cta setup-cta-link" href="/vehicles">
             <span class="setup-cta-label">see all supported cars</span>
             <svg
               width="24"
@@ -357,13 +356,21 @@
           We're looking for talented individuals, able to work independently,
           and ready to make a meaningful impact.
         </h4>
-        <LinkButton
-          href="/jobs"
-          style="primary"
-          fullWidth={true}
-        >
+        <a class="homepage-cta dark-cta recruit-cta-link" href="/jobs">
           <span class="recruit-cta-label">see open positions</span>
-        </LinkButton>
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M15 19L13.59 17.59L18.17 13L2 13V11L18.17 11L13.58 6.41L15 5L22 12L15 19Z"
+              fill="currentColor"
+            />
+          </svg>
+        </a>
       </div>
     </Grid>
   </div>
@@ -485,6 +492,44 @@
     width: 100%;
   }
 
+  .homepage-cta {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    font-size: 1.5rem;
+    font-weight: 500;
+    gap: 0.75rem;
+    justify-content: center;
+    letter-spacing: -0.04em;
+    min-height: 4.3125rem;
+    padding: 0.75rem 1.5rem;
+    transition: background-color 0.2s, opacity 0.2s;
+    width: 100%;
+
+    & span {
+      color: inherit;
+    }
+
+    & svg {
+      flex: 0 0 auto;
+    }
+  }
+
+  .dark-cta {
+    background: black;
+    color: white;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .dark-cta:hover {
+      opacity: 0.75;
+    }
+  }
+
+  .dark-cta:active {
+    opacity: 0.75;
+  }
+
   @media screen and (max-width: 768px) {
     section:not(.hero-image) {
       padding-block: 1.25rem;
@@ -496,6 +541,13 @@
 
     .two-column-layout {
       grid-template-columns: minmax(0, 1fr);
+    }
+
+    .homepage-cta {
+      font-size: 1rem;
+      justify-content: space-between;
+      min-height: 3.6875rem;
+      padding: 0.75rem 1.25rem;
     }
   }
 
@@ -575,29 +627,9 @@
     }
 
     & .comma-four-cta {
-      align-items: center;
       background-color: var(--color-accent);
-      box-sizing: border-box;
       color: black;
-      display: flex;
-      font-size: 1.5rem;
-      font-weight: 500;
-      gap: 0.75rem;
       grid-area: cta;
-      justify-content: center;
-      letter-spacing: -0.04em;
-      min-height: 4.3125rem;
-      padding: 0.75rem 1.5rem;
-      transition: background-color 0.2s;
-      width: 100%;
-
-      & span {
-        color: black;
-      }
-
-      & svg {
-        flex: 0 0 auto;
-      }
     }
 
     @media (hover: hover) and (pointer: fine) {
@@ -653,12 +685,6 @@
         }
       }
 
-      & .comma-four-cta {
-        font-size: 1rem;
-        justify-content: space-between;
-        min-height: 3.6875rem;
-        padding: 0.75rem 1.25rem;
-      }
     }
   }
 
@@ -712,41 +738,9 @@
     & .setup-cta {
       margin-top: 1rem;
 
-      & .setup-cta-link {
-        align-items: center;
-        background: black;
-        box-sizing: border-box;
-        color: white;
-        display: flex;
-        font-size: 1.5rem;
-        font-weight: 500;
-        gap: 0.75rem;
-        justify-content: center;
-        letter-spacing: -0.04em;
-        min-height: 4.3125rem;
-        padding: 0.75rem 1.5rem;
-        transition: opacity 0.2s;
-        width: 100%;
-
-        & svg {
-          flex: 0 0 auto;
-        }
-      }
-
       & .setup-cta-label {
-        color: white;
         text-transform: lowercase;
       }
-    }
-
-    @media (hover: hover) and (pointer: fine) {
-      & .setup-cta-link:hover {
-        opacity: 0.75;
-      }
-    }
-
-    & .setup-cta-link:active {
-      opacity: 0.75;
     }
 
     @media screen and (min-width: 769px) and (max-width: 1024px) {
@@ -773,13 +767,6 @@
         margin-bottom: 1rem;
         margin-top: 1.5rem;
         order: -1;
-
-        & .setup-cta-link {
-          font-size: 1rem;
-          justify-content: space-between;
-          min-height: 3.6875rem;
-          padding: 0.75rem 1.25rem;
-        }
       }
     }
 
