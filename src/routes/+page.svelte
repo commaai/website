@@ -14,8 +14,6 @@
   import DeviceBackImage from "$lib/images/products/comma-four/four_back.png";
   import DeviceSideImage from "$lib/images/products/comma-four/four_side.png";
   import SetupVideo from "$lib/images/setup/comma-four/setup-boomerang.mp4";
-  import MapDesktop from "$lib/images/home/map-desktop.svg";
-  import MapMobile from "$lib/images/home/map-mobile.svg";
   import LaneCenteringIcon from "$lib/icons/features/lane-centering.svg?raw";
   import AdaptiveCruiseIcon from "$lib/icons/features/adaptive-cruise.svg?raw";
   import ReducedFatigueIcon from "$lib/icons/features/moon.svg?raw";
@@ -66,7 +64,6 @@
       label: "rear view",
     },
   ];
-
   let videoLandscapeElement;
   let videoLandscapeReady = false;
   let videoPortraitElement;
@@ -99,7 +96,7 @@
   }
 
   // TODO: don't load both mobile and desktop videos on initial load
-  onMount(async () => {
+  onMount(() => {
     // const isMobile = typeof window !== 'undefined' && window.innerWidth < 769;
 
     // Initialize landscape video
@@ -131,6 +128,7 @@
         screenVideoElement.play();
       });
     }
+
   });
 
   function handleDragStart(e) {
@@ -281,7 +279,7 @@
         </div>
         <div class="setup-cta">
           <LinkButton href="/vehicles" style="primary" fullWidth={true}>
-            see all supported cars
+            <span class="setup-cta-label">see all supported cars</span>
           </LinkButton>
         </div>
       </div>
@@ -295,16 +293,23 @@
       comma runs <a href="/openpilot" class="highlight">open source software</a>, driving all over the world with no subscription needed
     </h1>
     <figure class="activity-map">
-      <figcaption>daily active users</figcaption>
-      <picture>
-        <source media="(max-width: 768px)" srcset={MapMobile} />
+      <figcaption>openpilot driving worldwide</figcaption>
+      <div class="map-preview">
         <img
-          src={MapDesktop}
-          alt="Map showing daily active comma users around the world"
+          class="map-base"
+          src="/map-studies/base.svg"
+          alt=""
           width="1120"
           height="549"
         />
-      </picture>
+        <img
+          class="map-overlay"
+          src="/map-studies/8-pearl-routes.svg?v=selected-1"
+          alt="Map showing comma driving activity around the world"
+          width="1120"
+          height="549"
+        />
+      </div>
     </figure>
     <FeaturedArticles />
     <h1>
@@ -343,7 +348,7 @@
           style="primary"
           fullWidth={true}
         >
-          See open positions
+          <span class="recruit-cta-label">see open positions</span>
         </LinkButton>
       </div>
     </Grid>
@@ -697,7 +702,11 @@
       & :global(a) {
         font-weight: 500;
         letter-spacing: -0.04em;
-        text-transform: none;
+      }
+
+      & .setup-cta-label {
+        color: inherit;
+        text-transform: lowercase;
       }
     }
 
@@ -766,14 +775,24 @@
         text-align: center;
       }
 
-      & picture,
+      & .map-preview,
       & img {
         display: block;
         width: 100%;
       }
 
+      & .map-preview {
+        aspect-ratio: 1120 / 549;
+        position: relative;
+      }
+
       & img {
         height: auto;
+      }
+
+      & .map-overlay {
+        inset: 0;
+        position: absolute;
       }
     }
 
@@ -788,16 +807,22 @@
 
       & .activity-map {
         margin-top: 2.5rem;
-        max-width: 21.1875rem;
+        max-width: 100%;
 
         & figcaption {
           display: none;
         }
+
       }
     }
   }
 
   #recruit {
+    & .recruit-cta-label {
+      color: inherit;
+      text-transform: lowercase;
+    }
+
     & .recruiting-card {
       display: flex;
       flex-direction: column;

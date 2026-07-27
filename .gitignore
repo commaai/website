@@ -12,6 +12,8 @@ node_modules
 /.svelte-kit
 /build
 /artifacts
+map-exploration/data/mapviz-routes-all-*.bin.zst
+map-exploration/data/mapviz-routes-all-*.bin.zst.json
 .firebase
 firebase-debug.log
 
