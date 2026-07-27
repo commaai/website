@@ -1,4 +1,4 @@
-import { copyFileSync, existsSync, mkdirSync, rmSync } from 'node:fs';
+import { copyFileSync, mkdirSync, rmSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { chromium } from 'playwright';
 
@@ -88,7 +88,7 @@ async function getScrollPositions(page, viewportHeight) {
 const { viewports, url } = parseArguments(process.argv.slice(2));
 const browser = await chromium.launch({
   headless: true,
-  ...(existsSync(CHROME_EXECUTABLE) ? { executablePath: CHROME_EXECUTABLE } : {}),
+  executablePath: CHROME_EXECUTABLE,
 });
 
 try {
