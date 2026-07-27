@@ -33,24 +33,6 @@
   // Rounded from the last 30 completed days in orm_routes5 (346,251 miles/day).
   const MILES_PER_DAY = 346_000;
   const MILES_PER_MILLISECOND = MILES_PER_DAY / 86_400_000;
-
-  let milesDriven = MILES_ANCHOR_VALUE;
-  $: stats = [
-    {
-      value: "30,000+",
-      label: "cars on the road with a comma",
-    },
-    {
-      value: milesDriven.toLocaleString("en-US"),
-      label: "miles driven",
-      live: true,
-    },
-    {
-      value: "#2",
-      label: "after Tesla in hands-free miles",
-    },
-  ];
-
   const brands = [
     { name: "Acura", logo: AcuraLogo },
     { name: "Audi", logo: AudiLogo },
@@ -77,22 +59,22 @@
     { name: "Volkswagen", logo: VolkswagenLogo },
   ];
 
-  let logoViewportElement;
-  let logoGroupCount = 2;
-  let logoDuration = 24;
-  let logoSequenceWidth = 0;
-
-  function measureLogoMarquee() {
-    const logoGroupElement = logoViewportElement?.querySelector(".logo-group");
-    const viewportWidth = logoViewportElement?.getBoundingClientRect().width ?? 0;
-    const sequenceWidth = logoGroupElement?.getBoundingClientRect().width ?? 0;
-
-    if (viewportWidth === 0 || sequenceWidth === 0) return;
-
-    logoSequenceWidth = sequenceWidth;
-    logoDuration = Math.max(24, sequenceWidth / 30);
-    logoGroupCount = Math.max(2, Math.ceil(viewportWidth / sequenceWidth) + 1);
-  }
+  let milesDriven = MILES_ANCHOR_VALUE;
+  $: stats = [
+    {
+      value: "30,000+",
+      label: "cars on the road with a comma",
+    },
+    {
+      value: milesDriven.toLocaleString("en-US"),
+      label: "miles driven",
+      live: true,
+    },
+    {
+      value: "#2",
+      label: "after Tesla in hands-free miles",
+    },
+  ];
 
   onMount(() => {
     const updateMilesDriven = () => {
@@ -103,15 +85,7 @@
     updateMilesDriven();
     const milesInterval = window.setInterval(updateMilesDriven, 250);
 
-    const resizeObserver = new ResizeObserver(measureLogoMarquee);
-    resizeObserver.observe(logoViewportElement);
-    resizeObserver.observe(logoViewportElement.querySelector(".logo-group"));
-    measureLogoMarquee();
-
-    return () => {
-      window.clearInterval(milesInterval);
-      resizeObserver.disconnect();
-    };
+    return () => window.clearInterval(milesInterval);
   });
 </script>
 
@@ -153,14 +127,9 @@
 
     <div class="hero-compatibility">
       <p>works with {vehicleCountText} models across 27 brands</p>
-      <div class="logo-viewport" aria-hidden="true" bind:this={logoViewportElement}>
-        <div
-          class="logo-track"
-          class:ready={logoSequenceWidth > 0}
-          style:--logo-sequence-width={`${logoSequenceWidth}px`}
-          style:--logo-duration={`${logoDuration}s`}
-        >
-          {#each Array(logoGroupCount) as _, duplicate}
+      <div class="logo-viewport" aria-hidden="true">
+        <div class="logo-track">
+          {#each Array(2) as _, duplicate}
             <div class="logo-group">
               {#each brands as brand}
                 <img
@@ -278,8 +247,7 @@
     transition: background-color 0.2s;
   }
 
-  .hero-action > span,
-  .action-detail > span {
+  .hero-action > span {
     color: inherit;
   }
 
@@ -362,18 +330,16 @@
   }
 
   .logo-track {
+    animation: logo-scroll 56s linear infinite;
     display: flex;
     opacity: 0.5;
     width: max-content;
   }
 
-  .logo-track.ready {
-    animation: logo-scroll var(--logo-duration) linear infinite;
-  }
-
   .logo-group {
     align-items: center;
     display: flex;
+    flex: none;
     gap: 1.875rem;
     padding-right: 1.875rem;
   }
@@ -389,7 +355,7 @@
 
   @keyframes logo-scroll {
     to {
-      transform: translateX(calc(-1 * var(--logo-sequence-width)));
+      transform: translateX(-50%);
     }
   }
 
@@ -402,7 +368,7 @@
 
   @media (prefers-reduced-motion: reduce) {
     .live-dot,
-    .logo-track.ready {
+    .logo-track {
       animation: none;
     }
   }
@@ -505,5 +471,6 @@
       margin-left: calc(0rem - var(--hero-gutter));
       width: calc(100% + var(--hero-gutter));
     }
+
   }
 </style>
