@@ -614,13 +614,12 @@
     }
 
     & .setup-heading {
-      font-size: clamp(2rem, 3.3vw, 3.5rem);
+      font-size: clamp(2.3rem, 4vw, 4rem);
       grid-area: heading;
       margin-bottom: 3.75rem;
 
       & span {
         display: block;
-        white-space: nowrap;
       }
     }
 
@@ -651,12 +650,6 @@
       margin-top: 1rem;
     }
 
-    @media screen and (min-width: 769px) and (max-width: 1024px) {
-      & .setup-heading {
-        font-size: 2.6vw;
-      }
-    }
-
     @media screen and (max-width: 1100px) {
       & .setup-media {
         aspect-ratio: 1;
@@ -675,7 +668,6 @@
       }
 
       & .setup-heading {
-        font-size: 1.75rem;
         margin-bottom: -0.5rem;
       }
 
@@ -688,12 +680,6 @@
         margin-top: -1rem;
       }
 
-    }
-
-    @media screen and (max-width: 360px) {
-      & .setup-heading {
-        font-size: 1.5rem;
-      }
     }
   }
 
@@ -809,7 +795,7 @@
     display: flex;
     gap: 0.125rem;
     justify-content: center;
-    margin: -0.5rem auto 0;
+    margin: 0.25rem auto 0;
     position: relative;
     z-index: 1;
   }
@@ -845,7 +831,7 @@
 
   @media screen and (max-width: 768px) {
     .device-thumbnails {
-      margin-top: -1rem;
+      margin-top: -0.25rem;
     }
 
     .device-thumbnails button {
