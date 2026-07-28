@@ -236,31 +236,29 @@
 <section class="light" id="compatibility">
   <div class="container">
     <div class="two-column-layout setup-grid">
-      <div class="setup-overview">
-        <h1>
-          <span>plug it in & hit the</span>
-          <span>road in 15 minutes</span>
-        </h1>
-        <div class="setup-media">
-          <video
-            src={SetupVideo}
-            aria-label="A stop-motion demonstration of installing a comma device"
-            autoplay
-            muted
-            loop
-            playsinline
-            preload="metadata"
-          ></video>
-        </div>
+      <h1 class="setup-heading">
+        <span>plug it in & hit the</span>
+        <span>road in 15 minutes</span>
+      </h1>
+      <div class="setup-media">
+        <video
+          src={SetupVideo}
+          aria-label="A stop-motion demonstration of installing a comma device"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+        ></video>
       </div>
-      <div class="compatibility-content">
+      <div class="compatibility-list">
         <FeaturedCarsList />
-        <div class="setup-cta">
-          <a class="homepage-cta dark-cta" href="/vehicles">
-            <span>see all supported cars</span>
-            <span class="cta-arrow" aria-hidden="true">{@html ArrowRight}</span>
-          </a>
-        </div>
+      </div>
+      <div class="setup-cta">
+        <a class="homepage-cta dark-cta" href="/vehicles">
+          <span>see all supported cars</span>
+          <span class="cta-arrow" aria-hidden="true">{@html ArrowRight}</span>
+        </a>
       </div>
     </div>
   </div>
@@ -269,7 +267,7 @@
 <section class="dark" id="social">
   <div class="container">
     <h1 class="map-headline">
-      comma runs <a href="/openpilot" class="highlight">open source software</a>,&nbsp;driving all over the world with no subscription needed
+      comma runs <a href="/openpilot" class="highlight">open source software,</a>&nbsp;driving all over the world with no subscription needed
     </h1>
     <figure class="activity-map">
       <div class="map-preview">
@@ -600,15 +598,24 @@
   }
 
   #compatibility {
-    & .setup-overview,
-    & .compatibility-content,
+    & .setup-heading,
+    & .compatibility-list,
     & .setup-cta {
       min-width: 0;
       width: 100%;
     }
 
-    & .setup-overview h1 {
+    & .setup-grid {
+      grid-template-areas:
+        "heading cars"
+        "media cars"
+        "media cta";
+      grid-template-rows: auto minmax(0, 1fr) auto;
+    }
+
+    & .setup-heading {
       font-size: clamp(2rem, 3.3vw, 3.5rem);
+      grid-area: heading;
       margin-bottom: 3.75rem;
 
       & span {
@@ -617,14 +624,9 @@
       }
     }
 
-    & .setup-overview {
-      display: flex;
-      flex-direction: column;
-    }
-
     & .setup-media {
       aspect-ratio: 16 / 9;
-      margin-top: auto;
+      grid-area: media;
       overflow: hidden;
       width: 100%;
 
@@ -636,39 +638,60 @@
       }
     }
 
-    & .compatibility-content {
-      display: flex;
-      flex-direction: column;
+    & .compatibility-list {
+      contain: size;
+      grid-area: cars;
+      min-height: 0;
+      overflow: hidden;
     }
 
     & .setup-cta {
+      align-self: end;
+      grid-area: cta;
       margin-top: 1rem;
     }
 
     @media screen and (min-width: 769px) and (max-width: 1024px) {
-      & .setup-overview h1 {
+      & .setup-heading {
         font-size: 2.6vw;
+      }
+    }
+
+    @media screen and (max-width: 1100px) {
+      & .setup-media {
+        aspect-ratio: 1;
       }
     }
 
     @media screen and (max-width: 768px) {
       & .setup-grid {
+        grid-template-areas:
+          "heading"
+          "media"
+          "cars"
+          "cta";
+        grid-template-rows: auto;
         row-gap: 2rem;
       }
 
-      & .setup-overview h1 {
+      & .setup-heading {
         font-size: 1.75rem;
-        margin-bottom: 1.5rem;
+        margin-bottom: -0.5rem;
       }
 
-      & .setup-media {
-        aspect-ratio: 1;
+      & .compatibility-list {
+        contain: none;
+        overflow: visible;
+      }
+
+      & .setup-cta {
+        margin-top: -1rem;
       }
 
     }
 
     @media screen and (max-width: 360px) {
-      & .setup-overview h1 {
+      & .setup-heading {
         font-size: 1.5rem;
       }
     }

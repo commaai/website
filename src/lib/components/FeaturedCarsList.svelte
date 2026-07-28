@@ -46,24 +46,28 @@
 
 <div class="table">
   {#each featuredCars as car}
-    <div class="compatibility-item">
-      <img
-        src={car.brandIcon}
-        loading="lazy"
-        alt="{car.make} logo"
-        class="car-brand-logo"
-      />
-      <div class="car">
-        <div class="car-identifier">{car.make} {car.model}</div>
-        <div class="car-year">{car.year}</div>
+    <div class="compatibility-row">
+      <div class="compatibility-item">
+        <img
+          src={car.brandIcon}
+          loading="lazy"
+          alt="{car.make} logo"
+          class="car-brand-logo"
+        />
+        <div class="car">
+          <div class="car-identifier">{car.make} {car.model}</div>
+          <div class="car-year">{car.year}</div>
+        </div>
       </div>
+      <hr />
     </div>
-    <hr />
   {/each}
 </div>
 
 <style>
   .table {
+    height: 100%;
+    overflow: hidden;
     mask: linear-gradient(
         to bottom,
         rgba(0, 0, 0, 1) 0,
@@ -71,6 +75,12 @@
         rgba(0, 0, 0, 0) 97%
       )
       100% 50% / 100% 100% repeat-x;
+  }
+
+  @media screen and (max-width: 768px) {
+    .table {
+      height: auto;
+    }
   }
 
   .compatibility-item {
