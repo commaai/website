@@ -553,7 +553,7 @@
       display: grid;
       gap: clamp(0.875rem, 2.5vw, 2.25rem) clamp(1rem, 2.75vw, 2.5rem);
       grid-area: features;
-      grid-template-columns: repeat(auto-fit, minmax(min(100%, max(12rem, 45%)), 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, max(16rem, 45%)), 1fr));
       margin: clamp(1.5rem, 4vw, 3.5rem) 0;
       width: 100%;
     }
@@ -580,6 +580,7 @@
         font-weight: 400;
         letter-spacing: -0.04em;
         line-height: 1.1;
+        white-space: nowrap;
       }
     }
 
