@@ -108,33 +108,16 @@
       line-height: 1.2;
     }
 
+    @media screen and (max-width: 768px) {
+      & .car-identifier {
+        width: 100%;
+      }
+    }
+
     & .car-year {
       color: rgba(0, 0, 0, 0.5);
       line-height: 1.2;
       flex: 1;
-    }
-
-    @media screen and (max-width: 768px) {
-      font-size: 0.75rem;
-
-      & .car-brand-logo {
-        width: 2rem;
-      }
-
-      & .car {
-        align-items: center;
-        flex-wrap: nowrap;
-        margin: 0 0.5rem;
-      }
-
-      & .car-identifier {
-        width: 65%;
-      }
-
-      & .car-year {
-        flex: none;
-        width: 35%;
-      }
     }
   }
 
@@ -142,11 +125,5 @@
     margin-top: 1rem;
     margin-bottom: 1rem;
     margin-left: 3.875rem;
-
-    @media screen and (max-width: 768px) {
-      margin-bottom: 0.625rem;
-      margin-left: 2.5rem;
-      margin-top: 0.625rem;
-    }
   }
 </style>

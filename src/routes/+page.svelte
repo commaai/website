@@ -453,6 +453,15 @@
     width: 100%;
   }
 
+  :is(
+    #hero .comma-four-content h1,
+    #compatibility .setup-heading,
+    #social h1,
+    #recruit > .container > h1
+  ) {
+    font-size: clamp(2.3rem, 4vw, 4rem);
+  }
+
   .dark-cta {
     background: black;
     color: white;
@@ -506,7 +515,6 @@
     }
 
     & .comma-four-content h1 {
-      font-size: clamp(2.3rem, 4vw, 4rem);
       letter-spacing: -0.04em;
       line-height: 1;
       margin-bottom: 1rem;
@@ -559,7 +567,6 @@
     & .comma-four-cta {
       background-color: var(--color-accent);
       color: black;
-      font-size: clamp(1rem, 2vw, 1.5rem);
       grid-area: cta;
     }
 
@@ -614,7 +621,6 @@
     }
 
     & .setup-heading {
-      font-size: clamp(2.3rem, 4vw, 4rem);
       grid-area: heading;
       margin-bottom: 3.75rem;
 
@@ -710,10 +716,6 @@
     }
 
     @media screen and (max-width: 768px) {
-      & .map-headline {
-        font-size: 1.75rem;
-      }
-
       & .activity-map {
         margin-top: 2.5rem;
       }
