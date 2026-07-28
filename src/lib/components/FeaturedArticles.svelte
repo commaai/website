@@ -10,7 +10,7 @@
 </script>
 
 <div class="featured-articles">
-  <span>Featured in</span>
+  <span>featured in</span>
   <Grid columns={6} columnGap="0.5rem" size="large">
     <a href="https://youtu.be/xdmxM-v4KQg">
       <img src={LinusTechTipsLogo} alt="Logo of Linus Tech Tips" class="greyscale"/>
@@ -48,11 +48,14 @@
   }
 
   span {
-    opacity: 0.5;
-    text-align: center;
-    font-size: 1.25rem;
-    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+    opacity: 0.65;
     display: block;
+    text-align: center;
   }
 
   a {
