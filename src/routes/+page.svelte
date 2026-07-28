@@ -68,6 +68,7 @@
   let heroVideoReady = false;
   let screenVideoElement;
   let screenVideoReady = false;
+  let setupVideoElement;
   let selectedDeviceViewIndex = 0;
   $: selectedDeviceView = deviceViews[selectedDeviceViewIndex];
 
@@ -103,6 +104,7 @@
     const handleScreenPlaying = () => screenVideoReady = true;
     let destroyHeroHLS = () => {};
     let destroyScreenHLS = () => {};
+    let setupVideoTimer;
 
     const playVideo = (videoEl) => {
       videoEl.play().catch(() => {});
@@ -128,12 +130,27 @@
       );
     }
 
+    const loadSetupVideo = () => {
+      if (!setupVideoElement) return;
+      setupVideoElement.src = SetupVideo;
+      playVideo(setupVideoElement);
+    };
+
+    if (document.readyState === 'complete') {
+      setupVideoTimer = window.setTimeout(loadSetupVideo, 0);
+    } else {
+      window.addEventListener('load', loadSetupVideo, { once: true });
+    }
+
     return () => {
       mobileHeroQuery.removeEventListener('change', loadHeroVideo);
       heroVideoElement.removeEventListener('playing', handleHeroPlaying);
       screenVideoElement?.removeEventListener('playing', handleScreenPlaying);
       destroyHeroHLS();
       destroyScreenHLS();
+      window.removeEventListener('load', loadSetupVideo);
+      window.clearTimeout(setupVideoTimer);
+      setupVideoElement?.pause();
     };
   });
 
@@ -158,6 +175,7 @@
     <video
       bind:this={heroVideoElement}
       class:ready={heroVideoReady}
+      poster="{CDN_BASE}/hero-landscape/poster.jpg"
       autoplay
       muted
       loop
@@ -183,6 +201,7 @@
             class="device-main-image"
             src={selectedDeviceView.image}
             alt={`comma four ${selectedDeviceView.label}`}
+            loading="lazy"
           />
           <video
             bind:this={screenVideoElement}
@@ -208,7 +227,7 @@
               aria-label={`Show comma four ${view.label}`}
               aria-pressed={index === selectedDeviceViewIndex}
             >
-              <img src={view.thumbnail} alt="" />
+              <img src={view.thumbnail} alt="" loading="lazy" />
             </button>
           {/each}
         </div>
@@ -242,13 +261,12 @@
       </h1>
       <div class="setup-media">
         <video
-          src={SetupVideo}
+          bind:this={setupVideoElement}
           aria-label="A stop-motion demonstration of installing a comma device"
-          autoplay
           muted
           loop
           playsinline
-          preload="metadata"
+          preload="none"
         ></video>
       </div>
       <div class="compatibility-list">
@@ -276,6 +294,7 @@
           alt="Map showing comma driving activity around the world"
           width="2240"
           height="1098"
+          loading="lazy"
         />
       </div>
     </figure>
