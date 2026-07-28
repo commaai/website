@@ -269,7 +269,7 @@
 <section class="dark" id="social">
   <div class="container">
     <h1 class="map-headline">
-      comma runs <a href="/openpilot" class="highlight">open source software</a>, driving all over the world with no subscription needed
+      comma runs <a href="/openpilot" class="highlight">open source software</a>,&nbsp;driving all over the world with no subscription needed
     </h1>
     <figure class="activity-map">
       <div class="map-preview">
@@ -498,6 +498,7 @@
         "copy gallery"
         "features gallery"
         "cta gallery";
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     & .comma-four-content {
@@ -507,14 +508,14 @@
     }
 
     & .comma-four-content h1 {
-      font-size: clamp(3rem, 4vw, 4rem);
+      font-size: clamp(2.3rem, 4vw, 4rem);
       letter-spacing: -0.04em;
       line-height: 1;
       margin-bottom: 1rem;
     }
 
     & .comma-four-content h2 {
-      font-size: 1.5rem;
+      font-size: clamp(1.125rem, 2vw, 1.5rem);
       font-weight: 400;
       letter-spacing: -0.04em;
       line-height: 1.2;
@@ -525,41 +526,32 @@
 
     & .feature-grid {
       display: grid;
-      gap: 2.25rem 2.5rem;
+      gap: clamp(0.875rem, 2.5vw, 2.25rem) clamp(1rem, 2.75vw, 2.5rem);
       grid-area: features;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      margin: 3.5rem 0;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, max(12rem, 45%)), 1fr));
+      margin: clamp(1.5rem, 4vw, 3.5rem) 0;
       width: 100%;
-    }
-
-    & .feature-item:nth-child(even) {
-      justify-self: end;
     }
 
     & .feature-item {
       align-items: center;
       color: white;
       display: flex;
-      gap: 1.25rem;
+      gap: clamp(0.75rem, 1.5vw, 1.25rem);
+      justify-self: start;
       min-width: 0;
 
       & .feature-icon {
         align-items: center;
         display: flex;
-        flex: 0 0 4.5rem;
-        height: 4.125rem;
+        flex: 0 0 clamp(2.5rem, 5vw, 4.5rem);
+        height: clamp(2.25rem, 4.5vw, 4.125rem);
         justify-content: center;
-      }
-
-      & .feature-icon :global(svg) {
-        display: block;
-        height: 3rem;
-        width: 3rem;
       }
 
       & > span:last-child {
         color: white;
-        font-size: 1.5rem;
+        font-size: clamp(1rem, 2vw, 1.5rem);
         font-weight: 400;
         letter-spacing: -0.04em;
         line-height: 1.1;
@@ -569,6 +561,7 @@
     & .comma-four-cta {
       background-color: var(--color-accent);
       color: black;
+      font-size: clamp(1rem, 2vw, 1.5rem);
       grid-area: cta;
     }
 
@@ -582,50 +575,28 @@
       background-color: var(--color-accent-hover);
     }
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 599px) {
       & .meet-grid {
         grid-template-areas:
           "copy"
           "gallery"
           "features"
           "cta";
+        grid-template-columns: minmax(0, 1fr);
         row-gap: 2rem;
-      }
-
-      & .comma-four-content h1 {
-        font-size: 2.3rem;
-        margin-bottom: 0.75rem;
-      }
-
-      & .comma-four-content h2 {
-        font-size: 1.125rem;
-        line-height: 1.25;
       }
 
       & .feature-grid {
         gap: 1.5rem 1rem;
         margin: 0;
       }
-
-      & .feature-item {
-        gap: 0.75rem;
-
-        & .feature-icon {
-          flex-basis: 2.5rem;
-          height: 2.25rem;
-        }
-
-        & .feature-icon :global(svg) {
-          height: 2rem;
-          width: 2rem;
-        }
-
-        & > span:last-child {
-          font-size: 1rem;
-        }
-      }
-
     }
+  }
+
+  #hero .feature-icon :global(svg) {
+    display: block;
+    height: clamp(2rem, 3.3vw, 3rem);
+    width: clamp(2rem, 3.3vw, 3rem);
   }
 
   #compatibility {
@@ -824,11 +795,11 @@
     background: transparent;
     border: 1px solid transparent;
     cursor: pointer;
-    height: clamp(5rem, 6vw, 6.9375rem);
+    height: clamp(4rem, 6vw, 6.9375rem);
     opacity: 0.7;
     padding: 0;
     transition: opacity 0.2s;
-    width: clamp(5rem, 6vw, 6.9375rem);
+    width: clamp(4rem, 6vw, 6.9375rem);
   }
 
   .device-thumbnails button:hover,
@@ -859,4 +830,5 @@
       width: clamp(4rem, 20vw, 5.5625rem);
     }
   }
+
 </style>
