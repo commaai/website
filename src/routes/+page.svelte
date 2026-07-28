@@ -203,15 +203,15 @@
 
         <div class="device-thumbnails" role="group" aria-label="Choose a comma four view">
           {#each deviceViews as view, index}
-            {#if index !== selectedDeviceViewIndex}
-              <button
-                type="button"
-                on:click={() => selectedDeviceViewIndex = index}
-                aria-label={`Show comma four ${view.label}`}
-              >
-                <img src={view.thumbnail} alt="" />
-              </button>
-            {/if}
+            <button
+              type="button"
+              class:selected={index === selectedDeviceViewIndex}
+              on:click={() => selectedDeviceViewIndex = index}
+              aria-label={`Show comma four ${view.label}`}
+              aria-pressed={index === selectedDeviceViewIndex}
+            >
+              <img src={view.thumbnail} alt="" />
+            </button>
           {/each}
         </div>
       </div>
@@ -895,7 +895,8 @@
   }
 
   .device-thumbnails button:hover,
-  .device-thumbnails button:focus-visible {
+  .device-thumbnails button:focus-visible,
+  .device-thumbnails button.selected {
     opacity: 1;
   }
 
@@ -917,8 +918,8 @@
     }
 
     .device-thumbnails button {
-      height: 5.5625rem;
-      width: 5.5625rem;
+      height: clamp(4rem, 20vw, 5.5625rem);
+      width: clamp(4rem, 20vw, 5.5625rem);
     }
   }
 </style>
