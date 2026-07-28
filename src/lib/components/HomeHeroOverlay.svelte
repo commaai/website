@@ -33,29 +33,29 @@
   const MILES_PER_DAY = 346_000;
   const MILES_PER_MILLISECOND = MILES_PER_DAY / 86_400_000;
   const brands = [
-    { name: "Acura", logo: AcuraLogo },
-    { name: "Audi", logo: AudiLogo },
-    { name: "Chevrolet", logo: ChevroletLogo },
-    { name: "Cupra", logo: CupraLogo },
-    { name: "Ford", logo: FordLogo },
-    { name: "GMC", logo: GmcLogo },
-    { name: "Honda", logo: HondaLogo },
-    { name: "Hyundai", logo: HyundaiLogo },
-    { name: "Jeep", logo: JeepLogo },
-    { name: "Kia", logo: KiaLogo },
-    { name: "Lexus", logo: LexusLogo },
-    { name: "Lincoln", logo: LincolnLogo },
-    { name: "MAN", logo: ManLogo },
-    { name: "Mazda", logo: MazdaLogo },
-    { name: "Nissan", logo: NissanLogo },
-    { name: "RAM", logo: RamLogo },
-    { name: "Rivian", logo: RivianLogo },
-    { name: "SEAT", logo: SeatLogo },
-    { name: "Škoda", logo: SkodaLogo },
-    { name: "Subaru", logo: SubaruLogo },
-    { name: "Tesla", logo: TeslaLogo },
-    { name: "Toyota", logo: ToyotaLogo },
-    { name: "Volkswagen", logo: VolkswagenLogo },
+    AcuraLogo,
+    AudiLogo,
+    ChevroletLogo,
+    CupraLogo,
+    FordLogo,
+    GmcLogo,
+    HondaLogo,
+    HyundaiLogo,
+    JeepLogo,
+    KiaLogo,
+    LexusLogo,
+    LincolnLogo,
+    ManLogo,
+    MazdaLogo,
+    NissanLogo,
+    RamLogo,
+    RivianLogo,
+    SeatLogo,
+    SkodaLogo,
+    SubaruLogo,
+    TeslaLogo,
+    ToyotaLogo,
+    VolkswagenLogo,
   ];
 
   function estimateMilesDriven(now = Date.now()) {
@@ -64,21 +64,6 @@
   }
 
   let milesDriven = estimateMilesDriven();
-  $: stats = [
-    {
-      value: "30,000+",
-      label: "cars on the road with a comma",
-    },
-    {
-      value: milesDriven.toLocaleString("en-US"),
-      label: "miles driven",
-      live: true,
-    },
-    {
-      value: "#2",
-      label: "after Tesla in hands-free miles",
-    },
-  ];
 
   onMount(() => {
     const updateMilesDriven = () => {
@@ -100,17 +85,21 @@
     </h1>
 
     <div class="hero-stats">
-      {#each stats as stat}
-        <div class="stat">
-          <span class="stat-value">{stat.value}</span>
-          <span class="stat-label">
-            {#if stat.live}
-              <span class="live-dot" aria-label="live estimate"></span>
-            {/if}
-            {stat.label}
-          </span>
-        </div>
-      {/each}
+      <div class="stat">
+        <span class="stat-value">30,000+</span>
+        <span class="stat-label">cars on the road with a comma</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value">{milesDriven.toLocaleString("en-US")}</span>
+        <span class="stat-label">
+          <span class="live-dot" aria-label="live estimate"></span>
+          miles driven
+        </span>
+      </div>
+      <div class="stat">
+        <span class="stat-value">#2</span>
+        <span class="stat-label">after Tesla in hands-free miles</span>
+      </div>
     </div>
 
     <div class="hero-actions">
@@ -132,14 +121,10 @@
       <p>works with {vehicleCountText} models across 27 brands</p>
       <div class="logo-viewport" aria-hidden="true">
         <div class="logo-track">
-          {#each Array(4) as _, duplicate}
+          {#each Array(4) as _}
             <div class="logo-group">
-              {#each brands as brand}
-                <img
-                  src={brand.logo}
-                  alt=""
-                  title={duplicate === 0 ? brand.name : undefined}
-                />
+              {#each brands as logo}
+                <img src={logo} alt="" />
               {/each}
             </div>
           {/each}
@@ -254,7 +239,6 @@
   }
 
   .action-arrow {
-    align-items: center;
     display: block;
     flex: 0 0 1.625rem;
     height: 1.625rem;
@@ -286,7 +270,6 @@
 
   .action-detail {
     align-items: center;
-    color: white;
     display: flex;
     flex: 0 0 auto;
     font-size: 0.75rem;
@@ -356,10 +339,8 @@
   .logo-group img {
     display: block;
     flex: 0 0 auto;
-    height: auto;
     max-height: 2.1875rem;
     max-width: 3.25rem;
-    width: auto;
   }
 
   @keyframes logo-scroll {
@@ -392,7 +373,6 @@
 
   @media screen and (max-width: 768px) {
     .hero-overlay {
-      display: flex;
       flex: 1;
       inset: auto;
       margin-top: -8.9375rem;
@@ -449,12 +429,6 @@
       justify-content: space-between;
       min-height: 3.6875rem;
       padding: 1.25rem;
-      width: 100%;
-    }
-
-    .hero-action.primary,
-    .hero-action.secondary {
-      justify-content: space-between;
       width: 100%;
     }
 

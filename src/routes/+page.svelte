@@ -13,6 +13,7 @@
   import DeviceSideImage from "$lib/images/products/comma-four/four_side.png";
   import SetupVideo from "$lib/images/setup/comma-four/setup-stopmotion.mp4";
   import MapDensityCrisp from "$lib/images/home/map-density-crisp.svg";
+  import ArrowRight from "$lib/icons/arrow-right.svg?raw";
   import LaneCenteringIcon from "$lib/icons/features/lane-centering.svg?raw";
   import AdaptiveCruiseIcon from "$lib/icons/features/adaptive-cruise.svg?raw";
   import ReducedFatigueIcon from "$lib/icons/features/moon.svg?raw";
@@ -71,24 +72,22 @@
   $: selectedDeviceView = deviceViews[selectedDeviceViewIndex];
 
   function initializeHLS(videoEl, src, onReady) {
-    const handleReady = () => onReady?.();
-
     if (Hls.isSupported()) {
       const hls = new Hls();
       hls.loadSource(src);
       hls.attachMedia(videoEl);
-      hls.on(Hls.Events.MANIFEST_PARSED, handleReady);
+      hls.on(Hls.Events.MANIFEST_PARSED, onReady);
 
       return () => {
-        hls.off(Hls.Events.MANIFEST_PARSED, handleReady);
+        hls.off(Hls.Events.MANIFEST_PARSED, onReady);
         hls.destroy();
       };
     } else if (videoEl.canPlayType('application/vnd.apple.mpegurl')) {
       videoEl.src = src;
-      videoEl.addEventListener('loadedmetadata', handleReady, { once: true });
+      videoEl.addEventListener('loadedmetadata', onReady, { once: true });
 
       return () => {
-        videoEl.removeEventListener('loadedmetadata', handleReady);
+        videoEl.removeEventListener('loadedmetadata', onReady);
         videoEl.pause();
         videoEl.removeAttribute('src');
         videoEl.load();
@@ -140,7 +139,6 @@
 
   function handleDragStart(e) {
     e.preventDefault();
-    return false;
   }
 </script>
 
@@ -229,18 +227,7 @@
 
       <a class="homepage-cta comma-four-cta" href="/shop/comma-four">
         <span>buy now for $999 risk-free</span>
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          aria-hidden="true"
-        >
-          <path
-            d="M15 19L13.59 17.59L18.17 13L2 13V11L18.17 11L13.58 6.41L15 5L22 12L15 19Z"
-            fill="currentColor"
-          />
-        </svg>
+        <span class="cta-arrow" aria-hidden="true">{@html ArrowRight}</span>
       </a>
     </div>
   </div>
@@ -267,24 +254,11 @@
         </div>
       </div>
       <div class="compatibility-content">
-        <div class="featured-cars">
-          <FeaturedCarsList />
-        </div>
+        <FeaturedCarsList />
         <div class="setup-cta">
-          <a class="homepage-cta dark-cta setup-cta-link" href="/vehicles">
-            <span class="setup-cta-label">see all supported cars</span>
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              aria-hidden="true"
-            >
-              <path
-                d="M15 19L13.59 17.59L18.17 13L2 13V11L18.17 11L13.58 6.41L15 5L22 12L15 19Z"
-                fill="currentColor"
-              />
-            </svg>
+          <a class="homepage-cta dark-cta" href="/vehicles">
+            <span>see all supported cars</span>
+            <span class="cta-arrow" aria-hidden="true">{@html ArrowRight}</span>
           </a>
         </div>
       </div>
@@ -339,20 +313,9 @@
           We're looking for talented individuals, able to work independently,
           and ready to make a meaningful impact.
         </h4>
-        <a class="homepage-cta dark-cta recruit-cta-link" href="/jobs">
-          <span class="recruit-cta-label">see open positions</span>
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            aria-hidden="true"
-          >
-            <path
-              d="M15 19L13.59 17.59L18.17 13L2 13V11L18.17 11L13.58 6.41L15 5L22 12L15 19Z"
-              fill="currentColor"
-            />
-          </svg>
+        <a class="homepage-cta dark-cta" href="/jobs">
+          <span>see open positions</span>
+          <span class="cta-arrow" aria-hidden="true">{@html ArrowRight}</span>
         </a>
       </div>
     </Grid>
@@ -369,9 +332,6 @@
     overflow: hidden;
     padding: 0;
     -webkit-user-drag: none;
-    -khtml-user-drag: none;
-    -moz-user-drag: none;
-    -o-user-drag: none;
     background: black;
 
     & .hero-video {
@@ -392,9 +352,6 @@
         user-select: none;
         width: 100%;
         -webkit-user-drag: none;
-        -khtml-user-drag: none;
-        -moz-user-drag: none;
-        -o-user-drag: none;
 
         &.ready {
           opacity: 1;
@@ -483,8 +440,17 @@
       color: inherit;
     }
 
-    & svg {
+    & .cta-arrow {
+      display: block;
       flex: 0 0 auto;
+      height: 1.5rem;
+      width: 1.5rem;
+    }
+
+    & .cta-arrow :global(svg) {
+      display: block;
+      height: 100%;
+      width: 100%;
     }
   }
 
@@ -662,13 +628,8 @@
   }
 
   #compatibility {
-    & .setup-grid {
-      align-items: stretch;
-    }
-
     & .setup-overview,
     & .compatibility-content,
-    & .featured-cars,
     & .setup-cta {
       min-width: 0;
       width: 100%;
@@ -710,10 +671,6 @@
 
     & .setup-cta {
       margin-top: 1rem;
-
-      & .setup-cta-label {
-        text-transform: lowercase;
-      }
     }
 
     @media screen and (min-width: 769px) and (max-width: 1024px) {
@@ -736,10 +693,6 @@
         aspect-ratio: 1;
       }
 
-      & .compatibility-content {
-        width: 100%;
-      }
-
     }
 
     @media screen and (max-width: 360px) {
@@ -759,17 +712,6 @@
       margin: 5rem auto 0;
       max-width: 70rem;
       width: 100%;
-
-      & figcaption {
-        color: var(--color-foreground);
-        font-size: 1.5rem;
-        font-weight: 400;
-        letter-spacing: -0.04em;
-        line-height: 1;
-        margin-bottom: 1.5rem;
-        opacity: 0.65;
-        text-align: center;
-      }
 
       & .map-preview,
       & img {
@@ -793,17 +735,11 @@
 
       & .activity-map {
         margin-top: 2.5rem;
-        max-width: 100%;
       }
     }
   }
 
   #recruit {
-    & .recruit-cta-label {
-      color: inherit;
-      text-transform: lowercase;
-    }
-
     & .recruiting-card {
       display: flex;
       flex-direction: column;
@@ -890,7 +826,7 @@
     height: clamp(5rem, 6vw, 6.9375rem);
     opacity: 0.7;
     padding: 0;
-    transition: border-color 0.2s, opacity 0.2s;
+    transition: opacity 0.2s;
     width: clamp(5rem, 6vw, 6.9375rem);
   }
 
