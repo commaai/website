@@ -12,7 +12,7 @@
   import DeviceBackImage from "$lib/images/products/comma-four/four_back.png";
   import DeviceSideImage from "$lib/images/products/comma-four/four_side.png";
   import SetupVideo from "$lib/images/setup/comma-four/setup-stopmotion.mp4";
-  import MapDensityCrisp from "$lib/images/home/map-density-crisp.svg";
+  import MapActivity from "$lib/images/home/map-activity-2x.png";
   import ArrowRight from "$lib/icons/arrow-right.svg?raw";
   import LaneCenteringIcon from "$lib/icons/features/lane-centering.svg?raw";
   import AdaptiveCruiseIcon from "$lib/icons/features/adaptive-cruise.svg?raw";
@@ -274,10 +274,10 @@
     <figure class="activity-map">
       <div class="map-preview">
         <img
-          src={MapDensityCrisp}
+          src={MapActivity}
           alt="Map showing comma driving activity around the world"
-          width="1120"
-          height="549"
+          width="2240"
+          height="1098"
         />
       </div>
     </figure>
