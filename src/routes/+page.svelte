@@ -298,7 +298,6 @@
       comma runs <a href="/openpilot" class="highlight">open source software</a>, driving all over the world with no subscription needed
     </h1>
     <figure class="activity-map">
-      <figcaption>daily active users</figcaption>
       <div class="map-preview">
         <img
           src={MapDensityCrisp}

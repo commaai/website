@@ -2,8 +2,7 @@
   import { onMount } from "svelte";
   import { vehicleCountText } from "$lib/constants/vehicles.js";
 
-  import ArrowBlack from "$lib/icons/home/hero-arrow-black.svg";
-  import ArrowWhite from "$lib/icons/home/hero-arrow-white.svg";
+  import ArrowRight from "$lib/icons/arrow-right.svg?raw";
   import AcuraLogo from "$lib/icons/home/brands/acura.svg";
   import AudiLogo from "$lib/icons/home/brands/audi.svg";
   import ChevroletLogo from "$lib/icons/home/brands/chevrolet.svg";
@@ -117,14 +116,14 @@
     <div class="hero-actions">
       <a class="hero-action primary" href="/vehicles">
         <span>check your car</span>
-        <img class="action-arrow" src={ArrowBlack} alt="" width="22" height="15" />
+        <span class="action-arrow" aria-hidden="true">{@html ArrowRight}</span>
       </a>
       <a class="hero-action secondary" href="/shop/comma-four">
         <span>try risk-free for 30 days</span>
         <span class="action-detail">
           <!-- TODO: Show after we have $0 down. -->
           <!-- <span>$0 due today</span> -->
-          <img class="action-arrow" src={ArrowWhite} alt="" width="22" height="15" />
+          <span class="action-arrow" aria-hidden="true">{@html ArrowRight}</span>
         </span>
       </a>
     </div>
@@ -255,10 +254,17 @@
   }
 
   .action-arrow {
+    align-items: center;
     display: block;
-    flex: 0 0 1.375rem;
-    height: 0.9375rem;
-    width: 1.375rem;
+    flex: 0 0 1.625rem;
+    height: 1.625rem;
+    width: 1.625rem;
+  }
+
+  .action-arrow :global(svg) {
+    display: block;
+    height: 100%;
+    width: 100%;
   }
 
   .hero-action.primary {
