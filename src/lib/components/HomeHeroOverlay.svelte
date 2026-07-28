@@ -432,6 +432,12 @@
       width: 100%;
     }
 
+    .hero-action.primary,
+    .hero-action.secondary {
+      justify-content: space-between;
+      width: 100%;
+    }
+
     .action-detail {
       font-size: 1rem;
     }

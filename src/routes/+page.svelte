@@ -447,11 +447,12 @@
       width: 1.5rem;
     }
 
-    & .cta-arrow :global(svg) {
-      display: block;
-      height: 100%;
-      width: 100%;
-    }
+  }
+
+  .cta-arrow :global(svg) {
+    display: block;
+    height: 100%;
+    width: 100%;
   }
 
   .dark-cta {
