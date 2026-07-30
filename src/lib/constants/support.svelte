@@ -11,7 +11,6 @@
               <ul>
                 <li>Reseat all connections and cables; see the <a href="/setup">setup guide</a>.</li>
                 <li>Ensure there's no third party hardware installed, including the mount, harness, and any cables.</li>
-                <li>Unplug the device for an hour to allow the device's supercapacitors to fully drain.</li>
                 <li>Ensure that the issue occurs while running the latest openpilot release.  <b>We cannot look into issues while running forks or other software.</b></li>
                 <li>Still having issues? Reflash the device to the factory default state with <a href="https://flash.comma.ai">flash.comma.ai</a>.</li>
               </ul>
