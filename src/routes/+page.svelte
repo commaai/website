@@ -844,6 +844,17 @@
     & .map-headline {
       letter-spacing: -0.04em;
       margin-bottom: 0;
+      /* The globe's drawing surface reaches up past its box and would paint over this when
+         zoomed in, so lift the text above it. Layered, not repositioned — the headline stays
+         in normal flow and nothing below it moves. */
+      position: relative;
+      /* Soft shadow so the text holds up over a zoomed-in globe rather than fighting the
+         land and dots behind it. Two stops: a tight one for edge contrast, a wide one to
+         darken the whole area the text sits on. */
+      text-shadow:
+        0 2px 12px rgba(0, 0, 0, 0.9),
+        0 0 36px rgba(0, 0, 0, 0.65);
+      z-index: 2;
     }
 
     & .activity-map {

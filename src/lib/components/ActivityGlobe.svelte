@@ -25,20 +25,46 @@
   // be as large as the section. A fixed 300x300 box meant a zoomed sphere (264 units at
   // zoom 1, ~690 at 2.6) clipped to a small square window with the page showing either side.
   const SPHERE_MAX = 672; // px across when zoomed out — matches the old 48rem footprint
+
+  // The drawing surface reaches beyond its layout box, mostly upwards, so a zoomed-in globe
+  // bleeds behind the headline instead of ending on a hard edge under it. Deliberately not
+  // done by growing or moving the box: leaving the box alone is what guarantees the sphere
+  // keeps its exact size and position, since it is still anchored to the box's centre.
+  const SLACK_BOTTOM = 80;
+
+  let slackTop = 0;
   let vbw = 300;
   let vbh = 300;
-  $: ox = vbw / 2 - CX; // centres the sphere's own coordinate system in the larger viewBox
-  $: oy = vbh / 2 - CY;
+  let ox = 0;
+  let oy = 0;
 
   function measure() {
     if (!el) return;
-    const w = el.clientWidth;
-    const h = el.clientHeight;
-    if (!w || !h) return;
-    const sphere = Math.min(SPHERE_MAX, w * 0.82, h * 0.94);
+    const boxW = el.clientWidth;
+    const boxH = el.clientHeight;
+    if (!boxW || !boxH) return;
+
+    // Measured rather than a constant: the gap above the box is the section's padding plus
+    // the headline, and both change with viewport — on mobile the headline runs to five lines
+    // and a fixed slack left a black band under the nav. Reaching exactly the section's top
+    // edge also means it never overruns into whatever section is above.
+    const section = el.closest("section");
+    slackTop = section
+      ? Math.max(0, Math.round(el.getBoundingClientRect().top - section.getBoundingClientRect().top))
+      : 0;
+
+    // Sphere size still comes off the layout box, not the enlarged surface, so the slack
+    // above and below is pure headroom and never scales the globe up.
+    const sphere = Math.min(SPHERE_MAX, boxW * 0.82, boxH * 0.94);
     const scale = sphere / (2 * R); // px per user unit
-    vbw = w / scale;
-    vbh = h / scale;
+    // Derived from the box rather than read back off the <svg>, which would otherwise feed
+    // its own height back into the calculation that sets it.
+    vbw = boxW / scale;
+    vbh = (boxH + slackTop + SLACK_BOTTOM) / scale;
+    ox = vbw / 2 - CX;
+    // Anchored to the box's centre rather than the surface's, so the extra room being
+    // lopsided does not shift the globe.
+    oy = (boxH / 2 + slackTop) / scale - CY;
   }
 
   const BASE_SPIN = 0.12; // degrees per tick when left alone (60 ticks/sec)
@@ -130,19 +156,30 @@
   // eats (T_TRAVEL * DRIFT, about 14deg) or the aim would start behind us and jog backwards
   // before setting off.
   const MIN_LEAD = 30;
+  // ...and no further than this, so a leg is a hop to somewhere already in view rather than
+  // a trek round the back. Forward-only has a sharp edge here: Japan is just east of China,
+  // which going forwards is 337deg away — practically a full revolution.
+  const MAX_LEAD = 85;
 
   function startLeg() {
     // Only consider places that are ahead in the direction the globe already turns. Rising
     // rot brings left-hand features to the centre, so picking the *nearest* equivalent could
     // put the next stop behind us and reverse the pan mid-flight. Measuring forward distance
     // from where we are now means every leg continues the same way round.
-    const forward = HOTSPOTS.map((h) => ({ h, fwd: wrap(-h.lon - rotPos) }));
-    const ahead = forward.filter((c) => c.h !== place && c.fwd >= MIN_LEAD);
-    // Nothing far enough ahead is possible in principle; take the farthest rather than
-    // silently picking something that would jog backwards.
-    const next = ahead.length
-      ? ahead[Math.floor(Math.random() * ahead.length)]
-      : forward.reduce((a, c) => (c.fwd > a.fwd ? c : a));
+    const others = HOTSPOTS.filter((h) => h !== place).map((h) => ({
+      h,
+      fwd: wrap(-h.lon - rotPos),
+      // z > 0 is the real test of "currently in view": unlike a longitude window it accounts
+      // for latitude against the tilt, so somewhere over the horizon is never a candidate.
+      inView: project(h.lat, h.lon, rot, tilt).front,
+    }));
+    const reachable = others.filter((c) => c.fwd >= MIN_LEAD && c.fwd <= MAX_LEAD && c.inView);
+    // If nothing is both in view and far enough ahead, take the nearest thing ahead rather
+    // than reversing — a longer leg is better than a backwards one.
+    const ahead = others.filter((c) => c.fwd >= MIN_LEAD);
+    const next = reachable.length
+      ? reachable[Math.floor(Math.random() * reachable.length)]
+      : (ahead.length ? ahead : others).reduce((a, c) => (c.fwd < a.fwd ? c : a));
     place = next.h;
     const anchor = rotPos + next.fwd;
     // Start the leg short by exactly the drift the approach will accumulate, so the target
@@ -588,6 +625,7 @@
   <!-- svelte-ignore a11y-no-static-element-interactions -->
   <svg
     viewBox="0 0 {vbw.toFixed(1)} {vbh.toFixed(1)}"
+    style="top: {-slackTop}px; height: calc(100% + {slackTop + SLACK_BOTTOM}px)"
     role="img"
     aria-label="Globe showing comma driving activity worldwide"
     class:dragging
@@ -667,9 +705,14 @@
   svg {
     cursor: grab;
     display: block;
-    height: 100%;
-    inset: 0;
+    /* top and height come from an inline style — see slackTop */
+    left: 0;
+    /* Fades the globe out at the bottom instead of ending on the surface's hard edge above
+       the next block. A mask rather than a black overlay, so the dot grid behind still shows
+       through and nothing assumes the page background colour. */
+    mask-image: linear-gradient(to bottom, #000 calc(100% - 150px), transparent 100%);
     position: absolute;
+    right: 0;
     /* clips, not visible: the zoomed sphere runs past the viewBox and would otherwise
        paint over the rest of the page */
     overflow: hidden;
@@ -734,7 +777,7 @@
   .target-ring {
     animation: ping 2.4s ease-in-out infinite;
     fill: none;
-    stroke: var(--color-accent);
+    stroke: #fff;
     stroke-width: 1.4;
     vector-effect: non-scaling-stroke;
   }
@@ -745,7 +788,7 @@
   }
 
   .target-dot {
-    fill: var(--color-accent);
+    fill: #fff;
   }
 
   @keyframes ping {
