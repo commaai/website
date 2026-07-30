@@ -89,7 +89,13 @@
     { lat: -36.88, lon: 174.88, name: "Auckland, New Zealand" },
     { lat: 47.38, lon: 8.63, name: "Zurich, Switzerland" },
     { lat: 13.63, lon: 100.63, name: "Bangkok, Thailand" },
+    { lat: 35.38, lon: 139.38, name: "Greater Tokyo, Japan" },
+    { lat: 34.63, lon: 135.63, name: "Osaka, Japan" },
+    { lat: 39.88, lon: 116.38, name: "Beijing, China" },
+    { lat: 23.13, lon: 113.38, name: "Guangzhou, China" },
     { lat: 24.38, lon: 54.63, name: "Abu Dhabi, United Arab Emirates" },
+    { lat: 24.88, lon: 46.63, name: "Riyadh, Saudi Arabia" },
+    { lat: 31.88, lon: 35.88, name: "Amman, Jordan" },
     { lat: 52.13, lon: 4.38, name: "Netherlands" },
     { lat: 52.13, lon: -1.13, name: "England, United Kingdom" },
   ];
@@ -120,16 +126,25 @@
   const wrap = (deg) => ((deg % 360) + 360) % 360;
   const clampTilt = (deg) => Math.max(-90, Math.min(90, deg));
 
+  // Every leg must travel at least this far forward. Has to exceed the drift the approach
+  // eats (T_TRAVEL * DRIFT, about 14deg) or the aim would start behind us and jog backwards
+  // before setting off.
+  const MIN_LEAD = 30;
+
   function startLeg() {
-    let next = place;
-    while (HOTSPOTS.length > 1 && next === place) {
-      next = HOTSPOTS[Math.floor(Math.random() * HOTSPOTS.length)];
-    }
-    place = next;
-    // Pick the rotation equivalent nearest where we already are, so a leg never crosses the
-    // whole globe just because the accumulated drift sits on the far side of the seam.
-    const want = -place.lon;
-    const anchor = want + 360 * Math.round((rotPos - want) / 360);
+    // Only consider places that are ahead in the direction the globe already turns. Rising
+    // rot brings left-hand features to the centre, so picking the *nearest* equivalent could
+    // put the next stop behind us and reverse the pan mid-flight. Measuring forward distance
+    // from where we are now means every leg continues the same way round.
+    const forward = HOTSPOTS.map((h) => ({ h, fwd: wrap(-h.lon - rotPos) }));
+    const ahead = forward.filter((c) => c.h !== place && c.fwd >= MIN_LEAD);
+    // Nothing far enough ahead is possible in principle; take the farthest rather than
+    // silently picking something that would jog backwards.
+    const next = ahead.length
+      ? ahead[Math.floor(Math.random() * ahead.length)]
+      : forward.reduce((a, c) => (c.fwd > a.fwd ? c : a));
+    place = next.h;
+    const anchor = rotPos + next.fwd;
     // Start the leg short by exactly the drift the approach will accumulate, so the target
     // is dead centre the moment travel ends — and the globe never has to stop turning to
     // get there. Aiming at a stationary point instead made it stall for the tail of travel.
@@ -522,6 +537,16 @@
     return out;
   }
 
+  // Marker on the place being flown to. Lives outside the zoom group so it stays a constant
+  // size on screen, which means the zoom has to be applied to its position by hand — the
+  // group's transform is translate(C) scale(z) translate(-C).
+  $: mark = place ? project(place.lat, place.lon, rot, tilt) : null;
+  $: markX = mark ? CX + (mark.x - CX) * zoom : 0;
+  $: markY = mark ? CY + (mark.y - CY) * zoom : 0;
+  // `place` deliberately outlives the leg so the marker can fade out where it stood rather
+  // than vanishing the instant the phase flips.
+  $: markOn = !!(mark && mark.front && phase !== "free");
+
   $: land = LAND.map((ring) => ringPath(ring, rot, tilt));
   $: graticule = [...meridians, ...parallels].map((line) => polyline(line, rot, tilt));
   $: layers = densityLayers(basis, rot, tilt);
@@ -609,6 +634,14 @@
 
     <circle class="rim" cx={CX} cy={CY} r={R} />
     </g>
+
+    {#if mark}
+      <g class="target" class:on={markOn}>
+        <circle class="target-ring" cx={markX} cy={markY} r="14" />
+        <circle class="target-ring inner" cx={markX} cy={markY} r="7" />
+        <circle class="target-dot" cx={markX} cy={markY} r="1.6" />
+      </g>
+    {/if}
     </g>
   </svg>
 
@@ -685,6 +718,50 @@
     stroke: var(--color-accent);
     stroke-linecap: round;
     vector-effect: non-scaling-stroke;
+  }
+
+  .target {
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+
+  .target.on {
+    opacity: 1;
+  }
+
+  /* pulses opacity, never r — a CSS animation on r would override the attribute and the
+     two rings would collapse to the same size */
+  .target-ring {
+    animation: ping 2.4s ease-in-out infinite;
+    fill: none;
+    stroke: var(--color-accent);
+    stroke-width: 1.4;
+    vector-effect: non-scaling-stroke;
+  }
+
+  .target-ring.inner {
+    animation-delay: 0.5s;
+    stroke-width: 1;
+  }
+
+  .target-dot {
+    fill: var(--color-accent);
+  }
+
+  @keyframes ping {
+    0%,
+    100% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .target-ring {
+      animation: none;
+    }
   }
 
   .place {
