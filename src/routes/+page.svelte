@@ -3,8 +3,10 @@
   import Hls from 'hls.js/light';
   import FeaturedCarsList from "$lib/components/FeaturedCarsList.svelte";
   import FeaturedArticles from "$lib/components/FeaturedArticles.svelte";
-  import HomeHeroOverlay from "$lib/components/HomeHeroOverlay.svelte";
+  import HomeHeroOverlay from "$lib/components/HomeHero.svelte";
   import Grid from "$lib/components/Grid.svelte";
+  import DrivingDemo from "$lib/components/DrivingDemo.svelte";
+  import ActivityGlobe from "$lib/components/ActivityGlobe.svelte";
 
   import DeviceImage from "$lib/images/products/comma-four/four_front.png";
   import DeviceScreenOnImage from "$lib/images/products/comma-four/four_screen_on.png";
@@ -12,7 +14,6 @@
   import DeviceBackImage from "$lib/images/products/comma-four/four_back.png";
   import DeviceSideImage from "$lib/images/products/comma-four/four_side.png";
   import SetupVideo from "$lib/images/setup/comma-four/setup-stopmotion.mp4";
-  import MapActivity from "$lib/images/home/map-activity-2x.png";
   import ArrowRight from "$lib/icons/arrow-right.svg?raw";
   import LaneCenteringIcon from "$lib/icons/features/lane-centering.svg?raw";
   import AdaptiveCruiseIcon from "$lib/icons/features/adaptive-cruise.svg?raw";
@@ -40,6 +41,13 @@
       icon: CloudDashcamIcon,
       label: "cloud dashcam",
     },
+  ];
+  // Condensed from the real steps on /setup — no invented copy.
+  const setupSteps = [
+    "connect the car harness into the camera",
+    "place the mount high and centered on the windshield",
+    "plug in OBD-C and mount the device",
+    'pair with <a href="/connect">comma connect</a> and drive',
   ];
   const deviceViews = [
     {
@@ -70,6 +78,9 @@
   let screenVideoReady = false;
   let setupVideoElement;
   let selectedDeviceViewIndex = 0;
+  // Walks the setup list on a loop so the section demonstrates the sequence rather than
+  // just listing it. Same spirit as the hero's cycling placeholder.
+  let activeStep = 0;
   $: selectedDeviceView = deviceViews[selectedDeviceViewIndex];
 
   function initializeHLS(videoEl, src, onReady) {
@@ -130,6 +141,14 @@
       );
     }
 
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let stepTimer;
+    if (!reducedMotion.matches) {
+      stepTimer = window.setInterval(() => {
+        activeStep = (activeStep + 1) % setupSteps.length;
+      }, 2400);
+    }
+
     const loadSetupVideo = () => {
       if (!setupVideoElement) return;
       setupVideoElement.src = SetupVideo;
@@ -150,6 +169,7 @@
       destroyScreenHLS();
       window.removeEventListener('load', loadSetupVideo);
       window.clearTimeout(setupVideoTimer);
+      window.clearInterval(stepTimer);
       setupVideoElement?.pause();
     };
   });
@@ -197,12 +217,14 @@
 
       <div class="device-gallery">
         <div class="device-image-container">
+          {#key selectedDeviceViewIndex}
           <img
             class="device-main-image"
             src={selectedDeviceView.image}
             alt={`comma four ${selectedDeviceView.label}`}
             loading="lazy"
           />
+          {/key}
           <video
             bind:this={screenVideoElement}
             class:ready={screenVideoReady}
@@ -234,20 +256,31 @@
       </div>
 
       <div class="feature-grid">
-        {#each commaFourFeatures as feature}
+        {#each commaFourFeatures as feature, index}
           <div class="feature-item">
+            <span class="feature-index">/{String(index + 1).padStart(2, "0")}</span>
             <span class="feature-icon">
               {@html feature.icon}
             </span>
-            <span>{feature.label}</span>
+            <span class="feature-label">{feature.label}</span>
           </div>
         {/each}
       </div>
 
-      <a class="homepage-cta comma-four-cta" href="/shop/comma-four">
-        <span>buy now for $999 risk-free</span>
-        <span class="cta-arrow" aria-hidden="true">{@html ArrowRight}</span>
-      </a>
+      <div class="comma-four-xp">
+        <DrivingDemo />
+      </div>
+
+      <div class="comma-four-buy">
+        <a class="homepage-cta comma-four-cta" href="/shop/comma-four">
+          <span>buy now for $999 risk-free</span>
+          <span class="cta-arrow" aria-hidden="true">{@html ArrowRight}</span>
+        </a>
+        <!-- Real trust copy, lifted from ProductDescriptions/CommaFour.svelte. -->
+        <p class="buy-reassurance">
+          30-day money-back trial <span aria-hidden="true">·</span> free Rush (UPS 2nd Day Air) shipping
+        </p>
+      </div>
     </div>
   </div>
 </section>
@@ -269,12 +302,19 @@
           preload="none"
         ></video>
       </div>
-      <div class="compatibility-list">
-        <FeaturedCarsList />
-      </div>
+      <!-- The car list that used to sit here is answered by the hero finder now, and it
+           never supported this section's claim. These are the real steps from /setup. -->
+      <ol class="setup-steps">
+        {#each setupSteps as step, index}
+          <li class:active={index === activeStep}>
+            <span class="step-index">/{String(index + 1).padStart(2, "0")}</span>
+            <span class="step-text">{@html step}</span>
+          </li>
+        {/each}
+      </ol>
       <div class="setup-cta">
-        <a class="homepage-cta dark-cta" href="/vehicles">
-          <span>see all supported cars</span>
+        <a class="homepage-cta dark-cta" href="/setup">
+          <span>see the full setup guide</span>
           <span class="cta-arrow" aria-hidden="true">{@html ArrowRight}</span>
         </a>
       </div>
@@ -288,15 +328,7 @@
       comma runs <a href="/openpilot" class="highlight">open source software,</a>&nbsp;driving all over the world with no subscription needed
     </h1>
     <figure class="activity-map">
-      <div class="map-preview">
-        <img
-          src={MapActivity}
-          alt="Map showing comma driving activity around the world"
-          width="2240"
-          height="1098"
-          loading="lazy"
-        />
-      </div>
+      <ActivityGlobe />
     </figure>
     <FeaturedArticles />
     <h1>
@@ -466,6 +498,16 @@
 
   }
 
+  .homepage-cta .cta-arrow {
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .homepage-cta:hover .cta-arrow {
+      transform: translateX(0.3rem);
+    }
+  }
+
   .cta-arrow :global(svg) {
     display: block;
     height: 100%;
@@ -523,6 +565,7 @@
       grid-template-areas:
         "copy gallery"
         "features gallery"
+        "xp gallery"
         "cta gallery";
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -551,7 +594,7 @@
 
     & .feature-grid {
       display: grid;
-      gap: clamp(0.875rem, 2.5vw, 2.25rem) clamp(1rem, 2.75vw, 2.5rem);
+      gap: clamp(1.25rem, 2.5vw, 2.25rem) clamp(2.5rem, 5vw, 4.5rem);
       grid-area: features;
       grid-template-columns: repeat(auto-fit, minmax(min(100%, max(16rem, 45%)), 1fr));
       margin: clamp(1.5rem, 4vw, 3.5rem) 0;
@@ -560,11 +603,32 @@
 
     & .feature-item {
       align-items: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.16);
       color: white;
       display: flex;
       gap: clamp(0.75rem, 1.5vw, 1.25rem);
-      justify-self: start;
+      justify-self: stretch;
       min-width: 0;
+      padding-top: 1rem;
+      transition: border-color 0.25s ease;
+
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          border-top-color: var(--color-accent);
+
+          & .feature-index {
+            color: var(--color-accent);
+          }
+        }
+      }
+
+      & .feature-index {
+        color: rgba(255, 255, 255, 0.45);
+        flex: none;
+        font-family: JetBrains Mono, monospace;
+        font-size: 1rem;
+        transition: color 0.25s ease;
+      }
 
       & .feature-icon {
         align-items: center;
@@ -584,10 +648,27 @@
       }
     }
 
+    & .comma-four-xp {
+      display: grid;
+      gap: 1rem;
+      grid-area: xp;
+      margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+    }
+
+    & .comma-four-buy {
+      grid-area: cta;
+    }
+
+    & .buy-reassurance {
+      color: rgba(255, 255, 255, 0.55);
+      font-size: 0.875rem;
+      letter-spacing: -0.02em;
+      margin: 0.875rem 0 0;
+    }
+
     & .comma-four-cta {
       background-color: var(--color-accent);
       color: black;
-      grid-area: cta;
     }
 
     @media (hover: hover) and (pointer: fine) {
@@ -606,6 +687,7 @@
           "copy"
           "gallery"
           "features"
+          "xp"
           "cta";
         grid-template-columns: minmax(0, 1fr);
         row-gap: 2rem;
@@ -626,7 +708,7 @@
 
   #compatibility {
     & .setup-heading,
-    & .compatibility-list,
+    & .setup-steps,
     & .setup-cta {
       min-width: 0;
       width: 100%;
@@ -663,11 +745,60 @@
       }
     }
 
-    & .compatibility-list {
-      contain: size;
+    & .setup-steps {
+      counter-reset: step;
       grid-area: cars;
+      list-style: none;
+      margin: 0;
       min-height: 0;
-      overflow: hidden;
+      padding: 0;
+
+      & li {
+        align-items: baseline;
+        border-top: 1px solid rgba(0, 0, 0, 0.15);
+        display: flex;
+        font-size: 1.5rem;
+        gap: 1.25rem;
+        letter-spacing: -0.04em;
+        line-height: 1.2;
+        padding: 1.375rem 0;
+        transition: border-color 0.25s ease, padding-left 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      & li.active {
+        border-top-color: var(--color-black);
+
+        & .step-index {
+          color: var(--color-accent-hover);
+        }
+      }
+
+      @media (hover: hover) and (pointer: fine) {
+        & li:hover {
+          border-top-color: var(--color-black);
+          padding-left: 0.5rem;
+
+          & .step-index {
+            color: var(--color-black);
+          }
+        }
+      }
+
+      & li:last-child {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+      }
+
+      & .step-index {
+        color: rgba(0, 0, 0, 0.45);
+        flex: none;
+        font-family: JetBrains Mono, monospace;
+        font-size: 1rem;
+        letter-spacing: 0;
+      }
+
+      & .step-text {
+        min-width: 0;
+      }
     }
 
     & .setup-cta {
@@ -697,7 +828,7 @@
         margin-bottom: -0.5rem;
       }
 
-      & .compatibility-list {
+      & .setup-steps {
         contain: none;
         overflow: visible;
       }
@@ -716,9 +847,38 @@
     }
 
     & .activity-map {
-      margin: 5rem auto 0;
-      max-width: 70rem;
+      margin: 3.5rem auto 0;
+      max-width: 52rem;
+      position: relative;
       width: 100%;
+
+      /* Full-bleed dot grid so the globe is not floating on flat black. Masked twice:
+         a clear zone the size of the sphere so it never crowds the globe, and a falloff
+         before the viewport edges so it does not read as a hard-edged panel. */
+      &::before {
+        background-image: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.1) 1.1px,
+          transparent 1.1px
+        );
+        background-size: 32px 32px;
+        bottom: -5rem;
+        content: "";
+        left: 50%;
+        margin-left: -50vw;
+        mask-image: radial-gradient(
+          circle at 50% 50%,
+          transparent min(21rem, 44vw),
+          #000 min(28rem, 62vw),
+          #000 58%,
+          transparent 88%
+        );
+        pointer-events: none;
+        position: absolute;
+        top: -5rem;
+        width: 100vw;
+        z-index: 0;
+      }
 
       & .map-preview,
       & img {
@@ -783,12 +943,35 @@
     width: 100%;
   }
 
+  /* Every motion added here is either informative or a response to the pointer, so it
+     all collapses to instant under reduced motion. */
+  @media (prefers-reduced-motion: reduce) {
+    .feature-item,
+    .feature-index,
+    .setup-steps li,
+    .step-index,
+    .homepage-cta .cta-arrow {
+      transition: none;
+    }
+  }
+
+  /* The step text comes through {@html}, so its anchor never gets a scoped class. */
+  :global(#compatibility .step-text a) {
+    border-bottom: 2px solid var(--color-accent);
+    transition: background-color 0.2s;
+  }
+
+  :global(#compatibility .step-text a:hover) {
+    background-color: rgba(81, 255, 0, 0.25);
+  }
+
   .device-image-container {
     position: relative;
     width: 100%;
   }
 
   .device-main-image {
+    animation: device-swap 0.4s cubic-bezier(0.22, 1, 0.36, 1);
     display: block;
     width: 100%;
     height: auto;
@@ -810,6 +993,19 @@
   .device-image-container .screen-video-overlay.ready.selected {
     opacity: 1;
     visibility: visible;
+  }
+
+  @keyframes device-swap {
+    from {
+      opacity: 0;
+      transform: scale(0.985);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .device-main-image {
+      animation: none;
+    }
   }
 
   .device-thumbnails {
