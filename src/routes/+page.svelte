@@ -847,10 +847,13 @@
     }
 
     & .activity-map {
-      margin: 3.5rem auto 0;
-      max-width: 52rem;
+      /* Breaks out of .container (85% wide) to span the full section, so a zoom-in fills the
+         width instead of clipping to a window. Safe because the page sets overflow-x: hidden.
+         The sphere keeps its own px size, so all the extra room is headroom for the zoom. */
+      margin: 0 0 0 calc(50% - 50vw);
+      max-width: none;
       position: relative;
-      width: 100%;
+      width: 100vw;
 
       /* Full-bleed dot grid so the globe is not floating on flat black. Masked twice:
          a clear zone the size of the sphere so it never crowds the globe, and a falloff
@@ -895,11 +898,6 @@
       }
     }
 
-    @media screen and (max-width: 768px) {
-      & .activity-map {
-        margin-top: 2.5rem;
-      }
-    }
   }
 
   #recruit {
