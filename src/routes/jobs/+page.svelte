@@ -249,6 +249,27 @@
         'Do the <a href="https://github.com/commaai/operations_challenge">operations challenge</a>, then email <a href="mailto:work@comma.ai">work@comma.ai</a>.',
     },
     {
+      title: "Community Manager",
+      team: "operations",
+      location: "On-site in San Diego, CA",
+      description: `
+        openpilot is open source and our community is part of how it gets better. You'll own the
+        places where comma and the community meet: Discord, social, meetups, launches, and the
+        stories we tell about what we're building. Stay close to the product, turn technical work
+        into clear and interesting content, and make it easy for great contributors to get involved.
+      `,
+      qualifications: [
+        "Excellent writing and a strong sense of what makes technical work interesting",
+        "Experience growing and running an online community",
+        "Comfortable creating content across text, photo, and video",
+        "Technical enough to follow openpilot development and ask good questions",
+        "Organized, responsive, and able to independently turn ideas into shipped projects",
+        "Already participating in open source, car, or hacker communities is a plus",
+      ],
+      howToApply:
+        'Email <a href="mailto:work@comma.ai">work@comma.ai</a> with links to a community you\'ve helped build and something technical you\'ve explained well.',
+    },
+    {
       title: "Internships / Co-op",
       location: "Paid and on-site in San Diego, CA",
       description: `
