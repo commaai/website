@@ -979,8 +979,26 @@
       margin-top: 0.375rem;
     }
 
+    /* Must stack here. Left as a row, the caption takes its width and pushes the marquee
+       off the right edge of the screen — the viewport is flex: 1 with min-width: 0, so it
+       collapses rather than wrapping. */
     .hero-compatibility {
+      flex-direction: column;
+      gap: 1.0625rem;
       margin-top: 1.5rem;
+    }
+
+    .hero-compatibility p {
+      text-align: center;
+      width: 100%;
+    }
+
+    /* Bleeds the strip out through the hero's padding so it runs edge to edge, which is
+       what makes the mask's fade read as logos entering and leaving the screen. */
+    .logo-viewport {
+      flex: none;
+      margin-left: calc(0rem - var(--hero-gutter));
+      width: calc(100% + var(--hero-gutter) * 2);
     }
   }
 </style>
