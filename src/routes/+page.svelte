@@ -405,7 +405,7 @@
       flex-direction: column;
       height: auto;
       min-height: 100vh;
-      min-height: 100dvh;
+      min-height: 100svh;
 
       & .hero-video {
         aspect-ratio: 402 / 465;
