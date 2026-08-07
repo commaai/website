@@ -152,7 +152,7 @@
         "Ability to independently write, test, and ship software to thousands of users",
       ],
       howToApply:
-        'Do the <a href="https://github.com/commaai/controls_challenge">controls challenge</a>, then email <a href="mailto:work@comma.ai">work@comma.ai</a>.',
+        'Do the <a href="https://github.com/commaai/comma_video_compression_challenge">video compression challenge</a>, then email <a href="mailto:work@comma.ai">work@comma.ai</a>.',
     },
     {
       title: "Machine Learning Engineer",
