@@ -65,6 +65,14 @@
 
   let milesDriven = estimateMilesDriven();
 
+  // The page is prerendered, so the value above is baked at build time and is already
+  // stale on arrival — it would visibly jump when hydration corrects it a second later.
+  // This runs during HTML parsing instead, so the first painted value is the right one.
+  const PREPAINT_MILES = `<script>(function(){` +
+    `var e=document.getElementById('miles-driven');if(!e)return;` +
+    `var v=Math.floor(${MILES_ANCHOR_VALUE}+Math.max(0,Date.now()-${MILES_ANCHOR_TIME})*${MILES_PER_MILLISECOND});` +
+    `e.textContent=v.toLocaleString('en-US')})()<\/script>`;
+
   onMount(() => {
     const updateMilesDriven = () => {
       milesDriven = estimateMilesDriven();
@@ -90,7 +98,7 @@
         <span class="stat-label">cars on the road with a comma</span>
       </div>
       <div class="stat">
-        <span class="stat-value">{milesDriven.toLocaleString("en-US")}</span>
+        <span class="stat-value" id="miles-driven">{milesDriven.toLocaleString("en-US")}</span>{@html PREPAINT_MILES}
         <span class="stat-label">
           <span class="live-dot" aria-label="live estimate"></span>
           miles driven
@@ -161,7 +169,13 @@
     line-height: 1;
     margin: 0;
     max-width: 44rem;
-    text-shadow: 0 0 12px rgba(0, 0, 0, 0.8);
+    /* Stacked zero-offset blurs: contrast comes from a dark cloud hugging the glyphs
+       rather than from a scrim darkening the whole left of the video. */
+    text-shadow:
+      0 0 3px rgba(0, 0, 0, 0.85),
+      0 0 10px rgba(0, 0, 0, 0.8),
+      0 0 30px rgba(0, 0, 0, 0.7),
+      0 0 60px rgba(0, 0, 0, 0.55);
   }
 
   .mobile-prefix {
@@ -184,7 +198,13 @@
   .stat-value,
   .stat-label {
     color: white;
-    text-shadow: 0 0 12px rgba(0, 0, 0, 0.8);
+    /* Stacked zero-offset blurs: contrast comes from a dark cloud hugging the glyphs
+       rather than from a scrim darkening the whole left of the video. */
+    text-shadow:
+      0 0 3px rgba(0, 0, 0, 0.85),
+      0 0 10px rgba(0, 0, 0, 0.8),
+      0 0 30px rgba(0, 0, 0, 0.7),
+      0 0 60px rgba(0, 0, 0, 0.55);
   }
 
   .stat-value {
@@ -205,14 +225,19 @@
     margin-top: 0.9375rem;
   }
 
+  /* Pinned to a whole pixel with an explicit aspect-ratio: a rem value lands on a
+     fractional pixel at some device ratios, and the axes round independently, which
+     renders the dot as a slight oval. */
   .live-dot {
     animation: live-pulse 2s ease-out infinite;
+    aspect-ratio: 1;
     background: var(--color-accent);
     border-radius: 50%;
     box-shadow: 0 0 0 0 rgba(81, 255, 0, 0.65);
     flex: 0 0 auto;
-    height: 0.5rem;
-    width: 0.5rem;
+    height: 8px;
+    min-width: 8px;
+    width: 8px;
   }
 
   .hero-actions {
@@ -310,7 +335,13 @@
     letter-spacing: -0.04em;
     line-height: 1;
     margin: 0;
-    text-shadow: 0 0 12px rgba(0, 0, 0, 0.8);
+    /* Stacked zero-offset blurs: contrast comes from a dark cloud hugging the glyphs
+       rather than from a scrim darkening the whole left of the video. */
+    text-shadow:
+      0 0 3px rgba(0, 0, 0, 0.85),
+      0 0 10px rgba(0, 0, 0, 0.8),
+      0 0 30px rgba(0, 0, 0, 0.7),
+      0 0 60px rgba(0, 0, 0, 0.55);
   }
 
   .logo-viewport {
@@ -322,7 +353,9 @@
   }
 
   .logo-track {
-    animation: logo-scroll 56s linear infinite;
+    /* 62.5s, not 56s: fixed logo slots widen one group 1691px -> 1886px, so the same
+       duration would scroll ~11% faster than before. This keeps the original speed. */
+    animation: logo-scroll 62.5s linear infinite;
     display: flex;
     opacity: 0.5;
     width: max-content;
@@ -336,11 +369,15 @@
     padding-right: 1.875rem;
   }
 
+  /* Fixed slots, not max-* caps: an unloaded img has no intrinsic size, so the track
+     would be narrow when the animation starts and translateX(-25%) would resolve to a
+     shorter distance, scrolling slower for that load. */
   .logo-group img {
     display: block;
     flex: 0 0 auto;
-    max-height: 2.1875rem;
-    max-width: 3.25rem;
+    height: 2.1875rem;
+    object-fit: contain;
+    width: 3.25rem;
   }
 
   @keyframes logo-scroll {
