@@ -409,6 +409,22 @@
       "setup_notes": [
         "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
       ]
+    },
+    {
+      "name": "CUPRA Born 2021-23",
+      "model": "Born",
+      "years": "2021-23",
+      "year_list": "2021, 2022, 2023",
+      "package": "Adaptive Cruise Control (ACC) & Lane Assist",
+      "video": "",
+      "setup_video": "",
+      "harness_connector": "VW J533",
+      "detail_sentence": "openpilot upgrades your <strong>CUPRA Born</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "footnotes": [
+      ],
+      "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
+      ]
     }
   ],
   "Dodge": [
@@ -1148,10 +1164,10 @@
       ]
     },
     {
-      "name": "Honda Civic 2022-24",
+      "name": "Honda Civic 2022-26",
       "model": "Civic",
-      "years": "2022-24",
-      "year_list": "2022, 2023, 2024",
+      "years": "2022-26",
+      "year_list": "2022, 2023, 2024, 2025, 2026",
       "package": "All",
       "video": "https://youtu.be/ytiOT5lcp6Q",
       "setup_video": "",
@@ -4897,6 +4913,38 @@
       "setup_video": "",
       "harness_connector": "VW J533",
       "detail_sentence": "openpilot upgrades your <strong>Volkswagen Grand California</strong> with automated lane centering <strong>above 31 mph</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
+      "footnotes": [
+      ],
+      "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
+      ]
+    },
+    {
+      "name": "Volkswagen ID.4 2021-23",
+      "model": "ID.4",
+      "years": "2021-23",
+      "year_list": "2021, 2022, 2023",
+      "package": "Adaptive Cruise Control (ACC) & Lane Assist",
+      "video": "",
+      "setup_video": "",
+      "harness_connector": "VW J533",
+      "detail_sentence": "openpilot upgrades your <strong>Volkswagen ID.4</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "footnotes": [
+      ],
+      "setup_notes": [
+        "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
+      ]
+    },
+    {
+      "name": "Volkswagen ID.4 2024-25",
+      "model": "ID.4",
+      "years": "2024-25",
+      "year_list": "2024, 2025",
+      "package": "Adaptive Cruise Control (ACC) & Lane Assist",
+      "video": "",
+      "setup_video": "",
+      "harness_connector": "VW J533",
+      "detail_sentence": "openpilot upgrades your <strong>Volkswagen ID.4</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
       "footnotes": [
       ],
       "setup_notes": [
