@@ -175,7 +175,6 @@
         education relevant to job offered.
       `,
       qualifications: [],
-      howToApply: '',
     },
     {
       title: "Electronics Engineer",
@@ -579,12 +578,10 @@
                   </ul>
                 {/if}
 
-                {#if job.howToApply ?? DEFAULT_HOW_TO_APPLY}
-                  <div class="job-how-to-apply">
-                    <div class="job-qualifications">How to apply</div>
-                    <p>{@html job.howToApply ?? DEFAULT_HOW_TO_APPLY}</p>
-                  </div>
-                {/if}
+                <div class="job-how-to-apply">
+                  <div class="job-qualifications">How to apply</div>
+                  <p>{@html job.howToApply ?? DEFAULT_HOW_TO_APPLY}</p>
+                </div>
               </div>
             {/if}
           </article>
