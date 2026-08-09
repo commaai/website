@@ -66,13 +66,6 @@
           `
         },
         {
-          question: "My comma 3X is out of warranty and needs repair.",
-          answer: `
-            We offer repairs at a flat-rate for out of warranty comma 3X devices.
-            More details on the <a href="/shop/comma-3x-out-of-warranty-repair">shop</a>.
-          `
-        },
-        {
           question: "My older comma device is out of warranty and needs repair.",
           answer: `
             We offer trade-ins for eligible devices.
