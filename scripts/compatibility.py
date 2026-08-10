@@ -1,17 +1,25 @@
 #!/usr/bin/env python3
+from collections import defaultdict
 from pathlib import Path
 from datetime import datetime
 import json
 
 import jinja2
 
-from opendbc.car.docs import get_all_car_docs, get_all_footnotes, group_by_make
-from opendbc.car.docs_definitions import BaseCarHarness, Column, Device, ExtraCarsColumn, PartType, SupportType
+from opendbc.car.docs import get_all_car_docs, get_all_footnotes
+from opendbc.car.docs_definitions import CarDocs, BaseCarHarness, Column, Device, ExtraCarsColumn, PartType, SupportType
 
 WEB4_DIR = Path(__file__).parent.parent
 TEMPLATES = ((WEB4_DIR / "templates/vehicles_template.json", WEB4_DIR / "src/lib/vehicles.json"),
              (WEB4_DIR / "templates/harness-parts_template.html", WEB4_DIR / "static/harness-parts.html"))
 DATE_FILE = WEB4_DIR / "src/lib/compatibility-meta.json"
+
+
+def group_by_make(all_car_docs: list[CarDocs]) -> dict[str, list[CarDocs]]:
+  sorted_car_docs = defaultdict(list)
+  for car_docs in all_car_docs:
+    sorted_car_docs[car_docs.make].append(car_docs)
+  return dict(sorted_car_docs)
 
 
 def render_template(all_car_docs, template_path: Path) -> str:
