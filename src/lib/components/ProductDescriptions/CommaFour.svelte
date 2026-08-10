@@ -77,7 +77,7 @@
       backordered = null;
       disableBuyButtonText = null;
     } else if (value) {
-      backordered = value.currentlyNotInStock ? (value.backordered || '1-12 weeks') : null;
+      backordered = value.backordered || (value.currentlyNotInStock ? '1-12 weeks' : null);
       disableBuyButtonText = null;
     } else {
       backordered = null;
