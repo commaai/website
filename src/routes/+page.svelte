@@ -245,7 +245,7 @@
       </div>
 
       <a class="homepage-cta comma-four-cta" href="/shop/comma-four">
-        <span>buy now for $999 risk-free</span>
+        <span>buy now for $999</span>
         <span class="cta-arrow" aria-hidden="true">{@html ArrowRight}</span>
       </a>
     </div>
