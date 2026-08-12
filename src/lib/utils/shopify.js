@@ -95,6 +95,10 @@ export async function _loadCart() {
                   ... on ProductVariant {
                     id
                     title
+                    image {
+                      url
+                      altText
+                    }
                     product {
                       images(first: 1) {
                         edges {
