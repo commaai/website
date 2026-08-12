@@ -16,6 +16,8 @@
   export let getCartNote = null;
   export let backordered = null;
   export let backorderedPrefix = "ships in ";
+  // TODO: remove when all stock in Shopify is updated
+  export let useVariantBackorderStatus = false;
   export let forceOutOfStock = false;
   export let disableBuyButtonText = null;
   export let hideOutOfStockVariants = false;
@@ -43,6 +45,11 @@
   $: selectedVariant = variants.find(
     (variant) => variant.id === selectedVariantId,
   );
+
+  $: selectedVariantBackordered = useVariantBackorderStatus && selectedVariant?.currentlyNotInStock
+    ? (selectedVariant.backordered || '1-12 weeks')
+    : null;
+  $: effectiveBackordered = backordered || (!forceOutOfStock && selectedVariantBackordered);
 
   $: highlightedImageSrc = product?.images[currentImageIndex];
   $: priceLabel = getPriceLabel(selectedVariant);
@@ -79,11 +86,11 @@
       addToCartLabel = disableBuyButtonText;
     } else if (forceOutOfStock || (selectedVariant && !selectedVariant.availableForSale)) {
       addToCartLabel = "Out of stock";
-      if (backordered) {
-        addToCartLabel += ` (${backorderedPrefix}${backordered})`;
+      if (effectiveBackordered) {
+        addToCartLabel += ` (${backorderedPrefix}${effectiveBackordered})`;
       }
-    } else if (backordered) {
-      addToCartLabel = `Add to cart (${backorderedPrefix}${backordered})`;
+    } else if (effectiveBackordered) {
+      addToCartLabel = `Add to cart (${backorderedPrefix}${effectiveBackordered})`;
     } else {
       addToCartLabel = "Add to cart";
     }
