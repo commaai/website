@@ -1,9 +1,9 @@
 <div class="banner">
   <div class="wrapper">
-    <p class="headline">
-      New open roles in San Diego.
-      <a href="/jobs" class="cta">Build with us -&gt;</a>
-    </p>
+    <a href="/shop/chestnut" class="headline">
+      <strong>Big GPU, big models.</strong>
+      <span>Meet chestnut ⟶</span>
+    </a>
   </div>
 </div>
 
@@ -11,7 +11,7 @@
   .banner {
     color: black;
     position: relative;
-    z-index: 1;
+    z-index: 4;
     background-color: var(--color-card-background-hover);
   }
 
@@ -31,21 +31,24 @@
   }
 
   .headline {
+    color: black;
     font-family: Inter, sans-serif;
     font-size: 1.25rem;
-    font-weight: 400;
     margin: 0 0.5rem;
+    text-decoration: none;
   }
 
-  .cta {
-    color: inherit;
+  .headline span {
+    color: black;
+    margin-left: 0.35em;
     font-weight: 700;
     text-decoration: underline;
     text-underline-offset: 0.15em;
+    white-space: nowrap;
   }
 
-  .cta:hover,
-  .cta:focus-visible {
+  .headline:hover span,
+  .headline:focus-visible span {
     text-decoration-thickness: 2px;
   }
 </style>
