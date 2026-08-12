@@ -1,4 +1,18 @@
 export const products = {
+  "chestnut": {
+    title: "chestnut",
+    id: "gid://shopify/Product/8304058433599",
+    route: "/shop/chestnut",
+    category: "device",
+    price: "from $250",
+    images: [
+      "/src/lib/images/products/chestnut/bnut_34.png",
+      "/src/lib/images/products/chestnut/bnut_front.png",
+      "/src/lib/images/products/chestnut/cnut_34.png"
+    ],
+    notes: []
+  },
+
   "comma-four": {
     title: "comma four",
     id: "gid://shopify/Product/7964554231871",

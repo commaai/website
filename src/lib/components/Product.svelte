@@ -22,6 +22,9 @@
   export let forceOutOfStock = false;
   export let disableBuyButtonText = null;
   export let hideOutOfStockVariants = false;
+  export let hideVariantImage = false;
+  export let scrollProductImages = false;
+  export let inlineMobileTitlePrice = false;
   export let previousPrice = null;
   export let priceOverride = null;
   export let sale = false;
@@ -33,6 +36,7 @@
   }
 
   let currentImageIndex = 0;
+  let previousSelectedVariantId = null;
 
   $: variants = hideOutOfStockVariants
     ? product?.variants?.nodes.filter(v => v.availableForSale) || []
@@ -52,7 +56,16 @@
     : null;
   $: effectiveBackordered = backordered || (!forceOutOfStock && selectedVariantBackordered);
 
-  $: highlightedImageSrc = product?.images[currentImageIndex];
+  $: if (selectedVariantId !== previousSelectedVariantId) {
+    previousSelectedVariantId = selectedVariantId;
+    currentImageIndex = 0;
+  }
+
+  $: displayImages = selectedVariant?.images?.length
+    ? selectedVariant.images
+    : product?.images || [];
+
+  $: highlightedImageSrc = displayImages[currentImageIndex] || displayImages[0];
   $: priceLabel = getPriceLabel(selectedVariant);
 
   async function addItem() {
@@ -100,23 +113,22 @@
 
 {#if product}
   <Grid columns={2} rowGap="0" columnGap="6rem" templateColumns="1.25fr 0.75fr" lgTemplateColumns="1fr 1fr" lgColumnGap="2rem">
-    <div>
+    <div class="product-gallery">
       <div class="preview">
-        <img src={highlightedImageSrc} alt="product preview" />
+        <img src={highlightedImageSrc} alt="{product.title} product preview" />
       </div>
-      {#if product?.images?.length > 1}
-        <div class="product-images">
-          {#each product?.images as image, i}
+      {#if displayImages.length > 1}
+        <div class="product-images" class:scrolling={scrollProductImages}>
+          {#each displayImages as image, i}
             <button
               on:click={() => {
                 currentImageIndex = i;
               }}
               class="variant"
-              role="tab"
-              aria-selected={currentImageIndex === i}
-              aria-label={`View product variant ${i}`}
+              aria-pressed={currentImageIndex === i}
+              aria-label={`View ${product.title} image ${i + 1}`}
             >
-              <img src={image} alt="product preview {i + 1}" />
+              <img src={image} alt="" />
             </button>
           {/each}
         </div>
@@ -125,21 +137,25 @@
     <div>
       <div>
         <div class="variant-selector">
-          <h1>{product?.title}</h1>
-          <div class="price">
-            {#if previousPrice}
-              <div class="strikethrough-price">${previousPrice}</div>
-            {/if}
-            <slot name="price">
-              <div class:sale-price={sale}>{priceLabel}</div>
-            </slot>
+          <div class="title-price" class:inline-mobile={inlineMobileTitlePrice}>
+            <h1>{product?.title}</h1>
+            <div class="price">
+              {#if previousPrice}
+                <div class="strikethrough-price">${previousPrice}</div>
+              {/if}
+              <slot name="price">
+                <div class:sale-price={sale}>{priceLabel}</div>
+              </slot>
+            </div>
           </div>
           <slot name="price-accessory"></slot>
           {#if VariantSelector}
             <svelte:component this={VariantSelector} onChange={handleVariantSelection} />
           {:else}
             {#if variants.length > 1}
-              <img src={selectedVariant.image.url} alt="" />
+              {#if !hideVariantImage}
+                <img src={selectedVariant.image.url} alt="" />
+              {/if}
               <Select bind:value={selectedVariantId}>
                 {#each variants as option}
                   <option value={option.id}>
@@ -190,9 +206,35 @@
     }
   }
 
+  .product-gallery {
+    min-width: 0;
+    max-width: 100%;
+  }
+
   .product-images {
     display: flex;
     flex-wrap: wrap;
+  }
+
+  .product-images.scrolling {
+    @media only screen and (max-width: 768px) {
+      & {
+        width: 100%;
+        max-width: 100%;
+        flex-wrap: nowrap;
+        gap: 0.5rem;
+        overflow-x: auto;
+        overflow-y: hidden;
+        overscroll-behavior-x: contain;
+        scrollbar-width: thin;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      & .variant {
+        flex: 0 0 120px;
+        max-width: none;
+      }
+    }
   }
 
   .variant {
@@ -237,6 +279,24 @@
       width: 120px;
       height: 120px;
       object-fit: scale-down;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    .title-price.inline-mobile {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.5rem 1rem;
+    }
+
+    .title-price.inline-mobile h1 {
+      margin-right: auto;
+    }
+
+    .title-price.inline-mobile .price {
+      text-align: right;
     }
   }
 

@@ -7,6 +7,7 @@
   import Badge from "$lib/components/Badge.svelte";
 
   import FourImage from "$lib/images/products/comma-four/four_screen_on.png";
+  import ChestnutImage from "$lib/images/products/chestnut/bnut_34.png";
 
   import RecordingsIcon from "$lib/icons/features/recordings.svg?raw";
   import CalendarIcon from "$lib/icons/features/calendar.svg?raw";
@@ -16,6 +17,8 @@
   import ImmediateIcon from "$lib/icons/features/immediate.svg?raw";
   import AdaptiveCruiseIcon from "$lib/icons/features/adaptive-cruise.svg?raw";
   import LaneCenteringIcon from "$lib/icons/features/lane-centering.svg?raw";
+  import CableIcon from "$lib/icons/features/cable.svg?raw";
+  import ProcessorIcon from "$lib/icons/features/processor.svg?raw";
 
   import { FOUR_PRICE, FOUR_TRADE_IN_CREDIT, NO_HARNESS_DISCOUNT, FOUR_SALE, FOUR_STRIKETHROUGH_PRICE } from '$lib/constants/prices.js';
   import { vehicleCountText } from '$lib/constants/vehicles.js';
@@ -109,6 +112,64 @@
       </div>
     </article>
 
+    <article class="chestnut-card">
+      <div class="product-display">
+        <Grid columns={2} alignItems="center" size="large">
+          <div class="product-content">
+            <Badge style="accent">NEW!</Badge>
+            <hgroup>
+              <h1>chestnut</h1>
+              <span>from $249</span>
+              <span class="muted">run openpilot’s biggest models in your car</span>
+            </hgroup>
+            <LinkButton href="/shop/chestnut" style="secondary" fullWidth>
+              Buy now
+            </LinkButton>
+            <p class="muted">
+              chestnut turns USB into PCIe, so you can connect a full desktop
+              GPU to a <a class="highlight muted" href="/shop/comma-four">comma four</a>
+              or your computer.
+            </p>
+          </div>
+          <div class="chestnut-image mobile-first">
+            <img src={ChestnutImage} loading="lazy" alt="chestnut GPU interface" />
+          </div>
+        </Grid>
+      </div>
+      <div class="traits light">
+        <Grid columns={3} alignItems="stretch" columnGap="0" rowGap="0">
+          <div class="trait">
+            <div>{@html CarIcon}</div>
+            <hgroup>
+              <h2>Ready to drive</h2>
+              <div>
+                Comes with everything you need to add desktop-class GPU compute
+                to your comma four.
+              </div>
+            </hgroup>
+          </div>
+          <div class="trait">
+            <div>{@html ProcessorIcon}</div>
+            <hgroup>
+              <h2>Bring your own GPU</h2>
+              <div>
+                Use tiny chestnut with your own GPU and power supply.
+              </div>
+            </hgroup>
+          </div>
+          <div class="trait">
+            <div>{@html CableIcon}</div>
+            <hgroup>
+              <h2>Any computer, any USB</h2>
+              <div>
+                With <a class="highlight" href="https://github.com/tinygrad/tinygrad">tinygrad</a>,
+                use your GPU over USB4, USB3, or USB2 on Linux or macOS.
+              </div>
+            </hgroup>
+          </div>
+        </Grid>
+      </div>
+    </article>
   </div>
 </section>
 
@@ -249,6 +310,26 @@
 
     & .gradient-bg {
       background: linear-gradient(135deg, #111 50%, #023807);
+    }
+
+    & .chestnut-card {
+      overflow: hidden;
+
+      & .product-display {
+        background: linear-gradient(135deg, #111 50%, #023807);
+      }
+
+      & .chestnut-image {
+        overflow: hidden;
+
+        & img {
+          display: block;
+          width: 100%;
+          aspect-ratio: 4 / 3;
+          object-fit: contain;
+          transform: scale(1.15);
+        }
+      }
     }
 
     & .product-display {

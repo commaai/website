@@ -45,12 +45,14 @@
       <div class="empty">Your cart is empty.</div>
     {/if}
     {#each $cartItems as item}
-      {@const imageUrl = item.node.merchandise.image?.url || item.node.merchandise.product.images.edges[0].node.originalSrc}
+      {@const imageUrl = item.node.merchandise.image?.url || item.node.merchandise.product.images.edges[0]?.node?.originalSrc}
       <div class="item">
-        <img
-          alt={item.node.merchandise.product.title}
-          src={imageUrl}
-        />
+        {#if imageUrl}
+          <img
+            alt={item.node.merchandise.product.title}
+            src={imageUrl}
+          />
+        {/if}
         <div class="details">
           <div class="title">
             {item.node.merchandise.product.title}
