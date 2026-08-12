@@ -46,10 +46,9 @@
     {/if}
     {#each $cartItems as item}
       {@const imageUrl = item.node.merchandise.image?.url || item.node.merchandise.product.images.edges[0].node.originalSrc}
-      {@const imageAlt = item.node.merchandise.image?.altText || item.node.merchandise.product.title}
       <div class="item">
         <img
-          alt={imageAlt}
+          alt={item.node.merchandise.product.title}
           src={imageUrl}
         />
         <div class="details">
