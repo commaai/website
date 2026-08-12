@@ -45,12 +45,11 @@
       <div class="empty">Your cart is empty.</div>
     {/if}
     {#each $cartItems as item}
+      {@const imageUrl = item.node.merchandise.image?.url || item.node.merchandise.product.images.edges[0].node.originalSrc}
       <div class="item">
         <img
           alt={item.node.merchandise.product.title}
-          decoding="async"
-          loading="lazy"
-          src={item.node.merchandise.product.images.edges[0].node.originalSrc}
+          src={imageUrl}
         />
         <div class="details">
           <div class="title">
