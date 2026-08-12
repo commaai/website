@@ -6,6 +6,7 @@
 
   import ShippingIcon from "$lib/icons/features/shipping.svg?raw";
 
+  import { DEFAULT_BACKORDER_ESTIMATE } from "$lib/constants/shipping.js";
   import { formatCurrency } from "$lib/utils/currency";
   import { addToCart } from "../../store.js";
 
@@ -28,7 +29,7 @@
   export let VariantSelector = null;
   function handleVariantSelection(variant) {
     selectedVariantId = variant?.id || null;
-    backordered = variant?.currentlyNotInStock ? (variant.backordered || '1-12 weeks') : null;
+    backordered = variant?.currentlyNotInStock ? (variant.backordered || DEFAULT_BACKORDER_ESTIMATE) : null;
   }
 
   let currentImageIndex = 0;
@@ -47,7 +48,7 @@
   );
 
   $: selectedVariantBackordered = useVariantBackorderStatus && selectedVariant?.currentlyNotInStock
-    ? (selectedVariant.backordered || '1-12 weeks')
+    ? (selectedVariant.backordered || DEFAULT_BACKORDER_ESTIMATE)
     : null;
   $: effectiveBackordered = backordered || (!forceOutOfStock && selectedVariantBackordered);
 
