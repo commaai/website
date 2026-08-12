@@ -6,6 +6,7 @@
 
   import ShippingIcon from "$lib/icons/features/shipping.svg?raw";
 
+  import { DEFAULT_BACKORDER_ESTIMATE } from "$lib/constants/shipping.js";
   import { formatCurrency } from "$lib/utils/currency";
   import { addToCart } from "../../store.js";
 
@@ -16,6 +17,8 @@
   export let getCartNote = null;
   export let backordered = null;
   export let backorderedPrefix = "ships in ";
+  // TODO: remove when all stock in Shopify is updated
+  export let useVariantBackorderStatus = false;
   export let forceOutOfStock = false;
   export let disableBuyButtonText = null;
   export let hideOutOfStockVariants = false;
@@ -26,7 +29,7 @@
   export let VariantSelector = null;
   function handleVariantSelection(variant) {
     selectedVariantId = variant?.id || null;
-    backordered = variant?.currentlyNotInStock ? (variant.backordered || '1-12 weeks') : null;
+    backordered = variant?.currentlyNotInStock ? (variant.backordered || DEFAULT_BACKORDER_ESTIMATE) : null;
   }
 
   let currentImageIndex = 0;
@@ -43,6 +46,11 @@
   $: selectedVariant = variants.find(
     (variant) => variant.id === selectedVariantId,
   );
+
+  $: selectedVariantBackordered = useVariantBackorderStatus && selectedVariant?.currentlyNotInStock
+    ? (selectedVariant.backordered || DEFAULT_BACKORDER_ESTIMATE)
+    : null;
+  $: effectiveBackordered = backordered || (!forceOutOfStock && selectedVariantBackordered);
 
   $: highlightedImageSrc = product?.images[currentImageIndex];
   $: priceLabel = getPriceLabel(selectedVariant);
@@ -79,11 +87,11 @@
       addToCartLabel = disableBuyButtonText;
     } else if (forceOutOfStock || (selectedVariant && !selectedVariant.availableForSale)) {
       addToCartLabel = "Out of stock";
-      if (backordered) {
-        addToCartLabel += ` (${backorderedPrefix}${backordered})`;
+      if (effectiveBackordered) {
+        addToCartLabel += ` (${backorderedPrefix}${effectiveBackordered})`;
       }
-    } else if (backordered) {
-      addToCartLabel = `Add to cart (${backorderedPrefix}${backordered})`;
+    } else if (effectiveBackordered) {
+      addToCartLabel = `Add to cart (${backorderedPrefix}${effectiveBackordered})`;
     } else {
       addToCartLabel = "Add to cart";
     }

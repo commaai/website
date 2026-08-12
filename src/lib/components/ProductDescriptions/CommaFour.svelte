@@ -19,6 +19,7 @@
   import { onMount } from 'svelte';
   import { getProduct } from '$lib/utils/shopify';
   import { products as productsData } from '$lib/data/products.js';
+  import { DEFAULT_BACKORDER_ESTIMATE } from '$lib/constants/shipping.js';
   import { formatCurrency } from "$lib/utils/currency";
 
   export let product;
@@ -77,7 +78,7 @@
       backordered = null;
       disableBuyButtonText = null;
     } else if (value) {
-      backordered = value.currentlyNotInStock ? (value.backordered || '1-12 weeks') : null;
+      backordered = value.currentlyNotInStock ? (value.backordered || DEFAULT_BACKORDER_ESTIMATE) : null;
       disableBuyButtonText = null;
     } else {
       backordered = null;
