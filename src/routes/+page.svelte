@@ -3,6 +3,7 @@
   import Hls from 'hls.js/light';
   import FeaturedCarsList from "$lib/components/FeaturedCarsList.svelte";
   import FeaturedArticles from "$lib/components/FeaturedArticles.svelte";
+  import FeaturedReviews from "$lib/components/FeaturedReviews.svelte";
   import HomeHeroOverlay from "$lib/components/HomeHeroOverlay.svelte";
   import Grid from "$lib/components/Grid.svelte";
 
@@ -299,6 +300,7 @@
       </div>
     </figure>
     <FeaturedArticles />
+    <FeaturedReviews />
     <h1>
       follow us on 𝕏
       <a href="https://twitter.com/comma_ai" target="_blank" class="highlight">@comma_ai</a>
