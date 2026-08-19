@@ -95,10 +95,8 @@
     <Product
       {product}
       useVariantBackorderStatus={true}
-      hideVariantImage={true}
       scrollProductImages={true}
       inlineMobileTitlePrice={true}
-      showVariantCards={true}
       getVariantDescription={descriptionForVariant}
     >
       <div slot="notes">

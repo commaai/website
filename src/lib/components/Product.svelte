@@ -1,7 +1,6 @@
 <script>
   import Grid from "$lib/components/Grid.svelte";
   import Button from "$lib/components/Button.svelte";
-  import Select from "$lib/components/Select.svelte";
   import NoteCard from "$lib/components/NoteCard.svelte";
 
   import ShippingIcon from "$lib/icons/features/shipping.svg?raw";
@@ -22,19 +21,21 @@
   export let forceOutOfStock = false;
   export let disableBuyButtonText = null;
   export let hideOutOfStockVariants = false;
-  export let hideVariantImage = false;
   export let scrollProductImages = false;
   export let inlineMobileTitlePrice = false;
   export let previousPrice = null;
   export let priceOverride = null;
   export let sale = false;
-  export let showVariantCards = false;
   export let getVariantDescription = null;
 
   export let VariantSelector = null;
   function handleVariantSelection(variant) {
     selectedVariantId = variant?.id || null;
     backordered = variant?.currentlyNotInStock ? (variant.backordered || DEFAULT_BACKORDER_ESTIMATE) : null;
+  }
+
+  function getVariantImage(variant) {
+    return variant.images?.[0] || variant.image?.url || product.images?.[0];
   }
 
   let currentImageIndex = 0;
@@ -141,7 +142,7 @@
         <div class="variant-selector">
           <div class="title-price" class:inline-mobile={inlineMobileTitlePrice}>
             <h1>{product?.title}</h1>
-            {#if !showVariantCards}
+            {#if VariantSelector || variants.length <= 1}
               <div class="price">
                 {#if previousPrice}
                   <div class="strikethrough-price">${previousPrice}</div>
@@ -155,46 +156,31 @@
           <slot name="price-accessory"></slot>
           {#if VariantSelector}
             <svelte:component this={VariantSelector} onChange={handleVariantSelection} />
-          {:else}
-            {#if variants.length > 1}
-              {#if showVariantCards}
-                <div class="variant-cards" role="radiogroup" aria-label={`${product.title} options`}>
-                  {#each variants as option}
-                    <label class="variant-card" class:selected={selectedVariantId === option.id}>
-                      <input type="radio" bind:group={selectedVariantId} value={option.id} />
-                      <img src={option.images?.[0] || option.image?.url} alt="" />
-                      <span class="variant-card-copy">
-                        <strong>{option.title}</strong>
-                        {#if getVariantDescription}
-                          <span>{getVariantDescription(option)}</span>
-                        {/if}
-                        <span class:out-of-stock={!option.availableForSale} class:backordered={option.availableForSale && option.currentlyNotInStock} class="stock-status">
-                          {#if !option.availableForSale}
-                            Out of stock
-                          {:else if option.currentlyNotInStock}
-                            Ships in {option.backordered || DEFAULT_BACKORDER_ESTIMATE}
-                          {:else}
-                            In stock
-                          {/if}
-                        </span>
-                      </span>
-                      <strong class="variant-card-price">{formatCurrency(option.price, 0)}</strong>
-                    </label>
-                  {/each}
-                </div>
-              {:else}
-                {#if !hideVariantImage}
-                  <img src={selectedVariant.image.url} alt="" />
-                {/if}
-                <Select bind:value={selectedVariantId}>
-                  {#each variants as option}
-                    <option value={option.id}>
-                      {option.title}
-                    </option>
-                  {/each}
-                </Select>
-              {/if}
-            {/if}
+          {:else if variants.length > 1}
+            <div class="variant-cards" role="radiogroup" aria-label={`${product.title} options`}>
+              {#each variants as option}
+                <label class="variant-card" class:selected={selectedVariantId === option.id}>
+                  <input type="radio" bind:group={selectedVariantId} value={option.id} />
+                  <img src={getVariantImage(option)} alt="" />
+                  <span class="variant-card-copy">
+                    <strong>{option.title}</strong>
+                    {#if getVariantDescription}
+                      <span>{getVariantDescription(option)}</span>
+                    {/if}
+                    <span class:out-of-stock={!option.availableForSale} class:backordered={option.availableForSale && option.currentlyNotInStock} class="stock-status">
+                      {#if !option.availableForSale}
+                        Out of stock
+                      {:else if option.currentlyNotInStock}
+                        Ships in {option.backordered || DEFAULT_BACKORDER_ESTIMATE}
+                      {:else}
+                        In stock
+                      {/if}
+                    </span>
+                  </span>
+                  <strong class="variant-card-price">{formatCurrency(option.price, 0)}</strong>
+                </label>
+              {/each}
+            </div>
           {/if}
         </div>
         <Button
