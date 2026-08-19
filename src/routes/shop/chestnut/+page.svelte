@@ -63,6 +63,12 @@
       : tinyChestnutImages;
   }
 
+  function descriptionForVariant(variant) {
+    return variant.title.toLowerCase().includes("ready to drive")
+      ? "Everything you need to use chestnut with comma four."
+      : "Use chestnut with your own GPU and power supply.";
+  }
+
   const product = {
     ...data.product,
     variants: {
@@ -92,6 +98,8 @@
       hideVariantImage={true}
       scrollProductImages={true}
       inlineMobileTitlePrice={true}
+      showVariantCards={true}
+      getVariantDescription={descriptionForVariant}
     >
       <div slot="notes">
         <NoteCard title="Using chestnut with openpilot?" icon={CarIcon}>

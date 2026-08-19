@@ -28,6 +28,8 @@
   export let previousPrice = null;
   export let priceOverride = null;
   export let sale = false;
+  export let showVariantCards = false;
+  export let getVariantDescription = null;
 
   export let VariantSelector = null;
   function handleVariantSelection(variant) {
@@ -139,30 +141,59 @@
         <div class="variant-selector">
           <div class="title-price" class:inline-mobile={inlineMobileTitlePrice}>
             <h1>{product?.title}</h1>
-            <div class="price">
-              {#if previousPrice}
-                <div class="strikethrough-price">${previousPrice}</div>
-              {/if}
-              <slot name="price">
-                <div class:sale-price={sale}>{priceLabel}</div>
-              </slot>
-            </div>
+            {#if !showVariantCards}
+              <div class="price">
+                {#if previousPrice}
+                  <div class="strikethrough-price">${previousPrice}</div>
+                {/if}
+                <slot name="price">
+                  <div class:sale-price={sale}>{priceLabel}</div>
+                </slot>
+              </div>
+            {/if}
           </div>
           <slot name="price-accessory"></slot>
           {#if VariantSelector}
             <svelte:component this={VariantSelector} onChange={handleVariantSelection} />
           {:else}
             {#if variants.length > 1}
-              {#if !hideVariantImage}
-                <img src={selectedVariant.image.url} alt="" />
+              {#if showVariantCards}
+                <div class="variant-cards" role="radiogroup" aria-label={`${product.title} options`}>
+                  {#each variants as option}
+                    <label class="variant-card" class:selected={selectedVariantId === option.id}>
+                      <input type="radio" bind:group={selectedVariantId} value={option.id} />
+                      <img src={option.images?.[0] || option.image?.url} alt="" />
+                      <span class="variant-card-copy">
+                        <strong>{option.title}</strong>
+                        {#if getVariantDescription}
+                          <span>{getVariantDescription(option)}</span>
+                        {/if}
+                        <span class:out-of-stock={!option.availableForSale} class:backordered={option.availableForSale && option.currentlyNotInStock} class="stock-status">
+                          {#if !option.availableForSale}
+                            Out of stock
+                          {:else if option.currentlyNotInStock}
+                            Ships in {option.backordered || DEFAULT_BACKORDER_ESTIMATE}
+                          {:else}
+                            In stock
+                          {/if}
+                        </span>
+                      </span>
+                      <strong class="variant-card-price">{formatCurrency(option.price, 0)}</strong>
+                    </label>
+                  {/each}
+                </div>
+              {:else}
+                {#if !hideVariantImage}
+                  <img src={selectedVariant.image.url} alt="" />
+                {/if}
+                <Select bind:value={selectedVariantId}>
+                  {#each variants as option}
+                    <option value={option.id}>
+                      {option.title}
+                    </option>
+                  {/each}
+                </Select>
               {/if}
-              <Select bind:value={selectedVariantId}>
-                {#each variants as option}
-                  <option value={option.id}>
-                    {option.title}
-                  </option>
-                {/each}
-              </Select>
             {/if}
           {/if}
         </div>
@@ -282,7 +313,113 @@
     }
   }
 
+  .variant-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .variant-card {
+    position: relative;
+    display: grid;
+    grid-template-columns: 72px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 0.75rem;
+    min-height: 88px;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--color-black);
+    background-color: var(--color-card-background);
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .variant-card:hover {
+      background-color: var(--color-card-background-hover);
+    }
+  }
+
+  .variant-card.selected {
+    padding: calc(0.5rem - 2px) calc(0.75rem - 2px);
+    border-width: 3px;
+  }
+
+  .variant-card:has(input:focus-visible) {
+    outline: 2px solid var(--color-black);
+    outline-offset: 2px;
+  }
+
+  .variant-card input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .variant-selector .variant-card img {
+    width: 72px;
+    height: 72px;
+    mix-blend-mode: multiply;
+  }
+
+  .variant-card-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    min-width: 0;
+    color: var(--color-foreground);
+  }
+
+  .variant-card-copy > span:not(.stock-status) {
+    color: var(--color-muted);
+    font-size: 0.875rem;
+  }
+
+  .stock-status {
+    color: #24820f;
+    font-family: JetBrains Mono, monospace;
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: normal;
+    text-transform: uppercase;
+  }
+
+  .stock-status.out-of-stock {
+    color: var(--color-red);
+  }
+
+  .stock-status.backordered {
+    color: #9a6700;
+  }
+
+  .variant-card-price {
+    align-self: start;
+    font-family: JetBrains Mono, monospace;
+    font-weight: 400;
+    white-space: nowrap;
+  }
+
   @media only screen and (max-width: 768px) {
+    .variant-card {
+      grid-template-columns: 56px minmax(0, 1fr) auto;
+      gap: 0.5rem;
+      padding: 0.5rem;
+    }
+
+    .variant-card.selected {
+      padding: calc(0.5rem - 2px);
+    }
+
+    .variant-selector .variant-card img {
+      width: 56px;
+      height: 56px;
+    }
+
     .title-price.inline-mobile {
       display: flex;
       flex-wrap: wrap;
