@@ -200,7 +200,7 @@
               USB cable, a car power cable, and mounting strips.
             </p>
             <p class="usage-link">
-              Join the #hw-chestnut channel on <a class="highlight" href="https://discord.comma.ai/">Discord</a>.
+              Join the #chestnut channel on <a class="highlight" href="https://discord.comma.ai/">Discord</a>.
             </p>
           </article>
         </div>
