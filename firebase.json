@@ -41,7 +41,7 @@
       },
       {
         "source": "/shop/products/panda-obd-ii-dongle",
-        "destination": "/shop/panda",
+        "destination": "/shop/red-panda",
         "type": 301
       },
       {
@@ -51,7 +51,12 @@
       },
       {
         "source": "/shop/panda-obd-ii-dongle",
-        "destination": "/shop/panda",
+        "destination": "/shop/red-panda",
+        "type": 301
+      },
+      {
+        "source": "/shop/panda",
+        "destination": "/shop/red-panda",
         "type": 301
       },
       {
