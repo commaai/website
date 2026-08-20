@@ -6,10 +6,13 @@
   export let variants = [];
   export let value = null;
   export let label = "Choose a product variant";
-  export let maxRadioOptions = 4;
+  export let size = "big";
 
   let showAll = false;
-  $: visibleVariants = showAll ? variants : variants.slice(0, maxRadioOptions);
+  $: maxColumns = size === "small" ? 3 : 2;
+  $: visibleLimit = maxColumns * 2;
+  $: visibleVariants = showAll ? variants : variants.slice(0, visibleLimit);
+  $: columns = Math.min(variants.length, maxColumns);
 
   function getStockStatus(variant) {
     if (!variant.availableForSale) {
@@ -25,14 +28,14 @@
   }
 </script>
 
-<fieldset>
+<fieldset class:small={size === "small"}>
   <legend>{label}</legend>
   <div id="variant-options">
     <Grid
-      columns={Math.min(variants.length, 2)}
+      {columns}
       alignItems="stretch"
       size="small"
-      wrapMode="single"
+      wrapMode={size === "small" ? "double" : "single"}
       columnGap="0.75rem"
       rowGap="0.75rem"
     >
@@ -60,7 +63,7 @@
     </Grid>
   </div>
 
-  {#if !showAll && variants.length > maxRadioOptions}
+  {#if !showAll && variants.length > visibleLimit}
     <button
       type="button"
       class="show-more"
@@ -68,7 +71,7 @@
       aria-controls="variant-options"
       on:click={() => showAll = true}
     >
-      Show {variants.length - maxRadioOptions} more
+      Show {variants.length - visibleLimit} more
     </button>
   {/if}
 </fieldset>
@@ -208,5 +211,19 @@
 
   .option-status.out-of-stock {
     color: #b42318;
+  }
+
+  fieldset.small label {
+    min-height: 5rem;
+    padding: 0.75rem;
+  }
+
+  fieldset.small .option-heading {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  fieldset.small .option-status {
+    overflow-wrap: anywhere;
   }
 </style>

@@ -21,6 +21,7 @@
         backorderedPrefix={product.backorderedPrefix ?? "ships in "}
         forceOutOfStock={product.forceOutOfStock || false}
         hideOutOfStockVariants={product.hideOutOfStockVariants || false}
+        variantSelectorSize={product.variantSelectorSize || "big"}
       >
         <div slot="notes">
           {#each product.notes || [] as note}

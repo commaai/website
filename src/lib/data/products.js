@@ -293,6 +293,7 @@ export const products = {
     route: "/shop/harness-connector",
     category: "accessories",
     price: "$50",
+    variantSelectorSize: "small",
     images: [
       "/src/lib/images/products/harness-connector/harness-connector.jpg",
       "/src/lib/images/products/car-harness/connectors.jpg"
@@ -501,6 +502,7 @@ export const products = {
     route: "/shop/comma-ai-hoodie",
     category: "accessories",
     price: "$89",
+    variantSelectorSize: "small",
     images: [
       "/src/lib/images/products/comma-ai-hoodie/comma-hoodie.jpg",
       "/src/lib/images/products/comma-ai-hoodie/comma-hoodie-back.jpeg",
@@ -544,6 +546,7 @@ export const products = {
     route: "/shop/comma-ai-t-shirt",
     category: "accessories",
     price: "$35",
+    variantSelectorSize: "small",
     images: [
       "/src/lib/images/products/comma-ai-t-shirt/comma-t-shirt.jpg",
       "/src/lib/images/products/comma-ai-t-shirt/comma-t-shirt-pose.jpeg",
