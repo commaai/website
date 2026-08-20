@@ -87,6 +87,7 @@
       {@const referralDiscount = $cartDiscountCodes.find(({ code }) => code.toLowerCase() === referralCode?.toLowerCase())}
       {@const referralDiscountAllocation = $cartDiscountAllocations.find(({ code }) => code?.toLowerCase() === referralCode?.toLowerCase())}
       {@const bulkDiscountAllocation = $cartDiscountAllocations.find(({ title }) => title?.toUpperCase() === 'BULK ORDER')}
+      {@const hasDiscountCode = $cartDiscountCodes.length > 0}
       {@const hasCommaFour = $cartItems.some(({ node }) => node.merchandise.product.id === COMMA_FOUR_PRODUCT_ID)}
       {#if referralCode && hasCommaFour}
         <div class:inactive={!referralDiscountAllocation} class="referral-discount">
@@ -99,17 +100,17 @@
                     ? 'Referral discount unavailable'
                     : 'Checking referral discount'}
               </strong>
-              <span class="referral-code">{referralCode}</span>
+              <code>{referralCode}</code>
             </div>
           </div>
           {#if referralDiscountAllocation}
-            <strong class="discount-amount">-{formatCurrency({ amount: REFERRAL_DISCOUNT, currencyCode: 'USD' }, 0)}</strong>
+            <h4><mark>-{formatCurrency({ amount: REFERRAL_DISCOUNT, currencyCode: 'USD' }, 0)}</mark></h4>
           {/if}
         </div>
       {/if}
       {#if $cartDiscount}
         {@const subtotalAmountAfterDiscount = $cartSubtotal.amount - (referralDiscountAllocation ? REFERRAL_DISCOUNT : $cartDiscount.amount)}
-        {#if bulkDiscountAllocation && !referralCode}
+        {#if bulkDiscountAllocation && !hasDiscountCode}
           <div class="price">
             <span>Bulk Order Discount</span>
             <span>
@@ -161,6 +162,10 @@
         rgba(255, 65, 51, 0.03) 100%
       );
     }
+
+    & h4 {
+      margin: 0;
+    }
   }
 
   .referral-status {
@@ -174,23 +179,6 @@
       gap: 0.125rem;
     }
 
-    & strong {
-      color: var(--color-black);
-      font-size: 1rem;
-    }
-  }
-
-  .referral-code {
-    color: rgba(0, 0, 0, 0.65);
-    font-family: "JetBrains Mono", monospace;
-    font-size: 0.875rem;
-    letter-spacing: 0;
-  }
-
-  .discount-amount {
-    color: var(--color-accent-hover);
-    font-size: 1rem;
-    white-space: nowrap;
   }
 
   .overlay {

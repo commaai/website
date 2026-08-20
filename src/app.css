@@ -247,6 +247,20 @@ button, select {
   font-family: Inter, sans-serif;
 }
 
+code {
+  color: rgba(0, 0, 0, 0.65);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.875rem;
+  letter-spacing: 0;
+}
+
+mark {
+  color: var(--color-accent-hover);
+  font-weight: 600;
+  background: none;
+  white-space: nowrap;
+}
+
 .mobile-first {
   @media only screen and (max-width: 1024px) {
     & {
