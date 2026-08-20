@@ -63,12 +63,6 @@
       : tinyChestnutImages;
   }
 
-  function subtitleForVariant(variant) {
-    return variant.title.toLowerCase().includes("ready to drive")
-      ? "Everything you need to use chestnut with comma four."
-      : "Use chestnut with your own GPU and power supply.";
-  }
-
   const product = {
     ...data.product,
     variants: {
@@ -77,7 +71,6 @@
         ...variant,
         backordered: "4-12 weeks",
         images: imagesForVariant(variant),
-        subtitle: subtitleForVariant(variant),
       })),
     },
   };

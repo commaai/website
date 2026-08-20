@@ -10,7 +10,7 @@
 <fieldset>
   <legend>{label}</legend>
   <Grid
-    columns={variants.length}
+    columns={Math.min(variants.length, 2)}
     alignItems="stretch"
     size="small"
     wrapMode="single"
@@ -25,13 +25,15 @@
           value={variant.id}
           bind:group={value}
         />
-        <span class="option-heading">
-          <strong>{variant.title.trim()}</strong>
-          <span class="option-price">{formatCurrency(variant.price, 0)}</span>
+        <span class="option-content">
+          <span class="option-heading">
+            <strong>{variant.title.trim()}</strong>
+            <span class="option-price">{formatCurrency(variant.price, 0)}</span>
+          </span>
+          {#if variant.subtitle}
+            <span class="option-subtitle">{variant.subtitle}</span>
+          {/if}
         </span>
-        {#if variant.subtitle}
-          <span class="option-subtitle">{variant.subtitle}</span>
-        {/if}
       </label>
     {/each}
   </Grid>
@@ -63,7 +65,7 @@
     display: flex;
     flex-direction: column;
     min-width: 0;
-    min-height: 7rem;
+    min-height: 5rem;
     padding: 1rem;
     cursor: pointer;
     background-color: #eee;
@@ -86,6 +88,13 @@
     width: 1px;
     height: 1px;
     opacity: 0;
+  }
+
+  .option-content {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    min-width: 0;
   }
 
   .option-heading {

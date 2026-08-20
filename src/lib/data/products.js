@@ -10,6 +10,10 @@ export const products = {
       "/src/lib/images/products/chestnut/bnut_front.png",
       "/src/lib/images/products/chestnut/cnut_34.png"
     ],
+    variantSubtitles: {
+      "ready to drive": "Everything you need to use chestnut with comma four.",
+      "eGPU dock only": "Use chestnut with your own GPU and power supply."
+    },
     notes: []
   },
 
@@ -375,10 +379,6 @@ export const products = {
     notes: [
       {
         title: "Note",
-        content: "comma four orders come with (2) mounts.",
-      },
-      {
-        title: "Note",
         content: "comma four mounts are not compatible with comma 3X/three.",
       }
     ],
@@ -425,7 +425,7 @@ export const products = {
       <hgroup>
         <div>
           <span>Variant</span>
-          <strong>comma 3X (8 degrees)</strong>
+          <strong>comma 3X (8°)</strong>
         </div>
       </hgroup>
       <p>
@@ -434,7 +434,7 @@ export const products = {
         <strong>Includes:</strong>
       </p>
       <p>
-        (1) 8 degree mount with adhesive backing
+        (1) 8° mount with adhesive backing
       </p>
       <p>
         (1) alcohol wipe
@@ -447,7 +447,13 @@ export const products = {
           target="_blank">open source</a> files.
       </p>
     `.trim(),
-    hideOutOfStockVariants: true
+    hideOutOfStockVariants: true,
+    variantSubtitles: {
+      "comma four": "Includes 2 mounts.",
+      "comma 3X": "Includes 1 mount.",
+      "comma 3X (8\u00B0)": "Includes 1 mount. For vehicles with steeper windshields."
+    },
+    variantSelectorStyle: "radio"
   },
 
   "comma-device-screen": {
