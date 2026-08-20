@@ -2,8 +2,6 @@ import { browser } from "$app/environment";
 import { writable, get } from 'svelte/store';
 import { addToCart as requestAddToCart, loadCart as requestLoadCart } from '$lib/utils/shopify';
 
-export const cart = writable([]);
-export const search = writable('');
 export const showCart = writable(false);
 
 export const cartId = writable(browser ? window.localStorage.getItem('cartId') : '');
@@ -55,7 +53,7 @@ export const addToCart = async (itemId, additionalProductIds = [], note = "") =>
   showCart.set(true);
 }
 
-export const getTotalDiscount = (discountAllocations) => {
+const getTotalDiscount = (discountAllocations) => {
   if (!discountAllocations || discountAllocations.length === 0) return null;
 
   const discountAmount = discountAllocations.reduce((totalAmount, allocation) => {

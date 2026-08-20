@@ -12,7 +12,6 @@
   import Button from "./Button.svelte";
   import SteppableInput from "./SteppableInput.svelte";
   import Space from "./Space.svelte";
-  import { products } from "$lib/data/products";
   import { formatCurrency } from "$lib/utils/currency";
 
   export let loading = false;
@@ -84,22 +83,20 @@
   <div class="footer">
     {#if $cartItems?.length !== 0}
       {@const referralCode = $cartDiscountCodes.find(({ applicable }) => applicable)?.code}
-      {@const referralDiscountAllocations = $cartItems.flatMap(({ node }) => node.discountAllocations || []).filter(({ code }) => code?.toLowerCase() === referralCode?.toLowerCase())}
-      {@const referralDiscountAmount = referralDiscountAllocations.reduce((total, { discountedAmount }) => total + Number(discountedAmount.amount), 0)}
+      {@const referralDiscountAmount = $cartItems.flatMap(({ node }) => node.discountAllocations || []).filter(({ code }) => code?.toLowerCase() === referralCode?.toLowerCase()).reduce((total, { discountedAmount }) => total + Number(discountedAmount.amount), 0)}
       {@const bulkDiscountAllocation = $cartDiscountAllocations.find(({ title }) => title?.toUpperCase() === 'BULK ORDER')}
-      {@const hasDiscountCode = $cartDiscountCodes.length > 0}
-      {@const hasCommaFour = $cartItems.some(({ node }) => node.merchandise.product.id === products["comma-four"].id)}
-      {#if referralCode && hasCommaFour && referralDiscountAmount > 0}
+      {@const hasDiscountCode = $cartDiscountCodes.some(({ applicable }) => applicable)}
+      {#if referralCode && referralDiscountAmount > 0}
         <div class="referral-discount">
           <div class="referral-status">
             <div>
               <strong>
                 Referral discount applied
               </strong>
-              <code>{referralCode}</code>
+              <span class="referral-code">{referralCode}</span>
             </div>
           </div>
-          <h4><mark>-{formatCurrency({ amount: referralDiscountAmount, currencyCode: $cartSubtotal.currencyCode }, 0)}</mark></h4>
+          <h4 class="referral-amount">-{formatCurrency({ amount: referralDiscountAmount, currencyCode: $cartSubtotal.currencyCode }, 0)}</h4>
         </div>
       {/if}
       {#if $cartDiscount || referralDiscountAmount > 0}
@@ -149,8 +146,10 @@
       rgba(81, 255, 0, 0.1) 100%
     );
 
-    & h4 {
+    & .referral-amount {
       margin: 0;
+      color: var(--color-accent-hover);
+      white-space: nowrap;
     }
   }
 
@@ -165,6 +164,10 @@
       gap: 0.125rem;
     }
 
+    & .referral-code {
+      color: rgba(0, 0, 0, 0.65);
+      font-size: 0.875rem;
+    }
   }
 
   .overlay {
