@@ -62,7 +62,7 @@ export const products = {
     id: "gid://shopify/Product/10933316813",
     route: "/shop/red-panda",
     category: "accessories",
-    price: "from $99",
+    price: "$99",
     images: [
       "/src/lib/images/products/panda/red-panda.jpg"
     ],
