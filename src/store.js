@@ -15,7 +15,6 @@ export const cartItems = writable([]);
 export const cartDiscount = writable({});
 export const cartDiscountAllocations = writable([]);
 export const cartSubtotal = writable({});
-export const cartAttributes = writable([]);
 export const cartDiscountCodes = writable([]);
 export const selectedCar = writable(browser ? localStorage.getItem('selectedCar') || '' : '');
 
@@ -41,7 +40,6 @@ export const loadCart = async () => {
     cartDiscount.set(getTotalDiscount(loadedCart?.discountAllocations));
     cartDiscountAllocations.set(loadedCart?.discountAllocations || []);
     cartSubtotal.set(loadedCart?.cost?.subtotalAmount);
-    cartAttributes.set(loadedCart?.attributes || []);
     cartDiscountCodes.set(loadedCart?.discountCodes || []);
     cartTotalQuantity.set(loadedCart?.totalQuantity);
     checkoutUrl.set(loadedCart?.checkoutUrl || '');

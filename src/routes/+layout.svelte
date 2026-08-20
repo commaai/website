@@ -21,7 +21,7 @@
 
   import { createCart, updateCart } from '$lib/utils/shopify';
   import { printConsoleBanner } from '$lib/utils/console';
-  import { captureReferralCode } from '$lib/utils/referral';
+  import { getReferralCode } from '$lib/utils/referral';
 
   import HeaderMenu from "$lib/components/HeaderMenu.svelte";
   import ShoppingCart from "$lib/components/ShoppingCart.svelte";
@@ -58,8 +58,8 @@
   }
 
   onMount(async () => {
-    const referralCode = captureReferralCode();
-    if (referralCode) await createCart();
+    const referralCode = getReferralCode();
+    if (referralCode) await createCart(referralCode);
     await loadCart();
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") {

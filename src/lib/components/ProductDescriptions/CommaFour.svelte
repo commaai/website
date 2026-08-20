@@ -21,7 +21,8 @@
   import { products as productsData } from '$lib/data/products.js';
   import { DEFAULT_BACKORDER_ESTIMATE } from '$lib/constants/shipping.js';
   import { formatCurrency } from "$lib/utils/currency";
-  import { getReferralCode, REFERRAL_DISCOUNT } from '$lib/utils/referral.js';
+  import { cartDiscountCodes } from '../../../store.js';
+  import { REFERRAL_DISCOUNT } from '$lib/utils/referral.js';
 
   export let product;
   let disableBuyButtonText = "SELECT YOUR CAR";
@@ -54,7 +55,7 @@
   let tradeInVariantId = null;
   let tradeInChecked = false;
   let backordered = null;
-  let referralCode = null;
+  $: referralCode = $cartDiscountCodes[0]?.code;
 
   // Trade-in and discount configuration
   $: showDiscount = selectedHarness === NO_HARNESS_OPTION;
@@ -100,8 +101,6 @@
   }
 
   onMount(async () => {
-    referralCode = getReferralCode();
-
     // Autofill trade-in checkbox
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('trade-in') === '1') {
@@ -138,24 +137,25 @@
 
   <div slot="price" class="price" class:sale-price={FOUR_SALE}>
     {#if referralCode}
-      <s class="original-price">{formatCurrency({ amount: displayedPrice, currencyCode: 'USD' }, 0)}</s>
-      <span>
-        {formatCurrency({ amount: displayedPrice - REFERRAL_DISCOUNT, currencyCode: 'USD' }, 0)}
-        {tradeInChecked && FOUR_TRADE_IN_CREDIT > 0 ? ' after trade-in received' : ''}
-      </span>
+      <div class="referral-price-stack">
+        <div class="referral-prices">
+          <s class="original-price">{formatCurrency({ amount: displayedPrice, currencyCode: 'USD' }, 0)}</s>
+          <span>
+            {formatCurrency({ amount: displayedPrice - REFERRAL_DISCOUNT, currencyCode: 'USD' }, 0)}
+            {tradeInChecked && FOUR_TRADE_IN_CREDIT > 0 ? ' after trade-in received' : ''}
+          </span>
+        </div>
+        <div class="referral-offer">
+          <strong>Referral code added!</strong>
+          <span>Buy now and get $50 off</span>
+        </div>
+      </div>
     {:else if tradeInChecked && FOUR_TRADE_IN_CREDIT > 0}
       <span>{formatCurrency({ amount: priceAfterTradeIn, currencyCode: 'USD' }, 0)} after trade-in received</span>
     {:else if showDiscount && NO_HARNESS_DISCOUNT > 0}
       {formatCurrency({ amount: priceDueToday, currencyCode: 'USD' }, 0)}
     {:else}
       {formatCurrency({ amount: FOUR_PRICE, currencyCode: 'USD' }, 0)}
-    {/if}
-  </div>
-
-  <div slot="price-aside" class="referral-offer">
-    {#if referralCode}
-      <strong>Referral code added!</strong>
-      <span>Buy now and get $50 off</span>
     {/if}
   </div>
 
@@ -307,6 +307,19 @@
       font-weight: 400;
       text-transform: uppercase;
     }
+  }
+
+  .referral-prices {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .referral-price-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
 
   .original-price {

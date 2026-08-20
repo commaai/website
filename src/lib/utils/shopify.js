@@ -1,8 +1,5 @@
 import { get } from 'svelte/store';
 import { cartId, cartCreatedAt, checkoutUrl, cartTotalQuantity } from '../../store';
-import { getReferralCode, REFERRAL_CART_ATTRIBUTE } from '$lib/utils/referral';
-
-const COMMA_FOUR_PRODUCT_ID = 'gid://shopify/Product/8055048372272';
 
 // GraphQL fragments for error handling
 const USER_ERRORS_GQL = `userErrors { code field message }`;
@@ -58,30 +55,6 @@ export async function loadCart() {
     response = await _loadCart();
   }
 
-  const cart = response?.body?.data?.cart;
-  const referralCode = cart?.attributes?.find(
-    ({ key }) => key === REFERRAL_CART_ATTRIBUTE,
-  )?.value || getReferralCode();
-  const discountCodes = cart?.discountCodes || [];
-  const hasCommaFour = cart?.lines?.edges?.some(
-    ({ node }) => node.merchandise?.product?.id === COMMA_FOUR_PRODUCT_ID,
-  );
-  const hasReferralDiscount = discountCodes.some(
-    ({ code }) => code.toLowerCase() === referralCode?.toLowerCase(),
-  );
-
-  if (referralCode && hasCommaFour !== hasReferralDiscount) {
-    await updateCartDiscountCodes({
-      cartId: get(cartId),
-      discountCodes: hasCommaFour
-        ? [...discountCodes.map(({ code }) => code), referralCode]
-        : discountCodes
-            .map(({ code }) => code)
-            .filter((code) => code.toLowerCase() !== referralCode.toLowerCase()),
-    });
-    response = await _loadCart();
-  }
-
   return response;
 }
 
@@ -92,10 +65,6 @@ export async function _loadCart() {
         cart(id: $cartId) {
           checkoutUrl
           totalQuantity
-          attributes {
-            key
-            value
-          }
           discountCodes {
             code
             applicable
@@ -123,6 +92,18 @@ export async function _loadCart() {
               node {
                 id
                 quantity
+                discountAllocations {
+                  discountedAmount {
+                    amount
+                    currencyCode
+                  }
+                  ... on CartAutomaticDiscountAllocation {
+                    title
+                  }
+                  ... on CartCodeDiscountAllocation {
+                    code
+                  }
+                }
                 estimatedCost {
                   subtotalAmount {
                     amount
@@ -211,12 +192,7 @@ export async function getProduct(id) {
   });
 }
 
-export async function createCart() {
-  const referralCode = getReferralCode();
-  const attributes = referralCode
-    ? [{ key: REFERRAL_CART_ATTRIBUTE, value: referralCode }]
-    : [];
-
+export async function createCart(referralCode = null) {
   return shopifyFetch({
     query: /* graphql */ `
       mutation createCart($input: CartInput!) {
@@ -231,7 +207,7 @@ export async function createCart() {
       }
     `,
     variables: {
-      input: { attributes, discountCodes: [] }
+      input: { discountCodes: referralCode ? [referralCode] : [] }
     }
   }).then(response => {
     cartId.set(response.body?.data?.cartCreate?.cart?.id)
@@ -240,20 +216,6 @@ export async function createCart() {
     cartTotalQuantity.set(response.body?.data?.cartCreate?.cart?.totalQuantity)
   });
 
-}
-
-async function updateCartDiscountCodes({ cartId, discountCodes }) {
-  return shopifyFetch({
-    query: /* graphql */ `
-      mutation updateCartDiscountCodes($cartId: ID!, $discountCodes: [String!]!) {
-        cartDiscountCodesUpdate(cartId: $cartId, discountCodes: $discountCodes) {
-          ${USER_ERRORS_GQL}
-          ${WARNINGS_GQL}
-        }
-      }
-    `,
-    variables: { cartId, discountCodes }
-  });
 }
 
 export async function updateCart({ cartId, lineId, variantId, quantity }) {

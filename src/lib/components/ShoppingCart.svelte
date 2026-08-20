@@ -6,17 +6,14 @@
     cartDiscount,
     cartDiscountAllocations,
     cartSubtotal,
-    cartAttributes,
     cartDiscountCodes,
     checkoutUrl,
   } from "../../store";
   import Button from "./Button.svelte";
   import SteppableInput from "./SteppableInput.svelte";
   import Space from "./Space.svelte";
+  import { products } from "$lib/data/products";
   import { formatCurrency } from "$lib/utils/currency";
-  import { REFERRAL_DISCOUNT } from "$lib/utils/referral";
-
-  const COMMA_FOUR_PRODUCT_ID = "gid://shopify/Product/8055048372272";
 
   export let loading = false;
 
@@ -75,7 +72,10 @@
             value={item.node.quantity}
           />
         </div>
-        <div>
+        <div class="item-price">
+          {#if Number(item.node.estimatedCost.subtotalAmount.amount) > Number(item.node.estimatedCost.totalAmount.amount)}
+            <s>{formatCurrency(item.node.estimatedCost.subtotalAmount)}</s>
+          {/if}
           {formatCurrency(item.node.estimatedCost.totalAmount)}
         </div>
       </div>
@@ -83,33 +83,28 @@
   </div>
   <div class="footer">
     {#if $cartItems?.length !== 0}
-      {@const referralCode = $cartAttributes.find(({ key }) => key === 'referral_code')?.value}
-      {@const referralDiscount = $cartDiscountCodes.find(({ code }) => code.toLowerCase() === referralCode?.toLowerCase())}
-      {@const referralDiscountAllocation = $cartDiscountAllocations.find(({ code }) => code?.toLowerCase() === referralCode?.toLowerCase())}
+      {@const referralCode = $cartDiscountCodes.find(({ applicable }) => applicable)?.code}
+      {@const referralDiscountAllocations = $cartItems.flatMap(({ node }) => node.discountAllocations || []).filter(({ code }) => code?.toLowerCase() === referralCode?.toLowerCase())}
+      {@const referralDiscountAmount = referralDiscountAllocations.reduce((total, { discountedAmount }) => total + Number(discountedAmount.amount), 0)}
       {@const bulkDiscountAllocation = $cartDiscountAllocations.find(({ title }) => title?.toUpperCase() === 'BULK ORDER')}
       {@const hasDiscountCode = $cartDiscountCodes.length > 0}
-      {@const hasCommaFour = $cartItems.some(({ node }) => node.merchandise.product.id === COMMA_FOUR_PRODUCT_ID)}
-      {#if referralCode && hasCommaFour}
-        <div class:inactive={!referralDiscountAllocation} class="referral-discount">
+      {@const hasCommaFour = $cartItems.some(({ node }) => node.merchandise.product.id === products["comma-four"].id)}
+      {#if referralCode && hasCommaFour && referralDiscountAmount > 0}
+        <div class="referral-discount">
           <div class="referral-status">
             <div>
               <strong>
-                {referralDiscountAllocation
-                  ? 'Referral discount applied'
-                  : referralDiscount?.applicable === false
-                    ? 'Referral discount unavailable'
-                    : 'Checking referral discount'}
+                Referral discount applied
               </strong>
               <code>{referralCode}</code>
             </div>
           </div>
-          {#if referralDiscountAllocation}
-            <h4><mark>-{formatCurrency({ amount: REFERRAL_DISCOUNT, currencyCode: 'USD' }, 0)}</mark></h4>
-          {/if}
+          <h4><mark>-{formatCurrency({ amount: referralDiscountAmount, currencyCode: $cartSubtotal.currencyCode }, 0)}</mark></h4>
         </div>
       {/if}
-      {#if $cartDiscount}
-        {@const subtotalAmountAfterDiscount = $cartSubtotal.amount - (referralDiscountAllocation ? REFERRAL_DISCOUNT : $cartDiscount.amount)}
+      {#if $cartDiscount || referralDiscountAmount > 0}
+        {@const subtotalAmountBeforeDiscount = Number($cartSubtotal.amount) + referralDiscountAmount}
+        {@const subtotalAmountAfterDiscount = Number($cartSubtotal.amount) - Number($cartDiscount?.amount || 0)}
         {#if bulkDiscountAllocation && !hasDiscountCode}
           <div class="price">
             <span>Bulk Order Discount</span>
@@ -120,7 +115,7 @@
         {/if}
         <div class="price">
           <span>Subtotal</span>
-          <span><s>{formatCurrency($cartSubtotal)}</s> {formatCurrency({ amount: subtotalAmountAfterDiscount, currencyCode: $cartSubtotal.currencyCode })}</span>
+          <span><s>{formatCurrency({ amount: subtotalAmountBeforeDiscount, currencyCode: $cartSubtotal.currencyCode })}</s> {formatCurrency({ amount: subtotalAmountAfterDiscount, currencyCode: $cartSubtotal.currencyCode })}</span>
         </div>
       {:else}
         <div class="price">
@@ -153,15 +148,6 @@
       rgba(81, 255, 0, 0.24) 62%,
       rgba(81, 255, 0, 0.1) 100%
     );
-
-    &.inactive {
-      background: radial-gradient(
-        ellipse at center,
-        rgba(255, 65, 51, 0.18) 0%,
-        rgba(255, 65, 51, 0.08) 62%,
-        rgba(255, 65, 51, 0.03) 100%
-      );
-    }
 
     & h4 {
       margin: 0;
@@ -251,6 +237,7 @@
       & .details {
         flex: 1;
         margin: 0 0.75rem;
+        min-width: 0;
 
         & .title {
           font-size: 1rem;
@@ -260,6 +247,20 @@
         & .variant {
           font-size: 0.875rem;
           opacity: 0.8;
+        }
+      }
+
+      & .item-price {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        flex-shrink: 0;
+        white-space: nowrap;
+        line-height: 1.25;
+
+        & s {
+          font-size: 0.8rem;
+          opacity: 0.6;
         }
       }
     }
