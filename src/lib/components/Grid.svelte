@@ -39,7 +39,6 @@
     grid-column-gap: var(--column-gap);
     grid-row-gap: var(--row-gap);
     margin-bottom: var(--margin-bottom);
-    grid-template-rows: auto auto;
     grid-template-columns: var(--template-columns);
     grid-auto-columns: 1fr;
     display: grid;

@@ -2,6 +2,7 @@
   import Grid from "$lib/components/Grid.svelte";
   import Button from "$lib/components/Button.svelte";
   import Select from "$lib/components/Select.svelte";
+  import VariantRadioSelector from "$lib/components/VariantRadioSelector.svelte";
   import NoteCard from "$lib/components/NoteCard.svelte";
 
   import ShippingIcon from "$lib/icons/features/shipping.svg?raw";
@@ -23,6 +24,7 @@
   export let disableBuyButtonText = null;
   export let hideOutOfStockVariants = false;
   export let hideVariantImage = false;
+  export let variantSelectorStyle = "dropdown";
   export let scrollProductImages = false;
   export let inlineMobileTitlePrice = false;
   export let previousPrice = null;
@@ -156,16 +158,27 @@
               {#if !hideVariantImage}
                 <img src={selectedVariant.image.url} alt="" />
               {/if}
-              <Select bind:value={selectedVariantId}>
-                {#each variants as option}
-                  <option value={option.id}>
-                    {option.title}
-                  </option>
-                {/each}
-              </Select>
+              {#if variantSelectorStyle === "radio"}
+                <VariantRadioSelector
+                  {variants}
+                  bind:value={selectedVariantId}
+                  label={`Choose a ${product.title} variant`}
+                />
+              {:else}
+                <Select bind:value={selectedVariantId}>
+                  {#each variants as option}
+                    <option value={option.id}>
+                      {option.title}
+                    </option>
+                  {/each}
+                </Select>
+              {/if}
             {/if}
           {/if}
         </div>
+        {#if $$slots["price-accessory"] || VariantSelector || variants.length > 1}
+          <hr />
+        {/if}
         <Button
           style="accent"
           fullWidth={true}
