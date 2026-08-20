@@ -425,7 +425,7 @@ export const products = {
       <hgroup>
         <div>
           <span>Variant</span>
-          <strong>comma 3X (8 degrees)</strong>
+          <strong>comma 3X (8°)</strong>
         </div>
       </hgroup>
       <p>
@@ -434,7 +434,7 @@ export const products = {
         <strong>Includes:</strong>
       </p>
       <p>
-        (1) 8 degree mount with adhesive backing
+        (1) 8° mount with adhesive backing
       </p>
       <p>
         (1) alcohol wipe
