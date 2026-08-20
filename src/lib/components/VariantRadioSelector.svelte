@@ -5,38 +5,56 @@
   export let variants = [];
   export let value = null;
   export let label = "Choose a product variant";
+  export let maxRadioOptions = 4;
+
+  let showAll = false;
+  $: visibleVariants = showAll ? variants : variants.slice(0, maxRadioOptions);
 </script>
 
 <fieldset>
   <legend>{label}</legend>
-  <Grid
-    columns={Math.min(variants.length, 2)}
-    alignItems="stretch"
-    size="small"
-    wrapMode="single"
-    columnGap="0.75rem"
-    rowGap="0.75rem"
-  >
-    {#each variants as variant}
-      <label class:selected={value === variant.id}>
-        <input
-          type="radio"
-          name="product-variant"
-          value={variant.id}
-          bind:group={value}
-        />
-        <span class="option-content">
-          <span class="option-heading">
-            <strong>{variant.title.trim()}</strong>
-            <span class="option-price">{formatCurrency(variant.price, 0)}</span>
+  <div id="variant-options">
+    <Grid
+      columns={Math.min(variants.length, 2)}
+      alignItems="stretch"
+      size="small"
+      wrapMode="single"
+      columnGap="0.75rem"
+      rowGap="0.75rem"
+    >
+      {#each visibleVariants as variant}
+        <label class:selected={value === variant.id}>
+          <input
+            type="radio"
+            name="product-variant"
+            value={variant.id}
+            bind:group={value}
+          />
+          <span class="option-content">
+            <span class="option-heading">
+              <strong>{variant.title.trim()}</strong>
+              <span class="option-price">{formatCurrency(variant.price, 0)}</span>
+            </span>
+            {#if variant.subtitle}
+              <span class="option-subtitle">{variant.subtitle}</span>
+            {/if}
           </span>
-          {#if variant.subtitle}
-            <span class="option-subtitle">{variant.subtitle}</span>
-          {/if}
-        </span>
-      </label>
-    {/each}
-  </Grid>
+        </label>
+      {/each}
+    </Grid>
+  </div>
+
+  {#if !showAll && variants.length > maxRadioOptions}
+    <button
+      type="button"
+      class="show-more"
+      aria-expanded="false"
+      aria-controls="variant-options"
+      on:click={() => showAll = true}
+    >
+      Show {variants.length - maxRadioOptions} more
+    </button>
+  {/if}
 </fieldset>
 
 <style>
@@ -81,6 +99,24 @@
     /*background-color: var(--color-card-background);*/
     border-color: #000;
     box-shadow: inset 0 0 0 2px #000;
+  }
+
+  .show-more {
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 0.75rem;
+    padding: 1rem;
+    color: #000;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: #fff;
+    border: 1px solid #000;
+  }
+
+  .show-more:hover,
+  .show-more:focus-visible {
+    background-color: #eee;
   }
 
   input {

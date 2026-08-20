@@ -90,7 +90,6 @@
       {product}
       useVariantBackorderStatus={true}
       hideVariantImage={true}
-      variantSelectorStyle="radio"
       scrollProductImages={true}
       inlineMobileTitlePrice={true}
     >

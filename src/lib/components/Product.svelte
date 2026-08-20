@@ -1,7 +1,6 @@
 <script>
   import Grid from "$lib/components/Grid.svelte";
   import Button from "$lib/components/Button.svelte";
-  import Select from "$lib/components/Select.svelte";
   import VariantRadioSelector from "$lib/components/VariantRadioSelector.svelte";
   import NoteCard from "$lib/components/NoteCard.svelte";
 
@@ -24,7 +23,6 @@
   export let disableBuyButtonText = null;
   export let hideOutOfStockVariants = false;
   export let hideVariantImage = false;
-  export let variantSelectorStyle = "dropdown";
   export let scrollProductImages = false;
   export let inlineMobileTitlePrice = false;
   export let previousPrice = null;
@@ -158,21 +156,11 @@
               {#if !hideVariantImage}
                 <img src={selectedVariant.image.url} alt="" />
               {/if}
-              {#if variantSelectorStyle === "radio"}
-                <VariantRadioSelector
-                  {variants}
-                  bind:value={selectedVariantId}
-                  label={`Choose a ${product.title} variant`}
-                />
-              {:else}
-                <Select bind:value={selectedVariantId}>
-                  {#each variants as option}
-                    <option value={option.id}>
-                      {option.title}
-                    </option>
-                  {/each}
-                </Select>
-              {/if}
+              <VariantRadioSelector
+                {variants}
+                bind:value={selectedVariantId}
+                label={`Choose a ${product.title} variant`}
+              />
             {/if}
           {/if}
         </div>

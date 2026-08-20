@@ -325,8 +325,8 @@ export const products = {
       <strong>Open Source</strong>
       <p>
         Buy it here or build it yourself. Harness connectors are <a
-          href="https://github.com/commaai/hardware/tree/master/harness"
-          target="_blank">open source</a>.
+        href="https://github.com/commaai/hardware/tree/master/harness"
+        target="_blank">open source</a>.
       </p>
     `.trim()
   },
@@ -434,8 +434,7 @@ export const products = {
       "comma four": "Includes 2 mounts.",
       "comma 3X": "Includes 1 mount.",
       "comma 3X (8\u00B0)": "Includes 1 mount. For vehicles with steeper windshields."
-    },
-    variantSelectorStyle: "radio"
+    }
   },
 
   "comma-device-screen": {
