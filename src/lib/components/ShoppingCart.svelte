@@ -5,6 +5,8 @@
     cartItems,
     cartDiscount,
     cartSubtotal,
+    cartAttributes,
+    cartDiscountCodes,
     checkoutUrl,
   } from "../../store";
   import Button from "./Button.svelte";
@@ -77,14 +79,29 @@
   </div>
   <div class="footer">
     {#if $cartItems?.length !== 0}
+      {@const referralCode = $cartAttributes.find(({ key }) => key === 'referral_code')?.value}
+      {@const referralDiscount = $cartDiscountCodes.find(({ code }) => code.toLowerCase() === referralCode?.toLowerCase())}
+      {#if referralCode}
+        <div class:inactive={referralDiscount?.applicable === false} class="referral-discount">
+          <div class="referral-status">
+            <div>
+              <strong>
+                {referralDiscount?.applicable === true
+                  ? 'Referral discount applied'
+                  : referralDiscount?.applicable === false
+                    ? 'Referral discount unavailable'
+                    : 'Checking referral discount'}
+              </strong>
+              <span class="referral-code">{referralCode}</span>
+            </div>
+          </div>
+          {#if $cartDiscount && referralDiscount?.applicable === true}
+            <strong class="discount-amount">-{formatCurrency($cartDiscount)}</strong>
+          {/if}
+        </div>
+      {/if}
       {#if $cartDiscount}
         {@const subtotalAmountAfterDiscount = $cartSubtotal.amount - $cartDiscount.amount}
-        <div class="price">
-          <span>Bulk Order Discount</span>
-          <span>
-            -{formatCurrency($cartDiscount)}
-          </span>
-        </div>
         <div class="price">
           <span>Subtotal</span>
           <span><s>{formatCurrency($cartSubtotal)}</s> {formatCurrency({ amount: subtotalAmountAfterDiscount, currencyCode: $cartSubtotal.currencyCode })}</span>
@@ -106,6 +123,61 @@
 </div>
 
 <style>
+  .referral-discount {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 5rem;
+    padding: 1rem;
+    box-sizing: border-box;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(81, 255, 0, 0.42) 0%,
+      rgba(81, 255, 0, 0.24) 62%,
+      rgba(81, 255, 0, 0.1) 100%
+    );
+
+    &.inactive {
+      background: radial-gradient(
+        ellipse at center,
+        rgba(255, 65, 51, 0.18) 0%,
+        rgba(255, 65, 51, 0.08) 62%,
+        rgba(255, 65, 51, 0.03) 100%
+      );
+    }
+  }
+
+  .referral-status {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    & > div {
+      display: flex;
+      flex-direction: column;
+      gap: 0.125rem;
+    }
+
+    & strong {
+      color: var(--color-black);
+      font-size: 1rem;
+    }
+  }
+
+  .referral-code {
+    color: rgba(0, 0, 0, 0.65);
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.875rem;
+    letter-spacing: 0;
+  }
+
+  .discount-amount {
+    color: var(--color-accent-hover);
+    font-size: 1rem;
+    white-space: nowrap;
+  }
+
   .overlay {
     position: fixed;
     top: 0;

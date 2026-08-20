@@ -1,14 +1,16 @@
 import { writable } from 'svelte/store';
 import Vehicles from '$lib/vehicles.json';
 import CarHarnesses from '$lib/constants/car-harnesses.json';
+import { products } from '$lib/data/products.js';
 
 import { getProduct } from '$lib/utils/shopify';
 
 async function fetchHarnessVariants() {
-  const harnessResponse = await getProduct("gid://shopify/Product/4447447908415");
+  const harnessResponse = await getProduct(products['car-harness'].id);
   const harnesses = harnessResponse.body?.data?.product?.variants?.nodes || [];
   return harnesses.reduce((harnessInfo, harness) => {
-    harnessInfo[harness.id] = {
+    harnessInfo[harness.title] = {
+      id: harness.id,
       currentlyNotInStock: harness.currentlyNotInStock,
       availableForSale: harness.availableForSale,
     };
@@ -36,8 +38,8 @@ async function initializeHarnesses() {
         return false;
       }
       return {
-        ...harnessInfo[harness.id],
         ...harness,
+        ...harnessInfo[harness.title],
         make,
         car: model.name,
         package: model.package,
@@ -52,9 +54,9 @@ async function initializeHarnesses() {
   // Add developer and generic make harnesses
   let genericHarnessList = CarHarnesses.map(harness => {
     return {
-      ...harnessInfo[harness.id],
+      ...harness,
+      ...harnessInfo[harness.title],
       car: harness.title,
-      id: harness.id,
       backordered: harness.backordered,
     };
   });

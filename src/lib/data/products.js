@@ -1,7 +1,7 @@
 export const products = {
   "comma-four": {
     title: "comma four",
-    id: "gid://shopify/Product/7964554231871",
+    id: "gid://shopify/Product/8054231269424",
     route: "/shop/four",
     category: "device",
     price: "$999",
@@ -30,7 +30,7 @@ export const products = {
 
   "car-harness": {
     title: "car harness",
-    id: "gid://shopify/Product/4447447908415",
+    id: "gid://shopify/Product/8054496591920",
     route: "/shop/car-harness",
     category: "accessories",
     price: "$99",
@@ -289,7 +289,7 @@ export const products = {
 
   "harness-connector": {
     title: "harness connector",
-    id: "gid://shopify/Product/4310075310143",
+    id: "gid://shopify/Product/8054496526384",
     route: "/shop/harness-connector",
     category: "accessories",
     price: "$50",
@@ -562,7 +562,7 @@ export const products = {
 
   "comma-four-trade-in": {
     title: "comma four trade-in",
-    id: "gid://shopify/Product/7966994202687",
+    id: "gid://shopify/Product/8054231564336",
   },
 
   "body": {

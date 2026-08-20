@@ -21,6 +21,7 @@
 
   import { updateCart } from '$lib/utils/shopify';
   import { printConsoleBanner } from '$lib/utils/console';
+  import { captureReferralCode } from '$lib/utils/referral';
 
   import HeaderMenu from "$lib/components/HeaderMenu.svelte";
   import ShoppingCart from "$lib/components/ShoppingCart.svelte";
@@ -57,6 +58,7 @@
   }
 
   onMount(async () => {
+    captureReferralCode();
     await loadCart();
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") {

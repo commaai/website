@@ -14,6 +14,8 @@ export const cartTotalQuantity = writable(browser ? window.localStorage.getItem(
 export const cartItems = writable([]);
 export const cartDiscount = writable({});
 export const cartSubtotal = writable({});
+export const cartAttributes = writable([]);
+export const cartDiscountCodes = writable([]);
 export const selectedCar = writable(browser ? localStorage.getItem('selectedCar') || '' : '');
 
 if (browser) {
@@ -33,10 +35,14 @@ if (browser) {
 export const loadCart = async () => {
   try {
     const shopifyResponse = await requestLoadCart(get(cartId));
-    cartItems.set(shopifyResponse?.body?.data?.cart?.lines?.edges);
-    cartDiscount.set(getTotalDiscount(shopifyResponse?.body?.data?.cart?.discountAllocations));
-    cartSubtotal.set(shopifyResponse?.body?.data?.cart?.cost?.subtotalAmount);
-    cartTotalQuantity.set(shopifyResponse.body?.data?.cart?.totalQuantity);
+    const loadedCart = shopifyResponse?.body?.data?.cart;
+    cartItems.set(loadedCart?.lines?.edges);
+    cartDiscount.set(getTotalDiscount(loadedCart?.discountAllocations));
+    cartSubtotal.set(loadedCart?.cost?.subtotalAmount);
+    cartAttributes.set(loadedCart?.attributes || []);
+    cartDiscountCodes.set(loadedCart?.discountCodes || []);
+    cartTotalQuantity.set(loadedCart?.totalQuantity);
+    checkoutUrl.set(loadedCart?.checkoutUrl || '');
 
   } catch (error) {
     console.error(error);

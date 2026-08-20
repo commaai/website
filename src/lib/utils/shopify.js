@@ -1,5 +1,6 @@
 import { get } from 'svelte/store';
 import { cartId, cartCreatedAt, checkoutUrl, cartTotalQuantity } from '../../store';
+import { getReferralCode, REFERRAL_CART_ATTRIBUTE } from '$lib/utils/referral';
 
 // GraphQL fragments for error handling
 const USER_ERRORS_GQL = `userErrors { code field message }`;
@@ -54,6 +55,24 @@ export async function loadCart() {
     await createCart();
     response = await _loadCart();
   }
+
+  const referralCode = getReferralCode();
+  const cartReferralCode = response?.body?.data?.cart?.attributes?.find(
+    ({ key }) => key === REFERRAL_CART_ATTRIBUTE,
+  )?.value;
+  const discountCodes = response?.body?.data?.cart?.discountCodes || [];
+  const hasReferralDiscountCode = discountCodes.some(
+    ({ code }) => code.toLowerCase() === referralCode?.toLowerCase(),
+  );
+  if (referralCode && (referralCode !== cartReferralCode || !hasReferralDiscountCode)) {
+    await updateCartReferralCode({
+      cartId: get(cartId),
+      referralCode,
+      discountCodes: discountCodes.map(({ code }) => code),
+    });
+    response = await _loadCart();
+  }
+
   return response;
 }
 
@@ -64,6 +83,14 @@ export async function _loadCart() {
         cart(id: $cartId) {
           checkoutUrl
           totalQuantity
+          attributes {
+            key
+            value
+          }
+          discountCodes {
+            code
+            applicable
+          }
           cost {
             subtotalAmount {
               amount
@@ -169,18 +196,28 @@ export async function getProduct(id) {
 }
 
 export async function createCart() {
+  const referralCode = getReferralCode();
+  const attributes = referralCode
+    ? [{ key: REFERRAL_CART_ATTRIBUTE, value: referralCode }]
+    : [];
+  const discountCodes = referralCode ? [referralCode] : [];
+
   return shopifyFetch({
     query: /* graphql */ `
-      mutation calculateCart($lineItems: [CartLineInput!]) {
-        cartCreate(input: { lines: $lineItems }) {
+      mutation createCart($input: CartInput!) {
+        cartCreate(input: $input) {
           cart {
             checkoutUrl
             id
           }
+          ${USER_ERRORS_GQL}
+          ${WARNINGS_GQL}
         }
       }
     `,
-    variables: {}
+    variables: {
+      input: { attributes, discountCodes }
+    }
   }).then(response => {
     cartId.set(response.body?.data?.cartCreate?.cart?.id)
     cartCreatedAt.set(Date.now());
@@ -188,6 +225,65 @@ export async function createCart() {
     cartTotalQuantity.set(response.body?.data?.cartCreate?.cart?.totalQuantity)
   });
 
+}
+
+export async function updateCartReferralCode({ cartId, referralCode, discountCodes = [] }) {
+  if (!cartId || !referralCode) return null;
+
+  const attributesRequest = shopifyFetch({
+    query: /* graphql */ `
+      mutation updateCartReferralCode($cartId: ID!, $attributes: [AttributeInput!]!) {
+        cartAttributesUpdate(cartId: $cartId, attributes: $attributes) {
+          cart {
+            id
+            attributes {
+              key
+              value
+            }
+          }
+          ${USER_ERRORS_GQL}
+          ${WARNINGS_GQL}
+        }
+      }
+    `,
+    variables: {
+      cartId,
+      attributes: [{ key: REFERRAL_CART_ATTRIBUTE, value: referralCode }]
+    }
+  });
+
+  const nextDiscountCodes = discountCodes.some(
+    (code) => code.toLowerCase() === referralCode.toLowerCase(),
+  ) ? discountCodes : [...discountCodes, referralCode];
+
+  const discountCodesRequest = shopifyFetch({
+    query: /* graphql */ `
+      mutation applyReferralDiscountCode($cartId: ID!, $discountCodes: [String!]!) {
+        cartDiscountCodesUpdate(cartId: $cartId, discountCodes: $discountCodes) {
+          cart {
+            id
+            discountCodes {
+              code
+              applicable
+            }
+          }
+          ${USER_ERRORS_GQL}
+          ${WARNINGS_GQL}
+        }
+      }
+    `,
+    variables: {
+      cartId,
+      discountCodes: nextDiscountCodes
+    }
+  });
+
+  const [attributesResponse, discountCodesResponse] = await Promise.all([
+    attributesRequest,
+    discountCodesRequest,
+  ]);
+
+  return { attributesResponse, discountCodesResponse };
 }
 
 
@@ -255,7 +351,7 @@ export async function addToCart({ cartId, variantId, additionalProductIds = [], 
     }
   });
 
-  const { errors, data } = cartLinesResponse;
+  const { errors, data } = cartLinesResponse.body || {};
   const { cartLinesAdd } = data || {};
   const cartLinesErrors = errors || cartLinesAdd?.userErrors || cartLinesAdd?.warnings;
   if (errors || cartLinesErrors?.length) {

@@ -21,6 +21,7 @@
   import { products as productsData } from '$lib/data/products.js';
   import { DEFAULT_BACKORDER_ESTIMATE } from '$lib/constants/shipping.js';
   import { formatCurrency } from "$lib/utils/currency";
+  import { getReferralCode } from '$lib/utils/referral.js';
 
   export let product;
   let disableBuyButtonText = "SELECT YOUR CAR";
@@ -53,6 +54,9 @@
   let tradeInVariantId = null;
   let tradeInChecked = false;
   let backordered = null;
+  let referralCode = null;
+
+  const REFERRAL_DISCOUNT = 50;
 
   // Trade-in and discount configuration
   $: showDiscount = selectedHarness === NO_HARNESS_OPTION;
@@ -60,6 +64,7 @@
   // Price calculations
   $: priceDueToday = showDiscount ? FOUR_PRICE - NO_HARNESS_DISCOUNT : FOUR_PRICE;
   $: priceAfterTradeIn = tradeInChecked ? priceDueToday - FOUR_TRADE_IN_CREDIT : priceDueToday;
+  $: displayedPrice = tradeInChecked ? priceAfterTradeIn : priceDueToday;
 
   $: additionalProductIds = (() => {
     const ids = [];
@@ -97,6 +102,8 @@
   }
 
   onMount(async () => {
+    referralCode = getReferralCode();
+
     // Autofill trade-in checkbox
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('trade-in') === '1') {
@@ -132,12 +139,25 @@
   <div slot="shipping"></div>
 
   <div slot="price" class="price" class:sale-price={FOUR_SALE}>
-    {#if tradeInChecked && FOUR_TRADE_IN_CREDIT > 0}
+    {#if referralCode}
+      <s class="original-price">{formatCurrency({ amount: displayedPrice, currencyCode: 'USD' }, 0)}</s>
+      <span>
+        {formatCurrency({ amount: displayedPrice - REFERRAL_DISCOUNT, currencyCode: 'USD' }, 0)}
+        {tradeInChecked && FOUR_TRADE_IN_CREDIT > 0 ? ' after trade-in received' : ''}
+      </span>
+    {:else if tradeInChecked && FOUR_TRADE_IN_CREDIT > 0}
       <span>{formatCurrency({ amount: priceAfterTradeIn, currencyCode: 'USD' }, 0)} after trade-in received</span>
     {:else if showDiscount && NO_HARNESS_DISCOUNT > 0}
       {formatCurrency({ amount: priceDueToday, currencyCode: 'USD' }, 0)}
     {:else}
       {formatCurrency({ amount: FOUR_PRICE, currencyCode: 'USD' }, 0)}
+    {/if}
+  </div>
+
+  <div slot="price-aside" class="referral-offer">
+    {#if referralCode}
+      <strong>Referral code added!</strong>
+      <span>Buy now and get $50 off</span>
     {/if}
   </div>
 
@@ -250,6 +270,49 @@
     align-items: center;
     gap: 0.75rem;
     margin: 1rem 0;
+
+  }
+
+  .referral-offer {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.25rem;
+    width: fit-content;
+    min-height: 4.5rem;
+    padding: 0.875rem 1rem;
+    box-sizing: border-box;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(81, 255, 0, 0.42) 0%,
+      rgba(81, 255, 0, 0.24) 62%,
+      rgba(81, 255, 0, 0.1) 100%
+    );
+
+    &:empty {
+      display: none;
+    }
+
+    & strong,
+    & span {
+      color: var(--color-black);
+    }
+
+    & strong {
+      font-size: 1rem;
+    }
+
+    & span {
+      font-family: JetBrains Mono, monospace;
+      font-size: 0.875rem;
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+  }
+
+  .original-price {
+    color: rgba(0, 0, 0, 0.5);
   }
 
   .label {
