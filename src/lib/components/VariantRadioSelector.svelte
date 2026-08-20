@@ -1,5 +1,6 @@
 <script>
   import Grid from "$lib/components/Grid.svelte";
+  import { DEFAULT_BACKORDER_ESTIMATE } from "$lib/constants/shipping.js";
   import { formatCurrency } from "$lib/utils/currency";
 
   export let variants = [];
@@ -9,6 +10,19 @@
 
   let showAll = false;
   $: visibleVariants = showAll ? variants : variants.slice(0, maxRadioOptions);
+
+  function getStockStatus(variant) {
+    if (!variant.availableForSale) {
+      return { label: "Out of stock", style: "out-of-stock" };
+    }
+    if (variant.currentlyNotInStock) {
+      return {
+        label: `Ships in ${variant.backordered || DEFAULT_BACKORDER_ESTIMATE}`,
+        style: "backordered"
+      };
+    }
+    return { label: "In stock", style: "in-stock" };
+  }
 </script>
 
 <fieldset>
@@ -23,6 +37,7 @@
       rowGap="0.75rem"
     >
       {#each visibleVariants as variant}
+        {@const stockStatus = getStockStatus(variant)}
         <label class:selected={value === variant.id}>
           <input
             type="radio"
@@ -38,6 +53,7 @@
             {#if variant.subtitle}
               <span class="option-subtitle">{variant.subtitle}</span>
             {/if}
+            <span class="option-status {stockStatus.style}">{stockStatus.label}</span>
           </span>
         </label>
       {/each}
@@ -165,5 +181,32 @@
     color: var(--color-muted);
     font-size: 0.875rem;
     line-height: 1.35;
+  }
+
+  .option-status {
+    display: block;
+    padding-top: 0.5rem;
+    font-family: JetBrains Mono, monospace;
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: 0;
+    text-transform: uppercase;
+  }
+
+  .option-heading + .option-status {
+    margin-top: auto;
+  }
+
+  .option-status.in-stock {
+    color: #198038;
+  }
+
+  .option-status.backordered {
+    color: #9a6700;
+  }
+
+  .option-status.out-of-stock {
+    color: #b42318;
   }
 </style>
