@@ -57,15 +57,14 @@ export const products = {
     hasCustomComponent: true
   },
 
-  "panda": {
-    title: "panda",
+  "red-panda": {
+    title: "red panda",
     id: "gid://shopify/Product/10933316813",
-    route: "/shop/panda",
+    route: "/shop/red-panda",
     category: "accessories",
     price: "from $99",
     images: [
-      "/src/lib/images/products/panda/red-panda.jpg",
-      "/src/lib/images/products/panda/white-panda.jpeg"
+      "/src/lib/images/products/panda/red-panda.jpg"
     ],
     notes: [
       {
@@ -119,23 +118,6 @@ export const products = {
           The red panda does not have GPS support. It is not compatible with the
           comma two.
         </p>
-      </div>
-      <hr />
-      <div>
-        <hgroup>
-          <div>
-            <span>variant • deprecated from openpilot</span>
-            <strong>white panda</strong>
-          </div>
-        </hgroup>
-        <ul>
-          <li>3x CAN</li>
-          <li>2x LIN</li>
-          <li>1x GMLAN</li>
-          <li>USB A</li>
-          <li>Wi-Fi hardware (software support deprecated)</li>
-        </ul>
-        <p>White panda is deprecated from openpilot.</p>
       </div>
     `.trim()
   },
