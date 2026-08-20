@@ -1,12 +1,11 @@
 import { writable } from 'svelte/store';
 import Vehicles from '$lib/vehicles.json';
 import CarHarnesses from '$lib/constants/car-harnesses.json';
-import { products } from '$lib/data/products.js';
 
 import { getProduct } from '$lib/utils/shopify';
 
 async function fetchHarnessVariants() {
-  const harnessResponse = await getProduct(products['car-harness'].id);
+  const harnessResponse = await getProduct("gid://shopify/Product/8054496591920");
   const harnesses = harnessResponse.body?.data?.product?.variants?.nodes || [];
   return harnesses.reduce((harnessInfo, harness) => {
     harnessInfo[harness.title] = {

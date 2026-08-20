@@ -3,6 +3,7 @@ import { browser } from '$app/environment';
 export const REFERRAL_QUERY_PARAM = 'ref';
 export const REFERRAL_COOKIE_NAME = 'referral_code';
 export const REFERRAL_CART_ATTRIBUTE = 'referral_code';
+export const REFERRAL_DISCOUNT = 50;
 
 const COOKIE_MAX_AGE_SECONDS = 60 * 60 * 24 * 30;
 const MAX_REFERRAL_CODE_LENGTH = 255;

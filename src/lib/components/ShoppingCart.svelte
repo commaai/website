@@ -14,6 +14,9 @@
   import SteppableInput from "./SteppableInput.svelte";
   import Space from "./Space.svelte";
   import { formatCurrency } from "$lib/utils/currency";
+  import { REFERRAL_DISCOUNT } from "$lib/utils/referral";
+
+  const COMMA_FOUR_PRODUCT_ID = "gid://shopify/Product/8055048372272";
 
   export let loading = false;
 
@@ -84,7 +87,8 @@
       {@const referralDiscount = $cartDiscountCodes.find(({ code }) => code.toLowerCase() === referralCode?.toLowerCase())}
       {@const referralDiscountAllocation = $cartDiscountAllocations.find(({ code }) => code?.toLowerCase() === referralCode?.toLowerCase())}
       {@const bulkDiscountAllocation = $cartDiscountAllocations.find(({ title }) => title?.toUpperCase() === 'BULK ORDER')}
-      {#if referralCode}
+      {@const hasCommaFour = $cartItems.some(({ node }) => node.merchandise.product.id === COMMA_FOUR_PRODUCT_ID)}
+      {#if referralCode && hasCommaFour}
         <div class:inactive={!referralDiscountAllocation} class="referral-discount">
           <div class="referral-status">
             <div>
@@ -99,12 +103,12 @@
             </div>
           </div>
           {#if referralDiscountAllocation}
-            <strong class="discount-amount">-{formatCurrency(referralDiscountAllocation.discountedAmount)}</strong>
+            <strong class="discount-amount">-{formatCurrency({ amount: REFERRAL_DISCOUNT, currencyCode: 'USD' }, 0)}</strong>
           {/if}
         </div>
       {/if}
       {#if $cartDiscount}
-        {@const subtotalAmountAfterDiscount = $cartSubtotal.amount - $cartDiscount.amount}
+        {@const subtotalAmountAfterDiscount = $cartSubtotal.amount - (referralDiscountAllocation ? REFERRAL_DISCOUNT : $cartDiscount.amount)}
         {#if bulkDiscountAllocation && !referralCode}
           <div class="price">
             <span>Bulk Order Discount</span>

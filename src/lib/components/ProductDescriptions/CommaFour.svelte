@@ -21,7 +21,7 @@
   import { products as productsData } from '$lib/data/products.js';
   import { DEFAULT_BACKORDER_ESTIMATE } from '$lib/constants/shipping.js';
   import { formatCurrency } from "$lib/utils/currency";
-  import { getReferralCode } from '$lib/utils/referral.js';
+  import { getReferralCode, REFERRAL_DISCOUNT } from '$lib/utils/referral.js';
 
   export let product;
   let disableBuyButtonText = "SELECT YOUR CAR";
@@ -55,8 +55,6 @@
   let tradeInChecked = false;
   let backordered = null;
   let referralCode = null;
-
-  const REFERRAL_DISCOUNT = 50;
 
   // Trade-in and discount configuration
   $: showDiscount = selectedHarness === NO_HARNESS_OPTION;
