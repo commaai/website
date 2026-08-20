@@ -51,7 +51,9 @@
           <span class="option-content">
             <span class="option-heading">
               <strong>{variant.title.trim()}</strong>
-              <span class="option-price">{formatCurrency(variant.price, 0)}</span>
+              {#if size === "big"}
+                <span class="option-price">{formatCurrency(variant.price, 0)}</span>
+              {/if}
             </span>
             {#if variant.subtitle}
               <span class="option-subtitle">{variant.subtitle}</span>
@@ -214,7 +216,7 @@
   }
 
   fieldset.small label {
-    min-height: 5rem;
+    min-height: 3rem;
     padding: 0.75rem;
   }
 
