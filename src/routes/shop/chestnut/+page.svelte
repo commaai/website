@@ -245,7 +245,7 @@
         <div class="box-variant">
           <hgroup>
             <h3>ready to drive</h3>
-            <span>$799</span>
+            <span>$899</span>
           </hgroup>
           <div class="box-contents">
             <div>
