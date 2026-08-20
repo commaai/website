@@ -176,9 +176,6 @@
             {/if}
           {/if}
         </div>
-        {#if $$slots["price-accessory"] || VariantSelector || variants.length > 1}
-          <hr />
-        {/if}
         <Button
           style="accent"
           fullWidth={true}
