@@ -29,7 +29,7 @@
   import { resolveImages } from '$lib/utils/images.js';
 
   const componentOrder = [
-    'car-harness', 'replacement-mounts', 'panda', 'harness-connector',
+    'car-harness', 'replacement-mounts', 'red-panda', 'harness-connector',
     'harness-box', 'obd-c-cable', 'comma-power', 'comma-prime-sim',
     'panda-jungle', 'panda-paw', 'comma-ai-hoodie', 'comma-ai-beanie',
     'comma-ai-t-shirt', 'comma-power-extender', 'comma-device-screen',
