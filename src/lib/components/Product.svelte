@@ -44,7 +44,12 @@
 
   let selectedVariantId = null;
   $: if (autoSelectFirstVariant && variants.length > 0 && !selectedVariantId) {
-    selectedVariantId = variants[0].id;
+    const initialVariant = !VariantSelector && variants.length > 1
+      ? variants.find((variant) => variant.availableForSale && !variant.currentlyNotInStock)
+        || variants.find((variant) => variant.availableForSale)
+        || variants[0]
+      : variants[0];
+    selectedVariantId = initialVariant.id;
   }
 
   $: selectedVariant = variants.find(
