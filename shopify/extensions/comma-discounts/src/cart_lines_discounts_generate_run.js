@@ -8,8 +8,8 @@
 //   - free_harness: those `pairs` harnesses are free
 //   - fifty_off:    the UNPAIRED comma fours (#c4 - pairs) get $50 off each
 //   - bulk:         >= 10 comma four -> 10% off the comma four value (order)
-const COMMA_FOUR_PRODUCT_ID = 'gid://shopify/Product/7964554231871';
-const CAR_HARNESS_PRODUCT_ID = 'gid://shopify/Product/4447447908415';
+const COMMA_FOUR_PRODUCT_ID = 'gid://shopify/Product/8055048372272';
+const CAR_HARNESS_PRODUCT_ID = 'gid://shopify/Product/8054496591920';
 
 const FREE_HARNESS_PERCENT = 100;
 const FOUR_NO_HARNESS_AMOUNT = 50; // $ off each unpaired comma four

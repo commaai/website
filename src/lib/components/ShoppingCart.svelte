@@ -4,6 +4,7 @@
   import {
     cartItems,
     cartDiscount,
+    cartDiscountAllocations,
     cartSubtotal,
     cartAttributes,
     cartDiscountCodes,
@@ -81,12 +82,14 @@
     {#if $cartItems?.length !== 0}
       {@const referralCode = $cartAttributes.find(({ key }) => key === 'referral_code')?.value}
       {@const referralDiscount = $cartDiscountCodes.find(({ code }) => code.toLowerCase() === referralCode?.toLowerCase())}
+      {@const referralDiscountAllocation = $cartDiscountAllocations.find(({ code }) => code?.toLowerCase() === referralCode?.toLowerCase())}
+      {@const bulkDiscountAllocation = $cartDiscountAllocations.find(({ title }) => title?.toUpperCase() === 'BULK ORDER')}
       {#if referralCode}
-        <div class:inactive={referralDiscount?.applicable === false} class="referral-discount">
+        <div class:inactive={!referralDiscountAllocation} class="referral-discount">
           <div class="referral-status">
             <div>
               <strong>
-                {referralDiscount?.applicable === true
+                {referralDiscountAllocation
                   ? 'Referral discount applied'
                   : referralDiscount?.applicable === false
                     ? 'Referral discount unavailable'
@@ -95,13 +98,21 @@
               <span class="referral-code">{referralCode}</span>
             </div>
           </div>
-          {#if $cartDiscount && referralDiscount?.applicable === true}
-            <strong class="discount-amount">-{formatCurrency($cartDiscount)}</strong>
+          {#if referralDiscountAllocation}
+            <strong class="discount-amount">-{formatCurrency(referralDiscountAllocation.discountedAmount)}</strong>
           {/if}
         </div>
       {/if}
       {#if $cartDiscount}
         {@const subtotalAmountAfterDiscount = $cartSubtotal.amount - $cartDiscount.amount}
+        {#if bulkDiscountAllocation && !referralCode}
+          <div class="price">
+            <span>Bulk Order Discount</span>
+            <span>
+              -{formatCurrency(bulkDiscountAllocation.discountedAmount)}
+            </span>
+          </div>
+        {/if}
         <div class="price">
           <span>Subtotal</span>
           <span><s>{formatCurrency($cartSubtotal)}</s> {formatCurrency({ amount: subtotalAmountAfterDiscount, currencyCode: $cartSubtotal.currencyCode })}</span>

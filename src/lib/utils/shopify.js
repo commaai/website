@@ -102,6 +102,12 @@ export async function _loadCart() {
               amount
               currencyCode
             }
+            ... on CartAutomaticDiscountAllocation {
+              title
+            }
+            ... on CartCodeDiscountAllocation {
+              code
+            }
           }
           lines(first: 250) {
             edges {

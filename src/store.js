@@ -13,6 +13,7 @@ export const cartTotalQuantity = writable(browser ? window.localStorage.getItem(
 
 export const cartItems = writable([]);
 export const cartDiscount = writable({});
+export const cartDiscountAllocations = writable([]);
 export const cartSubtotal = writable({});
 export const cartAttributes = writable([]);
 export const cartDiscountCodes = writable([]);
@@ -38,6 +39,7 @@ export const loadCart = async () => {
     const loadedCart = shopifyResponse?.body?.data?.cart;
     cartItems.set(loadedCart?.lines?.edges);
     cartDiscount.set(getTotalDiscount(loadedCart?.discountAllocations));
+    cartDiscountAllocations.set(loadedCart?.discountAllocations || []);
     cartSubtotal.set(loadedCart?.cost?.subtotalAmount);
     cartAttributes.set(loadedCart?.attributes || []);
     cartDiscountCodes.set(loadedCart?.discountCodes || []);
