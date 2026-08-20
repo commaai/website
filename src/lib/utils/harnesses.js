@@ -8,8 +8,7 @@ async function fetchHarnessVariants() {
   const harnessResponse = await getProduct("gid://shopify/Product/8054496591920");
   const harnesses = harnessResponse.body?.data?.product?.variants?.nodes || [];
   return harnesses.reduce((harnessInfo, harness) => {
-    harnessInfo[harness.title] = {
-      id: harness.id,
+    harnessInfo[harness.id] = {
       currentlyNotInStock: harness.currentlyNotInStock,
       availableForSale: harness.availableForSale,
     };
@@ -37,8 +36,8 @@ async function initializeHarnesses() {
         return false;
       }
       return {
+        ...harnessInfo[harness.id],
         ...harness,
-        ...harnessInfo[harness.title],
         make,
         car: model.name,
         package: model.package,
@@ -53,9 +52,9 @@ async function initializeHarnesses() {
   // Add developer and generic make harnesses
   let genericHarnessList = CarHarnesses.map(harness => {
     return {
-      ...harness,
-      ...harnessInfo[harness.title],
+      ...harnessInfo[harness.id],
       car: harness.title,
+      id: harness.id,
       backordered: harness.backordered,
     };
   });
