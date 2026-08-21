@@ -116,8 +116,6 @@
   }
 
   label.selected {
-    /*background-color: var(--color-card-background);*/
-    border-color: #000;
     box-shadow: inset 0 0 0 2px #000;
   }
 
