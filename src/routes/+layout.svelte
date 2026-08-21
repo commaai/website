@@ -433,10 +433,14 @@
       justify-content: space-between;
       align-items: center;
       font-size: 0.875rem;
-      margin-top: 4rem;
+      margin-top: 6rem;
       opacity: 0.65;
       padding-top: 20px;
       border-top: 1px solid rgba(255, 255, 255, 0.25);
+
+      @media screen and (max-width: 1024px) {
+        margin-top: 4rem;
+      }
     }
   }
 </style>
