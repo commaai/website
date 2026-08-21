@@ -30,6 +30,7 @@
   export let priceOverride = null;
   export let sale = false;
   export let useVariantRadioSelector = false;
+  export let variantSelectorSize = "big";
 
   export let VariantSelector = null;
   function handleVariantSelection(variant) {
@@ -167,6 +168,7 @@
                   {variants}
                   bind:value={selectedVariantId}
                   label={`Choose a ${product.title} variant`}
+                  size={variantSelectorSize}
                 />
               {:else}
                 <Select bind:value={selectedVariantId}>

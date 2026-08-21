@@ -360,7 +360,12 @@ export const products = {
     images: [
       "/src/lib/images/products/replacement-mounts/replacement-mounts-four.png",
     ],
-    notes: [],
+    notes: [
+      {
+        title: "Note",
+        content: "comma four mounts are not compatible with comma 3X/three.",
+      }
+    ],
     description: `
       <strong>Description</strong>
       <p>
