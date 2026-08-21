@@ -357,11 +357,6 @@ export const products = {
     category: "accessories",
     price: "$20",
     useVariantRadioSelector: true,
-    variantSubtitles: {
-      "comma four": "Includes 2 mounts.",
-      "comma 3X": "Includes 1 mount.",
-      "comma 3X (8\u00B0)": "Includes 1 mount. For vehicles with steeper windshields."
-    },
     images: [
       "/src/lib/images/products/replacement-mounts/replacement-mounts-four.png",
     ],
@@ -431,7 +426,12 @@ export const products = {
           target="_blank">open source</a> files.
       </p>
     `.trim(),
-    hideOutOfStockVariants: true
+    hideOutOfStockVariants: true,
+    variantSubtitles: {
+      "comma four": "Includes 2 mounts.",
+      "comma 3X": "Includes 1 mount.",
+      "comma 3X (8\u00B0)": "Includes 1 mount. For vehicles with steeper windshields."
+    }
   },
 
   "comma-device-screen": {
