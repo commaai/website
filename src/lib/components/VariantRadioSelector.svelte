@@ -111,7 +111,7 @@
     transition: background-color 0.2s;
   }
 
-  label:not(.selected):hover {
+  label:hover {
     background-color: #ddd;
   }
 
