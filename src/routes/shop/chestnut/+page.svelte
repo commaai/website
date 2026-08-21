@@ -94,7 +94,8 @@
       inlineMobileTitlePrice={true}
     >
       <div slot="notes">
-        <NoteCard title="Using chestnut with openpilot?" icon={CarIcon}>
+        <NoteCard title="Using chestnut with openpilot?">
+          <span slot="icon" class="chestnut-car-icon">{@html CarIcon}</span>
           Choose ready to drive for everything you need to add desktop-class
           GPU compute to your comma four.
         </NoteCard>
@@ -416,6 +417,12 @@
 
   hr {
     margin: 3rem 0;
+  }
+
+  .chestnut-car-icon :global(svg) {
+    display: block;
+    width: 24px;
+    height: 24px;
   }
 
   .purchase-detail {

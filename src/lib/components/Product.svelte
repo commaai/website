@@ -1,7 +1,7 @@
 <script>
   import Grid from "$lib/components/Grid.svelte";
   import Button from "$lib/components/Button.svelte";
-  import Select from "$lib/components/Select.svelte";
+  import VariantRadioSelector from "$lib/components/VariantRadioSelector.svelte";
   import NoteCard from "$lib/components/NoteCard.svelte";
 
   import ShippingIcon from "$lib/icons/features/shipping.svg?raw";
@@ -28,6 +28,7 @@
   export let previousPrice = null;
   export let priceOverride = null;
   export let sale = false;
+  export let variantSelectorSize = "big";
 
   export let VariantSelector = null;
   function handleVariantSelection(variant) {
@@ -160,13 +161,12 @@
               {#if !hideVariantImage}
                 <img src={selectedVariant.image.url} alt="" />
               {/if}
-              <Select bind:value={selectedVariantId}>
-                {#each variants as option}
-                  <option value={option.id}>
-                    {option.title}
-                  </option>
-                {/each}
-              </Select>
+              <VariantRadioSelector
+                {variants}
+                bind:value={selectedVariantId}
+                label={`Choose a ${product.title} variant`}
+                size={variantSelectorSize}
+              />
             {/if}
           {/if}
         </div>
