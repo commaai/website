@@ -73,7 +73,7 @@
       aria-controls="variant-options"
       on:click={() => showAll = true}
     >
-      Show {variants.length - visibleLimit} more
+      show {variants.length - visibleLimit} more
     </button>
   {/if}
 </fieldset>
@@ -108,12 +108,11 @@
     padding: 1rem;
     cursor: pointer;
     background-color: #eee;
-    transition: border-color 0.2s, background-color 0.2s;
+    transition: background-color 0.2s;
   }
 
-  label:hover,
-  label:focus-within {
-    border-color: #000;
+  label:not(.selected):hover {
+    background-color: #ddd;
   }
 
   label.selected {
