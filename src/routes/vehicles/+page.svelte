@@ -284,6 +284,10 @@
       grid-template-columns: repeat(auto-fit, 105px);
       justify-content: space-between;
       margin: 2rem 0 3rem;
+
+      @media screen and (min-width: 769px) {
+        margin-top: 4rem;
+      }
     }
 
     & .compatibility-make-element {

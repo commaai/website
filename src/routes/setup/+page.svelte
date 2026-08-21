@@ -545,6 +545,10 @@
 
   hr {
     margin: 2rem 0 3rem;
+
+    @media screen and (min-width: 1025px) {
+      margin-top: 3.5rem;
+    }
   }
 
   .vehicle-notes {
