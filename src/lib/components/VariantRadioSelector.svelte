@@ -80,6 +80,12 @@
 
 <style>
   fieldset {
+    --card-background: #eee;
+    --card-interaction-background: #ddd;
+    --status-in-stock: #198038;
+    --status-backordered: #9a6700;
+    --status-out-of-stock: #b42318;
+
     min-width: 0;
     margin: 1.25rem 0 0;
     padding: 0;
@@ -107,12 +113,18 @@
     min-height: 5rem;
     padding: 1rem;
     cursor: pointer;
-    background-color: #eee;
+    background-color: var(--card-background);
     transition: background-color 0.2s;
   }
 
-  label:hover {
-    background-color: #ddd;
+  @media (hover: hover) and (pointer: fine) {
+    label:hover {
+      background-color: var(--card-interaction-background);
+    }
+  }
+
+  label:active {
+    background-color: var(--card-interaction-background);
   }
 
   label.selected {
@@ -134,7 +146,7 @@
 
   .show-more:hover,
   .show-more:focus-visible {
-    background-color: #eee;
+    background-color: var(--card-background);
   }
 
   input {
@@ -201,15 +213,15 @@
   }
 
   .option-status.in-stock {
-    color: #198038;
+    color: var(--status-in-stock);
   }
 
   .option-status.backordered {
-    color: #9a6700;
+    color: var(--status-backordered);
   }
 
   .option-status.out-of-stock {
-    color: #b42318;
+    color: var(--status-out-of-stock);
   }
 
   fieldset.small label {
