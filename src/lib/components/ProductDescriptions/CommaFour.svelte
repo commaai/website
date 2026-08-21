@@ -137,18 +137,12 @@
 
   <div slot="price" class="price" class:sale-price={FOUR_SALE}>
     {#if referralCode}
-      <div class="referral-price-stack">
-        <div class="referral-prices">
-          <s class="original-price">{formatCurrency({ amount: displayedPrice, currencyCode: 'USD' }, 0)}</s>
-          <span>
-            {formatCurrency({ amount: displayedPrice - REFERRAL_DISCOUNT, currencyCode: 'USD' }, 0)}
-            {tradeInChecked && FOUR_TRADE_IN_CREDIT > 0 ? ' after trade-in received' : ''}
-          </span>
-        </div>
-        <div class="referral-offer">
-          <strong>Referral code added!</strong>
-          <span>Buy now and get $50 off</span>
-        </div>
+      <div class="referral-prices">
+        <s class="original-price">{formatCurrency({ amount: displayedPrice, currencyCode: 'USD' }, 0)}</s>
+        <span>
+          {formatCurrency({ amount: displayedPrice - REFERRAL_DISCOUNT, currencyCode: 'USD' }, 0)}
+          {tradeInChecked && FOUR_TRADE_IN_CREDIT > 0 ? ' after trade-in received' : ''}
+        </span>
       </div>
     {:else if tradeInChecked && FOUR_TRADE_IN_CREDIT > 0}
       <span>{formatCurrency({ amount: priceAfterTradeIn, currencyCode: 'USD' }, 0)} after trade-in received</span>
@@ -161,6 +155,9 @@
 
   <span slot="price-accessory">
     <div class="badges">
+      {#if referralCode}
+        <Badge style="light-green">Referral code added</Badge>
+      {/if}
       <Badge style="dark">Free rush shipping</Badge>
       {#if tradeInChecked && FOUR_TRADE_IN_CREDIT > 0}
         <span class="price-due-today">{formatCurrency({ amount: priceDueToday, currencyCode: 'USD' }, 0)} due today</span>
@@ -271,55 +268,11 @@
 
   }
 
-  .referral-offer {
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    justify-content: center;
-    gap: 0.25rem;
-    width: fit-content;
-    min-height: 4.5rem;
-    padding: 0.875rem 1rem;
-    box-sizing: border-box;
-    background: radial-gradient(
-      ellipse at center,
-      rgba(81, 255, 0, 0.42) 0%,
-      rgba(81, 255, 0, 0.24) 62%,
-      rgba(81, 255, 0, 0.1) 100%
-    );
-
-    &:empty {
-      display: none;
-    }
-
-    & strong,
-    & span {
-      color: var(--color-black);
-    }
-
-    & strong {
-      font-size: 1rem;
-    }
-
-    & span {
-      font-family: JetBrains Mono, monospace;
-      font-size: 0.875rem;
-      font-weight: 400;
-      text-transform: uppercase;
-    }
-  }
-
   .referral-prices {
     display: flex;
     align-items: baseline;
     flex-wrap: wrap;
     gap: 0.5rem;
-  }
-
-  .referral-price-stack {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
   }
 
   .original-price {

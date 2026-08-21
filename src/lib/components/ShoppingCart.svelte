@@ -139,12 +139,7 @@
     min-height: 5rem;
     padding: 1rem;
     box-sizing: border-box;
-    background: radial-gradient(
-      ellipse at center,
-      rgba(81, 255, 0, 0.42) 0%,
-      rgba(81, 255, 0, 0.24) 62%,
-      rgba(81, 255, 0, 0.1) 100%
-    );
+    background: rgba(81, 255, 0, 0.18);
 
     & .referral-amount {
       margin: 0;
