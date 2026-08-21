@@ -254,6 +254,7 @@ export const products = {
     route: "/shop/obd-c-cable",
     category: "accessories",
     price: "$20",
+    useVariantRadioSelector: true,
     images: [
       "/src/lib/images/products/obd-c-cable/obd-c-cable-four.png",
       "/src/lib/images/products/obd-c-cable/obd-c-long-cable.jpg"
@@ -355,19 +356,16 @@ export const products = {
     route: "/shop/replacement-mounts",
     category: "accessories",
     price: "$20",
+    useVariantRadioSelector: true,
+    variantSubtitles: {
+      "comma four": "Includes 2 mounts.",
+      "comma 3X": "Includes 1 mount.",
+      "comma 3X (8\u00B0)": "Includes 1 mount. For vehicles with steeper windshields."
+    },
     images: [
       "/src/lib/images/products/replacement-mounts/replacement-mounts-four.png",
     ],
-    notes: [
-      {
-        title: "Note",
-        content: "comma four orders come with (2) mounts.",
-      },
-      {
-        title: "Note",
-        content: "comma four mounts are not compatible with comma 3X/three.",
-      }
-    ],
+    notes: [],
     description: `
       <strong>Description</strong>
       <p>
