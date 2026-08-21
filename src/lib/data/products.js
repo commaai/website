@@ -254,6 +254,7 @@ export const products = {
     route: "/shop/obd-c-cable",
     category: "accessories",
     price: "$20",
+    useVariantRadioSelector: true,
     images: [
       "/src/lib/images/products/obd-c-cable/obd-c-cable-four.png",
       "/src/lib/images/products/obd-c-cable/obd-c-long-cable.jpg"
@@ -293,7 +294,6 @@ export const products = {
     route: "/shop/harness-connector",
     category: "accessories",
     price: "$50",
-    variantSelectorSize: "small",
     images: [
       "/src/lib/images/products/harness-connector/harness-connector.jpg",
       "/src/lib/images/products/car-harness/connectors.jpg"
@@ -356,6 +356,7 @@ export const products = {
     route: "/shop/replacement-mounts",
     category: "accessories",
     price: "$20",
+    useVariantRadioSelector: true,
     images: [
       "/src/lib/images/products/replacement-mounts/replacement-mounts-four.png",
     ],
@@ -502,7 +503,6 @@ export const products = {
     route: "/shop/comma-ai-hoodie",
     category: "accessories",
     price: "$89",
-    variantSelectorSize: "small",
     images: [
       "/src/lib/images/products/comma-ai-hoodie/comma-hoodie.jpg",
       "/src/lib/images/products/comma-ai-hoodie/comma-hoodie-back.jpeg",
@@ -546,7 +546,6 @@ export const products = {
     route: "/shop/comma-ai-t-shirt",
     category: "accessories",
     price: "$35",
-    variantSelectorSize: "small",
     images: [
       "/src/lib/images/products/comma-ai-t-shirt/comma-t-shirt.jpg",
       "/src/lib/images/products/comma-ai-t-shirt/comma-t-shirt-pose.jpeg",

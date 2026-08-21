@@ -92,6 +92,7 @@
       hideVariantImage={true}
       scrollProductImages={true}
       inlineMobileTitlePrice={true}
+      useVariantRadioSelector={true}
     >
       <div slot="notes">
         <NoteCard title="Using chestnut with openpilot?">
