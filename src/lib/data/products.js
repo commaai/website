@@ -293,7 +293,6 @@ export const products = {
     route: "/shop/harness-connector",
     category: "accessories",
     price: "$50",
-    variantSelectorSize: "small",
     images: [
       "/src/lib/images/products/harness-connector/harness-connector.jpg",
       "/src/lib/images/products/car-harness/connectors.jpg"
@@ -326,8 +325,8 @@ export const products = {
       <strong>Open Source</strong>
       <p>
         Buy it here or build it yourself. Harness connectors are <a
-        href="https://github.com/commaai/hardware/tree/master/harness"
-        target="_blank">open source</a>.
+          href="https://github.com/commaai/hardware/tree/master/harness"
+          target="_blank">open source</a>.
       </p>
     `.trim()
   },
@@ -360,6 +359,10 @@ export const products = {
       "/src/lib/images/products/replacement-mounts/replacement-mounts-four.png",
     ],
     notes: [
+      {
+        title: "Note",
+        content: "comma four orders come with (2) mounts.",
+      },
       {
         title: "Note",
         content: "comma four mounts are not compatible with comma 3X/three.",
@@ -430,12 +433,7 @@ export const products = {
           target="_blank">open source</a> files.
       </p>
     `.trim(),
-    hideOutOfStockVariants: true,
-    variantSubtitles: {
-      "comma four": "Includes 2 mounts.",
-      "comma 3X": "Includes 1 mount.",
-      "comma 3X (8\u00B0)": "Includes 1 mount. For vehicles with steeper windshields."
-    }
+    hideOutOfStockVariants: true
   },
 
   "comma-device-screen": {
@@ -502,7 +500,6 @@ export const products = {
     route: "/shop/comma-ai-hoodie",
     category: "accessories",
     price: "$89",
-    variantSelectorSize: "small",
     images: [
       "/src/lib/images/products/comma-ai-hoodie/comma-hoodie.jpg",
       "/src/lib/images/products/comma-ai-hoodie/comma-hoodie-back.jpeg",
@@ -546,7 +543,6 @@ export const products = {
     route: "/shop/comma-ai-t-shirt",
     category: "accessories",
     price: "$35",
-    variantSelectorSize: "small",
     images: [
       "/src/lib/images/products/comma-ai-t-shirt/comma-t-shirt.jpg",
       "/src/lib/images/products/comma-ai-t-shirt/comma-t-shirt-pose.jpeg",
