@@ -6,7 +6,7 @@
     cartDiscount,
     cartDiscountAllocations,
     cartSubtotal,
-    cartDiscountCodes,
+    cartReferralDiscount,
     checkoutUrl,
   } from "../../store";
   import Button from "./Button.svelte";
@@ -82,10 +82,10 @@
   </div>
   <div class="footer">
     {#if $cartItems?.length !== 0}
-      {@const referralCode = $cartDiscountCodes.find(({ applicable }) => applicable)?.code}
-      {@const referralDiscountAmount = $cartItems.flatMap(({ node }) => node.discountAllocations || []).filter(({ code }) => code?.toLowerCase() === referralCode?.toLowerCase()).reduce((total, { discountedAmount }) => total + Number(discountedAmount.amount), 0)}
+      {@const referralCode = $cartReferralDiscount?.code}
+      {@const referralDiscountAmount = $cartReferralDiscount?.amount || 0}
       {@const bulkDiscountAllocation = $cartDiscountAllocations.find(({ title }) => title?.toUpperCase() === 'BULK ORDER')}
-      {@const hasDiscountCode = $cartDiscountCodes.some(({ applicable }) => applicable)}
+      {@const hasReferralDiscount = Boolean($cartReferralDiscount)}
       {#if referralCode && referralDiscountAmount > 0}
         <div class="referral-discount">
           <div class="referral-status">
@@ -102,7 +102,7 @@
       {#if $cartDiscount || referralDiscountAmount > 0}
         {@const subtotalAmountBeforeDiscount = Number($cartSubtotal.amount) + referralDiscountAmount}
         {@const subtotalAmountAfterDiscount = Number($cartSubtotal.amount) - Number($cartDiscount?.amount || 0)}
-        {#if bulkDiscountAllocation && !hasDiscountCode}
+        {#if bulkDiscountAllocation && !hasReferralDiscount}
           <div class="price">
             <span>Bulk Order Discount</span>
             <span>
