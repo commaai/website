@@ -202,9 +202,8 @@
 
 <style>
   .updates-card {
-    width: calc(85% + 2rem + 2px);
     box-sizing: border-box;
-    margin: 3rem auto;
+    margin: 3rem 0;
     padding: 3rem;
     overflow: hidden;
     text-align: left;
@@ -408,7 +407,6 @@
 
   @media screen and (max-width: 1024px) {
     .updates-card {
-      width: 100%;
       padding: 2rem;
     }
 

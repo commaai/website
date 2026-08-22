@@ -2,6 +2,7 @@
   import LinkButton from "$lib/components/LinkButton.svelte";
   import Grid from "$lib/components/Grid.svelte";
   import Space from "$lib/components/Space.svelte";
+  import VehicleUpdatesForm from "$lib/components/VehicleUpdatesForm.svelte";
 
   import DeviceImage from "$lib/images/products/comma-four/four_screen_on.png";
 
@@ -142,6 +143,17 @@
         {/each}
       </div>
     </article>
+    <VehicleUpdatesForm
+      title="Keep up with openpilot"
+      defaultCategory="releases"
+      defaultCategoryTitle="New openpilot releases"
+      defaultCategorySubtitle="New versions and release notes"
+      formId="openpilot-release-updates"
+    >
+      <p>
+        Get an email when a new version of openpilot is released. Unsubscribe anytime.
+      </p>
+    </VehicleUpdatesForm>
     <article>
       <hgroup>
         <p>05</p>

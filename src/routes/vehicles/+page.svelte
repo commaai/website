@@ -349,9 +349,8 @@
   }
 
   .recommended-cars {
-    width: calc(85% + 2rem + 2px);
     box-sizing: border-box;
-    margin: 3rem auto;
+    margin: 3rem 0;
     background-color: var(--color-card-background);
     border: 1px solid rgba(0, 0, 0, .4);
     padding: 3rem;
