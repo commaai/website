@@ -48,6 +48,14 @@
     {/if}
     {#each $cartItems as item}
       {@const imageUrl = item.node.merchandise.image?.url || item.node.merchandise.product.images.edges[0].node.originalSrc}
+      {@const itemReferralDiscount = item.node.discountAllocations?.find(
+        ({ code }) => code?.toLowerCase() === $cartReferralDiscount?.code?.toLowerCase()
+      )}
+      {@const itemSubtotal = item.node.estimatedCost.subtotalAmount}
+      {@const itemPriceBeforeReferral = {
+        amount: Number(item.node.estimatedCost.totalAmount.amount) + Number(itemReferralDiscount?.discountedAmount.amount || 0),
+        currencyCode: item.node.estimatedCost.totalAmount.currencyCode
+      }}
       <div class="item">
         <img
           alt={item.node.merchandise.product.title}
@@ -72,10 +80,10 @@
           />
         </div>
         <div class="item-price">
-          {#if Number(item.node.estimatedCost.subtotalAmount.amount) > Number(item.node.estimatedCost.totalAmount.amount)}
-            <s>{formatCurrency(item.node.estimatedCost.subtotalAmount)}</s>
+          {#if Number(itemSubtotal.amount) > itemPriceBeforeReferral.amount}
+            <s>{formatCurrency(itemSubtotal)}</s>
           {/if}
-          {formatCurrency(item.node.estimatedCost.totalAmount)}
+          {formatCurrency(itemPriceBeforeReferral)}
         </div>
       </div>
     {/each}
