@@ -5,7 +5,7 @@ import CarHarnesses from '$lib/constants/car-harnesses.json';
 import { getProduct } from '$lib/utils/shopify';
 
 async function fetchHarnessVariants() {
-  const harnessResponse = await getProduct("gid://shopify/Product/8054496591920");
+  const harnessResponse = await getProduct("gid://shopify/Product/4447447908415");
   const harnesses = harnessResponse.body?.data?.product?.variants?.nodes || [];
   return harnesses.reduce((harnessInfo, harness) => {
     harnessInfo[harness.id] = {

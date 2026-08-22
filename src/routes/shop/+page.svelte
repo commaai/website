@@ -187,7 +187,7 @@
               <Button
                 style="accent"
                 on:click={() => {
-                  addToCart("gid://shopify/ProductVariant/43511823958064");
+                  addToCart("gid://shopify/ProductVariant/31864934662207");
                 }}
               >
                 Add to cart

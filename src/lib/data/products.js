@@ -1,7 +1,7 @@
 export const products = {
   "comma-four": {
     title: "comma four",
-    id: "gid://shopify/Product/8055048372272",
+    id: "gid://shopify/Product/7964554231871",
     route: "/shop/four",
     category: "device",
     price: "$999",
@@ -30,7 +30,7 @@ export const products = {
 
   "car-harness": {
     title: "car harness",
-    id: "gid://shopify/Product/8054496591920",
+    id: "gid://shopify/Product/4447447908415",
     route: "/shop/car-harness",
     category: "accessories",
     price: "$99",
@@ -45,7 +45,7 @@ export const products = {
 
   "panda": {
     title: "panda",
-    id: "gid://shopify/Product/8055049224240",
+    id: "gid://shopify/Product/10933316813",
     route: "/shop/panda",
     category: "accessories",
     price: "from $99",
@@ -128,7 +128,7 @@ export const products = {
 
   "panda-jungle": {
     title: "panda jungle v2",
-    id: "gid://shopify/Product/8054227763248",
+    id: "gid://shopify/Product/4598987325503",
     route: "/shop/panda-jungle",
     category: "accessories",
     price: "$199",
@@ -151,7 +151,7 @@ export const products = {
 
   "panda-paw": {
     title: "panda paw",
-    id: "gid://shopify/Product/8055049093168",
+    id: "gid://shopify/Product/335696887821",
     route: "/shop/panda-paw",
     category: "accessories",
     price: "$20",
@@ -176,7 +176,7 @@ export const products = {
 
   "comma-power": {
     title: "comma power",
-    id: "gid://shopify/Product/8054496428080",
+    id: "gid://shopify/Product/341670756365",
     route: "/shop/comma-power",
     category: "accessories",
     price: "$20",
@@ -199,7 +199,7 @@ export const products = {
 
   "comma-power-extender": {
     title: "comma power extender",
-    id: "gid://shopify/Product/8054230712368",
+    id: "gid://shopify/Product/7626118266943",
     route: "/shop/comma-power-extender",
     category: "accessories",
     price: "$20",
@@ -217,7 +217,7 @@ export const products = {
 
   "comma-prime-sim": {
     title: "comma prime SIM",
-    id: "gid://shopify/Product/8055048929328",
+    id: "gid://shopify/Product/1923405250623",
     route: "/shop/comma-prime-sim",
     category: "accessories",
     price: "$20",
@@ -250,7 +250,7 @@ export const products = {
 
   "obd-c-cable": {
     title: "OBD-C cable",
-    id: "gid://shopify/Product/8054227992624",
+    id: "gid://shopify/Product/4826822639679",
     route: "/shop/obd-c-cable",
     category: "accessories",
     price: "$20",
@@ -289,7 +289,7 @@ export const products = {
 
   "harness-connector": {
     title: "harness connector",
-    id: "gid://shopify/Product/8054496526384",
+    id: "gid://shopify/Product/4310075310143",
     route: "/shop/harness-connector",
     category: "accessories",
     price: "$50",
@@ -333,7 +333,7 @@ export const products = {
 
   "harness-box": {
     title: "harness box",
-    id: "gid://shopify/Product/8054228090928",
+    id: "gid://shopify/Product/4826851573823",
     route: "/shop/harness-box",
     category: "accessories",
     price: "$50",
@@ -351,7 +351,7 @@ export const products = {
 
   "replacement-mounts": {
     title: "replacement mounts",
-    id: "gid://shopify/Product/8054227632176",
+    id: "gid://shopify/Product/4576073482303",
     route: "/shop/replacement-mounts",
     category: "accessories",
     price: "$20",
@@ -438,7 +438,7 @@ export const products = {
 
   "comma-device-screen": {
     title: "comma device screen",
-    id: "gid://shopify/Product/8054228516912",
+    id: "gid://shopify/Product/6786322858047",
     route: "/shop/comma-device-screen",
     category: "accessories",
     price: "$40",
@@ -470,7 +470,7 @@ export const products = {
 
   "comma-3x-back-case": {
     title: "comma 3X back case",
-    id: "gid://shopify/Product/8054231171120",
+    id: "gid://shopify/Product/7871177818175",
     route: "/shop/comma-3x-back-case",
     category: "accessories",
     price: "$25",
@@ -496,7 +496,7 @@ export const products = {
 
   "comma-ai-hoodie": {
     title: "comma hoodie",
-    id: "gid://shopify/Product/8055049158704",
+    id: "gid://shopify/Product/11027682317",
     route: "/shop/comma-ai-hoodie",
     category: "accessories",
     price: "$89",
@@ -522,7 +522,7 @@ export const products = {
 
   "comma-ai-beanie": {
     title: "comma beanie",
-    id: "gid://shopify/Product/8054228222000",
+    id: "gid://shopify/Product/4863559663679",
     route: "/shop/comma-ai-beanie",
     category: "accessories",
     price: "$69",
@@ -539,7 +539,7 @@ export const products = {
 
   "comma-ai-t-shirt": {
     title: "comma t-shirt",
-    id: "gid://shopify/Product/8055049027632",
+    id: "gid://shopify/Product/339835518989",
     route: "/shop/comma-ai-t-shirt",
     category: "accessories",
     price: "$35",
@@ -562,7 +562,7 @@ export const products = {
 
   "comma-four-trade-in": {
     title: "comma four trade-in",
-    id: "gid://shopify/Product/8054231564336",
+    id: "gid://shopify/Product/7966994202687",
   },
 
   "body": {
