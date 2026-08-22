@@ -7,27 +7,18 @@
   export let defaultCategorySubtitle = 'All comma email updates';
   export let formId = 'email-updates';
 
-  const GROUPS = {
-    all: 'group[54660][1]',
-    compatibility: 'group[54660][2]',
-    releases: 'group[54660][4]',
-    blog: 'group[54660][8]',
-  };
-
   const INTERESTS = [
-    { key: 'all', label: 'All updates' },
-    { key: 'compatibility', label: 'Car compatibility updates' },
-    { key: 'releases', label: 'New openpilot releases' },
-    { key: 'blog', label: 'New blog posts' },
+    { key: 'all', label: 'All updates', fieldName: 'group[54660][1]' },
+    { key: 'features', label: 'New features', fieldName: 'group[54660][16]' },
+    { key: 'releases', label: 'New openpilot releases', fieldName: 'group[54660][4]' },
+    { key: 'compatibility', label: 'Car compatibility updates', fieldName: 'group[54660][2]' },
+    // { key: 'blog', label: 'New blog posts', fieldName: 'group[54660][8]' },
   ];
 
   let email = '';
-  let selectedInterests = {
-    all: defaultCategory === 'all',
-    compatibility: defaultCategory === 'all' || defaultCategory === 'compatibility',
-    releases: defaultCategory === 'all' || defaultCategory === 'releases',
-    blog: defaultCategory === 'all' || defaultCategory === 'blog',
-  };
+  let selectedInterests = Object.fromEntries(
+    INTERESTS.map(({ key }) => [key, defaultCategory === 'all' || defaultCategory === key]),
+  );
   let showCustomOptions = false;
   let status = 'idle';
   let errorMessage = '';
@@ -36,12 +27,7 @@
 
   function handleInterestChange(interest, checked) {
     if (interest === 'all' && checked) {
-      selectedInterests = {
-        all: true,
-        compatibility: true,
-        releases: true,
-        blog: true,
-      };
+      selectedInterests = Object.fromEntries(INTERESTS.map(({ key }) => [key, true]));
       return;
     }
 
@@ -83,8 +69,8 @@
     });
 
     if (selectedCar) params.set('SELECTCAR', selectedCar);
-    for (const [interest, fieldName] of Object.entries(GROUPS)) {
-      if (selectedInterests[interest]) params.set(fieldName, '');
+    for (const { key, fieldName } of INTERESTS) {
+      if (selectedInterests[key]) params.set(fieldName, '');
     }
 
     function cleanUp() {

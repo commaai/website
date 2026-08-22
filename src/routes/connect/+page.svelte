@@ -3,6 +3,7 @@
   import Grid from "$lib/components/Grid.svelte";
   import LinkButton from "$lib/components/LinkButton.svelte";
   import Faq from '$lib/components/Faq.svelte';
+  import VehicleUpdatesForm from '$lib/components/VehicleUpdatesForm.svelte';
 
   import { faq } from '$lib/constants/faq.svelte';
 
@@ -213,6 +214,17 @@
 
 <section class="light" id="faq">
   <div class="container">
+    <VehicleUpdatesForm
+      title="See what's new"
+      defaultCategory="features"
+      defaultCategoryTitle="New features"
+      defaultCategorySubtitle="New comma connect and openpilot features"
+      formId="connect-feature-updates"
+    >
+      <p>
+        Get an email when we launch something new. Unsubscribe anytime.
+      </p>
+    </VehicleUpdatesForm>
     <Faq topic={faq.connect} title="Frequently asked questions" />
   </div>
 </section>
