@@ -1,6 +1,12 @@
 <script>
   import Grid from '$lib/components/Grid.svelte';
 
+  export let title = 'Get email updates';
+  export let defaultCategory = 'all';
+  export let defaultCategoryTitle = 'All updates';
+  export let defaultCategorySubtitle = 'All comma email updates';
+  export let formId = 'email-updates';
+
   const GROUPS = {
     all: 'group[54660][1]',
     compatibility: 'group[54660][2]',
@@ -8,31 +14,42 @@
     blog: 'group[54660][8]',
   };
 
+  const INTERESTS = [
+    { key: 'all', label: 'All updates' },
+    { key: 'compatibility', label: 'Car compatibility updates' },
+    { key: 'releases', label: 'New openpilot releases' },
+    { key: 'blog', label: 'New blog posts' },
+  ];
+
   let email = '';
-  let allUpdates = false;
-  let compatibilityUpdates = true;
-  let releaseUpdates = false;
-  let blogUpdates = false;
+  let selectedInterests = {
+    all: defaultCategory === 'all',
+    compatibility: defaultCategory === 'all' || defaultCategory === 'compatibility',
+    releases: defaultCategory === 'all' || defaultCategory === 'releases',
+    blog: defaultCategory === 'all' || defaultCategory === 'blog',
+  };
   let showCustomOptions = false;
   let status = 'idle';
   let errorMessage = '';
 
-  function handleAllUpdatesChange(event) {
-    allUpdates = event.currentTarget.checked;
+  $: additionalInterests = INTERESTS.filter((interest) => interest.key !== defaultCategory);
 
-    if (allUpdates) {
-      compatibilityUpdates = true;
-      releaseUpdates = true;
-      blogUpdates = true;
+  function handleInterestChange(interest, checked) {
+    if (interest === 'all' && checked) {
+      selectedInterests = {
+        all: true,
+        compatibility: true,
+        releases: true,
+        blog: true,
+      };
+      return;
     }
-  }
 
-  function handleTopicChange(topic, checked) {
-    if (topic === 'compatibility') compatibilityUpdates = checked;
-    if (topic === 'releases') releaseUpdates = checked;
-    if (topic === 'blog') blogUpdates = checked;
-
-    if (!checked) allUpdates = false;
+    selectedInterests = {
+      ...selectedInterests,
+      [interest]: checked,
+      ...(!checked && interest !== 'all' ? { all: false } : {}),
+    };
   }
 
   function cleanMessage(message) {
@@ -44,7 +61,7 @@
   function handleFormSubmit(event) {
     event.preventDefault();
 
-    if (!allUpdates && !compatibilityUpdates && !releaseUpdates && !blogUpdates) {
+    if (!Object.values(selectedInterests).some(Boolean)) {
       errorMessage = 'Choose at least one type of update.';
       status = 'error';
       return;
@@ -66,10 +83,9 @@
     });
 
     if (selectedCar) params.set('SELECTCAR', selectedCar);
-    if (allUpdates) params.set(GROUPS.all, '');
-    if (compatibilityUpdates) params.set(GROUPS.compatibility, '');
-    if (releaseUpdates) params.set(GROUPS.releases, '');
-    if (blogUpdates) params.set(GROUPS.blog, '');
+    for (const [interest, fieldName] of Object.entries(GROUPS)) {
+      if (selectedInterests[interest]) params.set(fieldName, '');
+    }
 
     function cleanUp() {
       script.remove();
@@ -100,7 +116,7 @@
   }
 </script>
 
-<aside class="updates-card" aria-labelledby="vehicle-updates-heading">
+<aside class="updates-card" aria-labelledby={`${formId}-heading`}>
   <Grid
     columnGap="4rem"
     rowGap="1.5rem"
@@ -108,98 +124,79 @@
     size="large"
     wrapMode="single"
   >
-  <div class="updates-copy">
-    <h2 id="vehicle-updates-heading">Don't see your car?</h2>
-    <p>
-      New cars are added with each openpilot release. Get an email when compatibility changes. Unsubscribe anytime.
-    </p>
-    <p class="contribute">
-      If you have a modern car and some programming skills, you can likely add support for your car.
-      Watch <a href="https://youtu.be/XxPS5TpTUnI" class="highlight">this talk</a> and check out the
-      <a href="https://github.com/commaai/openpilot/blob/master/docs/CARS.md#dont-see-your-car-here" class="highlight">docs</a>
-      to learn more.
-    </p>
-  </div>
+    <div class="updates-copy">
+      <h2 id={`${formId}-heading`}>{title}</h2>
+      <div class="updates-subtitle"><slot /></div>
+    </div>
 
-  <div class="form-wrapper">
-    {#if status === 'success'}
-      <div class="success" role="status">
-        <strong>You're all set.</strong>
-        <span>We'll send the updates you selected.</span>
-      </div>
-    {:else}
-      <form aria-label="Car compatibility update signup" on:submit={handleFormSubmit}>
-        <label class="visually-hidden" for="vehicle-updates-email">Email address</label>
-        <input
-          id="vehicle-updates-email"
-          name="email"
-          type="email"
-          autocomplete="email"
-          placeholder="Enter your email"
-          maxlength="256"
-          required
-          bind:value={email}
-        >
+    <div class="form-wrapper">
+      {#if status === 'success'}
+        <div class="success" role="status">
+          <strong>You're all set.</strong>
+          <span>We'll send the updates you selected.</span>
+        </div>
+      {:else}
+        <form aria-label={`${title} signup`} on:submit={handleFormSubmit}>
+          <label class="visually-hidden" for={`${formId}-email`}>Email address</label>
+          <input
+            id={`${formId}-email`}
+            name="email"
+            type="email"
+            autocomplete="email"
+            placeholder="Enter your email"
+            maxlength="256"
+            required
+            bind:value={email}
+          >
 
-        <fieldset>
-          <legend class="visually-hidden">Choose email updates</legend>
-          <label class="primary-preference">
-            <input
-              type="checkbox"
-              checked={compatibilityUpdates}
-              on:change={(event) => handleTopicChange('compatibility', event.currentTarget.checked)}
-            >
-            <span>
-              <strong>Car compatibility updates</strong>
-              <small>Newly supported cars and compatibility changes</small>
-            </span>
-          </label>
+          <fieldset>
+            <legend class="visually-hidden">Choose email updates</legend>
+            <label class="primary-preference">
+              <input
+                type="checkbox"
+                checked={selectedInterests[defaultCategory]}
+                on:change={(event) => handleInterestChange(defaultCategory, event.currentTarget.checked)}
+              >
+              <span>
+                <strong>{defaultCategoryTitle}</strong>
+                <small>{defaultCategorySubtitle}</small>
+              </span>
+            </label>
 
-          {#if showCustomOptions}
-            <div class="custom-options">
-              <label class="preference">
-                <input type="checkbox" checked={allUpdates} on:change={handleAllUpdatesChange}>
-                <span>All updates</span>
-              </label>
-              <label class="preference">
-                <input
-                  type="checkbox"
-                  checked={releaseUpdates}
-                  on:change={(event) => handleTopicChange('releases', event.currentTarget.checked)}
-                >
-                <span>New openpilot releases</span>
-              </label>
-              <label class="preference">
-                <input
-                  type="checkbox"
-                  checked={blogUpdates}
-                  on:change={(event) => handleTopicChange('blog', event.currentTarget.checked)}
-                >
-                <span>New blog posts</span>
-              </label>
-            </div>
+            {#if showCustomOptions}
+              <div class="custom-options">
+                {#each additionalInterests as interest}
+                  <label class="preference">
+                    <input
+                      type="checkbox"
+                      checked={selectedInterests[interest.key]}
+                      on:change={(event) => handleInterestChange(interest.key, event.currentTarget.checked)}
+                    >
+                    <span>{interest.label}</span>
+                  </label>
+                {/each}
+              </div>
+            {/if}
+          </fieldset>
+
+          {#if status === 'error'}
+            <p class="error" role="alert">{errorMessage}</p>
           {/if}
-        </fieldset>
 
-        {#if status === 'error'}
-          <p class="error" role="alert">{errorMessage}</p>
-        {/if}
-
-        <button class="submit-button" type="submit" disabled={status === 'submitting'}>
-          {status === 'submitting' ? 'signing up...' : 'notify me'}
-        </button>
-        <button
-          class="customize-button"
-          type="button"
-          aria-expanded={showCustomOptions}
-          on:click={() => showCustomOptions = !showCustomOptions}
-        >
-          {showCustomOptions ? 'hide email options' : 'customize emails'}
-        </button>
-
-      </form>
-    {/if}
-  </div>
+          <button class="submit-button" type="submit" disabled={status === 'submitting'}>
+            {status === 'submitting' ? 'signing up...' : 'notify me'}
+          </button>
+          <button
+            class="customize-button"
+            type="button"
+            aria-expanded={showCustomOptions}
+            on:click={() => showCustomOptions = !showCustomOptions}
+          >
+            {showCustomOptions ? 'hide email options' : 'customize emails'}
+          </button>
+        </form>
+      {/if}
+    </div>
   </Grid>
 </aside>
 
@@ -231,14 +228,14 @@
     letter-spacing: -0.06em;
   }
 
-  .updates-copy p {
+  .updates-subtitle :global(p) {
     max-width: 30rem;
     margin: 0;
     font-size: 1.125rem;
     line-height: 1.35;
   }
 
-  .updates-copy .contribute {
+  .updates-subtitle :global(p + p) {
     margin-top: 1.35em;
   }
 
@@ -429,7 +426,7 @@
       font-size: 1.6rem;
     }
 
-    .updates-copy p {
+    .updates-subtitle :global(p) {
       font-size: 1rem;
     }
 

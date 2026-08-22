@@ -86,7 +86,23 @@
       </div>
     </div>
 
-    <VehicleUpdatesForm />
+    <VehicleUpdatesForm
+      title="Don't see your car?"
+      defaultCategory="compatibility"
+      defaultCategoryTitle="Car compatibility updates"
+      defaultCategorySubtitle="Newly supported cars and compatibility changes"
+      formId="vehicle-updates"
+    >
+      <p>
+        New cars are added with each openpilot release. Get an email when compatibility changes. Unsubscribe anytime.
+      </p>
+      <p>
+        If you have a modern car and some programming skills, you can likely add support for your car.
+        Watch <a href="https://youtu.be/XxPS5TpTUnI" class="highlight">this talk</a> and check out the
+        <a href="https://github.com/commaai/openpilot/blob/master/docs/CARS.md#dont-see-your-car-here" class="highlight">docs</a>
+        to learn more.
+      </p>
+    </VehicleUpdatesForm>
   </div>
 </section>
 
