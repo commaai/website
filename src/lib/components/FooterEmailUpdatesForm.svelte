@@ -1,57 +1,30 @@
 <script>
   import ArrowRight from '$lib/icons/arrow-right.svg?raw';
-
-  const INTERESTS = [
-    { key: 'all', label: 'All updates' },
-    { key: 'general', label: 'General updates', fieldName: 'group[54660][1]' },
-    { key: 'releases', label: 'New openpilot releases', fieldName: 'group[54660][4]' },
-    { key: 'compatibility', label: 'Car compatibility updates', fieldName: 'group[54660][2]' },
-    { key: 'blog', label: 'New blog posts', fieldName: 'group[54660][8]' },
-  ];
-  const REAL_INTEREST_KEYS = INTERESTS.filter(({ key }) => key !== 'all').map(({ key }) => key);
+  import {
+    EMAIL_INTERESTS,
+    createEmailInterestSelection,
+    getEmailInterestSelectionState,
+    setCheckboxIndeterminate as setIndeterminate,
+    submitEmailUpdates,
+    updateEmailInterestSelection,
+  } from '$lib/email-updates.js';
 
   let email = '';
-  let selectedInterests = Object.fromEntries(INTERESTS.map(({ key }) => [key, true]));
+  let selectedInterests = createEmailInterestSelection();
   let showOptions = false;
   let status = 'idle';
   let errorMessage = '';
   let componentElement;
 
-  $: selectedRealInterestCount = REAL_INTEREST_KEYS.filter((key) => selectedInterests[key]).length;
-  $: someRealInterestsSelected = selectedRealInterestCount > 0;
-  $: allRealInterestsSelected = selectedRealInterestCount === REAL_INTEREST_KEYS.length;
-
-  function setIndeterminate(node, indeterminate) {
-    node.indeterminate = indeterminate;
-
-    return {
-      update(value) {
-        node.indeterminate = value;
-      },
-    };
-  }
+  $: selectionState = getEmailInterestSelectionState(selectedInterests);
+  $: someRealInterestsSelected = selectionState.someSelected;
+  $: allRealInterestsSelected = selectionState.allSelected;
 
   function handleInterestChange(interest, checked) {
-    if (interest === 'all') {
-      selectedInterests = Object.fromEntries(INTERESTS.map(({ key }) => [key, checked]));
-      return;
-    }
-
-    const nextInterests = {
-      ...selectedInterests,
-      [interest]: checked,
-    };
-    nextInterests.all = REAL_INTEREST_KEYS.every((key) => nextInterests[key]);
-    selectedInterests = nextInterests;
+    selectedInterests = updateEmailInterestSelection(selectedInterests, interest, checked);
   }
 
-  function cleanMessage(message) {
-    const element = document.createElement('div');
-    element.innerHTML = message;
-    return element.textContent || 'Please try again.';
-  }
-
-  function handleFormSubmit(event) {
+  async function handleFormSubmit(event) {
     event.preventDefault();
 
     if (!someRealInterestsSelected) {
@@ -64,49 +37,13 @@
     status = 'submitting';
     errorMessage = '';
 
-    const selectedCar = window.localStorage.getItem('selectedCar');
-    const callbackName = `mailchimpFooterUpdates_${Math.random().toString(36).slice(2, 11)}`;
-    const script = document.createElement('script');
-    const params = new URLSearchParams({
-      u: 'e127cf7151180db2b566d880b',
-      id: 'f150bd2a9c',
-      EMAIL: email,
-      Email: email,
-      SOURCE: window.location.pathname,
-      c: callbackName,
-    });
-
-    if (selectedCar) params.set('SELECTCAR', selectedCar);
-    for (const { key, fieldName } of INTERESTS) {
-      if (fieldName && selectedInterests[key]) params.set(fieldName, '');
-    }
-
-    function cleanUp() {
-      script.remove();
-      delete window[callbackName];
-    }
-
-    window[callbackName] = function(response) {
-      const alreadySubscribed = /already subscribed/i.test(response.msg || '');
-
-      if (response.result === 'success' || alreadySubscribed) {
-        status = 'success';
-      } else {
-        errorMessage = cleanMessage(response.msg || 'Please try again.');
-        status = 'error';
-      }
-
-      cleanUp();
-    };
-
-    script.onerror = function() {
-      errorMessage = 'We could not reach Mailchimp. Please try again.';
+    try {
+      await submitEmailUpdates(email, selectedInterests);
+      status = 'success';
+    } catch (error) {
+      errorMessage = error.message;
       status = 'error';
-      cleanUp();
-    };
-
-    script.src = `https://comma.us12.list-manage.com/subscribe/post?${params}`;
-    document.body.appendChild(script);
+    }
   }
 </script>
 
@@ -168,7 +105,7 @@
         {#if showOptions}
           <fieldset id="footer-update-options">
             <legend class="visually-hidden">Choose email updates</legend>
-            {#each INTERESTS as interest}
+            {#each EMAIL_INTERESTS as interest}
               <label class:all={interest.key === 'all'} class="preference">
                 <input
                   type="checkbox"
