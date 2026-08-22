@@ -10,6 +10,7 @@
   import ShippingIcon from "$lib/icons/features/shipping.svg?raw";
   import MoneyBackGuaranteeIcon from "$lib/icons/features/money-back-guarantee.svg?raw";
   import WarrantyIcon from "$lib/icons/features/warranty.svg?raw";
+  import GiftIcon from "$lib/icons/features/gift.svg?raw";
 
   import { FOUR_PRICE, FOUR_SALE, FOUR_STRIKETHROUGH_PRICE, FOUR_TRADE_IN_CREDIT, NO_HARNESS_DISCOUNT } from '$lib/constants/prices.js';
   import { NO_HARNESS_OPTION } from '$lib/constants/vehicles.js';
@@ -62,6 +63,7 @@
 
   // Price calculations
   $: priceDueToday = showDiscount ? FOUR_PRICE - NO_HARNESS_DISCOUNT : FOUR_PRICE;
+  $: discountedPriceDueToday = referralCode ? priceDueToday - REFERRAL_DISCOUNT : priceDueToday;
   $: priceAfterTradeIn = tradeInChecked ? priceDueToday - FOUR_TRADE_IN_CREDIT : priceDueToday;
   $: displayedPrice = tradeInChecked ? priceAfterTradeIn : priceDueToday;
 
@@ -160,7 +162,7 @@
       {/if}
       <Badge style="dark">Free rush shipping</Badge>
       {#if tradeInChecked && FOUR_TRADE_IN_CREDIT > 0}
-        <span class="price-due-today">{formatCurrency({ amount: priceDueToday, currencyCode: 'USD' }, 0)} due today</span>
+        <span class="price-due-today">{formatCurrency({ amount: discountedPriceDueToday, currencyCode: 'USD' }, 0)} due today</span>
       {/if}
     </div>
 
@@ -174,6 +176,13 @@
       showNoHarnessOption={true}
     >
     </HarnessSelector>
+    {#if referralCode}
+      <div class="referral-card">
+        <NoteCard title={`$${REFERRAL_DISCOUNT} referral discount applied`} icon={GiftIcon}>
+          Your referral discount will be applied to this order at checkout.
+        </NoteCard>
+      </div>
+    {/if}
     <CheckboxCard bind:this={checkboxCardRef} title="${FOUR_TRADE_IN_CREDIT} credit with trade-in" checked={tradeInChecked} onToggle={handleTradeInToggle}
                   disabled={disableBuyButtonText !== null}>
       Get ${FOUR_TRADE_IN_CREDIT} credit when you trade in your old comma device. Any comma device, in any condition.
@@ -254,6 +263,11 @@
 </Modal>
 
 <style>
+  .referral-card :global(.card hgroup span) {
+    background-color: #86ff4e;
+    color: black;
+  }
+
   .item {
     padding: 1rem 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.15);
