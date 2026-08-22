@@ -53,26 +53,8 @@ export async function load({ url, params }) {
         descriptionComponent
       };
     }
-
-    // Some storefronts do not contain products that are only kept around as
-    // static, out-of-stock catalog pages (for example comma body). Those pages
-    // do not need a Shopify variant, so let them prerender from the local data.
-    if (productInfo.forceOutOfStock) {
-      const amount = productInfo.price.replace(/[^\d.]/g, '');
-      const price = { amount, currencyCode: 'USD' };
-      return {
-        product: {
-          ...productInfo,
-          images: resolvedImages,
-          priceRange: { minVariantPrice: price, maxVariantPrice: price },
-          variants: { nodes: [] }
-        },
-        descriptionComponent
-      };
-    }
-
     throw error(404, {
-      message: response.body?.errors?.map(e => e.message).join(', ') || `Product "${productId}" not found`
+      message: response.body.errors.map(e => e.message).join(', ')
     });
   } else {
     console.error(response);
