@@ -7,7 +7,7 @@
   import Faq from '$lib/components/Faq.svelte';
   import LinkButton from '$lib/components/LinkButton.svelte';
   import NoteCard from '$lib/components/NoteCard.svelte';
-  import VehicleUpdatesForm from '$lib/components/VehicleUpdatesForm.svelte';
+  import EmailUpdatesForm from '$lib/components/EmailUpdatesForm.svelte';
 
   import { faq } from '$lib/constants/faq.svelte';
 
@@ -86,11 +86,10 @@
       </div>
     </div>
 
-    <VehicleUpdatesForm
+    <EmailUpdatesForm
       title="Don't see your car?"
       defaultCategory="compatibility"
-      defaultCategoryTitle="Car compatibility updates"
-      defaultCategorySubtitle="Newly supported cars and compatibility changes"
+      defaultCategorySubtitle="Newly supported cars"
       formId="vehicle-updates"
     >
       <p>
@@ -102,7 +101,7 @@
         <a href="https://github.com/commaai/openpilot/blob/master/docs/CARS.md#dont-see-your-car-here" class="highlight">docs</a>
         to learn more.
       </p>
-    </VehicleUpdatesForm>
+    </EmailUpdatesForm>
   </div>
 </section>
 

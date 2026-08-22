@@ -3,17 +3,17 @@
 
   export let title = 'Get email updates';
   export let defaultCategory = 'all';
-  export let defaultCategoryTitle = 'All updates';
   export let defaultCategorySubtitle = 'All comma email updates';
   export let formId = 'email-updates';
 
   const INTERESTS = [
-    { key: 'all', label: 'All updates', fieldName: 'group[54660][1]' },
-    { key: 'features', label: 'New features', fieldName: 'group[54660][16]' },
+    { key: 'all', label: 'All updates' },
+    { key: 'general', label: 'General updates', fieldName: 'group[54660][1]' },
     { key: 'releases', label: 'New openpilot releases', fieldName: 'group[54660][4]' },
     { key: 'compatibility', label: 'Car compatibility updates', fieldName: 'group[54660][2]' },
-    // { key: 'blog', label: 'New blog posts', fieldName: 'group[54660][8]' },
+    { key: 'blog', label: 'New blog posts', fieldName: 'group[54660][8]' },
   ];
+  const REAL_INTEREST_KEYS = INTERESTS.filter(({ key }) => key !== 'all').map(({ key }) => key);
 
   let email = '';
   let selectedInterests = Object.fromEntries(
@@ -24,18 +24,33 @@
   let errorMessage = '';
 
   $: additionalInterests = INTERESTS.filter((interest) => interest.key !== defaultCategory);
+  $: defaultCategoryLabel = INTERESTS.find((interest) => interest.key === defaultCategory)?.label ?? 'Email updates';
+  $: selectedRealInterestCount = REAL_INTEREST_KEYS.filter((key) => selectedInterests[key]).length;
+  $: someRealInterestsSelected = selectedRealInterestCount > 0;
+  $: allRealInterestsSelected = selectedRealInterestCount === REAL_INTEREST_KEYS.length;
+
+  function setIndeterminate(node, indeterminate) {
+    node.indeterminate = indeterminate;
+
+    return {
+      update(value) {
+        node.indeterminate = value;
+      },
+    };
+  }
 
   function handleInterestChange(interest, checked) {
-    if (interest === 'all' && checked) {
-      selectedInterests = Object.fromEntries(INTERESTS.map(({ key }) => [key, true]));
+    if (interest === 'all') {
+      selectedInterests = Object.fromEntries(INTERESTS.map(({ key }) => [key, checked]));
       return;
     }
 
-    selectedInterests = {
+    const nextInterests = {
       ...selectedInterests,
       [interest]: checked,
-      ...(!checked && interest !== 'all' ? { all: false } : {}),
     };
+    nextInterests.all = REAL_INTEREST_KEYS.every((key) => nextInterests[key]);
+    selectedInterests = nextInterests;
   }
 
   function cleanMessage(message) {
@@ -57,7 +72,7 @@
     errorMessage = '';
 
     const selectedCar = window.localStorage.getItem('selectedCar');
-    const callbackName = `mailchimpVehicleUpdates_${Math.random().toString(36).slice(2, 11)}`;
+    const callbackName = `mailchimpEmailUpdates_${Math.random().toString(36).slice(2, 11)}`;
     const script = document.createElement('script');
     const params = new URLSearchParams({
       u: 'e127cf7151180db2b566d880b',
@@ -70,7 +85,7 @@
 
     if (selectedCar) params.set('SELECTCAR', selectedCar);
     for (const { key, fieldName } of INTERESTS) {
-      if (selectedInterests[key]) params.set(fieldName, '');
+      if (fieldName && selectedInterests[key]) params.set(fieldName, '');
     }
 
     function cleanUp() {
@@ -141,10 +156,11 @@
               <input
                 type="checkbox"
                 checked={selectedInterests[defaultCategory]}
+                use:setIndeterminate={defaultCategory === 'all' && someRealInterestsSelected && !allRealInterestsSelected}
                 on:change={(event) => handleInterestChange(defaultCategory, event.currentTarget.checked)}
               >
               <span>
-                <strong>{defaultCategoryTitle}</strong>
+                <strong>{defaultCategoryLabel}</strong>
                 <small>{defaultCategorySubtitle}</small>
               </span>
             </label>
@@ -152,10 +168,11 @@
             {#if showCustomOptions}
               <div class="custom-options">
                 {#each additionalInterests as interest}
-                  <label class="preference">
+                  <label class:all={interest.key === 'all'} class="preference">
                     <input
                       type="checkbox"
                       checked={selectedInterests[interest.key]}
+                      use:setIndeterminate={interest.key === 'all' && someRealInterestsSelected && !allRealInterestsSelected}
                       on:change={(event) => handleInterestChange(interest.key, event.currentTarget.checked)}
                     >
                     <span>{interest.label}</span>
@@ -163,6 +180,15 @@
                 {/each}
               </div>
             {/if}
+            <button
+              class="customize-button"
+              type="button"
+              aria-expanded={showCustomOptions}
+              on:click={() => showCustomOptions = !showCustomOptions}
+            >
+              <span>{showCustomOptions ? 'hide options' : 'choose updates'}</span>
+              <span class="customize-icon" aria-hidden="true">{showCustomOptions ? '−' : '+'}</span>
+            </button>
           </fieldset>
 
           {#if status === 'error'}
@@ -171,14 +197,6 @@
 
           <button class="submit-button" type="submit" disabled={status === 'submitting'}>
             {status === 'submitting' ? 'signing up...' : 'notify me'}
-          </button>
-          <button
-            class="customize-button"
-            type="button"
-            aria-expanded={showCustomOptions}
-            on:click={() => showCustomOptions = !showCustomOptions}
-          >
-            {showCustomOptions ? 'hide email options' : 'customize emails'}
           </button>
         </form>
       {/if}
@@ -275,8 +293,9 @@
   }
 
   .customize-button:focus-visible {
-    outline: 2px solid var(--color-accent-hover);
-    outline-offset: 2px;
+    color: #fff;
+    background: #000;
+    outline: 0;
   }
 
   .submit-button:disabled {
@@ -302,11 +321,22 @@
     accent-color: #000;
   }
 
+  input[type='checkbox']:indeterminate {
+    appearance: none;
+    background: #fff linear-gradient(#000, #000) center / 0.65rem 2px no-repeat;
+    border: 1px solid #000;
+    border-radius: 3px;
+  }
+
+  .preference:not(.all) {
+    margin-left: 1rem;
+  }
+
   .primary-preference {
     display: grid;
     grid-template-columns: auto 1fr;
     gap: 0.75rem;
-    align-items: start;
+    align-items: center;
     padding: 1rem;
     cursor: pointer;
     background: #fff;
@@ -316,7 +346,7 @@
   .primary-preference input {
     width: 1.1rem;
     height: 1.1rem;
-    margin: 0.15rem 0 0;
+    margin: 0;
     accent-color: #000;
   }
 
@@ -341,16 +371,39 @@
   }
 
   .customize-button {
-    justify-self: center;
-    padding: 0.2rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.75rem 1rem;
     color: #000;
     font: inherit;
-    font-size: 0.8rem;
-    text-decoration: underline;
-    text-underline-offset: 0.2rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-align: left;
     cursor: pointer;
-    background: transparent;
-    border: 0;
+    background: #fff;
+    border: 1px solid #000;
+    border-top: 0;
+    transition: color 0.2s, background-color 0.2s;
+  }
+
+  .customize-button span {
+    color: inherit;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .customize-button:hover {
+      color: #fff;
+      background: #000;
+    }
+  }
+
+  .customize-icon {
+    font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 1;
   }
 
   .success {
