@@ -398,7 +398,7 @@
     border: 0;
   }
 
-  @media screen and (max-width: 850px) {
+  @media screen and (max-width: 1024px) {
     .updates-card {
       grid-template-columns: 1fr;
       gap: 1.5rem;
