@@ -3370,6 +3370,8 @@
       ]
     }
   ],
+  "MG": [
+  ],
   "Nissan": [
     {
       "name": "Nissan Altima 2019-24",
@@ -3535,8 +3537,7 @@
       "harness_connector": "Subaru A",
       "detail_sentence": "openpilot upgrades your <strong>Subaru Ascent</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control.",
       "footnotes": [
-        "In the non-US market, openpilot requires the car to come equipped with EyeSight with Lane Keep Assistance.",
-        "Enabling longitudinal control (alpha) will disable all EyeSight functionality, including AEB, LDW, and RAB."
+        "In the non-US market, openpilot requires the car to come equipped with EyeSight with Lane Keep Assistance."
       ],
       "setup_notes": [
       ]
@@ -3552,8 +3553,7 @@
       "harness_connector": "Subaru A",
       "detail_sentence": "openpilot upgrades your <strong>Subaru Crosstrek</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control. This car may not be able to take tight turns on its own.",
       "footnotes": [
-        "In the non-US market, openpilot requires the car to come equipped with EyeSight with Lane Keep Assistance.",
-        "Enabling longitudinal control (alpha) will disable all EyeSight functionality, including AEB, LDW, and RAB."
+        "In the non-US market, openpilot requires the car to come equipped with EyeSight with Lane Keep Assistance."
       ],
       "setup_notes": [
       ]
@@ -3569,8 +3569,7 @@
       "harness_connector": "Subaru A",
       "detail_sentence": "openpilot upgrades your <strong>Subaru Crosstrek</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control.",
       "footnotes": [
-        "In the non-US market, openpilot requires the car to come equipped with EyeSight with Lane Keep Assistance.",
-        "Enabling longitudinal control (alpha) will disable all EyeSight functionality, including AEB, LDW, and RAB."
+        "In the non-US market, openpilot requires the car to come equipped with EyeSight with Lane Keep Assistance."
       ],
       "setup_notes": [
       ]
@@ -3586,8 +3585,7 @@
       "harness_connector": "Subaru A",
       "detail_sentence": "openpilot upgrades your <strong>Subaru Forester</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control.",
       "footnotes": [
-        "In the non-US market, openpilot requires the car to come equipped with EyeSight with Lane Keep Assistance.",
-        "Enabling longitudinal control (alpha) will disable all EyeSight functionality, including AEB, LDW, and RAB."
+        "In the non-US market, openpilot requires the car to come equipped with EyeSight with Lane Keep Assistance."
       ],
       "setup_notes": [
       ]
@@ -3603,8 +3601,7 @@
       "harness_connector": "Subaru A",
       "detail_sentence": "openpilot upgrades your <strong>Subaru Impreza</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control. This car may not be able to take tight turns on its own.",
       "footnotes": [
-        "In the non-US market, openpilot requires the car to come equipped with EyeSight with Lane Keep Assistance.",
-        "Enabling longitudinal control (alpha) will disable all EyeSight functionality, including AEB, LDW, and RAB."
+        "In the non-US market, openpilot requires the car to come equipped with EyeSight with Lane Keep Assistance."
       ],
       "setup_notes": [
       ]
@@ -3620,8 +3617,7 @@
       "harness_connector": "Subaru A",
       "detail_sentence": "openpilot upgrades your <strong>Subaru Impreza</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control.",
       "footnotes": [
-        "In the non-US market, openpilot requires the car to come equipped with EyeSight with Lane Keep Assistance.",
-        "Enabling longitudinal control (alpha) will disable all EyeSight functionality, including AEB, LDW, and RAB."
+        "In the non-US market, openpilot requires the car to come equipped with EyeSight with Lane Keep Assistance."
       ],
       "setup_notes": [
       ]
@@ -3669,8 +3665,7 @@
       "harness_connector": "Subaru A",
       "detail_sentence": "openpilot upgrades your <strong>Subaru XV</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control. This car may not be able to take tight turns on its own.",
       "footnotes": [
-        "In the non-US market, openpilot requires the car to come equipped with EyeSight with Lane Keep Assistance.",
-        "Enabling longitudinal control (alpha) will disable all EyeSight functionality, including AEB, LDW, and RAB."
+        "In the non-US market, openpilot requires the car to come equipped with EyeSight with Lane Keep Assistance."
       ],
       "setup_notes": [
       ]
@@ -3686,8 +3681,7 @@
       "harness_connector": "Subaru A",
       "detail_sentence": "openpilot upgrades your <strong>Subaru XV</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control.",
       "footnotes": [
-        "In the non-US market, openpilot requires the car to come equipped with EyeSight with Lane Keep Assistance.",
-        "Enabling longitudinal control (alpha) will disable all EyeSight functionality, including AEB, LDW, and RAB."
+        "In the non-US market, openpilot requires the car to come equipped with EyeSight with Lane Keep Assistance."
       ],
       "setup_notes": [
       ]
