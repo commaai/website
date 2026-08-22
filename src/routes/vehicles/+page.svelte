@@ -7,6 +7,7 @@
   import Faq from '$lib/components/Faq.svelte';
   import LinkButton from '$lib/components/LinkButton.svelte';
   import NoteCard from '$lib/components/NoteCard.svelte';
+  import VehicleUpdatesForm from '$lib/components/VehicleUpdatesForm.svelte';
 
   import { faq } from '$lib/constants/faq.svelte';
 
@@ -53,15 +54,9 @@
       {/each}
     </div>
 
-    <hgroup class="headline">
-      <span>Don't see your car?</span>
-      <p>
-        If you don't see your car, it's not currently supported, however new cars are added with each openpilot release.
-      </p>
-      <p>
-        <a href="#mailing-list" class="highlight">Join the mailing list</a> to stay updated.
-      </p>
-      <br>
+    <VehicleUpdatesForm />
+
+    <hgroup class="headline contribute">
       <p>
         If you have a modern car and some programming skills, you can likely add support for your car.
       </p>

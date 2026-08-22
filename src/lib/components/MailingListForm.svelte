@@ -9,11 +9,21 @@
   function handleFormSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
+    const selectedCar = window.localStorage.getItem('selectedCar');
     submissionPromise = new Promise((resolve, reject) => {
-      const params = new URLSearchParams(formData);
       const script = document.createElement("script");
       const callbackName = 'mailchimpFormSubmit_' + Math.random().toString(36).substr(2, 9);
-      script.src = `https://comma.us12.list-manage.com/subscribe/post?u=e127cf7151180db2b566d880b&id=f150bd2a9c&EMAIL=${params.get('email')}&Email=${params.get('email')}&c=${callbackName}`;
+      const emailAddress = formData.get('email');
+      const params = new URLSearchParams({
+        u: 'e127cf7151180db2b566d880b',
+        id: 'f150bd2a9c',
+        EMAIL: emailAddress,
+        Email: emailAddress,
+        SOURCE: window.location.pathname,
+        c: callbackName,
+      });
+      if (selectedCar) params.set('SELECTCAR', selectedCar);
+      script.src = `https://comma.us12.list-manage.com/subscribe/post?${params}`;
 
       window[callbackName] = function(response) {
         completed = true;
