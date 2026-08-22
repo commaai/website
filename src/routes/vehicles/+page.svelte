@@ -311,8 +311,12 @@
 
     & h2 {
       margin: 0;
-      font-size: 1.5rem;
+      font-size: 2rem;
       font-weight: 600;
+
+      @media screen and (max-width: 520px) {
+        font-size: 1.5rem;
+      }
     }
 
     @media screen and (max-width: 520px) {
@@ -362,11 +366,6 @@
           font-size: 1rem;
         }
       }
-    }
-
-    @media screen and (max-width: 1024px) {
-      width: 100%;
-      padding: 2rem;
     }
 
     @media screen and (max-width: 520px) {

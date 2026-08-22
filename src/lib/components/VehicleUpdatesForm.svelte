@@ -1,4 +1,6 @@
 <script>
+  import Grid from '$lib/components/Grid.svelte';
+
   const GROUPS = {
     all: 'group[54660][1]',
     compatibility: 'group[54660][2]',
@@ -99,6 +101,13 @@
 </script>
 
 <aside class="updates-card" aria-labelledby="vehicle-updates-heading">
+  <Grid
+    columnGap="4rem"
+    rowGap="1.5rem"
+    templateColumns="minmax(0, 1fr) minmax(22rem, 0.8fr)"
+    size="large"
+    wrapMode="single"
+  >
   <div class="updates-copy">
     <h2 id="vehicle-updates-heading">Don't see your car?</h2>
     <p>
@@ -191,13 +200,11 @@
       </form>
     {/if}
   </div>
+  </Grid>
 </aside>
 
 <style>
   .updates-card {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(22rem, 0.8fr);
-    gap: 4rem;
     width: calc(85% + 2rem + 2px);
     box-sizing: border-box;
     margin: 3rem auto;
@@ -210,6 +217,10 @@
 
   .updates-copy {
     align-self: start;
+  }
+
+  .form-wrapper {
+    min-width: 0;
   }
 
   h2 {
@@ -400,8 +411,6 @@
 
   @media screen and (max-width: 1024px) {
     .updates-card {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
       width: 100%;
       padding: 2rem;
     }
