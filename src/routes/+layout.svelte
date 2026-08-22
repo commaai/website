@@ -12,7 +12,7 @@
   import Badge from "$lib/components/Badge.svelte";
   import Grid from "$lib/components/Grid.svelte";
   import SocialIcons from "$lib/components/SocialIcons.svelte";
-  import MailingListForm from "$lib/components/MailingListForm.svelte";
+  import FooterEmailUpdatesForm from "$lib/components/FooterEmailUpdatesForm.svelte";
 
   import CommaIcon from "$lib/icons/comma.svg?raw";
   import CartIcon from "$lib/icons/ui/cart.svg?raw";
@@ -173,7 +173,7 @@
         <div class="tagline">{@html CommaIcon}<span>make driving chill</span></div>
         <SocialIcons size="1.5rem" />
         <div id="mailing-list" class="mailing-list">
-          <MailingListForm style="primary" />
+          <FooterEmailUpdatesForm />
         </div>
       </div>
     </Grid>
