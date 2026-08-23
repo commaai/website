@@ -183,7 +183,6 @@
           defaultCategory="general"
           defaultCategorySubtitle="New products, sales, and more"
           formId="body-updates"
-          margin="0"
         >
           <p>Follow along with comma body.</p>
         </EmailUpdatesForm>
@@ -355,7 +354,7 @@
 
 & .image-grid {
       margin-bottom: 5rem;
-      
+
       & img {
         width: 100%;
         height: auto;
