@@ -202,7 +202,6 @@
     <EmailUpdatesForm
       title="Keep up with openpilot"
       defaultCategory="releases"
-      defaultCategorySubtitle="Major changes and improvements"
       formId="openpilot-release-updates"
       margin="3rem 0"
     >

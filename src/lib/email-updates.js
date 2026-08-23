@@ -3,11 +3,11 @@ import { get } from 'svelte/store';
 import { selectedCar } from '../store.js';
 
 export const EMAIL_INTERESTS = [
-  { key: 'all', label: 'All updates' },
-  { key: 'general', label: 'General updates', fieldName: 'group[54660][1]' },
-  { key: 'releases', label: 'New openpilot releases', fieldName: 'group[54660][4]' },
-  { key: 'compatibility', label: 'Car compatibility updates', fieldName: 'group[54660][2]' },
-  { key: 'blog', label: 'New blog posts', fieldName: 'group[54660][8]' },
+  { key: 'all', label: 'All updates', description: 'All comma email updates' },
+  { key: 'general', label: 'General updates', description: 'New products, sales, and more', fieldName: 'group[54660][1]' },
+  { key: 'releases', label: 'New openpilot releases', description: 'Major changes and improvements', fieldName: 'group[54660][4]' },
+  { key: 'compatibility', label: 'Car compatibility updates', description: 'Newly supported cars', fieldName: 'group[54660][2]' },
+  { key: 'blog', label: 'New blog posts', description: 'New posts on the comma blog', fieldName: 'group[54660][8]' },
 ];
 
 export const REAL_EMAIL_INTEREST_KEYS = EMAIL_INTERESTS

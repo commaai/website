@@ -217,7 +217,6 @@
     <EmailUpdatesForm
       title="See what's new"
       defaultCategory="general"
-      defaultCategorySubtitle="New products, sales, and more"
       formId="connect-feature-updates"
       margin="2rem 0 4rem"
     >

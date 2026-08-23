@@ -89,7 +89,6 @@
     <EmailUpdatesForm
       title="Don't see your car?"
       defaultCategory="compatibility"
-      defaultCategorySubtitle="Newly supported cars"
       formId="vehicle-updates"
       margin="3rem 0"
     >

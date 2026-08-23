@@ -11,7 +11,6 @@
 
   export let title = 'Get email updates';
   export let defaultCategory = 'all';
-  export let defaultCategorySubtitle = 'All comma email updates';
   export let formId = 'email-updates';
   export let margin;
 
@@ -22,7 +21,7 @@
   let errorMessage = '';
 
   $: additionalInterests = EMAIL_INTERESTS.filter((interest) => interest.key !== defaultCategory);
-  $: defaultCategoryLabel = EMAIL_INTERESTS.find((interest) => interest.key === defaultCategory)?.label ?? 'Email updates';
+  $: primaryInterest = EMAIL_INTERESTS.find((interest) => interest.key === defaultCategory);
   $: selectionState = getEmailInterestSelectionState(selectedInterests);
   $: someRealInterestsSelected = selectionState.someSelected;
   $: allRealInterestsSelected = selectionState.allSelected;
@@ -94,8 +93,8 @@
                 on:change={(event) => handleInterestChange(defaultCategory, event.currentTarget.checked)}
               >
               <span>
-                <strong>{defaultCategoryLabel}</strong>
-                <small>{defaultCategorySubtitle}</small>
+                <strong>{primaryInterest.label}</strong>
+                <small>{primaryInterest.description}</small>
               </span>
             </label>
 

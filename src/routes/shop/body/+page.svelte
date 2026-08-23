@@ -181,7 +181,6 @@
         <EmailUpdatesForm
           title="Get body updates"
           defaultCategory="general"
-          defaultCategorySubtitle="New products, sales, and more"
           formId="body-updates"
         >
           <p>Follow along with comma body.</p>
