@@ -221,7 +221,7 @@
     text-align: center;
     line-height: 1.35;
     background: color-mix(in srgb, var(--color-accent) 10%, transparent);
-    border: 1px solid rgba(81, 255, 0, 0.35);
+    border: 1px solid color-mix(in srgb, var(--color-accent) 35%, transparent);
   }
 
   .error {
