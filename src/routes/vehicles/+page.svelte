@@ -247,21 +247,6 @@
       line-height: 1.3;
     }
 
-    & hgroup {
-      text-align: center;
-      font-size: 1.25rem;
-
-      & span {
-        font-size: 1.5rem;
-        font-weight: 700;
-        display: block;
-      }
-
-      & p {
-        margin-top: 0.5rem;
-      }
-    }
-
     & .compatibility-make-links {
       display: grid;
       grid-gap: 1rem;
@@ -331,17 +316,13 @@
       margin-top: 3rem;
 
       & .recommended-car-stack {
+        display: grid;
+        gap: 0.5em;
         font-size: 1.125rem;
         line-height: 1.35;
 
         & strong {
-          display: block;
-          margin-bottom: 0.5em;
           font-weight: 700;
-        }
-
-        & > div + div {
-          margin-top: 0.5em;
         }
 
         @media screen and (max-width: 520px) {
@@ -355,10 +336,9 @@
     }
   }
 
-  #vehicles .recommended-cars hgroup {
-    text-align: left;
-
+  .recommended-cars hgroup {
     & span {
+      display: block;
       margin-bottom: 0.75rem;
       font-size: 2.75rem;
       font-weight: 600;
