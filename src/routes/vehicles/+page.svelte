@@ -41,14 +41,12 @@
       {#each Object.entries(vehicles) as [brand, cars]}
         {#if cars.length !== 0}
         {@const brand_img_path = `/src/lib/images/vehicles/brand-icons/Logo-${brand}.png`}
-        <div class="compatibility-make-element">
-          <a href="#{brand.toLowerCase()}" class="compatibility-make-anchor-link">
-            {#if brand_images[brand_img_path]}
-              <img src={brand_images[brand_img_path].default} loading="eager" alt="{brand} car brand" />
-            {/if}
-          </a>
-          <div class="compatibility-make-name">{brand}</div>
-        </div>
+        <a href="#{brand.toLowerCase()}" class="compatibility-make-element">
+          {#if brand_images[brand_img_path]}
+            <img src={brand_images[brand_img_path].default} loading="eager" alt="{brand} car brand" />
+          {/if}
+          <span class="compatibility-make-name">{brand}</span>
+        </a>
         {/if}
       {/each}
     </div>
@@ -280,52 +278,53 @@
 
     & .compatibility-make-links {
       display: grid;
-      grid-gap: 1rem;
-      grid-template-columns: repeat(auto-fit, 105px);
-      justify-content: space-between;
+      gap: .75rem;
+      grid-template-columns: repeat(auto-fill, minmax(105px, 1fr));
       margin: 2rem 0 3rem;
 
       @media screen and (min-width: 769px) {
         margin-top: 4rem;
       }
+
+      @media screen and (max-width: 480px) {
+        gap: .5rem;
+        grid-template-columns: repeat(auto-fill, minmax(85px, 1fr));
+      }
     }
 
     & .compatibility-make-element {
-      width: 105px;
-      margin-bottom: 1.5rem;
-    }
+      display: flex;
+      flex-direction: column;
+      background-color: var(--color-card-background);
+      border: 1px solid rgba(0, 0, 0, .4);
+      transition: background-color 0.2s;
 
-    @media screen and (max-width: 480px) {
-      & .compatibility-make-links {
-        grid-template-columns: repeat(auto-fit, 85px);
+      & img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 1;
+        object-fit: contain;
+        mix-blend-mode: multiply;
+        padding: 8px 8px 0;
+        box-sizing: border-box;
       }
-      & .compatibility-make-element {
-        width: 85px;
-      }
-    }
-
-    & .compatibility-make-anchor-link {
-      border: 1px solid rgba(0, 0, 0, .12);
-      padding: 4px;
-      transition: all 0.2s;
-      display: block;
 
       @media (hover: hover) and (pointer: fine) {
         &:hover {
-          transform: scale(1.02);
-          border: 1px solid rgba(0, 0, 0, .5);
+          background-color: var(--color-card-background-hover);
         }
       }
       &:active {
-        transform: scale(1.02);
-        border: 1px solid rgba(0, 0, 0, .5);
+        background-color: var(--color-card-background-hover);
       }
     }
 
-
     & .compatibility-make-name {
+      margin-top: auto;
+      padding: .5rem .375rem .625rem;
       text-align: center;
-      margin-top: .5rem;
+      font-size: .9375rem;
+      font-weight: 600;
       line-height: 1.2;
     }
   }
