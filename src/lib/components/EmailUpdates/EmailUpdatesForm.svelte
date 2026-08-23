@@ -235,7 +235,7 @@
   }
 
   .primary-preference small {
-    font-size: 0.75rem;
+    font-size: 0.875rem;
     font-weight: 400;
     letter-spacing: 0;
   }

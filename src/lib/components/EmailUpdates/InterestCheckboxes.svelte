@@ -26,7 +26,7 @@
     gap: 0.6rem;
     align-items: center;
     width: fit-content;
-    font-size: 0.95rem;
+    font-size: 0.875rem;
     font-weight: 700;
     letter-spacing: 0;
     cursor: pointer;
