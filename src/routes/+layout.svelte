@@ -12,7 +12,7 @@
   import Badge from "$lib/components/Badge.svelte";
   import Grid from "$lib/components/Grid.svelte";
   import SocialIcons from "$lib/components/SocialIcons.svelte";
-  import MailingListForm from "$lib/components/MailingListForm.svelte";
+  import FooterEmailUpdatesForm from "$lib/components/EmailUpdates/FooterEmailUpdatesForm.svelte";
 
   import CommaIcon from "$lib/icons/comma.svg?raw";
   import CartIcon from "$lib/icons/ui/cart.svg?raw";
@@ -63,20 +63,6 @@
         showCart.set(false);
       }
     });
-
-    // Focus mailing list input when hash is #mailing-list
-    const focusMailingList = () => {
-      if (window.location.hash === '#mailing-list') {
-        setTimeout(() => {
-          const input = document.querySelector('#mailing-list input[type="email"]');
-          if (input) input.focus();
-        }, 300);
-      }
-    };
-
-    // Check on load and on hash change
-    focusMailingList();
-    window.addEventListener('hashchange', focusMailingList);
   });
 
   printConsoleBanner();
@@ -172,8 +158,8 @@
       <div class="footer-links">
         <div class="tagline">{@html CommaIcon}<span>make driving chill</span></div>
         <SocialIcons size="1.5rem" />
-        <div id="mailing-list" class="mailing-list">
-          <MailingListForm style="primary" />
+        <div class="mailing-list">
+          <FooterEmailUpdatesForm />
         </div>
       </div>
     </Grid>
