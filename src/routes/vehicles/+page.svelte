@@ -306,7 +306,6 @@
   }
 
   .recommended-cars {
-    box-sizing: border-box;
     margin: 3rem 0;
     background-color: var(--color-card-background);
     border: 1px solid rgba(0, 0, 0, .4);
@@ -320,10 +319,6 @@
         gap: 0.5em;
         font-size: 1.125rem;
         line-height: 1.35;
-
-        & strong {
-          font-weight: 700;
-        }
       }
     }
 

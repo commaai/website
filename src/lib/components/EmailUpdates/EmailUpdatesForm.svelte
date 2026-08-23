@@ -145,7 +145,6 @@
   }
 
   input[type='email'] {
-    box-sizing: border-box;
     padding: 1rem;
     color: #000;
     font: inherit;
@@ -159,9 +158,7 @@
   }
 
   .submit-button {
-    width: 100%;
     padding: 1rem;
-    color: #000;
     font: inherit;
     font-weight: 600;
     cursor: pointer;
@@ -213,7 +210,6 @@
 
   .primary-preference small {
     font-size: 0.875rem;
-    font-weight: 400;
     letter-spacing: 0;
   }
 
@@ -235,7 +231,6 @@
     justify-content: space-between;
     width: 100%;
     padding: 0.75rem 1rem;
-    color: #000;
     font: inherit;
     font-size: 0.875rem;
     font-weight: 600;
@@ -275,7 +270,7 @@
     padding: 2rem;
     font-size: 1.125rem;
     line-height: 1.35;
-    background: rgba(81, 255, 0, 0.1);
+    background: color-mix(in srgb, var(--color-accent) 10%, transparent);
     border: 1px solid rgba(48, 153, 0, 0.5);
   }
 
@@ -284,7 +279,7 @@
     padding: 0.75rem;
     color: #8a0d05;
     font-size: 0.875rem;
-    background: rgba(255, 65, 51, 0.08);
+    background: color-mix(in srgb, var(--color-red) 10%, transparent);
     border: 1px solid var(--color-red);
   }
 

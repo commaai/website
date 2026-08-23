@@ -134,7 +134,6 @@
     display: grid;
     place-items: center;
     padding: 0;
-    color: #000;
     cursor: pointer;
     background: var(--color-accent);
     border: 0;
@@ -220,7 +219,7 @@
     padding: 2rem 1rem;
     text-align: center;
     line-height: 1.35;
-    background: rgba(81, 255, 0, 0.08);
+    background: color-mix(in srgb, var(--color-accent) 10%, transparent);
     border: 1px solid rgba(81, 255, 0, 0.35);
   }
 
@@ -229,7 +228,7 @@
     padding: 0.6rem;
     color: #ff8b82;
     line-height: 1.3;
-    background: rgba(255, 65, 51, 0.1);
+    background: color-mix(in srgb, var(--color-red) 10%, transparent);
     border: 1px solid var(--color-red);
   }
 </style>
