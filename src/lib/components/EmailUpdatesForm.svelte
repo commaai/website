@@ -69,8 +69,8 @@
     <div class="form-wrapper">
       {#if status === 'success'}
         <div class="success" role="status">
-          <strong>You're all set.</strong>
-          <span>We'll send the updates you selected.</span>
+          <strong>Thanks for signing up!</strong>
+          <span>We only send emails we would want to receive.</span>
         </div>
       {:else}
         <form aria-label={`${title} signup`} on:submit={handleFormSubmit}>
@@ -123,7 +123,7 @@
               on:click={() => showCustomOptions = !showCustomOptions}
             >
               <span>{showCustomOptions ? 'hide options' : 'choose updates'}</span>
-              <span class="customize-icon" aria-hidden="true">{showCustomOptions ? '−' : '+'}</span>
+              <span class="customize-icon" aria-hidden="true">{showCustomOptions ? '−' : '＋'}</span>
             </button>
           </fieldset>
 
@@ -336,8 +336,8 @@
   }
 
   .customize-icon {
-    font-size: 1.1rem;
-    font-weight: 400;
+    font-size: 1.2rem;
+    font-weight: 700;
     line-height: 1;
   }
 

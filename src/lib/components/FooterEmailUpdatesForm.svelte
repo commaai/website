@@ -59,8 +59,7 @@
 <div class="footer-email-updates" bind:this={componentElement}>
   {#if status === 'success'}
     <div class="success" role="status">
-      <strong>You're all set.</strong>
-      <span>We'll send the updates you selected.</span>
+      <span>Thanks for signing up! We only send emails we would want to receive.</span>
     </div>
   {:else}
     <div class="copy">
@@ -85,10 +84,6 @@
           <span class="submit-arrow" aria-hidden="true">{@html ArrowRight}</span>
         </button>
       </div>
-
-      {#if status === 'error'}
-        <p class="error" role="alert">{errorMessage}</p>
-      {/if}
 
       <div class="options-control">
         <button
@@ -119,6 +114,10 @@
           </fieldset>
         {/if}
       </div>
+
+      {#if status === 'error'}
+        <p class="error" role="alert">{errorMessage}</p>
+      {/if}
     </form>
   {/if}
 </div>
@@ -144,7 +143,7 @@
 
   .copy span {
     color: #aaa;
-    font-size: 0.8rem;
+    font-size: 0.875rem;
     line-height: 1.35;
   }
 
@@ -306,14 +305,13 @@
   .success {
     display: grid;
     gap: 0.25rem;
-    padding: 1rem;
-    font-size: 0.875rem;
+    padding: 2rem 1rem;
+    text-align: center;
     line-height: 1.35;
     background: rgba(81, 255, 0, 0.08);
     border: 1px solid rgba(81, 255, 0, 0.35);
   }
 
-  .success strong,
   .success span {
     color: #fff;
   }
@@ -322,7 +320,6 @@
     margin: 0.5rem 0 0;
     padding: 0.6rem;
     color: #ff8b82;
-    font-size: 0.8rem;
     line-height: 1.3;
     background: rgba(255, 65, 51, 0.1);
     border: 1px solid #ff4133;
