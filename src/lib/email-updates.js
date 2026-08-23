@@ -54,7 +54,7 @@ export function setCheckboxIndeterminate(node, indeterminate) {
 
 function cleanMailchimpMessage(message) {
   const element = document.createElement('div');
-  element.innerHTML = message;
+  element.innerHTML = message ?? '';
   return element.textContent || 'Please try again.';
 }
 
@@ -88,7 +88,7 @@ function submitEmailUpdates(email, selectedInterests) {
       if (response.result === 'success' || alreadySubscribed) {
         resolve(response);
       } else {
-        reject(new Error(cleanMailchimpMessage(response.msg || 'Please try again.')));
+        reject(new Error(cleanMailchimpMessage(response.msg)));
       }
     };
 
@@ -105,7 +105,7 @@ function submitEmailUpdates(email, selectedInterests) {
 export function createEmailUpdatesForm(defaultCategory = 'all') {
   const email = writable('');
   const interests = writable(createEmailInterestSelection(defaultCategory));
-  const status = writable('idle');
+  const status = writable('idle');  // idle | submitting | success | error
   const errorMessage = writable('');
   const selection = derived(interests, getEmailInterestSelectionState);
 
@@ -117,7 +117,7 @@ export function createEmailUpdatesForm(defaultCategory = 'all') {
     if (!get(selection).someSelected) {
       errorMessage.set('Choose at least one type of update.');
       status.set('error');
-      return false;
+      return;
     }
 
     status.set('submitting');
@@ -126,11 +126,9 @@ export function createEmailUpdatesForm(defaultCategory = 'all') {
     try {
       await submitEmailUpdates(get(email), get(interests));
       status.set('success');
-      return true;
     } catch (error) {
       errorMessage.set(error.message);
       status.set('error');
-      return false;
     }
   }
 

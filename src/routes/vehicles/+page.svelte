@@ -102,16 +102,13 @@
         to learn more.
       </p>
     </EmailUpdatesForm>
+
+    <p class="last-updated">Last updated: {compatibilityMeta.last_updated}</p>
   </div>
 </section>
 
 <section class="light" id="compatibility-chart">
   <div class="container" style="width:85%; max-width: 60rem">
-    <div class="compatibility-chart-header">
-      <h2>All supported cars</h2>
-      <p class="last-updated">Last updated: {compatibilityMeta.last_updated}</p>
-    </div>
-
     {#each Object.entries(vehicles) as [make, cars]}
       {#if cars.length !== 0}
       {@const brand_img_path = `/src/lib/images/vehicles/brand-icons/Logo-${make}.png`}
@@ -317,34 +314,10 @@
     }
   }
 
-  .compatibility-chart-header {
-    display: flex;
-    gap: 1rem;
-    align-items: baseline;
-    justify-content: space-between;
-    margin-bottom: 1rem;
-
-    & h2 {
-      margin: 0;
-      font-size: 2rem;
-      font-weight: 600;
-
-      @media screen and (max-width: 520px) {
-        font-size: 1.5rem;
-      }
-    }
-
-    @media screen and (max-width: 520px) {
-      flex-direction: column;
-      gap: 0.25rem;
-      align-items: flex-start;
-    }
-  }
-
   .last-updated {
-    margin: 0;
-    color: rgba(0, 0, 0, 0.6);
-    font-size: 0.875rem;
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 1rem;
   }
 
   .recommended-cars {
