@@ -74,8 +74,6 @@
       </p>
     </hgroup>
 
-    <p class="last-updated">Last updated: {compatibilityMeta.last_updated}</p>
-
     <div class="recommended-cars">
       <hgroup>
         <span>Our favorite openpilot cars</span>
@@ -87,22 +85,22 @@
             <strong>EV</strong>
             <div>Kia EV6</div>
             <div>Hyundai Ioniq 5</div>
-            <div>Toyota Prius 2021–22</div>
+            <div>Toyota Prius 2021&#8209;22</div>
           </div>
           <div class="recommended-car-stack">
             <strong>SUV</strong>
-            <div>Toyota Highlander 2020–23</div>
-            <div>Hyundai Palisade 2020–22</div>
+            <div>Toyota Highlander 2020&#8209;23</div>
+            <div>Hyundai Palisade 2020&#8209;22</div>
           </div>
           <div class="recommended-car-stack">
             <strong>Sedan</strong>
-            <div>Toyota Corolla 2020–22</div>
-            <div>Hyundai Sonata 2020–23</div>
+            <div>Toyota Corolla 2020&#8209;22</div>
+            <div>Hyundai Sonata 2020&#8209;23</div>
           </div>
           <div class="recommended-car-stack">
             <strong>Truck</strong>
-            <div>Ram 1500 2019–24</div>
-            <div>Chevrolet Silverado 1500 2020–⁠21</div>
+            <div>Ram 1500 2019&#8209;24</div>
+            <div>Chevrolet Silverado 1500 2020&#8209;21</div>
           </div>
         </Grid>
       </div>
@@ -112,6 +110,11 @@
 
 <section class="light" id="compatibility-chart">
   <div class="container" style="width:85%; max-width: 60rem">
+    <div class="compatibility-chart-header">
+      <h2>All supported cars</h2>
+      <p class="last-updated">Last updated: {compatibilityMeta.last_updated}</p>
+    </div>
+
     {#each Object.entries(vehicles) as [make, cars]}
       {#if cars.length !== 0}
       {@const brand_img_path = `/src/lib/images/vehicles/brand-icons/Logo-${make}.png`}
@@ -330,30 +333,96 @@
     }
   }
 
-  .last-updated {
-    text-align: center;
-    font-style: italic;
+  .compatibility-chart-header {
+    display: flex;
+    gap: 1rem;
+    align-items: baseline;
+    justify-content: space-between;
     margin-bottom: 1rem;
+
+    & h2 {
+      margin: 0;
+      font-size: 2rem;
+      font-weight: 600;
+
+      @media screen and (max-width: 520px) {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media screen and (max-width: 520px) {
+      flex-direction: column;
+      gap: 0.25rem;
+      align-items: flex-start;
+    }
+  }
+
+  .last-updated {
+    margin: 0;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 0.875rem;
   }
 
   .recommended-cars {
-    width: 85%;
-    margin: 2rem auto;
+    box-sizing: border-box;
+    margin: 3rem 0;
     background-color: var(--color-card-background);
     border: 1px solid rgba(0, 0, 0, .4);
-    padding: 2rem 1rem;
+    padding: 3rem;
 
     & .recommended-car-columns {
       margin-top: 3rem;
 
       & .recommended-car-stack {
-        text-align: center;
-        font-size: 1.25rem;
+        text-align: left;
+        font-size: 1.125rem;
+        line-height: 1.35;
 
         & strong {
-          margin-bottom: .5rem;
+          display: block;
+          margin-bottom: 0.5em;
           font-weight: 700;
         }
+
+        & > div + div {
+          margin-top: 0.5em;
+        }
+
+        @media screen and (max-width: 520px) {
+          font-size: 1rem;
+        }
+      }
+    }
+
+    @media screen and (max-width: 520px) {
+      padding: 1.5rem 1rem;
+    }
+  }
+
+  #vehicles .recommended-cars hgroup {
+    text-align: left;
+
+    & span {
+      margin-bottom: 0.75rem;
+      font-size: 2.75rem;
+      font-weight: 600;
+      line-height: 1.05;
+      letter-spacing: -0.06em;
+    }
+
+    & p {
+      margin: 0;
+      font-size: 1.125rem;
+      line-height: 1.35;
+    }
+
+    @media screen and (max-width: 520px) {
+      & span {
+        font-size: 1.6rem;
+      }
+
+      & p {
+        font-size: 1rem;
       }
     }
   }
