@@ -27,7 +27,6 @@
 <aside class="updates-card" aria-label={title} style:margin>
   <Grid
     columnGap="4rem"
-    rowGap="1.5rem"
     templateColumns="minmax(0, 1fr) minmax(22rem, 0.8fr)"
     size="large"
     wrapMode="single"
