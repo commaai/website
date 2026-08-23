@@ -41,7 +41,7 @@
           name="email"
           type="email"
           autocomplete="email"
-          placeholder="Enter your email"
+          placeholder="Enter email"
           maxlength="256"
           required
           bind:value={$email}
