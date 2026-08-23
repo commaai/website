@@ -6,7 +6,7 @@
   import EmailUpdatesForm from "$lib/components/EmailUpdates/EmailUpdatesForm.svelte";
   import NoteCard from "$lib/components/NoteCard.svelte";
   import CommunityBanner from "$lib/components/CommunityBanner.svelte";
-
+  
 
   import CommaBodyHeightImage from "$lib/images/comma-body-height.png";
   import CommaBodyWinkImage from "$lib/images/comma-body-wink.gif";
@@ -177,15 +177,13 @@
           </div>
         </Grid>
       </div>
-      <div class="mailing-list">
-        <EmailUpdatesForm
-          title="Get body updates"
-          defaultCategory="general"
-          formId="body-updates"
-        >
-          <p>Follow along with comma body.</p>
-        </EmailUpdatesForm>
-      </div>
+      <EmailUpdatesForm
+        title="Get body updates"
+        defaultCategory="general"
+        formId="body-updates"
+      >
+        <p>Follow along with comma body.</p>
+      </EmailUpdatesForm>
     </div>
   </div>
 </section>
@@ -353,7 +351,7 @@
 
 & .image-grid {
       margin-bottom: 5rem;
-
+      
       & img {
         width: 100%;
         height: auto;

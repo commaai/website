@@ -82,22 +82,22 @@
             <strong>EV</strong>
             <div>Kia EV6</div>
             <div>Hyundai Ioniq 5</div>
-            <div>Toyota Prius 2021‑22</div>
+            <div>Toyota Prius 2021&#8209;22</div>
           </div>
           <div class="recommended-car-stack">
             <strong>SUV</strong>
-            <div>Toyota Highlander 2020‑23</div>
-            <div>Hyundai Palisade 2020‑22</div>
+            <div>Toyota Highlander 2020&#8209;23</div>
+            <div>Hyundai Palisade 2020&#8209;22</div>
           </div>
           <div class="recommended-car-stack">
             <strong>Sedan</strong>
-            <div>Toyota Corolla 2020‑22</div>
-            <div>Hyundai Sonata 2020‑23</div>
+            <div>Toyota Corolla 2020&#8209;22</div>
+            <div>Hyundai Sonata 2020&#8209;23</div>
           </div>
           <div class="recommended-car-stack">
             <strong>Truck</strong>
-            <div>Ram 1500 2019‑24</div>
-            <div>Chevrolet Silverado 1500 2020‑21</div>
+            <div>Ram 1500 2019&#8209;24</div>
+            <div>Chevrolet Silverado 1500 2020&#8209;21</div>
           </div>
         </Grid>
       </div>
@@ -267,7 +267,7 @@
       grid-gap: 1rem;
       grid-template-columns: repeat(auto-fit, 105px);
       justify-content: space-between;
-      margin: 2rem 0 1.5rem;
+      margin: 2rem 0 3rem;
 
       @media screen and (min-width: 769px) {
         margin-top: 4rem;
@@ -327,15 +327,10 @@
     border: 1px solid rgba(0, 0, 0, .4);
     padding: 3rem;
 
-    & hgroup {
-      text-align: left;
-    }
-
     & .recommended-car-columns {
       margin-top: 3rem;
 
       & .recommended-car-stack {
-        text-align: left;
         font-size: 1.125rem;
         line-height: 1.35;
 
