@@ -177,7 +177,7 @@
     transition: background-color 0.2s, border-color 0.2s;
   }
 
-  /* Both spans would otherwise be whitened by the global `span` colour rule. */
+  /* Both spans would otherwise be whitened by the global `span` color rule. */
   .options-button span {
     color: inherit;
   }

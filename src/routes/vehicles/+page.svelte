@@ -304,6 +304,7 @@
     margin-bottom: 1rem;
   }
 
+  /* TODO: extract shared card class */
   .recommended-cars {
     margin: 3rem 0;
     background-color: var(--color-card-background);
@@ -344,7 +345,7 @@
   /* Only the top step; below 1024 the global h2 scale already applies. */
   @media screen and (min-width: 1025px) {
     #vehicles :global(.updates-card h2),
-    #vehicles .recommended-cars hgroup h2 {
+    .recommended-cars h2 {
       font-size: 2.75rem;
     }
   }
