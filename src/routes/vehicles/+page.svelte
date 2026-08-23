@@ -54,8 +54,6 @@
       {/each}
     </div>
 
-    <p class="last-updated">Last updated: {compatibilityMeta.last_updated}</p>
-
     <EmailUpdatesForm
       title="Don't see your car?"
       defaultCategory="compatibility"
@@ -109,6 +107,8 @@
 
 <section class="light" id="compatibility-chart">
   <div class="container" style="width:85%; max-width: 60rem">
+    <p class="last-updated">Last updated: {compatibilityMeta.last_updated}</p>
+
     {#each Object.entries(vehicles) as [make, cars]}
       {#if cars.length !== 0}
       {@const brand_img_path = `/src/lib/images/vehicles/brand-icons/Logo-${make}.png`}
