@@ -63,20 +63,6 @@
         showCart.set(false);
       }
     });
-
-    // Focus mailing list input when hash is #mailing-list
-    const focusMailingList = () => {
-      if (window.location.hash === '#mailing-list') {
-        setTimeout(() => {
-          const input = document.querySelector('#mailing-list input[type="email"]');
-          if (input) input.focus();
-        }, 300);
-      }
-    };
-
-    // Check on load and on hash change
-    focusMailingList();
-    window.addEventListener('hashchange', focusMailingList);
   });
 
   printConsoleBanner();

@@ -74,9 +74,8 @@
         </div>
       {:else}
         <form aria-label={`${title} signup`} on:submit={handleFormSubmit}>
-          <label class="visually-hidden" for={`${formId}-email`}>Email address</label>
           <input
-            id={`${formId}-email`}
+            aria-label="Email address"
             name="email"
             type="email"
             autocomplete="email"
@@ -86,8 +85,7 @@
             bind:value={email}
           >
 
-          <fieldset>
-            <legend class="visually-hidden">Choose email updates</legend>
+          <fieldset aria-label="Choose email updates">
             <label class="primary-preference">
               <input
                 type="checkbox"
@@ -344,10 +342,7 @@
   .success {
     display: grid;
     gap: 0.25rem;
-    align-content: center;
-    min-height: 8rem;
-    box-sizing: border-box;
-    padding: 1.5rem;
+    padding: 2rem;
     font-size: 1.125rem;
     line-height: 1.35;
     background: rgba(81, 255, 0, 0.1);
@@ -365,18 +360,6 @@
     font-size: 0.875rem;
     background: rgba(255, 65, 51, 0.08);
     border: 1px solid var(--color-red);
-  }
-
-  .visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
   }
 
   @media screen and (max-width: 1024px) {

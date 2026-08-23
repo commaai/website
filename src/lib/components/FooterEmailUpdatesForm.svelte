@@ -69,9 +69,8 @@
 
     <form aria-label="Email updates signup" on:submit={handleFormSubmit}>
       <div class="email-row">
-        <label class="visually-hidden" for="footer-updates-email">Email address</label>
         <input
-          id="footer-updates-email"
+          aria-label="Email address"
           name="email"
           type="email"
           autocomplete="email"
@@ -98,8 +97,7 @@
         </button>
 
         {#if showOptions}
-          <fieldset id="footer-update-options">
-            <legend class="visually-hidden">Choose email updates</legend>
+          <fieldset id="footer-update-options" aria-label="Choose email updates">
             {#each EMAIL_INTERESTS as interest}
               <label class:all={interest.key === 'all'} class="preference">
                 <input
@@ -323,17 +321,5 @@
     line-height: 1.3;
     background: rgba(255, 65, 51, 0.1);
     border: 1px solid #ff4133;
-  }
-
-  .visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
   }
 </style>
