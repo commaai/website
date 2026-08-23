@@ -202,7 +202,6 @@
     <EmailUpdatesForm
       title="Keep up with openpilot"
       defaultCategory="releases"
-      margin="3rem 0"
     >
       <p>
         Get an email when a new version of openpilot is released.

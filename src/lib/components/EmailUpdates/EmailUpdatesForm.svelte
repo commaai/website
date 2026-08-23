@@ -108,6 +108,7 @@
 
 <style>
   .updates-card {
+    margin: 3rem 0;
     padding: 3rem;
     background: var(--color-card-background);
     border: 1px solid rgba(0, 0, 0, 0.4);
