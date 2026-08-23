@@ -65,8 +65,8 @@
       </p>
       <p>
         If you have a modern car and some programming skills, you can likely add support for your car.
-        Watch <a href="https://youtu.be/XxPS5TpTUnI" class="highlight">this talk</a> and check out the
-        <a href="https://github.com/commaai/openpilot/blob/master/docs/CARS.md#dont-see-your-car-here" class="highlight">docs</a>
+        Watch <a href="https://youtu.be/XxPS5TpTUnI" target="_blank" class="highlight">this talk</a> and check out the
+        <a href="https://github.com/commaai/openpilot/blob/master/docs/CARS.md#dont-see-your-car-here" target="_blank" class="highlight">docs</a>
         to learn more.
       </p>
     </EmailUpdatesForm>

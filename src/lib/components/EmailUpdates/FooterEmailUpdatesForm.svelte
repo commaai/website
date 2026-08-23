@@ -3,8 +3,7 @@
   import InterestCheckboxes from './InterestCheckboxes.svelte';
   import { EMAIL_INTERESTS, createEmailUpdatesForm } from '$lib/email-updates.js';
 
-  const { email, interests, status, errorMessage, selection, toggle, submit } =
-    createEmailUpdatesForm();
+  const { email, interests, status, errorMessage, selection, toggle, submit } = createEmailUpdatesForm();
 
   let showOptions = false;
   let componentElement;
@@ -163,6 +162,10 @@
     opacity: 0.65;
   }
 
+  .options-control {
+    position: relative;
+  }
+
   .options-button {
     display: flex;
     gap: 1rem;
@@ -175,15 +178,10 @@
     font: inherit;
     font-size: 0.875rem;
     font-weight: 600;
-    text-align: left;
     cursor: pointer;
     background: transparent;
     border: 1px solid #777;
     transition: background-color 0.2s, border-color 0.2s;
-  }
-
-  .options-control {
-    position: relative;
   }
 
   .options-button:focus-visible {
@@ -221,8 +219,6 @@
   }
 
   .success {
-    display: grid;
-    gap: 0.25rem;
     padding: 2rem 1rem;
     text-align: center;
     line-height: 1.35;
@@ -236,6 +232,6 @@
     color: #ff8b82;
     line-height: 1.3;
     background: rgba(255, 65, 51, 0.1);
-    border: 1px solid #ff4133;
+    border: 1px solid var(--color-red);
   }
 </style>

@@ -12,8 +12,7 @@
   export let formId = 'email-updates';
   export let margin;
 
-  const { email, interests, status, errorMessage, selection, toggle, submit } =
-    createEmailUpdatesForm(defaultCategory);
+  const { email, interests, status, errorMessage, selection, toggle, submit } = createEmailUpdatesForm(defaultCategory);
 
   let showCustomOptions = false;
 
@@ -34,7 +33,7 @@
     size="large"
     wrapMode="single"
   >
-    <div class="updates-copy">
+    <div>
       <h2 id={`${formId}-heading`}>{title}</h2>
       <div class="updates-subtitle"><slot /></div>
     </div>
@@ -114,7 +113,6 @@
   .updates-card {
     box-sizing: border-box;
     padding: 3rem;
-    text-align: left;
     background: var(--color-card-background);
     border: 1px solid rgba(0, 0, 0, 0.4);
   }
@@ -142,17 +140,14 @@
     margin-top: 1.35em;
   }
 
-  form,
-  fieldset {
-    margin: 0;
-  }
-
   form {
     display: grid;
     gap: 0.75rem;
+    margin: 0;
   }
 
   fieldset {
+    margin: 0;
     padding: 0;
     border: 0;
   }
@@ -188,12 +183,6 @@
   .submit-button:hover,
   .submit-button:focus-visible {
     background: var(--color-accent-hover);
-  }
-
-  .customize-button:focus-visible {
-    color: #fff;
-    background: #000;
-    outline: 0;
   }
 
   .submit-button:disabled {
@@ -260,7 +249,6 @@
     font: inherit;
     font-size: 0.875rem;
     font-weight: 600;
-    text-align: left;
     cursor: pointer;
     background: #fff;
     border: 1px solid #000;
@@ -270,6 +258,12 @@
 
   .customize-button span {
     color: inherit;
+  }
+
+  .customize-button:focus-visible {
+    color: #fff;
+    background: #000;
+    outline: 0;
   }
 
   @media (hover: hover) and (pointer: fine) {
