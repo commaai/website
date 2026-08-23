@@ -1,7 +1,3 @@
-import { get } from 'svelte/store';
-
-import { selectedCar } from '../store.js';
-
 export const EMAIL_INTERESTS = [
   { key: 'all', label: 'All updates' },
   { key: 'general', label: 'General updates', fieldName: 'group[54660][1]' },
@@ -9,17 +5,6 @@ export const EMAIL_INTERESTS = [
   { key: 'compatibility', label: 'Car compatibility updates', fieldName: 'group[54660][2]' },
   { key: 'blog', label: 'New blog posts', fieldName: 'group[54660][8]' },
 ];
-
-export const EMAIL_UPDATES_COPY = {
-  emailLabel: 'Email address',
-  emailPlaceholder: 'Enter your email',
-  legend: 'Choose email updates',
-  noInterests: 'Choose at least one type of update.',
-  successTitle: 'Thanks for signing up!',
-  successBody: 'We only send emails we would want to receive.',
-  showOptions: 'choose updates',
-  hideOptions: 'hide options',
-};
 
 export const REAL_EMAIL_INTEREST_KEYS = EMAIL_INTERESTS
   .filter(({ key }) => key !== 'all')
@@ -65,12 +50,13 @@ export function setCheckboxIndeterminate(node, indeterminate) {
 
 function cleanMailchimpMessage(message) {
   const element = document.createElement('div');
-  element.innerHTML = message ?? '';
+  element.innerHTML = message;
   return element.textContent || 'Please try again.';
 }
 
 export function submitEmailUpdates(email, selectedInterests) {
   return new Promise((resolve, reject) => {
+    const selectedCar = window.localStorage.getItem('selectedCar');
     const callbackName = `mailchimpEmailUpdates_${Math.random().toString(36).slice(2, 11)}`;
     const script = document.createElement('script');
     const params = new URLSearchParams({
@@ -82,8 +68,7 @@ export function submitEmailUpdates(email, selectedInterests) {
       c: callbackName,
     });
 
-    const car = get(selectedCar);
-    if (car) params.set('SELECTCAR', car);
+    if (selectedCar) params.set('SELECTCAR', selectedCar);
     for (const { key, fieldName } of EMAIL_INTERESTS) {
       if (fieldName && selectedInterests[key]) params.set(fieldName, '');
     }
@@ -100,7 +85,7 @@ export function submitEmailUpdates(email, selectedInterests) {
       if (response.result === 'success' || alreadySubscribed) {
         resolve(response);
       } else {
-        reject(new Error(cleanMailchimpMessage(response.msg)));
+        reject(new Error(cleanMailchimpMessage(response.msg || 'Please try again.')));
       }
     };
 

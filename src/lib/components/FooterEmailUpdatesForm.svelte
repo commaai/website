@@ -1,11 +1,10 @@
 <script>
   import ArrowRight from '$lib/icons/arrow-right.svg?raw';
-  import InterestCheckboxes from '$lib/components/InterestCheckboxes.svelte';
   import {
     EMAIL_INTERESTS,
-    EMAIL_UPDATES_COPY as COPY,
     createEmailInterestSelection,
     getEmailInterestSelectionState,
+    setCheckboxIndeterminate as setIndeterminate,
     submitEmailUpdates,
     updateEmailInterestSelection,
   } from '$lib/email-updates.js';
@@ -17,7 +16,9 @@
   let errorMessage = '';
   let componentElement;
 
-  $: ({ someSelected } = getEmailInterestSelectionState(selectedInterests));
+  $: selectionState = getEmailInterestSelectionState(selectedInterests);
+  $: someRealInterestsSelected = selectionState.someSelected;
+  $: allRealInterestsSelected = selectionState.allSelected;
 
   function handleInterestChange(interest, checked) {
     selectedInterests = updateEmailInterestSelection(selectedInterests, interest, checked);
@@ -26,8 +27,8 @@
   async function handleFormSubmit(event) {
     event.preventDefault();
 
-    if (!someSelected) {
-      errorMessage = COPY.noInterests;
+    if (!someRealInterestsSelected) {
+      errorMessage = 'Choose at least one type of update.';
       status = 'error';
       showOptions = true;
       return;
@@ -58,7 +59,7 @@
 <div class="footer-email-updates" bind:this={componentElement}>
   {#if status === 'success'}
     <div class="success" role="status">
-      <span>{COPY.successTitle} {COPY.successBody}</span>
+      <span>Thanks for signing up! We only send emails we would want to receive.</span>
     </div>
   {:else}
     <div class="copy">
@@ -68,19 +69,19 @@
 
     <form aria-label="Email updates signup" on:submit={handleFormSubmit}>
       <div class="email-row">
-        <label class="visually-hidden" for="footer-updates-email">{COPY.emailLabel}</label>
+        <label class="visually-hidden" for="footer-updates-email">Email address</label>
         <input
           id="footer-updates-email"
           name="email"
           type="email"
           autocomplete="email"
-          placeholder={COPY.emailPlaceholder}
+          placeholder="Enter your email"
           maxlength="256"
           required
           bind:value={email}
         >
         <button class="submit-button" type="submit" aria-label="Subscribe" disabled={status === 'submitting'}>
-          <span aria-hidden="true">{@html ArrowRight}</span>
+          <span class="submit-arrow" aria-hidden="true">{@html ArrowRight}</span>
         </button>
       </div>
 
@@ -92,18 +93,24 @@
           aria-controls="footer-update-options"
           on:click={() => showOptions = !showOptions}
         >
-          <span>{showOptions ? COPY.hideOptions : COPY.showOptions}</span>
+          <span>{showOptions ? 'hide options' : 'choose updates'}</span>
           <span class="options-icon" aria-hidden="true">{showOptions ? '−' : '+'}</span>
         </button>
 
         {#if showOptions}
           <fieldset id="footer-update-options">
-            <legend class="visually-hidden">{COPY.legend}</legend>
-            <InterestCheckboxes
-              interests={EMAIL_INTERESTS}
-              {selectedInterests}
-              onChange={handleInterestChange}
-            />
+            <legend class="visually-hidden">Choose email updates</legend>
+            {#each EMAIL_INTERESTS as interest}
+              <label class:all={interest.key === 'all'} class="preference">
+                <input
+                  type="checkbox"
+                  checked={selectedInterests[interest.key]}
+                  use:setIndeterminate={interest.key === 'all' && someRealInterestsSelected && !allRealInterestsSelected}
+                  on:change={(event) => handleInterestChange(interest.key, event.currentTarget.checked)}
+                >
+                <span>{interest.label}</span>
+              </label>
+            {/each}
           </fieldset>
         {/if}
       </div>
@@ -117,6 +124,7 @@
 
 <style>
   .footer-email-updates {
+    width: 100%;
     color: #fff;
   }
 
@@ -127,6 +135,7 @@
   }
 
   .copy strong {
+    color: #fff;
     font-size: 1.1rem;
     font-weight: 600;
     letter-spacing: 0;
@@ -160,7 +169,6 @@
     border-right: 0;
   }
 
-  /* Lifted so the focus ring draws over the adjoining submit button. */
   input[type='email']:focus-visible {
     position: relative;
     z-index: 1;
@@ -173,6 +181,8 @@
     place-items: center;
     padding: 0;
     color: #000;
+    font: inherit;
+    font-size: 1.35rem;
     cursor: pointer;
     background: var(--color-accent);
     border: 0;
@@ -182,10 +192,16 @@
     color: inherit;
   }
 
-  .submit-button :global(svg) {
+  .submit-arrow {
     display: block;
     width: 1.5rem;
     height: 1.5rem;
+  }
+
+  .submit-arrow :global(svg) {
+    display: block;
+    width: 100%;
+    height: 100%;
   }
 
   .submit-button:hover,
@@ -196,10 +212,6 @@
   .submit-button:disabled {
     cursor: wait;
     opacity: 0.65;
-  }
-
-  .options-control {
-    position: relative;
   }
 
   .options-button {
@@ -221,6 +233,10 @@
     transition: background-color 0.2s, border-color 0.2s;
   }
 
+  .options-control {
+    position: relative;
+  }
+
   .options-button:focus-visible {
     outline: 2px solid #fff;
     outline-offset: 2px;
@@ -234,14 +250,13 @@
   }
 
   .options-icon {
+    color: #fff;
     font-size: 1.1rem;
     font-weight: 400;
     line-height: 1;
   }
 
   fieldset {
-    --interest-accent: #fff;
-
     position: absolute;
     right: 0;
     bottom: calc(100% + 0.5rem);
@@ -256,7 +271,40 @@
     box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.45);
   }
 
+  .preference {
+    display: flex;
+    gap: 0.6rem;
+    align-items: center;
+    width: fit-content;
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    cursor: pointer;
+  }
+
+  .preference:not(.all) {
+    margin-left: 1rem;
+  }
+
+  .preference input {
+    flex: 0 0 auto;
+    width: 1.1rem;
+    height: 1.1rem;
+    margin: 0;
+    accent-color: #fff;
+  }
+
+  input[type='checkbox']:indeterminate {
+    appearance: none;
+    background: #fff linear-gradient(#000, #000) center / 0.65rem 2px no-repeat;
+    border: 1px solid #fff;
+    border-radius: 3px;
+  }
+
   .success {
+    display: grid;
+    gap: 0.25rem;
     padding: 2rem 1rem;
     text-align: center;
     line-height: 1.35;
@@ -274,6 +322,18 @@
     color: #ff8b82;
     line-height: 1.3;
     background: rgba(255, 65, 51, 0.1);
-    border: 1px solid var(--color-red);
+    border: 1px solid #ff4133;
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 </style>
