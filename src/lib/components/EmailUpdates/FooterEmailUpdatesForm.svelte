@@ -56,7 +56,6 @@
           class="options-button"
           type="button"
           aria-expanded={showOptions}
-          aria-controls="footer-update-options"
           on:click={() => showOptions = !showOptions}
         >
           <span>{showOptions ? 'hide options' : 'choose updates'}</span>
@@ -64,7 +63,7 @@
         </button>
 
         {#if showOptions}
-          <fieldset id="footer-update-options" aria-label="Choose email updates">
+          <fieldset aria-label="Choose email updates">
             <InterestCheckboxes
               interests={EMAIL_INTERESTS}
               selected={$interests}
@@ -84,6 +83,9 @@
 
 <style>
   .footer-email-updates {
+    --muted: #aaa;
+    --highlight: #ccc;
+
     color: #fff;
   }
 
@@ -93,14 +95,8 @@
     margin-bottom: 0.75rem;
   }
 
-  .copy strong {
-    font-size: 1.1rem;
-    font-weight: 600;
-    letter-spacing: 0;
-  }
-
   .copy span {
-    color: #aaa;
+    color: var(--muted);
     font-size: 0.875rem;
     line-height: 1.35;
   }
@@ -126,7 +122,7 @@
   }
 
   input[type='email']:focus-visible {
-    outline: 2px solid #fff;
+    outline: 2px solid var(--highlight);
     outline-offset: -3px;
   }
 
@@ -171,7 +167,7 @@
     width: 100%;
     margin: 0.6rem 0 0;
     padding: 0.65rem 0.75rem;
-    color: #fff;
+    color: var(--muted);
     font: inherit;
     font-size: 0.875rem;
     font-weight: 600;
@@ -181,15 +177,20 @@
     transition: background-color 0.2s, border-color 0.2s;
   }
 
+  /* Both spans would otherwise be whitened by the global `span` colour rule. */
+  .options-button span {
+    color: inherit;
+  }
+
   .options-button:focus-visible {
-    outline: 2px solid #fff;
+    outline: 2px solid var(--highlight);
     outline-offset: 2px;
   }
 
   @media (hover: hover) and (pointer: fine) {
     .options-button:hover {
       background: rgba(255, 255, 255, 0.08);
-      border-color: #fff;
+      border-color: var(--highlight);
     }
   }
 

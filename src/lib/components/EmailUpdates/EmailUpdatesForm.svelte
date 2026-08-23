@@ -9,7 +9,6 @@
 
   export let title = 'Get email updates';
   export let defaultCategory = 'all';
-  export let formId = 'email-updates';
   export let margin;
 
   const { email, interests, status, errorMessage, selection, toggle, submit } = createEmailUpdatesForm(defaultCategory);
@@ -25,7 +24,7 @@
   }
 </script>
 
-<aside class="updates-card" aria-labelledby={`${formId}-heading`} style:margin>
+<aside class="updates-card" aria-label={title} style:margin>
   <Grid
     columnGap="4rem"
     rowGap="1.5rem"
@@ -34,7 +33,7 @@
     wrapMode="single"
   >
     <div>
-      <h2 id={`${formId}-heading`}>{title}</h2>
+      <h2>{title}</h2>
       <div class="updates-subtitle"><slot /></div>
     </div>
 

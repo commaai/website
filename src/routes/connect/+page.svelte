@@ -217,7 +217,6 @@
     <EmailUpdatesForm
       title="See what's new"
       defaultCategory="general"
-      formId="connect-feature-updates"
       margin="2rem 0 4rem"
     >
       <p>

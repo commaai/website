@@ -180,7 +180,6 @@
       <EmailUpdatesForm
         title="Get body updates"
         defaultCategory="general"
-        formId="body-updates"
       >
         <p>Follow along with comma body.</p>
       </EmailUpdatesForm>
