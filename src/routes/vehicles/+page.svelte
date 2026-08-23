@@ -245,7 +245,7 @@
 
     & .compatibility-make-links {
       display: grid;
-      gap: 1rem;
+      gap: 1.5rem 1rem;
       grid-template-columns: repeat(auto-fill, minmax(105px, 1fr));
       margin: 2rem 0 3rem;
 
@@ -271,7 +271,7 @@
         aspect-ratio: 1;
         object-fit: contain;
         mix-blend-mode: multiply;
-        padding: 8px 8px 0;
+        padding: 0 4px;
         box-sizing: border-box;
       }
 
@@ -289,7 +289,6 @@
       margin-top: auto;
       padding: .5rem .375rem .625rem;
       text-align: center;
-      font-size: .9375rem;
       font-weight: 600;
       line-height: 1.2;
     }
