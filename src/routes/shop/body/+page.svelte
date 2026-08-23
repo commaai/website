@@ -6,7 +6,7 @@
   import EmailUpdatesForm from "$lib/components/EmailUpdatesForm.svelte";
   import NoteCard from "$lib/components/NoteCard.svelte";
   import CommunityBanner from "$lib/components/CommunityBanner.svelte";
-  
+
 
   import CommaBodyHeightImage from "$lib/images/comma-body-height.png";
   import CommaBodyWinkImage from "$lib/images/comma-body-wink.gif";
@@ -183,8 +183,9 @@
           defaultCategory="general"
           defaultCategorySubtitle="New products, sales, and more"
           formId="body-updates"
+          margin="0"
         >
-          <p>Follow along with comma body. Unsubscribe anytime.</p>
+          <p>Follow along with comma body.</p>
         </EmailUpdatesForm>
       </div>
     </div>

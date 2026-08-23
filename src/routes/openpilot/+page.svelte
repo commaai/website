@@ -143,16 +143,6 @@
         {/each}
       </div>
     </article>
-    <EmailUpdatesForm
-      title="Keep up with openpilot"
-      defaultCategory="releases"
-      defaultCategorySubtitle="Major changes and improvements"
-      formId="openpilot-release-updates"
-    >
-      <p>
-        Get an email when a new version of openpilot is released. Unsubscribe anytime.
-      </p>
-    </EmailUpdatesForm>
     <article>
       <hgroup>
         <p>05</p>
@@ -209,6 +199,17 @@
         with the driver supervising.
       </p>
     </article>
+    <EmailUpdatesForm
+      title="Keep up with openpilot"
+      defaultCategory="releases"
+      defaultCategorySubtitle="Major changes and improvements"
+      formId="openpilot-release-updates"
+      margin="3rem 0"
+    >
+      <p>
+        Get an email when a new version of openpilot is released.
+      </p>
+    </EmailUpdatesForm>
   </div>
 </section>
 

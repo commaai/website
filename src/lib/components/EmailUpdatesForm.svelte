@@ -13,6 +13,7 @@
   export let defaultCategory = 'all';
   export let defaultCategorySubtitle = 'All comma email updates';
   export let formId = 'email-updates';
+  export let margin;
 
   let email = '';
   let selectedInterests = createEmailInterestSelection(defaultCategory);
@@ -52,7 +53,7 @@
   }
 </script>
 
-<aside class="updates-card" aria-labelledby={`${formId}-heading`}>
+<aside class="updates-card" aria-labelledby={`${formId}-heading`} style:margin>
   <Grid
     columnGap="4rem"
     rowGap="1.5rem"
@@ -142,7 +143,6 @@
 <style>
   .updates-card {
     box-sizing: border-box;
-    margin: 3rem 0;
     padding: 3rem;
     overflow: hidden;
     text-align: left;

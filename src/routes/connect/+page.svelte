@@ -219,9 +219,10 @@
       defaultCategory="general"
       defaultCategorySubtitle="New products, sales, and more"
       formId="connect-feature-updates"
+      margin="2rem 0 4rem"
     >
       <p>
-        Get an email when we launch something new. Unsubscribe anytime.
+        Get an email when we launch something new.
       </p>
     </EmailUpdatesForm>
     <Faq topic={faq.connect} title="Frequently asked questions" />

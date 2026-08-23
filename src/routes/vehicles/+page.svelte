@@ -91,9 +91,10 @@
       defaultCategory="compatibility"
       defaultCategorySubtitle="Newly supported cars"
       formId="vehicle-updates"
+      margin="3rem 0"
     >
       <p>
-        New cars are added with each openpilot release. Get an email when compatibility changes. Unsubscribe anytime.
+        New cars are added with each openpilot release. Get an email when compatibility changes.
       </p>
       <p>
         If you have a modern car and some programming skills, you can likely add support for your car.
