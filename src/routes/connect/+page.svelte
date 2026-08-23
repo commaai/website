@@ -221,7 +221,7 @@
       margin="2rem 0 4rem"
     >
       <p>
-        Get an email when we launch a new product, service, or feature.
+        Get an email when we launch something new.
       </p>
     </EmailUpdatesForm>
     <Faq topic={faq.connect} title="Frequently asked questions" />
