@@ -115,8 +115,6 @@
   }
 
   input[type='email'] {
-    min-width: 0;
-    width: 100%;
     height: 3rem;
     box-sizing: border-box;
     padding: 0.75rem;

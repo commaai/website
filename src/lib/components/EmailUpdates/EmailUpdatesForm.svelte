@@ -38,74 +38,72 @@
       <div class="updates-subtitle"><slot /></div>
     </div>
 
-    <div class="form-wrapper">
-      {#if $status === 'success'}
-        <div class="success" role="status">
-          <strong>Thanks for signing up!</strong>
-          <span>We only send emails we would want to receive.</span>
-        </div>
-      {:else}
-        <form on:submit|preventDefault={submit}>
-          <input
-            aria-label="Email address"
-            name="email"
-            type="email"
-            autocomplete="email"
-            placeholder="Enter your email"
-            maxlength="256"
-            required
-            bind:value={$email}
-          >
+    {#if $status === 'success'}
+      <div class="success" role="status">
+        <strong>Thanks for signing up!</strong>
+        <span>We only send emails we would want to receive.</span>
+      </div>
+    {:else}
+      <form on:submit|preventDefault={submit}>
+        <input
+          aria-label="Email address"
+          name="email"
+          type="email"
+          autocomplete="email"
+          placeholder="Enter your email"
+          maxlength="256"
+          required
+          bind:value={$email}
+        >
 
-          <fieldset aria-label="Choose email updates">
-            <label class="primary-preference">
-              <input
-                type="checkbox"
-                checked={$interests[defaultCategory]}
-                use:setIndeterminate={defaultCategory === 'all' && $selection.someSelected && !$selection.allSelected}
-                on:change={(event) => handlePrimaryChange(event.currentTarget.checked)}
-              >
-              <span>
-                <strong>{primaryInterest.label}</strong>
-                <small>{primaryInterest.description}</small>
-              </span>
-            </label>
-
-            {#if showCustomOptions}
-              <div class="custom-options">
-                <InterestCheckboxes
-                  interests={additionalInterests}
-                  selected={$interests}
-                  selection={$selection}
-                  onChange={toggle}
-                />
-              </div>
-            {/if}
-            <button
-              class="customize-button"
-              type="button"
-              aria-expanded={showCustomOptions}
-              on:click={() => showCustomOptions = !showCustomOptions}
+        <fieldset aria-label="Choose email updates">
+          <label class="primary-preference">
+            <input
+              type="checkbox"
+              checked={$interests[defaultCategory]}
+              use:setIndeterminate={defaultCategory === 'all' && $selection.someSelected && !$selection.allSelected}
+              on:change={(event) => handlePrimaryChange(event.currentTarget.checked)}
             >
-              <span>{showCustomOptions ? 'hide options' : 'choose updates'}</span>
-              <span class="customize-icon" aria-hidden="true">{showCustomOptions ? '−' : '＋'}</span>
-            </button>
-          </fieldset>
+            <span>
+              <strong>{primaryInterest.label}</strong>
+              <small>{primaryInterest.description}</small>
+            </span>
+          </label>
 
-          {#if $status === 'error'}
-            <p class="error" role="alert">{$errorMessage}</p>
+          {#if showCustomOptions}
+            <div class="custom-options">
+              <InterestCheckboxes
+                interests={additionalInterests}
+                selected={$interests}
+                selection={$selection}
+                onChange={toggle}
+              />
+            </div>
           {/if}
-
           <button
-            class="submit-button"
-            type="submit"
-            disabled={$status === 'submitting' || !$email || !$selection.someSelected}
+            class="customize-button"
+            type="button"
+            aria-expanded={showCustomOptions}
+            on:click={() => showCustomOptions = !showCustomOptions}
           >
-            {$status === 'submitting' ? 'signing up...' : 'notify me'}
+            <span>{showCustomOptions ? 'hide options' : 'choose updates'}</span>
+            <span class="customize-icon" aria-hidden="true">{showCustomOptions ? '−' : '＋'}</span>
           </button>
-        </form>
-      {/if}
-    </div>
+        </fieldset>
+
+        {#if $status === 'error'}
+          <p class="error" role="alert">{$errorMessage}</p>
+        {/if}
+
+        <button
+          class="submit-button"
+          type="submit"
+          disabled={$status === 'submitting' || !$email || !$selection.someSelected}
+        >
+          {$status === 'submitting' ? 'signing up...' : 'notify me'}
+        </button>
+      </form>
+    {/if}
   </Grid>
 </aside>
 
@@ -115,10 +113,6 @@
     padding: 3rem;
     background: var(--color-card-background);
     border: 1px solid rgba(0, 0, 0, 0.4);
-  }
-
-  .form-wrapper {
-    min-width: 0;
   }
 
   h2 {
@@ -153,8 +147,6 @@
   }
 
   input[type='email'] {
-    min-width: 0;
-    width: 100%;
     box-sizing: border-box;
     padding: 1rem;
     color: #000;
