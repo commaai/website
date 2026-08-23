@@ -1,15 +1,15 @@
 <script>
   import ArrowRight from '$lib/icons/arrow-right.svg?raw';
   import InterestCheckboxes from './InterestCheckboxes.svelte';
-  import { EMAIL_INTERESTS, createEmailUpdatesForm } from '$lib/email-updates.js';
+  import { EMAIL_INTERESTS, anySelected, createEmailUpdatesForm } from '$lib/email-updates.js';
 
-  const { email, interests, status, errorMessage, selection, toggle, submit } = createEmailUpdatesForm();
+  const { email, interests, status, errorMessage, toggle, submit } = createEmailUpdatesForm();
 
   let showOptions = false;
   let componentElement;
 
   function handleFormSubmit() {
-    if (!$selection.someSelected) showOptions = true;
+    if (!anySelected($interests)) showOptions = true;
     submit();
   }
 </script>
@@ -67,7 +67,6 @@
             <InterestCheckboxes
               interests={EMAIL_INTERESTS}
               selected={$interests}
-              selection={$selection}
               onChange={toggle}
             />
           </fieldset>

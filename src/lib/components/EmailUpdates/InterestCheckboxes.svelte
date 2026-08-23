@@ -1,21 +1,33 @@
 <script>
-  import { setCheckboxIndeterminate as setIndeterminate } from '$lib/email-updates.js';
+  import { EMAIL_INTERESTS, allSelected, anySelected, setCheckboxIndeterminate } from '$lib/email-updates.js';
 
   export let interests;
   export let selected;
-  export let selection;
   export let onChange;
+
+  $: all = allSelected(selected);
+
+  const changeAll = (checked) => EMAIL_INTERESTS.forEach(({ key }) => onChange(key, checked));
 </script>
 
-{#each interests as interest}
-  <label class:all={interest.key === 'all'} class="preference">
+<label class="preference all">
+  <input
+    type="checkbox"
+    checked={all}
+    use:setCheckboxIndeterminate={anySelected(selected) && !all}
+    on:change={(event) => changeAll(event.currentTarget.checked)}
+  >
+  <span>All updates</span>
+</label>
+
+{#each interests as { key, label }}
+  <label class="preference">
     <input
       type="checkbox"
-      checked={selected[interest.key]}
-      use:setIndeterminate={interest.key === 'all' && selection.someSelected && !selection.allSelected}
-      on:change={(event) => onChange(interest.key, event.currentTarget.checked)}
+      checked={selected[key]}
+      on:change={(event) => onChange(key, event.currentTarget.checked)}
     >
-    <span>{interest.label}</span>
+    <span>{label}</span>
   </label>
 {/each}
 

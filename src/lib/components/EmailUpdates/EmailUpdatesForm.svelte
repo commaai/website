@@ -1,17 +1,13 @@
 <script>
   import Grid from '$lib/components/Grid.svelte';
   import InterestCheckboxes from './InterestCheckboxes.svelte';
-  import {
-    EMAIL_INTERESTS,
-    createEmailUpdatesForm,
-    setCheckboxIndeterminate as setIndeterminate,
-  } from '$lib/email-updates.js';
+  import { EMAIL_INTERESTS, anySelected, createEmailUpdatesForm } from '$lib/email-updates.js';
 
-  export let title = 'Get email updates';
-  export let defaultCategory = 'all';
+  export let defaultCategory;
+  export let title;
   export let margin;
 
-  const { email, interests, status, errorMessage, selection, toggle, submit } = createEmailUpdatesForm(defaultCategory);
+  const { email, interests, status, errorMessage, toggle, submit } = createEmailUpdatesForm(defaultCategory);
 
   let showCustomOptions = false;
 
@@ -59,7 +55,6 @@
             <input
               type="checkbox"
               checked={$interests[defaultCategory]}
-              use:setIndeterminate={defaultCategory === 'all' && $selection.someSelected && !$selection.allSelected}
               on:change={(event) => handlePrimaryChange(event.currentTarget.checked)}
             >
             <span>
@@ -73,7 +68,6 @@
               <InterestCheckboxes
                 interests={additionalInterests}
                 selected={$interests}
-                selection={$selection}
                 onChange={toggle}
               />
             </div>
@@ -96,7 +90,7 @@
         <button
           class="submit-button"
           type="submit"
-          disabled={$status === 'submitting' || !$email || !$selection.someSelected}
+          disabled={$status === 'submitting' || !$email || !anySelected($interests)}
         >
           {$status === 'submitting' ? 'signing up...' : 'notify me'}
         </button>

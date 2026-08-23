@@ -1,45 +1,29 @@
-import { derived, get, writable } from 'svelte/store';
+import { get, writable } from 'svelte/store';
 
 import { selectedCar } from '../store.js';
 
 export const EMAIL_INTERESTS = [
-  { key: 'all', label: 'All updates', description: 'All comma email updates' },
   { key: 'general', label: 'General updates', description: 'New products, sales, and more', fieldName: 'group[54660][1]' },
   { key: 'releases', label: 'New openpilot releases', description: 'Major changes and improvements', fieldName: 'group[54660][4]' },
   { key: 'compatibility', label: 'Car compatibility updates', description: 'Newly supported cars', fieldName: 'group[54660][2]' },
   { key: 'blog', label: 'New blog posts', description: 'New posts on the comma blog', fieldName: 'group[54660][8]' },
 ];
 
-const REAL_EMAIL_INTEREST_KEYS = EMAIL_INTERESTS
-  .filter(({ key }) => key !== 'all')
-  .map(({ key }) => key);
+const INTEREST_KEYS = EMAIL_INTERESTS.map(({ key }) => key);
 
-function createEmailInterestSelection(defaultCategory = 'all') {
+// No category means every interest
+function createEmailInterestSelection(defaultCategory) {
   return Object.fromEntries(
-    EMAIL_INTERESTS.map(({ key }) => [key, defaultCategory === 'all' || defaultCategory === key]),
+    INTEREST_KEYS.map((key) => [key, !defaultCategory || key === defaultCategory]),
   );
 }
 
-function updateEmailInterestSelection(selectedInterests, interest, checked) {
-  if (interest === 'all') {
-    return Object.fromEntries(EMAIL_INTERESTS.map(({ key }) => [key, checked]));
-  }
-
-  const nextInterests = {
-    ...selectedInterests,
-    [interest]: checked,
-  };
-  nextInterests.all = REAL_EMAIL_INTEREST_KEYS.every((key) => nextInterests[key]);
-  return nextInterests;
+export function anySelected(selectedInterests) {
+  return INTEREST_KEYS.some((key) => selectedInterests[key]);
 }
 
-function getEmailInterestSelectionState(selectedInterests) {
-  const selectedCount = REAL_EMAIL_INTEREST_KEYS.filter((key) => selectedInterests[key]).length;
-
-  return {
-    someSelected: selectedCount > 0,
-    allSelected: selectedCount === REAL_EMAIL_INTEREST_KEYS.length,
-  };
+export function allSelected(selectedInterests) {
+  return INTEREST_KEYS.every((key) => selectedInterests[key]);
 }
 
 export function setCheckboxIndeterminate(node, indeterminate) {
@@ -73,7 +57,7 @@ function submitEmailUpdates(email, selectedInterests) {
     const car = get(selectedCar);
     if (car) params.set('SELECTCAR', car);
     for (const { key, fieldName } of EMAIL_INTERESTS) {
-      if (fieldName && selectedInterests[key]) params.set(fieldName, '1');
+      if (selectedInterests[key]) params.set(fieldName, '1');
     }
 
     function cleanUp() {
@@ -102,19 +86,18 @@ function submitEmailUpdates(email, selectedInterests) {
   });
 }
 
-export function createEmailUpdatesForm(defaultCategory = 'all') {
+export function createEmailUpdatesForm(defaultCategory) {
   const email = writable('');
   const interests = writable(createEmailInterestSelection(defaultCategory));
   const status = writable('idle');  // idle | submitting | success | error
   const errorMessage = writable('');
-  const selection = derived(interests, getEmailInterestSelectionState);
 
   function toggle(interest, checked) {
-    interests.update((current) => updateEmailInterestSelection(current, interest, checked));
+    interests.update((current) => ({ ...current, [interest]: checked }));
   }
 
   async function submit() {
-    if (!get(selection).someSelected) {
+    if (!anySelected(get(interests))) {
       errorMessage.set('Choose at least one type of update.');
       status.set('error');
       return;
@@ -131,5 +114,5 @@ export function createEmailUpdatesForm(defaultCategory = 'all') {
     }
   }
 
-  return { email, interests, status, errorMessage, selection, toggle, submit };
+  return { email, interests, status, errorMessage, toggle, submit };
 }
