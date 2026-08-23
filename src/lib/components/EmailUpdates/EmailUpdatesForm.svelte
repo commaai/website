@@ -86,7 +86,7 @@
             on:click={() => showCustomOptions = !showCustomOptions}
           >
             <span>{showCustomOptions ? 'hide options' : 'choose updates'}</span>
-            <span class="customize-icon" aria-hidden="true">{showCustomOptions ? '−' : '＋'}</span>
+            <span class="customize-icon" aria-hidden="true">{showCustomOptions ? '－' : '＋'}</span>
           </button>
         </fieldset>
 

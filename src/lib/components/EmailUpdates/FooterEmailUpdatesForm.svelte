@@ -59,7 +59,7 @@
           on:click={() => showOptions = !showOptions}
         >
           <span>{showOptions ? 'hide options' : 'choose updates'}</span>
-          <span class="options-icon" aria-hidden="true">{showOptions ? '−' : '＋'}</span>
+          <span class="options-icon" aria-hidden="true">{showOptions ? '－' : '＋'}</span>
         </button>
 
         {#if showOptions}
