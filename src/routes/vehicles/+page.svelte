@@ -42,12 +42,14 @@
       {#each Object.entries(vehicles) as [brand, cars]}
         {#if cars.length !== 0}
         {@const brand_img_path = `/src/lib/images/vehicles/brand-icons/Logo-${brand}.png`}
-        <a href="#{brand.toLowerCase()}" class="compatibility-make-element">
-          {#if brand_images[brand_img_path]}
-            <img src={brand_images[brand_img_path].default} loading="eager" alt="{brand} car brand" />
-          {/if}
-          <span class="compatibility-make-name">{brand}</span>
-        </a>
+        <div class="compatibility-make-element">
+          <a href="#{brand.toLowerCase()}" class="compatibility-make-anchor-link">
+            {#if brand_images[brand_img_path]}
+              <img src={brand_images[brand_img_path].default} loading="eager" alt="{brand} car brand" />
+            {/if}
+          </a>
+          <div class="compatibility-make-name">{brand}</div>
+        </div>
         {/if}
       {/each}
     </div>
