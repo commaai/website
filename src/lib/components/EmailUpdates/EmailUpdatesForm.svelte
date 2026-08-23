@@ -1,6 +1,6 @@
 <script>
   import Grid from '$lib/components/Grid.svelte';
-  import InterestCheckboxes from '$lib/components/InterestCheckboxes.svelte';
+  import InterestCheckboxes from './InterestCheckboxes.svelte';
   import {
     EMAIL_INTERESTS,
     createEmailUpdatesForm,

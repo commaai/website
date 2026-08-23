@@ -2,7 +2,7 @@
   import LinkButton from "$lib/components/LinkButton.svelte";
   import Grid from "$lib/components/Grid.svelte";
   import Space from "$lib/components/Space.svelte";
-  import EmailUpdatesForm from "$lib/components/EmailUpdatesForm.svelte";
+  import EmailUpdatesForm from "$lib/components/EmailUpdates/EmailUpdatesForm.svelte";
 
   import DeviceImage from "$lib/images/products/comma-four/four_screen_on.png";
 

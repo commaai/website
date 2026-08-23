@@ -1,6 +1,6 @@
 <script>
   import ArrowRight from '$lib/icons/arrow-right.svg?raw';
-  import InterestCheckboxes from '$lib/components/InterestCheckboxes.svelte';
+  import InterestCheckboxes from './InterestCheckboxes.svelte';
   import { EMAIL_INTERESTS, createEmailUpdatesForm } from '$lib/email-updates.js';
 
   const { email, interests, status, errorMessage, selection, toggle, submit } =
@@ -62,7 +62,7 @@
           on:click={() => showOptions = !showOptions}
         >
           <span>{showOptions ? 'hide options' : 'choose updates'}</span>
-          <span class="options-icon" aria-hidden="true">{showOptions ? '−' : '+'}</span>
+          <span class="options-icon" aria-hidden="true">{showOptions ? '−' : '＋'}</span>
         </button>
 
         {#if showOptions}
@@ -200,8 +200,8 @@
   }
 
   .options-icon {
-    font-size: 1.1rem;
-    font-weight: 400;
+    font-size: 1.2rem;
+    font-weight: 700;
     line-height: 1;
   }
 

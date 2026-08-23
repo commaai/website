@@ -3,7 +3,7 @@
   import Grid from "$lib/components/Grid.svelte";
   import LinkButton from "$lib/components/LinkButton.svelte";
   import Faq from '$lib/components/Faq.svelte';
-  import EmailUpdatesForm from '$lib/components/EmailUpdatesForm.svelte';
+  import EmailUpdatesForm from '$lib/components/EmailUpdates/EmailUpdatesForm.svelte';
 
   import { faq } from '$lib/constants/faq.svelte';
 

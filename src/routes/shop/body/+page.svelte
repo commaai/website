@@ -3,7 +3,7 @@
   import Grid from "$lib/components/Grid.svelte";
   import Accordion from "$lib/components/Accordion.svelte";
   import Badge from "$lib/components/Badge.svelte";
-  import EmailUpdatesForm from "$lib/components/EmailUpdatesForm.svelte";
+  import EmailUpdatesForm from "$lib/components/EmailUpdates/EmailUpdatesForm.svelte";
   import NoteCard from "$lib/components/NoteCard.svelte";
   import CommunityBanner from "$lib/components/CommunityBanner.svelte";
 
