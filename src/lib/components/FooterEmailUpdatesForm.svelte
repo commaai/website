@@ -49,7 +49,7 @@
           bind:value={$email}
         >
         <button class="submit-button" type="submit" aria-label="Subscribe" disabled={$status === 'submitting'}>
-          <span class="submit-arrow" aria-hidden="true">{@html ArrowRight}</span>
+          <span aria-hidden="true">{@html ArrowRight}</span>
         </button>
       </div>
 
@@ -86,7 +86,6 @@
 
 <style>
   .footer-email-updates {
-    width: 100%;
     color: #fff;
   }
 
@@ -97,7 +96,6 @@
   }
 
   .copy strong {
-    color: #fff;
     font-size: 1.1rem;
     font-weight: 600;
     letter-spacing: 0;
@@ -132,8 +130,6 @@
   }
 
   input[type='email']:focus-visible {
-    position: relative;
-    z-index: 1;
     outline: 2px solid #fff;
     outline-offset: -3px;
   }
@@ -143,8 +139,6 @@
     place-items: center;
     padding: 0;
     color: #000;
-    font: inherit;
-    font-size: 1.35rem;
     cursor: pointer;
     background: var(--color-accent);
     border: 0;
@@ -154,16 +148,10 @@
     color: inherit;
   }
 
-  .submit-arrow {
+  .submit-button :global(svg) {
     display: block;
     width: 1.5rem;
     height: 1.5rem;
-  }
-
-  .submit-arrow :global(svg) {
-    display: block;
-    width: 100%;
-    height: 100%;
   }
 
   .submit-button:hover,
@@ -212,7 +200,6 @@
   }
 
   .options-icon {
-    color: #fff;
     font-size: 1.1rem;
     font-weight: 400;
     line-height: 1;
@@ -225,7 +212,6 @@
     right: 0;
     bottom: calc(100% + 0.5rem);
     left: 0;
-    z-index: 10;
     display: grid;
     gap: 0.6rem;
     margin: 0;
@@ -243,10 +229,6 @@
     line-height: 1.35;
     background: rgba(81, 255, 0, 0.08);
     border: 1px solid rgba(81, 255, 0, 0.35);
-  }
-
-  .success span {
-    color: #fff;
   }
 
   .error {

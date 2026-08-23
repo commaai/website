@@ -48,7 +48,7 @@
           <span>We only send emails we would want to receive.</span>
         </div>
       {:else}
-        <form aria-label={`${title} signup`} on:submit|preventDefault={submit}>
+        <form on:submit|preventDefault={submit}>
           <input
             aria-label="Email address"
             name="email"
@@ -101,7 +101,6 @@
 
           <button
             class="submit-button"
-            class:submitting={$status === 'submitting'}
             type="submit"
             disabled={$status === 'submitting' || !$email || !$selection.someSelected}
           >
@@ -117,14 +116,9 @@
   .updates-card {
     box-sizing: border-box;
     padding: 3rem;
-    overflow: hidden;
     text-align: left;
     background: var(--color-card-background);
     border: 1px solid rgba(0, 0, 0, 0.4);
-  }
-
-  .updates-copy {
-    align-self: start;
   }
 
   .form-wrapper {
@@ -177,8 +171,6 @@
   }
 
   input[type='email']:focus-visible {
-    position: relative;
-    z-index: 1;
     outline: 2px solid #000;
     outline-offset: -3px;
   }
@@ -210,10 +202,6 @@
     color: #fff;
     cursor: not-allowed;
     background: var(--color-muted);
-  }
-
-  .submit-button.submitting {
-    cursor: wait;
   }
 
   .primary-preference {
@@ -309,10 +297,6 @@
     border: 1px solid rgba(48, 153, 0, 0.5);
   }
 
-  .success strong {
-    font-weight: 700;
-  }
-
   .error {
     margin: 0;
     padding: 0.75rem;
@@ -325,10 +309,6 @@
   @media screen and (max-width: 1024px) {
     .updates-card {
       padding: 2rem;
-    }
-
-    .updates-copy {
-      align-self: start;
     }
   }
 
