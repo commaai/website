@@ -25,6 +25,9 @@
     gap: 0.6rem;
     align-items: center;
     width: fit-content;
+    /* iOS holds a second nearby tap to test for double-tap unless this is on the
+       touched element itself; body-level touch-action is not enough there. */
+    touch-action: manipulation;
     font-size: 0.875rem;
     font-weight: 700;
     letter-spacing: 0;
