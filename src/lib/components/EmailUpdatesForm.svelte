@@ -1,12 +1,10 @@
 <script>
   import Grid from '$lib/components/Grid.svelte';
+  import InterestCheckboxes from '$lib/components/InterestCheckboxes.svelte';
   import {
     EMAIL_INTERESTS,
-    createEmailInterestSelection,
-    getEmailInterestSelectionState,
+    createEmailUpdatesForm,
     setCheckboxIndeterminate as setIndeterminate,
-    submitEmailUpdates,
-    updateEmailInterestSelection,
   } from '$lib/email-updates.js';
 
   export let title = 'Get email updates';
@@ -14,41 +12,19 @@
   export let formId = 'email-updates';
   export let margin;
 
-  let email = '';
-  let selectedInterests = createEmailInterestSelection(defaultCategory);
+  const { email, interests, status, errorMessage, selection, toggle, submit } =
+    createEmailUpdatesForm(defaultCategory);
+
   let showCustomOptions = false;
-  let status = 'idle';
-  let errorMessage = '';
 
   $: additionalInterests = EMAIL_INTERESTS.filter((interest) => interest.key !== defaultCategory);
   $: primaryInterest = EMAIL_INTERESTS.find((interest) => interest.key === defaultCategory);
-  $: selectionState = getEmailInterestSelectionState(selectedInterests);
-  $: someRealInterestsSelected = selectionState.someSelected;
-  $: allRealInterestsSelected = selectionState.allSelected;
 
-  function handleInterestChange(interest, checked) {
-    selectedInterests = updateEmailInterestSelection(selectedInterests, interest, checked);
-  }
-
-  async function handleFormSubmit(event) {
-    event.preventDefault();
-
-    if (!someRealInterestsSelected) {
-      errorMessage = 'Choose at least one type of update.';
-      status = 'error';
-      return;
-    }
-
-    status = 'submitting';
-    errorMessage = '';
-
-    try {
-      await submitEmailUpdates(email, selectedInterests);
-      status = 'success';
-    } catch (error) {
-      errorMessage = error.message;
-      status = 'error';
-    }
+  // Turning the headline interest off leaves nothing obvious to sign up for, so show
+  // the other options rather than a card that looks like it does nothing.
+  function handlePrimaryChange(checked) {
+    toggle(defaultCategory, checked);
+    if (!checked) showCustomOptions = true;
   }
 </script>
 
@@ -66,13 +42,13 @@
     </div>
 
     <div class="form-wrapper">
-      {#if status === 'success'}
+      {#if $status === 'success'}
         <div class="success" role="status">
           <strong>Thanks for signing up!</strong>
           <span>We only send emails we would want to receive.</span>
         </div>
       {:else}
-        <form aria-label={`${title} signup`} on:submit={handleFormSubmit}>
+        <form aria-label={`${title} signup`} on:submit|preventDefault={submit}>
           <input
             aria-label="Email address"
             name="email"
@@ -81,16 +57,16 @@
             placeholder="Enter your email"
             maxlength="256"
             required
-            bind:value={email}
+            bind:value={$email}
           >
 
           <fieldset aria-label="Choose email updates">
             <label class="primary-preference">
               <input
                 type="checkbox"
-                checked={selectedInterests[defaultCategory]}
-                use:setIndeterminate={defaultCategory === 'all' && someRealInterestsSelected && !allRealInterestsSelected}
-                on:change={(event) => handleInterestChange(defaultCategory, event.currentTarget.checked)}
+                checked={$interests[defaultCategory]}
+                use:setIndeterminate={defaultCategory === 'all' && $selection.someSelected && !$selection.allSelected}
+                on:change={(event) => handlePrimaryChange(event.currentTarget.checked)}
               >
               <span>
                 <strong>{primaryInterest.label}</strong>
@@ -100,17 +76,12 @@
 
             {#if showCustomOptions}
               <div class="custom-options">
-                {#each additionalInterests as interest}
-                  <label class:all={interest.key === 'all'} class="preference">
-                    <input
-                      type="checkbox"
-                      checked={selectedInterests[interest.key]}
-                      use:setIndeterminate={interest.key === 'all' && someRealInterestsSelected && !allRealInterestsSelected}
-                      on:change={(event) => handleInterestChange(interest.key, event.currentTarget.checked)}
-                    >
-                    <span>{interest.label}</span>
-                  </label>
-                {/each}
+                <InterestCheckboxes
+                  interests={additionalInterests}
+                  selected={$interests}
+                  selection={$selection}
+                  onChange={toggle}
+                />
               </div>
             {/if}
             <button
@@ -124,12 +95,17 @@
             </button>
           </fieldset>
 
-          {#if status === 'error'}
-            <p class="error" role="alert">{errorMessage}</p>
+          {#if $status === 'error'}
+            <p class="error" role="alert">{$errorMessage}</p>
           {/if}
 
-          <button class="submit-button" type="submit" disabled={status === 'submitting'}>
-            {status === 'submitting' ? 'signing up...' : 'notify me'}
+          <button
+            class="submit-button"
+            class:submitting={$status === 'submitting'}
+            type="submit"
+            disabled={$status === 'submitting' || !$email || !$selection.someSelected}
+          >
+            {$status === 'submitting' ? 'signing up...' : 'notify me'}
           </button>
         </form>
       {/if}
@@ -231,37 +207,13 @@
   }
 
   .submit-button:disabled {
+    color: #fff;
+    cursor: not-allowed;
+    background: var(--color-muted);
+  }
+
+  .submit-button.submitting {
     cursor: wait;
-    opacity: 0.65;
-  }
-
-  .preference {
-    display: flex;
-    gap: 0.6rem;
-    align-items: center;
-    width: fit-content;
-    font-size: 0.95rem;
-    font-weight: 700;
-    letter-spacing: 0;
-    cursor: pointer;
-  }
-
-  .preference input {
-    width: 1.1rem;
-    height: 1.1rem;
-    margin: 0;
-    accent-color: #000;
-  }
-
-  input[type='checkbox']:indeterminate {
-    appearance: none;
-    background: #fff linear-gradient(#000, #000) center / 0.65rem 2px no-repeat;
-    border: 1px solid #000;
-    border-radius: 3px;
-  }
-
-  .preference:not(.all) {
-    margin-left: 1rem;
   }
 
   .primary-preference {
@@ -282,6 +234,13 @@
     accent-color: #000;
   }
 
+  .primary-preference input:indeterminate {
+    appearance: none;
+    background: #fff linear-gradient(#000, #000) center / 0.65rem 2px no-repeat;
+    border: 1px solid #000;
+    border-radius: 3px;
+  }
+
   .primary-preference span {
     display: grid;
     gap: 0.15rem;
@@ -294,6 +253,8 @@
   }
 
   .custom-options {
+    --interest-accent: #000;
+
     display: grid;
     gap: 0.6rem;
     padding: 0.9rem;

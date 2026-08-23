@@ -1,4 +1,4 @@
-import { get } from 'svelte/store';
+import { derived, get, writable } from 'svelte/store';
 
 import { selectedCar } from '../store.js';
 
@@ -10,17 +10,17 @@ export const EMAIL_INTERESTS = [
   { key: 'blog', label: 'New blog posts', description: 'New posts on the comma blog', fieldName: 'group[54660][8]' },
 ];
 
-export const REAL_EMAIL_INTEREST_KEYS = EMAIL_INTERESTS
+const REAL_EMAIL_INTEREST_KEYS = EMAIL_INTERESTS
   .filter(({ key }) => key !== 'all')
   .map(({ key }) => key);
 
-export function createEmailInterestSelection(defaultCategory = 'all') {
+function createEmailInterestSelection(defaultCategory = 'all') {
   return Object.fromEntries(
     EMAIL_INTERESTS.map(({ key }) => [key, defaultCategory === 'all' || defaultCategory === key]),
   );
 }
 
-export function updateEmailInterestSelection(selectedInterests, interest, checked) {
+function updateEmailInterestSelection(selectedInterests, interest, checked) {
   if (interest === 'all') {
     return Object.fromEntries(EMAIL_INTERESTS.map(({ key }) => [key, checked]));
   }
@@ -33,7 +33,7 @@ export function updateEmailInterestSelection(selectedInterests, interest, checke
   return nextInterests;
 }
 
-export function getEmailInterestSelectionState(selectedInterests) {
+function getEmailInterestSelectionState(selectedInterests) {
   const selectedCount = REAL_EMAIL_INTEREST_KEYS.filter((key) => selectedInterests[key]).length;
 
   return {
@@ -58,7 +58,7 @@ function cleanMailchimpMessage(message) {
   return element.textContent || 'Please try again.';
 }
 
-export function submitEmailUpdates(email, selectedInterests) {
+function submitEmailUpdates(email, selectedInterests) {
   return new Promise((resolve, reject) => {
     const callbackName = `mailchimpEmailUpdates_${Math.random().toString(36).slice(2, 11)}`;
     const script = document.createElement('script');
@@ -101,4 +101,42 @@ export function submitEmailUpdates(email, selectedInterests) {
     script.src = `https://comma.us12.list-manage.com/subscribe/post?${params}`;
     document.body.appendChild(script);
   });
+}
+
+// Everything both signup forms share: the field state, the interest toggling and the
+// submit lifecycle. Each form supplies its own markup and styling around this.
+export function createEmailUpdatesForm(defaultCategory = 'all') {
+  const email = writable('');
+  const interests = writable(createEmailInterestSelection(defaultCategory));
+  const status = writable('idle'); // idle | submitting | success | error
+  const errorMessage = writable('');
+  const selection = derived(interests, getEmailInterestSelectionState);
+
+  function toggle(interest, checked) {
+    interests.update((current) => updateEmailInterestSelection(current, interest, checked));
+  }
+
+  // Resolves false when nothing was sent, so a form can react (the footer opens its panel).
+  async function submit() {
+    if (!get(selection).someSelected) {
+      errorMessage.set('Choose at least one type of update.');
+      status.set('error');
+      return false;
+    }
+
+    status.set('submitting');
+    errorMessage.set('');
+
+    try {
+      await submitEmailUpdates(get(email), get(interests));
+      status.set('success');
+      return true;
+    } catch (error) {
+      errorMessage.set(error.message);
+      status.set('error');
+      return false;
+    }
+  }
+
+  return { email, interests, status, errorMessage, selection, toggle, submit };
 }

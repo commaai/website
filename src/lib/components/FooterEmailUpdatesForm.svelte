@@ -1,49 +1,18 @@
 <script>
   import ArrowRight from '$lib/icons/arrow-right.svg?raw';
-  import {
-    EMAIL_INTERESTS,
-    createEmailInterestSelection,
-    getEmailInterestSelectionState,
-    setCheckboxIndeterminate as setIndeterminate,
-    submitEmailUpdates,
-    updateEmailInterestSelection,
-  } from '$lib/email-updates.js';
+  import InterestCheckboxes from '$lib/components/InterestCheckboxes.svelte';
+  import { EMAIL_INTERESTS, createEmailUpdatesForm } from '$lib/email-updates.js';
 
-  let email = '';
-  let selectedInterests = createEmailInterestSelection();
+  const { email, interests, status, errorMessage, selection, toggle, submit } =
+    createEmailUpdatesForm();
+
   let showOptions = false;
-  let status = 'idle';
-  let errorMessage = '';
   let componentElement;
 
-  $: selectionState = getEmailInterestSelectionState(selectedInterests);
-  $: someRealInterestsSelected = selectionState.someSelected;
-  $: allRealInterestsSelected = selectionState.allSelected;
-
-  function handleInterestChange(interest, checked) {
-    selectedInterests = updateEmailInterestSelection(selectedInterests, interest, checked);
-  }
-
-  async function handleFormSubmit(event) {
-    event.preventDefault();
-
-    if (!someRealInterestsSelected) {
-      errorMessage = 'Choose at least one type of update.';
-      status = 'error';
-      showOptions = true;
-      return;
-    }
-
-    status = 'submitting';
-    errorMessage = '';
-
-    try {
-      await submitEmailUpdates(email, selectedInterests);
-      status = 'success';
-    } catch (error) {
-      errorMessage = error.message;
-      status = 'error';
-    }
+  // Reveal the panel when the reason we can't send is that nothing is picked in it.
+  function handleFormSubmit() {
+    if (!$selection.someSelected) showOptions = true;
+    submit();
   }
 </script>
 
@@ -57,7 +26,7 @@
 />
 
 <div class="footer-email-updates" bind:this={componentElement}>
-  {#if status === 'success'}
+  {#if $status === 'success'}
     <div class="success" role="status">
       <span>Thanks for signing up! We only send emails we would want to receive.</span>
     </div>
@@ -67,7 +36,7 @@
       <span>Products, releases, car support, and more.</span>
     </div>
 
-    <form aria-label="Email updates signup" on:submit={handleFormSubmit}>
+    <form aria-label="Email updates signup" on:submit|preventDefault={handleFormSubmit}>
       <div class="email-row">
         <input
           aria-label="Email address"
@@ -77,9 +46,9 @@
           placeholder="Enter your email"
           maxlength="256"
           required
-          bind:value={email}
+          bind:value={$email}
         >
-        <button class="submit-button" type="submit" aria-label="Subscribe" disabled={status === 'submitting'}>
+        <button class="submit-button" type="submit" aria-label="Subscribe" disabled={$status === 'submitting'}>
           <span class="submit-arrow" aria-hidden="true">{@html ArrowRight}</span>
         </button>
       </div>
@@ -98,23 +67,18 @@
 
         {#if showOptions}
           <fieldset id="footer-update-options" aria-label="Choose email updates">
-            {#each EMAIL_INTERESTS as interest}
-              <label class:all={interest.key === 'all'} class="preference">
-                <input
-                  type="checkbox"
-                  checked={selectedInterests[interest.key]}
-                  use:setIndeterminate={interest.key === 'all' && someRealInterestsSelected && !allRealInterestsSelected}
-                  on:change={(event) => handleInterestChange(interest.key, event.currentTarget.checked)}
-                >
-                <span>{interest.label}</span>
-              </label>
-            {/each}
+            <InterestCheckboxes
+              interests={EMAIL_INTERESTS}
+              selected={$interests}
+              selection={$selection}
+              onChange={toggle}
+            />
           </fieldset>
         {/if}
       </div>
 
-      {#if status === 'error'}
-        <p class="error" role="alert">{errorMessage}</p>
+      {#if $status === 'error'}
+        <p class="error" role="alert">{$errorMessage}</p>
       {/if}
     </form>
   {/if}
@@ -255,6 +219,8 @@
   }
 
   fieldset {
+    --interest-accent: #fff;
+
     position: absolute;
     right: 0;
     bottom: calc(100% + 0.5rem);
@@ -267,37 +233,6 @@
     background: #080808;
     border: 1px solid #777;
     box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.45);
-  }
-
-  .preference {
-    display: flex;
-    gap: 0.6rem;
-    align-items: center;
-    width: fit-content;
-    color: #fff;
-    font-size: 0.95rem;
-    font-weight: 700;
-    letter-spacing: 0;
-    cursor: pointer;
-  }
-
-  .preference:not(.all) {
-    margin-left: 1rem;
-  }
-
-  .preference input {
-    flex: 0 0 auto;
-    width: 1.1rem;
-    height: 1.1rem;
-    margin: 0;
-    accent-color: #fff;
-  }
-
-  input[type='checkbox']:indeterminate {
-    appearance: none;
-    background: #fff linear-gradient(#000, #000) center / 0.65rem 2px no-repeat;
-    border: 1px solid #fff;
-    border-radius: 3px;
   }
 
   .success {
