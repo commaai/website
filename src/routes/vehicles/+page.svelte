@@ -42,17 +42,34 @@
       {#each Object.entries(vehicles) as [brand, cars]}
         {#if cars.length !== 0}
         {@const brand_img_path = `/src/lib/images/vehicles/brand-icons/Logo-${brand}.png`}
-        <div class="compatibility-make-element">
-          <a href="#{brand.toLowerCase()}" class="compatibility-make-anchor-link">
-            {#if brand_images[brand_img_path]}
-              <img src={brand_images[brand_img_path].default} loading="eager" alt="{brand} car brand" />
-            {/if}
-          </a>
-          <div class="compatibility-make-name">{brand}</div>
-        </div>
+        <a href="#{brand.toLowerCase()}" class="compatibility-make-element">
+          {#if brand_images[brand_img_path]}
+            <img src={brand_images[brand_img_path].default} loading="eager" alt="{brand} car brand" />
+          {/if}
+          <span class="compatibility-make-name">{brand}</span>
+        </a>
         {/if}
       {/each}
     </div>
+
+    <p class="last-updated">Last updated: {compatibilityMeta.last_updated}</p>
+
+    <EmailUpdatesForm
+      title="Don't see your car?"
+      defaultCategory="compatibility"
+      formId="vehicle-updates"
+      margin="3rem 0"
+    >
+      <p>
+        New cars are added with each openpilot release. Get an email when compatibility changes.
+      </p>
+      <p>
+        If you have a modern car and some programming skills, you can likely add support for your car.
+        Watch <a href="https://youtu.be/XxPS5TpTUnI" class="highlight">this talk</a> and check out the
+        <a href="https://github.com/commaai/openpilot/blob/master/docs/CARS.md#dont-see-your-car-here" class="highlight">docs</a>
+        to learn more.
+      </p>
+    </EmailUpdatesForm>
 
     <div class="recommended-cars">
       <hgroup>
@@ -85,25 +102,6 @@
         </Grid>
       </div>
     </div>
-
-    <EmailUpdatesForm
-      title="Don't see your car?"
-      defaultCategory="compatibility"
-      formId="vehicle-updates"
-      margin="3rem 0"
-    >
-      <p>
-        New cars are added with each openpilot release. Get an email when compatibility changes.
-      </p>
-      <p>
-        If you have a modern car and some programming skills, you can likely add support for your car.
-        Watch <a href="https://youtu.be/XxPS5TpTUnI" class="highlight">this talk</a> and check out the
-        <a href="https://github.com/commaai/openpilot/blob/master/docs/CARS.md#dont-see-your-car-here" class="highlight">docs</a>
-        to learn more.
-      </p>
-    </EmailUpdatesForm>
-
-    <p class="last-updated">Last updated: {compatibilityMeta.last_updated}</p>
   </div>
 </section>
 
@@ -267,7 +265,7 @@
       grid-gap: 1rem;
       grid-template-columns: repeat(auto-fit, 105px);
       justify-content: space-between;
-      margin: 2rem 0 3rem;
+      margin: 2rem 0 1.5rem;
 
       @media screen and (min-width: 769px) {
         margin-top: 4rem;
