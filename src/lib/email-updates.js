@@ -121,7 +121,6 @@ export function createEmailUpdatesForm(defaultCategory = 'all') {
     }
 
     status.set('submitting');
-    errorMessage.set('');
 
     try {
       await submitEmailUpdates(get(email), get(interests));

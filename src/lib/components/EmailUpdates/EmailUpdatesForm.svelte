@@ -109,7 +109,6 @@
 
 <style>
   .updates-card {
-    box-sizing: border-box;
     padding: 3rem;
     background: var(--color-card-background);
     border: 1px solid rgba(0, 0, 0, 0.4);
