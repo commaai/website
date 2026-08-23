@@ -177,16 +177,14 @@
           </div>
         </Grid>
       </div>
-      <div class="mailing-list">
-        <EmailUpdatesForm
-          title="Get body updates"
-          defaultCategory="general"
-          defaultCategorySubtitle="New products, sales, and more"
-          formId="body-updates"
-        >
-          <p>Follow along with comma body.</p>
-        </EmailUpdatesForm>
-      </div>
+      <EmailUpdatesForm
+        title="Get body updates"
+        defaultCategory="general"
+        defaultCategorySubtitle="New products, sales, and more"
+        formId="body-updates"
+      >
+        <p>Follow along with comma body.</p>
+      </EmailUpdatesForm>
     </div>
   </div>
 </section>
