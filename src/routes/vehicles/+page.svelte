@@ -73,7 +73,7 @@
 
     <div class="recommended-cars">
       <hgroup>
-        <span>Our favorite openpilot cars</span>
+        <h2>Our favorite openpilot cars</h2>
         <p>Generally, newer Hyundai and Toyota models are great choices. These are some of our favorites:</p>
       </hgroup>
       <div class="recommended-car-columns">
@@ -333,10 +333,8 @@
   }
 
   .recommended-cars hgroup {
-    & span {
-      display: block;
-      margin-bottom: 0.75rem;
-      font-size: 3rem;
+    & h2 {
+      margin: 0 0 0.75rem;
       font-weight: 600;
       line-height: 1.05;
       letter-spacing: -0.06em;
@@ -347,17 +345,13 @@
       font-size: 1.125rem;
       line-height: 1.35;
     }
+  }
 
-    @media screen and (max-width: 1024px) {
-      & span {
-        font-size: 2.5rem;
-      }
-    }
-
-    @media screen and (max-width: 768px) {
-      & span {
-        font-size: 1.75rem;
-      }
+  /* Only the top step; below 1024 the global h2 scale already applies. */
+  @media screen and (min-width: 1025px) {
+    #vehicles :global(.updates-card h2),
+    #vehicles .recommended-cars hgroup h2 {
+      font-size: 2.75rem;
     }
   }
 
