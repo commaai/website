@@ -9,7 +9,6 @@
   let showOptions = false;
   let componentElement;
 
-  // Reveal the panel when the reason we can't send is that nothing is picked in it.
   function handleFormSubmit() {
     if (!$selection.someSelected) showOptions = true;
     submit();

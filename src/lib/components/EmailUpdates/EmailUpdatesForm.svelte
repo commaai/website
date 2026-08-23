@@ -20,8 +20,6 @@
   $: additionalInterests = EMAIL_INTERESTS.filter((interest) => interest.key !== defaultCategory);
   $: primaryInterest = EMAIL_INTERESTS.find((interest) => interest.key === defaultCategory);
 
-  // Turning the headline interest off leaves nothing obvious to sign up for, so show
-  // the other options rather than a card that looks like it does nothing.
   function handlePrimaryChange(checked) {
     toggle(defaultCategory, checked);
     if (!checked) showCustomOptions = true;

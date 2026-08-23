@@ -66,7 +66,6 @@ function submitEmailUpdates(email, selectedInterests) {
       u: 'e127cf7151180db2b566d880b',
       id: 'f150bd2a9c',
       EMAIL: email,
-      Email: email,
       SOURCE: window.location.pathname,
       c: callbackName,
     });
@@ -74,7 +73,7 @@ function submitEmailUpdates(email, selectedInterests) {
     const car = get(selectedCar);
     if (car) params.set('SELECTCAR', car);
     for (const { key, fieldName } of EMAIL_INTERESTS) {
-      if (fieldName && selectedInterests[key]) params.set(fieldName, '');
+      if (fieldName && selectedInterests[key]) params.set(fieldName, '1');
     }
 
     function cleanUp() {
@@ -103,12 +102,10 @@ function submitEmailUpdates(email, selectedInterests) {
   });
 }
 
-// Everything both signup forms share: the field state, the interest toggling and the
-// submit lifecycle. Each form supplies its own markup and styling around this.
 export function createEmailUpdatesForm(defaultCategory = 'all') {
   const email = writable('');
   const interests = writable(createEmailInterestSelection(defaultCategory));
-  const status = writable('idle'); // idle | submitting | success | error
+  const status = writable('idle');
   const errorMessage = writable('');
   const selection = derived(interests, getEmailInterestSelectionState);
 
@@ -116,7 +113,6 @@ export function createEmailUpdatesForm(defaultCategory = 'all') {
     interests.update((current) => updateEmailInterestSelection(current, interest, checked));
   }
 
-  // Resolves false when nothing was sent, so a form can react (the footer opens its panel).
   async function submit() {
     if (!get(selection).someSelected) {
       errorMessage.set('Choose at least one type of update.');

@@ -20,7 +20,6 @@
 {/each}
 
 <style>
-  /* The host sets --interest-accent to tint the control for its background. */
   .preference {
     display: flex;
     gap: 0.6rem;
