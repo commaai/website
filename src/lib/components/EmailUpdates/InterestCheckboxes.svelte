@@ -1,5 +1,5 @@
 <script>
-  import { EMAIL_INTERESTS, allSelected, anySelected, setCheckboxIndeterminate } from '$lib/email-updates.js';
+  import { EMAIL_INTERESTS, allSelected, anySelected } from '$lib/email-updates.js';
 
   export let interests;
   export let selected;
@@ -14,7 +14,7 @@
   <input
     type="checkbox"
     checked={all}
-    use:setCheckboxIndeterminate={anySelected(selected) && !all}
+    indeterminate={anySelected(selected) && !all}
     on:change={(event) => changeAll(event.currentTarget.checked)}
   >
   <span>All updates</span>

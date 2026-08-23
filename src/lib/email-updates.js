@@ -26,16 +26,6 @@ export function allSelected(selectedInterests) {
   return INTEREST_KEYS.every((key) => selectedInterests[key]);
 }
 
-export function setCheckboxIndeterminate(node, indeterminate) {
-  node.indeterminate = indeterminate;
-
-  return {
-    update(value) {
-      node.indeterminate = value;
-    },
-  };
-}
-
 function cleanMailchimpMessage(message) {
   const element = document.createElement('div');
   element.innerHTML = message ?? '';
