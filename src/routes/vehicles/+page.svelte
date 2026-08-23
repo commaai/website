@@ -245,7 +245,7 @@
 
     & .compatibility-make-links {
       display: grid;
-      gap: .75rem;
+      gap: 1rem;
       grid-template-columns: repeat(auto-fill, minmax(105px, 1fr));
       margin: 2rem 0 3rem;
 
@@ -254,7 +254,6 @@
       }
 
       @media screen and (max-width: 480px) {
-        gap: .5rem;
         grid-template-columns: repeat(auto-fill, minmax(85px, 1fr));
       }
     }
