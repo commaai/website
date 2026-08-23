@@ -324,15 +324,11 @@
         & strong {
           font-weight: 700;
         }
-
-        @media screen and (max-width: 520px) {
-          font-size: 1rem;
-        }
       }
     }
 
-    @media screen and (max-width: 520px) {
-      padding: 1.5rem 1rem;
+    @media screen and (max-width: 768px) {
+      padding: 2rem 1rem;
     }
   }
 
@@ -340,7 +336,7 @@
     & span {
       display: block;
       margin-bottom: 0.75rem;
-      font-size: 2.75rem;
+      font-size: 3rem;
       font-weight: 600;
       line-height: 1.05;
       letter-spacing: -0.06em;
@@ -352,13 +348,15 @@
       line-height: 1.35;
     }
 
-    @media screen and (max-width: 520px) {
+    @media screen and (max-width: 1024px) {
       & span {
-        font-size: 1.6rem;
+        font-size: 2.5rem;
       }
+    }
 
-      & p {
-        font-size: 1rem;
+    @media screen and (max-width: 768px) {
+      & span {
+        font-size: 1.75rem;
       }
     }
   }

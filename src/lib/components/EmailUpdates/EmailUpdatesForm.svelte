@@ -117,7 +117,6 @@
 
   h2 {
     margin: 0 0 0.75rem;
-    font-size: 2.75rem;
     font-weight: 600;
     line-height: 1.05;
     letter-spacing: -0.06em;
@@ -290,28 +289,9 @@
     border: 1px solid var(--color-red);
   }
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 768px) {
     .updates-card {
-      padding: 2rem;
+      padding: 2rem 1rem;
     }
-  }
-
-  @media screen and (max-width: 520px) {
-    .updates-card {
-      padding: 1.5rem 1rem;
-    }
-
-    h2 {
-      font-size: 1.6rem;
-    }
-
-    .updates-subtitle :global(p) {
-      font-size: 1rem;
-    }
-
-    .success {
-      font-size: 1rem;
-    }
-
   }
 </style>
