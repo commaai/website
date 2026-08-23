@@ -56,14 +56,7 @@
     loading = false;
   }
 
-  function focusMailingList() {
-    if (location.hash === "#mailing-list") {
-      document.querySelector('#mailing-list input[type="email"]')?.focus({ preventScroll: true });
-    }
-  }
-
   onMount(async () => {
-    focusMailingList();
     await loadCart();
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") {
@@ -74,8 +67,6 @@
 
   printConsoleBanner();
 </script>
-
-<svelte:window on:hashchange={focusMailingList} />
 
 <svelte:head>
   <link

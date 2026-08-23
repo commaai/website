@@ -426,7 +426,6 @@
         }
       }
     }
-
   }
 
   #description {
