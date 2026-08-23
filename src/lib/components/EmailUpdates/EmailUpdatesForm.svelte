@@ -144,6 +144,8 @@
   }
 
   input[type='email'] {
+    min-width: 0;
+    box-sizing: border-box;
     padding: 1rem;
     color: #000;
     font: inherit;
