@@ -3,7 +3,7 @@
   import Grid from "$lib/components/Grid.svelte";
   import Accordion from "$lib/components/Accordion.svelte";
   import Badge from "$lib/components/Badge.svelte";
-  import MailingListForm from "$lib/components/MailingListForm.svelte";
+  import EmailUpdatesForm from "$lib/components/EmailUpdates/EmailUpdatesForm.svelte";
   import NoteCard from "$lib/components/NoteCard.svelte";
   import CommunityBanner from "$lib/components/CommunityBanner.svelte";
   
@@ -177,13 +177,12 @@
           </div>
         </Grid>
       </div>
-      <div class="mailing-list">
-        <Badge style="dark">Follow along</Badge>
-        <h1>Get body updates</h1>
-        <div class="form">
-          <MailingListForm label="Email" />
-        </div>
-      </div>
+      <EmailUpdatesForm
+        title="Get body updates"
+        defaultCategory="general"
+      >
+        <p>Follow along with comma body.</p>
+      </EmailUpdatesForm>
     </div>
   </div>
 </section>
@@ -423,23 +422,6 @@
 
         & span {
           display: block;
-        }
-      }
-    }
-
-    & .mailing-list {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
-      & .form {
-        width: 45ch;
-        color: black;
-      }
-
-      @media screen and (max-width: 480px) {
-        & .form {
-          width: 100%;
         }
       }
     }
