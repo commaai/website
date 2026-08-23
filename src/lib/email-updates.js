@@ -94,7 +94,7 @@ function submitEmailUpdates(email, selectedInterests) {
 
     script.onerror = function() {
       cleanUp();
-      reject(new Error('We could not reach Mailchimp. Please try again.'));
+      reject(new Error('Could not connect. Please try again.'));
     };
 
     script.src = `https://comma.us12.list-manage.com/subscribe/post?${params}`;
