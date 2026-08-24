@@ -88,8 +88,6 @@
   .footer-email-updates {
     --muted: #aaa;
     --highlight: #ccc;
-
-    color: #fff;
   }
 
   .copy {

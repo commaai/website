@@ -405,7 +405,6 @@
     & .mailing-list {
       margin-top: 2rem;
       width: 100%;
-      color: white;
     }
 
     @media only screen and (max-width: 1024px) and (min-width: 512px) {
