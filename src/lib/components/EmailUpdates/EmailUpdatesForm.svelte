@@ -1,22 +1,21 @@
 <script>
   import Grid from '$lib/components/Grid.svelte';
-  import InterestCheckboxes from './InterestCheckboxes.svelte';
-  import { EMAIL_INTERESTS, anySelected, createEmailUpdatesForm } from '$lib/email-updates.js';
+  import { EMAIL_INTERESTS, createEmailUpdatesForm } from '$lib/email-updates.js';
 
+  // The interest this page leads with; everything is selected until you narrow to it.
   export let defaultCategory;
   export let title;
   export let margin;
 
-  const { email, interests, status, errorMessage, toggle, submit } = createEmailUpdatesForm(defaultCategory);
+  const { email, status, errorMessage, setScope, submit } = createEmailUpdatesForm();
 
-  let showCustomOptions = false;
+  let scope = 'all';
 
-  $: additionalInterests = EMAIL_INTERESTS.filter((interest) => interest.key !== defaultCategory);
   $: primaryInterest = EMAIL_INTERESTS.find((interest) => interest.key === defaultCategory);
 
-  function handlePrimaryChange(checked) {
-    toggle(defaultCategory, checked);
-    if (!checked) showCustomOptions = true;
+  function choose(next) {
+    scope = next;
+    setScope(next === 'all' ? undefined : defaultCategory);
   }
 </script>
 
@@ -50,37 +49,31 @@
           bind:value={$email}
         >
 
-        <fieldset aria-label="Choose email updates">
-          <label class="primary-preference">
+        <fieldset class="scope-options" aria-label="Choose email updates">
+          <label>
             <input
-              type="checkbox"
-              checked={$interests[defaultCategory]}
-              on:change={(event) => handlePrimaryChange(event.currentTarget.checked)}
+              type="radio"
+              name="email-scope-{defaultCategory}"
+              checked={scope === 'all'}
+              on:change={() => choose('all')}
             >
             <span>
-              <strong>{primaryInterest.label}</strong>
+              <strong>All comma updates</strong>
+              <small>New products, releases, car support, and blog posts</small>
+            </span>
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="email-scope-{defaultCategory}"
+              checked={scope === 'only'}
+              on:change={() => choose('only')}
+            >
+            <span>
+              <strong>Only {primaryInterest.label.toLowerCase()}</strong>
               <small>{primaryInterest.description}</small>
             </span>
           </label>
-
-          {#if showCustomOptions}
-            <div class="custom-options">
-              <InterestCheckboxes
-                interests={additionalInterests}
-                selected={$interests}
-                onChange={toggle}
-              />
-            </div>
-          {/if}
-          <button
-            class="customize-button"
-            type="button"
-            aria-expanded={showCustomOptions}
-            on:click={() => showCustomOptions = !showCustomOptions}
-          >
-            <span>{showCustomOptions ? 'hide options' : 'choose updates'}</span>
-            <span class="customize-icon" aria-hidden="true">{showCustomOptions ? '－' : '＋'}</span>
-          </button>
         </fieldset>
 
         {#if $status === 'error'}
@@ -90,7 +83,7 @@
         <button
           class="submit-button"
           type="submit"
-          disabled={$status === 'submitting' || !$email || !anySelected($interests)}
+          disabled={$status === 'submitting' || !$email}
         >
           {$status === 'submitting' ? 'signing up...' : 'notify me'}
         </button>
@@ -173,90 +166,40 @@
     background: var(--color-muted);
   }
 
-  .primary-preference {
+  .scope-options {
+    display: grid;
+    background: #fff;
+    border: 1px solid #000;
+  }
+
+  .scope-options label {
     display: grid;
     grid-template-columns: auto 1fr;
     gap: 0.75rem;
     align-items: center;
     padding: 1rem;
     cursor: pointer;
-    background: #fff;
-    border: 1px solid #000;
   }
 
-  .primary-preference input {
+  .scope-options label + label {
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+  }
+
+  .scope-options input {
     width: 1.1rem;
     height: 1.1rem;
     margin: 0;
     accent-color: #000;
   }
 
-  .primary-preference input:indeterminate {
-    appearance: none;
-    background: #fff linear-gradient(#000, #000) center / 0.65rem 2px no-repeat;
-    border: 1px solid #000;
-    border-radius: 3px;
-  }
-
-  .primary-preference span {
+  .scope-options span {
     display: grid;
     gap: 0.15rem;
   }
 
-  .primary-preference small {
+  .scope-options small {
     font-size: 0.875rem;
     letter-spacing: 0;
-  }
-
-  .custom-options {
-    --interest-accent: #000;
-
-    display: grid;
-    gap: 0.6rem;
-    padding: 0.9rem;
-    background: #fff;
-    border: 1px solid #000;
-    border-top: 0;
-  }
-
-  .customize-button {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 0.75rem 1rem;
-    font: inherit;
-    font-size: 0.875rem;
-    font-weight: 600;
-    cursor: pointer;
-    background: #fff;
-    border: 1px solid #000;
-    border-top: 0;
-    transition: color 0.2s, background-color 0.2s;
-  }
-
-  .customize-button span {
-    color: inherit;
-  }
-
-  .customize-button:focus-visible {
-    color: #fff;
-    background: #000;
-    outline: 0;
-  }
-
-  @media (hover: hover) and (pointer: fine) {
-    .customize-button:hover {
-      color: #fff;
-      background: #000;
-    }
-  }
-
-  .customize-icon {
-    font-size: 1.2rem;
-    font-weight: 700;
-    line-height: 1;
   }
 
   .success {

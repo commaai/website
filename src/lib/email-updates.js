@@ -9,19 +9,15 @@ export const EMAIL_INTERESTS = [
 
 const INTEREST_KEYS = EMAIL_INTERESTS.map(({ key }) => key);
 
-// No category means every interest
-function createEmailInterestSelection(defaultCategory) {
+// No interest means all of them
+function scopedInterests(interest) {
   return Object.fromEntries(
-    INTEREST_KEYS.map((key) => [key, !defaultCategory || key === defaultCategory]),
+    INTEREST_KEYS.map((key) => [key, !interest || key === interest]),
   );
 }
 
 export function anySelected(selectedInterests) {
   return INTEREST_KEYS.some((key) => selectedInterests[key]);
-}
-
-export function allSelected(selectedInterests) {
-  return INTEREST_KEYS.every((key) => selectedInterests[key]);
 }
 
 function cleanMailchimpMessage(message) {
@@ -72,14 +68,19 @@ function submitEmailUpdates(email, selectedInterests) {
   });
 }
 
-export function createEmailUpdatesForm(defaultCategory) {
+export function createEmailUpdatesForm() {
   const email = writable('');
-  const interests = writable(createEmailInterestSelection(defaultCategory));
+  const interests = writable(scopedInterests());
   const status = writable('idle');  // idle | submitting | success | error
   const errorMessage = writable('');
 
   function toggle(interest, checked) {
     interests.update((current) => ({ ...current, [interest]: checked }));
+  }
+
+  // Narrow to a single interest, or back to all of them
+  function setScope(interest) {
+    interests.set(scopedInterests(interest));
   }
 
   async function submit() {
@@ -100,5 +101,5 @@ export function createEmailUpdatesForm(defaultCategory) {
     }
   }
 
-  return { email, interests, status, errorMessage, toggle, submit };
+  return { email, interests, status, errorMessage, toggle, setScope, submit };
 }
