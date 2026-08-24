@@ -40,7 +40,7 @@
     onChange(selection);
     updateQueryParams(selection);
 
-    // Remember the selection in local storage
+    // remember with cookie
     if (selection?.car) {
       selectedCar.set(selection.car);
     } else {

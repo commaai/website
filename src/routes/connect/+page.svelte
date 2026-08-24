@@ -3,7 +3,6 @@
   import Grid from "$lib/components/Grid.svelte";
   import LinkButton from "$lib/components/LinkButton.svelte";
   import Faq from '$lib/components/Faq.svelte';
-  import EmailUpdatesForm from '$lib/components/EmailUpdates/EmailUpdatesForm.svelte';
 
   import { faq } from '$lib/constants/faq.svelte';
 
@@ -214,15 +213,6 @@
 
 <section class="light" id="faq">
   <div class="container">
-    <EmailUpdatesForm
-      title="See what's new"
-      defaultCategory="general"
-      margin="2rem 0 4rem"
-    >
-      <p>
-        Get an email when we launch something new.
-      </p>
-    </EmailUpdatesForm>
     <Faq topic={faq.connect} title="Frequently asked questions" />
   </div>
 </section>
