@@ -12,11 +12,7 @@
   let scope = 'all';
 
   $: primaryInterest = EMAIL_INTERESTS.find((interest) => interest.key === defaultCategory);
-
-  function choose(next) {
-    scope = next;
-    setScope(next === 'all' ? undefined : defaultCategory);
-  }
+  $: setScope(scope === 'all' ? undefined : defaultCategory);
 </script>
 
 <aside class="updates-card" aria-label={title} style:margin>
@@ -51,24 +47,14 @@
 
         <fieldset class="scope-options" aria-label="Choose email updates">
           <label>
-            <input
-              type="radio"
-              name="email-scope-{defaultCategory}"
-              checked={scope === 'all'}
-              on:change={() => choose('all')}
-            >
+            <input type="radio" name="email-scope" value="all" bind:group={scope}>
             <span>
               <strong>All comma updates</strong>
               <small>New products, openpilot releases, car support, blog posts, and more</small>
             </span>
           </label>
           <label>
-            <input
-              type="radio"
-              name="email-scope-{defaultCategory}"
-              checked={scope === 'only'}
-              on:change={() => choose('only')}
-            >
+            <input type="radio" name="email-scope" value="only" bind:group={scope}>
             <span>
               <strong>Only {primaryInterest.label.toLowerCase()}</strong>
               <small>{primaryInterest.description}</small>
@@ -124,12 +110,6 @@
     margin: 0;
   }
 
-  fieldset {
-    margin: 0;
-    padding: 0;
-    border: 0;
-  }
-
   input[type='email'] {
     min-width: 0;
     box-sizing: border-box;
@@ -168,6 +148,8 @@
 
   .scope-options {
     display: grid;
+    margin: 0;
+    padding: 0;
     background: #fff;
     border: 1px solid #000;
   }

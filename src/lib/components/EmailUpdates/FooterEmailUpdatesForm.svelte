@@ -1,6 +1,5 @@
 <script>
   import ArrowRight from '$lib/icons/arrow-right.svg?raw';
-  import InterestCheckboxes from './InterestCheckboxes.svelte';
   import { EMAIL_INTERESTS, anySelected, createEmailUpdatesForm } from '$lib/email-updates.js';
 
   const { email, interests, status, errorMessage, toggle, submit } = createEmailUpdatesForm();
@@ -26,7 +25,7 @@
 <div class="footer-email-updates" bind:this={componentElement}>
   {#if $status === 'success'}
     <div class="success" role="status">
-      <span>Thanks for signing up! We only send emails we would want to receive.</span>
+      Thanks for signing up! We only send emails we would want to receive.
     </div>
   {:else}
     <div class="copy">
@@ -64,11 +63,16 @@
 
         {#if showOptions}
           <fieldset aria-label="Choose email updates">
-            <InterestCheckboxes
-              interests={EMAIL_INTERESTS}
-              selected={$interests}
-              onChange={toggle}
-            />
+            {#each EMAIL_INTERESTS as { key, label }}
+              <label class="preference">
+                <input
+                  type="checkbox"
+                  checked={$interests[key]}
+                  on:change={(event) => toggle(key, event.currentTarget.checked)}
+                >
+                <span>{label}</span>
+              </label>
+            {/each}
           </fieldset>
         {/if}
       </div>
@@ -200,8 +204,6 @@
   }
 
   fieldset {
-    --interest-accent: #fff;
-
     position: absolute;
     right: 0;
     bottom: calc(100% + 0.5rem);
@@ -213,6 +215,26 @@
     background: #080808;
     border: 1px solid #777;
     box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.45);
+  }
+
+  .preference {
+    display: flex;
+    gap: 0.6rem;
+    align-items: center;
+    width: fit-content;
+    touch-action: manipulation;
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    cursor: pointer;
+  }
+
+  .preference input {
+    flex: 0 0 auto;
+    width: 1.1rem;
+    height: 1.1rem;
+    margin: 0;
+    accent-color: #fff;
   }
 
   .success {
