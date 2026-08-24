@@ -59,7 +59,7 @@
             >
             <span>
               <strong>All comma updates</strong>
-              <small>New products, releases, car support, and blog posts</small>
+              <small>New products, openpilot releases, car support, blog posts, and more</small>
             </span>
           </label>
           <label>

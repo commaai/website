@@ -179,7 +179,7 @@
       </div>
       <EmailUpdatesForm
         title="Get body updates"
-        defaultCategory="general"
+        defaultCategory="product"
       >
         <p>Follow along with comma body.</p>
       </EmailUpdatesForm>

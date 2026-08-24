@@ -216,7 +216,7 @@
   <div class="container">
     <EmailUpdatesForm
       title="See what's new"
-      defaultCategory="general"
+      defaultCategory="product"
       margin="2rem 0 4rem"
     >
       <p>

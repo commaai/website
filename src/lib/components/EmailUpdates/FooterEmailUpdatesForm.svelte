@@ -31,7 +31,7 @@
   {:else}
     <div class="copy">
       <strong>Get the latest updates</strong>
-      <span>Products, releases, car support, and more.</span>
+      <span>Products, openpilot releases, car support, and more.</span>
     </div>
 
     <form aria-label="Email updates signup" on:submit|preventDefault={handleFormSubmit}>

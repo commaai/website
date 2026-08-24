@@ -1,7 +1,7 @@
 import { get, writable } from 'svelte/store';
 
 export const EMAIL_INTERESTS = [
-  { key: 'general', label: 'General updates', description: 'New products, sales, and more', fieldName: 'group[54660][1]' },
+  { key: 'product', label: 'Product updates', description: 'New products and sales', fieldName: 'group[54660][1]' },
   { key: 'releases', label: 'New openpilot releases', description: 'Major changes and improvements', fieldName: 'group[54660][4]' },
   { key: 'compatibility', label: 'Car compatibility updates', description: 'Newly supported cars', fieldName: 'group[54660][2]' },
   { key: 'blog', label: 'New blog posts', description: 'New posts on the comma blog', fieldName: 'group[54660][8]' },
