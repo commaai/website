@@ -1,7 +1,5 @@
 import { get, writable } from 'svelte/store';
 
-import { selectedCar } from '../store.js';
-
 export const EMAIL_INTERESTS = [
   { key: 'general', label: 'General updates', description: 'New products, sales, and more', fieldName: 'group[54660][1]' },
   { key: 'releases', label: 'New openpilot releases', description: 'Major changes and improvements', fieldName: 'group[54660][4]' },
@@ -44,8 +42,6 @@ function submitEmailUpdates(email, selectedInterests) {
       c: callbackName,
     });
 
-    const car = get(selectedCar);
-    if (car) params.set('SELECTCAR', car);
     for (const { key, fieldName } of EMAIL_INTERESTS) {
       if (selectedInterests[key]) params.set(fieldName, '1');
     }
