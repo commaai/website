@@ -26,7 +26,7 @@ function cleanMailchimpMessage(message) {
   return element.textContent || 'Please try again.';
 }
 
-function submitEmailUpdates(email, selectedInterests) {
+function submitEmailUpdates(email, selectedInterests, car) {
   return new Promise((resolve, reject) => {
     const callbackName = `mailchimpEmailUpdates_${Math.random().toString(36).slice(2, 11)}`;
     const script = document.createElement('script');
@@ -37,6 +37,9 @@ function submitEmailUpdates(email, selectedInterests) {
       SOURCE: window.location.pathname,
       c: callbackName,
     });
+
+    // Store entered car by user
+    if (car) params.set('VCAR', car);
 
     for (const { key, fieldName } of EMAIL_INTERESTS) {
       if (selectedInterests[key]) params.set(fieldName, '1');
@@ -70,6 +73,7 @@ function submitEmailUpdates(email, selectedInterests) {
 
 export function createEmailUpdatesForm() {
   const email = writable('');
+  const car = writable('');
   const interests = writable(scopedInterests());
   const status = writable('idle');  // idle | submitting | success | error
   const errorMessage = writable('');
@@ -93,7 +97,7 @@ export function createEmailUpdatesForm() {
     status.set('submitting');
 
     try {
-      await submitEmailUpdates(get(email), get(interests));
+      await submitEmailUpdates(get(email), get(interests), get(car).trim());
       status.set('success');
     } catch (error) {
       errorMessage.set(error.message);
@@ -101,5 +105,5 @@ export function createEmailUpdatesForm() {
     }
   }
 
-  return { email, interests, status, errorMessage, toggle, setScope, submit };
+  return { email, car, interests, status, errorMessage, toggle, setScope, submit };
 }

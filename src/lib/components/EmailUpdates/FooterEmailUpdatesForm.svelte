@@ -33,10 +33,9 @@
       <span>Products, openpilot releases, car support, and more.</span>
     </div>
 
-    <form aria-label="Email updates signup" on:submit|preventDefault={handleFormSubmit}>
+    <form on:submit|preventDefault={handleFormSubmit}>
       <div class="email-row">
         <input
-          aria-label="Email address"
           name="email"
           type="email"
           autocomplete="email"
@@ -62,7 +61,7 @@
         </button>
 
         {#if showOptions}
-          <fieldset aria-label="Choose email updates">
+          <fieldset>
             {#each EMAIL_INTERESTS as { key, label }}
               <label class="preference">
                 <input

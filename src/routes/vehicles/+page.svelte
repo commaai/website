@@ -55,6 +55,7 @@
     <EmailUpdatesForm
       title="Don't see your car?"
       defaultCategory="compatibility"
+      askForCar
     >
       <p>
         New cars are added with each openpilot release. Get an email when compatibility changes.

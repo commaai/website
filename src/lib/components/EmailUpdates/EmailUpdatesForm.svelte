@@ -6,8 +6,9 @@
   export let defaultCategory;
   export let title;
   export let margin;
+  export let askForCar = false;
 
-  const { email, status, errorMessage, setScope, submit } = createEmailUpdatesForm();
+  const { email, car, status, errorMessage, setScope, submit } = createEmailUpdatesForm();
 
   let scope = 'all';
 
@@ -15,7 +16,7 @@
   $: setScope(scope === 'all' ? undefined : defaultCategory);
 </script>
 
-<aside class="updates-card" aria-label={title} style:margin>
+<aside class="updates-card" style:margin>
   <Grid
     columnGap="4rem"
     templateColumns="minmax(0, 1fr) minmax(22rem, 0.8fr)"
@@ -35,7 +36,6 @@
     {:else}
       <form on:submit|preventDefault={submit}>
         <input
-          aria-label="Email address"
           name="email"
           type="email"
           autocomplete="email"
@@ -45,7 +45,21 @@
           bind:value={$email}
         >
 
-        <fieldset class="scope-options" aria-label="Choose email updates">
+        {#if askForCar}
+          <div class="car-field">
+            <input
+              type="text"
+              placeholder="Enter your car (optional)"
+              maxlength="120"
+              bind:value={$car}
+            >
+            <small>
+              Enter your make, model, and year. We'll email you when your car is supported.
+            </small>
+          </div>
+        {/if}
+
+        <fieldset class="scope-options">
           <label>
             <input type="radio" name="email-scope" value="all" bind:group={scope}>
             <span>
@@ -110,7 +124,8 @@
     margin: 0;
   }
 
-  input[type='email'] {
+  input[type='email'],
+  .car-field input {
     min-width: 0;
     box-sizing: border-box;
     padding: 1rem;
@@ -120,9 +135,22 @@
     border: 1px solid #000;
   }
 
-  input[type='email']:focus-visible {
+  input[type='email']:focus-visible,
+  .car-field input:focus-visible {
     outline: 2px solid #000;
     outline-offset: -3px;
+  }
+
+  .car-field {
+    display: grid;
+    gap: 0.4rem;
+  }
+
+  .car-field small {
+    font-size: 0.8125rem;
+    line-height: 1.35;
+    letter-spacing: 0;
+    opacity: 0.7;
   }
 
   .submit-button {
@@ -174,9 +202,10 @@
     accent-color: #000;
   }
 
-  .scope-options span {
+  .scope-options label > span {
     display: grid;
     gap: 0.15rem;
+    justify-items: start;
   }
 
   .scope-options small {
