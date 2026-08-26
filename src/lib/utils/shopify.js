@@ -67,6 +67,7 @@ export async function _loadCart() {
           totalQuantity
           discountCodes {
             code
+            applicable
           }
           cost {
             subtotalAmount {

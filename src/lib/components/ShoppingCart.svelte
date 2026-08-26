@@ -48,11 +48,11 @@
     {/if}
     {#each $cartItems as item}
       {@const imageUrl = item.node.merchandise.image?.url || item.node.merchandise.product.images.edges[0].node.originalSrc}
-      {@const itemReferralDiscount = item.node.discountAllocations?.find(
+      {@const referralDiscountAllocation = item.node.discountAllocations?.find(
         ({ code }) => code?.toLowerCase() === $cartReferralDiscount?.code?.toLowerCase()
       )}
-      {@const itemPriceBeforeReferral = {
-        amount: Number(item.node.estimatedCost.totalAmount.amount) + Number(itemReferralDiscount?.discountedAmount.amount || 0),
+      {@const priceExcludingReferralDiscount = {
+        amount: Number(item.node.estimatedCost.totalAmount.amount) + Number(referralDiscountAllocation?.discountedAmount.amount || 0),
         currencyCode: item.node.estimatedCost.totalAmount.currencyCode
       }}
       <div class="item">
@@ -79,22 +79,21 @@
           />
         </div>
         <div>
-          {formatCurrency(itemPriceBeforeReferral)}
+          {formatCurrency(priceExcludingReferralDiscount)}
         </div>
       </div>
     {/each}
   </div>
   <div class="footer">
     {#if $cartItems?.length !== 0}
-      {@const referralCode = $cartReferralDiscount?.code}
-      {@const referralDiscountAmount = $cartReferralDiscount?.amount}
-      {@const hasReferralDiscount = referralDiscountAmount > 0}
+      {@const referralDiscountAmount = $cartReferralDiscount?.amount || 0}
+      {@const hasReferralDiscount = Boolean($cartReferralDiscount)}
       {@const bulkDiscountAllocation = $cartDiscountAllocations.find(({ title }) => title?.toUpperCase() === 'BULK ORDER')}
       {#if hasReferralDiscount}
         <div class="referral-discount">
           <div class="referral-details">
             <strong>Referral discount applied</strong>
-            <span class="referral-code">{referralCode}</span>
+            <span class="referral-code">{$cartReferralDiscount.code}</span>
           </div>
           <h4 class="referral-amount">-{formatCurrency({ amount: referralDiscountAmount, currencyCode: $cartSubtotal.currencyCode }, 0)}</h4>
         </div>

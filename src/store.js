@@ -1,7 +1,7 @@
 import { browser } from "$app/environment";
 import { writable, derived, get } from 'svelte/store';
 import { addToCart as requestAddToCart, loadCart as requestLoadCart } from '$lib/utils/shopify';
-import { isReferralCode } from '$lib/utils/referral';
+import { isReferralCode, REFERRAL_DISCOUNT } from '$lib/utils/referral';
 
 export const showCart = writable(false);
 
@@ -16,23 +16,10 @@ export const cartDiscountAllocations = writable([]);
 export const cartSubtotal = writable({});
 export const cartDiscountCodes = writable([]);
 export const cartReferralDiscount = derived(
-  [cartDiscountCodes, cartItems],
-  ([$cartDiscountCodes, $cartItems]) => {
+  cartDiscountCodes,
+  ($cartDiscountCodes) => {
     const code = $cartDiscountCodes.find(({ code }) => isReferralCode(code))?.code;
-    if (!code) return null;
-
-    const allocations = ($cartItems || [])
-      .flatMap(({ node }) => node.discountAllocations || [])
-      .filter(({ code: allocationCode }) => allocationCode?.toLowerCase() === code.toLowerCase());
-    const amount = allocations.reduce(
-      (total, { discountedAmount }) => total + Number(discountedAmount.amount),
-      0
-    );
-
-    return {
-      code,
-      amount
-    };
+    return code ? { code, amount: REFERRAL_DISCOUNT } : null;
   }
 );
 export const selectedCar = writable(browser ? localStorage.getItem('selectedCar') || '' : '');
