@@ -1,5 +1,6 @@
 // Real posts from X and real reviews from our Shop storefront.
 // Nothing here is written by us — copy is verbatim, only trimmed of trailing links.
+// Customers only: no comma employees.
 //
 // Tweets: https://x.com/search?q=%40comma_ai
 // Reviews: https://shop.app/products/7964554231871/comma-four
@@ -20,13 +21,6 @@ export const tweets = [
     body: "@comma_ai 4 device on a Tesla Model Y in experimental mode tackling city streets. Every time I use this device, I become more and more convinced that vision-based self-driving vehicles are the future. I love that I can avoid a subscription and own my open-source AI software.",
   },
   {
-    id: "2087680336054620609",
-    author: "armand_dpl",
-    name: "armand",
-    timestamp: "Aug 12, 2026",
-    body: "my favourite car is the tesla with the comma four and the external gpu!",
-  },
-  {
     id: "1962586420989833333",
     author: "thisiswrenn",
     name: "David Wrenn",
@@ -42,31 +36,36 @@ export const tweets = [
   },
   {
     id: "1723011519942648318",
-    author: "tython_3",
+    author: "__tython3__", // renamed from @tython_3 since the post
+    name: "Tython3",
     timestamp: "Nov 10, 2023",
     body: "I am speechless. I just drove 1500 miles from Minnesota to Florida with my comma 3. It felt like I had entered a cheat code into the simulation. I drove alongside thousands of other cars that probably had no idea this option was available to them. Well done, @comma_ai",
   },
   {
     id: "1641908734845755392",
     author: "wesley_sheh",
+    name: "Wesley Sheh",
     timestamp: "Mar 31, 2023",
     body: "The most impactful thing to come out of AI for me is not ChatGPT.\n\nIt's another little-known product that I've been using for a year and a half now. (They do no marketing whatsoever)\n\nIt's @comma_ai and if it supports your car, buy it. It is well worth it.",
   },
   {
     id: "1593874509320183808",
     author: "yishan",
+    name: "Yishan",
     timestamp: "Nov 18, 2022",
     body: "I have a comma three and it is great.\n\nIf you can't (or won't) own a Tesla but you own one of the comma-compatible cars, I HIGHLY recommend it.\n\nSelf-driving functionality on a budget.",
   },
   {
     id: "1504630655581233155",
     author: "JFrecees",
+    name: "Jack Frecees",
     timestamp: "Mar 17, 2022",
     body: "@comma_ai I can honestly say the C3 is the single best purchase I've ever made. I can't imagine driving without it now",
   },
   {
     id: "1394808101145038849",
     author: "brittonx",
+    name: "Britton Robbins",
     timestamp: "May 18, 2021",
     body: "@comma_ai I recently did a 7,100 mile cross-country trip. The comma two running Openpilot made the long drives so relaxing and enjoyable!",
   },
@@ -75,6 +74,16 @@ export const tweets = [
 // Verified-buyer reviews left on our Shop storefront.
 export const reviewsUrl = "https://shop.app/products/7964554231871/comma-four";
 
+// HEADS UP: this aggregate is hand-maintained and will drift.
+//
+// These are native Shop reviews — Shopify collects them itself. There's no review app,
+// no product_review metaobject, and the Shop sales channel isn't installed, so as of
+// Aug 2026 there is no API or admin surface to read them from. The Storefront API can't
+// serve them either (Product has no rating fields; reviews.rating is Admin-API-only).
+//
+// So check shop.app and update these two numbers when you touch this file. If the Shop
+// channel gets installed and reviews.rating / reviews.rating_count start populating,
+// replace this with a generated file instead.
 export const reviewSummary = {
   rating: 5.0,
   count: 81,

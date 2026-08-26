@@ -87,8 +87,9 @@
     opacity: 0.35;
   }
 
+  /* accent green washes out on the light section — full-contrast foreground reads better */
   .star.filled {
-    color: var(--color-accent);
+    color: var(--color-foreground);
     opacity: 1;
   }
 
@@ -115,10 +116,6 @@
     }
 
     @media (hover: hover) and (pointer: fine) {
-      &:hover {
-        border-bottom-color: var(--color-accent);
-      }
-
       &:hover .arrow {
         transform: translateX(0.25rem);
       }
@@ -131,21 +128,16 @@
     column-gap: 1.25rem;
   }
 
+  /* same card treatment as the /vehicles cards, minus the hover — nothing to click */
   .review {
     background-color: var(--color-card-background);
+    border: 1px solid rgba(0, 0, 0, 0.4);
     break-inside: avoid;
     display: flex;
     flex-flow: column;
     gap: 1rem;
     margin: 0 0 1.25rem;
     padding: 1.75rem;
-    transition: background-color 0.25s;
-
-    @media (hover: hover) and (pointer: fine) {
-      &:hover {
-        background-color: var(--color-card-background-hover);
-      }
-    }
   }
 
   blockquote {
