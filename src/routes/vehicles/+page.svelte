@@ -183,7 +183,7 @@
                       fullWidth
                       thin
                     >
-                      Buy now
+                      Buy for this car
                     </LinkButton>
                     <div class="description">
                       <strong>30-day money-back trial</strong>

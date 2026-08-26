@@ -16,6 +16,9 @@ export const cartDiscount = writable({});
 export const cartSubtotal = writable({});
 export const selectedCar = writable(browser ? localStorage.getItem('selectedCar') || '' : '');
 
+// Price the buy box is currently showing, so page-level UI can stay in sync with it
+export const currentProductPrice = writable(null);
+
 if (browser) {
   selectedCar.subscribe((value) => {
     if (value) localStorage.setItem('selectedCar', value);

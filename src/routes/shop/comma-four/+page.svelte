@@ -29,11 +29,46 @@
   import CableIcon from "$lib/icons/features/cable.svg?raw";
   import LocationIcon from "$lib/icons/features/location.svg?raw";
   import { vehicleCountText } from '$lib/constants/vehicles.js';
+  import { FOUR_PRICE, affirmMonthly } from '$lib/constants/prices.js';
+
+  import { onMount } from 'svelte';
+  import { selectedCar, currentProductPrice } from '../../../store.js';
 
   export let data;
+
+  // The buy box only lives at the very top of a long page, so bring it back
+  // once the buyer has scrolled past it.
+  let showStickyBuy = false;
+  let buyBoxEnd;
+
+  onMount(() => {
+    if (!buyBoxEnd) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => showStickyBuy = entry.boundingClientRect.top < 0,
+      { threshold: 0 }
+    );
+    observer.observe(buyBoxEnd);
+    return () => observer.disconnect();
+  });
+
+  const scrollToBuyBox = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  // Mirror whatever the buy box is showing, so the two never disagree
+  $: stickyPrice = $currentProductPrice ?? FOUR_PRICE;
 </script>
 
 <ProductPage {data} />
+<div bind:this={buyBoxEnd}></div>
+
+<div class="sticky-buy" class:visible={showStickyBuy} aria-hidden={!showStickyBuy}>
+  <div class="sticky-buy-info">
+    <strong>comma four</strong>
+    <span>${stickyPrice} &middot; or ${affirmMonthly(stickyPrice)}/mo with Affirm</span>
+  </div>
+  <button class="sticky-buy-action" on:click={scrollToBuyBox} tabindex={showStickyBuy ? 0 : -1}>
+    {$selectedCar ? `Buy for your ${$selectedCar}` : 'Buy now'}
+  </button>
+</div>
 
 <section class="light" id="description">
   <div class="container">
@@ -341,6 +376,84 @@
 </section>
 
 <style>
+  .sticky-buy {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 0.875rem 2rem;
+    background-color: #fff;
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+    box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.08);
+
+    transform: translateY(100%);
+    visibility: hidden;
+    transition: transform 0.25s ease, visibility 0.25s;
+
+    &.visible {
+      transform: translateY(0);
+      visibility: visible;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
+  }
+
+  .sticky-buy-info {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.35;
+
+    & strong {
+      font-size: 1.125rem;
+    }
+
+    & span {
+      font-size: 0.9375rem;
+      color: rgb(81, 81, 81);
+    }
+  }
+
+  .sticky-buy-action {
+    background-color: var(--color-accent);
+    border: none;
+    padding: 0.875rem 2.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    white-space: nowrap;
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        opacity: 0.75;
+      }
+    }
+  }
+
+  @media (max-width: 600px) {
+    .sticky-buy {
+      padding: 0.75rem 1rem;
+      gap: 0.75rem;
+    }
+
+    .sticky-buy-info span {
+      display: none;
+    }
+
+    .sticky-buy-action {
+      padding: 0.875rem 1.5rem;
+    }
+  }
+
   h2 {
     font-size: 1.875rem;
     font-weight: 600;
