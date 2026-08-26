@@ -105,9 +105,11 @@
   <div class="container">
     <h1>Tweet wall variants</h1>
     <p class="intro">
-      Fourteen ways to show the same eight tweets. Same data, same avatars — only the
+      Seventeen ways to show the same eight tweets. Same data, same avatars — only the
       presentation changes. Each is labelled with what it trades away, and the light
-      variants sit directly under the dark original they're a version of.
+      variants sit directly under the dark original they're a version of. The last
+      three are deliberately less conventional, and /17 pulls in a few extra tweets
+      that state a figure.
     </p>
   </div>
 </section>
@@ -525,15 +527,15 @@
     <div class="stats">
       {#each STATS as stat}
         <a class="stat" href={href(stat.tweet)} target="_blank" rel="noopener">
+          <span class="stat-attr">
+            <img src={avatarFor(stat.author)} alt="" width="28" height="28" loading="lazy" />
+            {stat.tweet.name} · @{stat.author}
+          </span>
           <span class="stat-value">
             {stat.value}{#if stat.unit}<span class="stat-unit">{stat.unit}</span>{/if}
           </span>
           <span class="stat-label">{stat.label}</span>
           <p class="stat-quote">{stat.tweet.body.replace(/\s+/g, " ")}</p>
-          <span class="stat-attr">
-            <img src={avatarFor(stat.author)} alt="" width="28" height="28" loading="lazy" />
-            {stat.tweet.name} · @{stat.author}
-          </span>
         </a>
       {/each}
     </div>
@@ -598,10 +600,12 @@
   }
 
   .avatar {
+    align-self: center;
     background-color: #1c1c1c;
     border: 1px solid #333;
     border-radius: 50%;
     box-sizing: border-box;
+    display: block;
     flex: 0 0 2.25rem;
     height: 2.25rem;
     width: 2.25rem;
@@ -1011,22 +1015,28 @@
     line-clamp: 7;
     font-size: 0.9375rem;
     line-height: 1.45;
-    margin: 1.25rem 0 1.5rem;
+    margin: 1.25rem 0 0;
     overflow: hidden;
     white-space: pre-line;
   }
 
+  /* attribution leads, so the figure reads as an owner's words rather than a spec
+     we're claiming */
   .stat-attr {
     align-items: center;
     color: var(--color-muted);
     display: flex;
     font-size: 0.8125rem;
     gap: 0.5rem;
-    margin-top: auto;
+    margin-bottom: 1rem;
   }
 
+  /* flex: none matters — with the default 0 1 auto, iOS Safari collapses images
+     inside a flex row and paints a dark box. Every other avatar here sets it. */
   .stat-attr img {
     border-radius: 50%;
+    display: block;
+    flex: 0 0 1.75rem;
     height: 1.75rem;
     object-fit: cover;
     width: 1.75rem;
@@ -1047,6 +1057,13 @@
   @media screen and (max-width: 768px) {
     .stats {
       grid-template-columns: minmax(0, 1fr);
+    }
+
+    /* same track length across a much narrower viewport reads far faster, and a 6rem
+       fade eats most of a phone screen — hence the shorter fade */
+    .ticker {
+      --ticker-fade: 1.5rem;
+      --ticker-duration: 140s;
     }
 
     .term-body {
@@ -1075,7 +1092,8 @@
   }
 
   /* ---- light-section theming for the shared Card ---- */
-  .light .tag {
+  .light .tag,
+  .light .name {
     color: black;
   }
 
@@ -1185,12 +1203,14 @@
 
   /* 10 — ticker */
   .ticker {
+    --ticker-fade: 6rem;
+    --ticker-duration: 60s;
     overflow: hidden;
     mask-image: linear-gradient(
       to right,
       transparent,
-      black 6rem,
-      black calc(100% - 6rem),
+      black var(--ticker-fade),
+      black calc(100% - var(--ticker-fade)),
       transparent
     );
   }
@@ -1199,7 +1219,7 @@
     display: flex;
     gap: 0.75rem;
     width: max-content;
-    animation: ticker 60s linear infinite;
+    animation: ticker var(--ticker-duration) linear infinite;
   }
 
   @keyframes ticker {
