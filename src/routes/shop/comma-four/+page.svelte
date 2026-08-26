@@ -4,6 +4,7 @@
   import LinkButton from "$lib/components/LinkButton.svelte";
   import SetupGuide from "$lib/components/SetupGuide.svelte";
   import Faq from "$lib/components/Faq.svelte";
+  import ShopReviews from "$lib/components/ShopReviews.svelte";
   import Space from "$lib/components/Space.svelte";
 
   import { faq } from "$lib/constants/faq.svelte";
@@ -286,6 +287,16 @@
   </div>
 </section>
 
+<section class="light" id="reviews">
+  <div class="container">
+    <hgroup>
+      <span>Reviews</span>
+      <h2>What owners say</h2>
+    </hgroup>
+    <ShopReviews />
+  </div>
+</section>
+
 <section class="light" id="fine-print">
   <div class="container">
     <Grid templateColumns="0.5fr 1.25fr">
@@ -505,6 +516,17 @@
 
     & a {
       color: white;
+    }
+  }
+
+  #reviews {
+    & hgroup {
+      margin-bottom: 3rem;
+
+      & span {
+        display: block;
+        text-transform: uppercase;
+      }
     }
   }
 

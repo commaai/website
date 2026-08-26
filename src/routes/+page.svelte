@@ -3,6 +3,7 @@
   import Hls from 'hls.js/light';
   import FeaturedCarsList from "$lib/components/FeaturedCarsList.svelte";
   import FeaturedArticles from "$lib/components/FeaturedArticles.svelte";
+  import FeaturedTweets from "$lib/components/FeaturedTweets.svelte";
   import HomeHeroOverlay from "$lib/components/HomeHeroOverlay.svelte";
   import Grid from "$lib/components/Grid.svelte";
 
@@ -304,6 +305,7 @@
       <a href="https://twitter.com/comma_ai" target="_blank" class="highlight">@comma_ai</a>
     </h1>
   </div>
+  <FeaturedTweets />
 </section>
 
 
