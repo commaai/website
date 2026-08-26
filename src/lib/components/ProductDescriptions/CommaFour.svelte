@@ -11,7 +11,7 @@
   import MoneyBackGuaranteeIcon from "$lib/icons/features/money-back-guarantee.svg?raw";
   import WarrantyIcon from "$lib/icons/features/warranty.svg?raw";
 
-  import { FOUR_PRICE, FOUR_AFFIRM_PRICE, FOUR_SALE, FOUR_STRIKETHROUGH_PRICE, FOUR_TRADE_IN_CREDIT, NO_HARNESS_DISCOUNT } from '$lib/constants/prices.js';
+  import { FOUR_PRICE, FOUR_SALE, FOUR_STRIKETHROUGH_PRICE, FOUR_TRADE_IN_CREDIT, NO_HARNESS_DISCOUNT, affirmMonthly } from '$lib/constants/prices.js';
   import { NO_HARNESS_OPTION } from '$lib/constants/vehicles.js';
 </script>
 
@@ -60,6 +60,9 @@
   // Price calculations
   $: priceDueToday = showDiscount ? FOUR_PRICE - NO_HARNESS_DISCOUNT : FOUR_PRICE;
   $: priceAfterTradeIn = tradeInChecked ? priceDueToday - FOUR_TRADE_IN_CREDIT : priceDueToday;
+
+  // Affirm finances what's charged today — the trade-in credit lands after we receive the device
+  $: affirmPrice = affirmMonthly(priceDueToday);
 
   $: additionalProductIds = (() => {
     const ids = [];
@@ -143,9 +146,9 @@
 
   <span slot="price-accessory">
     <div class="financing">
-      or ${FOUR_AFFIRM_PRICE}/mo with Affirm.
+      or ${affirmPrice}/mo with Affirm.
       <a
-        href="https://www.affirm.com/apps/prequal/?public_api_key=EE7S5PMJUQ8H98C5&amp;device_id=063366d6-31b6-4e41-adcb-79f608745058&amp;referring_url=https%253A%252F%252Fcomma.ai%252Fshop%252Fcomma-four&amp;unit_price={FOUR_PRICE}00&amp;page_type=product&amp;use_promo=true&amp;locale=en_US"
+        href="https://www.affirm.com/apps/prequal/?public_api_key=EE7S5PMJUQ8H98C5&amp;device_id=063366d6-31b6-4e41-adcb-79f608745058&amp;referring_url=https%253A%252F%252Fcomma.ai%252Fshop%252Fcomma-four&amp;unit_price={priceDueToday}00&amp;page_type=product&amp;use_promo=true&amp;locale=en_US"
         target="_blank"
         class="highlight"
       >
