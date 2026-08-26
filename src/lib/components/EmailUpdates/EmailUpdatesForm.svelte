@@ -1,6 +1,5 @@
 <script>
   import Grid from '$lib/components/Grid.svelte';
-  import { page } from '$app/stores';
   import { EMAIL_INTERESTS, createEmailUpdatesForm } from '$lib/email-updates.js';
 
   // The interest this page leads with; everything is selected until you narrow to it.
@@ -12,19 +11,12 @@
   const { email, car, status, errorMessage, setScope, submit } = createEmailUpdatesForm();
 
   let scope = 'all';
-  let seededFromUrl = false;
-
-  // Linked to from elsewhere as ?car=2017%20bolt#email-updates
-  $: if (askForCar && !seededFromUrl && $page.url.searchParams.get('car')) {
-    car.set($page.url.searchParams.get('car'));
-    seededFromUrl = true;
-  }
 
   $: primaryInterest = EMAIL_INTERESTS.find((interest) => interest.key === defaultCategory);
   $: setScope(scope === 'all' ? undefined : defaultCategory);
 </script>
 
-<aside id="email-updates" class="updates-card" style:margin>
+<aside class="updates-card" style:margin>
   <Grid
     columnGap="4rem"
     templateColumns="minmax(0, 1fr) minmax(22rem, 0.8fr)"

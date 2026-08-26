@@ -12,7 +12,6 @@
   import NoteCard from '$lib/components/NoteCard.svelte';
   import DropdownItem from './HarnessDropdownItem.svelte';
 
-  import ArrowRight from '$lib/icons/arrow-right.svg?raw';
   import ChevronIcon from '$lib/icons/icon-chevron.svg?raw';
   import CloseIcon from '$lib/icons/ui/close.svg?raw';
   import CarIcon from '$lib/icons/features/car.svg?raw';
@@ -167,15 +166,7 @@
           <DropdownItem value={item} on:click={() => handleOptionClick(item)} on:keydown={(e) => handleOptionKeyDown(e, item)} />
         {/each}
       {:else}
-        <DropdownItem value={{
-          car: 'No matching vehicles',
-          href: `/vehicles?car=${encodeURIComponent(inputValue)}#email-updates`,
-        }}>
-          <svelte:fragment slot="subtitle">
-            Get an email when <strong>{inputValue}</strong> is supported
-            <span class="subtitle-arrow">{@html ArrowRight}</span>
-          </svelte:fragment>
-        </DropdownItem>
+        <DropdownItem value={{ car: 'No matching vehicles' }} />
       {/if}
     {:else}
       {#if showNoHarnessOption}
@@ -204,18 +195,6 @@
   display: inline-block;
   margin: 1.25rem auto 0;
   width: 100%;
-}
-
-/* Would otherwise be blackened by the global `span` colour rule. */
-.subtitle-arrow {
-  color: inherit;
-}
-
-.subtitle-arrow :global(svg) {
-  display: inline-block;
-  width: 0.875rem;
-  height: 0.875rem;
-  vertical-align: -0.1em;
 }
 
 .dropdown-content {
