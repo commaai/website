@@ -2,7 +2,6 @@
   import Grid from '$lib/components/Grid.svelte';
   import { EMAIL_INTERESTS, createEmailUpdatesForm } from '$lib/email-updates.js';
 
-  // The interest this page leads with; everything is selected until you narrow to it.
   export let defaultCategory;
   export let title;
   export let margin;
