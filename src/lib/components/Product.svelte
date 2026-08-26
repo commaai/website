@@ -9,7 +9,7 @@
 
   import { DEFAULT_BACKORDER_ESTIMATE } from "$lib/constants/shipping.js";
   import { formatCurrency } from "$lib/utils/currency";
-  import { addToCart } from "../../store.js";
+  import { addToCart, buyNow } from "../../store.js";
 
   export let product;
   export let additionalProductIds = [];
@@ -31,6 +31,12 @@
   export let sale = false;
   export let useVariantRadioSelector = false;
   export let variantSelectorSize = "big";
+  // Skips the cart drawer and goes straight to checkout
+  export let showBuyNow = false;
+  export let buyNowLabel = "Buy now";
+  // Shows a second express button that lands on checkout with the given payment method, e.g. "shop_pay"
+  export let expressPayment = null;
+  export let expressPaymentLabel = "";
 
   export let VariantSelector = null;
   function handleVariantSelection(variant) {
@@ -75,7 +81,9 @@
   $: highlightedImageSrc = displayImages[currentImageIndex] || displayImages[0];
   $: priceLabel = getPriceLabel(selectedVariant);
 
-  async function addItem() {
+  // Both buttons go through the same gate, so the disclaimer is never skipped.
+  // `intent` lets the gate word itself for where the buyer is actually headed.
+  function checkoutWith(action, intent) {
     let note = "";
     if (typeof getCartNote === 'function') {
       note = getCartNote();
@@ -83,11 +91,18 @@
 
     const itemId = selectedVariant.id;
     if (typeof beforeAddToCart === 'function') {
-      beforeAddToCart(() => addToCart(itemId, additionalProductIds, note));
+      beforeAddToCart(() => action(itemId, additionalProductIds, note), intent);
     } else {
-      addToCart(itemId, additionalProductIds, note);
+      action(itemId, additionalProductIds, note);
     }
   }
+
+  const addItem = () => checkoutWith(addToCart, "cart");
+  const buyItemNow = () => checkoutWith(buyNow, "checkout");
+  const buyItemExpress = () => checkoutWith(
+    (itemId, ids, note) => buyNow(itemId, ids, note, expressPayment),
+    "checkout"
+  );
 
   function getPriceLabel(_) {
     if (priceOverride !== null) {
@@ -100,6 +115,8 @@
       return formatCurrency(product.priceRange.minVariantPrice, 0);
     }
   }
+
+  $: buyDisabled = forceOutOfStock || !selectedVariant || selectedVariant?.availableForSale === false || disableBuyButtonText !== null;
 
   let addToCartLabel;
   $: {
@@ -186,10 +203,22 @@
           style="accent"
           fullWidth={true}
           on:click={addItem}
-          disabled={forceOutOfStock || !selectedVariant || selectedVariant?.availableForSale === false || disableBuyButtonText !== null}
+          disabled={buyDisabled}
         >
           {addToCartLabel}
         </Button>
+        {#if showBuyNow && !buyDisabled}
+          <div class="express-buttons">
+            <Button style="primary" fullWidth={true} on:click={buyItemNow}>
+              {buyNowLabel}
+            </Button>
+            {#if expressPayment}
+              <Button style="secondary" fullWidth={true} on:click={buyItemExpress}>
+                {expressPaymentLabel}
+              </Button>
+            {/if}
+          </div>
+        {/if}
         <slot name="shipping">
           <NoteCard title="Shipping" icon={ShippingIcon}>
           {#if product?.freeRush}
@@ -210,6 +239,13 @@
 {/if}
 
 <style>
+  .express-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+  }
+
   h1 {
     font-size: 2.5rem;
     font-weight: 600;

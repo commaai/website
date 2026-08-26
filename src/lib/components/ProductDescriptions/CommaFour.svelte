@@ -29,8 +29,10 @@
   let checkboxCardRef;
 
   let showDisclaimerModal = false;
+  let goingToCheckout = false;
   let onProceed;
-  let beforeAddToCart = (addToCart) => {
+  let beforeAddToCart = (addToCart, intent) => {
+    goingToCheckout = intent === "checkout";
     onProceed = () => {
       addToCart();
       showDisclaimerModal = false;
@@ -128,7 +130,9 @@
 
 <Product {product} {additionalProductIds} {backordered} {beforeAddToCart} {getCartNote} priceOverride={FOUR_PRICE}
          previousPrice={FOUR_STRIKETHROUGH_PRICE} sale={FOUR_SALE}
-         disableBuyButtonText={disableBuyButtonText}>
+         disableBuyButtonText={disableBuyButtonText}
+         showBuyNow={true}
+         expressPayment="shop_pay" expressPaymentLabel="Buy now with Shop Pay">
   <div slot="shipping"></div>
 
   <div slot="price" class="price" class:sale-price={FOUR_SALE}>
@@ -167,6 +171,7 @@
       label="Select your car"
       onChange={handleHarnessSelection}
       showNoHarnessOption={true}
+      restoreSelection={true}
     >
     </HarnessSelector>
     <CheckboxCard bind:this={checkboxCardRef} title="${FOUR_TRADE_IN_CREDIT} credit with trade-in" checked={tradeInChecked} onToggle={handleTradeInToggle}
@@ -230,7 +235,9 @@
   onPrimaryClick={onProceed}
   onClose={() => showDisclaimerModal = false}
   bind:show={showDisclaimerModal}
-  primaryButtonText={backordered ? `Add to cart (ships in ${backordered})` : "Add to cart"}
+  primaryButtonText={goingToCheckout
+    ? (backordered ? `Checkout (ships in ${backordered})` : "Checkout")
+    : (backordered ? `Add to cart (ships in ${backordered})` : "Add to cart")}
 >
   {#if additionalProductIds.length === 0}
     <p class="disclaimer">

@@ -37,6 +37,7 @@ export const loadCart = async () => {
     cartDiscount.set(getTotalDiscount(shopifyResponse?.body?.data?.cart?.discountAllocations));
     cartSubtotal.set(shopifyResponse?.body?.data?.cart?.cost?.subtotalAmount);
     cartTotalQuantity.set(shopifyResponse.body?.data?.cart?.totalQuantity);
+    checkoutUrl.set(shopifyResponse?.body?.data?.cart?.checkoutUrl);
 
   } catch (error) {
     console.error(error);
@@ -47,6 +48,20 @@ export const addToCart = async (itemId, additionalProductIds = [], note = "") =>
   await requestAddToCart({ cartId: get(cartId), variantId: itemId, additionalProductIds, note});
   await loadCart();
   showCart.set(true);
+}
+
+// Same as addToCart, but skips the cart drawer and sends the buyer straight to checkout
+export const buyNow = async (itemId, additionalProductIds = [], note = "", payment = null) => {
+  await requestAddToCart({ cartId: get(cartId), variantId: itemId, additionalProductIds, note});
+  await loadCart();
+
+  const url = get(checkoutUrl);
+  if (!url) {
+    // Fall back to the drawer rather than stranding the buyer
+    showCart.set(true);
+    return;
+  }
+  window.location.href = payment ? `${url}${url.includes('?') ? '&' : '?'}payment=${payment}` : url;
 }
 
 export const getTotalDiscount = (discountAllocations) => {
