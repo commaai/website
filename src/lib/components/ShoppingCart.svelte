@@ -49,7 +49,8 @@
     {#each $cartItems as item}
       {@const imageUrl = item.node.merchandise.image?.url || item.node.merchandise.product.images.edges[0]?.node?.originalSrc}
       {@const referralDiscountAllocation = item.node.discountAllocations?.find(
-        ({ code }) => code?.toLowerCase() === $cartReferralDiscount?.code?.toLowerCase()
+        ({ code: appliedDiscountCode }) =>
+          appliedDiscountCode && $cartReferralDiscount?.code && appliedDiscountCode.toLowerCase() === $cartReferralDiscount?.code.toLowerCase()
       )}
       {@const priceExcludingReferralDiscount = {
         amount: Number(item.node.estimatedCost.totalAmount.amount) + Number(referralDiscountAllocation?.discountedAmount.amount || 0),
