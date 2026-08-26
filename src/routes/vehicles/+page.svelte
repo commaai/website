@@ -288,13 +288,13 @@
       @media (hover: hover) and (pointer: fine) {
         &:hover {
           transform: scale(1.02);
-          border-color: rgba(0, 0, 0, .8);
+          border: 1px solid rgba(0, 0, 0, .8);
           background-color: var(--color-card-background-hover);
         }
       }
       &:active {
         transform: scale(1.02);
-        border-color: rgba(0, 0, 0, .8);
+        border: 1px solid rgba(0, 0, 0, .8);
         background-color: var(--color-card-background-hover);
       }
     }
