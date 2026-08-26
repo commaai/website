@@ -55,6 +55,7 @@
         amount: Number(item.node.estimatedCost.totalAmount.amount) + Number(referralDiscountAllocation?.discountedAmount.amount || 0),
         currencyCode: item.node.estimatedCost.totalAmount.currencyCode
       }}
+      <div class="item">
         {#if imageUrl}
           <img
             alt={item.node.merchandise.product.title}
