@@ -10,7 +10,9 @@ export const EMAIL_CATEGORIES = [
 function cleanMailchimpMessage(message) {
   const element = document.createElement('div');
   element.innerHTML = message ?? '';
-  return element.textContent || 'Please try again.';
+  // Mailchimp prefixes errors with the field index, e.g. "0 - Enter a real email"
+  const text = element.textContent.replace(/^\s*\d+\s*-\s*/, '').trim();
+  return text || 'Please try again.';
 }
 
 function submitEmailUpdates(email, selectedCategories, car) {
