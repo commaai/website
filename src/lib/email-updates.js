@@ -7,6 +7,9 @@ export const EMAIL_CATEGORIES = [
   { key: 'blog', label: 'New blog posts', description: 'New posts on the comma blog', fieldName: 'group[54660][8]' },
 ];
 
+// Not shown on the site - people who subscribe to every category get added to new ones
+const NEW_UPDATES_FIELD = 'group[54660][16]';
+
 function cleanMailchimpMessage(message) {
   const element = document.createElement('div');
   element.innerHTML = message ?? '';
@@ -33,6 +36,8 @@ function submitEmailUpdates(email, selectedCategories, car) {
     for (const { key, fieldName } of EMAIL_CATEGORIES) {
       if (selectedCategories.includes(key)) params.set(fieldName, '1');
     }
+
+    if (selectedCategories.length === EMAIL_CATEGORIES.length) params.set(NEW_UPDATES_FIELD, '1');
 
     function cleanUp() {
       script.remove();
