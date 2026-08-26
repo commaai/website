@@ -78,7 +78,7 @@
             value={item.node.quantity}
           />
         </div>
-        <div class="item-price">
+        <div>
           {formatCurrency(itemPriceBeforeReferral)}
         </div>
       </div>
@@ -87,26 +87,21 @@
   <div class="footer">
     {#if $cartItems?.length !== 0}
       {@const referralCode = $cartReferralDiscount?.code}
-      {@const referralDiscountAmount = $cartReferralDiscount?.amount || 0}
+      {@const referralDiscountAmount = $cartReferralDiscount?.amount}
       {@const bulkDiscountAllocation = $cartDiscountAllocations.find(({ title }) => title?.toUpperCase() === 'BULK ORDER')}
-      {@const hasReferralDiscount = Boolean($cartReferralDiscount)}
-      {#if referralCode && referralDiscountAmount > 0}
+      {#if referralCode}
         <div class="referral-discount">
-          <div class="referral-status">
-            <div>
-              <strong>
-                Referral discount applied
-              </strong>
-              <span class="referral-code">{referralCode}</span>
-            </div>
+          <div class="referral-details">
+            <strong>Referral discount applied</strong>
+            <span class="referral-code">{referralCode}</span>
           </div>
           <h4 class="referral-amount">-{formatCurrency({ amount: referralDiscountAmount, currencyCode: $cartSubtotal.currencyCode }, 0)}</h4>
         </div>
       {/if}
-      {#if $cartDiscount || referralDiscountAmount > 0}
-        {@const subtotalAmountBeforeDiscount = Number($cartSubtotal.amount) + referralDiscountAmount}
+      {#if $cartDiscount || referralCode}
+        {@const subtotalAmountBeforeDiscount = Number($cartSubtotal.amount) + Number(referralDiscountAmount || 0)}
         {@const subtotalAmountAfterDiscount = Number($cartSubtotal.amount) - Number($cartDiscount?.amount || 0)}
-        {#if bulkDiscountAllocation && !hasReferralDiscount}
+        {#if bulkDiscountAllocation && !referralCode}
           <div class="price">
             <span>Bulk Order Discount</span>
             <span>
@@ -152,16 +147,10 @@
     }
   }
 
-  .referral-status {
+  .referral-details {
     display: flex;
-    align-items: center;
-    gap: 0.75rem;
-
-    & > div {
-      display: flex;
-      flex-direction: column;
-      gap: 0.125rem;
-    }
+    flex-direction: column;
+    gap: 0.125rem;
 
     & .referral-code {
       color: rgba(0, 0, 0, 0.65);
@@ -252,19 +241,6 @@
         }
       }
 
-      & .item-price {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        flex-shrink: 0;
-        white-space: nowrap;
-        line-height: 1.25;
-
-        & s {
-          font-size: 0.8rem;
-          opacity: 0.6;
-        }
-      }
     }
   }
 
