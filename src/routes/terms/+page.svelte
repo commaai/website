@@ -175,7 +175,7 @@
       <div id="referral-terms">
         <h2>Referral Terms and Conditions</h2>
         <p>
-          A "new customer" is someone who has not previously purchased a comma product. A referral qualifies only if a new customer purchased a comma four through the referral link and the applicable return period expired without the order being cancelled, returned, refunded, charged back, or identified as fraudulent or self-referred. comma determines eligibility and whether a referral qualifies in its sole discretion.
+          A “new customer” is someone who has not previously purchased a comma product. comma determines eligibility and whether a referral qualifies at its sole discretion. In general, comma considers whether the new customer purchased a comma four through the referral link and whether the applicable return period expired without the order being cancelled, returned, refunded, charged back, or identified as fraudulent or self-referred.
         </p>
         <p>
           Subject to these terms and comma’s approval, a qualifying referral may provide $50 off the referred customer’s order and a $50 cash reward for the referrer. Each referral code may generate rewards for up to 10 referrals per calendar year. comma may adjust or waive this limit at its discretion. To request a higher limit, contact community@comma.ai.
