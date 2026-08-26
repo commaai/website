@@ -34,9 +34,6 @@
   // Skips the cart drawer and goes straight to checkout
   export let showBuyNow = false;
   export let buyNowLabel = "Buy now";
-  // Shows a second express button that lands on checkout with the given payment method, e.g. "shop_pay"
-  export let expressPayment = null;
-  export let expressPaymentLabel = "";
 
   export let VariantSelector = null;
   function handleVariantSelection(variant) {
@@ -99,10 +96,6 @@
 
   const addItem = () => checkoutWith(addToCart, "cart");
   const buyItemNow = () => checkoutWith(buyNow, "checkout");
-  const buyItemExpress = () => checkoutWith(
-    (itemId, ids, note) => buyNow(itemId, ids, note, expressPayment),
-    "checkout"
-  );
 
   function getPriceLabel(_) {
     if (priceOverride !== null) {
@@ -208,15 +201,10 @@
           {addToCartLabel}
         </Button>
         {#if showBuyNow && !buyDisabled}
-          <div class="express-buttons">
+          <div class="buy-now">
             <Button style="primary" fullWidth={true} on:click={buyItemNow}>
               {buyNowLabel}
             </Button>
-            {#if expressPayment}
-              <Button style="secondary" fullWidth={true} on:click={buyItemExpress}>
-                {expressPaymentLabel}
-              </Button>
-            {/if}
           </div>
         {/if}
         <slot name="shipping">
@@ -239,10 +227,7 @@
 {/if}
 
 <style>
-  .express-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+  .buy-now {
     margin-top: 0.75rem;
   }
 

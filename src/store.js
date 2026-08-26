@@ -51,7 +51,7 @@ export const addToCart = async (itemId, additionalProductIds = [], note = "") =>
 }
 
 // Same as addToCart, but skips the cart drawer and sends the buyer straight to checkout
-export const buyNow = async (itemId, additionalProductIds = [], note = "", payment = null) => {
+export const buyNow = async (itemId, additionalProductIds = [], note = "") => {
   await requestAddToCart({ cartId: get(cartId), variantId: itemId, additionalProductIds, note});
   await loadCart();
 
@@ -61,7 +61,7 @@ export const buyNow = async (itemId, additionalProductIds = [], note = "", payme
     showCart.set(true);
     return;
   }
-  window.location.href = payment ? `${url}${url.includes('?') ? '&' : '?'}payment=${payment}` : url;
+  window.location.href = url;
 }
 
 export const getTotalDiscount = (discountAllocations) => {

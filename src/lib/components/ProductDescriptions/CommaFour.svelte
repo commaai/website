@@ -131,8 +131,7 @@
 <Product {product} {additionalProductIds} {backordered} {beforeAddToCart} {getCartNote} priceOverride={FOUR_PRICE}
          previousPrice={FOUR_STRIKETHROUGH_PRICE} sale={FOUR_SALE}
          disableBuyButtonText={disableBuyButtonText}
-         showBuyNow={true}
-         expressPayment="shop_pay" expressPaymentLabel="Buy now with Shop Pay">
+         showBuyNow={true}>
   <div slot="shipping"></div>
 
   <div slot="price" class="price" class:sale-price={FOUR_SALE}>
