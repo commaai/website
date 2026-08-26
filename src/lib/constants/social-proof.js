@@ -62,13 +62,6 @@ export const tweets = [
     timestamp: "Mar 17, 2022",
     body: "@comma_ai I can honestly say the C3 is the single best purchase I've ever made. I can't imagine driving without it now",
   },
-  {
-    id: "1394808101145038849",
-    author: "brittonx",
-    name: "Britton Robbins",
-    timestamp: "May 18, 2021",
-    body: "@comma_ai I recently did a 7,100 mile cross-country trip. The comma two running Openpilot made the long drives so relaxing and enjoyable!",
-  },
 ];
 
 // Verified-buyer reviews left on our Shop storefront.

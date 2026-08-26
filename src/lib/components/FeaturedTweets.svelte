@@ -11,26 +11,7 @@
   const avatarFor = (author) =>
     avatars[`/src/lib/images/featured-tweets/${author}.jpg`];
 
-  // Pause on deliberate hover only. A parked cursor shouldn't freeze the wall while
-  // the page scrolls under it, so we wait for real pointer movement and treat any
-  // scroll as "not reading" — some browsers fire mousemove when content moves under a
-  // still cursor, hence the guard rather than a plain :hover.
-  let paused = false;
-  let lastScroll = 0;
-
-  const onScroll = () => {
-    lastScroll = performance.now();
-    paused = false;
-  };
-  const onMove = () => {
-    if (performance.now() - lastScroll > 150) paused = true;
-  };
-
-  // Seconds for one card to travel its own width. Reading is handled by hover-pause,
-  // so this only has to feel alive — turn it up to slow the drift down.
-  const SECONDS_PER_CARD = 8;
-
-  // two rows drifting opposite directions, split so neither row repeats itself
+  // two rows, each scrolled sideways by the reader — the Netflix/App Store shelf
   const half = Math.ceil(tweets.length / 2);
   const rows = [tweets.slice(0, half), tweets.slice(half)];
 
@@ -42,27 +23,18 @@
     }));
 </script>
 
-<svelte:window on:scroll={onScroll} />
-
-<div
-  class="tweet-wall"
-  class:paused
-  on:mousemove={onMove}
-  on:mouseleave={() => (paused = false)}
-  role="presentation"
->
-  {#each rows as row, i}
-    <div class="row" class:reverse={i === 1}>
-      <!-- track is duplicated so the loop point is seamless -->
-      <div class="track" style="--duration: {row.length * SECONDS_PER_CARD}s">
-        {#each [...row, ...row] as tweet, j}
+<div class="tweet-wall">
+  <!-- one scroll container holding both rows, so they move in lockstep for free -->
+  <div class="scroller">
+    <div class="rows">
+      {#each rows as row, i}
+        <div class="row" class:staggered={i === 1}>
+          {#each row as tweet}
           <a
             class="tweet"
             href="https://x.com/{tweet.author}/status/{tweet.id}"
             target="_blank"
             rel="noopener"
-            aria-hidden={j >= row.length ? "true" : null}
-            tabindex={j >= row.length ? -1 : null}
           >
             <div class="head">
               {#if avatarFor(tweet.author)}
@@ -79,31 +51,39 @@
               {/if}
               <span class="who">
                 {#if tweet.name}<span class="name">{tweet.name}</span>{/if}
-                <span class="handle-row">
-                  <span class="handle">@{tweet.author}</span>
-                  <span class="date">{tweet.timestamp}</span>
-                </span>
+                <span class="handle">@{tweet.author}</span>
               </span>
-              <span class="mark" aria-hidden="true">{@html XIcon}</span>
+              <span class="head-right">
+                <span class="date">{tweet.timestamp}</span>
+                <span class="mark" aria-hidden="true">{@html XIcon}</span>
+              </span>
             </div>
             <p class="body">{#each segment(tweet.body) as part}{#if part.handle}<span class="mention">{part.text}</span>{:else}{part.text}{/if}{/each}</p>
           </a>
-        {/each}
-      </div>
+          {/each}
+        </div>
+      {/each}
     </div>
-  {/each}
+  </div>
 </div>
 
 <style>
   .tweet-wall {
-    display: flex;
-    flex-flow: column;
-    gap: 1rem;
-
     /* --lift is the room a hovered card needs to rise into without being clipped.
-       Both the row clip and the mask below stop at their own box, so each gets
+       Both the scroller clip and the mask stop at their own box, so each gets
        padding worth --lift and cancels it again with margin to keep the layout put. */
     --lift: 1rem;
+    --gap: 1rem;
+    --fade: 4rem;
+    --stagger: 5rem;
+
+    /* Cards share the width until they'd get too narrow — the floor is where the
+       date starts crowding the handle — and past that they hold their size and the
+       row scrolls instead. The 280px is the fixed furniture the four cards can't
+       use: both fades, three gaps, the stagger, and the page's own scrollbar
+       (100vw includes it). Works out to scrolling below roughly 1600px. */
+    --card: clamp(21rem, calc((100vw - 280px) / 4), 26rem);
+
     padding: var(--lift) 0;
     margin: calc(2rem - var(--lift)) 0 calc(var(--lift) * -1);
 
@@ -111,47 +91,74 @@
     mask-image: linear-gradient(
       to right,
       transparent,
-      black 8rem,
-      black calc(100% - 8rem),
+      black var(--fade),
+      black calc(100% - var(--fade)),
       transparent
     );
   }
 
-  /* clips the track horizontally; the padding keeps it from clipping the lift */
-  .row {
-    overflow: hidden;
+  /* the single scroll container — both rows live inside it, so one gesture
+     moves them together and the stagger between them never drifts */
+  .scroller {
+    overflow-x: auto;
+    overflow-y: hidden;
     padding: var(--lift) 0;
     margin: calc(var(--lift) * -1) 0;
+
+    /* don't let a sideways flick trigger the browser's back-swipe */
+    overscroll-behavior-x: contain;
+
+    scrollbar-width: thin;
+    scrollbar-color: #333 transparent;
+
+    &::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #333;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
   }
 
-  .track {
+  .rows {
+    box-sizing: border-box;
     display: flex;
-    gap: 1rem;
+    flex-flow: column;
+    gap: var(--gap);
     width: max-content;
-    animation: drift var(--duration) linear infinite;
-    will-change: transform;
+    /* keeps the first and last cards clear of the mask instead of under it */
+    padding: 0 var(--fade);
+
+    /* Centres the block when it fits. Auto margins go over-constrained and resolve
+       to 0 once it's wider than the scroller, so it still scrolls from the left —
+       which justify-content: center would break by stranding content off-screen. */
+    margin-inline: auto;
   }
 
-  .row.reverse .track {
-    animation-direction: reverse;
+  .row {
+    display: flex;
+    gap: var(--gap);
   }
 
-  /* the track holds two copies, so one full pass is exactly half of it */
-  @keyframes drift {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(calc(-50% - 0.5rem));
-    }
+  /* The two rows are offset from each other but keep the same usable width, so
+     their cards stay the same size once the widths go fluid below. */
+  .row.staggered {
+    margin-left: var(--stagger);
   }
 
-  .tweet-wall.paused .track,
-  .tweet-wall:focus-within .track {
-    animation-play-state: paused;
+  .row:not(.staggered) {
+    margin-right: var(--stagger);
   }
+
 
   .tweet {
+    /* no global border-box reset in app.css — without this, --card is the *text*
+       width and each card is really 3rem+2px wider than it claims */
+    box-sizing: border-box;
     background-color: #0d0d0d;
     border: 1px solid #262626;
     display: flex;
@@ -159,8 +166,8 @@
     gap: 0.875rem;
     padding: 1.5rem;
     position: relative;
-    width: 24rem;
-    flex: 0 0 24rem;
+    width: var(--card);
+    flex: 0 0 var(--card);
     overflow: hidden;
     box-shadow: 0 0 0 rgba(81, 255, 0, 0);
 
@@ -234,22 +241,33 @@
   .handle {
     color: var(--color-muted);
     font-size: 0.875rem;
+    /* same truncation as .name — without it the handle runs under the date */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .mark {
-    align-self: flex-start;
     display: flex;
     flex: none;
     opacity: 0.35;
+  }
 
-    & :global(svg) {
-      height: 1rem;
-      width: 1rem;
+  /* :global() must sit at the top level here: nested inside .mark it gets emitted
+     literally and the browser drops the rule, while a plain `.mark svg` is pruned
+     as unused because the svg comes from {@html}. Same pattern as #hero .feature-icon. */
+  /* 1.5rem matches the size it always rendered at: the source svg is width="24"
+     height="48", so the glyph fitted to the 24 and sat centred in a 48-tall box.
+     Sizing both axes makes the box hug the glyph, which is what lets the date
+     bottom-align to the mark instead of to that dead space. */
+  .mark :global(svg) {
+    display: block;
+    height: 1.5rem;
+    width: 1.5rem;
+  }
 
-      & :global(path) {
-        fill: white;
-      }
-    }
+  .mark :global(svg path) {
+    fill: white;
   }
 
   .body {
@@ -264,59 +282,49 @@
     color: var(--color-accent);
   }
 
-  /* date shares the handle's line, pushed to the right — saves the card a whole row
-     and baseline-aligns to the handle rather than to the taller header row */
-  .handle-row {
-    align-items: baseline;
+  /* The X sits vertically centred in the header (the .head default), and the date
+     hangs off its bottom edge — line-height 1 so the date's box bottom is the text
+     bottom rather than a descender gap below it. */
+  .head-right {
+    align-items: flex-end;
     display: flex;
-    gap: 0.75rem;
-    justify-content: space-between;
+    flex: none;
+    gap: 0.5rem;
+    margin-left: auto;
+    padding-left: 0.5rem;
   }
 
   .date {
     color: var(--color-muted);
-    flex: none;
     font-family: JetBrains Mono, monospace;
     font-size: 0.7rem;
+    /* under 1 so the box crops to the glyphs themselves — mono fonts carry a lot of
+       descender room the date never uses, which floated it above the X's bottom */
+    line-height: 0.6;
     white-space: nowrap;
   }
 
   @media screen and (max-width: 768px) {
+    /* narrower cards and a shorter fade so more is legible at a time on a phone */
     .tweet-wall {
-      mask-image: linear-gradient(
-        to right,
-        transparent,
-        black 2rem,
-        black calc(100% - 2rem),
-        transparent
-      );
+      --card: 17rem;
+      --fade: 1.5rem;
+      --stagger: 3rem;
     }
 
-    /* narrower so more than one card is legible at a time on a phone */
     .tweet {
-      width: 17rem;
-      flex-basis: 17rem;
       padding: 1.25rem;
     }
   }
 
-  /* no drift for anyone who asked for less motion — swipe instead */
+  /* the hover lift is the only motion left, so it's the only thing to stand down */
   @media (prefers-reduced-motion: reduce) {
-    .tweet-wall {
-      mask-image: none;
+    .tweet {
+      transition: background-color 0.2s ease, box-shadow 0.16s ease-out;
     }
 
-    .row {
-      overflow-x: auto;
-    }
-
-    .track {
-      animation: none;
-    }
-
-    /* the second copy only exists to hide the loop seam */
-    .track .tweet[aria-hidden="true"] {
-      display: none;
+    .tweet:hover {
+      transform: none;
     }
   }
 </style>

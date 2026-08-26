@@ -106,20 +106,23 @@
       transition: transform 0.2s;
     }
 
-    & .arrow :global(svg) {
-      height: 0.85rem;
-      width: 0.85rem;
-    }
-
-    & .arrow :global(path) {
-      fill: currentColor;
-    }
-
     @media (hover: hover) and (pointer: fine) {
       &:hover .arrow {
         transform: translateX(0.25rem);
       }
     }
+  }
+
+  /* :global() at the top level — nested it emits literally and the browser drops
+     the rule, flat it gets pruned as unused since the svg comes from {@html} */
+  .all-reviews .arrow :global(svg) {
+    display: block;
+    height: 0.85rem;
+    width: 0.85rem;
+  }
+
+  .all-reviews .arrow :global(svg path) {
+    fill: currentColor;
   }
 
   /* masonry-ish columns so the short reviews don't leave dead space */
