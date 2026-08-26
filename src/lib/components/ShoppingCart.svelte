@@ -88,8 +88,9 @@
     {#if $cartItems?.length !== 0}
       {@const referralCode = $cartReferralDiscount?.code}
       {@const referralDiscountAmount = $cartReferralDiscount?.amount}
+      {@const hasReferralDiscount = referralDiscountAmount > 0}
       {@const bulkDiscountAllocation = $cartDiscountAllocations.find(({ title }) => title?.toUpperCase() === 'BULK ORDER')}
-      {#if referralCode}
+      {#if hasReferralDiscount}
         <div class="referral-discount">
           <div class="referral-details">
             <strong>Referral discount applied</strong>
@@ -98,10 +99,10 @@
           <h4 class="referral-amount">-{formatCurrency({ amount: referralDiscountAmount, currencyCode: $cartSubtotal.currencyCode }, 0)}</h4>
         </div>
       {/if}
-      {#if $cartDiscount || referralCode}
+      {#if $cartDiscount || hasReferralDiscount}
         {@const subtotalAmountBeforeDiscount = Number($cartSubtotal.amount) + Number(referralDiscountAmount || 0)}
         {@const subtotalAmountAfterDiscount = Number($cartSubtotal.amount) - Number($cartDiscount?.amount || 0)}
-        {#if bulkDiscountAllocation && !referralCode}
+        {#if bulkDiscountAllocation && !hasReferralDiscount}
           <div class="price">
             <span>Bulk Order Discount</span>
             <span>
@@ -228,7 +229,6 @@
       & .details {
         flex: 1;
         margin: 0 0.75rem;
-        min-width: 0;
 
         & .title {
           font-size: 1rem;
@@ -240,7 +240,6 @@
           opacity: 0.8;
         }
       }
-
     }
   }
 

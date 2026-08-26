@@ -67,7 +67,6 @@ export async function _loadCart() {
           totalQuantity
           discountCodes {
             code
-            applicable
           }
           cost {
             subtotalAmount {
@@ -123,7 +122,6 @@ export async function _loadCart() {
                       altText
                     }
                     product {
-                      id
                       images(first: 1) {
                         edges {
                           node {
@@ -201,8 +199,6 @@ export async function createCart(referralCode = null) {
             checkoutUrl
             id
           }
-          ${USER_ERRORS_GQL}
-          ${WARNINGS_GQL}
         }
       }
     `,
