@@ -22,7 +22,7 @@
   import { products as productsData } from '$lib/data/products.js';
   import { DEFAULT_BACKORDER_ESTIMATE } from '$lib/constants/shipping.js';
   import { formatCurrency } from "$lib/utils/currency";
-  import { cartReferralDiscount } from '../../../store.js';
+  import { cartReferralCode } from '../../../store.js';
   import { REFERRAL_DISCOUNT } from '$lib/utils/referral.js';
 
   export let product;
@@ -57,7 +57,7 @@
   let tradeInChecked = false;
   let backordered = null;
 
-  $: referralCode = $cartReferralDiscount?.code;
+  $: referralCode = $cartReferralCode;
 
   // Trade-in and discount configuration
   $: showDiscount = selectedHarness === NO_HARNESS_OPTION;

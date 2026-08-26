@@ -77,10 +77,11 @@
     }
   }
 
-  .green hgroup span {
+  .green {
+    background-color: #86ff4e;
+
     & hgroup {
       & span {
-        background-color: #86ff4e;
         color: black;
       }
     }
