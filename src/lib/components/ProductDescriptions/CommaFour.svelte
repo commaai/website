@@ -159,7 +159,7 @@
   <span slot="price-accessory">
     <div class="badges">
       {#if referralCode}
-        <Badge style="light-green">Referral code added</Badge>
+        <Badge style="accent">Referral code added</Badge>
       {/if}
       <Badge style="dark">Free rush shipping</Badge>
       {#if tradeInChecked && FOUR_TRADE_IN_CREDIT > 0}

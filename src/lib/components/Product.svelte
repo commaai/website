@@ -126,16 +126,13 @@
       <div>
         <div class="variant-selector">
           <h1>{product?.title}</h1>
-          <div class="price-row">
-            <div class="price">
-              {#if previousPrice}
-                <div class="strikethrough-price">${previousPrice}</div>
-              {/if}
-              <slot name="price">
-                <div class:sale-price={sale}>{priceLabel}</div>
-              </slot>
-            </div>
-            <slot name="price-aside"></slot>
+          <div class="price">
+            {#if previousPrice}
+              <div class="strikethrough-price">${previousPrice}</div>
+            {/if}
+            <slot name="price">
+              <div class:sale-price={sale}>{priceLabel}</div>
+            </slot>
           </div>
           <slot name="price-accessory"></slot>
           {#if VariantSelector}
@@ -215,12 +212,6 @@
 
   .variant-selector {
     margin: 1rem 0;
-
-    & .price-row {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
 
     & h1 {
       margin-bottom: 1rem;

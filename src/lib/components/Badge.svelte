@@ -1,16 +1,13 @@
 <script>
   export let style = "dark";
   export let display = "block";
-  export let blackText = false;
 </script>
 
 <div
   class:dark={style == "dark"}
   class:light={style == "light"}
   class:accent={style == "accent"}
-  class:light-green={style == "light-green"}
   class:red={style == "red"}
-  class:black-text={blackText}
   style="display: {display}"
 >
   <slot></slot>
@@ -38,20 +35,11 @@
 
   .accent {
     background-color: var(--color-accent);
-    color: var(--color-background);
-  }
-
-  .light-green {
-    background-color: #86ff4e;
-    color: var(--color-black);
+    color: black;
   }
 
   .red {
     background-color: var(--color-red);
     color: black;
-  }
-
-  .black-text {
-    color: var(--color-black);
   }
 </style>
