@@ -273,8 +273,8 @@
     }
 
     & .compatibility-make-anchor-link {
-      background-color: var(--color-card-background);
       border: 1px solid rgba(0, 0, 0, .4);
+      background-color: var(--color-card-background);
       padding: 4px;
       transition: all 0.2s;
       display: block;
