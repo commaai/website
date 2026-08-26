@@ -4,7 +4,33 @@
   import Card from "./Card.svelte";
   import { tweets, statTweets } from "$lib/constants/social-proof.js";
 
+  import { onMount } from "svelte";
+
+  // /13 cycles on its own; hovering holds the current one, clicking restarts the dwell
+  const DWELL = 5000;
   let carouselIdx = 0;
+  let carouselPaused = false;
+  let carouselTimer;
+
+  function scheduleCarousel() {
+    clearTimeout(carouselTimer);
+    carouselTimer = setTimeout(() => {
+      if (!carouselPaused) carouselIdx = (carouselIdx + 1) % tweets.length;
+      scheduleCarousel();
+    }, DWELL);
+  }
+
+  function pickCarousel(i) {
+    carouselIdx = i;
+    scheduleCarousel();
+  }
+
+  onMount(() => {
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      scheduleCarousel();
+    }
+    return () => clearTimeout(carouselTimer);
+  });
 
   // one-line excerpt for the ticker
   const excerpt = (body) => {
@@ -369,16 +395,24 @@
   <div class="container">
     <span class="tag">/13 — Avatar carousel</span>
     <p class="note">
-      One quote at a time, pick a face to switch. Shows every tweet without spending
-      the space, at the cost of requiring a click.
+      One quote at a time, cycling every 5s. Hover holds the current one, clicking a
+      face jumps to it and restarts the dwell. Shows every tweet without spending the
+      space, and needs no interaction to get going.
     </p>
-    <div class="carousel">
+    <div
+      class="carousel"
+      on:mouseenter={() => (carouselPaused = true)}
+      on:mouseleave={() => (carouselPaused = false)}
+      on:focusin={() => (carouselPaused = true)}
+      on:focusout={() => (carouselPaused = false)}
+      role="presentation"
+    >
       <div class="carousel-nav">
         {#each tweets as tweet, i}
           <button
             class="c-nav-btn"
             class:active={i === carouselIdx}
-            on:click={() => (carouselIdx = i)}
+            on:click={() => pickCarousel(i)}
             aria-label="Show tweet from {tweet.name}"
           >
             <img src={avatarFor(tweet.author)} alt="" width="44" height="44" loading="lazy" />
@@ -1223,7 +1257,7 @@
   .zigzag {
     display: flex;
     flex-flow: column;
-    gap: 4rem;
+    gap: 2rem;
   }
 
   .zig-item {
