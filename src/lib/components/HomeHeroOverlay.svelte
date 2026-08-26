@@ -1,6 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import { vehicleCountText } from "$lib/constants/vehicles.js";
+  import { selectedCar, commaFourHref } from "../../store.js";
 
   import ArrowRight from "$lib/icons/arrow-right.svg?raw";
   import AcuraLogo from "$lib/icons/home/brands/acura.svg";
@@ -107,11 +108,14 @@
         <span>check your car</span>
         <span class="action-arrow" aria-hidden="true">{@html ArrowRight}</span>
       </a>
-      <a class="hero-action secondary" href="/shop/comma-four">
+      <a class="hero-action secondary" href={$commaFourHref}>
         <span>try risk-free for 30 days</span>
         <span class="action-detail">
           <!-- TODO: Show after we have $0 down. -->
           <!-- <span>$0 due today</span> -->
+          {#if $selectedCar}
+            <span class="action-car">for your {$selectedCar}</span>
+          {/if}
           <span class="action-arrow" aria-hidden="true">{@html ArrowRight}</span>
         </span>
       </a>
@@ -226,6 +230,7 @@
     align-items: center;
     box-sizing: border-box;
     display: flex;
+    gap: 0.75rem;
     font-size: 1.5rem;
     font-weight: 500;
     letter-spacing: -0.04em;
@@ -274,6 +279,11 @@
     flex: 0 0 auto;
     font-size: 0.75rem;
     gap: 0.625rem;
+  }
+
+  .action-car {
+    opacity: 0.7;
+    white-space: nowrap;
   }
 
   @media (hover: hover) and (pointer: fine) {

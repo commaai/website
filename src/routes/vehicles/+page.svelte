@@ -20,6 +20,19 @@
   import { vehicleCountText } from '$lib/constants/vehicles.js';
 
   const brand_images = import.meta.glob('$lib/images/vehicles/brand-icons/*.png', { eager: true });
+
+  // Finding your car meant scrolling 27 brands; let people just type it
+  let vehicleQuery = '';
+  $: query = vehicleQuery.trim().toLowerCase();
+  $: filteredVehicles = query
+    ? Object.entries(vehicles)
+        .map(([make, cars]) => [
+          make,
+          cars.filter((car) => `${make} ${car.model} ${car.year_list}`.toLowerCase().includes(query)),
+        ])
+        .filter(([, cars]) => cars.length !== 0)
+    : Object.entries(vehicles);
+  $: matchCount = filteredVehicles.reduce((total, [, cars]) => total + cars.length, 0);
 </script>
 
 <div class="vehicles-cover-image"></div>
@@ -110,7 +123,27 @@
 
 <section class="light" id="compatibility-chart">
   <div class="container" style="width:85%; max-width: 60rem">
-    {#each Object.entries(vehicles) as [make, cars]}
+    <div class="vehicle-search">
+      <div class="vehicle-search-icon">{@html CarIcon}</div>
+      <input
+        type="search"
+        bind:value={vehicleQuery}
+        placeholder="Search for your car — make, model, or year"
+        aria-label="Search supported vehicles"
+      />
+    </div>
+    {#if query}
+      <p class="vehicle-search-count">
+        {matchCount} {matchCount === 1 ? 'match' : 'matches'} for “{vehicleQuery.trim()}”
+      </p>
+    {/if}
+    {#if query && matchCount === 0}
+      <p class="vehicle-search-empty">
+        No supported vehicle matches that. New cars are added with each openpilot release —
+        <a href="#mailing-list" class="highlight">join the mailing list</a> to stay updated.
+      </p>
+    {/if}
+    {#each filteredVehicles as [make, cars]}
       {#if cars.length !== 0}
       {@const brand_img_path = `/src/lib/images/vehicles/brand-icons/Logo-${make}.png`}
       <div id={make.toLowerCase()} class="car-make-header">
@@ -349,6 +382,46 @@
         }
       }
     }
+  }
+
+  .vehicle-search {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    background-color: var(--color-card-background);
+    transition: border-color 0.2s;
+
+    &:focus-within {
+      border-color: #000;
+    }
+
+    & input {
+      flex: 1;
+      border: none;
+      background: none;
+      outline: none;
+      padding: 1rem 0;
+      font-family: inherit;
+      font-size: 1.125rem;
+      color: #000;
+    }
+  }
+
+  .vehicle-search-icon {
+    display: flex;
+    width: 1.5rem;
+    opacity: 0.5;
+  }
+
+  .vehicle-search-count {
+    margin: 0.75rem 0 0;
+    color: rgb(81, 81, 81);
+  }
+
+  .vehicle-search-empty {
+    margin: 1.5rem 0 0;
   }
 
   .car-make-header {

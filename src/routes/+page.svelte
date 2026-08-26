@@ -14,6 +14,8 @@
   import SetupVideo from "$lib/images/setup/comma-four/setup-stopmotion.mp4";
   import MapActivity from "$lib/images/home/map-activity-2x.png";
   import ArrowRight from "$lib/icons/arrow-right.svg?raw";
+  import { FOUR_PRICE } from "$lib/constants/prices.js";
+  import { commaFourHref } from "../store.js";
   import LaneCenteringIcon from "$lib/icons/features/lane-centering.svg?raw";
   import AdaptiveCruiseIcon from "$lib/icons/features/adaptive-cruise.svg?raw";
   import ReducedFatigueIcon from "$lib/icons/features/moon.svg?raw";
@@ -244,8 +246,8 @@
         {/each}
       </div>
 
-      <a class="homepage-cta comma-four-cta" href="/shop/comma-four">
-        <span>buy now for $999</span>
+      <a class="homepage-cta comma-four-cta" href={$commaFourHref}>
+        <span>buy now for ${FOUR_PRICE}</span>
         <span class="cta-arrow" aria-hidden="true">{@html ArrowRight}</span>
       </a>
     </div>

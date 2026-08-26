@@ -9,6 +9,7 @@
   import { faq } from "$lib/constants/faq.svelte";
 
   import { FOUR_PRICE, FOUR_SALE, FOUR_STRIKETHROUGH_PRICE } from '$lib/constants/prices.js';
+  import { commaFourHref } from '../../store.js';
 
   import RecordingsIcon from "$lib/icons/features/recordings.svg?raw";
   import ImmediateIcon from "$lib/icons/features/immediate.svg?raw";
@@ -90,7 +91,7 @@
                 <Grid rowGap={0} columnGap="1rem" alignItems="center" size="small">
                   <div class="content-header">
                     <img src={CommaFourDeviceImage} loading="lazy" alt="comma four" />
-                    <span><a href="/shop/comma-four" target="_blank" class="highlight">comma four</a></span>
+                    <span><a href={$commaFourHref} target="_blank" class="highlight">comma four</a></span>
                   </div>
                   {#if FOUR_SALE}
                     <div class="price-group">
@@ -178,6 +179,15 @@
                 </div>
               {/if}
             </Grid>
+          </div>
+          <div class="guide-buy">
+            <LinkButton
+              href={`/shop/comma-four?harness=${encodeURIComponent(selectedVehicle.car)}`}
+              style="primary"
+              thin
+            >
+              Buy comma four for your {selectedVehicle.car}
+            </LinkButton>
           </div>
         {/if}
       </div>
@@ -549,6 +559,10 @@
     @media screen and (min-width: 1025px) {
       margin-top: 3.5rem;
     }
+  }
+
+  .guide-buy {
+    margin-top: 1.5rem;
   }
 
   .vehicle-notes {

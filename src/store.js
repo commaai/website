@@ -1,5 +1,5 @@
 import { browser } from "$app/environment";
-import { writable, get } from 'svelte/store';
+import { writable, derived, get } from 'svelte/store';
 import { addToCart as requestAddToCart, loadCart as requestLoadCart } from '$lib/utils/shopify';
 
 export const cart = writable([]);
@@ -18,6 +18,12 @@ export const selectedCar = writable(browser ? localStorage.getItem('selectedCar'
 
 // Price the buy box is currently showing, so page-level UI can stay in sync with it
 export const currentProductPrice = writable(null);
+
+// Every link into the comma four page should carry the car we already know about,
+// so the buyer lands with the harness picked and the buy button live
+export const commaFourHref = derived(selectedCar, ($car) =>
+  $car ? `/shop/comma-four?harness=${encodeURIComponent($car)}` : '/shop/comma-four'
+);
 
 if (browser) {
   selectedCar.subscribe((value) => {
