@@ -138,7 +138,8 @@
     min-height: 5rem;
     padding: 1rem;
     box-sizing: border-box;
-    background: rgba(81, 255, 0, 0.18);
+    background: color-mix(in srgb, var(--color-accent) 10%, transparent);
+    border: 1px solid rgba(48, 153, 0, 0.5);
 
     & .referral-amount {
       margin: 0;
