@@ -1,18 +1,18 @@
 <script>
   import Grid from '$lib/components/Grid.svelte';
-  import { EMAIL_INTERESTS, createEmailUpdatesForm } from '$lib/email-updates.js';
+  import { EMAIL_CATEGORIES, createEmailUpdatesForm } from '$lib/email-updates.js';
 
   export let defaultCategory;
   export let title;
   export let margin;
   export let askForCar = false;
 
-  const { email, car, status, errorMessage, setScope, submit } = createEmailUpdatesForm();
+  const { email, car, selectedCategories, status, errorMessage, submit } = createEmailUpdatesForm();
 
-  let scope = 'all';
+  let everything = true;
 
-  $: primaryInterest = EMAIL_INTERESTS.find((interest) => interest.key === defaultCategory);
-  $: setScope(scope === 'all' ? undefined : defaultCategory);
+  $: primaryCategory = EMAIL_CATEGORIES.find(({ key }) => key === defaultCategory);
+  $: $selectedCategories = everything ? EMAIL_CATEGORIES.map(({ key }) => key) : [defaultCategory];
 </script>
 
 <aside class="updates-card" style:margin>
@@ -58,19 +58,19 @@
           </div>
         {/if}
 
-        <fieldset class="scope-options">
+        <fieldset class="category-options">
           <label>
-            <input type="radio" name="email-scope" value="all" bind:group={scope}>
+            <input type="radio" name="email-categories" value={true} bind:group={everything}>
             <span>
               <strong>All comma updates</strong>
               <small>New products, openpilot releases, car support, blog posts, and more</small>
             </span>
           </label>
           <label>
-            <input type="radio" name="email-scope" value="only" bind:group={scope}>
+            <input type="radio" name="email-categories" value={false} bind:group={everything}>
             <span>
-              <strong>Only {primaryInterest.label.toLowerCase()}</strong>
-              <small>{primaryInterest.description}</small>
+              <strong>Only {primaryCategory.label.toLowerCase()}</strong>
+              <small>{primaryCategory.description}</small>
             </span>
           </label>
         </fieldset>
@@ -173,7 +173,7 @@
     background: var(--color-muted);
   }
 
-  .scope-options {
+  .category-options {
     display: grid;
     margin: 0;
     padding: 0;
@@ -181,7 +181,7 @@
     border: 1px solid #000;
   }
 
-  .scope-options label {
+  .category-options label {
     display: grid;
     grid-template-columns: auto 1fr;
     gap: 0.75rem;
@@ -190,24 +190,24 @@
     cursor: pointer;
   }
 
-  .scope-options label + label {
+  .category-options label + label {
     border-top: 1px solid rgba(0, 0, 0, 0.15);
   }
 
-  .scope-options input {
+  .category-options input {
     width: 1.1rem;
     height: 1.1rem;
     margin: 0;
     accent-color: #000;
   }
 
-  .scope-options label > span {
+  .category-options label > span {
     display: grid;
     gap: 0.15rem;
     justify-items: start;
   }
 
-  .scope-options small {
+  .category-options small {
     font-size: 0.875rem;
     letter-spacing: 0;
   }

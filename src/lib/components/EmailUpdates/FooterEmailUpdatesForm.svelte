@@ -1,14 +1,14 @@
 <script>
   import ArrowRight from '$lib/icons/arrow-right.svg?raw';
-  import { EMAIL_INTERESTS, anySelected, createEmailUpdatesForm } from '$lib/email-updates.js';
+  import { EMAIL_CATEGORIES, createEmailUpdatesForm } from '$lib/email-updates.js';
 
-  const { email, interests, status, errorMessage, toggle, submit } = createEmailUpdatesForm();
+  const { email, selectedCategories, status, errorMessage, submit } = createEmailUpdatesForm();
 
   let showOptions = false;
   let componentElement;
 
   function handleFormSubmit() {
-    if (!anySelected($interests)) showOptions = true;
+    if (!$selectedCategories.length) showOptions = true;
     submit();
   }
 </script>
@@ -62,13 +62,9 @@
 
         {#if showOptions}
           <fieldset>
-            {#each EMAIL_INTERESTS as { key, label }}
+            {#each EMAIL_CATEGORIES as { key, label }}
               <label class="preference">
-                <input
-                  type="checkbox"
-                  checked={$interests[key]}
-                  on:change={(event) => toggle(key, event.currentTarget.checked)}
-                >
+                <input type="checkbox" value={key} bind:group={$selectedCategories}>
                 <span>{label}</span>
               </label>
             {/each}
