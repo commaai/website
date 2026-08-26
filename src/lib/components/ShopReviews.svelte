@@ -87,7 +87,6 @@
     opacity: 0.35;
   }
 
-  /* accent green washes out on the light section — full-contrast foreground reads better */
   .star.filled {
     color: var(--color-foreground);
     opacity: 1;
@@ -113,25 +112,12 @@
     }
   }
 
-  /* :global() at the top level — nested it emits literally and the browser drops
-     the rule, flat it gets pruned as unused since the svg comes from {@html} */
-  .all-reviews .arrow :global(svg) {
-    display: block;
-    height: 0.85rem;
-    width: 0.85rem;
-  }
-
-  .all-reviews .arrow :global(svg path) {
-    fill: currentColor;
-  }
-
-  /* masonry-ish columns so the short reviews don't leave dead space */
   .cards {
     column-count: 2;
     column-gap: 1.25rem;
   }
 
-  /* same card treatment as the /vehicles cards, minus the hover — nothing to click */
+  /* same card treatment as the /vehicles cards */
   .review {
     background-color: var(--color-card-background);
     border: 1px solid rgba(0, 0, 0, 0.4);
