@@ -64,6 +64,32 @@ export const tweets = [
   },
 ];
 
+// Extra tweets used only by the numbers-first variant on /tweetsv2 — each one states
+// a figure outright. Kept separate so the wall above is unaffected.
+export const statTweets = [
+  {
+    id: "1985439564823921038",
+    author: "mattvaru",
+    name: "Matt Varughese",
+    timestamp: "Nov 3, 2025",
+    body: "My best technology purchase of the year has easily been the Comma 3X (@comma_ai.)\n\n* $999\n* Adds basic self-driving to your vehicle\n* Installed in an hour\n* No subscriptions\n\nI'm **shocked** at how good it's been. It feels like magic to be able to install a form of self-driving that doesn't exist in my truck otherwise.\n\nMe and a buddy installed it on my truck before I went to Yellowstone + Wyoming recently. Of the ~5,000 miles I did, I probably only had to drive myself about 20%?\n\nI have absolutely no affiliation to the company, but I think you should support it if you're ever looking to add basic auto-pilot to your car. 325+ cars are supported!",
+  },
+  {
+    id: "2086638136214298970",
+    author: "gerrylum2",
+    name: "Gerry Valentine",
+    timestamp: "Aug 9, 2026",
+    body: "Everyone says @comma_ai is \"basically hands-free.\" So I logged a full typical commute in my 2022 Rivian R1T and created a script to count every second.\n\nI measured it. 99.2%. The wheel is basically furniture at this point. No subscriptions.",
+  },
+  {
+    id: "1987361136874820059",
+    author: "tessadotsh",
+    name: "tessa",
+    timestamp: "Nov 8, 2025",
+    body: "vouch for @comma_ai, makes a 12 hour road trip feel like 6. been driving with it for over 24k miles, most of which engaged. easily one of the best purchases i've ever made.",
+  },
+];
+
 // Verified-buyer reviews left on our Shop storefront.
 export const reviewsUrl = "https://shop.app/products/7964554231871/comma-four";
 

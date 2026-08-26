@@ -2,7 +2,7 @@
   import XIcon from "$lib/icons/social/x.svg?raw";
   import FeaturedTweets from "$lib/components/FeaturedTweets.svelte";
   import Card from "./Card.svelte";
-  import { tweets } from "$lib/constants/social-proof.js";
+  import { tweets, statTweets } from "$lib/constants/social-proof.js";
 
   let carouselIdx = 0;
 
@@ -35,14 +35,14 @@
   const featured = tweets[1]; // ANSR42 — longest, most substantive
   const rest = tweets.filter((t) => t !== featured);
 
-  // Only tweets that actually state a figure — the number is quoted from the text,
-  // never inferred. Four of the eight qualify.
+  // Every figure below is quoted verbatim from the tweet, never inferred.
+  const pool = [...tweets, ...statTweets];
   const STATS = [
-    { author: "__tython3__", value: "1,500", unit: "miles", label: "Minnesota to Florida" },
-    { author: "thisiswrenn", value: "6", unit: "hours", label: "one road trip, hands off" },
-    { author: "Matt_E_Baumann", value: "$2k", unit: "", label: "for HW4-level driving" },
-    { author: "wesley_sheh", value: "1.5", unit: "years", label: "daily, before saying a word" },
-  ].map((s) => ({ ...s, tweet: tweets.find((t) => t.author === s.author) }));
+    { author: "mattvaru", value: "$999", unit: "", label: "no subscription, installed in an hour" },
+    { author: "gerrylum2", value: "99.2", unit: "%", label: "of a commute hands off, measured" },
+    { author: "tessadotsh", value: "24k", unit: "miles", label: "driven with it so far" },
+    { author: "__tython3__", value: "1,500", unit: "miles", label: "Minnesota to Florida, one trip" },
+  ].map((s) => ({ ...s, tweet: pool.find((t) => t.author === s.author) }));
 
   const VARIANTS = [
     {
@@ -484,7 +484,8 @@
     <span class="tag">/17 — Numbers first</span>
     <p class="note">
       Leads with the figure each owner actually stated, quote underneath as the
-      receipt. Only four of the eight tweets state a number, so it shows four.
+      receipt. Pulls from a few extra tweets that name a number — the wall above is
+      unchanged.
     </p>
 
     <div class="stats">
@@ -966,11 +967,19 @@
     margin-top: 0.75rem;
   }
 
+  /* clamped visually, never edited — the full text is in the DOM and the card links
+     to the original, so nothing is quoted out of context */
   .stat-quote {
     color: #b8b8b8;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 7;
+    line-clamp: 7;
     font-size: 0.9375rem;
     line-height: 1.45;
     margin: 1.25rem 0 1.5rem;
+    overflow: hidden;
+    white-space: pre-line;
   }
 
   .stat-attr {
