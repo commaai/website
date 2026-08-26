@@ -38,7 +38,7 @@ function submitEmailUpdates(email, selectedInterests, car) {
       c: callbackName,
     });
 
-    // Store entered car by user
+    // Send entered car by user
     if (car) params.set('VCAR', car);
 
     for (const { key, fieldName } of EMAIL_INTERESTS) {
@@ -89,7 +89,7 @@ export function createEmailUpdatesForm() {
 
   async function submit() {
     if (!anySelected(get(interests))) {
-      errorMessage.set('Choose at least one type of update.');
+      errorMessage.set('Choose at least one type of update');
       status.set('error');
       return;
     }
