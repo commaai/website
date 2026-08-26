@@ -14,4 +14,6 @@ jobs:
       - uses: codespell-project/actions-codespell@bcf481f4d5cce7b92b65f05aebe8f552d4f1442c
         with:
           ignore_words_list: hda,som,tge
+          # verbatim tweets and customer reviews — their typos are not ours to fix
+          skip: ./.git,src/lib/constants/social-proof.js
           path: src
