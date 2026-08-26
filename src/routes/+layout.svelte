@@ -19,8 +19,9 @@
   import BasketIcon from "$lib/icons/ui/basket.svg?raw";
   import ExternalIcon from "$lib/icons/ui/external.svg?raw";
 
-  import { updateCart } from '$lib/utils/shopify';
+  import { createCart, updateCart } from '$lib/utils/shopify';
   import { printConsoleBanner } from '$lib/utils/console';
+  import { getReferralCode } from '$lib/utils/referral';
 
   import HeaderMenu from "$lib/components/HeaderMenu.svelte";
   import ShoppingCart from "$lib/components/ShoppingCart.svelte";
@@ -57,6 +58,8 @@
   }
 
   onMount(async () => {
+    const referralCode = getReferralCode();
+    if (referralCode) await createCart(referralCode);
     await loadCart();
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") {

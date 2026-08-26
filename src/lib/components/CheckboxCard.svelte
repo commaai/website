@@ -22,7 +22,7 @@
   .checkbox-card {
     cursor: pointer;
     display: block;
-    color: green;
+    color: var(--color-accent);
   }
 
   .checkbox-card.disabled {

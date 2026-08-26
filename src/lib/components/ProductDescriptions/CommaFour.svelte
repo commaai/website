@@ -10,6 +10,7 @@
   import ShippingIcon from "$lib/icons/features/shipping.svg?raw";
   import MoneyBackGuaranteeIcon from "$lib/icons/features/money-back-guarantee.svg?raw";
   import WarrantyIcon from "$lib/icons/features/warranty.svg?raw";
+  import GiftIcon from "$lib/icons/features/gift.svg?raw";
 
   import { FOUR_PRICE, FOUR_SALE, FOUR_STRIKETHROUGH_PRICE, FOUR_TRADE_IN_CREDIT, NO_HARNESS_DISCOUNT } from '$lib/constants/prices.js';
   import { NO_HARNESS_OPTION } from '$lib/constants/vehicles.js';
@@ -21,6 +22,8 @@
   import { products as productsData } from '$lib/data/products.js';
   import { DEFAULT_BACKORDER_ESTIMATE } from '$lib/constants/shipping.js';
   import { formatCurrency } from "$lib/utils/currency";
+  import { cartReferralCode } from '../../../store.js';
+  import { REFERRAL_DISCOUNT } from '$lib/utils/referral.js';
 
   export let product;
   let disableBuyButtonText = "SELECT YOUR CAR";
@@ -54,12 +57,16 @@
   let tradeInChecked = false;
   let backordered = null;
 
+  $: referralCode = $cartReferralCode;
+
   // Trade-in and discount configuration
   $: showDiscount = selectedHarness === NO_HARNESS_OPTION;
 
   // Price calculations
   $: priceDueToday = showDiscount ? FOUR_PRICE - NO_HARNESS_DISCOUNT : FOUR_PRICE;
+  $: discountedPriceDueToday = referralCode ? priceDueToday - REFERRAL_DISCOUNT : priceDueToday;
   $: priceAfterTradeIn = tradeInChecked ? priceDueToday - FOUR_TRADE_IN_CREDIT : priceDueToday;
+  $: displayedPrice = tradeInChecked ? priceAfterTradeIn : priceDueToday;
 
   $: additionalProductIds = (() => {
     const ids = [];
@@ -132,7 +139,15 @@
   <div slot="shipping"></div>
 
   <div slot="price" class="price" class:sale-price={FOUR_SALE}>
-    {#if tradeInChecked && FOUR_TRADE_IN_CREDIT > 0}
+    {#if referralCode}
+      <div class="referral-prices">
+        <s class="original-price">{formatCurrency({ amount: displayedPrice, currencyCode: 'USD' }, 0)}</s>
+        <span>
+          {formatCurrency({ amount: displayedPrice - REFERRAL_DISCOUNT, currencyCode: 'USD' }, 0)}
+          {tradeInChecked && FOUR_TRADE_IN_CREDIT > 0 ? ' after trade-in received' : ''}
+        </span>
+      </div>
+    {:else if tradeInChecked && FOUR_TRADE_IN_CREDIT > 0}
       <span>{formatCurrency({ amount: priceAfterTradeIn, currencyCode: 'USD' }, 0)} after trade-in received</span>
     {:else if showDiscount && NO_HARNESS_DISCOUNT > 0}
       {formatCurrency({ amount: priceDueToday, currencyCode: 'USD' }, 0)}
@@ -143,9 +158,12 @@
 
   <span slot="price-accessory">
     <div class="badges">
+      {#if referralCode}
+        <Badge style="accent">Referral code added</Badge>
+      {/if}
       <Badge style="dark">Free rush shipping</Badge>
       {#if tradeInChecked && FOUR_TRADE_IN_CREDIT > 0}
-        <span class="price-due-today">{formatCurrency({ amount: priceDueToday, currencyCode: 'USD' }, 0)} due today</span>
+        <span class="price-due-today">{formatCurrency({ amount: discountedPriceDueToday, currencyCode: 'USD' }, 0)} due today</span>
       {/if}
     </div>
 
@@ -159,6 +177,11 @@
       showNoHarnessOption={true}
     >
     </HarnessSelector>
+    {#if referralCode}
+      <NoteCard title={`$${REFERRAL_DISCOUNT} referral discount applied`} icon={GiftIcon} highlightTitle>
+        Your referral discount will be applied to this order at checkout.
+      </NoteCard>
+    {/if}
     <CheckboxCard bind:this={checkboxCardRef} title="${FOUR_TRADE_IN_CREDIT} credit with trade-in" checked={tradeInChecked} onToggle={handleTradeInToggle}
                   disabled={disableBuyButtonText !== null}>
       Get ${FOUR_TRADE_IN_CREDIT} credit when you trade in your old comma device. Any comma device, in any condition.
@@ -250,6 +273,18 @@
     align-items: center;
     gap: 0.75rem;
     margin: 1rem 0;
+
+  }
+
+  .referral-prices {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .original-price {
+    color: rgba(0, 0, 0, 0.5);
   }
 
   .label {

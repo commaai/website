@@ -35,7 +35,7 @@
 
   .accent {
     background-color: var(--color-accent);
-    color: var(--color-background);
+    color: black;
   }
 
   .red {

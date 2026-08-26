@@ -9,6 +9,7 @@
       <div class="links">
         <a href="#terms">Terms and Conditions</a>
         <a href="#privacy">Privacy Policy</a>
+        <a href="#referral-terms">Referral Terms and Conditions</a>
       </div>
       <div class="terms">
         <h2>openpilot Terms and Conditions</h2>
@@ -167,6 +168,24 @@
 
         <h3>E. Contact Information</h3>
         <p>If you have any questions about this Policy, please contact us at support@comma.ai.</p>
+      </div>
+
+      <hr />
+
+      <div id="referral-terms">
+        <h2>Referral Terms and Conditions</h2>
+        <p>
+          A "new customer" is someone who has not previously purchased a comma product. A referral qualifies only if a new customer purchased a comma four through the referral link and the applicable return period expired without the order being cancelled, returned, refunded, charged back, or identified as fraudulent or self-referred. comma determines eligibility and whether a referral qualifies in its sole discretion.
+        </p>
+        <p>
+          Subject to these terms and comma’s approval, a qualifying referral may provide $50 off the referred customer’s order and a $50 cash reward for the referrer. Each referral code may generate rewards for up to 10 referrals per calendar year. comma may adjust or waive this limit at its discretion. To request a higher limit, contact community@comma.ai.
+        </p>
+        <p>
+          Rewards must be claimed through the process shown on this page. comma may require verification, determine the method of payment, and approve, deny, revoke, or adjust any reward at its sole discretion. A reward is not earned, vested, transferable, or payable until it is actually paid by comma.
+        </p>
+        <p>
+          comma may modify, suspend, limit, or terminate the referral program, these terms, referral eligibility, reward amounts, or program limits at any time, with or without notice. Referrers are solely responsible for any taxes associated with referral rewards and must provide tax information if requested by comma.
+        </p>
       </div>
     </Grid>
   </div>

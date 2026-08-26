@@ -64,6 +64,10 @@ export async function _loadCart() {
         cart(id: $cartId) {
           checkoutUrl
           totalQuantity
+          discountCodes {
+            code
+            applicable
+          }
           cost {
             subtotalAmount {
               amount
@@ -75,12 +79,30 @@ export async function _loadCart() {
               amount
               currencyCode
             }
+            ... on CartAutomaticDiscountAllocation {
+              title
+            }
+            ... on CartCodeDiscountAllocation {
+              code
+            }
           }
           lines(first: 250) {
             edges {
               node {
                 id
                 quantity
+                discountAllocations {
+                  discountedAmount {
+                    amount
+                    currencyCode
+                  }
+                  ... on CartAutomaticDiscountAllocation {
+                    title
+                  }
+                  ... on CartCodeDiscountAllocation {
+                    code
+                  }
+                }
                 estimatedCost {
                   subtotalAmount {
                     amount
@@ -168,11 +190,12 @@ export async function getProduct(id) {
   });
 }
 
-export async function createCart() {
+
+export async function createCart(referralCode = null) {
   return shopifyFetch({
     query: /* graphql */ `
-      mutation calculateCart($lineItems: [CartLineInput!]) {
-        cartCreate(input: { lines: $lineItems }) {
+      mutation createCart($input: CartInput!) {
+        cartCreate(input: $input) {
           cart {
             checkoutUrl
             id
@@ -180,7 +203,9 @@ export async function createCart() {
         }
       }
     `,
-    variables: {}
+    variables: {
+      input: { discountCodes: referralCode ? [referralCode] : [] }
+    }
   }).then(response => {
     cartId.set(response.body?.data?.cartCreate?.cart?.id)
     cartCreatedAt.set(Date.now());
@@ -189,7 +214,6 @@ export async function createCart() {
   });
 
 }
-
 
 export async function updateCart({ cartId, lineId, variantId, quantity }) {
   return shopifyFetch({
@@ -255,7 +279,7 @@ export async function addToCart({ cartId, variantId, additionalProductIds = [], 
     }
   });
 
-  const { errors, data } = cartLinesResponse;
+  const { errors, data } = cartLinesResponse.body || {};
   const { cartLinesAdd } = data || {};
   const cartLinesErrors = errors || cartLinesAdd?.userErrors || cartLinesAdd?.warnings;
   if (errors || cartLinesErrors?.length) {
