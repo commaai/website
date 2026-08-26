@@ -1,6 +1,7 @@
 import { browser } from "$app/environment";
 import { writable, derived, get } from 'svelte/store';
 import { addToCart as requestAddToCart, loadCart as requestLoadCart } from '$lib/utils/shopify';
+import { isReferralCode } from '$lib/utils/referral';
 
 export const showCart = writable(false);
 
@@ -15,14 +16,9 @@ export const cartDiscountAllocations = writable([]);
 export const cartSubtotal = writable({});
 export const cartDiscountCodes = writable([]);
 export const cartReferralDiscount = derived(
-  [cartDiscountCodes, cartItems, cartDiscountAllocations],
-  ([$cartDiscountCodes, $cartItems, $cartDiscountAllocations]) => {
-    const hasBulkDiscount = $cartDiscountAllocations.some(
-      ({ title }) => title?.toUpperCase() === 'BULK ORDER'
-    );
-    if (hasBulkDiscount) return null;
-
-    const code = $cartDiscountCodes[0]?.code;
+  [cartDiscountCodes, cartItems],
+  ([$cartDiscountCodes, $cartItems]) => {
+    const code = $cartDiscountCodes.find(({ code }) => isReferralCode(code))?.code;
     if (!code) return null;
 
     const allocations = ($cartItems || [])
@@ -35,8 +31,7 @@ export const cartReferralDiscount = derived(
 
     return {
       code,
-      amount,
-      currencyCode: allocations[0]?.discountedAmount.currencyCode
+      amount
     };
   }
 );
@@ -79,7 +74,7 @@ export const addToCart = async (itemId, additionalProductIds = [], note = "") =>
   showCart.set(true);
 }
 
-const getTotalDiscount = (discountAllocations) => {
+export const getTotalDiscount = (discountAllocations) => {
   if (!discountAllocations || discountAllocations.length === 0) return null;
 
   const discountAmount = discountAllocations.reduce((totalAmount, allocation) => {
