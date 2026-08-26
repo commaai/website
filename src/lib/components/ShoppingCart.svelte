@@ -51,7 +51,6 @@
       {@const itemReferralDiscount = item.node.discountAllocations?.find(
         ({ code }) => code?.toLowerCase() === $cartReferralDiscount?.code?.toLowerCase()
       )}
-      {@const itemSubtotal = item.node.estimatedCost.subtotalAmount}
       {@const itemPriceBeforeReferral = {
         amount: Number(item.node.estimatedCost.totalAmount.amount) + Number(itemReferralDiscount?.discountedAmount.amount || 0),
         currencyCode: item.node.estimatedCost.totalAmount.currencyCode
@@ -80,9 +79,6 @@
           />
         </div>
         <div class="item-price">
-          {#if Number(itemSubtotal.amount) > itemPriceBeforeReferral.amount}
-            <s>{formatCurrency(itemSubtotal)}</s>
-          {/if}
           {formatCurrency(itemPriceBeforeReferral)}
         </div>
       </div>
