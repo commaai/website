@@ -42,12 +42,14 @@
       {#each Object.entries(vehicles) as [brand, cars]}
         {#if cars.length !== 0}
         {@const brand_img_path = `/src/lib/images/vehicles/brand-icons/Logo-${brand}.png`}
-        <a href="#{brand.toLowerCase()}" class="compatibility-make-element">
-          {#if brand_images[brand_img_path]}
-            <img src={brand_images[brand_img_path].default} loading="eager" alt="{brand} car brand" />
-          {/if}
-          <span class="compatibility-make-name">{brand}</span>
-        </a>
+        <div class="compatibility-make-element">
+          <a href="#{brand.toLowerCase()}" class="compatibility-make-anchor-link">
+            {#if brand_images[brand_img_path]}
+              <img src={brand_images[brand_img_path].default} loading="eager" alt="{brand} car brand" />
+            {/if}
+          </a>
+          <div class="compatibility-make-name">{brand}</div>
+        </div>
         {/if}
       {/each}
     </div>
@@ -246,8 +248,9 @@
 
     & .compatibility-make-links {
       display: grid;
-      gap: 1.5rem 1rem;
-      grid-template-columns: repeat(auto-fill, minmax(clamp(90px, 28%, 105px), 1fr));
+      grid-gap: 1rem;
+      grid-template-columns: repeat(auto-fit, 105px);
+      justify-content: space-between;
       margin: 2rem 0 3rem;
 
       @media screen and (min-width: 769px) {
@@ -256,37 +259,41 @@
     }
 
     & .compatibility-make-element {
-      display: flex;
-      flex-direction: column;
-      background-color: var(--color-card-background);
-      border: 1px solid rgba(0, 0, 0, .4);
-      transition: background-color 0.2s;
+      width: 105px;
+      margin-bottom: 1.5rem;
+    }
 
-      & img {
-        display: block;
-        width: 100%;
-        aspect-ratio: 1;
-        object-fit: contain;
-        mix-blend-mode: multiply;
-        padding: 0 4px;
-        box-sizing: border-box;
+    @media screen and (max-width: 480px) {
+      & .compatibility-make-links {
+        grid-template-columns: repeat(auto-fit, 85px);
       }
-
-      @media (hover: hover) and (pointer: fine) {
-        &:hover {
-          background-color: var(--color-card-background-hover);
-        }
-      }
-      &:active {
-        background-color: var(--color-card-background-hover);
+      & .compatibility-make-element {
+        width: 85px;
       }
     }
 
+    & .compatibility-make-anchor-link {
+      border: 1px solid rgba(0, 0, 0, .12);
+      padding: 4px;
+      transition: all 0.2s;
+      display: block;
+
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          transform: scale(1.02);
+          border: 1px solid rgba(0, 0, 0, .5);
+        }
+      }
+      &:active {
+        transform: scale(1.02);
+        border: 1px solid rgba(0, 0, 0, .5);
+      }
+    }
+
+
     & .compatibility-make-name {
-      margin-top: auto;
-      padding: .5rem .375rem .625rem;
       text-align: center;
-      font-weight: 600;
+      margin-top: .5rem;
       line-height: 1.2;
     }
   }
