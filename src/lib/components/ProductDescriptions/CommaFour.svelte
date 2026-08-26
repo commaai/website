@@ -56,6 +56,7 @@
   let tradeInVariantId = null;
   let tradeInChecked = false;
   let backordered = null;
+
   $: referralCode = $cartReferralDiscount?.code;
 
   // Trade-in and discount configuration
@@ -177,11 +178,9 @@
     >
     </HarnessSelector>
     {#if referralCode}
-      <div class="referral-card">
-        <NoteCard title={`$${REFERRAL_DISCOUNT} referral discount applied`} icon={GiftIcon}>
-          Your referral discount will be applied to this order at checkout.
-        </NoteCard>
-      </div>
+      <NoteCard title={`$${REFERRAL_DISCOUNT} referral discount applied`} icon={GiftIcon} style="green">
+        Your referral discount will be applied to this order at checkout.
+      </NoteCard>
     {/if}
     <CheckboxCard bind:this={checkboxCardRef} title="${FOUR_TRADE_IN_CREDIT} credit with trade-in" checked={tradeInChecked} onToggle={handleTradeInToggle}
                   disabled={disableBuyButtonText !== null}>
@@ -263,11 +262,6 @@
 </Modal>
 
 <style>
-  .referral-card :global(.card hgroup span) {
-    background-color: #86ff4e;
-    color: black;
-  }
-
   .item {
     padding: 1rem 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.15);

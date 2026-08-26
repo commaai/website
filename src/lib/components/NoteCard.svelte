@@ -3,10 +3,14 @@
 
   export let icon = InfoIcon;
   export let title;
-  export let style = "normal" // or "elevated", useful when rendered within a card
+  export let style = "normal" // or "elevated" / "green"
 </script>
 
-<div class="card" class:elevated={style == "elevated"}>
+<div
+  class="card"
+  class:elevated={style == "elevated"}
+  class:green={style == "green"}
+>
   <div class="icon-slot">
     <slot name="icon">
       {@html icon}
@@ -71,5 +75,15 @@
         color: black;
       }
     }
+  }
+
+  .green hgroup span {
+    & hgroup {
+      & span {
+        background-color: #86ff4e;
+        color: black;
+      }
+    }
+    
   }
 </style>
