@@ -54,7 +54,6 @@ export async function loadCart() {
     await createCart();
     response = await _loadCart();
   }
-
   return response;
 }
 
