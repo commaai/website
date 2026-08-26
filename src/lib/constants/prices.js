@@ -6,5 +6,6 @@ export const FOUR_SALE = false;
 export const FOUR_STRIKETHROUGH_PRICE = null;
 
 export const FOUR_PRICE = 999;
+export const FOUR_AFFIRM_PRICE = 91;  // $/month
 export const FOUR_TRADE_IN_CREDIT = 250;
 export const NO_HARNESS_DISCOUNT = 50;
