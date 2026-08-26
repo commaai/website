@@ -273,20 +273,27 @@
     }
 
     & .compatibility-make-anchor-link {
-      border: 1px solid rgba(0, 0, 0, .12);
+      background-color: var(--color-card-background);
+      border: 1px solid rgba(0, 0, 0, .4);
       padding: 4px;
       transition: all 0.2s;
       display: block;
 
+      & img {
+        width: 100%;
+        aspect-ratio: 105 / 107;
+        mix-blend-mode: multiply;
+      }
+
       @media (hover: hover) and (pointer: fine) {
         &:hover {
           transform: scale(1.02);
-          border: 1px solid rgba(0, 0, 0, .5);
+          background-color: var(--color-card-background-hover);
         }
       }
       &:active {
         transform: scale(1.02);
-        border: 1px solid rgba(0, 0, 0, .5);
+        background-color: var(--color-card-background-hover);
       }
     }
 
@@ -294,6 +301,7 @@
     & .compatibility-make-name {
       text-align: center;
       margin-top: .5rem;
+      font-weight: 600;
       line-height: 1.2;
     }
   }
