@@ -178,7 +178,7 @@
     >
     </HarnessSelector>
     {#if referralCode}
-      <NoteCard title={`$${REFERRAL_DISCOUNT} referral discount applied`} icon={GiftIcon} style="green">
+      <NoteCard title={`$${REFERRAL_DISCOUNT} referral discount applied`} icon={GiftIcon} highlightTitle>
         Your referral discount will be applied to this order at checkout.
       </NoteCard>
     {/if}
