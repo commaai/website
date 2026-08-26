@@ -118,8 +118,8 @@
   }
 
   input[type='email']:focus-visible {
-    outline: 2px solid var(--highlight);
-    outline-offset: -3px;
+    outline: 0;
+    border-color: var(--highlight);
   }
 
   .submit-button {

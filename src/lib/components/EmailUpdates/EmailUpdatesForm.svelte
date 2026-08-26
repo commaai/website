@@ -47,7 +47,9 @@
         {#if askForCar}
           <div class="car-field">
             <input
+              name="car"
               type="text"
+              data-1p-ignore
               placeholder="Enter your car (optional)"
               maxlength="120"
               bind:value={$car}
