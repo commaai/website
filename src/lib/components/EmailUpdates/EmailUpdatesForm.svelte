@@ -50,13 +50,11 @@
               name="car"
               type="text"
               data-1p-ignore
-              placeholder="Enter your car (optional)"
+              placeholder="What do you drive? (optional)"
               maxlength="120"
               bind:value={$car}
             >
-            <small>
-              Enter your make, model, and year. We'll email you when your car is supported.
-            </small>
+            <small>Add the make, model, and year and we'll email you when it's supported.</small>
           </div>
         {/if}
 
