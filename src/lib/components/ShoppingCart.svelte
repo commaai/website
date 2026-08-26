@@ -4,7 +4,7 @@
   import {
     cartItems,
     cartDiscount,
-    cartDiscountAllocations,
+    cartBulkDiscountAllocation,
     cartSubtotal,
     cartReferralDiscount,
     checkoutUrl,
@@ -90,7 +90,6 @@
     {#if $cartItems?.length !== 0}
       {@const referralDiscountAmount = $cartReferralDiscount?.amount || 0}
       {@const hasReferralDiscount = Boolean($cartReferralDiscount)}
-      {@const bulkDiscountAllocation = $cartDiscountAllocations.find(({ title }) => title?.toUpperCase() === 'BULK ORDER')}
       {#if hasReferralDiscount}
         <div class="referral-discount">
           <div class="referral-details">
@@ -103,11 +102,11 @@
       {#if $cartDiscount || hasReferralDiscount}
         {@const subtotalAmountBeforeDiscount = Number($cartSubtotal.amount) + Number(referralDiscountAmount || 0)}
         {@const subtotalAmountAfterDiscount = Number($cartSubtotal.amount) - Number($cartDiscount?.amount || 0)}
-        {#if bulkDiscountAllocation && !hasReferralDiscount}
+        {#if $cartBulkDiscountAllocation && !hasReferralDiscount}
           <div class="price">
             <span>Bulk Order Discount</span>
             <span>
-              -{formatCurrency(bulkDiscountAllocation.discountedAmount)}
+              -{formatCurrency($cartBulkDiscountAllocation.discountedAmount)}
             </span>
           </div>
         {/if}

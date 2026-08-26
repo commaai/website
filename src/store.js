@@ -15,13 +15,23 @@ export const cartDiscount = writable({});
 export const cartDiscountAllocations = writable([]);
 export const cartSubtotal = writable({});
 export const cartDiscountCodes = writable([]);
+export const cartBulkDiscountAllocation = derived(
+  cartDiscountAllocations,
+  ($cartDiscountAllocations) =>
+    $cartDiscountAllocations.find(({ title }) => title?.toUpperCase() === 'BULK ORDER') || null
+);
 export const cartReferralCode = derived(
-  cartDiscountCodes,
-  ($cartDiscountCodes) => $cartDiscountCodes.find(({ code }) => isReferralCode(code))?.code || null
+  [cartDiscountCodes, cartBulkDiscountAllocation],
+  ([$cartDiscountCodes, $cartBulkDiscountAllocation]) =>
+    $cartBulkDiscountAllocation
+      ? null
+      : $cartDiscountCodes.find(({ code }) => isReferralCode(code))?.code || null
 );
 export const cartReferralDiscount = derived(
-  cartDiscountCodes,
-  ($cartDiscountCodes) => {
+  [cartDiscountCodes, cartBulkDiscountAllocation],
+  ([$cartDiscountCodes, $cartBulkDiscountAllocation]) => {
+    if ($cartBulkDiscountAllocation) return null;
+
     const code = $cartDiscountCodes.find(({ code, applicable }) => applicable && isReferralCode(code))?.code;
     return code ? { code, amount: REFERRAL_DISCOUNT } : null;
   }
