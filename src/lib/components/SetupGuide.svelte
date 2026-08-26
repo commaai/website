@@ -12,6 +12,7 @@
   export let image;
 </script>
 
+<div class="setup-guide">
 <Grid alignItems="center" size="large">
   <div class="installation-guide">
     <hgroup>
@@ -30,8 +31,15 @@
     <img src={image} loading="lazy" alt={productName} />
   </div>
 </Grid>
+</div>
 
 <style>
+  @media screen and (min-width: 1025px) {
+    .setup-guide {
+      margin-bottom: 1.5rem;
+    }
+  }
+
   .installation-guide {
     max-width: 80%;
 

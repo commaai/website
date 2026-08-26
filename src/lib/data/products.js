@@ -1,4 +1,22 @@
 export const products = {
+  "chestnut": {
+    title: "chestnut",
+    id: "gid://shopify/Product/8304058433599",
+    route: "/shop/chestnut",
+    category: "device",
+    price: "from $250",
+    images: [
+      "/src/lib/images/products/chestnut/bnut_34.png",
+      "/src/lib/images/products/chestnut/bnut_front.png",
+      "/src/lib/images/products/chestnut/cnut_34.png"
+    ],
+    variantSubtitles: {
+      "ready to drive": "Everything you need to use chestnut with comma four.",
+      "eGPU dock only": "Use chestnut with your own GPU and power supply."
+    },
+    notes: []
+  },
+
   "comma-four": {
     title: "comma four",
     id: "gid://shopify/Product/7964554231871",
@@ -43,15 +61,14 @@ export const products = {
     hasCustomComponent: true
   },
 
-  "panda": {
-    title: "panda",
+  "red-panda": {
+    title: "red panda",
     id: "gid://shopify/Product/10933316813",
-    route: "/shop/panda",
+    route: "/shop/red-panda",
     category: "accessories",
-    price: "from $99",
+    price: "$99",
     images: [
-      "/src/lib/images/products/panda/red-panda.jpg",
-      "/src/lib/images/products/panda/white-panda.jpeg"
+      "/src/lib/images/products/panda/red-panda.jpg"
     ],
     notes: [
       {
@@ -105,23 +122,6 @@ export const products = {
           The red panda does not have GPS support. It is not compatible with the
           comma two.
         </p>
-      </div>
-      <hr />
-      <div>
-        <hgroup>
-          <div>
-            <span>variant • deprecated from openpilot</span>
-            <strong>white panda</strong>
-          </div>
-        </hgroup>
-        <ul>
-          <li>3x CAN</li>
-          <li>2x LIN</li>
-          <li>1x GMLAN</li>
-          <li>USB A</li>
-          <li>Wi-Fi hardware (software support deprecated)</li>
-        </ul>
-        <p>White panda is deprecated from openpilot.</p>
       </div>
     `.trim()
   },
@@ -254,6 +254,7 @@ export const products = {
     route: "/shop/obd-c-cable",
     category: "accessories",
     price: "$20",
+    useVariantRadioSelector: true,
     images: [
       "/src/lib/images/products/obd-c-cable/obd-c-cable-four.png",
       "/src/lib/images/products/obd-c-cable/obd-c-long-cable.jpg"
@@ -325,8 +326,8 @@ export const products = {
       <strong>Open Source</strong>
       <p>
         Buy it here or build it yourself. Harness connectors are <a
-          href="https://github.com/commaai/hardware/tree/master/harness"
-          target="_blank">open source</a>.
+        href="https://github.com/commaai/hardware/tree/master/harness"
+        target="_blank">open source</a>.
       </p>
     `.trim()
   },
@@ -355,14 +356,11 @@ export const products = {
     route: "/shop/replacement-mounts",
     category: "accessories",
     price: "$20",
+    useVariantRadioSelector: true,
     images: [
       "/src/lib/images/products/replacement-mounts/replacement-mounts-four.png",
     ],
     notes: [
-      {
-        title: "Note",
-        content: "comma four orders come with (2) mounts.",
-      },
       {
         title: "Note",
         content: "comma four mounts are not compatible with comma 3X/three.",
@@ -411,7 +409,7 @@ export const products = {
       <hgroup>
         <div>
           <span>Variant</span>
-          <strong>comma 3X (8 degrees)</strong>
+          <strong>comma 3X (8°)</strong>
         </div>
       </hgroup>
       <p>
@@ -420,7 +418,7 @@ export const products = {
         <strong>Includes:</strong>
       </p>
       <p>
-        (1) 8 degree mount with adhesive backing
+        (1) 8° mount with adhesive backing
       </p>
       <p>
         (1) alcohol wipe
@@ -433,7 +431,12 @@ export const products = {
           target="_blank">open source</a> files.
       </p>
     `.trim(),
-    hideOutOfStockVariants: true
+    hideOutOfStockVariants: true,
+    variantSubtitles: {
+      "comma four": "Includes 2 mounts.",
+      "comma 3X": "Includes 1 mount.",
+      "comma 3X (8\u00B0)": "Includes 1 mount. For vehicles with steeper windshields."
+    }
   },
 
   "comma-device-screen": {

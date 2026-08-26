@@ -44,10 +44,19 @@ export async function load({ url, params }) {
   if (response.status === 200) {
     const product = response.body?.data?.product;
     if (product) {
+      const variants = product.variants.nodes.map(variant => ({
+        ...variant,
+        subtitle: productInfo.variantSubtitles?.[variant.title.trim()]
+      }));
+
       return {
         product: {
           ...product,
           ...productInfo,
+          variants: {
+            ...product.variants,
+            nodes: variants
+          },
           images: resolvedImages
         },
         descriptionComponent

@@ -47,7 +47,7 @@
       <div class="empty">Your cart is empty.</div>
     {/if}
     {#each $cartItems as item}
-      {@const imageUrl = item.node.merchandise.image?.url || item.node.merchandise.product.images.edges[0].node.originalSrc}
+      {@const imageUrl = item.node.merchandise.image?.url || item.node.merchandise.product.images.edges[0]?.node?.originalSrc}
       {@const referralDiscountAllocation = item.node.discountAllocations?.find(
         ({ code }) => code?.toLowerCase() === $cartReferralDiscount?.code?.toLowerCase()
       )}
@@ -55,11 +55,12 @@
         amount: Number(item.node.estimatedCost.totalAmount.amount) + Number(referralDiscountAllocation?.discountedAmount.amount || 0),
         currencyCode: item.node.estimatedCost.totalAmount.currencyCode
       }}
-      <div class="item">
-        <img
-          alt={item.node.merchandise.product.title}
-          src={imageUrl}
-        />
+        {#if imageUrl}
+          <img
+            alt={item.node.merchandise.product.title}
+            src={imageUrl}
+          />
+        {/if}
         <div class="details">
           <div class="title">
             {item.node.merchandise.product.title}

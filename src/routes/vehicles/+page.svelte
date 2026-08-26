@@ -7,6 +7,7 @@
   import Faq from '$lib/components/Faq.svelte';
   import LinkButton from '$lib/components/LinkButton.svelte';
   import NoteCard from '$lib/components/NoteCard.svelte';
+  import EmailUpdatesForm from '$lib/components/EmailUpdates/EmailUpdatesForm.svelte';
 
   import { faq } from '$lib/constants/faq.svelte';
 
@@ -41,44 +42,35 @@
       {#each Object.entries(vehicles) as [brand, cars]}
         {#if cars.length !== 0}
         {@const brand_img_path = `/src/lib/images/vehicles/brand-icons/Logo-${brand}.png`}
-        <div class="compatibility-make-element">
-          <a href="#{brand.toLowerCase()}" class="compatibility-make-anchor-link">
-            {#if brand_images[brand_img_path]}
-              <img src={brand_images[brand_img_path].default} loading="eager" alt="{brand} car brand" />
-            {/if}
-          </a>
-          <div class="compatibility-make-name">{brand}</div>
-        </div>
+        <a href="#{brand.toLowerCase()}" class="compatibility-make-element">
+          {#if brand_images[brand_img_path]}
+            <img src={brand_images[brand_img_path].default} loading="eager" alt="{brand} car brand" />
+          {/if}
+          <span class="compatibility-make-name">{brand}</span>
+        </a>
         {/if}
       {/each}
     </div>
 
-    <hgroup class="headline">
-      <span>Don't see your car?</span>
+    <EmailUpdatesForm
+      title="Don't see your car?"
+      defaultCategory="compatibility"
+      askForCar
+    >
       <p>
-        If you don't see your car, it's not currently supported, however new cars are added with each openpilot release.
+        New cars are added with each openpilot release. Get an email when compatibility changes.
       </p>
-      <p>
-        <a href="#mailing-list" class="highlight">Join the mailing list</a> to stay updated.
-      </p>
-      <br>
       <p>
         If you have a modern car and some programming skills, you can likely add support for your car.
-      </p>
-      <p>
-        Watch
-        <a href="https://youtu.be/XxPS5TpTUnI" class="highlight">this talk</a>
-        and check out the
-        <a href="https://github.com/commaai/openpilot/blob/master/docs/CARS.md#dont-see-your-car-here" class="highlight">docs</a>
+        Watch <a href="https://youtu.be/XxPS5TpTUnI" target="_blank" class="highlight">this talk</a> and check out the
+        <a href="https://github.com/commaai/openpilot/blob/master/docs/CARS.md#dont-see-your-car-here" target="_blank" class="highlight">docs</a>
         to learn more.
       </p>
-    </hgroup>
-
-    <p class="last-updated">Last updated: {compatibilityMeta.last_updated}</p>
+    </EmailUpdatesForm>
 
     <div class="recommended-cars">
       <hgroup>
-        <span>Our favorite openpilot cars</span>
+        <h2>Our favorite openpilot cars</h2>
         <p>Generally, newer Hyundai and Toyota models are great choices. These are some of our favorites:</p>
       </hgroup>
       <div class="recommended-car-columns">
@@ -87,22 +79,22 @@
             <strong>EV</strong>
             <div>Kia EV6</div>
             <div>Hyundai Ioniq 5</div>
-            <div>Toyota Prius 2021–22</div>
+            <div>Toyota Prius 2021&#8209;22</div>
           </div>
           <div class="recommended-car-stack">
             <strong>SUV</strong>
-            <div>Toyota Highlander 2020–23</div>
-            <div>Hyundai Palisade 2020–22</div>
+            <div>Toyota Highlander 2020&#8209;23</div>
+            <div>Hyundai Palisade 2020&#8209;22</div>
           </div>
           <div class="recommended-car-stack">
             <strong>Sedan</strong>
-            <div>Toyota Corolla 2020–22</div>
-            <div>Hyundai Sonata 2020–23</div>
+            <div>Toyota Corolla 2020&#8209;22</div>
+            <div>Hyundai Sonata 2020&#8209;23</div>
           </div>
           <div class="recommended-car-stack">
             <strong>Truck</strong>
-            <div>Ram 1500 2019–24</div>
-            <div>Chevrolet Silverado 1500 2020–⁠21</div>
+            <div>Ram 1500 2019&#8209;24</div>
+            <div>Chevrolet Silverado 1500 2020&#8209;21</div>
           </div>
         </Grid>
       </div>
@@ -112,6 +104,8 @@
 
 <section class="light" id="compatibility-chart">
   <div class="container" style="width:85%; max-width: 60rem">
+    <p class="last-updated">Last updated: {compatibilityMeta.last_updated}</p>
+
     {#each Object.entries(vehicles) as [make, cars]}
       {#if cars.length !== 0}
       {@const brand_img_path = `/src/lib/images/vehicles/brand-icons/Logo-${make}.png`}
@@ -250,78 +244,49 @@
       line-height: 1.3;
     }
 
-    & .headline {
-      margin: 3rem auto 0;
-
-      & span {
-        margin-bottom: 0.5rem;
-      }
-
-      & p {
-        margin: 0;
-        text-wrap: balance;
-      }
-    }
-
-    & hgroup {
-      text-align: center;
-      font-size: 1.25rem;
-
-      & span {
-        font-size: 1.5rem;
-        font-weight: 700;
-        display: block;
-      }
-
-      & p {
-        margin-top: 0.5rem;
-      }
-    }
-
     & .compatibility-make-links {
       display: grid;
-      grid-gap: 1rem;
-      grid-template-columns: repeat(auto-fit, 105px);
-      justify-content: space-between;
+      gap: 1.5rem 1rem;
+      grid-template-columns: repeat(auto-fill, minmax(clamp(90px, 28%, 105px), 1fr));
       margin: 2rem 0 3rem;
+
+      @media screen and (min-width: 769px) {
+        margin-top: 4rem;
+      }
     }
 
     & .compatibility-make-element {
-      width: 105px;
-      margin-bottom: 1.5rem;
-    }
+      display: flex;
+      flex-direction: column;
+      background-color: var(--color-card-background);
+      border: 1px solid rgba(0, 0, 0, .4);
+      transition: background-color 0.2s;
 
-    @media screen and (max-width: 480px) {
-      & .compatibility-make-links {
-        grid-template-columns: repeat(auto-fit, 85px);
+      & img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 1;
+        object-fit: contain;
+        mix-blend-mode: multiply;
+        padding: 0 4px;
+        box-sizing: border-box;
       }
-      & .compatibility-make-element {
-        width: 85px;
-      }
-    }
-
-    & .compatibility-make-anchor-link {
-      border: 1px solid rgba(0, 0, 0, .12);
-      padding: 4px;
-      transition: all 0.2s;
-      display: block;
 
       @media (hover: hover) and (pointer: fine) {
         &:hover {
-          transform: scale(1.02);
-          border: 1px solid rgba(0, 0, 0, .5);
+          background-color: var(--color-card-background-hover);
         }
       }
       &:active {
-        transform: scale(1.02);
-        border: 1px solid rgba(0, 0, 0, .5);
+        background-color: var(--color-card-background-hover);
       }
     }
 
-
     & .compatibility-make-name {
+      margin-top: auto;
+      padding: .5rem .375rem .625rem;
       text-align: center;
-      margin-top: .5rem;
+      font-weight: 600;
       line-height: 1.2;
     }
   }
@@ -332,25 +297,49 @@
     margin-bottom: 1rem;
   }
 
+  /* TODO: extract shared card class */
   .recommended-cars {
-    width: 85%;
-    margin: 2rem auto;
+    margin: 3rem 0;
     background-color: var(--color-card-background);
     border: 1px solid rgba(0, 0, 0, .4);
-    padding: 2rem 1rem;
+    padding: 3rem;
 
     & .recommended-car-columns {
       margin-top: 3rem;
 
       & .recommended-car-stack {
-        text-align: center;
-        font-size: 1.25rem;
-
-        & strong {
-          margin-bottom: .5rem;
-          font-weight: 700;
-        }
+        display: grid;
+        gap: 0.5em;
+        font-size: 1.125rem;
+        line-height: 1.35;
       }
+    }
+
+    @media screen and (max-width: 768px) {
+      padding: 2rem 1rem;
+    }
+  }
+
+  .recommended-cars hgroup {
+    & h2 {
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+      line-height: 1.05;
+      letter-spacing: -0.06em;
+    }
+
+    & p {
+      margin: 0;
+      font-size: 1.125rem;
+      line-height: 1.35;
+    }
+  }
+
+  /* Only the top step; below 1024 the global h2 scale already applies. */
+  @media screen and (min-width: 1025px) {
+    #vehicles :global(.updates-card h2),
+    .recommended-cars h2 {
+      font-size: 2.75rem;
     }
   }
 

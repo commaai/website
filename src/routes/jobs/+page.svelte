@@ -90,6 +90,33 @@
 
   const jobs = [
     {
+      title: "Community Manager",
+      team: "operations",
+      location: "On-site in San Diego, CA",
+      description: `
+        Day to day, you'll answer customer/community questions in Discord, social, and support
+        channels; respond quickly when people have issues; collect useful feedback; escalate bugs
+        or support problems to the right internal person; keep FAQs/resources updated; and make
+        sure users feel like comma is responsive and paying attention.
+        <br /><br />
+        You'll also manage the Fleet Captains referral program: keep captains engaged, help them
+        understand what to promote, track what's working, and find ways to increase referrals and
+        device sales.
+        <br /><br />
+        A big part of the role is creator outreach: researching relevant YouTube creators in
+        cars/tech/driver-assist, reaching out to them, building and maintaining relationships, and
+        converting strong creators into Fleet Captains/referral partners who can help sell more
+        devices.
+      `,
+      qualifications: [
+        "Great at communication, extremely responsive, and good at maintaining relationships",
+        "Organized and comfortable doing online research and reaching out to new people",
+        "Good at using AI tools to move faster on research, lists, drafts, and follow-ups",
+      ],
+      howToApply:
+        'Reach out to <a href="mailto:work@comma.ai">work@comma.ai</a> with your resume.',
+    },
+    {
       title: "Software Engineer",
       team: "openpilot",
       location: "On-site in San Diego, CA",

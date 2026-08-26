@@ -40,13 +40,8 @@
         "type": 301
       },
       {
-        "source": "/shop/products/car-harness",
-        "destination": "/shop/car-harness",
-        "type": 301
-      },
-      {
         "source": "/shop/products/panda-obd-ii-dongle",
-        "destination": "/shop/panda",
+        "destination": "/shop/red-panda",
         "type": 301
       },
       {
@@ -56,7 +51,12 @@
       },
       {
         "source": "/shop/panda-obd-ii-dongle",
-        "destination": "/shop/panda",
+        "destination": "/shop/red-panda",
+        "type": 301
+      },
+      {
+        "source": "/shop/panda",
+        "destination": "/shop/red-panda",
         "type": 301
       },
       {
@@ -170,21 +170,6 @@
         "type": 301
       },
       {
-        "source": "/shop/products/harness-connector",
-        "destination": "/shop/harness-connector",
-        "type": 301
-      },
-      {
-        "source": "/shop/products/panda",
-        "destination": "/shop/panda",
-        "type": 301
-      },
-      {
-        "source": "/shop/products/body",
-        "destination": "/shop/body",
-        "type": 301
-      },
-      {
         "source": "/shop/products/comma-two-replacement-mounts",
         "destination": "/shop/replacement-mounts",
         "type": 301
@@ -195,28 +180,8 @@
         "type": 301
       },
       {
-        "source": "/shop/products/harness-box",
-        "destination": "/shop/harness-box",
-        "type": 301
-      },
-      {
         "source": "/shop/products/comma-usb-c-cable",
         "destination": "/shop/obd-c-cable",
-        "type": 301
-      },
-      {
-        "source": "/shop/products/panda-jungle",
-        "destination": "/shop/panda-jungle",
-        "type": 301
-      },
-      {
-        "source": "/shop/products/comma-key",
-        "destination": "/shop/comma-key",
-        "type": 301
-      },
-      {
-        "source": "/shop/products/panda-paw",
-        "destination": "/shop/panda-paw",
         "type": 301
       },
       {
@@ -227,11 +192,6 @@
       {
         "source": "/shop/products/comma-ai-hoodie",
         "destination": "/shop/comma-hoodie",
-        "type": 301
-      },
-      {
-        "source": "/shop/products/comma-beanie",
-        "destination": "/shop/comma-beanie",
         "type": 301
       },
       {
@@ -260,33 +220,8 @@
         "type": 301
       },
       {
-        "source": "/shop/products/comma-three-logic-board",
-        "destination": "/shop/comma-three-logic-board",
-        "type": 301
-      },
-      {
         "source": "/shop/products/comma-three-heatsink",
         "destination": "/shop/comma-heatsink",
-        "type": 301
-      },
-      {
-        "source": "/shop/products/comma-three-camera",
-        "destination": "/shop/comma-three-camera",
-        "type": 301
-      },
-      {
-        "source": "/shop/products/comma-three-logic-board",
-        "destination": "/shop/comma-three-logic-board",
-        "type": 301
-      },
-      {
-        "source": "/shop/products/comma-three-gps-module",
-        "destination": "/shop/comma-three-gps-module",
-        "type": 301
-      },
-      {
-        "source": "/shop/products/comma-three-back-case",
-        "destination": "/shop/comma-three-back-case",
         "type": 301
       },
       {
@@ -426,13 +361,18 @@
       },
       {
         "source": "/hack",
-        "destination": "https://blog.comma.ai/comma-hack-6/",
+        "destination": "https://blog.comma.ai/comma-hack-7/",
         "type": 302
       },
       {
         "source": "/cashback",
         "destination": "https://www.reddit.com/r/Comma_ai/comments/1p4eaof/ymmv_comma_four_200_cash_back_using_paypal_pay_in",
         "type": 302
+      },
+      {
+        "source": "/shop/products/:product",
+        "destination": "/shop/:product",
+        "type": 301
       }
     ]
   }
