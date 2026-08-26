@@ -199,7 +199,6 @@
 
   .who {
     display: flex;
-    flex: 1;
     flex-flow: column;
     line-height: 1.2;
     min-width: 0;
@@ -225,7 +224,6 @@
 
   .mark {
     display: flex;
-    flex: none;
     margin-left: auto;
     opacity: 0.35;
   }
