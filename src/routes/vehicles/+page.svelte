@@ -20,24 +20,18 @@
   import { FOUR_PRICE, FOUR_STRIKETHROUGH_PRICE, FOUR_SALE } from '$lib/constants/prices.js';
   import { vehicleCountText } from '$lib/constants/vehicles.js';
 
-  import { searchTerms, matchesSearch } from '$lib/utils/carSearch.js';
+  import { matchesSearch } from '$lib/utils/carSearch.js';
 
   const brand_images = import.meta.glob('$lib/images/vehicles/brand-icons/*.png', { eager: true });
 
   let filter = '';
-  let emailUpdatesForm;
 
-  $: terms = searchTerms(filter);
   $: filteredVehicles = Object.entries(vehicles)
     .map(([make, cars]) => [
       make,
-      cars.filter(car => matchesSearch(`${car.name} ${car.year_list.replaceAll(',', '')}`, terms)),
+      cars.filter(car => matchesSearch(`${car.name} ${car.year_list.replaceAll(',', '')}`, filter)),
     ])
     .filter(([, cars]) => cars.length !== 0);
-
-  function prefillCar() {
-    emailUpdatesForm?.setCar(filter);
-  }
 </script>
 
 <div class="vehicles-cover-image"></div>
@@ -72,7 +66,6 @@
     </div>
 
     <EmailUpdatesForm
-      bind:this={emailUpdatesForm}
       title="Don't see your car?"
       defaultCategory="compatibility"
       askForCar
@@ -225,7 +218,7 @@
     {#if filteredVehicles.length === 0}
       <div class="no-matches">
         <strong>openpilot doesn't support {filter} yet</strong>
-        <a href="#email-updates" on:click={prefillCar}>Get an email when it does &rarr;</a>
+        <a href="/vehicles?car={encodeURIComponent(filter)}#email-updates">Get an email when it does &rarr;</a>
       </div>
     {/if}
   </div>

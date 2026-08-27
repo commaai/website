@@ -1,5 +1,6 @@
 <script>
   import Grid from '$lib/components/Grid.svelte';
+  import { page } from '$app/stores';
   import { EMAIL_CATEGORIES, createEmailUpdatesForm } from '$lib/email-updates.js';
 
   export let defaultCategory;
@@ -10,10 +11,11 @@
   const { email, car, selectedCategories, status, errorMessage, submit } = createEmailUpdatesForm();
 
   let everything = true;
+  let seededCar;
 
-  // Lets a page prefill the car field, e.g. from a search that found nothing
-  export function setCar(value) {
-    car.set(value);
+  $: if (askForCar && $page.url.searchParams.get('car') !== (seededCar ?? null)) {
+    seededCar = $page.url.searchParams.get('car');
+    if (seededCar) car.set(seededCar);
   }
 
   $: primaryCategory = EMAIL_CATEGORIES.find(({ key }) => key === defaultCategory);

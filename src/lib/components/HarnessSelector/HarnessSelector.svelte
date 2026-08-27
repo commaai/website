@@ -8,7 +8,7 @@
   import { allHarnesses, vehicleHarnesses, genericHarnesses } from '$lib/utils/harnesses';
   import { selectedCar } from '../../../store';
   import { NO_HARNESS_OPTION } from '$lib/constants/vehicles.js';
-  import { searchTerms, matchesSearch } from '$lib/utils/carSearch.js';
+  import { matchesSearch } from '$lib/utils/carSearch.js';
 
   import NoteCard from '$lib/components/NoteCard.svelte';
   import DropdownItem from './HarnessDropdownItem.svelte';
@@ -83,9 +83,8 @@
   let inputValue = "";
   let inputRef;
 
-  $: terms = searchTerms(inputValue);
   $: filteredItems = $harnesses.filter(item =>
-    matchesSearch(`${item.car} ${item.yearList ?? ''}`, terms)  // add all years in range
+    matchesSearch(`${item.car} ${item.yearList ?? ''}`, inputValue)  // add all years in range
   );
 
   const handleClear = () => {
@@ -157,7 +156,7 @@
     <span class="chevron">{@html ChevronIcon}</span>
   </div>
   <div class="dropdown-content" class:show={menuOpen}>
-    {#if terms.length > 0}
+    {#if inputValue.trim() !== ''}
       {#if filteredItems.length > 0}
         {#each filteredItems as item}
           <DropdownItem value={item} on:click={() => handleOptionClick(item)} on:keydown={(e) => handleOptionKeyDown(e, item)} />
