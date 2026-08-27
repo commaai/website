@@ -15,7 +15,7 @@
   $: $selectedCategories = everything ? EMAIL_CATEGORIES.map(({ key }) => key) : [defaultCategory];
 </script>
 
-<aside class="updates-card" style:margin>
+<aside id="email-updates" class="updates-card" style:margin>
   <Grid
     columnGap="4rem"
     templateColumns="minmax(0, 1fr) minmax(22rem, 0.8fr)"

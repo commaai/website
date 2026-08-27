@@ -1,9 +1,8 @@
 import { browser } from "$app/environment";
-import { writable, get } from 'svelte/store';
+import { writable, derived, get } from 'svelte/store';
 import { addToCart as requestAddToCart, loadCart as requestLoadCart } from '$lib/utils/shopify';
+import { isReferralCode, REFERRAL_DISCOUNT } from '$lib/utils/referral';
 
-export const cart = writable([]);
-export const search = writable('');
 export const showCart = writable(false);
 
 export const cartId = writable(browser ? window.localStorage.getItem('cartId') : '');
@@ -13,7 +12,30 @@ export const cartTotalQuantity = writable(browser ? window.localStorage.getItem(
 
 export const cartItems = writable([]);
 export const cartDiscount = writable({});
+export const cartDiscountAllocations = writable([]);
 export const cartSubtotal = writable({});
+export const cartDiscountCodes = writable([]);
+export const cartBulkDiscountAllocation = derived(
+  cartDiscountAllocations,
+  ($cartDiscountAllocations) =>
+    $cartDiscountAllocations.find(({ title }) => title?.toUpperCase() === 'BULK ORDER') || null
+);
+export const cartReferralCode = derived(
+  [cartDiscountCodes, cartBulkDiscountAllocation],
+  ([$cartDiscountCodes, $cartBulkDiscountAllocation]) =>
+    $cartBulkDiscountAllocation
+      ? null
+      : $cartDiscountCodes.find(({ code }) => isReferralCode(code))?.code || null
+);
+export const cartReferralDiscount = derived(
+  [cartDiscountCodes, cartBulkDiscountAllocation],
+  ([$cartDiscountCodes, $cartBulkDiscountAllocation]) => {
+    if ($cartBulkDiscountAllocation) return null;
+
+    const code = $cartDiscountCodes.find(({ code, applicable }) => applicable && isReferralCode(code))?.code;
+    return code ? { code, amount: REFERRAL_DISCOUNT } : null;
+  }
+);
 export const selectedCar = writable(browser ? localStorage.getItem('selectedCar') || '' : '');
 
 if (browser) {
@@ -33,10 +55,14 @@ if (browser) {
 export const loadCart = async () => {
   try {
     const shopifyResponse = await requestLoadCart(get(cartId));
-    cartItems.set(shopifyResponse?.body?.data?.cart?.lines?.edges);
-    cartDiscount.set(getTotalDiscount(shopifyResponse?.body?.data?.cart?.discountAllocations));
-    cartSubtotal.set(shopifyResponse?.body?.data?.cart?.cost?.subtotalAmount);
-    cartTotalQuantity.set(shopifyResponse.body?.data?.cart?.totalQuantity);
+    const loadedCart = shopifyResponse?.body?.data?.cart;
+    cartItems.set(loadedCart?.lines?.edges);
+    cartDiscount.set(getTotalDiscount(loadedCart?.discountAllocations));
+    cartDiscountAllocations.set(loadedCart?.discountAllocations || []);
+    cartSubtotal.set(loadedCart?.cost?.subtotalAmount);
+    cartDiscountCodes.set(loadedCart?.discountCodes || []);
+    cartTotalQuantity.set(loadedCart?.totalQuantity);
+    checkoutUrl.set(loadedCart?.checkoutUrl || '');
 
   } catch (error) {
     console.error(error);
