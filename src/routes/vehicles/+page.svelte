@@ -13,6 +13,7 @@
 
   import YoutubeIcon from '$lib/icons/social/youtube.svg?raw';
   import InfoIcon from '$lib/icons/ui/info.svg?raw';
+  import CloseIcon from '$lib/icons/ui/close.svg?raw';
   import CarIcon from '$lib/icons/features/car.svg?raw';
 
   import CommaFourImage from '$lib/images/products/comma-four/four_screen_on.png';
@@ -118,14 +119,22 @@
 
 <section class="light" id="compatibility-chart">
   <div class="container" style="width:85%; max-width: 60rem">
-    <input
-      class="vehicle-filter"
-      type="search"
-      placeholder="Filter by make, model, or year"
-      autocomplete="off"
-      aria-label="Filter supported vehicles"
-      bind:value={filter}
-    >
+    <label class="filter-label" for="vehicle-filter">Find your car</label>
+    <div class="filter-field">
+      <input
+        id="vehicle-filter"
+        class="vehicle-filter"
+        type="search"
+        placeholder="e.g. 2023 camry"
+        autocomplete="off"
+        bind:value={filter}
+      >
+      {#if filter}
+        <button class="clear" type="button" aria-label="Clear filter" on:click={() => filter = ''}>
+          {@html CloseIcon}
+        </button>
+      {/if}
+    </div>
 
     <p class="last-updated">Last updated: {compatibilityMeta.last_updated}</p>
 
@@ -337,22 +346,45 @@
     }
   }
 
+  .filter-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+  }
+
+  .filter-field {
+    position: relative;
+  }
+
   .vehicle-filter {
     box-sizing: border-box;
     width: 100%;
-    padding: 1rem;
+    padding: 1rem 3rem 1rem 1rem;
+    color: #000;
     font: inherit;
-    background: #fff;
-    border: 1px solid #a0a0a0;
-
-    &::placeholder {
-      color: #656565;
-    }
+    background: var(--color-card-background);
+    border: 1px solid #000;
 
     &:focus-visible {
-      outline: none;
-      border-color: #464646;
+      outline: 2px solid #000;
+      outline-offset: -3px;
     }
+
+    &::-webkit-search-cancel-button {
+      display: none;
+    }
+  }
+
+  .clear {
+    position: absolute;
+    top: 0;
+    right: 13px;
+    height: 100%;
+    padding: 0;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
   }
 
   .last-updated {
