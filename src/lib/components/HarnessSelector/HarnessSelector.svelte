@@ -162,7 +162,7 @@
     <span class="chevron">{@html ChevronIcon}</span>
   </div>
   <div class="dropdown-content" class:show={menuOpen}>
-    {#if inputValue !== ''}
+    {#if searchTerms.length > 0}
       {#if filteredItems.length > 0}
         {#each filteredItems as item}
           <DropdownItem value={item} on:click={() => handleOptionClick(item)} on:keydown={(e) => handleOptionKeyDown(e, item)} />
