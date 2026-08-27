@@ -87,9 +87,11 @@
   let inputValue = "";
   let inputRef;
 
-  $: filteredItems = $harnesses.filter(item =>
-    normalizeDiacritics(item.car.toLowerCase()).match(normalizeDiacritics(inputValue.toLowerCase()))
-  );
+  $: searchTerms = normalizeDiacritics(inputValue.toLowerCase()).split(/\s+/).filter(Boolean);
+  $: filteredItems = $harnesses.filter(item => {
+    const car = normalizeDiacritics(item.car.toLowerCase());
+    return searchTerms.every(term => car.includes(term));
+  });
 
   const handleClear = () => {
     // clear search input or close menu
