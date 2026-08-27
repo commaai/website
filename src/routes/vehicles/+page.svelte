@@ -20,7 +20,24 @@
   import { FOUR_PRICE, FOUR_STRIKETHROUGH_PRICE, FOUR_SALE } from '$lib/constants/prices.js';
   import { vehicleCountText } from '$lib/constants/vehicles.js';
 
+  import { searchTerms, matchesSearch } from '$lib/utils/carSearch.js';
+
   const brand_images = import.meta.glob('$lib/images/vehicles/brand-icons/*.png', { eager: true });
+
+  let filter = '';
+  let emailUpdatesForm;
+
+  $: terms = searchTerms(filter);
+  $: filteredVehicles = Object.entries(vehicles)
+    .map(([make, cars]) => [
+      make,
+      cars.filter(car => matchesSearch(`${car.name} ${car.year_list.replaceAll(',', '')}`, terms)),
+    ])
+    .filter(([, cars]) => cars.length !== 0);
+
+  function prefillCar() {
+    emailUpdatesForm?.setCar(filter);
+  }
 </script>
 
 <div class="vehicles-cover-image"></div>
@@ -55,6 +72,7 @@
     </div>
 
     <EmailUpdatesForm
+      bind:this={emailUpdatesForm}
       title="Don't see your car?"
       defaultCategory="compatibility"
       askForCar
@@ -106,10 +124,18 @@
 
 <section class="light" id="compatibility-chart">
   <div class="container" style="width:85%; max-width: 60rem">
+    <input
+      class="vehicle-filter"
+      type="search"
+      placeholder="Filter by make, model, or year"
+      autocomplete="off"
+      aria-label="Filter supported vehicles"
+      bind:value={filter}
+    >
+
     <p class="last-updated">Last updated: {compatibilityMeta.last_updated}</p>
 
-    {#each Object.entries(vehicles) as [make, cars]}
-      {#if cars.length !== 0}
+    {#each filteredVehicles as [make, cars]}
       {@const brand_img_path = `/src/lib/images/vehicles/brand-icons/Logo-${make}.png`}
       <div id={make.toLowerCase()} class="car-make-header">
         {#if brand_images[brand_img_path]}
@@ -194,8 +220,14 @@
           </Accordion>
         </div>
       {/each}
-      {/if}
     {/each}
+
+    {#if filteredVehicles.length === 0}
+      <div class="no-matches">
+        <strong>openpilot doesn't support {filter} yet</strong>
+        <a href="#email-updates" on:click={prefillCar}>Get an email when it does &rarr;</a>
+      </div>
+    {/if}
   </div>
 </section>
 
@@ -308,10 +340,39 @@
     }
   }
 
+  .vehicle-filter {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 1rem;
+    font: inherit;
+    background: #fff;
+    border: 1px solid #a0a0a0;
+
+    &::placeholder {
+      color: #656565;
+    }
+
+    &:focus-visible {
+      outline: none;
+      border-color: #464646;
+    }
+  }
+
   .last-updated {
     text-align: center;
     font-style: italic;
     margin-bottom: 1rem;
+  }
+
+  .no-matches {
+    display: grid;
+    gap: 0.5rem;
+    justify-items: center;
+    margin-top: 2rem;
+    padding: 2rem;
+    text-align: center;
+    background-color: var(--color-card-background);
+    border: 1px solid rgba(0, 0, 0, 0.4);
   }
 
   /* TODO: extract shared card class */

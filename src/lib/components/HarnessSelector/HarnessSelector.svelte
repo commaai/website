@@ -8,6 +8,7 @@
   import { allHarnesses, vehicleHarnesses, genericHarnesses } from '$lib/utils/harnesses';
   import { selectedCar } from '../../../store';
   import { NO_HARNESS_OPTION } from '$lib/constants/vehicles.js';
+  import { searchTerms, matchesSearch } from '$lib/utils/carSearch.js';
 
   import NoteCard from '$lib/components/NoteCard.svelte';
   import DropdownItem from './HarnessDropdownItem.svelte';
@@ -78,20 +79,14 @@
     }
   }
 
-  // Normalize diacritics for matching (e.g., "Škoda" -> "Skoda")
-  function normalizeDiacritics(str) {
-    return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-  }
-
   /* Filtered Dropdown */
   let inputValue = "";
   let inputRef;
 
-  $: searchTerms = normalizeDiacritics(inputValue.toLowerCase()).split(/\s+/).filter(Boolean);
-  $: filteredItems = $harnesses.filter(item => {
-    const car = normalizeDiacritics(`${item.car} ${item.yearList ?? ''}`.toLowerCase());  // add all years in range
-    return searchTerms.every(term => car.includes(term));
-  });
+  $: terms = searchTerms(inputValue);
+  $: filteredItems = $harnesses.filter(item =>
+    matchesSearch(`${item.car} ${item.yearList ?? ''}`, terms)  // add all years in range
+  );
 
   const handleClear = () => {
     // clear search input or close menu
@@ -162,7 +157,7 @@
     <span class="chevron">{@html ChevronIcon}</span>
   </div>
   <div class="dropdown-content" class:show={menuOpen}>
-    {#if searchTerms.length > 0}
+    {#if terms.length > 0}
       {#if filteredItems.length > 0}
         {#each filteredItems as item}
           <DropdownItem value={item} on:click={() => handleOptionClick(item)} on:keydown={(e) => handleOptionKeyDown(e, item)} />

@@ -11,6 +11,11 @@
 
   let everything = true;
 
+  // Lets a page prefill the car field, e.g. from a search that found nothing
+  export function setCar(value) {
+    car.set(value);
+  }
+
   $: primaryCategory = EMAIL_CATEGORIES.find(({ key }) => key === defaultCategory);
   $: $selectedCategories = everything ? EMAIL_CATEGORIES.map(({ key }) => key) : [defaultCategory];
 </script>
