@@ -26,12 +26,13 @@
 
   let filter = '';
 
-  $: filteredVehicles = Object.entries(vehicles)
-    .map(([make, cars]) => [
-      make,
-      cars.filter(car => matchesSearch(`${car.name} ${car.year_list.replaceAll(',', '')}`, filter)),
-    ])
-    .filter(([, cars]) => cars.length !== 0);
+  // Unmatched cars are hidden with CSS
+  $: matches = new Set(
+    Object.values(vehicles)
+      .flat()
+      .filter(car => matchesSearch(`${car.name} ${car.year_list.replaceAll(',', '')}`, filter))
+      .map(car => car.name)
+  );
 </script>
 
 <div class="vehicles-cover-image"></div>
@@ -128,17 +129,19 @@
 
     <p class="last-updated">Last updated: {compatibilityMeta.last_updated}</p>
 
-    {#each filteredVehicles as [make, cars]}
+    {#each Object.entries(vehicles) as [make, cars]}
+      {#if cars.length !== 0}
       {@const brand_img_path = `/src/lib/images/vehicles/brand-icons/Logo-${make}.png`}
-      <div id={make.toLowerCase()} class="car-make-header">
+      {@const matchCount = cars.filter(car => matches.has(car.name)).length}
+      <div id={make.toLowerCase()} class="car-make-header" class:filtered-out={matchCount === 0}>
         {#if brand_images[brand_img_path]}
           <img src={brand_images[brand_img_path].default} alt="{make} car brand" />
         {/if}
-        <h3>{make} <span class="muted">({cars.length})</span></h3>
+        <h3>{make} <span class="muted">({matchCount})</span></h3>
       </div>
 
       {#each cars as car_info}
-        <div class="car-row">
+        <div class="car-row" class:filtered-out={!matches.has(car_info.name)}>
           <Accordion backgroundColor="var(--color-card-background)">
             <div slot="label">
               <div class="car-details-wrapper">
@@ -213,9 +216,10 @@
           </Accordion>
         </div>
       {/each}
+      {/if}
     {/each}
 
-    {#if filteredVehicles.length === 0}
+    {#if matches.size === 0}
       <div class="no-matches">
         <strong>openpilot doesn't support {filter} yet</strong>
         <a href="/vehicles?car={encodeURIComponent(filter)}#email-updates">Get an email when it does &rarr;</a>
@@ -569,5 +573,10 @@
 
   #faq {
     margin-bottom: 3rem;
+  }
+
+  /* Last, so it beats the `display` the rows and make headers set for themselves */
+  .filtered-out {
+    display: none;
   }
 </style>
