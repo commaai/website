@@ -26,6 +26,7 @@
   const brand_images = import.meta.glob('$lib/images/vehicles/brand-icons/*.png', { eager: true });
 
   let filter = '';
+  const total = Object.values(vehicles).flat().length;
 
   // Unmatched cars are hidden with CSS
   $: matches = new Set(
@@ -119,24 +120,30 @@
 
 <section class="light" id="compatibility-chart">
   <div class="container" style="width:85%; max-width: 60rem">
-    <label class="filter-label" for="vehicle-filter">Find your car</label>
-    <div class="filter-field">
-      <input
-        id="vehicle-filter"
-        class="vehicle-filter"
-        type="search"
-        placeholder="e.g. 2023 camry"
-        autocomplete="off"
-        bind:value={filter}
-      >
-      {#if filter}
-        <button class="clear" type="button" aria-label="Clear filter" on:click={() => filter = ''}>
-          {@html CloseIcon}
-        </button>
-      {/if}
+    <div class="filter-card">
+      <div class="filter-head">
+        <label class="filter-label" for="vehicle-filter">Find your car</label>
+        <span class="filter-meta">
+          <strong class="count" class:searching={filter.trim()}>{matches.size}/{total} &middot;</strong>
+          updated {compatibilityMeta.last_updated}
+        </span>
+      </div>
+      <div class="filter-field">
+        <input
+          id="vehicle-filter"
+          class="vehicle-filter"
+          type="search"
+          placeholder="e.g. 2023 camry"
+          autocomplete="off"
+          bind:value={filter}
+        >
+        {#if filter}
+          <button class="clear" type="button" aria-label="Clear filter" on:click={() => filter = ''}>
+            {@html CloseIcon}
+          </button>
+        {/if}
+      </div>
     </div>
-
-    <p class="last-updated">Last updated: {compatibilityMeta.last_updated}</p>
 
     {#each Object.entries(vehicles) as [make, cars]}
       {#if cars.length !== 0}
@@ -346,11 +353,50 @@
     }
   }
 
-  .filter-label {
-    display: block;
+  .filter-card {
+    margin: 3rem 0;
+    padding: 3rem;
+    background-color: var(--color-card-background);
+    border: 1px solid rgba(0, 0, 0, .4);
+  }
+
+  @media screen and (max-width: 768px) {
+    .filter-card {
+      padding: 2rem 1rem;
+    }
+  }
+
+  .filter-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.25rem 1rem;
     margin-bottom: 0.5rem;
+  }
+
+  .filter-label {
     font-size: 1.125rem;
     font-weight: 700;
+  }
+
+  .filter-meta {
+    color: rgba(0, 0, 0, 0.55);
+    font-size: 1rem;
+    font-style: italic;
+  }
+
+  .filter-meta .count {
+    color: #000;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 700;
+    opacity: 0;
+    transition: opacity 0.1s;
+  }
+
+  .filter-meta .count.searching {
+    opacity: 1;
   }
 
   .filter-field {
@@ -363,7 +409,7 @@
     padding: 1rem 3rem 1rem 1rem;
     color: #000;
     font: inherit;
-    background: var(--color-card-background);
+    background: #fff;
     border: 1px solid #000;
 
     &:focus-visible {
@@ -385,12 +431,6 @@
     cursor: pointer;
     background-color: transparent;
     border: none;
-  }
-
-  .last-updated {
-    text-align: center;
-    font-style: italic;
-    margin-bottom: 1rem;
   }
 
   .no-matches {
