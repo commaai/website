@@ -41,6 +41,18 @@
       device: "comma four",
       body: "Using the interface on the new Comma 4 from @comma_ai",
     },
+    towing: {
+      clip: "towing",
+      id: "2032220543001248048",
+      author: "gerrylum2",
+      name: "Gerry Valentine",
+      timestamp: "Mar 12, 2026",
+      poster: "gerrylum2-towing",
+      aspect: "16 / 9",
+      duration: "0:21",
+      device: "Rivian R1T, towing",
+      body: "How does it feel to hands-free tow a camping trailer with a Gen 1 Rivian and @comma_ai? Pretty darn good!",
+    },
     cones: {
       clip: "cones",
       id: "2086513866826269097",
