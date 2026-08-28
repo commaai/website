@@ -254,16 +254,16 @@
     left: 50%;
     bottom: 0.75rem;
     display: flex;
-    gap: 0.4rem;
-    padding: 0.35rem 0.5rem;
+    gap: 0.45rem;
+    padding: 0.45rem 0.6rem;
     background: rgba(0, 0, 0, 0.55);
     border-radius: 999px;
     transform: translateX(-50%);
   }
 
   .dot {
-    width: 0.5rem;
-    height: 0.5rem;
+    width: 0.5625rem;
+    height: 0.5625rem;
     padding: 0;
     cursor: pointer;
     background: rgba(255, 255, 255, 0.4);

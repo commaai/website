@@ -192,7 +192,22 @@
     PARKED.snow,
     PARKED.citystreets,
   ];
-  const heroClips = [VIDEOS.cones, VIDEOS.towing, VIDEOS.miles, VIDEOS.rain];
+  const heroClips = [
+    VIDEOS.rain,
+    VIDEOS.cones,
+    PARKED.snow,
+    PARKED.turns,
+    VIDEOS.towing,
+    VIDEOS.miles,
+    // VIDEOS.ui,
+    VIDEOS.arches,
+    PARKED.wilderness,
+    PARKED.windmills,
+    PARKED.timelapse,
+    PARKED.nolanes,
+    PARKED.unmarked,
+    PARKED.citystreets,
+  ];
 
   const VARIANTS = [
     { n: 1, title: "Two wide, text below", note: "Both videos span two columns on the top row, the six text cards fill in beneath. The size difference is paid for by the video." },
