@@ -2,10 +2,8 @@
   import XIcon from "$lib/icons/social/x.svg?raw";
   import { tweets } from "$lib/constants/tweets.js";
 
-  // served as-is rather than built, so this can point at the CDN instead
   const VIDEO_BASE = "/videos/tweets";
 
-  // profile pictures, named by handle — see scripts/update-tweet-avatars.sh
   const avatars = import.meta.glob("$lib/images/tweets/avatars/*.jpg", {
     eager: true,
     query: "?url",
@@ -20,7 +18,6 @@
     import: "default",
   });
   const videoFor = (post) => `${post.handle}-${post.id}`;
-  // vite.config forces as=picture on every jpg, so this is an object, not a url
   const posterFor = (post) =>
     posters[`/src/lib/images/tweets/posters/${videoFor(post)}.jpg`]?.img?.src;
 
@@ -50,7 +47,6 @@
     {@const last = thread[thread.length - 1]}
     <a
       class="tweet"
-      class:video={thread[0].video}
       class:thread={thread.length > 1}
       href="https://x.com/{last.handle}/status/{last.id}"
       target="_blank"
@@ -74,13 +70,9 @@
       {#each thread as post, i}
         <div class="post" class:reply={i > 0}>
           <div class="head">
-            {#if avatarFor(post.handle)}
-              <img class="avatar" src={avatarFor(post.handle)} alt="" loading="lazy" />
-            {:else}
-              <span class="avatar initial" aria-hidden="true">{post.handle[0].toUpperCase()}</span>
-            {/if}
+            <img class="avatar" src={avatarFor(post.handle)} alt="" loading="lazy" />
             <span class="who">
-              {#if post.name}<span class="name">{post.name}</span>{/if}
+              <span class="name">{post.name}</span>
               <span class="handle">@{post.handle}</span>
             </span>
             {#if i === 0}
@@ -118,7 +110,7 @@
     overflow: hidden;
   }
 
-  /* overhangs a pixel each side — an exact fit rounds short of the frame at some zooms */
+  /* exact fit has black border at some zooms */
   .frame video {
     position: absolute;
     top: -1px;
@@ -202,15 +194,6 @@
     height: 2.25rem;
     width: 2.25rem;
     object-fit: cover;
-  }
-
-  .avatar.initial {
-    align-items: center;
-    color: var(--color-accent);
-    display: flex;
-    font-family: JetBrains Mono, monospace;
-    font-size: 0.9rem;
-    justify-content: center;
   }
 
   .who {
