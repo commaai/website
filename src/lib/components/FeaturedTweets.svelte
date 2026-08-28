@@ -23,7 +23,7 @@
 
   const wall = tweets.map((entry) => (Array.isArray(entry) ? entry : [entry]));
 
-  // only the clips on screen decode
+  // load on play, which is triggered by page position to not download over hero video
   function playWhenVisible(node) {
     if (typeof IntersectionObserver === "undefined") return;
     const io = new IntersectionObserver(
@@ -31,7 +31,7 @@
         if (entry.isIntersecting) node.play().catch(() => {});
         else node.pause();
       },
-      { threshold: 0.25 }
+      { rootMargin: "300px" }
     );
     io.observe(node);
     return { destroy: () => io.disconnect() };
@@ -61,11 +61,10 @@
             use:playWhenVisible
             src="/videos/tweets/{clipFor(posts[0])}.mp4"
             poster={posterFor(posts[0])}
-            autoplay
             muted
             loop
             playsinline
-            preload="metadata"
+            preload="none"
           ></video>
           <span class="dur">{posts[0].duration}</span>
         </div>
