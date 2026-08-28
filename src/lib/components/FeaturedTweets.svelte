@@ -1,6 +1,6 @@
 <script>
   import XIcon from "$lib/icons/social/x.svg?raw";
-  import { tweets } from "$lib/constants/social-proof.js";
+  import { tweets, videoTweets } from "$lib/constants/social-proof.js";
 
   // profile pictures, named by handle — see scripts/update-tweet-avatars.sh
   const avatars = import.meta.glob("$lib/images/featured-tweets/*.jpg", {
@@ -11,6 +11,32 @@
   const avatarFor = (author) =>
     avatars[`/src/lib/images/featured-tweets/${author}.jpg`];
 
+  const posters = import.meta.glob("$lib/images/featured-tweets/video/*.jpg", {
+    eager: true,
+    query: "?url",
+    import: "default",
+  });
+  const posterFor = (file) =>
+    posters[`/src/lib/images/featured-tweets/video/${file}.jpg`];
+
+  // Three videos then three quotes fills the grid exactly, so at three columns the
+  // clips take the top row on their own and the text sits beneath as its own band
+  const quotes = tweets.slice(0, 3);
+
+  // Only the clips on screen decode, so a row of them costs about one video
+  function playWhenVisible(node) {
+    if (typeof IntersectionObserver === "undefined") return;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) node.play().catch(() => {});
+        else node.pause();
+      },
+      { threshold: 0.25 }
+    );
+    io.observe(node);
+    return { destroy: () => io.disconnect() };
+  }
+
   // @handles become links; everything else renders as plain text
   const segment = (body) =>
     body.split(/(@\w+)/).map((part) => ({
@@ -20,7 +46,47 @@
 </script>
 
 <div class="tweet-wall">
-  {#each tweets as tweet}
+  {#each videoTweets as tweet}
+    <a
+      class="tweet video"
+      href="https://x.com/{tweet.author}/status/{tweet.id}"
+      target="_blank"
+      rel="noopener"
+    >
+      <div class="frame">
+        <video
+          use:playWhenVisible
+          src="/videos/tweets/{tweet.clip}.mp4"
+          poster={posterFor(tweet.poster)}
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+        ></video>
+        <span class="dur">{tweet.duration}</span>
+      </div>
+
+      <div class="meta">
+        <div class="head">
+          {#if avatarFor(tweet.author)}
+            <img class="avatar" src={avatarFor(tweet.author)} alt="" width="36" height="36" loading="lazy" />
+          {:else}
+            <span class="avatar initial" aria-hidden="true">{tweet.author[0].toUpperCase()}</span>
+          {/if}
+          <span class="who">
+            {#if tweet.name}<span class="name">{tweet.name}</span>{/if}
+            <span class="handle">@{tweet.author}</span>
+          </span>
+          <span class="mark" aria-hidden="true">{@html XIcon}</span>
+        </div>
+        <p class="body">{#each segment(tweet.body) as part}{#if part.handle}<span class="mention">{part.text}</span>{:else}{part.text}{/if}{/each}</p>
+        <span class="date">{tweet.timestamp}</span>
+      </div>
+    </a>
+  {/each}
+
+  {#each quotes as tweet}
     <a
       class="tweet"
       href="https://x.com/{tweet.author}/status/{tweet.id}"
@@ -66,6 +132,44 @@
     .tweet-wall {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+  }
+
+  .tweet.video {
+    padding: 0;
+    gap: 0;
+  }
+
+  .frame {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    overflow: hidden;
+  }
+
+  .frame video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .dur {
+    position: absolute;
+    right: 0.6rem;
+    bottom: 0.6rem;
+    padding: 0.1rem 0.4rem;
+    color: #fff;
+    font-family: JetBrains Mono, monospace;
+    font-size: 0.6875rem;
+    background: rgba(0, 0, 0, 0.75);
+  }
+
+  .meta {
+    display: flex;
+    flex-flow: column;
+    flex: 1;
+    gap: 0.875rem;
+    padding: 1.25rem 1.5rem 1.5rem;
   }
 
   .tweet {
@@ -153,6 +257,11 @@
     display: flex;
     margin-left: auto;
     opacity: 0.35;
+    transition: opacity 0.2s ease;
+  }
+
+  .tweet:hover .mark {
+    opacity: 1;
   }
 
   .body {
