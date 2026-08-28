@@ -41,6 +41,18 @@
       device: "comma four",
       body: "Using the interface on the new Comma 4 from @comma_ai",
     },
+    cones: {
+      clip: "cones",
+      id: "2086513866826269097",
+      author: "ANSR42",
+      name: "Mike LaBarbera",
+      timestamp: "Aug 9, 2026",
+      poster: "ANSR42-cones",
+      aspect: "16 / 9",
+      duration: "0:10",
+      device: "comma four",
+      body: "The road crew left cones creeping across my lane, my comma four planned around them. No sensor on my @comma_ai four flags a cone and says move over. It's not reading a label, it's reading the road.",
+    },
     arches: {
       clip: "arches",
       id: "2067378850716336354",
@@ -52,6 +64,46 @@
       duration: "0:59",
       device: "sped up 5x",
       body: "Letting @comma_ai drive us through Arches National Park! (Speed increased 5x)",
+    },
+  };
+
+  // Downloaded and encoded, not placed in any layout yet
+  const PARKED = {
+    snow: {
+      clip: "snow",
+      id: "2018144442411069873",
+      author: "gerrylum2",
+      name: "Gerry Valentine",
+      timestamp: "Feb 2, 2026",
+      poster: "gerrylum2-snow",
+      aspect: "16 / 9",
+      duration: "2:14",
+      device: "comma four, Rivian R1T",
+      body: "Hands-free lane centering on completely snow-covered roads in a 2022 Gen 1 Rivian R1T with a Comma 4 powered by Openpilot and @comma_ai. No lane lines necessary.",
+    },
+    citystreets: {
+      clip: "citystreets",
+      id: "2024956048059052123",
+      author: "ANSR42",
+      name: "Mike LaBarbera",
+      timestamp: "Feb 20, 2026",
+      poster: "ANSR42-citystreets",
+      aspect: "16 / 9",
+      duration: "4:20",
+      device: "comma four, Tesla Model Y",
+      body: "I'm seriously impressed with @comma_ai Here's a longer clip of the comma 4 running in my 2020 Tesla Model Y — handling city street turns.",
+    },
+    timelapse: {
+      clip: "timelapse",
+      id: "2056853588056645782",
+      author: "AlexBowden52",
+      name: "Alex",
+      timestamp: "May 19, 2026",
+      poster: "AlexBowden52-timelapse",
+      aspect: "16 / 9",
+      duration: "0:30",
+      device: "timelapse",
+      body: "I heard openpilot timelapses are cool @comma_ai",
     },
   };
 
@@ -80,7 +132,17 @@
         {#each Object.values(VIDEOS) as v}
           <li>
             <a href="https://x.com/{v.author}/status/{v.id}" target="_blank" rel="noopener">@{v.author}</a>
-            &middot; {v.duration} &middot; {v.aspect.replace(" / ", ":")} &middot; {v.device}
+            &middot; {v.duration} &middot; {v.device}
+          </li>
+        {/each}
+      </ul>
+
+      <strong class="parked-head">Saved, not placed</strong>
+      <ul>
+        {#each Object.values(PARKED) as v}
+          <li>
+            <a href="https://x.com/{v.author}/status/{v.id}" target="_blank" rel="noopener">@{v.author}</a>
+            &middot; {v.duration} &middot; {v.device}
           </li>
         {/each}
       </ul>
@@ -113,7 +175,7 @@
           <div class="band">
             <div><VideoCard video={VIDEOS.rain} /></div>
             <div><VideoCard video={VIDEOS.miles} /></div>
-            <div><VideoCard video={VIDEOS.arches} /></div>
+            <div><VideoCard video={VIDEOS.cones} /></div>
           </div>
           <div class="band">
             {#each tweets.slice(0, 3) as t}<div><TextCard tweet={t} /></div>{/each}
@@ -122,7 +184,7 @@
         {:else}
           <div class="band">
             <div><VideoCard video={VIDEOS.rain} /></div>
-            <div><VideoCard video={VIDEOS.arches} /></div>
+            <div><VideoCard video={VIDEOS.cones} /></div>
             {#each tweets.slice(0, 4) as t}<div><TextCard tweet={t} /></div>{/each}
           </div>
         {/if}
@@ -156,6 +218,11 @@
   .notes ul {
     margin: 0.5rem 0 0;
     padding-left: 1.1rem;
+  }
+
+  .parked-head {
+    display: block;
+    margin-top: 1rem;
   }
 
   .notes li {
