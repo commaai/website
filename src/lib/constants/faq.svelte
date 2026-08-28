@@ -494,11 +494,6 @@
       image: ShopImage,
       questions: [
         {
-          question: 'I would like to match a price change.',
-          answer: `
-            We do not offer price matching.
-          `
-        }, {
           question: 'Is the 1-year hardware warranty transferable?',
           answer: `
             Yes. Hardware in the comma shop comes with a 1 year limited warranty against
