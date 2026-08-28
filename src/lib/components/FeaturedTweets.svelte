@@ -2,16 +2,19 @@
   import XIcon from "$lib/icons/social/x.svg?raw";
   import { tweets } from "$lib/constants/tweets.js";
 
+  // served as-is rather than built, so this can point at the CDN instead
+  const VIDEO_BASE = "/videos/tweets";
+
   // profile pictures, named by handle — see scripts/update-tweet-avatars.sh
-  const avatars = import.meta.glob("$lib/images/featured-tweets/*.jpg", {
+  const avatars = import.meta.glob("$lib/images/tweets/avatars/*.jpg", {
     eager: true,
     query: "?url",
     import: "default",
   });
   const avatarFor = (handle) =>
-    avatars[`/src/lib/images/featured-tweets/${handle}.jpg`];
+    avatars[`/src/lib/images/tweets/avatars/${handle}.jpg`];
 
-  const posters = import.meta.glob("$lib/images/featured-tweets/video/*.jpg", {
+  const posters = import.meta.glob("$lib/images/tweets/posters/*.jpg", {
     eager: true,
     query: "?url",
     import: "default",
@@ -19,7 +22,7 @@
   const videoFor = (post) => `${post.handle}-${post.id}`;
   // vite.config forces as=picture on every jpg, so this is an object, not a url
   const posterFor = (post) =>
-    posters[`/src/lib/images/featured-tweets/video/${videoFor(post)}.jpg`]?.img?.src;
+    posters[`/src/lib/images/tweets/posters/${videoFor(post)}.jpg`]?.img?.src;
 
   // load on play, which is triggered by page position to not download over hero video
   function playWhenVisible(node) {
@@ -57,7 +60,7 @@
         <div class="frame">
           <video
             use:playWhenVisible
-            src="/videos/tweets/{videoFor(thread[0])}.mp4"
+            src="{VIDEO_BASE}/{videoFor(thread[0])}.mp4"
             poster={posterFor(thread[0])}
             muted
             loop

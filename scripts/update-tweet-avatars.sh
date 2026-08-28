@@ -14,7 +14,7 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 SOURCE="$ROOT/src/lib/constants/tweets.js"
-OUT="$ROOT/src/lib/images/featured-tweets"
+OUT="$ROOT/src/lib/images/tweets/avatars"
 
 mkdir -p "$OUT"
 
