@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# Re-download the profile pictures for the tweets in src/lib/constants/social-proof.js.
+# Re-download the profile pictures for the tweets in src/lib/constants/tweets.js.
 #
 # Run this when a tweet is added to that file, or when someone's picture or handle
 # goes stale. Avatars are saved as <handle>.jpg and matched by handle in
-# FeaturedTweets.svelte, so a renamed handle needs updating in social-proof.js too —
+# FeaturedTweets.svelte, so a renamed handle needs updating in tweets.js too —
 # this script prints the handle X currently reports for each tweet id.
 #
 #   ./scripts/update-tweet-avatars.sh
@@ -13,7 +13,7 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-SOURCE="$ROOT/src/lib/constants/social-proof.js"
+SOURCE="$ROOT/src/lib/constants/tweets.js"
 OUT="$ROOT/src/lib/images/featured-tweets"
 
 mkdir -p "$OUT"
@@ -35,4 +35,4 @@ done
 
 echo
 echo "Saved to $OUT"
-echo "Any handle above that differs from social-proof.js needs updating there."
+echo "Any handle above that differs from tweets.js needs updating there."

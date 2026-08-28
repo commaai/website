@@ -1,6 +1,6 @@
 <script>
   import XIcon from "$lib/icons/social/x.svg?raw";
-  import { tweets } from "$lib/constants/social-proof.js";
+  import { tweets } from "$lib/constants/tweets.js";
 
   // profile pictures, named by handle — see scripts/update-tweet-avatars.sh
   const avatars = import.meta.glob("$lib/images/featured-tweets/*.jpg", {
