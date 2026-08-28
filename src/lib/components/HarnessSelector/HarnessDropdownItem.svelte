@@ -47,12 +47,8 @@
     }
   }
 
-  a.dropdown-item {
-    text-decoration: none;
-
-    & .subtitle {
-      text-decoration: underline;
-    }
+  a.dropdown-item .subtitle {
+    text-decoration: underline;
   }
 
   .item-info {

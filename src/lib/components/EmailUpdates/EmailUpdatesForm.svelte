@@ -11,13 +11,10 @@
   const { email, car, selectedCategories, status, errorMessage, submit } = createEmailUpdatesForm();
 
   let everything = true;
-  let seededFromUrl = false;
 
-  // Linked to from elsewhere as ?car=2017%20bolt#email-updates
-  $: if (askForCar && !seededFromUrl && $page.url.searchParams.get('car')) {
-    car.set($page.url.searchParams.get('car'));
-    seededFromUrl = true;
-  }
+  // linked to as ?car=2017%20bolt#email-updates
+  $: carParam = askForCar ? $page.url.searchParams.get('car') : null;
+  $: if (carParam) car.set(carParam);
 
   $: primaryCategory = EMAIL_CATEGORIES.find(({ key }) => key === defaultCategory);
   $: $selectedCategories = everything ? EMAIL_CATEGORIES.map(({ key }) => key) : [defaultCategory];

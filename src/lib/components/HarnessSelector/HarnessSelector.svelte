@@ -208,7 +208,7 @@
   width: 100%;
 }
 
-/* Nudged out of the row's 3rem padding to line up with the chevron above. */
+/* nudged out of the row's padding to line up with the chevron */
 .no-match-arrow {
   position: relative;
   left: 26px;
