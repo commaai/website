@@ -7,11 +7,32 @@
 
 export const tweets = [
   {
+    id: "2086638136214298970",
+    author: "gerrylum2",
+    name: "Gerry Valentine",
+    timestamp: "Aug 9, 2026",
+    body: "Everyone says @comma_ai is \"basically hands-free.\" So I logged a full typical commute in my 2022 Rivian R1T and created a script to count every second.\n\nI measured it. 99.2%. The wheel is basically furniture at this point. No subscriptions.",
+  },
+  {
+    id: "2082241066322079915",
+    author: "LivingInKaos",
+    name: "LivingInKaos",
+    timestamp: "Jul 28, 2026",
+    body: "I'm about to pass 15k miles on my Comma 4.  Can't remember where I was on the 3x before moving up, but I know it was a bit more than that.  I engage as soon as I can, every, damn, time.....",
+  },
+  {
     id: "2030704177496633425",
     author: "ANSR42",
     name: "Mike LaBarbera",
     timestamp: "Mar 8, 2026",
     body: "@comma_ai 4 device on a Tesla Model Y in experimental mode tackling city streets. Every time I use this device, I become more and more convinced that vision-based self-driving vehicles are the future. I love that I can avoid a subscription and own my open-source AI software.",
+  },
+  {
+    id: "1987361136874820059",
+    author: "tessadotsh",
+    name: "tessa",
+    timestamp: "Nov 8, 2025",
+    body: "vouch for @comma_ai, makes a 12 hour road trip feel like 6. been driving with it for over 24k miles, most of which engaged. easily one of the best purchases i've ever made.",
   },
   {
     id: "1962586420989833333",
@@ -49,6 +70,23 @@ export const tweets = [
     body: "@comma_ai I can honestly say the C3 is the single best purchase I've ever made. I can't imagine driving without it now",
   },
 ];
+
+// A two-post exchange rendered as one card: a stock driver assist drops a road someone
+// relied on, and the reply points at comma. Both halves are needed for it to make sense,
+// so the card links to the reply and quotes the post it answers. Text is the visible
+// tweet, with the leading @handles X hides on a reply left off.
+export const threadTweet = {
+  id: "2061886502184026311",
+  author: "SnazzyLabs",
+  name: "Quinn Nelson",
+  timestamp: "Jun 2, 2026",
+  body: "Time to get a Comma 4. It's way better at everything.",
+  answers: {
+    author: "Mikekantorski",
+    name: "Mike Kantorski",
+    body: "Today my Rivian chose violence and decided the road I use highway assist on everyday is no longer available.",
+  },
+};
 
 // Posts whose video we host ourselves. duration is the full clip on X; we loop a
 // ten second cut of it. Clips live in static/videos/tweets, posters alongside the avatars.
@@ -94,20 +132,6 @@ export const statTweets = [
     name: "Matt Varughese",
     timestamp: "Nov 3, 2025",
     body: "My best technology purchase of the year has easily been the Comma 3X (@comma_ai.)\n\n* $999\n* Adds basic self-driving to your vehicle\n* Installed in an hour\n* No subscriptions\n\nI'm **shocked** at how good it's been. It feels like magic to be able to install a form of self-driving that doesn't exist in my truck otherwise.\n\nMe and a buddy installed it on my truck before I went to Yellowstone + Wyoming recently. Of the ~5,000 miles I did, I probably only had to drive myself about 20%?\n\nI have absolutely no affiliation to the company, but I think you should support it if you're ever looking to add basic auto-pilot to your car. 325+ cars are supported!",
-  },
-  {
-    id: "2086638136214298970",
-    author: "gerrylum2",
-    name: "Gerry Valentine",
-    timestamp: "Aug 9, 2026",
-    body: "Everyone says @comma_ai is \"basically hands-free.\" So I logged a full typical commute in my 2022 Rivian R1T and created a script to count every second.\n\nI measured it. 99.2%. The wheel is basically furniture at this point. No subscriptions.",
-  },
-  {
-    id: "1987361136874820059",
-    author: "tessadotsh",
-    name: "tessa",
-    timestamp: "Nov 8, 2025",
-    body: "vouch for @comma_ai, makes a 12 hour road trip feel like 6. been driving with it for over 24k miles, most of which engaged. easily one of the best purchases i've ever made.",
   },
 ];
 

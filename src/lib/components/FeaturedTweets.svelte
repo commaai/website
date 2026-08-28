@@ -1,6 +1,6 @@
 <script>
   import XIcon from "$lib/icons/social/x.svg?raw";
-  import { tweets, videoTweets } from "$lib/constants/social-proof.js";
+  import { tweets, videoTweets, threadTweet } from "$lib/constants/social-proof.js";
 
   // profile pictures, named by handle — see scripts/update-tweet-avatars.sh
   const avatars = import.meta.glob("$lib/images/featured-tweets/*.jpg", {
@@ -20,8 +20,10 @@
     posters[`/src/lib/images/featured-tweets/video/${file}.jpg`];
 
   // Three videos then three quotes fills the grid exactly, so at three columns the
-  // clips take the top row on their own and the text sits beneath as its own band
-  const quotes = tweets.slice(0, 3);
+  // clips take the top row on their own and the text sits beneath as its own band.
+  // Nothing here may claim the car drives itself, or name a product we no longer sell.
+  const byHandle = (handle) => tweets.find((tweet) => tweet.author === handle);
+  const quotes = [threadTweet, byHandle("tessadotsh"), byHandle("LivingInKaos")];
 
   // Only the clips on screen decode, so a row of them costs about one video
   function playWhenVisible(node) {
@@ -87,32 +89,62 @@
   {/each}
 
   {#each quotes as tweet}
+    <!-- a thread card leads with the post being answered, and nests the reply under it -->
+    {@const top = tweet.answers ?? tweet}
     <a
       class="tweet"
+      class:thread={tweet.answers}
       href="https://x.com/{tweet.author}/status/{tweet.id}"
       target="_blank"
       rel="noopener"
     >
-      <div class="head">
-        {#if avatarFor(tweet.author)}
-          <img
-            class="avatar"
-            src={avatarFor(tweet.author)}
-            alt=""
-            width="36"
-            height="36"
-            loading="lazy"
-          />
-        {:else}
-          <span class="avatar initial" aria-hidden="true">{tweet.author[0].toUpperCase()}</span>
-        {/if}
-        <span class="who">
-          {#if tweet.name}<span class="name">{tweet.name}</span>{/if}
-          <span class="handle">@{tweet.author}</span>
-        </span>
-        <span class="mark" aria-hidden="true">{@html XIcon}</span>
+      <div class="post">
+        <div class="head">
+          {#if avatarFor(top.author)}
+            <img
+              class="avatar"
+              src={avatarFor(top.author)}
+              alt=""
+              width="36"
+              height="36"
+              loading="lazy"
+            />
+          {:else}
+            <span class="avatar initial" aria-hidden="true">{top.author[0].toUpperCase()}</span>
+          {/if}
+          <span class="who">
+            {#if top.name}<span class="name">{top.name}</span>{/if}
+            <span class="handle">@{top.author}</span>
+          </span>
+          <span class="mark" aria-hidden="true">{@html XIcon}</span>
+        </div>
+        <p class="body">{#each segment(top.body) as part}{#if part.handle}<span class="mention">{part.text}</span>{:else}{part.text}{/if}{/each}</p>
       </div>
-      <p class="body">{#each segment(tweet.body) as part}{#if part.handle}<span class="mention">{part.text}</span>{:else}{part.text}{/if}{/each}</p>
+
+      {#if tweet.answers}
+        <div class="post reply">
+          <div class="head">
+            {#if avatarFor(tweet.author)}
+              <img
+                class="avatar"
+                src={avatarFor(tweet.author)}
+                alt=""
+                width="36"
+                height="36"
+                loading="lazy"
+              />
+            {:else}
+              <span class="avatar initial" aria-hidden="true">{tweet.author[0].toUpperCase()}</span>
+            {/if}
+            <span class="who">
+              <span class="name">{tweet.name}</span>
+              <span class="handle">@{tweet.author}</span>
+            </span>
+          </div>
+          <p class="body">{#each segment(tweet.body) as part}{#if part.handle}<span class="mention">{part.text}</span>{:else}{part.text}{/if}{/each}</p>
+        </div>
+      {/if}
+
       <span class="date">{tweet.timestamp}</span>
     </a>
   {/each}
@@ -146,10 +178,15 @@
     overflow: hidden;
   }
 
+  /* overhangs by a pixel on each side: the frame width lands on fractions, and an exact
+     fit lets the painted edge round short of the black background behind it */
   .frame video {
+    position: absolute;
+    top: -1px;
+    left: -1px;
     display: block;
-    width: 100%;
-    height: 100%;
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
     object-fit: cover;
   }
 
@@ -175,28 +212,20 @@
   .tweet {
     box-sizing: border-box; /* no global border-box reset in app.css */
     background-color: #0d0d0d;
-    border: 1px solid #262626;
+    border: 2px solid #262626;
     display: flex;
     flex-flow: column;
     gap: 0.875rem;
     padding: 1.5rem;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 0 0 rgba(81, 255, 0, 0);
-
-    transition:
-      background-color 0.2s ease,
-      box-shadow 0.16s ease-out,
-      transform 0.32s cubic-bezier(0.22, 1.2, 0.36, 1);
+    transition: border-color 0.2s ease;
   }
 
   @media (hover: hover) and (pointer: fine) {
-    /* box-shadow rather than a thicker border so nothing reflows */
+    /* the border is the whole effect — nothing moves, nothing else changes */
     .tweet:hover {
-      background-color: #131313;
-      box-shadow: 5px 5px 0 var(--color-accent);
-      transform: translate(-6px, -6px);
-      z-index: 1;
+      border-color: var(--color-accent);
     }
   }
 
@@ -204,6 +233,33 @@
     align-items: center;
     display: flex;
     gap: 0.75rem;
+  }
+
+  .post {
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    gap: 0.875rem;
+  }
+
+  .reply {
+    padding-top: 0.875rem;
+  }
+
+  /* the thread line runs from one picture to the next, so the post it passes indents to
+     leave it a gutter — the reply's own text stays back at the card edge */
+  .thread .post:first-child .body {
+    padding-left: 3rem;
+  }
+
+  .thread .post:first-child::after {
+    content: "";
+    position: absolute;
+    left: 1.0625rem;
+    top: 2.625rem;
+    bottom: -1.75rem;
+    width: 2px;
+    background: #262626;
   }
 
   .avatar {
@@ -295,13 +351,4 @@
     }
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .tweet {
-      transition: background-color 0.2s ease, box-shadow 0.16s ease-out;
-    }
-
-    .tweet:hover {
-      transform: none;
-    }
-  }
 </style>
