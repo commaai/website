@@ -21,20 +21,6 @@
   const posterFor = (post) =>
     posters[`/src/lib/images/tweets/posters/${videoFor(post)}.jpg`]?.img?.src;
 
-  // load on play, which is triggered by page position to not download over hero video
-  function playWhenVisible(node) {
-    if (typeof IntersectionObserver === "undefined") return;
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) node.play().catch(() => {});
-        else node.pause();
-      },
-      { rootMargin: "300px" }
-    );
-    io.observe(node);
-    return { destroy: () => io.disconnect() };
-  }
-
   const segment = (body) =>
     body.split(/(@\w+)/).map((part) => ({
       text: part,
@@ -55,13 +41,12 @@
       {#if thread[0].video}
         <div class="frame">
           <video
-            use:playWhenVisible
             src="{VIDEO_BASE}/{videoFor(thread[0])}.mp4"
             poster={posterFor(thread[0])}
+            autoplay
             muted
             loop
             playsinline
-            preload="none"
           ></video>
           <span class="dur">{thread[0].duration}</span>
         </div>
@@ -148,6 +133,10 @@
     .tweet:hover {
       border-color: var(--color-accent);
     }
+
+    .tweet:hover .x-icon {
+      opacity: 1;
+    }
   }
 
   .head {
@@ -232,14 +221,10 @@
     transition: opacity 0.2s ease;
   }
 
-  .tweet:hover .x-icon {
-    opacity: 1;
-  }
-
   .body {
     color: #ededed;
     font-size: 1rem;
-    line-height: 1.5;
+    line-height: 1.4;
     margin: 0;
     white-space: pre-line;
   }
