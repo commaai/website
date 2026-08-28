@@ -1,8 +1,8 @@
 <script>
   import XIcon from "$lib/icons/social/x.svg?raw";
-  import { tweets } from "$lib/constants/social-proof.js";
 
-  // profile pictures, named by handle — see scripts/update-tweet-avatars.sh
+  export let tweet;
+
   const avatars = import.meta.glob("$lib/images/featured-tweets/*.jpg", {
     eager: true,
     query: "?url",
@@ -11,7 +11,6 @@
   const avatarFor = (author) =>
     avatars[`/src/lib/images/featured-tweets/${author}.jpg`];
 
-  // @handles become links; everything else renders as plain text
   const segment = (body) =>
     body.split(/(@\w+)/).map((part) => ({
       text: part,
@@ -19,67 +18,39 @@
     }));
 </script>
 
-<div class="tweet-wall">
-  {#each tweets as tweet}
-    <a
-      class="tweet"
-      href="https://x.com/{tweet.author}/status/{tweet.id}"
-      target="_blank"
-      rel="noopener"
-    >
-      <div class="head">
-        {#if avatarFor(tweet.author)}
-          <img
-            class="avatar"
-            src={avatarFor(tweet.author)}
-            alt=""
-            width="36"
-            height="36"
-            loading="lazy"
-          />
-        {:else}
-          <span class="avatar initial" aria-hidden="true">{tweet.author[0].toUpperCase()}</span>
-        {/if}
-        <span class="who">
-          {#if tweet.name}<span class="name">{tweet.name}</span>{/if}
-          <span class="handle">@{tweet.author}</span>
-        </span>
-        <span class="mark" aria-hidden="true">{@html XIcon}</span>
-      </div>
-      <p class="body">{#each segment(tweet.body) as part}{#if part.handle}<span class="mention">{part.text}</span>{:else}{part.text}{/if}{/each}</p>
-      <span class="date">{tweet.timestamp}</span>
-    </a>
-  {/each}
-</div>
+<a
+  class="tweet"
+  href="https://x.com/{tweet.author}/status/{tweet.id}"
+  target="_blank"
+  rel="noopener"
+>
+  <div class="head">
+    {#if avatarFor(tweet.author)}
+      <img class="avatar" src={avatarFor(tweet.author)} alt="" width="36" height="36" loading="lazy" />
+    {:else}
+      <span class="avatar initial" aria-hidden="true">{tweet.author[0].toUpperCase()}</span>
+    {/if}
+    <span class="who">
+      {#if tweet.name}<span class="name">{tweet.name}</span>{/if}
+      <span class="handle">@{tweet.author}</span>
+    </span>
+    <span class="mark" aria-hidden="true">{@html XIcon}</span>
+  </div>
+  <p class="body">{#each segment(tweet.body) as part}{#if part.handle}<span class="mention">{part.text}</span>{:else}{part.text}{/if}{/each}</p>
+  <span class="date">{tweet.timestamp}</span>
+</a>
 
 <style>
-  /* Every tweet on screen without interaction, and the six divide evenly into
-     every column count, so no row is ever short. */
-  .tweet-wall {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1.25rem;
-    margin: 2rem 0;
-  }
-
-  @media screen and (max-width: 1200px) {
-    .tweet-wall {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
   .tweet {
-    box-sizing: border-box; /* no global border-box reset in app.css */
-    background-color: #0d0d0d;
-    border: 1px solid #262626;
+    box-sizing: border-box;
     display: flex;
     flex-flow: column;
     gap: 0.875rem;
+    height: 100%;
     padding: 1.5rem;
-    position: relative;
+    background-color: #0d0d0d;
+    border: 1px solid #262626;
     overflow: hidden;
-    box-shadow: 0 0 0 rgba(81, 255, 0, 0);
-
     transition:
       background-color 0.2s ease,
       box-shadow 0.16s ease-out,
@@ -87,7 +58,6 @@
   }
 
   @media (hover: hover) and (pointer: fine) {
-    /* box-shadow rather than a thicker border so nothing reflows */
     .tweet:hover {
       background-color: #131313;
       box-shadow: 5px 5px 0 var(--color-accent);
@@ -173,26 +143,5 @@
     font-size: 0.75rem;
     margin-top: auto;
     white-space: nowrap;
-  }
-
-  @media screen and (max-width: 768px) {
-    .tweet-wall {
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-
-    .tweet {
-      padding: 1.25rem;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .tweet {
-      transition: background-color 0.2s ease, box-shadow 0.16s ease-out;
-    }
-
-    .tweet:hover {
-      transform: none;
-    }
   }
 </style>

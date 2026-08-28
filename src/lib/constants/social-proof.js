@@ -7,13 +7,6 @@
 
 export const tweets = [
   {
-    id: "2087672474762969207",
-    author: "Matt_E_Baumann",
-    name: "Matthew Baumann",
-    timestamp: "Aug 12, 2026",
-    body: "So for under $2k, you can get HW4 level of self driving for SO many vehicles!\n\nPretty incredible! Way to go @comma_ai 🙌",
-  },
-  {
     id: "2030704177496633425",
     author: "ANSR42",
     name: "Mike LaBarbera",
@@ -47,13 +40,6 @@ export const tweets = [
     name: "Wesley Sheh",
     timestamp: "Mar 31, 2023",
     body: "The most impactful thing to come out of AI for me is not ChatGPT.\n\nIt's another little-known product that I've been using for a year and a half now. (They do no marketing whatsoever)\n\nIt's @comma_ai and if it supports your car, buy it. It is well worth it.",
-  },
-  {
-    id: "1593874509320183808",
-    author: "yishan",
-    name: "Yishan",
-    timestamp: "Nov 18, 2022",
-    body: "I have a comma three and it is great.\n\nIf you can't (or won't) own a Tesla but you own one of the comma-compatible cars, I HIGHLY recommend it.\n\nSelf-driving functionality on a budget.",
   },
   {
     id: "1504630655581233155",

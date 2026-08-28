@@ -304,8 +304,8 @@
       follow us on 𝕏
       <a href="https://twitter.com/comma_ai" target="_blank" class="highlight">@comma_ai</a>
     </h1>
+    <FeaturedTweets />
   </div>
-  <FeaturedTweets />
 </section>
 
 
