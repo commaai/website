@@ -283,12 +283,12 @@
           </div>
 
         {:else if v.n === 3}
+          <!-- one grid, not two: at three columns the videos still take the top row on
+               their own, and at two they flow on instead of leaving a hole -->
           <div class="band">
             <div><VideoCard video={VIDEOS.rain} /></div>
             <div><VideoCard video={VIDEOS.miles} /></div>
-            <div><VideoCard video={VIDEOS.cones} /></div>
-          </div>
-          <div class="band">
+            <div><VideoCard video={PARKED.timelapse} /></div>
             {#each tweets.slice(0, 3) as t}<div><TextCard tweet={t} /></div>{/each}
           </div>
 
