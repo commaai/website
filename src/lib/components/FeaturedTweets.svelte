@@ -21,8 +21,6 @@
   const posterFor = (post) =>
     posters[`/src/lib/images/featured-tweets/video/${videoFor(post)}.jpg`]?.img?.src;
 
-  const cards = tweets.map((entry) => (Array.isArray(entry) ? entry : [entry]));
-
   // load on play, which is triggered by page position to not download over hero video
   function playWhenVisible(node) {
     if (typeof IntersectionObserver === "undefined") return;
@@ -45,43 +43,36 @@
 </script>
 
 <div class="tweet-wall">
-  {#each cards as posts}
-    {@const last = posts[posts.length - 1]}
+  {#each tweets as thread}
+    {@const last = thread[thread.length - 1]}
     <a
       class="tweet"
-      class:video={posts[0].video}
-      class:thread={posts.length > 1}
+      class:video={thread[0].video}
+      class:thread={thread.length > 1}
       href="https://x.com/{last.handle}/status/{last.id}"
       target="_blank"
       rel="noopener"
     >
-      {#if posts[0].video}
+      {#if thread[0].video}
         <div class="frame">
           <video
             use:playWhenVisible
-            src="/videos/tweets/{videoFor(posts[0])}.mp4"
-            poster={posterFor(posts[0])}
+            src="/videos/tweets/{videoFor(thread[0])}.mp4"
+            poster={posterFor(thread[0])}
             muted
             loop
             playsinline
             preload="none"
           ></video>
-          <span class="dur">{posts[0].duration}</span>
+          <span class="dur">{thread[0].duration}</span>
         </div>
       {/if}
 
-      {#each posts as post, i}
+      {#each thread as post, i}
         <div class="post" class:reply={i > 0}>
           <div class="head">
             {#if avatarFor(post.handle)}
-              <img
-                class="avatar"
-                src={avatarFor(post.handle)}
-                alt=""
-                width="36"
-                height="36"
-                loading="lazy"
-              />
+              <img class="avatar" src={avatarFor(post.handle)} alt="" loading="lazy" />
             {:else}
               <span class="avatar initial" aria-hidden="true">{post.handle[0].toUpperCase()}</span>
             {/if}
@@ -90,7 +81,7 @@
               <span class="handle">@{post.handle}</span>
             </span>
             {#if i === 0}
-              <span class="mark" aria-hidden="true">{@html XIcon}</span>
+              <span class="x-icon" aria-hidden="true">{@html XIcon}</span>
             {/if}
           </div>
           <p class="body">{#each segment(post.body) as part}{#if part.handle}<span class="mention">{part.text}</span>{:else}{part.text}{/if}{/each}</p>
@@ -244,14 +235,14 @@
     white-space: nowrap;
   }
 
-  .mark {
+  .x-icon {
     display: flex;
     margin-left: auto;
     opacity: 0.35;
     transition: opacity 0.2s ease;
   }
 
-  .tweet:hover .mark {
+  .tweet:hover .x-icon {
     opacity: 1;
   }
 
