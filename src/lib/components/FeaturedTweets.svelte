@@ -1,6 +1,6 @@
 <script>
   import XIcon from "$lib/icons/social/x.svg?raw";
-  import { tweets, videoTweets, threadTweet } from "$lib/constants/social-proof.js";
+  import { tweets } from "$lib/constants/social-proof.js";
 
   // profile pictures, named by handle — see scripts/update-tweet-avatars.sh
   const avatars = import.meta.glob("$lib/images/featured-tweets/*.jpg", {
@@ -19,8 +19,8 @@
   const posterFor = (file) =>
     posters[`/src/lib/images/featured-tweets/video/${file}.jpg`];
 
-  const byHandle = (handle) => tweets.find((tweet) => tweet.author === handle);
-  const quotes = [threadTweet, byHandle("tessadotsh"), byHandle("LivingInKaos")];
+  // a card is a list of posts, and the last one owns the link and the date
+  const wall = tweets.map((entry) => (Array.isArray(entry) ? entry : [entry]));
 
   // only the clips on screen decode
   function playWhenVisible(node) {
@@ -45,103 +45,60 @@
 </script>
 
 <div class="tweet-wall">
-  {#each videoTweets as tweet}
-    <a
-      class="tweet video"
-      href="https://x.com/{tweet.author}/status/{tweet.id}"
-      target="_blank"
-      rel="noopener"
-    >
-      <div class="frame">
-        <video
-          use:playWhenVisible
-          src="/videos/tweets/{tweet.clip}.mp4"
-          poster={posterFor(tweet.poster)}
-          autoplay
-          muted
-          loop
-          playsinline
-          preload="metadata"
-        ></video>
-        <span class="dur">{tweet.duration}</span>
-      </div>
-
-      <div class="meta">
-        <div class="head">
-          {#if avatarFor(tweet.author)}
-            <img class="avatar" src={avatarFor(tweet.author)} alt="" width="36" height="36" loading="lazy" />
-          {:else}
-            <span class="avatar initial" aria-hidden="true">{tweet.author[0].toUpperCase()}</span>
-          {/if}
-          <span class="who">
-            {#if tweet.name}<span class="name">{tweet.name}</span>{/if}
-            <span class="handle">@{tweet.author}</span>
-          </span>
-          <span class="mark" aria-hidden="true">{@html XIcon}</span>
-        </div>
-        <p class="body">{#each segment(tweet.body) as part}{#if part.handle}<span class="mention">{part.text}</span>{:else}{part.text}{/if}{/each}</p>
-        <span class="date">{tweet.timestamp}</span>
-      </div>
-    </a>
-  {/each}
-
-  {#each quotes as tweet}
-    {@const top = tweet.answers ?? tweet}
+  {#each wall as posts}
+    {@const last = posts[posts.length - 1]}
     <a
       class="tweet"
-      class:thread={tweet.answers}
-      href="https://x.com/{tweet.author}/status/{tweet.id}"
+      class:video={posts[0].clip}
+      class:thread={posts.length > 1}
+      href="https://x.com/{last.author}/status/{last.id}"
       target="_blank"
       rel="noopener"
     >
-      <div class="post">
-        <div class="head">
-          {#if avatarFor(top.author)}
-            <img
-              class="avatar"
-              src={avatarFor(top.author)}
-              alt=""
-              width="36"
-              height="36"
-              loading="lazy"
-            />
-          {:else}
-            <span class="avatar initial" aria-hidden="true">{top.author[0].toUpperCase()}</span>
-          {/if}
-          <span class="who">
-            {#if top.name}<span class="name">{top.name}</span>{/if}
-            <span class="handle">@{top.author}</span>
-          </span>
-          <span class="mark" aria-hidden="true">{@html XIcon}</span>
+      {#if posts[0].clip}
+        <div class="frame">
+          <video
+            use:playWhenVisible
+            src="/videos/tweets/{posts[0].clip}.mp4"
+            poster={posterFor(posts[0].poster)}
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+          ></video>
+          <span class="dur">{posts[0].duration}</span>
         </div>
-        <p class="body">{#each segment(top.body) as part}{#if part.handle}<span class="mention">{part.text}</span>{:else}{part.text}{/if}{/each}</p>
-      </div>
+      {/if}
 
-      {#if tweet.answers}
-        <div class="post reply">
+      {#each posts as post, i}
+        <div class="post" class:reply={i > 0}>
           <div class="head">
-            {#if avatarFor(tweet.author)}
+            {#if avatarFor(post.author)}
               <img
                 class="avatar"
-                src={avatarFor(tweet.author)}
+                src={avatarFor(post.author)}
                 alt=""
                 width="36"
                 height="36"
                 loading="lazy"
               />
             {:else}
-              <span class="avatar initial" aria-hidden="true">{tweet.author[0].toUpperCase()}</span>
+              <span class="avatar initial" aria-hidden="true">{post.author[0].toUpperCase()}</span>
             {/if}
             <span class="who">
-              <span class="name">{tweet.name}</span>
-              <span class="handle">@{tweet.author}</span>
+              {#if post.name}<span class="name">{post.name}</span>{/if}
+              <span class="handle">@{post.author}</span>
             </span>
+            {#if i === 0}
+              <span class="mark" aria-hidden="true">{@html XIcon}</span>
+            {/if}
           </div>
-          <p class="body">{#each segment(tweet.body) as part}{#if part.handle}<span class="mention">{part.text}</span>{:else}{part.text}{/if}{/each}</p>
+          <p class="body">{#each segment(post.body) as part}{#if part.handle}<span class="mention">{part.text}</span>{:else}{part.text}{/if}{/each}</p>
         </div>
-      {/if}
+      {/each}
 
-      <span class="date">{tweet.timestamp}</span>
+      <span class="date">{last.timestamp}</span>
     </a>
   {/each}
 </div>
@@ -160,13 +117,10 @@
     }
   }
 
-  .tweet.video {
-    padding: 0;
-    gap: 0;
-  }
-
+  /* bleeds out to the card edges, over the padding the posts below it keep */
   .frame {
     position: relative;
+    margin: -1.5rem -1.5rem 0.375rem;
     aspect-ratio: 16 / 9;
     background: #000;
     overflow: hidden;
@@ -192,14 +146,6 @@
     font-family: JetBrains Mono, monospace;
     font-size: 0.6875rem;
     background: rgba(0, 0, 0, 0.75);
-  }
-
-  .meta {
-    display: flex;
-    flex-flow: column;
-    flex: 1;
-    gap: 0.875rem;
-    padding: 1.25rem 1.5rem 1.5rem;
   }
 
   .tweet {
@@ -339,6 +285,10 @@
 
     .tweet {
       padding: 1.25rem;
+    }
+
+    .frame {
+      margin: -1.25rem -1.25rem 0.375rem;
     }
   }
 
