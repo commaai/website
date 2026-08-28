@@ -217,7 +217,7 @@
   }
 
   .handle {
-    color: #757575;
+    color: #8a8a8a;
     font-size: 0.875rem;
     letter-spacing: normal;
     overflow: hidden;
@@ -237,7 +237,7 @@
   }
 
   .body {
-    color: white;
+    color: #ededed;
     font-size: 1rem;
     line-height: 1.5;
     margin: 0;
@@ -249,7 +249,7 @@
   }
 
   .date {
-    color: var(--color-muted);
+    color: #8a8a8a;
     font-family: JetBrains Mono, monospace;
     font-size: 0.75rem;
     margin-top: auto;
