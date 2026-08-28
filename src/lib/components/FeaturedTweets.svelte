@@ -8,18 +8,19 @@
     query: "?url",
     import: "default",
   });
-  const avatarFor = (author) =>
-    avatars[`/src/lib/images/featured-tweets/${author}.jpg`];
+  const avatarFor = (handle) =>
+    avatars[`/src/lib/images/featured-tweets/${handle}.jpg`];
 
   const posters = import.meta.glob("$lib/images/featured-tweets/video/*.jpg", {
     eager: true,
     query: "?url",
     import: "default",
   });
-  const posterFor = (file) =>
-    posters[`/src/lib/images/featured-tweets/video/${file}.jpg`];
+  const clipFor = (post) => `${post.handle}-${post.id}`;
+  // vite.config forces as=picture on every jpg, so this is an object, not a url
+  const posterFor = (post) =>
+    posters[`/src/lib/images/featured-tweets/video/${clipFor(post)}.jpg`]?.img?.src;
 
-  // a card is a list of posts, and the last one owns the link and the date
   const wall = tweets.map((entry) => (Array.isArray(entry) ? entry : [entry]));
 
   // only the clips on screen decode
@@ -36,7 +37,6 @@
     return { destroy: () => io.disconnect() };
   }
 
-  // @handles become links; everything else renders as plain text
   const segment = (body) =>
     body.split(/(@\w+)/).map((part) => ({
       text: part,
@@ -49,18 +49,18 @@
     {@const last = posts[posts.length - 1]}
     <a
       class="tweet"
-      class:video={posts[0].clip}
+      class:video={posts[0].video}
       class:thread={posts.length > 1}
-      href="https://x.com/{last.author}/status/{last.id}"
+      href="https://x.com/{last.handle}/status/{last.id}"
       target="_blank"
       rel="noopener"
     >
-      {#if posts[0].clip}
+      {#if posts[0].video}
         <div class="frame">
           <video
             use:playWhenVisible
-            src="/videos/tweets/{posts[0].clip}.mp4"
-            poster={posterFor(posts[0].poster)}
+            src="/videos/tweets/{clipFor(posts[0])}.mp4"
+            poster={posterFor(posts[0])}
             autoplay
             muted
             loop
@@ -74,21 +74,21 @@
       {#each posts as post, i}
         <div class="post" class:reply={i > 0}>
           <div class="head">
-            {#if avatarFor(post.author)}
+            {#if avatarFor(post.handle)}
               <img
                 class="avatar"
-                src={avatarFor(post.author)}
+                src={avatarFor(post.handle)}
                 alt=""
                 width="36"
                 height="36"
                 loading="lazy"
               />
             {:else}
-              <span class="avatar initial" aria-hidden="true">{post.author[0].toUpperCase()}</span>
+              <span class="avatar initial" aria-hidden="true">{post.handle[0].toUpperCase()}</span>
             {/if}
             <span class="who">
               {#if post.name}<span class="name">{post.name}</span>{/if}
-              <span class="handle">@{post.author}</span>
+              <span class="handle">@{post.handle}</span>
             </span>
             {#if i === 0}
               <span class="mark" aria-hidden="true">{@html XIcon}</span>
@@ -117,7 +117,6 @@
     }
   }
 
-  /* bleeds out to the card edges, over the padding the posts below it keep */
   .frame {
     position: relative;
     margin: -1.5rem -1.5rem 0.375rem;
