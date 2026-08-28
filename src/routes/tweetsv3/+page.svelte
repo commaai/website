@@ -2,6 +2,7 @@
   import { tweets } from "$lib/constants/social-proof.js";
   import VideoCard from "./VideoCard.svelte";
   import TextCard from "./TextCard.svelte";
+  import HeroCarousel from "./HeroCarousel.svelte";
 
   // Real video posts. duration is the full clip on X — we'd loop a trimmed cut, not all of it.
   const VIDEOS = {
@@ -105,6 +106,66 @@
       device: "comma four, Tesla Model Y",
       body: "I'm seriously impressed with @comma_ai Here's a longer clip of the comma 4 running in my 2020 Tesla Model Y — handling city street turns.",
     },
+    unmarked: {
+      clip: "unmarked",
+      id: "2023592676285649000",
+      author: "ANSR42",
+      name: "Mike LaBarbera",
+      timestamp: "Feb 17, 2026",
+      poster: "ANSR42-unmarked",
+      aspect: "16 / 9",
+      duration: "0:39",
+      device: "unmarked rural roads",
+      body: "The #1 main reason I subscribed to Tesla FSD was to have lane assist on unmarked roads. As I live in a rural Wisconsin, Basic OpenPilot accomplishes this like a dream, without a subscription",
+    },
+    wilderness: {
+      clip: "wilderness",
+      id: "1747508957483258267",
+      author: "___Harald___",
+      name: "Harald Schäfer",
+      timestamp: "Jan 17, 2024",
+      poster: "Harald-wilderness",
+      aspect: "2 / 1",
+      duration: "0:22",
+      device: "comma employee",
+      body: "Even in the wilderness, openpilot can make driving chill!",
+    },
+    windmills: {
+      clip: "windmills",
+      id: "1597745373615116289",
+      author: "___Harald___",
+      name: "Harald Schäfer",
+      timestamp: "Nov 30, 2022",
+      poster: "Harald-windmills",
+      aspect: "16 / 9",
+      duration: "0:25",
+      device: "comma employee",
+      body: "Are you a windmill farmer tired of driving around to check on your windmills? Let openpilot drive for you!",
+    },
+    turns: {
+      clip: "turns",
+      id: "1925763229952745634",
+      author: "ssshaney",
+      name: "shane",
+      timestamp: "May 23, 2025",
+      poster: "ssshaney-turns",
+      aspect: "16 / 9",
+      duration: "0:46",
+      device: "comma employee",
+      body: "Who said @comma_ai openpilot could never make turns?",
+    },
+    nolanes: {
+      clip: "nolanes",
+      id: "2079310474076680408",
+      author: "BlinkDrive_",
+      name: "Blink Drive",
+      timestamp: "Jul 20, 2026",
+      poster: "BlinkDrive_-nolanes",
+      aspect: "16 / 9",
+      duration: "0:36",
+      device: "no lane markings",
+      body: "@comma_ai drove on a road without lane markings.",
+    },
     timelapse: {
       clip: "timelapse",
       id: "2056853588056645782",
@@ -119,9 +180,24 @@
     },
   };
 
+  // Order these by hand — reorder or drop entries to change what shows and in what order
+  const inPlay = [VIDEOS.cones, VIDEOS.towing, VIDEOS.miles, VIDEOS.ui, VIDEOS.arches, VIDEOS.rain];
+  const parked = [
+    PARKED.wilderness,
+    PARKED.windmills,
+    PARKED.timelapse,
+    PARKED.nolanes,
+    PARKED.unmarked,
+    PARKED.turns,
+    PARKED.snow,
+    PARKED.citystreets,
+  ];
+  const heroClips = [VIDEOS.cones, VIDEOS.towing, VIDEOS.miles, VIDEOS.rain];
+
   const VARIANTS = [
     { n: 1, title: "Two wide, text below", note: "Both videos span two columns on the top row, the six text cards fill in beneath. The size difference is paid for by the video." },
     { n: 2, title: "One hero, text beside", note: "A single clip takes a 2x2 block with text cards stacked next to it. One focal point, and only one video to clear rights on." },
+    { n: "2b", title: "Hero that cycles", note: "Same as 2, except the hero hands off to the next clip when one finishes. Arrows and dots to move between them by hand." },
     { n: 3, title: "Video band, text band", note: "Videos get their own row across the top, text sits underneath as a separate register. Reads as two sections rather than one mixed grid." },
     { n: 4, title: "No size difference", note: "Videos sized exactly like the text cards. Tests whether the clips need a bigger slot at all, or whether motion alone is enough to draw the eye." },
   ];
@@ -141,7 +217,7 @@
     <div class="notes">
       <strong>Clips in play</strong>
       <ul>
-        {#each Object.values(VIDEOS) as v}
+        {#each inPlay as v}
           <li>
             <a href="https://x.com/{v.author}/status/{v.id}" target="_blank" rel="noopener">@{v.author}</a>
             &middot; {v.duration} &middot; {v.device}
@@ -151,7 +227,7 @@
 
       <strong class="parked-head">Saved, not placed</strong>
       <ul>
-        {#each Object.values(PARKED) as v}
+        {#each parked as v}
           <li>
             <a href="https://x.com/{v.author}/status/{v.id}" target="_blank" rel="noopener">@{v.author}</a>
             &middot; {v.duration} &middot; {v.device}
@@ -180,6 +256,14 @@
         {:else if v.n === 2}
           <div class="wall">
             <div class="hero"><VideoCard video={VIDEOS.rain} /></div>
+            {#each tweets.slice(0, 4) as t}<div><TextCard tweet={t} /></div>{/each}
+          </div>
+
+        {:else if v.n === "2b"}
+          <div class="wall">
+            <div class="hero">
+              <HeroCarousel videos={heroClips} />
+            </div>
             {#each tweets.slice(0, 4) as t}<div><TextCard tweet={t} /></div>{/each}
           </div>
 

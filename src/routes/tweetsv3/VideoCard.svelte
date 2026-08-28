@@ -234,6 +234,11 @@
     display: flex;
     margin-left: auto;
     opacity: 0.35;
+    transition: opacity 0.2s ease;
+  }
+
+  .tweet:hover .mark {
+    opacity: 1;
   }
 
   .body {
