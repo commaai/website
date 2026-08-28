@@ -19,13 +19,10 @@
   const posterFor = (file) =>
     posters[`/src/lib/images/featured-tweets/video/${file}.jpg`];
 
-  // Three videos then three quotes fills the grid exactly, so at three columns the
-  // clips take the top row on their own and the text sits beneath as its own band.
-  // Nothing here may claim the car drives itself, or name a product we no longer sell.
   const byHandle = (handle) => tweets.find((tweet) => tweet.author === handle);
   const quotes = [threadTweet, byHandle("tessadotsh"), byHandle("LivingInKaos")];
 
-  // Only the clips on screen decode, so a row of them costs about one video
+  // only the clips on screen decode
   function playWhenVisible(node) {
     if (typeof IntersectionObserver === "undefined") return;
     const io = new IntersectionObserver(
@@ -89,7 +86,6 @@
   {/each}
 
   {#each quotes as tweet}
-    <!-- a thread card leads with the post being answered, and nests the reply under it -->
     {@const top = tweet.answers ?? tweet}
     <a
       class="tweet"
@@ -151,8 +147,6 @@
 </div>
 
 <style>
-  /* Every tweet on screen without interaction, and the six divide evenly into
-     every column count, so no row is ever short. */
   .tweet-wall {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -178,8 +172,7 @@
     overflow: hidden;
   }
 
-  /* overhangs by a pixel on each side: the frame width lands on fractions, and an exact
-     fit lets the painted edge round short of the black background behind it */
+  /* overhangs a pixel each side — an exact fit rounds short of the frame at some zooms */
   .frame video {
     position: absolute;
     top: -1px;
@@ -223,7 +216,6 @@
   }
 
   @media (hover: hover) and (pointer: fine) {
-    /* the border is the whole effect — nothing moves, nothing else changes */
     .tweet:hover {
       border-color: var(--color-accent);
     }
@@ -246,8 +238,7 @@
     padding-top: 0.875rem;
   }
 
-  /* the thread line runs from one picture to the next, so the post it passes indents to
-     leave it a gutter — the reply's own text stays back at the card edge */
+  /* indented to leave a gutter for the line running down to the reply's picture */
   .thread .post:first-child .body {
     padding-left: 3rem;
   }
