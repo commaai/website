@@ -17,7 +17,7 @@ export const tweets = [
     name: "Mike LaBarbera",
     timestamp: "Jul 28, 2026",
     video: true,
-    duration: "0:37",
+    duration: "0:35",
     body: "Total comma four engagement has passed 9,000 miles now. Hands-free through beautiful rural Wisconsin backroads. My @comma_ai device engagement has come close to 93% since I installed it back in February.",
   },
   {
