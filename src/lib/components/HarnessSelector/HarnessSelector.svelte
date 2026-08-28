@@ -88,9 +88,11 @@
   let inputValue = "";
   let inputRef;
 
-  $: filteredItems = $harnesses.filter(item =>
-    normalizeDiacritics(item.car.toLowerCase()).match(normalizeDiacritics(inputValue.toLowerCase()))
-  );
+  $: searchTerms = normalizeDiacritics(inputValue.toLowerCase()).split(/\s+/).filter(Boolean);
+  $: filteredItems = $harnesses.filter(item => {
+    const car = normalizeDiacritics(`${item.car} ${item.yearList ?? ''}`.toLowerCase());  // add all years in range
+    return searchTerms.every(term => car.includes(term));
+  });
 
   const handleClear = () => {
     // clear search input or close menu
@@ -161,7 +163,7 @@
     <span class="chevron">{@html ChevronIcon}</span>
   </div>
   <div class="dropdown-content" class:show={menuOpen}>
-    {#if inputValue !== ''}
+    {#if searchTerms.length > 0}
       {#if filteredItems.length > 0}
         {#each filteredItems as item}
           <DropdownItem value={item} on:click={() => handleOptionClick(item)} on:keydown={(e) => handleOptionKeyDown(e, item)} />

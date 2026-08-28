@@ -40,6 +40,7 @@ async function initializeHarnesses() {
         ...harness,
         make,
         car: model.name,
+        yearList: model.year_list?.replaceAll(',', ''),
         package: model.package,
         backordered: harness?.backordered,  // these overrides are only shown if the harness is out of stock in Shopify
         setupNotes: model.setup_notes,
