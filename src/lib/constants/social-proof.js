@@ -1,7 +1,5 @@
 // Real posts from X, in the order they appear on the home page.
 // A nested list renders as a thread.
-//
-// duration is the full clip on X, not the ten second cut we loop.
 
 export const tweets = [
   {
