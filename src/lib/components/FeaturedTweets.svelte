@@ -2,7 +2,7 @@
   import XIcon from "$lib/icons/social/x.svg?raw";
   import { tweets } from "$lib/constants/tweets.js";
 
-  const VIDEO_BASE = "/videos/tweets";
+  const VIDEO_BASE = "https://3comma.net/tweets";
 
   const avatars = import.meta.glob("$lib/images/tweets/avatars/*.jpg", {
     eager: true,
@@ -140,7 +140,6 @@
     flex-flow: column;
     gap: 0.875rem;
     padding: 1.5rem;
-    position: relative;
     overflow: hidden;
     transition: border-color 0.2s ease;
   }
@@ -183,8 +182,12 @@
     background: #262626;
   }
 
+  /* the img is wrapped in a picture, the wrapper holds the width */
+  .head picture {
+    flex: 0 0 2.25rem;
+  }
+
   .avatar {
-    align-self: center;
     background-color: #1c1c1c;
     border: 1px solid #333;
     border-radius: 50%;
@@ -204,18 +207,19 @@
   }
 
   .name {
-    color: white;
+    color: #ededed;
     font-size: 1rem;
-    font-weight: 500;
-    letter-spacing: -0.02em;
+    font-weight: 700;
+    letter-spacing: normal;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
 
   .handle {
-    color: var(--color-muted);
+    color: #757575;
     font-size: 0.875rem;
+    letter-spacing: normal;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
