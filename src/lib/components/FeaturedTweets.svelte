@@ -16,12 +16,12 @@
     query: "?url",
     import: "default",
   });
-  const clipFor = (post) => `${post.handle}-${post.id}`;
+  const videoFor = (post) => `${post.handle}-${post.id}`;
   // vite.config forces as=picture on every jpg, so this is an object, not a url
   const posterFor = (post) =>
-    posters[`/src/lib/images/featured-tweets/video/${clipFor(post)}.jpg`]?.img?.src;
+    posters[`/src/lib/images/featured-tweets/video/${videoFor(post)}.jpg`]?.img?.src;
 
-  const wall = tweets.map((entry) => (Array.isArray(entry) ? entry : [entry]));
+  const cards = tweets.map((entry) => (Array.isArray(entry) ? entry : [entry]));
 
   // load on play, which is triggered by page position to not download over hero video
   function playWhenVisible(node) {
@@ -45,7 +45,7 @@
 </script>
 
 <div class="tweet-wall">
-  {#each wall as posts}
+  {#each cards as posts}
     {@const last = posts[posts.length - 1]}
     <a
       class="tweet"
@@ -59,7 +59,7 @@
         <div class="frame">
           <video
             use:playWhenVisible
-            src="/videos/tweets/{clipFor(posts[0])}.mp4"
+            src="/videos/tweets/{videoFor(posts[0])}.mp4"
             poster={posterFor(posts[0])}
             muted
             loop
