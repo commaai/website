@@ -6,7 +6,7 @@ export const tweets = [
     timestamp: "May 19, 2026",
     video: true,
     duration: "1:04",
-    body: "Rainy days hit different when @comma_ai Openpilot is doing the work. Just vibing, watching the rain, sipping coffee while it handles the road like a champ.",
+    body: "Rainy days hit different when @comma_ai Openpilot is doing the work.\n\nJust vibing, watching the rain, sipping coffee while it handles the road like a champ. This is what relaxing drives are supposed to feel like.\n\nNever going back.",
   }],
   [{
     id: "2082165228184522857",
@@ -15,7 +15,7 @@ export const tweets = [
     timestamp: "Jul 28, 2026",
     video: true,
     duration: "0:35",
-    body: "Total comma four engagement has passed 9,000 miles now. Hands-free through beautiful rural Wisconsin backroads. My @comma_ai device engagement has come close to 93% since I installed it back in February.",
+    body: "Total comma four engagement has passed 9,000 miles now.\n\nHands-free through beautiful rural Wisconsin backroads.\n\nMy @comma_ai device engagement has come close to 93% since I installed it back in February. That's 93% less driving I have to do on the daily.",
   }],
   [{
     id: "2056853588056645782",
@@ -37,7 +37,7 @@ export const tweets = [
       handle: "SnazzyLabs",
       name: "Quinn Nelson",
       timestamp: "Jun 2, 2026",
-      body: "Time to get a Comma 4. It's way better at everything.",
+      body: "Time to get a Comma 4. It’s way better at everything.",
     },
   ],
   [{
@@ -45,7 +45,7 @@ export const tweets = [
     handle: "tessadotsh",
     name: "tessa",
     timestamp: "Nov 9, 2025",
-    body: "vouch for @comma_ai, makes a 12 hour road trip feel like 6. been driving with it for over 24k miles, most of which engaged. easily one of the best purchases i've ever made.",
+    body: "vouch for @comma_ai, makes a 12 hour road trip feel like 6. been driving with it for over 24k miles, most of which engaged. easily one of the best purchases i’ve ever made.",
   }],
   [{
     id: "2082241066322079915",
