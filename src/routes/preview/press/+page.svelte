@@ -9,7 +9,6 @@
   const roadStill = `${CDN}/hero-landscape/poster.jpg`;
   const screenStill = `${CDN}/screen-video/poster.jpg`;
 
-  const q = (p) => `“${p.quote}”`;
 
   const creatorStills = ["/press-stills/ltt-14-30.jpg", "/press-stills/snazzy-29-15.jpg"];
 
@@ -84,7 +83,7 @@
           {#each [...vids, ...first2.slice(0, 1)] as p}
             <a class="plain quote-card" href={p.url} target="_blank" rel="noopener">
               <img class="logo" src={p.logo} alt="Logo of {p.outlet}" />
-              <p class="quote">{q(p)}</p>
+              <p class="quote">{p.quote}</p>
               <span class="foot">{p.duration ? "watch" : "read the article"} <span class="arr">{@html ArrowRight}</span></span>
             </a>
           {/each}
@@ -95,7 +94,7 @@
         <div class="big-quotes">
           {#each vids as p}
             <a class="big-quote" href={p.url} target="_blank" rel="noopener">
-              <p>{q(p)}</p>
+              <p>{p.quote}</p>
               <span class="attr"><img class="logo sm" src={p.logo} alt="" />{p.outlet}</span>
             </a>
           {/each}
@@ -112,7 +111,7 @@
                 <span class="dur">{p.duration}</span>
               </span>
               <span class="row"><img class="logo sm" src={p.logo} alt="" /><span class="mono muted">{p.outlet}</span></span>
-              <p class="quote">{q(p)}</p>
+              <p class="quote">{p.quote}</p>
               <span class="foot">watch <span class="arr">{@html ArrowRight}</span></span>
             </a>
           {/each}
@@ -127,7 +126,7 @@
                 <img src={p.still} alt="" />
                 <span class="scrim"></span>
                 <span class="over">
-                  <span class="quote light-text">{q(p)}</span>
+                  <span class="quote light-text">{p.quote}</span>
                   <span class="attr light-text mono">{p.outlet} · {p.duration}</span>
                 </span>
                 <span class="play">{@html PlayIcon}</span>
@@ -147,7 +146,7 @@
                 <span class="play">{@html PlayIcon}</span>
                 <span class="dur">{p.duration}</span>
               </span>
-              <p class="quote">{q(p)}</p>
+              <p class="quote">{p.quote}</p>
               <span class="foot">watch <span class="arr">{@html ArrowRight}</span></span>
             </a>
           {/each}
@@ -164,7 +163,7 @@
                 <span class="dur">{p.duration}</span>
               </span>
               <span class="row"><img class="logo sm" src={p.logo} alt="" /><span class="mono muted">{p.outlet}</span></span>
-              <p class="quote">{q(p)}</p>
+              <p class="quote">{p.quote}</p>
             </a>
           {/each}
         </div>
@@ -175,7 +174,7 @@
           {#each [...vids, ...arts] as p}
             <a class="row-item" href={p.url} target="_blank" rel="noopener">
               <img class="logo sm" src={p.logo} alt="Logo of {p.outlet}" />
-              <span class="row-quote">{q(p)}</span>
+              <span class="row-quote">{p.quote}</span>
               <span class="mono muted">{p.duration ?? "article"}</span>
               <span class="arr">{@html ArrowRight}</span>
             </a>
@@ -189,7 +188,7 @@
             <a class="row-item indexed" href={p.url} target="_blank" rel="noopener">
               <span class="mono muted">/{String(i + 1).padStart(2, "0")}</span>
               <span class="outlet-name">{p.outlet}</span>
-              <span class="row-quote">{q(p)}</span>
+              <span class="row-quote">{p.quote}</span>
               <span class="arr">{@html ArrowRight}</span>
             </a>
           {/each}
@@ -204,7 +203,7 @@
                 <span class="avatar"><img src={p.logo} alt="" /></span>
                 <span class="who"><span class="name">{p.outlet}</span><span class="mono muted">{p.duration ? "video review" : "article"}</span></span>
               </span>
-              <p class="quote">{q(p)}</p>
+              <p class="quote">{p.quote}</p>
               <span class="mono muted">{p.duration ?? ""}</span>
             </a>
           {/each}
@@ -216,7 +215,7 @@
           {#each [...vids, ...first2.slice(0, 1)] as p}
             <a class="plain swap-card" href={p.url} target="_blank" rel="noopener">
               <img class="logo swap-logo" src={p.logo} alt="Logo of {p.outlet}" />
-              <span class="swap-quote">{q(p)}</span>
+              <span class="swap-quote">{p.quote}</span>
             </a>
           {/each}
         </div>
@@ -233,7 +232,7 @@
                 <span class="dur">{p.duration}</span>
               </span>
               <span class="row"><img class="logo sm" src={p.logo} alt="" /><span class="mono muted">{p.outlet}</span></span>
-              <p class="quote">{q(p)}</p>
+              <p class="quote">{p.quote}</p>
             </a>
           {/each}
         </div>
@@ -247,7 +246,7 @@
                 <img class="cropped" src={p.thumbnail} alt="" />
                 <span class="scrim"></span>
                 <span class="over">
-                  <span class="quote light-text">{q(p)}</span>
+                  <span class="quote light-text">{p.quote}</span>
                   <span class="attr light-text mono">{p.outlet} · {p.duration}</span>
                 </span>
               </span>
