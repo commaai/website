@@ -83,7 +83,7 @@
           <img class="logo" src={item.logo} alt="Logo of {item.outlet}" />
           {#if item.video}
             <span class="outlet">{item.outlet}</span>
-            <span class="source-icon" aria-hidden="true">{@html PlayIcon}</span>
+            <span class="source-icon yt" aria-hidden="true">{@html PlayIcon}</span>
           {/if}
         </div>
         <p class:quoted={quoted(item.quote)}>{item.quote}</p>
@@ -143,6 +143,11 @@
     margin-left: auto;
     opacity: 0.35;
     transition: opacity 0.2s;
+  }
+
+  .source-icon.yt :global(svg) {
+    height: auto;
+    width: 1.6rem;
   }
 
   .foot {
