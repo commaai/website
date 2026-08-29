@@ -243,22 +243,22 @@
     min-width: 0;
   }
 
-  .name {
-    color: var(--card-text);
-    font-weight: 700;
+  .name,
+  .handle {
     letter-spacing: normal;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
 
+  .name {
+    color: var(--card-text);
+    font-weight: 700;
+  }
+
   .handle {
     color: var(--card-meta);
     font-size: 0.875rem;
-    letter-spacing: normal;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
   }
 
   .post {

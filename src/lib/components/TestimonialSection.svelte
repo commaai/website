@@ -2,7 +2,6 @@
   import TestimonialCards from "$lib/components/TestimonialCards.svelte";
   import { press } from "$lib/constants/press.js";
   import { tweets } from "$lib/constants/tweets.js";
-
 </script>
 
 <div class="subhead">
@@ -60,7 +59,7 @@
   }
 
   @media (hover: hover) and (pointer: fine) {
-    a.meta:hover {
+    .meta:hover {
       color: var(--color-foreground);
     }
   }
