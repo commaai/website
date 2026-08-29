@@ -37,7 +37,7 @@
 <div class="wall">
   {#if show !== "owners"}
   {#each videos as video}
-    <a class="card press" href={video.url} target="_blank" rel="noopener">
+    <a class="card" href={video.url} target="_blank" rel="noopener">
       <div class="head">
         <!-- the article logos are wordmarks; these two are a monogram and an icon -->
         <img class="logo" src={video.logo} alt="Logo of {video.outlet}" />
@@ -53,7 +53,7 @@
   {/each}
 
   {#each articles as article}
-    <a class="card press" href={article.url} target="_blank" rel="noopener">
+    <a class="card" href={article.url} target="_blank" rel="noopener">
       <div class="head">
         <img class="logo" src={article.logo} alt="Logo of {article.outlet}" />
       </div>
@@ -106,7 +106,7 @@
         </div>
       {/each}
 
-      <span class="foot mono">{last.timestamp}</span>
+      <span class="foot date">{last.timestamp}</span>
     </a>
   {/each}
   {/if}
@@ -244,18 +244,6 @@
     margin: 0;
   }
 
-  .press .foot {
-    font-family: JetBrains Mono, monospace;
-    font-size: 0.8125rem;
-    gap: 0.4rem;
-    text-transform: uppercase;
-  }
-
-  .press .arrow :global(svg) {
-    height: auto;
-    width: 0.875rem;
-  }
-
   .post {
     position: relative;
     display: flex;
@@ -297,16 +285,16 @@
     align-items: center;
     color: var(--card-meta);
     display: flex;
-    font-size: 0.875rem;
-    gap: 0.5rem;
+    font-family: JetBrains Mono, monospace;
+    font-size: 0.8125rem;
+    gap: 0.4rem;
     letter-spacing: normal;
     margin-top: auto;
+    text-transform: uppercase;
     transition: color 0.2s;
   }
 
-  .mono {
-    color: var(--card-meta);
-    font-family: JetBrains Mono, monospace;
+  .date {
     font-size: 0.75rem;
   }
 
@@ -317,8 +305,8 @@
 
   .arrow :global(svg) {
     display: block;
-    height: 0.75rem;
-    width: auto;
+    height: auto;
+    width: 0.875rem;
   }
 
   @media (hover: hover) and (pointer: fine) {
