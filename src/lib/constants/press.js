@@ -1,9 +1,9 @@
-import LinusTechTipsLogo from "$lib/images/featured-articles/linus-tech-tips.svg";
-import SnazzyLabsLogo from "$lib/images/featured-articles/snazzy-labs.png";
-import TheVergeLogo from "$lib/images/featured-articles/the-verge.svg";
-import CarAndDriverLogo from "$lib/images/featured-articles/car-and-driver.png";
-import ConsumerReportsLogo from "$lib/images/featured-articles/consumer-reports.png";
-import TheDriveLogo from "$lib/images/featured-articles/the-drive.png";
+import LinusTechTipsLogo from "$lib/images/press/linus-tech-tips.svg";
+import SnazzyLabsLogo from "$lib/images/press/snazzy-labs.png";
+import TheVergeLogo from "$lib/images/press/the-verge.svg";
+import CarAndDriverLogo from "$lib/images/press/car-and-driver.png";
+import ConsumerReportsLogo from "$lib/images/press/consumer-reports.png";
+import TheDriveLogo from "$lib/images/press/the-drive.png";
 
 export const press = [
   {
