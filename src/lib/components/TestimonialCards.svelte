@@ -123,6 +123,77 @@
     transition: background-color 0.2s;
   }
 
+  .head {
+    align-items: center;
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  /* the img is wrapped in a picture, so the wrapper is the flex item */
+  .head :global(picture) {
+    flex: none;
+  }
+
+  .card p {
+    margin: 0;
+  }
+
+  .source-icon {
+    display: flex;
+    margin-left: auto;
+    opacity: 0.35;
+    transition: opacity 0.2s;
+  }
+
+  .foot {
+    align-items: center;
+    color: var(--card-meta);
+    display: flex;
+    font-family: JetBrains Mono, monospace;
+    font-size: 0.8125rem;
+    gap: 0.4rem;
+    letter-spacing: normal;
+    margin-top: auto;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  /* press */
+
+  .logo {
+    display: block;
+    filter: brightness(0);
+    height: 1.5rem;
+    object-fit: contain;
+    object-position: left;
+    width: auto;
+  }
+
+  .outlet {
+    color: #000;
+    font-size: 1.0625rem;
+    font-weight: 700;
+    letter-spacing: normal;
+    white-space: nowrap;
+  }
+
+  .quoted {
+    font-style: italic;
+  }
+
+  /* app.css colors every span, so this has to take the foot's color back */
+  .arrow {
+    color: inherit;
+  }
+
+  .arrow :global(svg) {
+    display: block;
+    height: auto;
+    width: 0.875rem;
+  }
+
+  /* tweets */
+
   .frame {
     position: relative;
     margin: -1.5rem -1.5rem 0.375rem;
@@ -153,30 +224,6 @@
     background: rgba(0, 0, 0, 0.75);
   }
 
-  .head {
-    align-items: center;
-    display: flex;
-    gap: 0.75rem;
-  }
-
-  /* brightness(0) rather than grayscale, which only makes the marks gray */
-  .logo {
-    display: block;
-    filter: brightness(0);
-    height: 1.5rem;
-    object-fit: contain;
-    object-position: left;
-    width: auto;
-  }
-
-  .outlet {
-    color: #000;
-    font-size: 1.0625rem;
-    font-weight: 700;
-    letter-spacing: normal;
-    white-space: nowrap;
-  }
-
   .avatar {
     background-color: var(--card-hover);
     border: 1px solid var(--card-rule);
@@ -187,11 +234,6 @@
     height: 2.25rem;
     width: 2.25rem;
     object-fit: cover;
-  }
-
-  /* the img is wrapped in a picture, so the wrapper is the flex item */
-  .head :global(picture) {
-    flex: none;
   }
 
   .who {
@@ -217,21 +259,6 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-  }
-
-  .source-icon {
-    display: flex;
-    margin-left: auto;
-    opacity: 0.35;
-    transition: opacity 0.2s;
-  }
-
-  .card p {
-    margin: 0;
-  }
-
-  .quoted {
-    font-style: italic;
   }
 
   .post {
@@ -269,32 +296,8 @@
     font-weight: 700;
   }
 
-  .foot {
-    align-items: center;
-    color: var(--card-meta);
-    display: flex;
-    font-family: JetBrains Mono, monospace;
-    font-size: 0.8125rem;
-    gap: 0.4rem;
-    letter-spacing: normal;
-    margin-top: auto;
-    text-transform: uppercase;
-    transition: color 0.2s;
-  }
-
   .date {
     font-size: 0.75rem;
-  }
-
-  /* app.css colors every span, so this has to take the foot's color back */
-  .arrow {
-    color: inherit;
-  }
-
-  .arrow :global(svg) {
-    display: block;
-    height: auto;
-    width: 0.875rem;
   }
 
   @media (hover: hover) and (pointer: fine) {
