@@ -208,7 +208,6 @@
 
   .name {
     color: var(--card-text);
-    font-size: 1rem;
     font-weight: 700;
     letter-spacing: normal;
     overflow: hidden;
@@ -233,8 +232,6 @@
   }
 
   .quote {
-    font-size: 1rem;
-    line-height: 1.4;
     margin: 0;
   }
 
@@ -269,8 +266,6 @@
   }
 
   .body {
-    font-size: 1rem;
-    line-height: 1.4;
     margin: 0;
     white-space: pre-line;
   }
