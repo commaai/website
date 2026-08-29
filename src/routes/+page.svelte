@@ -2,7 +2,7 @@
   import { onMount } from 'svelte';
   import Hls from 'hls.js/light';
   import FeaturedCarsList from "$lib/components/FeaturedCarsList.svelte";
-  import FeaturedProof from "$lib/components/FeaturedProof.svelte";
+  import Testimonials from "$lib/components/Testimonials.svelte";
   import HomeHeroOverlay from "$lib/components/HomeHeroOverlay.svelte";
 
   import DeviceImage from "$lib/images/products/comma-four/four_front.png";
@@ -300,10 +300,10 @@
   </div>
 </section>
 
-<section class="light" id="proof">
+<section class="light" id="testimonials">
   <div class="container">
     <h1>don't take our word for it</h1>
-    <FeaturedProof />
+    <Testimonials />
   </div>
 </section>
 
@@ -467,7 +467,7 @@
     #hero .comma-four-content h1,
     #compatibility .setup-heading,
     #openpilot h1,
-    #proof h1,
+    #testimonials h1,
     #closing-cta h1
   ) {
     font-size: clamp(2.3rem, 4vw, 4rem);
@@ -512,7 +512,7 @@
       width: calc(100% - 2.5rem);
     }
 
-    #proof {
+    #testimonials {
       padding-bottom: 3rem;
     }
 

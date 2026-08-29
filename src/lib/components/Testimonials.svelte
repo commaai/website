@@ -1,5 +1,5 @@
 <script>
-  import ProofWall from "$lib/components/ProofWall.svelte";
+  import TestimonialCards from "$lib/components/TestimonialCards.svelte";
 
   const groups = [
     {
@@ -24,7 +24,7 @@
     {/if}
   </div>
 
-  <ProofWall show={group.show} />
+  <TestimonialCards show={group.show} />
 {/each}
 
 <style>
