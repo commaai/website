@@ -5,11 +5,11 @@
   import TestimonialSection from "$lib/components/TestimonialSection.svelte";
   import HomeHeroOverlay from "$lib/components/HomeHeroOverlay.svelte";
 
-  import DeviceImage from "$lib/images/products/comma-four/four_front.png";
-  import DeviceScreenOnImage from "$lib/images/products/comma-four/four_screen_on.png";
-  import DeviceAngledImage from "$lib/images/products/comma-four/four_angled.png";
-  import DeviceBackImage from "$lib/images/products/comma-four/four_back.png";
-  import DeviceSideImage from "$lib/images/products/comma-four/four_side.png";
+  import DeviceImage from "$lib/images/products/comma-four/four_front.png?w=1440";
+  import DeviceScreenOnImage from "$lib/images/products/comma-four/four_screen_on.png?w=1440";
+  import DeviceAngledImage from "$lib/images/products/comma-four/four_angled.png?w=1440";
+  import DeviceBackImage from "$lib/images/products/comma-four/four_back.png?w=1440";
+  import DeviceSideImage from "$lib/images/products/comma-four/four_side.png?w=1440";
   import SetupVideo from "$lib/images/setup/comma-four/setup-stopmotion.mp4";
   import MapActivity from "$lib/images/home/map-activity-2x.png";
   import ArrowRight from "$lib/icons/arrow-right.svg?raw";
@@ -311,7 +311,7 @@
 <section class="light" id="closing-cta">
   <div class="container">
     <div class="closing-grid">
-      <img class="closing-device" src={DeviceAngledImage} alt="comma four" loading="lazy" />
+      <img class="closing-device" src={DeviceAngledImage} alt="comma four" width="1440" height="960" loading="lazy"/>
       <div class="closing-copy">
         <h1>ready to make driving chill?</h1>
         <p class="closing-sub">hands free driving for the car you already have</p>
@@ -755,6 +755,7 @@
 
     & .closing-device {
       display: block;
+      height: auto;
       width: 100%;
     }
 
