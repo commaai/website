@@ -3,7 +3,6 @@
   import Hls from 'hls.js/light';
   import FeaturedCarsList from "$lib/components/FeaturedCarsList.svelte";
   import FeaturedProof from "$lib/components/FeaturedProof.svelte";
-  import { vehicleCountText } from "$lib/constants/vehicles.js";
   import HomeHeroOverlay from "$lib/components/HomeHeroOverlay.svelte";
 
   import DeviceImage from "$lib/images/products/comma-four/four_front.png";
@@ -312,26 +311,22 @@
 <section class="light" id="closing-cta">
   <div class="container">
     <div class="closing-grid">
+      <img class="closing-device" src={DeviceAngledImage} alt="comma four" loading="lazy" />
       <div class="closing-copy">
         <h1>ready to make driving chill?</h1>
         <p class="closing-sub">hands free driving for the car you already have</p>
-      </div>
-      <div class="closing-actions">
-        <a class="homepage-cta dark-cta" href="/vehicles">
-          <span>check your car</span>
-          <span class="cta-arrow" aria-hidden="true">{@html ArrowRight}</span>
-        </a>
-        <a class="homepage-cta accent-cta" href="/shop/comma-four">
-          <span>buy now for $999</span>
-          <span class="cta-arrow" aria-hidden="true">{@html ArrowRight}</span>
-        </a>
+        <div class="closing-actions">
+          <a class="homepage-cta dark-cta" href="/vehicles">
+            <span>check your car</span>
+            <span class="cta-arrow" aria-hidden="true">{@html ArrowRight}</span>
+          </a>
+          <a class="homepage-cta accent-cta" href="/shop/comma-four">
+            <span>buy now for $999</span>
+            <span class="cta-arrow" aria-hidden="true">{@html ArrowRight}</span>
+          </a>
+        </div>
       </div>
     </div>
-    <ul class="closing-facts">
-      <li>{vehicleCountText} models across 27 brands</li>
-      <li>30 days risk-free</li>
-      <li>no subscription</li>
-    </ul>
   </div>
 </section>
 
@@ -746,11 +741,21 @@
   #closing-cta {
     padding-top: 0;
 
+    & .container {
+      border-top: 1px solid rgba(0, 0, 0, 0.25);
+      padding-top: 5rem;
+    }
+
     & .closing-grid {
-      align-items: end;
+      align-items: center;
       display: grid;
       gap: 2rem 4rem;
-      grid-template-columns: 1fr minmax(0, 40rem);
+      grid-template-columns: minmax(0, 22rem) 1fr;
+    }
+
+    & .closing-device {
+      display: block;
+      width: 100%;
     }
 
     & h1 {
@@ -769,41 +774,22 @@
       display: grid;
       gap: 1rem;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    & .closing-facts {
-      border-top: 1px solid #000;
-      display: grid;
-      gap: 0 2rem;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      list-style: none;
-      margin: 2.5rem 0 0;
-      padding: 1rem 0 0;
-
-      & li {
-        color: var(--color-muted);
-        font-family: JetBrains Mono, monospace;
-        font-size: 0.875rem;
-        letter-spacing: normal;
-        line-height: 1.4;
-      }
+      margin-top: 2rem;
     }
 
     @media screen and (max-width: 1024px) {
       & .closing-grid {
         grid-template-columns: minmax(0, 1fr);
       }
+
+      & .closing-device {
+        max-width: 18rem;
+      }
     }
 
     @media screen and (max-width: 768px) {
       & .closing-actions {
         grid-template-columns: minmax(0, 1fr);
-      }
-
-      & .closing-facts {
-        gap: 0.5rem;
-        grid-template-columns: minmax(0, 1fr);
-        margin-top: 2rem;
       }
     }
   }
