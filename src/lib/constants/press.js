@@ -5,22 +5,21 @@ import CarAndDriverLogo from "$lib/images/featured-articles/car-and-driver.png";
 import ConsumerReportsLogo from "$lib/images/featured-articles/consumer-reports.png";
 import TheDriveLogo from "$lib/images/featured-articles/the-drive.png";
 
-export const videos = [
+export const press = [
   {
     outlet: "Snazzy Labs",
     logo: SnazzyLabsLogo,
+    video: true,
     quote: "“Would such a thing be any good? Well, buddy, there is. And yes, it's actually fantastic.”",
     url: "https://www.youtube.com/watch?v=GY8ruVimG8M&t=1465s",
   },
   {
     outlet: "Linus Tech Tips",
     logo: LinusTechTipsLogo,
+    video: true,
     quote: "“I would have believed that that was a human.”",
     url: "https://www.youtube.com/watch?v=xdmxM-v4KQg&t=1013s",
   },
-];
-
-export const articles = [
   {
     outlet: "The Verge",
     logo: TheVergeLogo,

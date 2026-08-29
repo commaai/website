@@ -1,5 +1,5 @@
 <script>
-  import { videos, articles } from "$lib/constants/press.js";
+  import { press } from "$lib/constants/press.js";
   import { tweets } from "$lib/constants/tweets.js";
   import PlayIcon from "$lib/icons/social/youtube.svg?raw";
   import XIcon from "$lib/icons/social/x.svg?raw";
@@ -37,34 +37,22 @@
 
 <div class="wall">
   {#if show !== "owners"}
-  {#each videos as video}
-    <a class="card" href={video.url} target="_blank" rel="noopener">
+  {#each press as item}
+    <a class="card" href={item.url} target="_blank" rel="noopener">
       <div class="head">
-        <!-- the article logos are wordmarks; these two are a monogram and an icon -->
-        <img class="logo" src={video.logo} alt="Logo of {video.outlet}" />
-        <span class="outlet">{video.outlet}</span>
-        <span class="source-icon" aria-hidden="true">{@html PlayIcon}</span>
+        <img class="logo" src={item.logo} alt="Logo of {item.outlet}" />
+        {#if item.video}
+          <span class="outlet">{item.outlet}</span>
+          <span class="source-icon" aria-hidden="true">{@html PlayIcon}</span>
+        {/if}
       </div>
-      <p class="quote" class:quoted={quoted(video.quote)}>{video.quote}</p>
+      <p class="quote" class:quoted={quoted(item.quote)}>{item.quote}</p>
       <span class="foot">
-        watch
+        {item.video ? "watch" : "read"}
         <span class="arrow" aria-hidden="true">{@html ArrowRight}</span>
       </span>
     </a>
   {/each}
-
-  {#each articles as article}
-    <a class="card" href={article.url} target="_blank" rel="noopener">
-      <div class="head">
-        <img class="logo" src={article.logo} alt="Logo of {article.outlet}" />
-      </div>
-      <p class="quote" class:quoted={quoted(article.quote)}>{article.quote}</p>
-      <span class="foot">
-        read
-        <span class="arrow" aria-hidden="true">{@html ArrowRight}</span>
-      </span>
-    </a>
-    {/each}
   {/if}
 
   {#if show !== "press"}
