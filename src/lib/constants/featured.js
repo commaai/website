@@ -52,7 +52,7 @@ export const articles = [
     outlet: "Consumer Reports",
     logo: ConsumerReportsLogo,
     title: "Active driving assistance systems: test results and design recommendations",
-    quote: "Named among the top performers at keeping the car centered in its lane.",
+    quote: "Ranked #1 of 18 driver assistance systems tested in 2020.",
     year: "2020",
     url: "https://data.consumerreports.org/wp-content/uploads/2020/11/consumer-reports-active-driving-assistance-systems-november-16-2020.pdf",
   },
