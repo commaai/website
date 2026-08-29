@@ -513,6 +513,10 @@
       width: calc(100% - 2.5rem);
     }
 
+    #proof {
+      padding-bottom: 3rem;
+    }
+
     .two-column-layout {
       grid-template-columns: minmax(0, 1fr);
     }
@@ -788,8 +792,18 @@
     }
 
     @media screen and (max-width: 768px) {
+      & .container {
+        padding-top: 3rem;
+      }
+
       & .closing-actions {
         grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      & .closing-device {
+        max-width: none;
       }
     }
   }
