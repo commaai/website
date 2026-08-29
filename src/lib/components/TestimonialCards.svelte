@@ -22,9 +22,9 @@
     query: "?url",
     import: "default",
   });
-  const clipFor = (post) => `${post.handle}-${post.id}`;
+  const videoFor = (post) => `${post.handle}-${post.id}`;
   const posterFor = (post) =>
-    posters[`/src/lib/images/tweets/posters/${clipFor(post)}.jpg`]?.img?.src;
+    posters[`/src/lib/images/tweets/posters/${videoFor(post)}.jpg`]?.img?.src;
 
   const quoted = (text) => text.startsWith("“");
 
@@ -33,7 +33,6 @@
       text: part,
       handle: part.startsWith("@") ? part.slice(1) : null,
     }));
-
 </script>
 
 <div class="wall">
@@ -44,7 +43,7 @@
         <!-- the article logos are wordmarks; these two are a monogram and an icon -->
         <img class="logo" src={video.logo} alt="Logo of {video.outlet}" />
         <span class="outlet">{video.outlet}</span>
-        <span class="source" aria-hidden="true">{@html PlayIcon}</span>
+        <span class="source-icon" aria-hidden="true">{@html PlayIcon}</span>
       </div>
       <p class="quote" class:quoted={quoted(video.quote)}>{video.quote}</p>
       <span class="foot">
@@ -81,7 +80,7 @@
       {#if thread[0].video}
         <div class="frame">
           <video
-            src="{VIDEO_BASE}/{clipFor(thread[0])}.mp4"
+            src="{VIDEO_BASE}/{videoFor(thread[0])}.mp4"
             poster={posterFor(thread[0])}
             autoplay
             muted
@@ -101,7 +100,7 @@
               <span class="meta">@{post.handle}</span>
             </span>
             {#if i === 0}
-              <span class="source" aria-hidden="true">{@html XIcon}</span>
+              <span class="source-icon" aria-hidden="true">{@html XIcon}</span>
             {/if}
           </div>
           <p class="body">{#each segment(post.body) as part}{#if part.handle}<span class="mention">{part.text}</span>{:else}{part.text}{/if}{/each}</p>
@@ -149,10 +148,14 @@
     overflow: hidden;
   }
 
+  /* exact fit has black border at some zooms */
   .frame video {
+    position: absolute;
+    top: -1px;
+    left: -1px;
     display: block;
-    width: 100%;
-    height: 100%;
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
     object-fit: cover;
   }
 
@@ -173,7 +176,7 @@
     gap: 0.75rem;
   }
 
-  /* brightness(0) rather than grayscale, which only makes the marks grey */
+  /* brightness(0) rather than grayscale, which only makes the marks gray */
   .logo {
     display: block;
     filter: brightness(0);
@@ -234,7 +237,7 @@
     white-space: nowrap;
   }
 
-  .source {
+  .source-icon {
     display: flex;
     margin-left: auto;
     opacity: 0.35;
@@ -306,7 +309,7 @@
     font-size: 0.75rem;
   }
 
-  /* app.css colours every span, so this has to take the foot's colour back */
+  /* app.css colors every span, so this has to take the foot's color back */
   .arrow {
     color: inherit;
   }
@@ -326,7 +329,7 @@
       color: var(--card-text);
     }
 
-    .card:hover .source {
+    .card:hover .source-icon {
       opacity: 1;
     }
   }
