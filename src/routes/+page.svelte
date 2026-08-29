@@ -243,7 +243,7 @@
         {/each}
       </div>
 
-      <a class="homepage-cta accent-cta comma-four-cta" href="/shop/comma-four">
+      <a class="homepage-cta accent-cta" href="/shop/comma-four">
         <span>buy now for $999</span>
         <span class="cta-arrow" aria-hidden="true">{@html ArrowRight}</span>
       </a>
@@ -454,7 +454,6 @@
       height: 1.5rem;
       width: 1.5rem;
     }
-
   }
 
   .cta-arrow :global(svg) {
@@ -478,29 +477,27 @@
     color: white;
   }
 
-  @media (hover: hover) and (pointer: fine) {
-    .dark-cta:hover {
-      opacity: 0.75;
-    }
+  .accent-cta {
+    background-color: var(--color-accent);
+    color: black;
   }
 
   .dark-cta:active {
     opacity: 0.75;
   }
 
-  .accent-cta {
-    background-color: var(--color-accent);
-    color: black;
+  .accent-cta:active {
+    background-color: var(--color-accent-hover);
   }
 
   @media (hover: hover) and (pointer: fine) {
+    .dark-cta:hover {
+      opacity: 0.75;
+    }
+
     .accent-cta:hover {
       background-color: var(--color-accent-hover);
     }
-  }
-
-  .accent-cta:active {
-    background-color: var(--color-accent-hover);
   }
 
   @media screen and (max-width: 768px) {
@@ -595,7 +592,7 @@
       }
     }
 
-    & .comma-four-cta {
+    & .homepage-cta {
       grid-area: cta;
     }
 
