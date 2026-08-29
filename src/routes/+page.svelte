@@ -803,7 +803,7 @@
 
     @media screen and (max-width: 599px) {
       & .closing-device {
-        justify-self: center;
+        margin-inline: auto;
       }
     }
   }

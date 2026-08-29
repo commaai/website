@@ -285,7 +285,8 @@
   }
 
   .mention {
-    color: var(--color-accent-hover);
+    color: inherit;
+    font-weight: 700;
   }
 
   .foot {

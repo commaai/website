@@ -78,7 +78,9 @@
     .subhead {
       margin: 3rem 0 1.5rem;
     }
+  }
 
+  @media screen and (max-width: 599px) {
     .meta {
       display: none;
     }

@@ -7,16 +7,16 @@ import TheDriveLogo from "$lib/images/featured-articles/the-drive.png";
 
 export const videos = [
   {
-    outlet: "Linus Tech Tips",
-    logo: LinusTechTipsLogo,
-    quote: "“I would have believed that that was a human.”",
-    url: "https://youtu.be/xdmxM-v4KQg?t=1013",
-  },
-  {
     outlet: "Snazzy Labs",
     logo: SnazzyLabsLogo,
     quote: "“Would such a thing be any good? Well, buddy, there is. And yes, it's actually fantastic.”",
-    url: "https://www.youtube.com/watch?v=GY8ruVimG8M&t=1464s",
+    url: "https://www.youtube.com/watch?v=GY8ruVimG8M&t=1465s",
+  },
+  {
+    outlet: "Linus Tech Tips",
+    logo: LinusTechTipsLogo,
+    quote: "“I would have believed that that was a human.”",
+    url: "https://www.youtube.com/watch?v=xdmxM-v4KQg&t=1013s",
   },
 ];
 
