@@ -2,7 +2,7 @@
   import { onMount } from 'svelte';
   import Hls from 'hls.js/light';
   import FeaturedCarsList from "$lib/components/FeaturedCarsList.svelte";
-  import Testimonials from "$lib/components/Testimonials.svelte";
+  import TestimonialSection from "$lib/components/TestimonialSection.svelte";
   import HomeHeroOverlay from "$lib/components/HomeHeroOverlay.svelte";
 
   import DeviceImage from "$lib/images/products/comma-four/four_front.png";
@@ -303,7 +303,7 @@
 <section class="light" id="testimonials">
   <div class="container">
     <h1>don't take our word for it</h1>
-    <Testimonials />
+    <TestimonialSection />
   </div>
 </section>
 
