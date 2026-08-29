@@ -3,6 +3,7 @@ import SnazzyLabsLogo from "$lib/images/featured-articles/snazzy-labs.png";
 import TheVergeLogo from "$lib/images/featured-articles/the-verge.svg";
 import CarAndDriverLogo from "$lib/images/featured-articles/car-and-driver.png";
 import ConsumerReportsLogo from "$lib/images/featured-articles/consumer-reports.png";
+import TheDriveLogo from "$lib/images/featured-articles/the-drive.png";
 
 const LinusTechTipsThumb = "https://i.ytimg.com/vi/xdmxM-v4KQg/maxresdefault.jpg";
 const SnazzyLabsThumb = "https://i.ytimg.com/vi/GY8ruVimG8M/maxresdefault.jpg";
@@ -46,6 +47,14 @@ export const articles = [
     quote: "“We were shocked at the sophisticated control of the system.”",
     year: "2020",
     url: "https://www.caranddriver.com/features/a30341053/self-driving-technology-comparison/",
+  },
+  {
+    outlet: "The Drive",
+    logo: TheDriveLogo,
+    title: "We tested openpilot, the device that adds entry-level autonomy to your car",
+    quote: "“But it does offer a sense of calmness (“chill”, if you will) for long road trips”",
+    year: "2020",
+    url: "https://www.thedrive.com/tech/36604/we-tested-openpilot-the-1199-device-that-adds-entry-level-autonomy-to-your-car",
   },
   {
     outlet: "Consumer Reports",

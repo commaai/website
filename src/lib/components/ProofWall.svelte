@@ -26,6 +26,8 @@
   const posterFor = (post) =>
     posters[`/src/lib/images/tweets/posters/${clipFor(post)}.jpg`]?.img?.src;
 
+  const quoted = (text) => text.startsWith("“");
+
   const segment = (body) =>
     body.split(/(@\w+)/).map((part) => ({
       text: part,
@@ -44,7 +46,7 @@
         <span class="outlet">{video.outlet}</span>
         <span class="source" aria-hidden="true">{@html PlayIcon}</span>
       </div>
-      <p class="quote">{video.quote}</p>
+      <p class="quote" class:quoted={quoted(video.quote)}>{video.quote}</p>
       <span class="foot">
         watch
         <span class="arrow" aria-hidden="true">{@html ArrowRight}</span>
@@ -57,7 +59,7 @@
       <div class="head">
         <img class="logo" src={article.logo} alt="Logo of {article.outlet}" />
       </div>
-      <p class="quote">{article.quote}</p>
+      <p class="quote" class:quoted={quoted(article.quote)}>{article.quote}</p>
       <span class="foot">
         read
         <span class="arrow" aria-hidden="true">{@html ArrowRight}</span>
@@ -116,7 +118,7 @@
   .wall {
     --card-bg: var(--color-card-background);
     --card-border: #000;
-    --card-text: #000;
+    --card-text: #121212;
     --card-meta: #00000080;
     --card-hover: var(--color-card-background-hover);
     --card-rule: #d0d2d4;
@@ -182,8 +184,9 @@
   }
 
   .outlet {
+    color: #000;
     font-size: 1.0625rem;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: normal;
     white-space: nowrap;
   }
@@ -239,9 +242,13 @@
   }
 
   .quote {
-    font-size: 1.0625rem;
-    line-height: 1.35;
+    font-size: 1rem;
+    line-height: 1.4;
     margin: 0;
+  }
+
+  .quoted {
+    font-style: italic;
   }
 
   .post {
