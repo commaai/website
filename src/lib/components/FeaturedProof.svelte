@@ -11,7 +11,6 @@
     {
       show: "press",
       label: "the press",
-      meta: "read the coverage",
     },
   ];
 </script>
@@ -22,8 +21,6 @@
     <span class="line" aria-hidden="true"></span>
     {#if group.metaHref}
       <a class="meta" href={group.metaHref} target="_blank" rel="noopener">{group.meta}</a>
-    {:else}
-      <span class="meta">{group.meta}</span>
     {/if}
   </div>
 

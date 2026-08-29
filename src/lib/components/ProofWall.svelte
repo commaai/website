@@ -1,5 +1,5 @@
 <script>
-  import { videos, articles } from "$lib/constants/featured.js";
+  import { videos, articles } from "$lib/constants/press.js";
   import { tweets } from "$lib/constants/tweets.js";
   import PlayIcon from "$lib/icons/social/youtube.svg?raw";
   import XIcon from "$lib/icons/social/x.svg?raw";
