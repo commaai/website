@@ -801,9 +801,9 @@
       }
     }
 
-    @media screen and (max-width: 480px) {
+    @media screen and (max-width: 599px) {
       & .closing-device {
-        max-width: none;
+        justify-self: center;
       }
     }
   }

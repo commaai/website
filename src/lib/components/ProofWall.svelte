@@ -335,7 +335,6 @@
 
   @media screen and (max-width: 768px) {
     .wall {
-      grid-template-columns: 1fr;
       gap: 1rem;
     }
 
@@ -345,6 +344,12 @@
 
     .frame {
       margin: -1.25rem -1.25rem 0.375rem;
+    }
+  }
+
+  @media screen and (max-width: 599px) {
+    .wall {
+      grid-template-columns: 1fr;
     }
   }
 </style>
