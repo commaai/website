@@ -330,7 +330,6 @@
   </div>
 </section>
 
-
 <style>
   .hero-image {
     position: relative;
