@@ -191,7 +191,7 @@
     <div class="two-column-layout meet-grid">
       <div class="comma-four-content">
         <h1>meet comma four</h1>
-        <h2>make driving chill with a hands-off, eyes-on driving experience</h2>
+        <h2>replaces your car's lane keeping and cruise control with openpilot. free over-the-air updates, no subscription.</h2>
       </div>
 
       <div class="device-gallery">
@@ -284,7 +284,7 @@
 <section class="dark" id="openpilot">
   <div class="container">
     <h1 class="map-headline">
-      comma runs <a href="/openpilot" class="highlight">open source software,</a>&nbsp;driving all over the world with no subscription needed
+      <a href="/openpilot" class="highlight">openpilot</a>&nbsp;is driving all over the world, right now
     </h1>
     <figure class="activity-map">
       <div class="map-preview">
