@@ -34,20 +34,17 @@
 
 </script>
 
-<div class="wall" class:owners={show === "owners"}>
+<div class="wall">
   {#if show !== "owners"}
   {#each videos as video}
-    <a class="card wide media" href={video.url} target="_blank" rel="noopener">
-      <div class="frame">
-        <img src={video.thumbnail} alt="" loading="lazy" />
-        <span class="play" aria-hidden="true">{@html PlayIcon}</span>
-        <span class="dur">{video.duration}</span>
-      </div>
+    <a class="card press" href={video.url} target="_blank" rel="noopener">
       <div class="head">
-        <img class="logo" src={video.logo} alt="Logo of {video.outlet}" loading="lazy" />
-        <span class="meta">{video.outlet}</span>
+        <!-- the article logos are wordmarks; these two are a monogram and an icon -->
+        <img class="logo" src={video.logo} alt="Logo of {video.outlet}" />
+        <span class="outlet">{video.outlet}</span>
+        <span class="source" aria-hidden="true">{@html PlayIcon}</span>
       </div>
-      <p class="title">{video.title}</p>
+      <p class="quote">{video.quote}</p>
       <span class="foot">
         watch
         <span class="arrow" aria-hidden="true">{@html ArrowRight}</span>
@@ -56,13 +53,13 @@
   {/each}
 
   {#each articles as article}
-    <a class="card" href={article.url} target="_blank" rel="noopener">
+    <a class="card press" href={article.url} target="_blank" rel="noopener">
       <div class="head">
-        <img class="logo" src={article.logo} alt="Logo of {article.outlet}" loading="lazy" />
+        <img class="logo" src={article.logo} alt="Logo of {article.outlet}" />
       </div>
-      <p class="title small">{article.title}</p>
+      <p class="quote">{article.quote}</p>
       <span class="foot">
-        read the article
+        read
         <span class="arrow" aria-hidden="true">{@html ArrowRight}</span>
       </span>
     </a>
@@ -73,9 +70,8 @@
   {#each tweets as thread}
     {@const last = thread[thread.length - 1]}
     <a
-      class="card tweet"
+      class="card"
       class:thread={thread.length > 1}
-      class:media={thread[0].video}
       href="https://x.com/{last.handle}/status/{last.id}"
       target="_blank"
       rel="noopener"
@@ -103,7 +99,7 @@
               <span class="meta">@{post.handle}</span>
             </span>
             {#if i === 0}
-              <span class="x-icon" aria-hidden="true">{@html XIcon}</span>
+              <span class="source" aria-hidden="true">{@html XIcon}</span>
             {/if}
           </div>
           <p class="body">{#each segment(post.body) as part}{#if part.handle}<span class="mention">{part.text}</span>{:else}{part.text}{/if}{/each}</p>
@@ -126,12 +122,8 @@
     --card-rule: #d0d2d4;
 
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 1.25rem;
-  }
-
-  .owners {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
   }
 
   .card {
@@ -147,10 +139,6 @@
     transition: background-color 0.2s;
   }
 
-  .wide {
-    grid-column: span 2 / span 2;
-  }
-
   .frame {
     position: relative;
     margin: -1.5rem -1.5rem 0.375rem;
@@ -159,38 +147,11 @@
     overflow: hidden;
   }
 
-  .frame :global(picture) {
-    display: block;
-    height: 100%;
-  }
-
-  .frame img,
   .frame video {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
-
-  .frame img {
-    transition: transform 0.4s ease;
-  }
-
-  .play {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    opacity: 0.9;
-    transition: transform 0.2s ease;
-  }
-
-  .play :global(svg) {
-    width: 3.5rem;
-    height: 3.5rem;
-    filter: drop-shadow(0 0 1.5rem rgba(0, 0, 0, 0.6));
   }
 
   .dur {
@@ -208,15 +169,23 @@
     align-items: center;
     display: flex;
     gap: 0.75rem;
-    min-height: 1.75rem;
   }
 
+  /* brightness(0) rather than grayscale, which only makes the marks grey */
   .logo {
-    height: 1.625rem;
-    width: auto;
-    max-width: 9rem;
+    display: block;
+    filter: brightness(0);
+    height: 1.5rem;
     object-fit: contain;
-    filter: grayscale(100%) brightness(20%);
+    object-position: left;
+    width: auto;
+  }
+
+  .outlet {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    letter-spacing: normal;
+    white-space: nowrap;
   }
 
   .avatar {
@@ -231,9 +200,9 @@
     object-fit: cover;
   }
 
-  /* the img is wrapped in a picture, the wrapper holds the width */
+  /* the img is wrapped in a picture, so the wrapper is the flex item */
   .head :global(picture) {
-    flex: 0 0 2.25rem;
+    flex: none;
   }
 
   .who {
@@ -262,23 +231,29 @@
     white-space: nowrap;
   }
 
-  .x-icon {
+  .source {
     display: flex;
     margin-left: auto;
     opacity: 0.35;
     transition: opacity 0.2s;
   }
 
-  .title {
-    font-size: 1.5rem;
-    font-weight: 600;
-    line-height: 1.2;
+  .quote {
+    font-size: 1.0625rem;
+    line-height: 1.35;
     margin: 0;
   }
 
-  .title.small {
-    font-size: 1.25rem;
-    line-height: 1.25;
+  .press .foot {
+    font-family: JetBrains Mono, monospace;
+    font-size: 0.8125rem;
+    gap: 0.4rem;
+    text-transform: uppercase;
+  }
+
+  .press .arrow :global(svg) {
+    height: auto;
+    width: 0.875rem;
   }
 
   .post {
@@ -335,6 +310,11 @@
     font-size: 0.75rem;
   }
 
+  /* app.css colours every span, so this has to take the foot's colour back */
+  .arrow {
+    color: inherit;
+  }
+
   .arrow :global(svg) {
     display: block;
     height: 0.75rem;
@@ -350,15 +330,7 @@
       color: var(--card-text);
     }
 
-    .card:hover .frame img {
-      transform: scale(1.03);
-    }
-
-    .card:hover .play {
-      transform: scale(1.08);
-    }
-
-    .card:hover .x-icon {
+    .card:hover .source {
       opacity: 1;
     }
   }
@@ -379,20 +351,12 @@
       gap: 1rem;
     }
 
-    .wide {
-      grid-column: span 1 / span 1;
-    }
-
     .card {
       padding: 1.25rem;
     }
 
     .frame {
       margin: -1.25rem -1.25rem 0.375rem;
-    }
-
-    .title {
-      font-size: 1.25rem;
     }
   }
 </style>
