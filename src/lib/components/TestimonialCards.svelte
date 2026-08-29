@@ -46,7 +46,7 @@
           <span class="source-icon" aria-hidden="true">{@html PlayIcon}</span>
         {/if}
       </div>
-      <p class="quote" class:quoted={quoted(item.quote)}>{item.quote}</p>
+      <p class:quoted={quoted(item.quote)}>{item.quote}</p>
       <span class="foot">
         {item.video ? "watch" : "read"}
         <span class="arrow" aria-hidden="true">{@html ArrowRight}</span>
@@ -231,7 +231,7 @@
     transition: opacity 0.2s;
   }
 
-  .quote {
+  .card p {
     margin: 0;
   }
 
@@ -266,7 +266,6 @@
   }
 
   .body {
-    margin: 0;
     white-space: pre-line;
   }
 
