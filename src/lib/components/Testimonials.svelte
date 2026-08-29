@@ -1,31 +1,22 @@
 <script>
   import TestimonialCards from "$lib/components/TestimonialCards.svelte";
+  import { press } from "$lib/constants/press.js";
+  import { tweets } from "$lib/constants/tweets.js";
 
-  const groups = [
-    {
-      show: "owners",
-      label: "owners on 𝕏",
-      meta: "@comma_ai",
-      metaHref: "https://twitter.com/comma_ai",
-    },
-    {
-      show: "press",
-      label: "the press",
-    },
-  ];
 </script>
 
-{#each groups as group}
-  <div class="subhead">
-    <h2>{group.label}</h2>
-    <span class="line" aria-hidden="true"></span>
-    {#if group.metaHref}
-      <a class="meta" href={group.metaHref} target="_blank" rel="noopener">{group.meta}</a>
-    {/if}
-  </div>
+<div class="subhead">
+  <h2>owners on 𝕏</h2>
+  <span class="line" aria-hidden="true"></span>
+  <a class="meta" href="https://twitter.com/comma_ai" target="_blank" rel="noopener">@comma_ai</a>
+</div>
+<TestimonialCards items={tweets} style="tweet" />
 
-  <TestimonialCards show={group.show} />
-{/each}
+<div class="subhead">
+  <h2>the press</h2>
+  <span class="line" aria-hidden="true"></span>
+</div>
+<TestimonialCards items={press} style="press" />
 
 <style>
   .subhead {

@@ -1,11 +1,10 @@
 <script>
-  import { press } from "$lib/constants/press.js";
-  import { tweets } from "$lib/constants/tweets.js";
   import PlayIcon from "$lib/icons/social/youtube.svg?raw";
   import XIcon from "$lib/icons/social/x.svg?raw";
   import ArrowRight from "$lib/icons/arrow-right.svg?raw";
 
-  export let show = "all";
+  export let items;
+  export let style;
 
   const VIDEO_BASE = "https://3comma.net/tweets";
 
@@ -36,69 +35,65 @@
 </script>
 
 <div class="wall">
-  {#if show !== "owners"}
-  {#each press as item}
-    <a class="card" href={item.url} target="_blank" rel="noopener">
-      <div class="head">
-        <img class="logo" src={item.logo} alt="Logo of {item.outlet}" />
-        {#if item.video}
-          <span class="outlet">{item.outlet}</span>
-          <span class="source-icon" aria-hidden="true">{@html PlayIcon}</span>
-        {/if}
-      </div>
-      <p class:quoted={quoted(item.quote)}>{item.quote}</p>
-      <span class="foot">
-        {item.video ? "watch" : "read"}
-        <span class="arrow" aria-hidden="true">{@html ArrowRight}</span>
-      </span>
-    </a>
-  {/each}
-  {/if}
-
-  {#if show !== "press"}
-  {#each tweets as thread}
-    {@const last = thread[thread.length - 1]}
-    <a
-      class="card"
-      class:thread={thread.length > 1}
-      href="https://x.com/{last.handle}/status/{last.id}"
-      target="_blank"
-      rel="noopener"
-    >
-      {#if thread[0].video}
-        <div class="frame">
-          <video
-            src="{VIDEO_BASE}/{videoFor(thread[0])}.mp4"
-            poster={posterFor(thread[0])}
-            autoplay
-            muted
-            loop
-            playsinline
-          ></video>
-          <span class="dur">{thread[0].duration}</span>
-        </div>
-      {/if}
-
-      {#each thread as post, i}
-        <div class="post" class:reply={i > 0}>
-          <div class="head">
-            <img class="avatar" src={avatarFor(post.handle)} alt="" loading="lazy" />
-            <span class="who">
-              <span class="name">{post.name}</span>
-              <span class="meta">@{post.handle}</span>
-            </span>
-            {#if i === 0}
-              <span class="source-icon" aria-hidden="true">{@html XIcon}</span>
-            {/if}
+  {#each items as item}
+    {#if style === "tweet"}
+      {@const last = item[item.length - 1]}
+      <a
+        class="card"
+        class:thread={item.length > 1}
+        href="https://x.com/{last.handle}/status/{last.id}"
+        target="_blank"
+        rel="noopener"
+      >
+        {#if item[0].video}
+          <div class="frame">
+            <video
+              src="{VIDEO_BASE}/{videoFor(item[0])}.mp4"
+              poster={posterFor(item[0])}
+              autoplay
+              muted
+              loop
+              playsinline
+            ></video>
+            <span class="dur">{item[0].duration}</span>
           </div>
-          <p class="body">{#each segment(post.body) as part}{#if part.handle}<span class="mention">{part.text}</span>{:else}{part.text}{/if}{/each}</p>
-        </div>
-      {/each}
+        {/if}
 
-      <span class="foot date">{last.timestamp}</span>
-    </a>
+        {#each item as post, i}
+          <div class="post" class:reply={i > 0}>
+            <div class="head">
+              <img class="avatar" src={avatarFor(post.handle)} alt="" loading="lazy" />
+              <span class="who">
+                <span class="name">{post.name}</span>
+                <span class="handle">@{post.handle}</span>
+              </span>
+              {#if i === 0}
+                <span class="source-icon" aria-hidden="true">{@html XIcon}</span>
+              {/if}
+            </div>
+            <p class="body">{#each segment(post.body) as part}{#if part.handle}<span class="mention">{part.text}</span>{:else}{part.text}{/if}{/each}</p>
+          </div>
+        {/each}
+
+        <span class="foot date">{last.timestamp}</span>
+      </a>
+    {:else}
+      <a class="card" href={item.url} target="_blank" rel="noopener">
+        <div class="head">
+          <img class="logo" src={item.logo} alt="Logo of {item.outlet}" />
+          {#if item.video}
+            <span class="outlet">{item.outlet}</span>
+            <span class="source-icon" aria-hidden="true">{@html PlayIcon}</span>
+          {/if}
+        </div>
+        <p class:quoted={quoted(item.quote)}>{item.quote}</p>
+        <span class="foot">
+          {item.video ? "watch" : "read"}
+          <span class="arrow" aria-hidden="true">{@html ArrowRight}</span>
+        </span>
+      </a>
+    {/if}
   {/each}
-  {/if}
 </div>
 
 <style>
@@ -215,7 +210,7 @@
     white-space: nowrap;
   }
 
-  .meta {
+  .handle {
     color: var(--card-meta);
     font-size: 0.875rem;
     letter-spacing: normal;
