@@ -13,6 +13,7 @@
 
   import YoutubeIcon from '$lib/icons/social/youtube.svg?raw';
   import InfoIcon from '$lib/icons/ui/info.svg?raw';
+  import CloseIcon from '$lib/icons/ui/close.svg?raw';
   import CarIcon from '$lib/icons/features/car.svg?raw';
 
   import CommaFourImage from '$lib/images/products/comma-four/four_screen_on.png';
@@ -20,7 +21,20 @@
   import { FOUR_PRICE, FOUR_STRIKETHROUGH_PRICE, FOUR_SALE } from '$lib/constants/prices.js';
   import { vehicleCountText } from '$lib/constants/vehicles.js';
 
+  import { matchesSearch } from '$lib/utils/carSearch.js';
+
   const brand_images = import.meta.glob('$lib/images/vehicles/brand-icons/*.png', { eager: true });
+
+  let filter = '';
+  const total = Object.values(vehicles).flat().length;
+
+  // Unmatched cars are hidden with CSS
+  $: matches = new Set(
+    Object.values(vehicles)
+      .flat()
+      .filter(car => matchesSearch(`${car.name} ${car.year_list.replaceAll(',', '')}`, filter))
+      .map(car => car.name)
+  );
 </script>
 
 <div class="vehicles-cover-image"></div>
@@ -106,20 +120,44 @@
 
 <section class="light" id="compatibility-chart">
   <div class="container" style="width:85%; max-width: 60rem">
-    <p class="last-updated">Last updated: {compatibilityMeta.last_updated}</p>
+    <div class="filter-card">
+      <div class="filter-head">
+        <label class="filter-label" for="vehicle-filter">Find your car</label>
+        <span class="filter-meta">
+          <strong class="count" class:searching={filter.trim()}>{matches.size}/{total} &middot;</strong>
+          updated {compatibilityMeta.last_updated}
+        </span>
+      </div>
+      <div class="filter-field">
+        <input
+          id="vehicle-filter"
+          class="vehicle-filter"
+          type="search"
+          placeholder="e.g. 2023 camry"
+          autocomplete="off"
+          bind:value={filter}
+        >
+        {#if filter}
+          <button class="clear" type="button" aria-label="Clear filter" on:click={() => filter = ''}>
+            {@html CloseIcon}
+          </button>
+        {/if}
+      </div>
+    </div>
 
     {#each Object.entries(vehicles) as [make, cars]}
       {#if cars.length !== 0}
       {@const brand_img_path = `/src/lib/images/vehicles/brand-icons/Logo-${make}.png`}
-      <div id={make.toLowerCase()} class="car-make-header">
+      {@const matchCount = cars.filter(car => matches.has(car.name)).length}
+      <div id={make.toLowerCase()} class="car-make-header" class:filtered-out={matchCount === 0}>
         {#if brand_images[brand_img_path]}
           <img src={brand_images[brand_img_path].default} alt="{make} car brand" />
         {/if}
-        <h3>{make} <span class="muted">({cars.length})</span></h3>
+        <h3>{make} <span class="muted">({matchCount})</span></h3>
       </div>
 
       {#each cars as car_info}
-        <div class="car-row">
+        <div class="car-row" class:filtered-out={!matches.has(car_info.name)}>
           <Accordion backgroundColor="var(--color-card-background)">
             <div slot="label">
               <div class="car-details-wrapper">
@@ -196,6 +234,13 @@
       {/each}
       {/if}
     {/each}
+
+    {#if matches.size === 0}
+      <div class="no-matches">
+        <strong>openpilot doesn't support {filter} yet</strong>
+        <a href="/vehicles?car={encodeURIComponent(filter)}#email-updates">Get an email when it does &rarr;</a>
+      </div>
+    {/if}
   </div>
 </section>
 
@@ -308,10 +353,95 @@
     }
   }
 
-  .last-updated {
-    text-align: center;
+  .filter-card {
+    margin: 3rem 0;
+    padding: 3rem;
+    background-color: var(--color-card-background);
+    border: 1px solid rgba(0, 0, 0, .4);
+  }
+
+  @media screen and (max-width: 768px) {
+    .filter-card {
+      padding: 2rem 1rem;
+    }
+  }
+
+  .filter-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.25rem 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .filter-label {
+    font-size: 1.125rem;
+    font-weight: 700;
+  }
+
+  .filter-meta {
+    color: rgba(0, 0, 0, 0.55);
+    font-size: 1rem;
     font-style: italic;
-    margin-bottom: 1rem;
+  }
+
+  .filter-meta .count {
+    color: #000;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 700;
+    opacity: 0;
+    transition: opacity 0.1s;
+  }
+
+  .filter-meta .count.searching {
+    opacity: 1;
+  }
+
+  .filter-field {
+    position: relative;
+  }
+
+  .vehicle-filter {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 1rem 3rem 1rem 1rem;
+    color: #000;
+    font: inherit;
+    background: #fff;
+    border: 1px solid #000;
+
+    &:focus-visible {
+      outline: 2px solid #000;
+      outline-offset: -3px;
+    }
+
+    &::-webkit-search-cancel-button {
+      display: none;
+    }
+  }
+
+  .clear {
+    position: absolute;
+    top: 0;
+    right: 13px;
+    height: 100%;
+    padding: 0;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+  }
+
+  .no-matches {
+    display: grid;
+    gap: 0.5rem;
+    justify-items: center;
+    margin-top: 2rem;
+    padding: 2rem;
+    text-align: center;
+    background-color: var(--color-card-background);
+    border: 1px solid rgba(0, 0, 0, 0.4);
   }
 
   /* TODO: extract shared card class */
@@ -515,5 +645,10 @@
 
   #faq {
     margin-bottom: 3rem;
+  }
+
+  /* Last, so it beats the `display` the rows and make headers set for themselves */
+  .filtered-out {
+    display: none;
   }
 </style>

@@ -1,5 +1,6 @@
 <script>
   import Grid from '$lib/components/Grid.svelte';
+  import { page } from '$app/stores';
   import { EMAIL_CATEGORIES, createEmailUpdatesForm } from '$lib/email-updates.js';
 
   export let defaultCategory;
@@ -10,6 +11,12 @@
   const { email, car, selectedCategories, status, errorMessage, submit } = createEmailUpdatesForm();
 
   let everything = true;
+  let seededCar;
+
+  $: if (askForCar && $page.url.searchParams.get('car') !== (seededCar ?? null)) {
+    seededCar = $page.url.searchParams.get('car');
+    if (seededCar) car.set(seededCar);
+  }
 
   $: primaryCategory = EMAIL_CATEGORIES.find(({ key }) => key === defaultCategory);
   $: $selectedCategories = everything ? EMAIL_CATEGORIES.map(({ key }) => key) : [defaultCategory];
