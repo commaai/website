@@ -183,9 +183,13 @@
       </NoteCard>
     {/if}
     <CheckboxCard bind:this={checkboxCardRef} title="${FOUR_TRADE_IN_CREDIT} credit with trade-in" checked={tradeInChecked} onToggle={handleTradeInToggle}
-                  disabled={disableBuyButtonText !== null}>
-      Get ${FOUR_TRADE_IN_CREDIT} credit when you trade in your old comma device. Any comma device, in any condition.
-      <a href="/shop/comma-four-trade-in">Instructions and Terms</a>
+                  disabled={disableBuyButtonText !== null || referralCode}>
+      {#if referralCode}
+        Trade in credit is not available when using a referral code.
+      {:else}
+        Get ${FOUR_TRADE_IN_CREDIT} credit when you trade in your old comma device. Any comma device, in any condition.
+        <a href="/shop/comma-four-trade-in">Instructions and Terms</a>
+      {/if}
     </CheckboxCard>
   </span>
 
