@@ -129,7 +129,6 @@
 <div class="dropdown" use:clickOutside on:clickOutside={() => menuOpen = false}>
   <div>
     {#if menuOpen}
-      <!-- <button class="clear" on:click={handleClear}>{@html CloseIcon}</button> -->
       <input
         type="text"
         placeholder={placeholder}
@@ -142,7 +141,6 @@
         style={menuOpen ? 'padding: 14px 1.5rem' : ''}
       />
     {:else if selection}
-      <!-- <button class="clear" on:click={handleClear}>{@html CloseIcon}</button> -->
       <DropdownItem
         value={selection}
         on:click={handleSelectClick}
