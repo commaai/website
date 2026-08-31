@@ -313,25 +313,16 @@
   }
 
   .remove-referral {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     width: 1.75rem;
     height: 1.75rem;
     padding: 0;
-    color: #000;
-    background: transparent;
     border: 0;
+    background: transparent;
     cursor: pointer;
 
     &:disabled {
       cursor: wait;
       opacity: 0.5;
-    }
-
-    & :global(svg) {
-      width: 1.25rem;
-      height: 1.25rem;
     }
   }
 

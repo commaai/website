@@ -13,7 +13,6 @@
   import SteppableInput from "./SteppableInput.svelte";
   import Space from "./Space.svelte";
   import { formatCurrency } from "$lib/utils/currency";
-  import CloseIcon from "$lib/icons/ui/close.svg?raw";
 
   export let loading = false;
 
@@ -36,9 +35,6 @@
     loading = false;
   }
 
-  function removeReferralDiscount() {
-    dispatch("removeReferralDiscount");
-  }
 </script>
 
 <div class="overlay" role="presentation" on:click />
@@ -102,17 +98,7 @@
             <strong>Referral discount</strong>
             <span class="referral-code">{$cartReferralDiscount.code}</span>
           </div>
-          <div class="referral-actions">
-            <h4 class="referral-amount">-{formatCurrency({ amount: referralDiscountAmount, currencyCode: $cartSubtotal.currencyCode }, 0)}</h4>
-            <button
-              class="remove-referral"
-              aria-label="Remove referral discount"
-              disabled={loading}
-              on:click={removeReferralDiscount}
-            >
-              {@html CloseIcon}
-            </button>
-          </div>
+          <h4 class="referral-amount">-{formatCurrency({ amount: referralDiscountAmount, currencyCode: $cartSubtotal.currencyCode }, 0)}</h4>
         </div>
       {/if}
       {#if $cartDiscount || hasReferralDiscount}
@@ -162,35 +148,6 @@
       margin: 0;
       color: var(--color-accent-hover);
       white-space: nowrap;
-    }
-  }
-
-  .referral-actions {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  .remove-referral {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 1.75rem;
-    height: 1.75rem;
-    padding: 0;
-    color: #000;
-    background: transparent;
-    border: 0;
-    cursor: pointer;
-
-    &:disabled {
-      cursor: wait;
-      opacity: 0.5;
-    }
-
-    & :global(svg) {
-      width: 1.25rem;
-      height: 1.25rem;
     }
   }
 
