@@ -28,7 +28,6 @@
 
   export let product;
   let disableBuyButtonText = "SELECT YOUR CAR";
-  let removingReferralDiscount = false;
 
   let harnessSelectorRef;
   let checkboxCardRef;
@@ -103,15 +102,6 @@
 
   const handleTradeInToggle = () => {
     tradeInChecked = !tradeInChecked;
-  }
-
-  const handleRemoveReferralDiscount = async () => {
-    removingReferralDiscount = true;
-    try {
-      await removeReferralDiscount();
-    } finally {
-      removingReferralDiscount = false;
-    }
   }
 
   onMount(async () => {
@@ -196,8 +186,7 @@
           slot="actions"
           class="remove-referral"
           aria-label="Remove referral discount"
-          disabled={removingReferralDiscount}
-          on:click={handleRemoveReferralDiscount}
+          on:click={removeReferralDiscount}
         >
           {@html CloseIcon}
         </button>
