@@ -238,6 +238,23 @@ export async function updateCart({ cartId, lineId, variantId, quantity }) {
   });
 }
 
+export async function updateCartDiscountCodes({ cartId, discountCodes }) {
+  return shopifyFetch({
+    query: /* graphql */ `
+      mutation cartDiscountCodesUpdate($cartId: ID!, $discountCodes: [String!]!) {
+        cartDiscountCodesUpdate(cartId: $cartId, discountCodes: $discountCodes) {
+          ${USER_ERRORS_GQL}
+          ${WARNINGS_GQL}
+        }
+      }
+    `,
+    variables: {
+      cartId,
+      discountCodes
+    }
+  });
+}
+
 export async function addToCart({ cartId, variantId, additionalProductIds = [], note = "" }) {
   const cartLinesResponse = await shopifyFetch({
     query: /* graphql */ `

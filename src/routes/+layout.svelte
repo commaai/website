@@ -29,6 +29,7 @@
     loadCart,
     cartId,
     cartTotalQuantity,
+    removeReferralDiscount as removeReferralDiscountFromCart,
     showCart,
   } from "../store.js";
 
@@ -55,6 +56,15 @@
     });
     await loadCart();
     loading = false;
+  }
+
+  async function removeReferralDiscount() {
+    loading = true;
+    try {
+      await removeReferralDiscountFromCart();
+    } finally {
+      loading = false;
+    }
   }
 
   onMount(async () => {
@@ -115,6 +125,7 @@
   <ShoppingCart
     on:click={hideCart}
     on:updateProduct={updateProduct}
+    on:removeReferralDiscount={removeReferralDiscount}
     bind:loading
   />
 {/if}

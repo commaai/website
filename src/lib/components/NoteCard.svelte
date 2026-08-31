@@ -22,6 +22,11 @@
       <slot></slot>
     </div>
   </hgroup>
+  {#if $$slots.actions}
+    <div class="actions">
+      <slot name="actions"></slot>
+    </div>
+  {/if}
 </div>
 
 <style>
@@ -75,6 +80,13 @@
         color: black;
       }
     }
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    padding-left: 1rem;
   }
 
   .highlighted {

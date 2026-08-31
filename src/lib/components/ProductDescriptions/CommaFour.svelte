@@ -11,6 +11,7 @@
   import MoneyBackGuaranteeIcon from "$lib/icons/features/money-back-guarantee.svg?raw";
   import WarrantyIcon from "$lib/icons/features/warranty.svg?raw";
   import GiftIcon from "$lib/icons/features/gift.svg?raw";
+  import CloseIcon from "$lib/icons/ui/close.svg?raw";
 
   import { FOUR_PRICE, FOUR_SALE, FOUR_STRIKETHROUGH_PRICE, FOUR_TRADE_IN_CREDIT, NO_HARNESS_DISCOUNT } from '$lib/constants/prices.js';
   import { NO_HARNESS_OPTION } from '$lib/constants/vehicles.js';
@@ -22,11 +23,12 @@
   import { products as productsData } from '$lib/data/products.js';
   import { DEFAULT_BACKORDER_ESTIMATE } from '$lib/constants/shipping.js';
   import { formatCurrency } from "$lib/utils/currency";
-  import { cartReferralCode } from '../../../store.js';
+  import { cartReferralCode, removeReferralDiscount } from '../../../store.js';
   import { REFERRAL_DISCOUNT } from '$lib/utils/referral.js';
 
   export let product;
   let disableBuyButtonText = "SELECT YOUR CAR";
+  let removingReferralDiscount = false;
 
   let harnessSelectorRef;
   let checkboxCardRef;
@@ -73,7 +75,7 @@
     if (selectedHarness && selectedHarness !== NO_HARNESS_OPTION) {
       ids.push(selectedHarness.id);
     }
-    if (tradeInChecked && tradeInVariantId) {
+    if (tradeInChecked && tradeInVariantId && !referralCode) {
       ids.push(tradeInVariantId);
     }
     return ids;
@@ -101,6 +103,15 @@
 
   const handleTradeInToggle = () => {
     tradeInChecked = !tradeInChecked;
+  }
+
+  const handleRemoveReferralDiscount = async () => {
+    removingReferralDiscount = true;
+    try {
+      await removeReferralDiscount();
+    } finally {
+      removingReferralDiscount = false;
+    }
   }
 
   onMount(async () => {
@@ -180,6 +191,16 @@
     {#if referralCode}
       <NoteCard title={`$${REFERRAL_DISCOUNT} referral discount applied`} icon={GiftIcon} highlightTitle>
         Your referral discount will be applied to this order at checkout.
+        <a href="https://comma.ai/terms#referral-terms" target="_blank" rel="noopener noreferrer">Terms and conditions</a> apply.
+        <button
+          slot="actions"
+          class="remove-referral"
+          aria-label="Remove referral discount"
+          disabled={removingReferralDiscount}
+          on:click={handleRemoveReferralDiscount}
+        >
+          {@html CloseIcon}
+        </button>
       </NoteCard>
     {/if}
     <CheckboxCard bind:this={checkboxCardRef} title="${FOUR_TRADE_IN_CREDIT} credit with trade-in" checked={tradeInChecked} onToggle={handleTradeInToggle}
@@ -289,6 +310,29 @@
 
   .original-price {
     color: rgba(0, 0, 0, 0.5);
+  }
+
+  .remove-referral {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    padding: 0;
+    color: #000;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+
+    &:disabled {
+      cursor: wait;
+      opacity: 0.5;
+    }
+
+    & :global(svg) {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
   }
 
   .label {
