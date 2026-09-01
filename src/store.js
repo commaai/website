@@ -1,7 +1,7 @@
 import { browser } from "$app/environment";
 import { writable, derived, get } from 'svelte/store';
-import { addToCart as requestAddToCart, loadCart as requestLoadCart } from '$lib/utils/shopify';
-import { isReferralCode, REFERRAL_DISCOUNT } from '$lib/utils/referral';
+import { addToCart as requestAddToCart, loadCart as requestLoadCart, updateCartDiscountCodes } from '$lib/utils/shopify';
+import { isReferralCode, REFERRAL_DISCOUNT, REFERRAL_QUERY_PARAM } from '$lib/utils/referral';
 
 export const showCart = writable(false);
 
@@ -73,6 +73,19 @@ export const addToCart = async (itemId, additionalProductIds = [], note = "") =>
   await requestAddToCart({ cartId: get(cartId), variantId: itemId, additionalProductIds, note});
   await loadCart();
   showCart.set(true);
+}
+
+export const removeReferralCode = async () => {
+  await updateCartDiscountCodes([]);
+  await loadCart();
+
+  if (browser) {
+    const url = new URL(window.location.href);
+    if (url.searchParams.has(REFERRAL_QUERY_PARAM)) {
+      url.searchParams.delete(REFERRAL_QUERY_PARAM);
+      window.history.replaceState({}, '', url);
+    }
+  }
 }
 
 export const getTotalDiscount = (discountAllocations) => {

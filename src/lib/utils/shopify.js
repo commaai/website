@@ -215,6 +215,20 @@ export async function createCart(referralCode = null) {
 
 }
 
+export async function updateCartDiscountCodes(discountCodes = []) {
+  return shopifyFetch({
+    query: /* graphql */ `
+      mutation cartDiscountCodesUpdate($cartId: ID!, $discountCodes: [String!]) {
+        cartDiscountCodesUpdate(cartId: $cartId, discountCodes: $discountCodes) {
+          ${USER_ERRORS_GQL}
+          ${WARNINGS_GQL}
+        }
+      }
+    `,
+    variables: { cartId: get(cartId), discountCodes }
+  });
+}
+
 export async function updateCart({ cartId, lineId, variantId, quantity }) {
   return shopifyFetch({
     query: /* graphql */ `

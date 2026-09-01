@@ -5,6 +5,7 @@
   export let title;
   export let style = "normal" // or "elevated"
   export let highlightTitle = false;
+  export let strikethroughTitle = false;
 </script>
 
 <div
@@ -17,11 +18,12 @@
     </slot>
   </div>
   <hgroup>
-    <span class:highlighted={highlightTitle}>{title}</span>
+    <span class:highlighted={highlightTitle} class:strikethrough={strikethroughTitle}>{title}</span>
     <div>
       <slot></slot>
     </div>
   </hgroup>
+  <slot name="action"></slot>
 </div>
 
 <style>
@@ -34,6 +36,7 @@
     border: 1px solid #616161;
 
     & hgroup {
+      flex: 1;
       margin-left: 1rem;
       display: block !important;
 
@@ -80,5 +83,9 @@
   .highlighted {
     background-color: #86ff4e;
     color: black;
+  }
+
+  .strikethrough {
+    text-decoration: line-through;
   }
 </style>

@@ -22,8 +22,9 @@
   import { products as productsData } from '$lib/data/products.js';
   import { DEFAULT_BACKORDER_ESTIMATE } from '$lib/constants/shipping.js';
   import { formatCurrency } from "$lib/utils/currency";
-  import { cartReferralCode } from '../../../store.js';
+  import { cartReferralCode, removeReferralCode } from '../../../store.js';
   import { REFERRAL_DISCOUNT } from '$lib/utils/referral.js';
+  import CloseIcon from '$lib/icons/ui/close.svg?raw';
 
   export let product;
   let disableBuyButtonText = "SELECT YOUR CAR";
@@ -58,6 +59,13 @@
   let backordered = null;
 
   $: referralCode = $cartReferralCode;
+
+  // Trade-in credit cannot be combined with a referral discount
+  $: tradeInUnavailable = !!referralCode;
+  $: if (tradeInUnavailable && tradeInChecked) {
+    tradeInChecked = false;
+    checkboxCardRef?.setChecked(false);
+  }
 
   // Trade-in and discount configuration
   $: showDiscount = selectedHarness === NO_HARNESS_OPTION;
@@ -180,12 +188,19 @@
     {#if referralCode}
       <NoteCard title={`$${REFERRAL_DISCOUNT} referral discount applied`} icon={GiftIcon} highlightTitle>
         Your referral discount will be applied to this order at checkout.
+        <button slot="action" class="remove-referral" title="Remove referral code" on:click={removeReferralCode}>
+          {@html CloseIcon}
+        </button>
       </NoteCard>
     {/if}
     <CheckboxCard bind:this={checkboxCardRef} title="${FOUR_TRADE_IN_CREDIT} credit with trade-in" checked={tradeInChecked} onToggle={handleTradeInToggle}
-                  disabled={disableBuyButtonText !== null}>
-      Get ${FOUR_TRADE_IN_CREDIT} credit when you trade in your old comma device. Any comma device, in any condition.
-      <a href="/shop/comma-four-trade-in">Instructions and Terms</a>
+                  disabled={tradeInUnavailable || disableBuyButtonText !== null} strikethroughTitle={tradeInUnavailable}>
+      {#if tradeInUnavailable}
+        Trade-in credit is <strong>not available</strong> when using a referral code.
+      {:else}
+        Get ${FOUR_TRADE_IN_CREDIT} credit when you trade in your old comma device. Any comma device, in any condition.
+        <a href="/shop/comma-four-trade-in">Instructions and Terms</a>
+      {/if}
     </CheckboxCard>
   </span>
 
@@ -274,6 +289,22 @@
     gap: 0.75rem;
     margin: 1rem 0;
 
+  }
+
+  .remove-referral {
+    display: flex;
+    align-items: center;
+    padding: 0.25rem;
+    margin-left: 0.5rem;
+    border: none;
+    background: none;
+    color: black;
+    cursor: pointer;
+    opacity: 0.6;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 
   .referral-prices {

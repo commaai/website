@@ -5,6 +5,7 @@
   export let checked = false;
   export let onToggle;
   export let disabled = false;
+  export let strikethroughTitle = false;
 
   export function setChecked(value) {
     checked = value;
@@ -12,7 +13,7 @@
 </script>
 
 <label class="checkbox-card" class:checked={checked} class:disabled={disabled}>
-  <NoteCard {title}>
+  <NoteCard {title} {strikethroughTitle}>
     <input type="checkbox" slot="icon" checked={checked} disabled={disabled} on:change={() => !disabled && onToggle && onToggle()} />
     <slot></slot>
   </NoteCard>
