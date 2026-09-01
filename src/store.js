@@ -1,6 +1,12 @@
 import { browser } from "$app/environment";
 import { writable, derived, get } from 'svelte/store';
-import { addToCart as requestAddToCart, loadCart as requestLoadCart, updateCartDiscountCodes as requestUpdateCartDiscountCodes } from '$lib/utils/shopify';
+import {
+  addToCart as requestAddToCart,
+  loadCart as requestLoadCart,
+  removeCartLines as requestRemoveCartLines,
+  updateCartDiscountCodes as requestUpdateCartDiscountCodes,
+} from '$lib/utils/shopify';
+import { products } from '$lib/data/products.js';
 import { isReferralCode, REFERRAL_DISCOUNT } from '$lib/utils/referral';
 
 export const showCart = writable(false);
@@ -87,6 +93,22 @@ export const removeReferralDiscount = async () => {
 
 export const applyReferralDiscount = async (referralCode) => {
   if (!isReferralCode(referralCode)) return;
+
+  // Refresh first so lines added from another tab or a previously stale view are included.
+  await loadCart();
+
+  const tradeInProductId = products['comma-four-trade-in'].id;
+  const tradeInLineIds = (get(cartItems) || [])
+    .filter(({ node }) => {
+      const product = node.merchandise.product;
+      return product.id === tradeInProductId || product.title.toLowerCase() === 'comma four trade-in';
+    })
+    .map(({ node }) => node.id);
+
+  await requestRemoveCartLines({
+    cartId: get(cartId),
+    lineIds: tradeInLineIds,
+  });
 
   await requestUpdateCartDiscountCodes({
     cartId: get(cartId),

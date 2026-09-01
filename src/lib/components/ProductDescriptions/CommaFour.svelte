@@ -116,6 +116,8 @@
   const handleUndoReferral = async () => {
     updatingReferral = true;
     await applyReferralDiscount(removedReferralCode);
+    checkboxCardRef?.setChecked(false);
+    tradeInChecked = false;
     removedReferralCode = null;
     updatingReferral = false;
   }
