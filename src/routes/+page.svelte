@@ -191,7 +191,7 @@
     <div class="two-column-layout meet-grid">
       <div class="comma-four-content">
         <h1>meet comma four</h1>
-        <h2>replaces your car's lane keeping and cruise control with openpilot. free over-the-air updates, no subscription.</h2>
+        <h2>replace your car's lane keeping and cruise control with openpilot. hands-free driving on back roads, not just the highway.</h2>
       </div>
 
       <div class="device-gallery">
@@ -243,10 +243,13 @@
         {/each}
       </div>
 
-      <a class="homepage-cta accent-cta" href="/shop/comma-four">
-        <span>buy now for $999</span>
-        <span class="cta-arrow" aria-hidden="true">{@html ArrowRight}</span>
-      </a>
+      <div class="buy">
+        <a class="homepage-cta accent-cta" href="/shop/comma-four">
+          <span>buy now for $999</span>
+          <span class="cta-arrow" aria-hidden="true">{@html ArrowRight}</span>
+        </a>
+        <p class="buy-note">free over-the-air updates, no subscription</p>
+      </div>
     </div>
   </div>
 </section>
@@ -592,8 +595,16 @@
       }
     }
 
-    & .homepage-cta {
+    & .buy {
       grid-area: cta;
+    }
+
+    & .buy-note {
+      color: var(--color-foreground);
+      font-size: 0.9375rem;
+      letter-spacing: -0.04em;
+      margin: 0.75rem 0 0;
+      opacity: 0.65;
     }
 
     @media screen and (max-width: 599px) {
