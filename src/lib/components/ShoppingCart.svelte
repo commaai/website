@@ -34,7 +34,6 @@
     window.open(get(checkoutUrl), "_self");
     loading = false;
   }
-
 </script>
 
 <div class="overlay" role="presentation" on:click />

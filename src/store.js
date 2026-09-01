@@ -97,11 +97,10 @@ export const applyReferralDiscount = async (referralCode) => {
   // Refresh first so lines added from another tab or a previously stale view are included.
   await loadCart();
 
-  const tradeInProductId = products['comma-four-trade-in'].id;
   const tradeInLineIds = (get(cartItems) || [])
     .filter(({ node }) => {
       const product = node.merchandise.product;
-      return product.id === tradeInProductId || product.title.toLowerCase() === 'comma four trade-in';
+      return product.id === products['comma-four-trade-in'].id;
     })
     .map(({ node }) => node.id);
 
