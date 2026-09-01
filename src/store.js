@@ -85,6 +85,21 @@ export const removeReferralDiscount = async () => {
   await loadCart();
 }
 
+export const applyReferralDiscount = async (referralCode) => {
+  if (!isReferralCode(referralCode)) return;
+
+  await requestUpdateCartDiscountCodes({
+    cartId: get(cartId),
+    discountCodes: [
+      ...get(cartDiscountCodes)
+        .map(({ code }) => code)
+        .filter((code) => !isReferralCode(code)),
+      referralCode,
+    ],
+  });
+  await loadCart();
+}
+
 export const getTotalDiscount = (discountAllocations) => {
   if (!discountAllocations || discountAllocations.length === 0) return null;
 
