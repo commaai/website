@@ -80,15 +80,15 @@
     }
   }
 
-  // Normalize for matching: strip diacritics, punctuation, and attach word/number boundaries ("Ioniq 5" -> "ioniq5")
+  // Strip diacritics and punctuation, attach model numbers but not years ("Ioniq 5" -> "ioniq5")
   function normalize(str) {
-    return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9\s]/g, '').replace(/([a-z]) (?=[0-9])/g, '$1');
+    return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9\s]/g, '').replace(/([a-z]) (?=[0-9]{1,3}(?:\s|$))/g, '$1');
   }
 
   // Common misspellings and shorthands
   const SEARCH_ALIASES = Object.entries({
-    ev: 'electric',
-    bev: 'electric',
+    ev: 'electri',  // electric and electrified
+    bev: 'electri',
     vw: 'volkswagen',
     chevy: 'chevrolet',
     subie: 'subaru',
@@ -114,14 +114,20 @@
   let inputValue = "";
   let inputRef;
 
+  // Where each term matches: 0 starts the name, 1 starts a word or alias, 2 is inside a word, Infinity is no match
+  function searchScore(item, terms) {
+    const car = normalize([item.make, item.model, item.yearList].filter(Boolean).join(' '));  // each year, not the range string
+    const aliases = SEARCH_ALIASES.filter(([, word]) => car.includes(word));
+    return terms.reduce((total, term) => total
+      + (car.startsWith(term) ? 0
+      : car.includes(` ${term}`) || aliases.some(([alias]) => alias.startsWith(term)) ? 1
+      : car.includes(term) ? 2
+      : Infinity), 0);
+  }
+
   $: searchTerms = inputValue.split(/\s+/).map(normalize).filter(Boolean);
-  $: filteredItems = $harnesses.filter(item => {
-    const car = SEARCH_ALIASES.reduce(
-      (car, [alias, word]) => car.includes(word) ? `${car} ${alias}` : car,
-      normalize(`${item.car} ${item.yearList ?? ''}`),  // add all years in range
-    );
-    return searchTerms.every(term => car.includes(term));
-  });
+  $: scores = new Map($harnesses.map(item => [item, searchScore(item, searchTerms)]));
+  $: filteredItems = $harnesses.filter(item => isFinite(scores.get(item))).sort((a, b) => scores.get(a) - scores.get(b));
 
   const handleClear = () => {
     // clear search input or close menu
