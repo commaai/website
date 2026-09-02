@@ -49,9 +49,11 @@
   }
 
   function updateQueryParams(selectedHarness) {
-    const searchParams = new URLSearchParams();
+    const searchParams = new URLSearchParams($page.url.searchParams);
     if (selectedHarness) {
       searchParams.set("harness", encodeURIComponent(selectedHarness.car));
+    } else {
+      searchParams.delete("harness");
     }
 
     // https://github.com/sveltejs/kit/discussions/3245#discussioncomment-1931570
