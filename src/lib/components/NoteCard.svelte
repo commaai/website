@@ -27,7 +27,6 @@
 <style>
   .card {
     display: flex;
-    gap: 1rem;
     margin: 1rem 0;
     padding: 1rem;
     align-items: center;
@@ -37,11 +36,10 @@
     & .icon-slot {
       display: flex;
       flex: 0 0 2rem;
-      align-items: center;
     }
 
     & hgroup {
-      margin-left: 0;
+      margin-left: 1rem;
       display: block !important;
 
       & span {
