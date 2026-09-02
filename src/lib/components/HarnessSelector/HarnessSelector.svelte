@@ -91,7 +91,8 @@
 
   $: searchTerms = normalizeDiacritics(inputValue.toLowerCase()).split(/\s+/).filter(Boolean);
   $: filteredItems = $harnesses.filter(item => {
-    const car = normalizeDiacritics(`${item.car} ${item.yearList ?? ''}`.toLowerCase());  // add all years in range
+    const car = normalizeDiacritics(`${item.car} ${item.yearList ?? ''}`.toLowerCase())  // add all years in range
+      .replace('electric', 'electric ev');  // so "ev" finds electric vehicles
     return searchTerms.every(term => car.includes(term));
   });
 
