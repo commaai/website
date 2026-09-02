@@ -80,9 +80,9 @@
     }
   }
 
-  // Strip diacritics and punctuation, attach model numbers but not years ("Ioniq 5" -> "ioniq5")
+  // Strip diacritics and punctuation ("Škoda" -> "skoda", "CR-V" -> "crv")
   function normalize(str) {
-    return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9\s]/g, '').replace(/([a-z]) (?=[0-9]{1,3}(?:\s|$))/g, '$1');
+    return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9\s]/g, '');
   }
 
   // Common misspellings and shorthands
@@ -116,7 +116,9 @@
 
   // Lower is a better match: 0 exact word, 1 starts the first word, 2 starts a later word or an alias, 3 inside a word, inf is no match
   function searchScore(item, terms) {
-    const car = normalize([item.make, item.model, item.yearList].filter(Boolean).join(' '));  // each year, not the range string
+    const model = normalize(item.model);
+    const joined = model.replace(/([a-z]) (?=[0-9])/g, '$1');  // "Ioniq 5" also matches "ioniq5"
+    const car = [normalize(item.make ?? ''), model, joined, item.yearList].filter(Boolean).join(' ');  // each year, not the range string
     const padded = ` ${car} `;
     const aliases = SEARCH_ALIASES.filter(([, word]) => car.includes(word));
     return terms.reduce((total, term) => total
@@ -127,9 +129,11 @@
       : Infinity), 0);
   }
 
-  $: searchTerms = inputValue.split(/\s+/).map(normalize).filter(Boolean);
+  $: searchTerms = normalize(inputValue).split(/\s+/).filter(Boolean);
   $: scores = new Map($harnesses.map(item => [item, searchScore(item, searchTerms)]));
-  $: filteredItems = $harnesses.filter(item => isFinite(scores.get(item))).sort((a, b) => scores.get(a) - scores.get(b));
+  // Generic harnesses have no make and rank after every car
+  $: filteredItems = $harnesses.filter(item => isFinite(scores.get(item)))
+    .sort((a, b) => !a.make - !b.make || scores.get(a) - scores.get(b));
 
   const handleClear = () => {
     // clear search input or close menu
