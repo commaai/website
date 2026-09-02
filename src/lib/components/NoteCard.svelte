@@ -33,6 +33,11 @@
     color: black;
     border: 1px solid #616161;
 
+    & .icon-slot {
+      display: flex;
+      flex: 0 0 2rem;
+    }
+
     & hgroup {
       margin-left: 1rem;
       display: block !important;
