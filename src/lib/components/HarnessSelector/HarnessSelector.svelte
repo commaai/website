@@ -80,12 +80,12 @@
     }
   }
 
-  // Normalize for matching: diacritics (e.g., "Škoda" -> "skoda") and punctuation (e.g., "CR-V" -> "crv")
+  // Normalize for matching: diacritics (e.g., "Škoda" -> "skoda") and punctuation
   function normalize(str) {
     return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[-.]/g, '').toLowerCase();
   }
 
-  // Map search term to our car names
+  // Map search term to car names
   const SEARCH_ALIASES = Object.entries({
     ev: 'electric',
     bev: 'electric',
