@@ -114,14 +114,16 @@
   let inputValue = "";
   let inputRef;
 
-  // Where each term matches: 0 starts the name, 1 starts a word or alias, 2 is inside a word, Infinity is no match
+  // Lower is a better match: 0 exact word, 1 starts the first word, 2 starts a later word or an alias, 3 inside a word, inf is no match
   function searchScore(item, terms) {
     const car = normalize([item.make, item.model, item.yearList].filter(Boolean).join(' '));  // each year, not the range string
+    const padded = ` ${car} `;
     const aliases = SEARCH_ALIASES.filter(([, word]) => car.includes(word));
     return terms.reduce((total, term) => total
-      + (car.startsWith(term) ? 0
-      : car.includes(` ${term}`) || aliases.some(([alias]) => alias.startsWith(term)) ? 1
-      : car.includes(term) ? 2
+      + (padded.includes(` ${term} `) ? 0
+      : car.startsWith(term) ? 1
+      : padded.includes(` ${term}`) || aliases.some(([alias]) => alias.startsWith(term)) ? 2
+      : car.includes(term) ? 3
       : Infinity), 0);
   }
 
