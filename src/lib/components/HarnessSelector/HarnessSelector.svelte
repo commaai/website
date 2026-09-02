@@ -90,8 +90,10 @@
     ev: 'electric',
     bev: 'electric',
     vw: 'volkswagen',
+    volkswagon: 'volkswagen',
     chevy: 'chevrolet',
     subie: 'subaru',
+    obd2: 'obdii',
   });
 
   /* Filtered Dropdown */
