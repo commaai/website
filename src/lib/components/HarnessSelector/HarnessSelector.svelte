@@ -80,9 +80,9 @@
     }
   }
 
-  // Normalize for matching: diacritics (e.g., "Škoda" -> "skoda") and punctuation
+  // Normalize for matching: strip diacritics, punctuation, and attach word/number boundaries ("Ioniq 5" -> "ioniq5")
   function normalize(str) {
-    return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[-.]/g, '').toLowerCase();
+    return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9\s]/g, '').replace(/([a-z]) (?=[0-9])/g, '$1');
   }
 
   // Map search term to car names
@@ -100,7 +100,7 @@
   let inputValue = "";
   let inputRef;
 
-  $: searchTerms = normalize(inputValue).split(/\s+/).filter(Boolean);
+  $: searchTerms = inputValue.split(/\s+/).map(normalize).filter(Boolean);
   $: filteredItems = $harnesses.filter(item => {
     const car = SEARCH_ALIASES.reduce(
       (car, [alias, word]) => car.includes(word) ? `${car} ${alias}` : car,
