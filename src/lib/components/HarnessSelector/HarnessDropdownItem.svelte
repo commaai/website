@@ -28,7 +28,7 @@
     color: #222222;
     background-color: #fff;
     border: 1px solid #a0a0a0;
-    padding: 1.25rem 3rem 1.25rem 1.5rem;
+    padding: 1.25rem 3rem;
     box-sizing: border-box;
     min-height: 84px;
     transition: border-color 0.2s;

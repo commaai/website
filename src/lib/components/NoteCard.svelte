@@ -87,6 +87,15 @@
     }
   }
 
+  .icon-slot {
+    display: flex;
+  }
+  
+  .icon-slot :global(svg) {
+    width: 26px;
+    height: 26px;
+  }
+  
   .actions {
     display: flex;
     align-items: center;

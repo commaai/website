@@ -34,6 +34,7 @@
   .checkbox-card :global(input[type="checkbox"]) {
     width: 1.25rem;
     height: 1.25rem;
+    margin: 3px;
     cursor: pointer;
     accent-color: var(--color-accent);
   }

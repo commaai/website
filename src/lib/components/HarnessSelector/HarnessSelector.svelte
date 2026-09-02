@@ -131,6 +131,7 @@
 <div class="dropdown" use:clickOutside on:clickOutside={() => menuOpen = false}>
   <div>
     {#if menuOpen}
+      <button class="clear" on:click={handleClear}>{@html CloseIcon}</button>
       <input
         type="text"
         placeholder={placeholder}
@@ -140,9 +141,10 @@
         bind:this={inputRef}
         on:click={() => menuOpen = true}
         on:focus={() => menuOpen = true}
-        style={menuOpen ? 'padding: 14px 1.5rem' : ''}
+        style={menuOpen ? 'padding: 14px 3rem' : ''}
       />
     {:else if selection}
+      <button class="clear" on:click={handleClear}>{@html CloseIcon}</button>
       <DropdownItem
         value={selection}
         on:click={handleSelectClick}
@@ -262,13 +264,28 @@
 .chevron {
   position: absolute;
   top: 50%;
-  right: 13px;
+  right: 12px;
   transform: translate(-50%, -50%);
   pointer-events: none;
 
   & > svg {
     width: 18px;
     height: 12px;
+  }
+}
+
+.clear {
+  position: absolute;
+  left: 13px;
+  height: 100%;
+  padding: 0;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  
+  & > svg {
+    width: 26px;
+    height: 26px;
   }
 }
 
