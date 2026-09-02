@@ -27,14 +27,21 @@
 <style>
   .card {
     display: flex;
+    gap: 1rem;
     margin: 1rem 0;
     padding: 1rem;
     align-items: center;
     color: black;
     border: 1px solid #616161;
 
+    & .icon-slot {
+      display: flex;
+      flex: 0 0 2rem;
+      align-items: center;
+    }
+
     & hgroup {
-      margin-left: 1rem;
+      margin-left: 0;
       display: block !important;
 
       & span {
