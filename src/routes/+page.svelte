@@ -4,6 +4,7 @@
   import FeaturedCarsList from "$lib/components/FeaturedCarsList.svelte";
   import TestimonialSection from "$lib/components/TestimonialSection.svelte";
   import HomeHeroOverlay from "$lib/components/HomeHeroOverlay.svelte";
+  import HeaderBanner from "$lib/components/HeaderBanner.svelte";
 
   import DeviceImage from "$lib/images/products/comma-four/four_front.png?w=1440";
   import DeviceScreenOnImage from "$lib/images/products/comma-four/four_screen_on.png?w=1440";
@@ -163,6 +164,8 @@
   <link rel="preload" as="image" href="{CDN_BASE}/hero-portrait/poster.jpg" media="(max-width: 768px)" />
   <link rel="preload" as="image" href="{CDN_BASE}/screen-video/poster.jpg" />
 </svelte:head>
+
+<HeaderBanner />
 
 <section
   class="hero-image"

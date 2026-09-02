@@ -565,7 +565,7 @@ export const products = {
 
   "comma-four-trade-in": {
     title: "comma four trade-in",
-    id: "gid://shopify/Product/7966994202687",
+    id: "gid://shopify/Product/8334690189375",
   },
 
   "body": {

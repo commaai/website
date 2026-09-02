@@ -288,7 +288,7 @@
 
     & .sale-price {
       font-weight: 700;
-      color: var(--color-red);
+      color: var(--color-sale-red);
     }
 
     & img {

@@ -1,18 +1,18 @@
 <div class="banner">
   <div class="wrapper">
-    <a href="/shop/chestnut" class="headline">
-      <strong>Big GPU, big models.</strong>
-      <span>Meet chestnut ⟶</span>
+    <a href="/shop/comma-four" class="headline">
+      <strong>LABOR DAY SALE!</strong>
+      <span><span class="discount">$100&nbsp;OFF</span> A COMMA&nbsp;FOUR</span>
     </a>
   </div>
 </div>
 
 <style>
   .banner {
-    color: black;
+    color: white;
     position: relative;
     z-index: 4;
-    background-color: var(--color-card-background-hover);
+    background-color: black;
   }
 
   .wrapper {
@@ -31,24 +31,30 @@
   }
 
   .headline {
-    color: black;
-    font-family: Inter, sans-serif;
-    font-size: 1.25rem;
+    color: white;
+    font-family: "Monument Extended Black", sans-serif;
+    font-size: 1.55rem;
     margin: 0 0.5rem;
     text-decoration: none;
   }
 
   .headline span {
-    color: black;
+    color: white;
     margin-left: 0.35em;
     font-weight: 700;
-    text-decoration: underline;
-    text-underline-offset: 0.15em;
-    white-space: nowrap;
   }
 
-  .headline:hover span,
-  .headline:focus-visible span {
-    text-decoration-thickness: 2px;
+  .headline .discount {
+    color: var(--color-sale-red);
+    margin-left: 0;
+    text-decoration: underline;
+    text-decoration-thickness: 0.13em;
+    text-underline-offset: 0.15em;
+  }
+
+  @media screen and (max-width: 550px) {
+    .headline {
+      font-size: 1.25rem;
+    }
   }
 </style>

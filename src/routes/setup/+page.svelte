@@ -463,7 +463,7 @@
   }
 
   .red-price {
-    color: var(--color-red);
+    color: var(--color-sale-red);
     font-weight: 700;
   }
 
