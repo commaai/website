@@ -5,13 +5,14 @@
   export let checked = false;
   export let onToggle;
   export let disabled = false;
+  export let strikethroughTitle = false;
 
   export function setChecked(value) {
     checked = value;
   }
 </script>
 
-<label class="checkbox-card" class:checked={checked} class:disabled={disabled}>
+<label class="checkbox-card" class:checked={checked} class:disabled={disabled} class:strikethrough-title={strikethroughTitle}>
   <NoteCard {title}>
     <input type="checkbox" slot="icon" checked={checked} disabled={disabled} on:change={() => !disabled && onToggle && onToggle()} />
     <slot></slot>
@@ -33,6 +34,7 @@
   .checkbox-card :global(input[type="checkbox"]) {
     width: 1.25rem;
     height: 1.25rem;
+    margin: 3px;
     cursor: pointer;
     accent-color: var(--color-accent);
   }
@@ -44,5 +46,9 @@
   .checkbox-card.checked :global(.card hgroup span) {
     background-color: #86ff4e;
     color: black;
+  }
+
+  .checkbox-card.strikethrough-title :global(.card hgroup > span) {
+    text-decoration: line-through;
   }
 </style>

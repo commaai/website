@@ -264,7 +264,7 @@
 .chevron {
   position: absolute;
   top: 50%;
-  right: 13px;
+  right: 12px;
   transform: translate(-50%, -50%);
   pointer-events: none;
 

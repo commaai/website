@@ -94,7 +94,7 @@
       {#if hasReferralDiscount}
         <div class="referral-discount">
           <div class="referral-details">
-            <strong>Referral discount applied</strong>
+            <strong>Referral discount</strong>
             <span class="referral-code">{$cartReferralDiscount.code}</span>
           </div>
           <h4 class="referral-amount">-{formatCurrency({ amount: referralDiscountAmount, currencyCode: $cartSubtotal.currencyCode }, 0)}</h4>

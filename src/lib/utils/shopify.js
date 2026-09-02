@@ -122,6 +122,8 @@ export async function _loadCart() {
                       altText
                     }
                     product {
+                      id
+                      handle
                       images(first: 1) {
                         edges {
                           node {
@@ -234,6 +236,42 @@ export async function updateCart({ cartId, lineId, variantId, quantity }) {
           quantity: quantity
         }
       ]
+    }
+  });
+}
+
+export async function removeCartLines({ cartId, lineIds }) {
+  if (!lineIds.length) return;
+
+  return shopifyFetch({
+    query: /* graphql */ `
+      mutation cartLinesRemove($cartId: ID!, $lineIds: [ID!]!) {
+        cartLinesRemove(cartId: $cartId, lineIds: $lineIds) {
+          ${USER_ERRORS_GQL}
+          ${WARNINGS_GQL}
+        }
+      }
+    `,
+    variables: {
+      cartId,
+      lineIds
+    }
+  });
+}
+
+export async function updateCartDiscountCodes({ cartId, discountCodes }) {
+  return shopifyFetch({
+    query: /* graphql */ `
+      mutation cartDiscountCodesUpdate($cartId: ID!, $discountCodes: [String!]!) {
+        cartDiscountCodesUpdate(cartId: $cartId, discountCodes: $discountCodes) {
+          ${USER_ERRORS_GQL}
+          ${WARNINGS_GQL}
+        }
+      }
+    `,
+    variables: {
+      cartId,
+      discountCodes
     }
   });
 }

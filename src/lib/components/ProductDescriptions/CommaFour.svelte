@@ -11,6 +11,7 @@
   import MoneyBackGuaranteeIcon from "$lib/icons/features/money-back-guarantee.svg?raw";
   import WarrantyIcon from "$lib/icons/features/warranty.svg?raw";
   import GiftIcon from "$lib/icons/features/gift.svg?raw";
+  import CloseIcon from "$lib/icons/ui/close.svg?raw";
 
   import { FOUR_PRICE, FOUR_SALE, FOUR_STRIKETHROUGH_PRICE, FOUR_TRADE_IN_CREDIT, NO_HARNESS_DISCOUNT } from '$lib/constants/prices.js';
   import { NO_HARNESS_OPTION } from '$lib/constants/vehicles.js';
@@ -22,7 +23,7 @@
   import { products as productsData } from '$lib/data/products.js';
   import { DEFAULT_BACKORDER_ESTIMATE } from '$lib/constants/shipping.js';
   import { formatCurrency } from "$lib/utils/currency";
-  import { cartReferralCode } from '../../../store.js';
+  import { applyReferralDiscount, cartReferralCode, removeReferralDiscount } from '../../../store.js';
   import { REFERRAL_DISCOUNT } from '$lib/utils/referral.js';
 
   export let product;
@@ -56,6 +57,8 @@
   let tradeInVariantId = null;
   let tradeInChecked = false;
   let backordered = null;
+  let removedReferralCode = null;
+  let updatingReferral = false;
 
   $: referralCode = $cartReferralCode;
 
@@ -73,7 +76,7 @@
     if (selectedHarness && selectedHarness !== NO_HARNESS_OPTION) {
       ids.push(selectedHarness.id);
     }
-    if (tradeInChecked && tradeInVariantId) {
+    if (tradeInChecked && tradeInVariantId && !referralCode) {
       ids.push(tradeInVariantId);
     }
     return ids;
@@ -103,10 +106,26 @@
     tradeInChecked = !tradeInChecked;
   }
 
+  const handleRemoveReferral = async () => {
+    updatingReferral = true;
+    removedReferralCode = referralCode;
+    await removeReferralDiscount();
+    updatingReferral = false;
+  }
+
+  const handleUndoReferral = async () => {
+    updatingReferral = true;
+    await applyReferralDiscount(removedReferralCode);
+    checkboxCardRef?.setChecked(false);
+    tradeInChecked = false;
+    removedReferralCode = null;
+    updatingReferral = false;
+  }
+
   onMount(async () => {
     // Autofill trade-in checkbox
     const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get('trade-in') === '1') {
+    if (urlParams.get('trade-in') === '1' && !urlParams.has('ref')) {
       if (checkboxCardRef) {
         checkboxCardRef.setChecked(true);
         tradeInChecked = true;
@@ -177,16 +196,43 @@
       showNoHarnessOption={true}
     >
     </HarnessSelector>
-    {#if referralCode}
-      <NoteCard title={`$${REFERRAL_DISCOUNT} referral discount applied`} icon={GiftIcon} highlightTitle>
-        Your referral discount will be applied to this order at checkout.
+    <CheckboxCard bind:this={checkboxCardRef} title="${FOUR_TRADE_IN_CREDIT} credit with trade-in" checked={tradeInChecked} onToggle={handleTradeInToggle}
+                  disabled={disableBuyButtonText !== null || referralCode} strikethroughTitle={Boolean(referralCode)}>
+      {#if referralCode}
+        Trade in credit is <b>not available</b> when using a referral code.
+      {:else}
+        Get ${FOUR_TRADE_IN_CREDIT} credit when you trade in your old comma device. Any comma device, in any condition.
+        <a href="/shop/comma-four-trade-in">Instructions and Terms</a>
+      {/if}
+    </CheckboxCard>
+    {#if referralCode || removedReferralCode}
+      <NoteCard
+        title={removedReferralCode ? 'Referral discount removed' : `$${REFERRAL_DISCOUNT} referral discount applied`}
+        icon={GiftIcon}
+        highlightTitle={!removedReferralCode}
+      >
+        {#if !removedReferralCode}
+          <div class="referral-message">
+            Your referral discount will be applied to this order at checkout.
+            <a href="https://comma.ai/terms#referral-terms" target="_blank" rel="noopener noreferrer">Terms and conditions</a> apply.
+          </div>
+        {/if}
+        <button
+          slot="actions"
+          class="remove-referral"
+          class:undo-referral={removedReferralCode}
+          aria-label={removedReferralCode ? 'Undo referral discount removal' : 'Remove referral discount'}
+          disabled={updatingReferral}
+          on:click={removedReferralCode ? handleUndoReferral : handleRemoveReferral}
+        >
+          {#if removedReferralCode}
+            Undo
+          {:else}
+            {@html CloseIcon}
+          {/if}
+        </button>
       </NoteCard>
     {/if}
-    <CheckboxCard bind:this={checkboxCardRef} title="${FOUR_TRADE_IN_CREDIT} credit with trade-in" checked={tradeInChecked} onToggle={handleTradeInToggle}
-                  disabled={disableBuyButtonText !== null}>
-      Get ${FOUR_TRADE_IN_CREDIT} credit when you trade in your old comma device. Any comma device, in any condition.
-      <a href="/shop/comma-four-trade-in">Instructions and Terms</a>
-    </CheckboxCard>
   </span>
 
   <div slot="notes">
@@ -285,6 +331,31 @@
 
   .original-price {
     color: rgba(0, 0, 0, 0.5);
+  }
+
+  .remove-referral {
+    width: 1.75rem;
+    height: 1.75rem;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+
+    &:disabled {
+      cursor: wait;
+      opacity: 0.5;
+    }
+  }
+
+  .undo-referral {
+    width: auto;
+    padding: 0.25rem 0.5rem;
+    color: black;
+    font-family: JetBrains Mono, monospace;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.1;
+    text-transform: uppercase;
   }
 
   .label {
