@@ -80,19 +80,28 @@
     }
   }
 
-  // Normalize diacritics for matching (e.g., "Škoda" -> "Skoda")
-  function normalizeDiacritics(str) {
-    return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  // Normalize for matching: diacritics (e.g., "Škoda" -> "skoda") and punctuation (e.g., "CR-V" -> "crv")
+  function normalize(str) {
+    return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[-.]/g, '').toLowerCase();
   }
+
+  // Shorthand added to a vehicle's searchable text when it contains the word (e.g., "ev" finds "Ioniq Electric")
+  const SEARCH_ALIASES = Object.entries({
+    electric: 'ev',
+    volkswagen: 'vw',
+    chevrolet: 'chevy',
+  });
 
   /* Filtered Dropdown */
   let inputValue = "";
   let inputRef;
 
-  $: searchTerms = normalizeDiacritics(inputValue.toLowerCase()).split(/\s+/).filter(Boolean);
+  $: searchTerms = normalize(inputValue).split(/\s+/).filter(Boolean);
   $: filteredItems = $harnesses.filter(item => {
-    const car = normalizeDiacritics(`${item.car} ${item.yearList ?? ''}`.toLowerCase())  // add all years in range
-      .replace('electric', 'electric ev');  // so "ev" finds electric vehicles
+    const car = SEARCH_ALIASES.reduce(
+      (car, [word, alias]) => car.replace(word, `${word} ${alias}`),
+      normalize(`${item.car} ${item.yearList ?? ''}`),  // add all years in range
+    );
     return searchTerms.every(term => car.includes(term));
   });
 
