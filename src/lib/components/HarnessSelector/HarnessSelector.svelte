@@ -91,6 +91,7 @@
     bev: 'electric',
     vw: 'volkswagen',
     chevy: 'chevrolet',
+    subie: 'subaru',
   });
 
   /* Filtered Dropdown */
