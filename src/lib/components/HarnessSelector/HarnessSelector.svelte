@@ -282,11 +282,5 @@
   cursor: pointer;
   background-color: transparent;
   border: none;
-  
-  & > svg {
-    width: 26px;
-    height: 26px;
-  }
 }
-
 </style>
