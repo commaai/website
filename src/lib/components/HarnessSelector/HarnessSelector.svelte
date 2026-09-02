@@ -85,11 +85,12 @@
     return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[-.]/g, '').toLowerCase();
   }
 
-  // Shorthand added to a vehicle's searchable text when it contains the word (e.g., "ev" finds "Ioniq Electric")
+  // Map search term to our car names
   const SEARCH_ALIASES = Object.entries({
-    electric: 'ev',
-    volkswagen: 'vw',
-    chevrolet: 'chevy',
+    ev: 'electric',
+    bev: 'electric',
+    vw: 'volkswagen',
+    chevy: 'chevrolet',
   });
 
   /* Filtered Dropdown */
@@ -99,7 +100,7 @@
   $: searchTerms = normalize(inputValue).split(/\s+/).filter(Boolean);
   $: filteredItems = $harnesses.filter(item => {
     const car = SEARCH_ALIASES.reduce(
-      (car, [word, alias]) => car.replace(word, `${word} ${alias}`),
+      (car, [alias, word]) => car.includes(word) ? `${car} ${alias}` : car,
       normalize(`${item.car} ${item.yearList ?? ''}`),  // add all years in range
     );
     return searchTerms.every(term => car.includes(term));
