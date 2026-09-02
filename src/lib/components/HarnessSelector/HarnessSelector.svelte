@@ -116,9 +116,8 @@
 
   // Lower is a better match: 0 exact word, 1 starts the first word, 2 starts a later word or an alias, 3 inside a word, inf is no match
   function searchScore(item, terms) {
-    const model = normalize(item.model);
-    const joined = model.replace(/([a-z]) (?=[0-9])/g, '$1');  // "Ioniq 5" also matches "ioniq5"
-    const car = [normalize(item.make ?? ''), model, joined, item.yearList].filter(Boolean).join(' ');  // each year, not the range string
+    const make_model = normalize([item.make, item.model].filter(Boolean).join(' '));
+    const car = `${make_model} ${make_model.replace(/([a-z]) (?=[0-9])/g, '$1')} ${item.yearList ?? ''}`;  // "Ioniq 5" also matches "ioniq5"
     const padded = ` ${car} `;
     const aliases = SEARCH_ALIASES.filter(([, word]) => car.includes(word));
     return terms.reduce((total, term) => total
