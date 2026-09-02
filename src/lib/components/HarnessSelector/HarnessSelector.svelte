@@ -85,15 +85,29 @@
     return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9\s]/g, '').replace(/([a-z]) (?=[0-9])/g, '$1');
   }
 
-  // Map search term to car names
+  // Common misspellings and shorthands
   const SEARCH_ALIASES = Object.entries({
     ev: 'electric',
     bev: 'electric',
     vw: 'volkswagen',
-    volkswagon: 'volkswagen',
     chevy: 'chevrolet',
     subie: 'subaru',
     obd2: 'obdii',
+
+    hundai: 'hyundai',
+    hyndai: 'hyundai',
+    hyundia: 'hyundai',
+    huyndai: 'hyundai',
+    volkswagon: 'volkswagen',
+    wolksvagen: 'volkswagen',
+    volkwagen: 'volkswagen',
+    totota: 'toyota',
+    toyata: 'toyota',
+    telsa: 'tesla',
+    chevorlet: 'chevrolet',
+    leksus: 'lexus',
+    auddi: 'audi',
+    jeeep: 'jeep',
   });
 
   /* Filtered Dropdown */
