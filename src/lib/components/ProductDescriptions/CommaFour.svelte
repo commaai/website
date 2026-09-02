@@ -352,8 +352,9 @@
     padding: 0.25rem 0.5rem;
     color: black;
     font-family: JetBrains Mono, monospace;
-    font-size: 0.75rem;
+    font-size: 0.875rem;
     font-weight: 600;
+    line-height: 1.1;
     text-transform: uppercase;
   }
 
