@@ -125,7 +125,7 @@
   onMount(async () => {
     // Autofill trade-in checkbox
     const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get('trade-in') === '1') {
+    if (urlParams.get('trade-in') === '1' && !urlParams.has('ref')) {
       if (checkboxCardRef) {
         checkboxCardRef.setChecked(true);
         tradeInChecked = true;
