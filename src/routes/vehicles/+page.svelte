@@ -27,8 +27,14 @@
   // The floating ask, for people who worked the list and didn't find their car. Being
   // down in the list is what earns it and what shows it. Time only accrues while the
   // tab is visible, so a page left open in a background tab doesn't earn anything.
-  const SHOW_AFTER_SECONDS = 10;
+  // Picking a brand from the grid means knowing what you're after, and one list tells
+  // you quickly whether it's there. Scrolling in is browsing, which takes longer.
+  const SHOW_AFTER_SECONDS = 15;
+  const SHOW_AFTER_SECONDS_PICKED_BRAND = 10;
+  let jumpedToBrand = false;
   let dwellSeconds = 0;
+
+  $: showAfter = jumpedToBrand ? SHOW_AFTER_SECONDS_PICKED_BRAND : SHOW_AFTER_SECONDS;
 
   // Backtracking this far is the closest thing to watching someone fail to find their
   // car, so it earns the ask outright rather than waiting out the clock. Measured in
@@ -49,7 +55,7 @@
   function tickDwell() {
     if (fabShown || document.hidden || !intoList) return;
     dwellSeconds += 0.5;
-    if (dwellSeconds >= SHOW_AFTER_SECONDS) fabShown = true;
+    if (dwellSeconds >= showAfter) fabShown = true;
   }
 
   // Checked once scrolling settles: momentum and iOS rubber-banding both produce
@@ -113,7 +119,7 @@
           <a
             href="#{brand.toLowerCase()}"
             class="compatibility-make-anchor-link"
-            on:click={() => (deepestY = 0)}
+            on:click={() => { deepestY = 0; jumpedToBrand = true; }}
           >
             {#if brand_images[brand_img_path]}
               <img src={brand_images[brand_img_path].default} loading="eager" alt="{brand} car brand" />
@@ -291,7 +297,7 @@
 
 <!-- Tuning readout, not part of the design. -->
 <span class="fab-readout">
-  {dwellSeconds.toFixed(1)}s{fabShown ? (fabVisible ? ' · shown' : ' · above list') : ''}
+  {dwellSeconds.toFixed(1)}/{showAfter}s{fabShown ? (fabVisible ? ' · shown' : ' · above list') : ''}
 </span>
 
 <style>
