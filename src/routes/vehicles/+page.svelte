@@ -52,6 +52,11 @@
     if (intoList && deepestY - window.scrollY > BACK_SCROLL_SCREENS * window.innerHeight) fabShown = true;
   }
 
+  function pickedBrand() {
+    deepestY = 0;
+    showAfter = SHOW_AFTER_SECONDS_PICKED_BRAND;
+  }
+
   function countSeconds() {
     if (fabShown || document.hidden || !intoList) return;
     secondsInList += 0.5;
@@ -91,11 +96,7 @@
         {#if cars.length !== 0}
         {@const brand_img_path = `/src/lib/images/vehicles/brand-icons/Logo-${brand}.png`}
         <div class="compatibility-make-element">
-          <a
-            href="#{brand.toLowerCase()}"
-            class="compatibility-make-anchor-link"
-            on:click={() => { deepestY = 0; showAfter = SHOW_AFTER_SECONDS_PICKED_BRAND; }}
-          >
+          <a href="#{brand.toLowerCase()}" class="compatibility-make-anchor-link" on:click={pickedBrand}>
             {#if brand_images[brand_img_path]}
               <img src={brand_images[brand_img_path].default} loading="eager" alt="{brand} car brand" />
             {/if}
