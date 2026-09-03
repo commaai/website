@@ -58,9 +58,8 @@
     if (dwellSeconds >= showAfter) fabShown = true;
   }
 
-  // Checked once scrolling settles: momentum and iOS rubber-banding both produce
-  // upward deltas mid-gesture that aren't backtracking. Only counts if you're still in
-  // the list when you stop — heading up to the brand grid is navigation, not defeat.
+  // Only counts if you're still in the list — heading up to the brand grid is
+  // navigation, not defeat.
   function checkBackScroll() {
     if (!intoList) return;
     if (deepestY - window.scrollY > BACK_SCROLL_SCREENS * window.innerHeight) fabShown = true;
@@ -73,14 +72,11 @@
 
   onMount(() => {
     let queued = false;
-    let settleTimer;
     const onScroll = () => {
       deepestY = Math.max(deepestY, window.scrollY);
-      clearTimeout(settleTimer);
-      settleTimer = setTimeout(checkBackScroll, 300);
       if (queued) return;
       queued = true;
-      requestAnimationFrame(() => { queued = false; measure(); });
+      requestAnimationFrame(() => { queued = false; measure(); checkBackScroll(); });
     };
 
     measure();
@@ -91,7 +87,6 @@
       removeEventListener('scroll', onScroll);
       removeEventListener('resize', onScroll);
       clearInterval(dwellTimer);
-      clearTimeout(settleTimer);
     };
   });
 </script>
