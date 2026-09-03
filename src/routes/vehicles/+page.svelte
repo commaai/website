@@ -24,63 +24,49 @@
 
   const brand_images = import.meta.glob('$lib/images/vehicles/brand-icons/*.png', { eager: true });
 
-  // Time spent in the list before the floating ask appears. Shorter for anyone who
-  // picked a brand, since one list answers their question quickly
+  // Picking a brand narrows the question, so ask sooner
   const SHOW_AFTER_SECONDS = 15;
   const SHOW_AFTER_SECONDS_PICKED_BRAND = 10;
-  let jumpedToBrand = false;
-  let dwellSeconds = 0;
+  let showAfter = SHOW_AFTER_SECONDS;
+  let secondsInList = 0;
 
-  $: showAfter = jumpedToBrand ? SHOW_AFTER_SECONDS_PICKED_BRAND : SHOW_AFTER_SECONDS;
-
-  // Scrolling back this far means they didn't find it, so skip the timer. In screens,
-  // since the page runs about 45 of them
+  // Show button on scrolling back some amount immediately
   const BACK_SCROLL_SCREENS = 2;
   let deepestY = 0;
 
-  // Set once and never unset, so scrolling around can't re-run the timer
-  let fabShown = false;
-
-  // How far the first brand header has to climb before you count as looking at cars
+  // Fraction of the viewport the first brand header must climb past
   const LIST_ON_SCREEN_AT = 0.5;
   let intoList = false;
 
+  // Never unset, so scrolling around can't re-run the timer
+  let fabShown = false;
+
   $: fabVisible = fabShown && intoList;
 
-  function tickDwell() {
+  function onScroll() {
+    const header = document.querySelector('.car-make-header')?.getBoundingClientRect();
+    intoList = header ? header.top < LIST_ON_SCREEN_AT * window.innerHeight : false;
+
+    deepestY = Math.max(deepestY, window.scrollY);
+    // Don't count scrolling up to the brand grid, they're picking another brand
+    if (intoList && deepestY - window.scrollY > BACK_SCROLL_SCREENS * window.innerHeight) fabShown = true;
+  }
+
+  function countSeconds() {
     if (fabShown || document.hidden || !intoList) return;
-    dwellSeconds += 0.5;
-    if (dwellSeconds >= showAfter) fabShown = true;
-  }
-
-  // Going up to the brand grid is navigation, not defeat
-  function checkBackScroll() {
-    if (!intoList) return;
-    if (deepestY - window.scrollY > BACK_SCROLL_SCREENS * window.innerHeight) fabShown = true;
-  }
-
-  function measure() {
-    const box = document.querySelector('.car-make-header')?.getBoundingClientRect();
-    intoList = box ? box.top < LIST_ON_SCREEN_AT * window.innerHeight : false;
+    secondsInList += 0.5;
+    if (secondsInList >= showAfter) fabShown = true;
   }
 
   onMount(() => {
-    let queued = false;
-    const onScroll = () => {
-      deepestY = Math.max(deepestY, window.scrollY);
-      if (queued) return;
-      queued = true;
-      requestAnimationFrame(() => { queued = false; measure(); checkBackScroll(); });
-    };
-
-    measure();
+    onScroll();
     addEventListener('scroll', onScroll, { passive: true });
     addEventListener('resize', onScroll);
-    const dwellTimer = setInterval(tickDwell, 500);
+    const timer = setInterval(countSeconds, 500);
     return () => {
       removeEventListener('scroll', onScroll);
       removeEventListener('resize', onScroll);
-      clearInterval(dwellTimer);
+      clearInterval(timer);
     };
   });
 </script>
@@ -108,7 +94,7 @@
           <a
             href="#{brand.toLowerCase()}"
             class="compatibility-make-anchor-link"
-            on:click={() => { deepestY = 0; jumpedToBrand = true; }}
+            on:click={() => { deepestY = 0; showAfter = SHOW_AFTER_SECONDS_PICKED_BRAND; }}
           >
             {#if brand_images[brand_img_path]}
               <img src={brand_images[brand_img_path].default} loading="eager" alt="{brand} car brand" />
