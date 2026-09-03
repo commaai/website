@@ -21,6 +21,8 @@
   import { vehicleCountText } from '$lib/constants/vehicles.js';
 
   const brand_images = import.meta.glob('$lib/images/vehicles/brand-icons/*.png', { eager: true });
+
+  let emailForm;
 </script>
 
 <div class="vehicles-cover-image"></div>
@@ -55,6 +57,7 @@
     </div>
 
     <EmailUpdatesForm
+      bind:this={emailForm}
       title="Don't see your car?"
       defaultCategory="compatibility"
       askForCar
@@ -111,11 +114,18 @@
     {#each Object.entries(vehicles) as [make, cars]}
       {#if cars.length !== 0}
       {@const brand_img_path = `/src/lib/images/vehicles/brand-icons/Logo-${make}.png`}
+      <!-- Each brand is its own block so its pinned header is pushed out by the next one. -->
+      <div class="car-make-section">
       <div id={make.toLowerCase()} class="car-make-header">
         {#if brand_images[brand_img_path]}
           <img src={brand_images[brand_img_path].default} alt="{make} car brand" />
         {/if}
         <h3>{make} <span class="muted">({cars.length})</span></h3>
+        <a
+          href="#email-updates"
+          class="missing-car-link"
+          on:click={() => emailForm?.prefillCar(`${make} `)}
+        >not listed?</a>
       </div>
 
       {#each cars as car_info}
@@ -124,7 +134,10 @@
             <div slot="label">
               <div class="car-details-wrapper">
                 <div class="car-details">
-                  <div class="model"><strong>{car_info.model}</strong></div>
+                  <div class="model">
+                    <strong>{car_info.model}</strong>
+                    <span class="find-in-page-text" aria-hidden="true">{car_info.name}</span>
+                  </div>
                   <div class="year">{car_info.year_list}</div>
                 </div>
                 <div class="video-icon-wrapper">
@@ -194,6 +207,7 @@
           </Accordion>
         </div>
       {/each}
+      </div>
       {/if}
     {/each}
   </div>
@@ -369,9 +383,45 @@
     padding: 1rem;
     display: flex;
 
+    /* Stays with you through the brand's cars, so the way out is always in reach. */
+    position: sticky;
+    top: var(--navbar-height, 6rem);
+    z-index: 1;
+
     & img {
       width: 48px;
       margin-right: 1rem;
+    }
+
+    & .missing-car-link {
+      margin-left: auto;
+      padding-left: 1rem;
+      color: #fff;
+      font-size: 0.875rem;
+      font-weight: 600;
+      white-space: nowrap;
+      opacity: 0.65;
+      transition: opacity 0.2s;
+
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          opacity: 1;
+        }
+      }
+      &:active {
+        opacity: 1;
+      }
+    }
+
+    /* Without this the link crowds the brand name onto two lines on most phones. */
+    @media screen and (max-width: 480px) {
+      & h3 {
+        font-size: 1.25em;
+      }
+
+      & .missing-car-link {
+        font-size: 0.8125rem;
+      }
     }
 
     & h3 {
@@ -414,6 +464,17 @@
         margin-right: 8px;
         font-weight: 600;
         padding-right: 20px;
+      }
+
+      /* The make is in the section heading, so no text run contains "Toyota Corolla".
+         Rendered but clipped, which find-in-page still matches. */
+      & .find-in-page-text {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
       }
 
       & .year {

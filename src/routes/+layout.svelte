@@ -37,6 +37,9 @@
 
   let loading = false;
 
+  // Pages position sticky content below the navbar, which has no fixed height.
+  let navbarHeight = 0;
+
   async function openCart() {
     await loadCart();
     showCart.set(true);
@@ -81,7 +84,7 @@
   />
 </svelte:head>
 
-<header class="navbar">
+<header class="navbar" bind:offsetHeight={navbarHeight}>
   <div class="navbar-container">
     <div class="navbar-section-logo">
       <a class="title" href="/">comma</a>
@@ -119,7 +122,7 @@
   />
 {/if}
 
-<main>
+<main style:--navbar-height={navbarHeight ? `${navbarHeight}px` : null}>
   <slot></slot>
 </main>
 

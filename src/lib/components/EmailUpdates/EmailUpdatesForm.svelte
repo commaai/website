@@ -10,6 +10,14 @@
   const { email, car, selectedCategories, status, errorMessage, submit } = createEmailUpdatesForm();
 
   let everything = true;
+  let carInput;
+
+  /** Start the car field off for someone who arrived from a link that already knows their make. */
+  export function prefillCar(value) {
+    $car = value;
+    // Focus after the link's own hash navigation, which would otherwise take it back.
+    requestAnimationFrame(() => carInput?.focus({ preventScroll: true }));
+  }
 
   $: primaryCategory = EMAIL_CATEGORIES.find(({ key }) => key === defaultCategory);
   $: $selectedCategories = everything ? EMAIL_CATEGORIES.map(({ key }) => key) : [defaultCategory];
@@ -52,6 +60,7 @@
               data-1p-ignore
               placeholder="What do you drive? (optional)"
               maxlength="120"
+              bind:this={carInput}
               bind:value={$car}
             >
             <small>Add the make, model, and year and we'll email you when it's supported.</small>
