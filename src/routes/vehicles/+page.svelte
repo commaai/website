@@ -397,13 +397,14 @@
     right: 1.5rem;
     bottom: 1.5rem;
     z-index: 9;
-    padding: 0.75rem 1.25rem;
+    padding: 1rem 1.5rem;
     background-color: #000;
     color: #fff;
-    font-size: 0.9375rem;
+    font-size: 1.0625rem;
     font-weight: 600;
     line-height: 1;
-    box-shadow: 0 2px 14px rgba(0, 0, 0, 0.3);
+    /* Offset does the work rather than blur, so it lifts without hazing outward. */
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.6);
 
     opacity: 0;
     transform: translateY(1rem) scale(0.92);
@@ -419,6 +420,8 @@
 
     @media screen and (max-width: 480px) {
       right: 1rem;
+      padding: 1.125rem 1.625rem;
+      font-size: 1.1875rem;
     }
   }
 
