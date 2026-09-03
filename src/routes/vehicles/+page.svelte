@@ -369,7 +369,6 @@
     position: fixed;
     right: 1.5rem;
     bottom: 1.5rem;
-    z-index: 9;
     padding: 1rem 1.5rem;
     background-color: #000;
     color: #fff;
