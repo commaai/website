@@ -5,7 +5,6 @@
   import Accordion from "$lib/components/Accordion.svelte";
   import Button from "$lib/components/Button.svelte";
   import Badge from "$lib/components/Badge.svelte";
-  import HeaderBanner from "$lib/components/HeaderBanner.svelte";
 
   import FourImage from "$lib/images/products/comma-four/four_screen_on.png";
   import ChestnutImage from "$lib/images/products/chestnut/bnut_34.png";
@@ -47,8 +46,6 @@
     })
     .filter(Boolean);
 </script>
-
-<HeaderBanner />
 
 <section class="dark" id="devices">
   <div class="container">
