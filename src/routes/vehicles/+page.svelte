@@ -37,19 +37,19 @@
   let deepestY = 0;
 
   // Earned once and never given back, so scrolling around never re-runs the timer.
-  let fabEarned = false;
+  let fabShown = false;
 
   // The list counts as on screen once the first brand header has climbed into the top
   // half — seeing Acura's rows already means you're looking at cars.
   const LIST_ON_SCREEN_AT = 0.5;
   let intoList = false;
 
-  $: fabVisible = fabEarned && intoList;
+  $: fabVisible = fabShown && intoList;
 
   function tickDwell() {
-    if (fabEarned || document.hidden || !intoList) return;
+    if (fabShown || document.hidden || !intoList) return;
     dwellSeconds += 0.5;
-    if (dwellSeconds >= SHOW_AFTER_SECONDS) fabEarned = true;
+    if (dwellSeconds >= SHOW_AFTER_SECONDS) fabShown = true;
   }
 
   // Checked once scrolling settles: momentum and iOS rubber-banding both produce
@@ -57,7 +57,7 @@
   // the list when you stop — heading up to the brand grid is navigation, not defeat.
   function checkBackScroll() {
     if (!intoList) return;
-    if (deepestY - window.scrollY > BACK_SCROLL_SCREENS * window.innerHeight) fabEarned = true;
+    if (deepestY - window.scrollY > BACK_SCROLL_SCREENS * window.innerHeight) fabShown = true;
   }
 
   function measure() {
@@ -291,7 +291,7 @@
 
 <!-- Tuning readout, not part of the design. -->
 <span class="fab-readout">
-  {dwellSeconds.toFixed(1)}s{fabEarned ? (fabVisible ? ' · shown' : ' · above list') : ''}
+  {dwellSeconds.toFixed(1)}s{fabShown ? (fabVisible ? ' · shown' : ' · above list') : ''}
 </span>
 
 <style>
@@ -394,7 +394,7 @@
   .missing-car-fab {
     position: fixed;
     right: 1.5rem;
-    bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
+    bottom: 1.5rem;
     z-index: 9;
     padding: 0.75rem 1.25rem;
     background-color: #000;
@@ -417,7 +417,6 @@
 
     @media screen and (max-width: 480px) {
       right: 1rem;
-      bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
       padding: 0.625rem 1rem;
       font-size: 0.875rem;
     }
