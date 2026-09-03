@@ -111,8 +111,6 @@
     {#each Object.entries(vehicles) as [make, cars]}
       {#if cars.length !== 0}
       {@const brand_img_path = `/src/lib/images/vehicles/brand-icons/Logo-${make}.png`}
-      <!-- Each brand is its own block so its pinned header is pushed out by the next one. -->
-      <div class="car-make-section">
       <div id={make.toLowerCase()} class="car-make-header">
         {#if brand_images[brand_img_path]}
           <img src={brand_images[brand_img_path].default} alt="{make} car brand" />
@@ -200,7 +198,6 @@
           </Accordion>
         </div>
       {/each}
-      </div>
       {/if}
     {/each}
   </div>
@@ -375,11 +372,6 @@
     margin-bottom: 0;
     padding: 1rem;
     display: flex;
-
-    /* Stays with you through the brand's cars, so the way out is always in reach. */
-    position: sticky;
-    top: var(--navbar-height, 6rem);
-    z-index: 1;
 
     & img {
       width: 48px;
