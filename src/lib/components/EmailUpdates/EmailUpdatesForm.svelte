@@ -10,13 +10,6 @@
   const { email, car, selectedCategories, status, errorMessage, submit } = createEmailUpdatesForm();
 
   let everything = true;
-  let emailInput;
-
-  /** Put the cursor in the form for someone sent here by a link elsewhere on the page. */
-  export function focusForm() {
-    // Focus after the link's own hash navigation, which would otherwise take it back.
-    requestAnimationFrame(() => emailInput?.focus({ preventScroll: true }));
-  }
 
   $: primaryCategory = EMAIL_CATEGORIES.find(({ key }) => key === defaultCategory);
   $: $selectedCategories = everything ? EMAIL_CATEGORIES.map(({ key }) => key) : [defaultCategory];
@@ -48,7 +41,6 @@
           placeholder="Enter your email"
           maxlength="256"
           required
-          bind:this={emailInput}
           bind:value={$email}
         >
 

@@ -21,8 +21,6 @@
   import { vehicleCountText } from '$lib/constants/vehicles.js';
 
   const brand_images = import.meta.glob('$lib/images/vehicles/brand-icons/*.png', { eager: true });
-
-  let emailForm;
 </script>
 
 <div class="vehicles-cover-image"></div>
@@ -57,7 +55,6 @@
     </div>
 
     <EmailUpdatesForm
-      bind:this={emailForm}
       title="Don't see your car?"
       defaultCategory="compatibility"
       askForCar
@@ -121,11 +118,7 @@
           <img src={brand_images[brand_img_path].default} alt="{make} car brand" />
         {/if}
         <h3>{make} <span class="muted">({cars.length})</span></h3>
-        <a
-          href="#email-updates"
-          class="missing-car-link"
-          on:click={() => emailForm?.focusForm()}
-        >not listed?</a>
+        <a href="#email-updates" class="missing-car-link">not listed?</a>
       </div>
 
       {#each cars as car_info}
