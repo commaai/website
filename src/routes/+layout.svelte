@@ -23,6 +23,7 @@
   import { printConsoleBanner } from '$lib/utils/console';
   import { getReferralCode } from '$lib/utils/referral';
 
+  import HeaderBanner from "$lib/components/HeaderBanner.svelte";
   import HeaderMenu from "$lib/components/HeaderMenu.svelte";
   import ShoppingCart from "$lib/components/ShoppingCart.svelte";
   import {
@@ -36,9 +37,6 @@
   import { page } from "$app/stores";
 
   let loading = false;
-
-  // Pages position sticky content below the navbar, which has no fixed height.
-  let navbarHeight = 0;
 
   async function openCart() {
     await loadCart();
@@ -84,7 +82,7 @@
   />
 </svelte:head>
 
-<header class="navbar" bind:offsetHeight={navbarHeight}>
+<header class="navbar">
   <div class="navbar-container">
     <div class="navbar-section-logo">
       <a class="title" href="/">comma</a>
@@ -122,7 +120,9 @@
   />
 {/if}
 
-<main style:--navbar-height={navbarHeight ? `${navbarHeight}px` : null}>
+<HeaderBanner />
+
+<main>
   <slot></slot>
 </main>
 
