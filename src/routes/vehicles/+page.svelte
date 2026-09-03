@@ -406,10 +406,9 @@
     box-shadow: 0 2px 14px rgba(0, 0, 0, 0.3);
 
     opacity: 0;
-    transform: translateY(1rem) scale(0.92);
+    transform: translateY(0.5rem);
     pointer-events: none;
-    /* Overshoots slightly on the way in, so arriving is hard to miss. */
-    transition: opacity 0.2s ease, transform 0.32s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: opacity 0.2s, transform 0.2s;
 
     &.is-visible {
       opacity: 1;
@@ -419,6 +418,8 @@
 
     @media screen and (max-width: 480px) {
       right: 1rem;
+      padding: 0.625rem 1rem;
+      font-size: 0.875rem;
     }
   }
 
