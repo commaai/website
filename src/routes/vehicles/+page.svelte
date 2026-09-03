@@ -30,7 +30,7 @@
   let showAfter = SHOW_AFTER_SECONDS;
   let secondsInList = 0;
 
-  // Show button on scrolling back some amount immediately
+  // Scrolling back up hints at not finding car, show button immediately
   const BACK_SCROLL_SCREENS = 2;
   let deepestY = 0;
 
@@ -38,7 +38,7 @@
   const LIST_ON_SCREEN_AT = 0.5;
   let intoList = false;
 
-  // Never unset, so scrolling around can't re-run the timer
+  // No timer after first show
   let fabShown = false;
 
   $: fabVisible = fabShown && intoList;
