@@ -20,7 +20,74 @@
   import { FOUR_PRICE, FOUR_STRIKETHROUGH_PRICE, FOUR_SALE } from '$lib/constants/prices.js';
   import { vehicleCountText } from '$lib/constants/vehicles.js';
 
+  import { onMount } from 'svelte';
+
   const brand_images = import.meta.glob('$lib/images/vehicles/brand-icons/*.png', { eager: true });
+
+  // The floating ask, for people who worked the list and didn't find their car. Being
+  // down in the list is what earns it and what shows it. Time only accrues while the
+  // tab is visible, so a page left open in a background tab doesn't earn anything.
+  const SHOW_AFTER_SECONDS = 10;
+  let dwellSeconds = 0;
+
+  // Backtracking this far is the closest thing to watching someone fail to find their
+  // car, so it earns the ask outright rather than waiting out the clock. Measured in
+  // screens: a share of the page would be meaningless here, it runs ~45 screens tall.
+  const BACK_SCROLL_SCREENS = 2;
+  let deepestY = 0;
+
+  // Earned once and never given back, so scrolling around never re-runs the timer.
+  let fabEarned = false;
+
+  // The list counts as on screen once the first brand header has climbed into the top
+  // half — seeing Acura's rows already means you're looking at cars.
+  const LIST_ON_SCREEN_AT = 0.5;
+  let intoList = false;
+
+  $: fabVisible = fabEarned && intoList;
+
+  function tickDwell() {
+    if (fabEarned || document.hidden || !intoList) return;
+    dwellSeconds += 0.5;
+    if (dwellSeconds >= SHOW_AFTER_SECONDS) fabEarned = true;
+  }
+
+  // Checked once scrolling settles: momentum and iOS rubber-banding both produce
+  // upward deltas mid-gesture that aren't backtracking. Only counts if you're still in
+  // the list when you stop — heading up to the brand grid is navigation, not defeat.
+  function checkBackScroll() {
+    if (!intoList) return;
+    if (deepestY - window.scrollY > BACK_SCROLL_SCREENS * window.innerHeight) fabEarned = true;
+  }
+
+  function measure() {
+    const box = document.querySelector('.car-make-header')?.getBoundingClientRect();
+    intoList = box ? box.top < LIST_ON_SCREEN_AT * window.innerHeight : false;
+  }
+
+  onMount(() => {
+    let queued = false;
+    let settleTimer;
+    const onScroll = () => {
+      deepestY = Math.max(deepestY, window.scrollY);
+      clearTimeout(settleTimer);
+      settleTimer = setTimeout(checkBackScroll, 300);
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(() => { queued = false; measure(); });
+    };
+
+    measure();
+    addEventListener('scroll', onScroll, { passive: true });
+    addEventListener('resize', onScroll);
+    const dwellTimer = setInterval(tickDwell, 500);
+    return () => {
+      removeEventListener('scroll', onScroll);
+      removeEventListener('resize', onScroll);
+      clearInterval(dwellTimer);
+      clearTimeout(settleTimer);
+    };
+  });
 </script>
 
 <div class="vehicles-cover-image"></div>
@@ -43,7 +110,11 @@
         {#if cars.length !== 0}
         {@const brand_img_path = `/src/lib/images/vehicles/brand-icons/Logo-${brand}.png`}
         <div class="compatibility-make-element">
-          <a href="#{brand.toLowerCase()}" class="compatibility-make-anchor-link">
+          <a
+            href="#{brand.toLowerCase()}"
+            class="compatibility-make-anchor-link"
+            on:click={() => (deepestY = 0)}
+          >
             {#if brand_images[brand_img_path]}
               <img src={brand_images[brand_img_path].default} loading="eager" alt="{brand} car brand" />
             {/if}
@@ -116,7 +187,6 @@
           <img src={brand_images[brand_img_path].default} alt="{make} car brand" />
         {/if}
         <h3>{make} <span class="muted">({cars.length})</span></h3>
-        <a href="#email-updates" class="missing-car-link">not listed?</a>
       </div>
 
       {#each cars as car_info}
@@ -215,6 +285,15 @@
   </div>
 </section>
 
+<a href="#email-updates" class="missing-car-fab" class:is-visible={fabVisible}>
+  don't see your car?
+</a>
+
+<!-- Tuning readout, not part of the design. -->
+<span class="fab-readout">
+  {dwellSeconds.toFixed(1)}s{fabEarned ? (fabVisible ? ' · shown' : ' · above list') : ''}
+</span>
+
 <style>
   section {
     padding-top: 4rem;
@@ -312,6 +391,50 @@
     }
   }
 
+  .missing-car-fab {
+    position: fixed;
+    right: 1.5rem;
+    bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
+    z-index: 9;
+    padding: 0.75rem 1.25rem;
+    background-color: #000;
+    color: #fff;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    line-height: 1;
+    box-shadow: 0 2px 14px rgba(0, 0, 0, 0.3);
+
+    opacity: 0;
+    transform: translateY(0.5rem);
+    pointer-events: none;
+    transition: opacity 0.2s, transform 0.2s;
+
+    &.is-visible {
+      opacity: 1;
+      transform: none;
+      pointer-events: auto;
+    }
+
+    @media screen and (max-width: 480px) {
+      right: 1rem;
+      bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+      padding: 0.625rem 1rem;
+      font-size: 0.875rem;
+    }
+  }
+
+  .fab-readout {
+    position: fixed;
+    left: 0.75rem;
+    bottom: 0.75rem;
+    z-index: 9;
+    padding: 4px 6px;
+    background: #000;
+    color: #0f0;
+    font-family: monospace;
+    font-size: 11px;
+  }
+
   .last-updated {
     text-align: center;
     font-style: italic;
@@ -376,37 +499,6 @@
     & img {
       width: 48px;
       margin-right: 1rem;
-    }
-
-    & .missing-car-link {
-      margin-left: auto;
-      padding-left: 1rem;
-      color: #fff;
-      font-size: 0.875rem;
-      font-weight: 600;
-      white-space: nowrap;
-      opacity: 0.65;
-      transition: opacity 0.2s;
-
-      @media (hover: hover) and (pointer: fine) {
-        &:hover {
-          opacity: 1;
-        }
-      }
-      &:active {
-        opacity: 1;
-      }
-    }
-
-    /* Without this the link crowds the brand name onto two lines on most phones. */
-    @media screen and (max-width: 480px) {
-      & h3 {
-        font-size: 1.25em;
-      }
-
-      & .missing-car-link {
-        font-size: 0.8125rem;
-      }
     }
 
     & h3 {
