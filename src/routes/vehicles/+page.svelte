@@ -124,7 +124,7 @@
         <a
           href="#email-updates"
           class="missing-car-link"
-          on:click={() => emailForm?.prefillCar(`${make} `)}
+          on:click={() => emailForm?.focusForm()}
         >not listed?</a>
       </div>
 
