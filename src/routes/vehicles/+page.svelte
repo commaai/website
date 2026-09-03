@@ -24,11 +24,8 @@
 
   const brand_images = import.meta.glob('$lib/images/vehicles/brand-icons/*.png', { eager: true });
 
-  // The floating ask, for people who worked the list and didn't find their car. Being
-  // down in the list is what earns it and what shows it. Time only accrues while the
-  // tab is visible, so a page left open in a background tab doesn't earn anything.
-  // Picking a brand from the grid means knowing what you're after, and one list tells
-  // you quickly whether it's there. Scrolling in is browsing, which takes longer.
+  // Time spent in the list before the floating ask appears. Shorter for anyone who
+  // picked a brand, since one list answers their question quickly.
   const SHOW_AFTER_SECONDS = 15;
   const SHOW_AFTER_SECONDS_PICKED_BRAND = 10;
   let jumpedToBrand = false;
@@ -36,17 +33,15 @@
 
   $: showAfter = jumpedToBrand ? SHOW_AFTER_SECONDS_PICKED_BRAND : SHOW_AFTER_SECONDS;
 
-  // Backtracking this far is the closest thing to watching someone fail to find their
-  // car, so it earns the ask outright rather than waiting out the clock. Measured in
-  // screens: a share of the page would be meaningless here, it runs ~45 screens tall.
+  // Scrolling back this far means they didn't find it, so skip the timer. In screens,
+  // since the page runs about 45 of them.
   const BACK_SCROLL_SCREENS = 2;
   let deepestY = 0;
 
-  // Earned once and never given back, so scrolling around never re-runs the timer.
+  // Set once and never unset, so scrolling around can't re-run the timer.
   let fabShown = false;
 
-  // The list counts as on screen once the first brand header has climbed into the top
-  // half — seeing Acura's rows already means you're looking at cars.
+  // How far the first brand header has to climb before you count as looking at cars.
   const LIST_ON_SCREEN_AT = 0.5;
   let intoList = false;
 
@@ -58,8 +53,7 @@
     if (dwellSeconds >= showAfter) fabShown = true;
   }
 
-  // Only counts if you're still in the list — heading up to the brand grid is
-  // navigation, not defeat.
+  // Going up to the brand grid is navigation, not defeat.
   function checkBackScroll() {
     if (!intoList) return;
     if (deepestY - window.scrollY > BACK_SCROLL_SCREENS * window.innerHeight) fabShown = true;
@@ -196,10 +190,7 @@
             <div slot="label">
               <div class="car-details-wrapper">
                 <div class="car-details">
-                  <div class="model">
-                    <strong>{car_info.model}</strong>
-                    <span class="find-in-page-text" aria-hidden="true">{car_info.name}</span>
-                  </div>
+                  <div class="model"><strong>{car_info.model}</strong></div>
                   <div class="year">{car_info.year_list}</div>
                 </div>
                 <div class="video-icon-wrapper">
@@ -398,13 +389,12 @@
     font-size: 1.0625rem;
     font-weight: 600;
     line-height: 1;
-    /* Offset does the work rather than blur, so it lifts without hazing outward. */
     box-shadow: 0 8px 18px rgba(0, 0, 0, 0.6);
 
     opacity: 0;
     transform: translateY(1rem) scale(0.92);
     pointer-events: none;
-    /* Overshoots slightly on the way in, so arriving is hard to miss. */
+    /* Overshoots slightly, so arriving is hard to miss. */
     transition: opacity 0.2s ease, transform 0.32s cubic-bezier(0.34, 1.56, 0.64, 1);
 
     &.is-visible {
@@ -526,17 +516,6 @@
         margin-right: 8px;
         font-weight: 600;
         padding-right: 20px;
-      }
-
-      /* The make is in the section heading, so no text run contains "Toyota Corolla".
-         Rendered but clipped, which find-in-page still matches. */
-      & .find-in-page-text {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        white-space: nowrap;
       }
 
       & .year {
