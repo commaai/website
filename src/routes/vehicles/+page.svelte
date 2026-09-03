@@ -290,11 +290,6 @@
   don't see your car?
 </a>
 
-<!-- Tuning readout, not part of the design. -->
-<span class="fab-readout">
-  {dwellSeconds.toFixed(1)}/{showAfter}s{fabShown ? (fabVisible ? ' · shown' : ' · above list') : ''}
-</span>
-
 <style>
   section {
     padding-top: 4rem;
@@ -423,18 +418,6 @@
       padding: 1.125rem 1.625rem;
       font-size: 1.1875rem;
     }
-  }
-
-  .fab-readout {
-    position: fixed;
-    left: 0.75rem;
-    bottom: 0.75rem;
-    z-index: 9;
-    padding: 4px 6px;
-    background: #000;
-    color: #0f0;
-    font-family: monospace;
-    font-size: 11px;
   }
 
   .last-updated {
