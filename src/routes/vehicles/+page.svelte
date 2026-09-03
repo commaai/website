@@ -25,7 +25,7 @@
   const brand_images = import.meta.glob('$lib/images/vehicles/brand-icons/*.png', { eager: true });
 
   // Time spent in the list before the floating ask appears. Shorter for anyone who
-  // picked a brand, since one list answers their question quickly.
+  // picked a brand, since one list answers their question quickly
   const SHOW_AFTER_SECONDS = 15;
   const SHOW_AFTER_SECONDS_PICKED_BRAND = 10;
   let jumpedToBrand = false;
@@ -34,14 +34,14 @@
   $: showAfter = jumpedToBrand ? SHOW_AFTER_SECONDS_PICKED_BRAND : SHOW_AFTER_SECONDS;
 
   // Scrolling back this far means they didn't find it, so skip the timer. In screens,
-  // since the page runs about 45 of them.
+  // since the page runs about 45 of them
   const BACK_SCROLL_SCREENS = 2;
   let deepestY = 0;
 
-  // Set once and never unset, so scrolling around can't re-run the timer.
+  // Set once and never unset, so scrolling around can't re-run the timer
   let fabShown = false;
 
-  // How far the first brand header has to climb before you count as looking at cars.
+  // How far the first brand header has to climb before you count as looking at cars
   const LIST_ON_SCREEN_AT = 0.5;
   let intoList = false;
 
@@ -53,7 +53,7 @@
     if (dwellSeconds >= showAfter) fabShown = true;
   }
 
-  // Going up to the brand grid is navigation, not defeat.
+  // Going up to the brand grid is navigation, not defeat
   function checkBackScroll() {
     if (!intoList) return;
     if (deepestY - window.scrollY > BACK_SCROLL_SCREENS * window.innerHeight) fabShown = true;
@@ -394,7 +394,7 @@
     opacity: 0;
     transform: translateY(1rem) scale(0.92);
     pointer-events: none;
-    /* Overshoots slightly, so arriving is hard to miss. */
+    /* Overshoots slightly, so arriving is hard to miss */
     transition: opacity 0.2s ease, transform 0.32s cubic-bezier(0.34, 1.56, 0.64, 1);
 
     &.is-visible {
