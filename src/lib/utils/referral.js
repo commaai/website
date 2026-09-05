@@ -25,7 +25,4 @@ export function getReferralWarning(discountCodes, warnings = []) {
 export const REFERRAL_REJECTION_MESSAGES = {
   DISCOUNT_NOT_FOUND: 'This referral code is not valid.',
   DISCOUNT_USAGE_LIMIT_REACHED: 'This referral code has reached its usage limit.',
-  DISCOUNT_CURRENTLY_INACTIVE: 'This referral code is not active.',
-  DISCOUNT_CUSTOMER_USAGE_LIMIT_REACHED: 'You have already used this referral discount.',
-  DISCOUNT_CUSTOMER_NOT_ELIGIBLE: 'This referral discount is only valid for new customers',
 };

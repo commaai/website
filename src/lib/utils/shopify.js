@@ -10,7 +10,7 @@ const DISCOUNT_CODES_GQL = `discountCodes { code applicable }`;
 export async function shopifyFetch({ query, variables }) {
   const apiToken = import.meta.env.VITE_SHOPIFY_STOREFRONT_API_TOKEN;
   const storeUrl = import.meta.env.VITE_SHOPIFY_STORE_URL;
-  const apiVersion = import.meta.env.VITE_SHOPIFY_API_VERSION || '2026-07';
+  const apiVersion = import.meta.env.VITE_SHOPIFY_API_VERSION || 'unstable';
   const endpoint = `https://${storeUrl}/api/${apiVersion}/graphql.json`;
 
   if (apiVersion === 'unstable') {
@@ -238,11 +238,10 @@ export async function createCart(referralCode = null) {
 }
 
 export async function updateCart({ cartId, lineId, variantId, quantity }) {
-  return shopifyCartFetch('cartLinesUpdate', {
+  return shopifyFetch({
     query: /* graphql */ `
       mutation cartLinesUpdate($cartId: ID!, $lines: [CartLineUpdateInput!]!) {
         cartLinesUpdate(cartId: $cartId, lines: $lines) {
-          cart { ${DISCOUNT_CODES_GQL} }
           ${USER_ERRORS_GQL}
           ${WARNINGS_GQL}
         }
@@ -264,11 +263,10 @@ export async function updateCart({ cartId, lineId, variantId, quantity }) {
 export async function removeCartLines({ cartId, lineIds }) {
   if (!lineIds.length) return;
 
-  return shopifyCartFetch('cartLinesRemove', {
+  return shopifyFetch({
     query: /* graphql */ `
       mutation cartLinesRemove($cartId: ID!, $lineIds: [ID!]!) {
         cartLinesRemove(cartId: $cartId, lineIds: $lineIds) {
-          cart { ${DISCOUNT_CODES_GQL} }
           ${USER_ERRORS_GQL}
           ${WARNINGS_GQL}
         }
