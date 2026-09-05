@@ -1,5 +1,6 @@
 import { get } from 'svelte/store';
-import { cartId, cartCreatedAt, checkoutUrl, cartTotalQuantity } from '../../store';
+import { cartId, cartCreatedAt, checkoutUrl, cartTotalQuantity, cartDiscountCodes, cartReferralWarning } from '../../store';
+import { getReferralWarning } from './referral.js';
 
 // GraphQL fragments for error handling
 const USER_ERRORS_GQL = `userErrors { code field message }`;
@@ -201,18 +202,38 @@ export async function createCart(referralCode = null) {
           cart {
             checkoutUrl
             id
+            totalQuantity
+            discountCodes { code applicable }
           }
+          ${USER_ERRORS_GQL}
+          ${WARNINGS_GQL}
         }
       }
     `,
     variables: {
       input: { discountCodes: referralCode ? [referralCode] : [] }
     }
-  }).then(response => {
-    cartId.set(response.body?.data?.cartCreate?.cart?.id)
+  }).then(async response => {
+    const payload = response.body?.data?.cartCreate;
+    const cart = payload?.cart;
+    
+    cartId.set(cart.id)
     cartCreatedAt.set(Date.now());
-    checkoutUrl.set(response.body?.data?.cartCreate?.cart?.checkoutUrl);
-    cartTotalQuantity.set(response.body?.data?.cartCreate?.cart?.totalQuantity)
+    checkoutUrl.set(cart.checkoutUrl);
+    cartTotalQuantity.set(cart.totalQuantity)
+    
+    cartDiscountCodes.set(cart.discountCodes);
+    const warning = getReferralWarning(cart.discountCodes, payload.warnings);
+    cartReferralWarning.set(warning);
+    if (warning) {
+      const removal = await updateCartDiscountCodes({ cartId: cart.id, discountCodes: [] });
+      const result = removal.body?.data?.cartDiscountCodesUpdate;
+      if (result && !removal.body?.errors?.length && !result.userErrors?.length) {
+        cartDiscountCodes.set([]);
+      } else {
+        console.error('Error removing rejected referral code:', removal);
+      }
+    }
   });
 
 }
@@ -319,7 +340,7 @@ export async function addToCart({ cartId, variantId, additionalProductIds = [], 
 
   const { errors, data } = cartLinesResponse.body || {};
   const { cartLinesAdd } = data || {};
-  const cartLinesErrors = errors || cartLinesAdd?.userErrors || cartLinesAdd?.warnings;
+  const cartLinesErrors = errors || cartLinesAdd?.userErrors;
   if (errors || cartLinesErrors?.length) {
     console.error("Error adding items to cart:", cartLinesErrors);
     return cartLinesResponse;

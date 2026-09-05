@@ -5,11 +5,13 @@
   export let title;
   export let style = "normal" // or "elevated"
   export let highlightTitle = false;
+  export let disabled = false;
 </script>
 
 <div
   class="card"
   class:elevated={style == "elevated"}
+  class:disabled={disabled}
 >
   <div class="icon-slot">
     <slot name="icon">
@@ -85,6 +87,10 @@
         color: black;
       }
     }
+  }
+
+  .disabled {
+    opacity: 0.6;
   }
   
   .actions {

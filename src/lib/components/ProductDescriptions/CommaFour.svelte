@@ -23,7 +23,7 @@
   import { products as productsData } from '$lib/data/products.js';
   import { DEFAULT_BACKORDER_ESTIMATE } from '$lib/constants/shipping.js';
   import { formatCurrency } from "$lib/utils/currency";
-  import { applyReferralDiscount, cartReferralCode, removeReferralDiscount } from '../../../store.js';
+  import { applyReferralDiscount, cartReferral, cartReferralDiscount, removeReferralDiscount } from '../../../store.js';
   import { REFERRAL_DISCOUNT } from '$lib/utils/referral.js';
 
   export let product;
@@ -60,14 +60,16 @@
   let removedReferralCode = null;
   let updatingReferral = false;
 
-  $: referralCode = $cartReferralCode;
+  $: referralCode = $cartReferral?.code;
+  $: referralRejected = Boolean($cartReferral?.message);
+  $: activeReferralCode = referralRejected ? null : referralCode;
 
   // Trade-in and discount configuration
   $: showDiscount = selectedHarness === NO_HARNESS_OPTION;
 
   // Price calculations
   $: priceDueToday = showDiscount ? FOUR_PRICE - NO_HARNESS_DISCOUNT : FOUR_PRICE;
-  $: discountedPriceDueToday = referralCode ? priceDueToday - REFERRAL_DISCOUNT : priceDueToday;
+  $: discountedPriceDueToday = $cartReferralDiscount ? priceDueToday - REFERRAL_DISCOUNT : priceDueToday;
   $: priceAfterTradeIn = tradeInChecked ? priceDueToday - FOUR_TRADE_IN_CREDIT : priceDueToday;
   $: displayedPrice = tradeInChecked ? priceAfterTradeIn : priceDueToday;
 
@@ -76,7 +78,7 @@
     if (selectedHarness && selectedHarness !== NO_HARNESS_OPTION) {
       ids.push(selectedHarness.id);
     }
-    if (tradeInChecked && tradeInVariantId && !referralCode) {
+    if (tradeInChecked && tradeInVariantId && !activeReferralCode) {
       ids.push(tradeInVariantId);
     }
     return ids;
@@ -158,7 +160,7 @@
   <div slot="shipping"></div>
 
   <div slot="price" class="price" class:sale-price={FOUR_SALE}>
-    {#if referralCode}
+    {#if $cartReferralDiscount}
       <div class="referral-prices">
         <s class="original-price">{formatCurrency({ amount: displayedPrice, currencyCode: 'USD' }, 0)}</s>
         <span>
@@ -177,7 +179,7 @@
 
   <span slot="price-accessory">
     <div class="badges">
-      {#if referralCode}
+      {#if activeReferralCode}
         <Badge style="accent">Referral code added</Badge>
       {/if}
       <Badge style="dark">Free rush shipping</Badge>
@@ -197,8 +199,8 @@
     >
     </HarnessSelector>
     <CheckboxCard bind:this={checkboxCardRef} title="${FOUR_TRADE_IN_CREDIT} credit with trade-in" checked={tradeInChecked} onToggle={handleTradeInToggle}
-                  disabled={disableBuyButtonText !== null || referralCode} strikethroughTitle={Boolean(referralCode)}>
-      {#if referralCode}
+                  disabled={disableBuyButtonText !== null || activeReferralCode} strikethroughTitle={Boolean(activeReferralCode)}>
+      {#if activeReferralCode}
         Trade in credit is <b>not available</b> when using a referral code.
       {:else}
         Get ${FOUR_TRADE_IN_CREDIT} credit when you trade in your old comma device. Any comma device, in any condition.
@@ -207,18 +209,29 @@
     </CheckboxCard>
     {#if referralCode || removedReferralCode}
       <NoteCard
-        title={removedReferralCode ? 'Referral discount removed' : `$${REFERRAL_DISCOUNT} referral discount applied`}
+        title={removedReferralCode
+          ? 'Referral discount removed'
+          : referralRejected
+            ? 'Referral discount not applied'
+            : `$${REFERRAL_DISCOUNT} referral discount`}
         icon={GiftIcon}
-        highlightTitle={!removedReferralCode}
+        disabled={referralRejected}
+        highlightTitle={!removedReferralCode && !referralRejected}
       >
         {#if !removedReferralCode}
           <div class="referral-message">
-            Your referral discount will be applied to this order at checkout.
-            <a href="https://comma.ai/terms#referral-terms" target="_blank" rel="noopener noreferrer">Terms and conditions</a> apply.
+            {#if referralRejected}
+              {$cartReferral.message}
+              See <a href="https://comma.ai/terms#referral-terms" target="_blank" rel="noopener noreferrer">terms and conditions</a>.
+            {:else}
+              Your referral discount will be applied to this order at checkout.
+              <a href="https://comma.ai/terms#referral-terms" target="_blank" rel="noopener noreferrer">Terms and conditions</a> apply.
+            {/if}
           </div>
         {/if}
         <button
           slot="actions"
+          hidden={referralRejected}
           class="remove-referral"
           class:undo-referral={removedReferralCode}
           aria-label={removedReferralCode ? 'Undo referral discount removal' : 'Remove referral discount'}
