@@ -216,14 +216,15 @@ export async function createCart(referralCode = null) {
   }).then(async response => {
     const payload = response.body?.data?.cartCreate;
     const cart = payload?.cart;
-    if (!cart || response.body?.errors?.length || payload.userErrors?.length) return response;
-    cartDiscountCodes.set(cart.discountCodes);
-    const warning = getReferralWarning(cart.discountCodes, payload.warnings);
-    cartReferralWarning.set(warning);
+    
     cartId.set(cart.id)
     cartCreatedAt.set(Date.now());
     checkoutUrl.set(cart.checkoutUrl);
     cartTotalQuantity.set(cart.totalQuantity)
+    
+    cartDiscountCodes.set(cart.discountCodes);
+    const warning = getReferralWarning(cart.discountCodes, payload.warnings);
+    cartReferralWarning.set(warning);
     if (warning) {
       const removal = await updateCartDiscountCodes({ cartId: cart.id, discountCodes: [] });
       const result = removal.body?.data?.cartDiscountCodesUpdate;
@@ -233,7 +234,6 @@ export async function createCart(referralCode = null) {
         console.error('Error removing rejected referral code:', removal);
       }
     }
-    return response;
   });
 
 }
