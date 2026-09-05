@@ -7,7 +7,7 @@ import {
   updateCartDiscountCodes as requestUpdateCartDiscountCodes,
 } from '$lib/utils/shopify';
 import { products } from '$lib/data/products.js';
-import { isReferralCode, REFERRAL_DISCOUNT, REFERRAL_REJECTION_MESSAGES } from '$lib/utils/referral';
+import { isReferralCode, REFERRAL_DISCOUNT } from '$lib/utils/referral';
 
 export const showCart = writable(false);
 
@@ -28,8 +28,8 @@ export const cartBulkDiscountAllocation = derived(
     $cartDiscountAllocations.find(({ title }) => title?.toUpperCase() === 'BULK ORDER') || null
 );
 export const cartReferral = derived(
-  [cartDiscountCodes, cartItems, cartReferralWarning, cartBulkDiscountAllocation],
-  ([$cartDiscountCodes, $cartItems, $cartReferralWarning, $cartBulkDiscountAllocation]) => {
+  [cartDiscountCodes, cartReferralWarning, cartBulkDiscountAllocation],
+  ([$cartDiscountCodes, $cartReferralWarning, $cartBulkDiscountAllocation]) => {
     const referral = $cartDiscountCodes.find(({ code }) => isReferralCode(code));
     if (!referral) return null;
 
@@ -38,14 +38,12 @@ export const cartReferral = derived(
     const reason = !referral.applicable ? warning?.reason : null;
     if (reason === 'DISCOUNT_NOT_FOUND') return null;
 
-    const rejected = referral.applicable === false && (reason || ($cartItems || []).some(
-      ({ node }) => node.merchandise.product.id === products['comma-four'].id
-    ));
+    const rejected = reason === 'DISCOUNT_USAGE_LIMIT_REACHED';
     if ($cartBulkDiscountAllocation && !rejected) return null;
 
     return {
       ...referral,
-      message: rejected ? REFERRAL_REJECTION_MESSAGES[reason] || 'This referral code could not be applied.' : null,
+      message: rejected ? 'This referral code has reached its usage limit.' : null,
     };
   }
 );

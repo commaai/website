@@ -5,7 +5,6 @@ import { getReferralWarning } from './referral.js';
 // GraphQL fragments for error handling
 const USER_ERRORS_GQL = `userErrors { code field message }`;
 const WARNINGS_GQL = `warnings { code message target }`;
-const DISCOUNT_CODES_GQL = `discountCodes { code applicable }`;
 
 export async function shopifyFetch({ query, variables }) {
   const apiToken = import.meta.env.VITE_SHOPIFY_STOREFRONT_API_TOKEN;
@@ -40,17 +39,6 @@ export async function shopifyFetch({ query, variables }) {
       error: 'Error receiving data'
     };
   }
-}
-
-async function shopifyCartFetch(operation, request) {
-  const response = await shopifyFetch(request);
-  const payload = response.body?.data?.[operation];
-  if (payload?.cart && !response.body?.errors?.length && !payload.userErrors?.length) {
-    const codes = payload.cart.discountCodes;
-    cartDiscountCodes.set(codes);
-    cartReferralWarning.set(getReferralWarning(codes, payload.warnings));
-  }
-  return response;
 }
 
 export async function loadCart() {
@@ -207,7 +195,7 @@ export async function getProduct(id) {
 
 
 export async function createCart(referralCode = null) {
-  return shopifyCartFetch('cartCreate', {
+  return shopifyFetch({
     query: /* graphql */ `
       mutation createCart($input: CartInput!) {
         cartCreate(input: $input) {
@@ -215,7 +203,7 @@ export async function createCart(referralCode = null) {
             checkoutUrl
             id
             totalQuantity
-            ${DISCOUNT_CODES_GQL}
+            discountCodes { code applicable }
           }
           ${USER_ERRORS_GQL}
           ${WARNINGS_GQL}
@@ -226,8 +214,11 @@ export async function createCart(referralCode = null) {
       input: { discountCodes: referralCode ? [referralCode] : [] }
     }
   }).then(response => {
-    const cart = response.body?.data?.cartCreate?.cart;
-    if (!cart) return response;
+    const payload = response.body?.data?.cartCreate;
+    const cart = payload?.cart;
+    if (!cart || response.body?.errors?.length || payload.userErrors?.length) return response;
+    cartDiscountCodes.set(cart.discountCodes);
+    cartReferralWarning.set(getReferralWarning(cart.discountCodes, payload.warnings));
     cartId.set(cart.id)
     cartCreatedAt.set(Date.now());
     checkoutUrl.set(cart.checkoutUrl);
@@ -280,11 +271,10 @@ export async function removeCartLines({ cartId, lineIds }) {
 }
 
 export async function updateCartDiscountCodes({ cartId, discountCodes }) {
-  return shopifyCartFetch('cartDiscountCodesUpdate', {
+  return shopifyFetch({
     query: /* graphql */ `
       mutation cartDiscountCodesUpdate($cartId: ID!, $discountCodes: [String!]!) {
         cartDiscountCodesUpdate(cartId: $cartId, discountCodes: $discountCodes) {
-          cart { ${DISCOUNT_CODES_GQL} }
           ${USER_ERRORS_GQL}
           ${WARNINGS_GQL}
         }
@@ -298,29 +288,10 @@ export async function updateCartDiscountCodes({ cartId, discountCodes }) {
 }
 
 export async function addToCart({ cartId, variantId, additionalProductIds = [], note = "" }) {
-  const cartLinesResponse = await shopifyCartFetch('cartLinesAdd', {
+  const cartLinesResponse = await shopifyFetch({
     query: /* graphql */ `
       mutation addToCart($cartId: ID!, $lines: [CartLineInput!]!) {
         cartLinesAdd(cartId: $cartId, lines: $lines) {
-          cart {
-            id
-            ${DISCOUNT_CODES_GQL}
-            lines(first: 250) {
-              edges {
-                node {
-                  id
-                  quantity
-                  merchandise {
-                    ... on ProductVariant {
-                      product {
-                        title
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
           ${USER_ERRORS_GQL}
           ${WARNINGS_GQL}
         }
@@ -353,10 +324,6 @@ export async function addToCart({ cartId, variantId, additionalProductIds = [], 
       query: /* graphql */ `
         mutation updateCartNote($cartId: ID!, $note: String!) {
           cartNoteUpdate(cartId: $cartId, note: $note) {
-            cart {
-              id
-              note
-            }
             ${USER_ERRORS_GQL}
             ${WARNINGS_GQL}
           }

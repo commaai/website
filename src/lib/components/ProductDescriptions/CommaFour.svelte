@@ -231,6 +231,7 @@
         {/if}
         <button
           slot="actions"
+          hidden={referralRejected}
           class="remove-referral"
           class:undo-referral={removedReferralCode}
           aria-label={removedReferralCode ? 'Undo referral discount removal' : 'Remove referral discount'}

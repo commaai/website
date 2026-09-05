@@ -15,14 +15,8 @@ export function getReferralWarning(discountCodes, warnings = []) {
   const referral = discountCodes.find(({ code }) => isReferralCode(code));
   if (!referral || referral.applicable) return null;
 
-  const warning = warnings.find(({ code }) => REFERRAL_REJECTION_MESSAGES[code]);
-  return warning ? {
-    code: referral.code,
-    reason: warning.code,
-  } : null;
+  const warning = warnings.find(({ code }) =>
+    code === 'DISCOUNT_NOT_FOUND' || code === 'DISCOUNT_USAGE_LIMIT_REACHED'
+  );
+  return warning ? { code: referral.code, reason: warning.code } : null;
 }
-
-export const REFERRAL_REJECTION_MESSAGES = {
-  DISCOUNT_NOT_FOUND: 'This referral code is not valid.',
-  DISCOUNT_USAGE_LIMIT_REACHED: 'This referral code has reached its usage limit.',
-};
