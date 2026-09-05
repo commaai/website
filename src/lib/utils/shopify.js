@@ -1,14 +1,16 @@
 import { get } from 'svelte/store';
-import { cartId, cartCreatedAt, checkoutUrl, cartTotalQuantity } from '../../store';
+import { cartId, cartCreatedAt, checkoutUrl, cartTotalQuantity, cartDiscountCodes, cartReferralWarning } from '../../store';
+import { getReferralWarning } from './referral.js';
 
 // GraphQL fragments for error handling
 const USER_ERRORS_GQL = `userErrors { code field message }`;
 const WARNINGS_GQL = `warnings { code message target }`;
+const DISCOUNT_CODES_GQL = `discountCodes { code applicable }`;
 
 export async function shopifyFetch({ query, variables }) {
   const apiToken = import.meta.env.VITE_SHOPIFY_STOREFRONT_API_TOKEN;
   const storeUrl = import.meta.env.VITE_SHOPIFY_STORE_URL;
-  const apiVersion = import.meta.env.VITE_SHOPIFY_API_VERSION || 'unstable';
+  const apiVersion = import.meta.env.VITE_SHOPIFY_API_VERSION || '2026-07';
   const endpoint = `https://${storeUrl}/api/${apiVersion}/graphql.json`;
 
   if (apiVersion === 'unstable') {
@@ -38,6 +40,17 @@ export async function shopifyFetch({ query, variables }) {
       error: 'Error receiving data'
     };
   }
+}
+
+async function shopifyCartFetch(operation, request) {
+  const response = await shopifyFetch(request);
+  const payload = response.body?.data?.[operation];
+  if (payload?.cart && !response.body?.errors?.length && !payload.userErrors?.length) {
+    const codes = payload.cart.discountCodes;
+    cartDiscountCodes.set(codes);
+    cartReferralWarning.set(getReferralWarning(codes, payload.warnings));
+  }
+  return response;
 }
 
 export async function loadCart() {
@@ -194,14 +207,18 @@ export async function getProduct(id) {
 
 
 export async function createCart(referralCode = null) {
-  return shopifyFetch({
+  return shopifyCartFetch('cartCreate', {
     query: /* graphql */ `
       mutation createCart($input: CartInput!) {
         cartCreate(input: $input) {
           cart {
             checkoutUrl
             id
+            totalQuantity
+            ${DISCOUNT_CODES_GQL}
           }
+          ${USER_ERRORS_GQL}
+          ${WARNINGS_GQL}
         }
       }
     `,
@@ -209,19 +226,23 @@ export async function createCart(referralCode = null) {
       input: { discountCodes: referralCode ? [referralCode] : [] }
     }
   }).then(response => {
-    cartId.set(response.body?.data?.cartCreate?.cart?.id)
+    const cart = response.body?.data?.cartCreate?.cart;
+    if (!cart) return response;
+    cartId.set(cart.id)
     cartCreatedAt.set(Date.now());
-    checkoutUrl.set(response.body?.data?.cartCreate?.cart?.checkoutUrl);
-    cartTotalQuantity.set(response.body?.data?.cartCreate?.cart?.totalQuantity)
+    checkoutUrl.set(cart.checkoutUrl);
+    cartTotalQuantity.set(cart.totalQuantity)
+    return response;
   });
 
 }
 
 export async function updateCart({ cartId, lineId, variantId, quantity }) {
-  return shopifyFetch({
+  return shopifyCartFetch('cartLinesUpdate', {
     query: /* graphql */ `
       mutation cartLinesUpdate($cartId: ID!, $lines: [CartLineUpdateInput!]!) {
         cartLinesUpdate(cartId: $cartId, lines: $lines) {
+          cart { ${DISCOUNT_CODES_GQL} }
           ${USER_ERRORS_GQL}
           ${WARNINGS_GQL}
         }
@@ -243,10 +264,11 @@ export async function updateCart({ cartId, lineId, variantId, quantity }) {
 export async function removeCartLines({ cartId, lineIds }) {
   if (!lineIds.length) return;
 
-  return shopifyFetch({
+  return shopifyCartFetch('cartLinesRemove', {
     query: /* graphql */ `
       mutation cartLinesRemove($cartId: ID!, $lineIds: [ID!]!) {
         cartLinesRemove(cartId: $cartId, lineIds: $lineIds) {
+          cart { ${DISCOUNT_CODES_GQL} }
           ${USER_ERRORS_GQL}
           ${WARNINGS_GQL}
         }
@@ -260,10 +282,11 @@ export async function removeCartLines({ cartId, lineIds }) {
 }
 
 export async function updateCartDiscountCodes({ cartId, discountCodes }) {
-  return shopifyFetch({
+  return shopifyCartFetch('cartDiscountCodesUpdate', {
     query: /* graphql */ `
       mutation cartDiscountCodesUpdate($cartId: ID!, $discountCodes: [String!]!) {
         cartDiscountCodesUpdate(cartId: $cartId, discountCodes: $discountCodes) {
+          cart { ${DISCOUNT_CODES_GQL} }
           ${USER_ERRORS_GQL}
           ${WARNINGS_GQL}
         }
@@ -277,12 +300,13 @@ export async function updateCartDiscountCodes({ cartId, discountCodes }) {
 }
 
 export async function addToCart({ cartId, variantId, additionalProductIds = [], note = "" }) {
-  const cartLinesResponse = await shopifyFetch({
+  const cartLinesResponse = await shopifyCartFetch('cartLinesAdd', {
     query: /* graphql */ `
       mutation addToCart($cartId: ID!, $lines: [CartLineInput!]!) {
         cartLinesAdd(cartId: $cartId, lines: $lines) {
           cart {
             id
+            ${DISCOUNT_CODES_GQL}
             lines(first: 250) {
               edges {
                 node {
@@ -319,7 +343,7 @@ export async function addToCart({ cartId, variantId, additionalProductIds = [], 
 
   const { errors, data } = cartLinesResponse.body || {};
   const { cartLinesAdd } = data || {};
-  const cartLinesErrors = errors || cartLinesAdd?.userErrors || cartLinesAdd?.warnings;
+  const cartLinesErrors = errors || cartLinesAdd?.userErrors;
   if (errors || cartLinesErrors?.length) {
     console.error("Error adding items to cart:", cartLinesErrors);
     return cartLinesResponse;

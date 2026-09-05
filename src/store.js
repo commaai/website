@@ -7,7 +7,7 @@ import {
   updateCartDiscountCodes as requestUpdateCartDiscountCodes,
 } from '$lib/utils/shopify';
 import { products } from '$lib/data/products.js';
-import { isReferralCode, REFERRAL_DISCOUNT } from '$lib/utils/referral';
+import { isReferralCode, REFERRAL_DISCOUNT, REFERRAL_REJECTION_MESSAGES } from '$lib/utils/referral';
 
 export const showCart = writable(false);
 
@@ -21,26 +21,36 @@ export const cartDiscount = writable({});
 export const cartDiscountAllocations = writable([]);
 export const cartSubtotal = writable({});
 export const cartDiscountCodes = writable([]);
+export const cartReferralWarning = writable(null);
 export const cartBulkDiscountAllocation = derived(
   cartDiscountAllocations,
   ($cartDiscountAllocations) =>
     $cartDiscountAllocations.find(({ title }) => title?.toUpperCase() === 'BULK ORDER') || null
 );
-export const cartReferralCode = derived(
-  [cartDiscountCodes, cartBulkDiscountAllocation],
-  ([$cartDiscountCodes, $cartBulkDiscountAllocation]) =>
-    $cartBulkDiscountAllocation
-      ? null
-      : $cartDiscountCodes.find(({ code }) => isReferralCode(code))?.code || null
-);
-export const cartReferralDiscount = derived(
-  [cartDiscountCodes, cartBulkDiscountAllocation],
-  ([$cartDiscountCodes, $cartBulkDiscountAllocation]) => {
-    if ($cartBulkDiscountAllocation) return null;
+export const cartReferral = derived(
+  [cartDiscountCodes, cartItems, cartReferralWarning, cartBulkDiscountAllocation],
+  ([$cartDiscountCodes, $cartItems, $cartReferralWarning, $cartBulkDiscountAllocation]) => {
+    const referral = $cartDiscountCodes.find(({ code }) => isReferralCode(code));
+    if (!referral) return null;
 
-    const code = $cartDiscountCodes.find(({ code, applicable }) => applicable && isReferralCode(code))?.code;
-    return code ? { code, amount: REFERRAL_DISCOUNT } : null;
+    const warning = $cartReferralWarning?.code.toLowerCase() === referral.code.toLowerCase()
+      ? $cartReferralWarning : null;
+    const reason = !referral.applicable ? warning?.reason : null;
+    if (reason === 'DISCOUNT_NOT_FOUND') return null;
+
+    const rejected = referral.applicable === false && (reason || ($cartItems || []).some(
+      ({ node }) => node.merchandise.product.id === products['comma-four'].id
+    ));
+    if ($cartBulkDiscountAllocation && !rejected) return null;
+
+    return {
+      ...referral,
+      message: rejected ? REFERRAL_REJECTION_MESSAGES[reason] || 'This referral code could not be applied.' : null,
+    };
   }
+);
+export const cartReferralDiscount = derived(cartReferral, ($cartReferral) =>
+  $cartReferral?.applicable ? { code: $cartReferral.code, amount: REFERRAL_DISCOUNT } : null
 );
 export const selectedCar = writable(browser ? localStorage.getItem('selectedCar') || '' : '');
 
@@ -62,13 +72,14 @@ export const loadCart = async () => {
   try {
     const shopifyResponse = await requestLoadCart(get(cartId));
     const loadedCart = shopifyResponse?.body?.data?.cart;
-    cartItems.set(loadedCart?.lines?.edges);
-    cartDiscount.set(getTotalDiscount(loadedCart?.discountAllocations));
-    cartDiscountAllocations.set(loadedCart?.discountAllocations || []);
-    cartSubtotal.set(loadedCart?.cost?.subtotalAmount);
-    cartDiscountCodes.set(loadedCart?.discountCodes || []);
-    cartTotalQuantity.set(loadedCart?.totalQuantity);
-    checkoutUrl.set(loadedCart?.checkoutUrl || '');
+    if (!loadedCart) return;
+    cartItems.set(loadedCart.lines.edges);
+    cartDiscount.set(getTotalDiscount(loadedCart.discountAllocations));
+    cartDiscountAllocations.set(loadedCart.discountAllocations);
+    cartSubtotal.set(loadedCart.cost.subtotalAmount);
+    cartDiscountCodes.set(loadedCart.discountCodes);
+    cartTotalQuantity.set(loadedCart.totalQuantity);
+    checkoutUrl.set(loadedCart.checkoutUrl);
 
   } catch (error) {
     console.error(error);
