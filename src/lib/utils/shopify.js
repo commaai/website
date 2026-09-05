@@ -213,16 +213,26 @@ export async function createCart(referralCode = null) {
     variables: {
       input: { discountCodes: referralCode ? [referralCode] : [] }
     }
-  }).then(response => {
+  }).then(async response => {
     const payload = response.body?.data?.cartCreate;
     const cart = payload?.cart;
     if (!cart || response.body?.errors?.length || payload.userErrors?.length) return response;
     cartDiscountCodes.set(cart.discountCodes);
-    cartReferralWarning.set(getReferralWarning(cart.discountCodes, payload.warnings));
+    const warning = getReferralWarning(cart.discountCodes, payload.warnings);
+    cartReferralWarning.set(warning);
     cartId.set(cart.id)
     cartCreatedAt.set(Date.now());
     checkoutUrl.set(cart.checkoutUrl);
     cartTotalQuantity.set(cart.totalQuantity)
+    if (warning) {
+      const removal = await updateCartDiscountCodes({ cartId: cart.id, discountCodes: [] });
+      const result = removal.body?.data?.cartDiscountCodesUpdate;
+      if (result && !removal.body?.errors?.length && !result.userErrors?.length) {
+        cartDiscountCodes.set([]);
+      } else {
+        console.error('Error removing rejected referral code:', removal);
+      }
+    }
     return response;
   });
 
@@ -292,6 +302,24 @@ export async function addToCart({ cartId, variantId, additionalProductIds = [], 
     query: /* graphql */ `
       mutation addToCart($cartId: ID!, $lines: [CartLineInput!]!) {
         cartLinesAdd(cartId: $cartId, lines: $lines) {
+          cart {
+            id
+            lines(first: 250) {
+              edges {
+                node {
+                  id
+                  quantity
+                  merchandise {
+                    ... on ProductVariant {
+                      product {
+                        title
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
           ${USER_ERRORS_GQL}
           ${WARNINGS_GQL}
         }
@@ -324,6 +352,10 @@ export async function addToCart({ cartId, variantId, additionalProductIds = [], 
       query: /* graphql */ `
         mutation updateCartNote($cartId: ID!, $note: String!) {
           cartNoteUpdate(cartId: $cartId, note: $note) {
+            cart {
+              id
+              note
+            }
             ${USER_ERRORS_GQL}
             ${WARNINGS_GQL}
           }

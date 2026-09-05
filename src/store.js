@@ -30,7 +30,8 @@ export const cartBulkDiscountAllocation = derived(
 export const cartReferral = derived(
   [cartDiscountCodes, cartReferralWarning, cartBulkDiscountAllocation],
   ([$cartDiscountCodes, $cartReferralWarning, $cartBulkDiscountAllocation]) => {
-    const referral = $cartDiscountCodes.find(({ code }) => isReferralCode(code));
+    const referral = $cartDiscountCodes.find(({ code }) => isReferralCode(code))
+      || ($cartReferralWarning && { code: $cartReferralWarning.code, applicable: false });
     if (!referral) return null;
 
     const warning = $cartReferralWarning?.code.toLowerCase() === referral.code.toLowerCase()
