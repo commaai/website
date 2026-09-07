@@ -1,5 +1,6 @@
 import { get } from 'svelte/store';
 import { cartId, cartCreatedAt, checkoutUrl, cartTotalQuantity } from '../../store';
+import { cartAttributes } from './attribution';
 
 // GraphQL fragments for error handling
 const USER_ERRORS_GQL = `userErrors { code field message }`;
@@ -206,7 +207,10 @@ export async function createCart(referralCode = null) {
       }
     `,
     variables: {
-      input: { discountCodes: referralCode ? [referralCode] : [] }
+      input: {
+        discountCodes: referralCode ? [referralCode] : [],
+        attributes: cartAttributes(),
+      }
     }
   }).then(response => {
     cartId.set(response.body?.data?.cartCreate?.cart?.id)
@@ -215,6 +219,23 @@ export async function createCart(referralCode = null) {
     cartTotalQuantity.set(response.body?.data?.cartCreate?.cart?.totalQuantity)
   });
 
+}
+
+// carts persist in localStorage across visits, so refresh attribution before handing off to checkout
+export async function refreshCartAttributes() {
+  const id = get(cartId);
+  if (!id) return;
+
+  return shopifyFetch({
+    query: /* graphql */ `
+      mutation cartAttributesUpdate($cartId: ID!, $attributes: [AttributeInput!]!) {
+        cartAttributesUpdate(cartId: $cartId, attributes: $attributes) {
+          ${USER_ERRORS_GQL}
+        }
+      }
+    `,
+    variables: { cartId: id, attributes: cartAttributes() }
+  });
 }
 
 export async function updateCart({ cartId, lineId, variantId, quantity }) {
