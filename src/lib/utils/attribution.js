@@ -81,14 +81,25 @@ export function captureTouch() {
   if (isRealTouch(touch)) attribution.last = touch;
 
   save(attribution);
-
-  // an email click identifies the person without them filling anything in
-  if (touch.mc_eid) posthog()?.identify?.(`mc:${touch.mc_eid}`);
+  identifyFromEmailClick(touch);
 }
 
+// an email click identifies the person without them filling anything in.
+// never re-identify an already-identified device: a forwarded email or a shared
+// machine would otherwise merge two different people.
+function identifyFromEmailClick(touch) {
+  if (!touch.mc_eid) return;
+
+  const current = posthog()?.get_distinct_id?.();
+  if (current && current.startsWith('mc:')) return;
+
+  posthog()?.identify?.(`mc:${touch.mc_eid}`);
+}
+
+// $set_once, so a typo or someone else's address can never replace a known one
 export function identifyByEmail(email) {
   if (!browser || !email) return;
-  posthog()?.setPersonProperties?.({ email });
+  posthog()?.setPersonProperties?.(undefined, { submitted_email: email });
 }
 
 // written into the shopify cart so the order can be joined back to the session
