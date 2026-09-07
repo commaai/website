@@ -160,19 +160,17 @@ We designed these challenges around real problems we've faced while building and
   <a href="https://github.com/commaai/harness_tester_challenge">hardware challenge</a>
   &nbsp;<p class="tag tag-green">ACTIVE</p>
   &nbsp;<a class="tag tag-blue" href="https://comma.ai/jobs">HIRING</a>
-  &nbsp;<p class="tag tag-gold">PRIZE</p>
-  &nbsp;<span id="countdown">2026-06-23T00:00:00-07:00</span>
 </h2>
 <h3>find as many bugs as you can in our custom wire harness tester</h3>
 <h3><s>$1000 prize - first submission with >21 bugs found</s> CLAIMED by LK!</h3>
-<h3>$1000 prize - highest score by 6/22 (must be >22)</h3>
+<h3><s>$1000 prize - highest score by 6/22 (must be >22)</s> CLAIMED by AnasMalas!</h3>
 <div class="table-container" id="harness_tester_challenge_table">
 <table class="ranked">
   <thead><tr>
       <th></th> <th>bugs</th> <th>name</th>
   </tr></thead>
   <tbody>
-    <tr> <td></td> <td>24</td> <td><a href="https://github.com/AnasMalas">AnasMalas</a></td> </tr>
+    <tr> <td></td> <td>24</td> <td><a href="https://github.com/AnasMalas">AnasMalas</a>&nbsp;👑</td> </tr>
     <tr> <td></td> <td>24</td> <td><a href="https://github.com/LK">LK</a>&nbsp;👑</td> </tr>
     <tr> <td></td> <td>23</td> <td><a href="https://github.com/Milind220">Milind220</a></td> </tr>
     <tr> <td></td> <td>22</td> <td><a href="https://github.com/BradyMeighan">BradyMeighan</a></td> </tr>
@@ -498,7 +496,7 @@ We designed these challenges around real problems we've faced while building and
 
 <script>
   const el = document.getElementById('countdown');
-  const countdownDate = new Date(el.innerText).getTime();
+  const countdownDate = new Date(el?.innerText).getTime();
 
   function countdown() {
     const now = new Date().getTime();
@@ -519,8 +517,10 @@ We designed these challenges around real problems we've faced while building and
     }
   }
 
-  countdown();
-  const timer = setInterval(countdown, 1000);
+  if (el) {
+    countdown();
+    const timer = setInterval(countdown, 1000);
+  }
 </script>
 
 </body>
