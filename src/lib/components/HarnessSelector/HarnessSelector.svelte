@@ -222,6 +222,14 @@
   </div>
 </div>
 
+{#if selection?.footnotes?.length && !hideSupportNoteCard}
+  <NoteCard title="Note">
+    {#each selection.footnotes as footnote}
+      <p class="footnote">{@html footnote}</p>
+    {/each}
+  </NoteCard>
+{/if}
+
 {#if selection && selection.package && !hideSupportNoteCard}
   <NoteCard title="Support" icon={CarIcon}>
     {@html selection.package === 'All' ?
@@ -233,6 +241,14 @@
 
 
 <style>
+.footnote {
+  margin: 0;
+}
+
+.footnote + .footnote {
+  margin-top: 0.5rem;
+}
+
 .dropdown {
   position: relative;
   display: inline-block;

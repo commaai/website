@@ -44,6 +44,7 @@ async function initializeHarnesses() {
         yearList: model.year_list?.replaceAll(',', ''),
         package: model.package,
         backordered: harness?.backordered,  // these overrides are only shown if the harness is out of stock in Shopify
+        footnotes: model.footnotes,
         setupNotes: model.setup_notes,
         setupVideo: model.setup_video,
       };
