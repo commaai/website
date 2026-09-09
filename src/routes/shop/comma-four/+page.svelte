@@ -383,21 +383,18 @@
     }
 
     & .box-contents {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
       text-align: center;
 
-      & > div {
-        width: 300px;
-        margin-bottom: 2rem;
+      @media screen and (max-width: 768px) {
+        grid-template-columns: 1fr;
+      }
 
-        & img {
-          max-height: 150px;
-        }
-
-        & p {
-          margin: 0 2rem;
-        }
+      & img {
+        height: 150px;
+        object-fit: contain;
       }
     }
 
