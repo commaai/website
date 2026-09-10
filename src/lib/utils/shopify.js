@@ -339,8 +339,7 @@ export async function addToCart({ cartId, variantId, additionalProductIds = [], 
     return cartLinesResponse;
   }
 
-  // set it again here, the cart may have been created before posthog loaded.
-  // sending an empty list would clear ids we already stored, so skip instead
+  // set it again here, the cart may have been created before posthog loaded
   const attributes = cartAttributes();
   if (attributes.length) {
     await shopifyFetch({
