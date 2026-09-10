@@ -23,7 +23,7 @@
         <span class="label">SALE ENDED</span>
       {:else}
         <span class="label">SALE ENDS IN</span>
-        <span class="timer" role="timer" aria-label="{remaining.days} {remaining.days === 1 ? 'day' : 'days'}, {remaining.hours} {remaining.hours === 1 ? 'hour' : 'hours'}, {remaining.minutes} {remaining.minutes === 1 ? 'minute' : 'minutes'}, {remaining.seconds} {remaining.seconds === 1 ? 'second' : 'seconds'} remaining">
+        <span class="timer" role="timer">
           {#each units as unit}
             <span class="unit">
               <span class="value">{pad(remaining[unit.key])}</span>
