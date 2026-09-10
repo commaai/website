@@ -196,6 +196,8 @@
         "High speed electronics design and designing for manufacturability experience preferred",
         "Reverse engineering experience is a plus",
       ],
+      howToApply:
+        'Do the <a href="https://github.com/commaai/PCBGolf">PCBGolf challenge</a>, then email <a href="mailto:work@comma.ai">work@comma.ai</a>.',
     },
     {
       title: "Infrastructure Engineer",
