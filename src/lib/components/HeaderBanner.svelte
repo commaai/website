@@ -1,9 +1,22 @@
+<script>
+  import Countdown from '$lib/components/Countdown.svelte';
+</script>
+
 <div class="banner">
   <div class="wrapper">
     <a href="/shop/comma-four" class="headline">
       <strong>LABOR DAY SALE!</strong>
       <span><span class="discount">$100&nbsp;OFF</span> A COMMA&nbsp;FOUR</span>
     </a>
+    <Countdown date="2026-09-11T23:59:00-08:00" let:remaining>
+      {#if !remaining.done}
+        <strong class="countdown">
+          Sale ends in {remaining.days} days, {remaining.hours.toString().padStart(2, '0')}:{remaining.minutes.toString().padStart(2, '0')}:{remaining.seconds.toString().padStart(2, '0')}
+        </strong>
+      {:else}
+        <strong class="countdown">SALE ENDED</strong>
+      {/if}
+    </Countdown>
   </div>
 </div>
 
@@ -36,6 +49,10 @@
     font-size: 1.55rem;
     margin: 0 0.5rem;
     text-decoration: none;
+  }
+
+  .countdown {
+    font-variant-numeric: tabular-nums;
   }
 
   .headline span {
