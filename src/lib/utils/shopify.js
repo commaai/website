@@ -6,7 +6,7 @@ import { distinctId } from './posthog';
 const USER_ERRORS_GQL = `userErrors { code field message }`;
 const WARNINGS_GQL = `warnings { code message target }`;
 
-// shopify never sees the posthog cookie, so the id rides along on the cart to join the order
+// adds the posthog distinct id to the cart
 function cartAttributes() {
   const id = distinctId();
   return id ? [{ key: '_ph_distinct_id', value: id }] : [];
@@ -335,7 +335,7 @@ export async function addToCart({ cartId, variantId, additionalProductIds = [], 
     return cartLinesResponse;
   }
 
-  // the cart can outlive the posthog id it was created with, so stamp it again here
+  // re-stamp, the cart can be older than the current posthog id
   await shopifyFetch({
     query: /* graphql */ `
       mutation cartAttributesUpdate($cartId: ID!, $attributes: [AttributeInput!]!) {
