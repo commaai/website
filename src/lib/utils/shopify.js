@@ -10,15 +10,9 @@ function cartAttributes() {
   const id = globalThis.posthog?.get_distinct_id?.();
   const session = globalThis.posthog?.get_session_id?.();
 
-  console.log('[ph] posthog on window:', !!globalThis.posthog,
-              '| loaded:', !!globalThis.posthog?.__loaded,
-              '| distinct_id:', id, '| session_id:', session);
-
   const attributes = [];
   if (id) attributes.push({ key: '_ph_distinct_id', value: id });
   if (session) attributes.push({ key: '_ph_session_id', value: session });
-
-  if (!attributes.length) console.warn('[ph] no posthog id, cart will not be joinable');
   return attributes;
 }
 
@@ -346,21 +340,16 @@ export async function addToCart({ cartId, variantId, additionalProductIds = [], 
   }
 
   // set it again here, the cart may have been created before posthog loaded
-  const attributes = cartAttributes();
-  const attrResponse = await shopifyFetch({
+  await shopifyFetch({
     query: /* graphql */ `
       mutation cartAttributesUpdate($cartId: ID!, $attributes: [AttributeInput!]!) {
         cartAttributesUpdate(cartId: $cartId, attributes: $attributes) {
-          cart { id attributes { key value } }
           ${USER_ERRORS_GQL}
         }
       }
     `,
-    variables: { cartId, attributes }
+    variables: { cartId, attributes: cartAttributes() }
   });
-  console.log('[ph] cartAttributesUpdate sent:', attributes,
-              '| cart now:', attrResponse?.body?.data?.cartAttributesUpdate?.cart?.attributes,
-              '| errors:', attrResponse?.body?.errors || attrResponse?.body?.data?.cartAttributesUpdate?.userErrors);
 
   // Update the cart note
   if (note) {
