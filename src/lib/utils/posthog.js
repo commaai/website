@@ -1,6 +1,6 @@
 import { browser } from '$app/environment';
 
-// posthog's stub queues calls before load and returns undefined, so fall back to its cookie
+// posthog may not have loaded yet, so read its cookie instead
 export function distinctId() {
   if (!browser) return null;
 

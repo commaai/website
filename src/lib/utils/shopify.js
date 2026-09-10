@@ -335,7 +335,7 @@ export async function addToCart({ cartId, variantId, additionalProductIds = [], 
     return cartLinesResponse;
   }
 
-  // re-stamp, the cart can be older than the current posthog id
+  // set it again here, the cart may have been created before posthog loaded
   await shopifyFetch({
     query: /* graphql */ `
       mutation cartAttributesUpdate($cartId: ID!, $attributes: [AttributeInput!]!) {
