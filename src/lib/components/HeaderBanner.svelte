@@ -89,9 +89,10 @@
 
   .countdown {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 18px;
+    gap: 8px 18px;
     padding: 11px 16px;
     background: var(--color-sale-red);
     color: #000;
@@ -108,6 +109,8 @@
 
   .timer {
     display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
     gap: 12px;
     font-variant-numeric: tabular-nums;
@@ -125,13 +128,4 @@
 
   .unit-label { color: #000; font-size: 14px; }
 
-  @media screen and (max-width: 550px) {
-    .countdown { gap: 14px; }
-    .timer { gap: 10px; }
-  }
-
-  @media screen and (max-width: 340px) {
-    .countdown { gap: 10px; }
-    .timer { gap: 7px; }
-  }
 </style>
