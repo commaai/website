@@ -339,17 +339,21 @@ export async function addToCart({ cartId, variantId, additionalProductIds = [], 
     return cartLinesResponse;
   }
 
-  // set it again here, the cart may have been created before posthog loaded
-  await shopifyFetch({
-    query: /* graphql */ `
-      mutation cartAttributesUpdate($cartId: ID!, $attributes: [AttributeInput!]!) {
-        cartAttributesUpdate(cartId: $cartId, attributes: $attributes) {
-          ${USER_ERRORS_GQL}
+  // set it again here, the cart may have been created before posthog loaded.
+  // sending an empty list would clear ids we already stored, so skip instead
+  const attributes = cartAttributes();
+  if (attributes.length) {
+    await shopifyFetch({
+      query: /* graphql */ `
+        mutation cartAttributesUpdate($cartId: ID!, $attributes: [AttributeInput!]!) {
+          cartAttributesUpdate(cartId: $cartId, attributes: $attributes) {
+            ${USER_ERRORS_GQL}
+          }
         }
-      }
-    `,
-    variables: { cartId, attributes: cartAttributes() }
-  });
+      `,
+      variables: { cartId, attributes }
+    });
+  }
 
   // Update the cart note
   if (note) {
