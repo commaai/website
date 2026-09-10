@@ -5,6 +5,17 @@ import { cartId, cartCreatedAt, checkoutUrl, cartTotalQuantity } from '../../sto
 const USER_ERRORS_GQL = `userErrors { code field message }`;
 const WARNINGS_GQL = `warnings { code message target }`;
 
+// adds the posthog distinct id and session id to the cart
+function cartAttributes() {
+  const id = globalThis.posthog?.get_distinct_id?.();
+  const session = globalThis.posthog?.get_session_id?.();
+
+  const attributes = [];
+  if (id) attributes.push({ key: '_ph_distinct_id', value: id });
+  if (session) attributes.push({ key: '_ph_session_id', value: session });
+  return attributes;
+}
+
 export async function shopifyFetch({ query, variables }) {
   const apiToken = import.meta.env.VITE_SHOPIFY_STOREFRONT_API_TOKEN;
   const storeUrl = import.meta.env.VITE_SHOPIFY_STORE_URL;
@@ -206,7 +217,10 @@ export async function createCart(referralCode = null) {
       }
     `,
     variables: {
-      input: { discountCodes: referralCode ? [referralCode] : [] }
+      input: {
+        discountCodes: referralCode ? [referralCode] : [],
+        attributes: cartAttributes(),
+      }
     }
   }).then(response => {
     cartId.set(response.body?.data?.cartCreate?.cart?.id)
@@ -323,6 +337,21 @@ export async function addToCart({ cartId, variantId, additionalProductIds = [], 
   if (errors || cartLinesErrors?.length) {
     console.error("Error adding items to cart:", cartLinesErrors);
     return cartLinesResponse;
+  }
+
+  // set it again here, the cart may have been created before posthog loaded
+  const attributes = cartAttributes();
+  if (attributes.length) {
+    await shopifyFetch({
+      query: /* graphql */ `
+        mutation cartAttributesUpdate($cartId: ID!, $attributes: [AttributeInput!]!) {
+          cartAttributesUpdate(cartId: $cartId, attributes: $attributes) {
+            ${USER_ERRORS_GQL}
+          }
+        }
+      `,
+      variables: { cartId, attributes }
+    });
   }
 
   // Update the cart note
