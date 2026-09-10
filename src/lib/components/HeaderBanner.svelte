@@ -20,9 +20,9 @@
   <Countdown date="2026-09-11T23:59:00-08:00" let:remaining>
     <div class="countdown">
       {#if remaining.done}
-        <span class="label">Sale ended</span>
+        <span class="label">SALE ENDED</span>
       {:else}
-        <span class="label">Sale ends in</span>
+        <span class="label">SALE ENDS IN</span>
         <span class="timer" role="timer" aria-label="{remaining.days} {remaining.days === 1 ? 'day' : 'days'}, {remaining.hours} {remaining.hours === 1 ? 'hour' : 'hours'}, {remaining.minutes} {remaining.minutes === 1 ? 'minute' : 'minutes'}, {remaining.seconds} {remaining.seconds === 1 ? 'second' : 'seconds'} remaining">
           {#each units as unit}
             <span class="unit">
