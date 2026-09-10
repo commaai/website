@@ -60,7 +60,7 @@ function submitEmailUpdates(email, selectedCategories, car) {
       reject(new Error('Could not connect. Please try again.'));
     };
 
-    script.src = `https://comma.us12.list-manage.com/subscribe/post?${params}`;
+    script.src = `https://p.comma.ai/subscribe/post?${params}`;
     document.body.appendChild(script);
   });
 }
