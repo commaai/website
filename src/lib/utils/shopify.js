@@ -5,10 +5,15 @@ import { cartId, cartCreatedAt, checkoutUrl, cartTotalQuantity } from '../../sto
 const USER_ERRORS_GQL = `userErrors { code field message }`;
 const WARNINGS_GQL = `warnings { code message target }`;
 
-// adds the posthog distinct id to the cart
+// adds the posthog distinct id and session id to the cart
 function cartAttributes() {
   const id = globalThis.posthog?.get_distinct_id?.();
-  return id ? [{ key: '_ph_distinct_id', value: id }] : [];
+  const session = globalThis.posthog?.get_session_id?.();
+
+  const attributes = [];
+  if (id) attributes.push({ key: '_ph_distinct_id', value: id });
+  if (session) attributes.push({ key: '_ph_session_id', value: session });
+  return attributes;
 }
 
 export async function shopifyFetch({ query, variables }) {
