@@ -1,5 +1,13 @@
 <script>
   import Countdown from '$lib/components/Countdown.svelte';
+
+  const units = [
+    { key: 'days', short: 'd' },
+    { key: 'hours', short: 'h' },
+    { key: 'minutes', short: 'm' },
+    { key: 'seconds', short: 's' },
+  ];
+  const pad = (value) => String(value).padStart(2, '0');
 </script>
 
 <div class="banner">
@@ -8,16 +16,24 @@
       <strong>LABOR DAY SALE!</strong>
       <span><span class="discount">$100&nbsp;OFF</span> A COMMA&nbsp;FOUR</span>
     </a>
-    <Countdown date="2026-09-11T23:59:00-08:00" let:remaining>
-      {#if !remaining.done}
-        <strong class="countdown">
-          Sale ends in {remaining.days} days, {remaining.hours.toString().padStart(2, '0')}:{remaining.minutes.toString().padStart(2, '0')}:{remaining.seconds.toString().padStart(2, '0')}
-        </strong>
-      {:else}
-        <strong class="countdown">SALE ENDED</strong>
-      {/if}
-    </Countdown>
   </div>
+  <Countdown date="2026-09-11T23:59:00-08:00" let:remaining>
+    <div class="countdown">
+      {#if remaining.done}
+        <span class="label">Sale ended</span>
+      {:else}
+        <span class="label">Sale ends in</span>
+        <span class="timer" role="timer" aria-label="{remaining.days} {remaining.days === 1 ? 'day' : 'days'}, {remaining.hours} {remaining.hours === 1 ? 'hour' : 'hours'}, {remaining.minutes} {remaining.minutes === 1 ? 'minute' : 'minutes'}, {remaining.seconds} {remaining.seconds === 1 ? 'second' : 'seconds'} remaining">
+          {#each units as unit}
+            <span class="unit">
+              <span class="value">{pad(remaining[unit.key])}</span>
+              <span class="unit-label">{unit.short}</span>
+            </span>
+          {/each}
+        </span>
+      {/if}
+    </div>
+  </Countdown>
 </div>
 
 <style>
@@ -51,10 +67,6 @@
     text-decoration: none;
   }
 
-  .countdown {
-    font-variant-numeric: tabular-nums;
-  }
-
   .headline span {
     color: white;
     margin-left: 0.35em;
@@ -73,5 +85,53 @@
     .headline {
       font-size: 1.25rem;
     }
+  }
+
+  .countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    padding: 11px 16px;
+    background: var(--color-sale-red);
+    color: #000;
+    letter-spacing: 0;
+  }
+
+  .label {
+    color: #000;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    font-weight: 400;
+    white-space: nowrap;
+  }
+
+  .timer {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .unit { display: inline-flex; align-items: baseline; gap: 3px; }
+
+  .value {
+    color: #000;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1;
+  }
+
+  .unit-label { color: #000; font-size: 14px; }
+
+  @media screen and (max-width: 550px) {
+    .countdown { gap: 14px; }
+    .timer { gap: 10px; }
+  }
+
+  @media screen and (max-width: 340px) {
+    .countdown { gap: 10px; }
+    .timer { gap: 7px; }
   }
 </style>
