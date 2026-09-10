@@ -227,23 +227,6 @@ export async function createCart(referralCode = null) {
 
 }
 
-// carts persist in localStorage across visits, so refresh attribution before handing off to checkout
-export async function refreshCartAttributes() {
-  const id = get(cartId);
-  if (!id) return;
-
-  return shopifyFetch({
-    query: /* graphql */ `
-      mutation cartAttributesUpdate($cartId: ID!, $attributes: [AttributeInput!]!) {
-        cartAttributesUpdate(cartId: $cartId, attributes: $attributes) {
-          ${USER_ERRORS_GQL}
-        }
-      }
-    `,
-    variables: { cartId: id, attributes: cartAttributes() }
-  });
-}
-
 export async function updateCart({ cartId, lineId, variantId, quantity }) {
   return shopifyFetch({
     query: /* graphql */ `
@@ -351,6 +334,18 @@ export async function addToCart({ cartId, variantId, additionalProductIds = [], 
     console.error("Error adding items to cart:", cartLinesErrors);
     return cartLinesResponse;
   }
+
+  // the cart can outlive the posthog id it was created with, so stamp it again here
+  await shopifyFetch({
+    query: /* graphql */ `
+      mutation cartAttributesUpdate($cartId: ID!, $attributes: [AttributeInput!]!) {
+        cartAttributesUpdate(cartId: $cartId, attributes: $attributes) {
+          ${USER_ERRORS_GQL}
+        }
+      }
+    `,
+    variables: { cartId, attributes: cartAttributes() }
+  });
 
   // Update the cart note
   if (note) {

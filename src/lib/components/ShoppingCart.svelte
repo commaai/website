@@ -13,7 +13,6 @@
   import SteppableInput from "./SteppableInput.svelte";
   import Space from "./Space.svelte";
   import { formatCurrency } from "$lib/utils/currency";
-  import { refreshCartAttributes } from "$lib/utils/shopify";
 
   export let loading = false;
 
@@ -32,12 +31,6 @@
 
   async function checkout() {
     loading = true;
-    // never block checkout on analytics
-    try {
-      await refreshCartAttributes();
-    } catch {
-      // ignore
-    }
     window.open(get(checkoutUrl), "_self");
     loading = false;
   }
