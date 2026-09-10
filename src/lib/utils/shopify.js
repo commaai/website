@@ -1,6 +1,5 @@
 import { get } from 'svelte/store';
 import { cartId, cartCreatedAt, checkoutUrl, cartTotalQuantity } from '../../store';
-import { distinctId } from './posthog';
 
 // GraphQL fragments for error handling
 const USER_ERRORS_GQL = `userErrors { code field message }`;
@@ -8,7 +7,7 @@ const WARNINGS_GQL = `warnings { code message target }`;
 
 // adds the posthog distinct id to the cart
 function cartAttributes() {
-  const id = distinctId();
+  const id = globalThis.posthog?.get_distinct_id?.();
   return id ? [{ key: '_ph_distinct_id', value: id }] : [];
 }
 
