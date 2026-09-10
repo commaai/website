@@ -13,7 +13,7 @@
   import GiftIcon from "$lib/icons/features/gift.svg?raw";
   import CloseIcon from "$lib/icons/ui/close.svg?raw";
 
-  import { FOUR_PRICE, FOUR_SALE, FOUR_STRIKETHROUGH_PRICE, FOUR_TRADE_IN_CREDIT, NO_HARNESS_DISCOUNT } from '$lib/constants/prices.js';
+  import { FOUR_PRICE, FOUR_SALE, FOUR_STRIKETHROUGH_PRICE, FOUR_TRADE_IN_CREDIT, NO_HARNESS_DISCOUNT, affirmMonthly } from '$lib/constants/prices.js';
   import { NO_HARNESS_OPTION } from '$lib/constants/vehicles.js';
 </script>
 
@@ -70,6 +70,9 @@
   $: discountedPriceDueToday = referralCode ? priceDueToday - REFERRAL_DISCOUNT : priceDueToday;
   $: priceAfterTradeIn = tradeInChecked ? priceDueToday - FOUR_TRADE_IN_CREDIT : priceDueToday;
   $: displayedPrice = tradeInChecked ? priceAfterTradeIn : priceDueToday;
+
+  // Affirm finances what's charged today — the trade-in credit lands after we receive the device
+  $: affirmPrice = affirmMonthly(priceDueToday);
 
   $: additionalProductIds = (() => {
     const ids = [];
@@ -176,6 +179,16 @@
   </div>
 
   <span slot="price-accessory">
+    <div class="financing">
+      or ${affirmPrice}/mo with Affirm.
+      <a
+        href="https://www.affirm.com/apps/prequal/?public_api_key=EE7S5PMJUQ8H98C5&amp;device_id=063366d6-31b6-4e41-adcb-79f608745058&amp;referring_url=https%253A%252F%252Fcomma.ai%252Fshop%252Fcomma-four&amp;unit_price={priceDueToday}00&amp;page_type=product&amp;use_promo=true&amp;locale=en_US"
+        target="_blank"
+        class="highlight"
+      >
+        Prequalify now
+      </a>
+    </div>
     <div class="badges">
       {#if referralCode}
         <Badge style="accent">Referral code added</Badge>
@@ -311,6 +324,10 @@
   .item {
     padding: 1rem 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  }
+
+  .financing {
+    text-wrap: pretty;
   }
 
   .badges {
