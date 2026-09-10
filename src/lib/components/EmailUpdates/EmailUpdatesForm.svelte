@@ -38,6 +38,7 @@
           name="email"
           type="email"
           autocomplete="email"
+          data-1p-ignore
           placeholder="Enter your email"
           maxlength="256"
           required
