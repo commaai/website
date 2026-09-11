@@ -20,7 +20,60 @@
   import { FOUR_PRICE, FOUR_STRIKETHROUGH_PRICE, FOUR_SALE } from '$lib/constants/prices.js';
   import { vehicleCountText } from '$lib/constants/vehicles.js';
 
+  import { onMount } from 'svelte';
+
   const brand_images = import.meta.glob('$lib/images/vehicles/brand-icons/*.png', { eager: true });
+
+  // Picking a brand narrows the question, so ask sooner
+  const SHOW_AFTER_SECONDS = 15;
+  const SHOW_AFTER_SECONDS_PICKED_BRAND = 10;
+  let showAfter = SHOW_AFTER_SECONDS;
+  let secondsInList = 0;
+
+  // Scrolling back up hints at not finding car, show button immediately
+  const BACK_SCROLL_SCREENS = 2;
+  let deepestY = 0;
+
+  // Fraction of the viewport the first brand header must climb past
+  const LIST_ON_SCREEN_AT = 0.5;
+  let intoList = false;
+
+  // No timer after first show
+  let fabShown = false;
+
+  $: fabVisible = fabShown && intoList;
+
+  function onScroll() {
+    const header = document.querySelector('.car-make-header')?.getBoundingClientRect();
+    intoList = header ? header.top < LIST_ON_SCREEN_AT * window.innerHeight : false;
+
+    deepestY = Math.max(deepestY, window.scrollY);
+    // Don't count scrolling up to the brand grid, they're picking another brand
+    if (intoList && deepestY - window.scrollY > BACK_SCROLL_SCREENS * window.innerHeight) fabShown = true;
+  }
+
+  function pickedBrand() {
+    deepestY = 0;
+    showAfter = SHOW_AFTER_SECONDS_PICKED_BRAND;
+  }
+
+  function countSeconds() {
+    if (fabShown || document.hidden || !intoList) return;
+    secondsInList += 0.5;
+    if (secondsInList >= showAfter) fabShown = true;
+  }
+
+  onMount(() => {
+    onScroll();
+    addEventListener('scroll', onScroll, { passive: true });
+    addEventListener('resize', onScroll);
+    const timer = setInterval(countSeconds, 500);
+    return () => {
+      removeEventListener('scroll', onScroll);
+      removeEventListener('resize', onScroll);
+      clearInterval(timer);
+    };
+  });
 </script>
 
 <div class="vehicles-cover-image"></div>
@@ -43,7 +96,7 @@
         {#if cars.length !== 0}
         {@const brand_img_path = `/src/lib/images/vehicles/brand-icons/Logo-${brand}.png`}
         <div class="compatibility-make-element">
-          <a href="#{brand.toLowerCase()}" class="compatibility-make-anchor-link">
+          <a href="#{brand.toLowerCase()}" class="compatibility-make-anchor-link" on:click={pickedBrand}>
             {#if brand_images[brand_img_path]}
               <img src={brand_images[brand_img_path].default} loading="eager" alt="{brand} car brand" />
             {/if}
@@ -211,6 +264,10 @@
   </div>
 </section>
 
+<a href="#email-updates" class="missing-car-fab" class:is-visible={fabVisible}>
+  don't see your car?
+</a>
+
 <style>
   section {
     padding-top: 4rem;
@@ -305,6 +362,37 @@
       margin-top: .5rem;
       font-weight: 600;
       line-height: 1.2;
+    }
+  }
+
+  .missing-car-fab {
+    position: fixed;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    padding: 1rem 1.5rem;
+    background-color: #000;
+    color: #fff;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    line-height: 1;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.6);
+
+    opacity: 0;
+    transform: translateY(1rem) scale(0.92);
+    pointer-events: none;
+    /* Overshoots slightly, so arriving is hard to miss */
+    transition: opacity 0.2s ease, transform 0.32s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    &.is-visible {
+      opacity: 1;
+      transform: none;
+      pointer-events: auto;
+    }
+
+    @media screen and (max-width: 480px) {
+      right: 1rem;
+      padding: 1.125rem 1.625rem;
+      font-size: 1.1875rem;
     }
   }
 
