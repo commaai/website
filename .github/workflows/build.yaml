@@ -26,6 +26,9 @@ jobs:
 
       - run: bun install --frozen-lockfile
 
+      - name: Check every car on /vehicles has a harness for sale
+        run: bun scripts/check-harnesses.js
+
   build:
     name: Build site
     runs-on: ubuntu-latest
