@@ -24,8 +24,8 @@ const { data, errors } = await response.json();
 if (!data) throw new Error(`Shopify request failed: ${JSON.stringify(errors)}`);
 
 const sources = {
-  'car harness variants': data.harness.variants.nodes.map(({ title }) => title),
-  'harness connector variants': data.connector.variants.nodes.map(({ title }) => title),
+  'Shopify "car harness" variants': data.harness.variants.nodes.map(({ title }) => title),
+  'Shopify "harness connector" variants': data.connector.variants.nodes.map(({ title }) => title),
   'car-harnesses.json': CarHarnesses.map(({ title }) => title),
 };
 
