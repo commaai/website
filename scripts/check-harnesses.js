@@ -39,4 +39,4 @@ if (missing.length) {
   process.exit(1);
 }
 
-console.log(`${connectors.size} harnesses on /vehicles exist in Shopify`);
+console.log(`${connectors.size} harnesses on /vehicles pass`);
