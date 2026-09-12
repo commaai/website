@@ -7,7 +7,7 @@ import { products } from '../src/lib/data/products.js';
 const store = process.env.VITE_SHOPIFY_STORE_URL;
 const version = process.env.VITE_SHOPIFY_API_VERSION;
 
-const variants = handle => `product(id: "${products[handle].id}") { variants(first: 250) { nodes { id title } } }`;
+const variants = handle => `product(id: "${products[handle].id}") { variants(first: 250) { nodes { id title availableForSale } } }`;
 
 const response = await fetch(`https://${store}/api/${version}/graphql.json`, {
   method: 'POST',
@@ -24,15 +24,19 @@ const { data, errors } = await response.json();
 if (!data) throw new Error(`Shopify request failed: ${JSON.stringify(errors)}`);
 
 const sources = {
-  'Shopify "car harness" variants': data.harness.variants.nodes.map(({ title }) => title),
-  'Shopify "harness connector" variants': data.connector.variants.nodes.map(({ title }) => title),
-  'car-harnesses.json': CarHarnesses.map(({ title }) => title),
+  'Shopify "car harness" variants': data.harness.variants.nodes,
+  'Shopify "harness connector" variants': data.connector.variants.nodes,
+  'car-harnesses.json': CarHarnesses,
 };
 
+// availableForSale is false only when a variant is out of stock with continue selling off
 const connectors = new Set(Object.values(Vehicles).flat().map(car => car.harness_connector).filter(Boolean));
-const problems = [...connectors].flatMap(connector => Object.entries(sources)
-  .filter(([, titles]) => !titles.includes(connector))
-  .map(([source]) => `${connector}: missing from ${source}`));
+const problems = [...connectors].flatMap(connector => Object.entries(sources).flatMap(([source, entries]) => {
+  const entry = entries.find(({ title }) => title === connector);
+  if (!entry) return `${connector}: missing from ${source}`;
+  if (entry.availableForSale === false) return `${connector}: not for sale in ${source}, turn on continue selling when out of stock`;
+  return [];
+}));
 
 // every harness in our list must point at the live Shopify variant id
 for (const { id, title } of CarHarnesses) {
