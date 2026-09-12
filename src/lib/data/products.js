@@ -269,6 +269,7 @@ export const products = {
     route: "/shop/harness-connector",
     category: "accessories",
     price: "$50",
+    useVariantBackorderStatus: true,
     images: [
       "/src/lib/images/products/harness-connector/harness-connector.jpg",
       "/src/lib/images/products/car-harness/connectors.jpg"
