@@ -34,7 +34,7 @@ const problems = [...connectors].flatMap(connector => Object.entries(sources)
   .filter(([, titles]) => !titles.includes(connector))
   .map(([source]) => `${connector}: missing from ${source}`));
 
-// Shopify gives a recreated variant a new id, which leaves us adding a dead variant to the cart
+// every harness in our list must point at the live Shopify variant id
 for (const { id, title } of CarHarnesses) {
   const variant = data.harness.variants.nodes.find(variant => variant.title === title);
   if (!variant) problems.push(`${title}: in car-harnesses.json but not a Shopify "car harness" variant`);
