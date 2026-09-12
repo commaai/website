@@ -17,7 +17,7 @@
       <span><span class="discount">$100&nbsp;OFF</span> A COMMA&nbsp;FOUR</span>
     </a>
   </div>
-  <Countdown date="2026-09-11T23:59:00-08:00" let:remaining>
+  <Countdown date="2026-09-12T00:00:00-07:00" let:remaining>
     <div class="countdown">
       {#if remaining.done}
         <span class="label">SALE ENDED</span>
