@@ -22,6 +22,7 @@
   import { createCart, updateCart } from '$lib/utils/shopify';
   import { printConsoleBanner } from '$lib/utils/console';
   import { getReferralCode } from '$lib/utils/referral';
+  import { captureTouch } from '$lib/utils/attribution';
 
   import HeaderBanner from "$lib/components/HeaderBanner.svelte";
   import HeaderMenu from "$lib/components/HeaderMenu.svelte";
@@ -58,7 +59,11 @@
     loading = false;
   }
 
+  // record the touch on every navigation, before anything can create a cart
+  $: if ($page.url) captureTouch();
+
   onMount(async () => {
+    captureTouch();
     const referralCode = getReferralCode();
     if (referralCode) await createCart(referralCode);
     await loadCart();
