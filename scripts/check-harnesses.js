@@ -7,7 +7,7 @@ import { products } from '../src/lib/data/products.js';
 const store = process.env.VITE_SHOPIFY_STORE_URL;
 const version = process.env.VITE_SHOPIFY_API_VERSION;
 
-const variantTitles = handle => `product(id: "${products[handle].id}") { variants(first: 250) { nodes { title } } }`;
+const variants = handle => `product(id: "${products[handle].id}") { variants(first: 250) { nodes { id title } } }`;
 
 const response = await fetch(`https://${store}/api/${version}/graphql.json`, {
   method: 'POST',
@@ -16,7 +16,7 @@ const response = await fetch(`https://${store}/api/${version}/graphql.json`, {
     'X-Shopify-Storefront-Access-Token': process.env.VITE_SHOPIFY_STOREFRONT_API_TOKEN,
   },
   body: JSON.stringify({
-    query: /* graphql */ `{ harness: ${variantTitles('car-harness')} connector: ${variantTitles('harness-connector')} }`,
+    query: /* graphql */ `{ harness: ${variants('car-harness')} connector: ${variants('harness-connector')} }`,
   }),
 });
 
@@ -30,12 +30,19 @@ const sources = {
 };
 
 const connectors = new Set(Object.values(Vehicles).flat().map(car => car.harness_connector).filter(Boolean));
-const missing = [...connectors].flatMap(connector => Object.entries(sources)
+const problems = [...connectors].flatMap(connector => Object.entries(sources)
   .filter(([, titles]) => !titles.includes(connector))
   .map(([source]) => `${connector}: missing from ${source}`));
 
-if (missing.length) {
-  console.error(missing.join('\n'));
+// every harness in our list must point at the live Shopify variant id
+for (const { id, title } of CarHarnesses) {
+  const variant = data.harness.variants.nodes.find(variant => variant.title === title);
+  if (!variant) problems.push(`${title}: in car-harnesses.json but not a Shopify "car harness" variant`);
+  else if (variant.id !== id) problems.push(`${title}: car-harnesses.json id should be ${variant.id}`);
+}
+
+if (problems.length) {
+  console.error(problems.join('\n'));
   process.exit(1);
 }
 
