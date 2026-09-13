@@ -3854,7 +3854,7 @@
       "harness_connector": "Tesla A",
       "detail_sentence": "openpilot upgrades your <strong>Tesla Model 3 (with HW3)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
-        "Some 2023 model years have HW4. To check which hardware type your vehicle has, look for \u003cb\u003eAutopilot computer\u003c/b\u003e under \u003cb\u003eSoftware -\u003e Additional Vehicle Information\u003c/b\u003e on your vehicle\u0027s touchscreen. \u003c/br\u003e\u003c/br\u003eSee \u003ca href=\"https://www.notateslaapp.com/news/2173/how-to-check-if-your-tesla-has-hardware-4-ai4-or-hardware-3\"\u003ethis page\u003c/a\u003e for more information."
+        "Model years 2023 and 2024 can have either hardware type, depending on build date and factory. To check which hardware type your vehicle has, look for \u003cb\u003eAutopilot computer\u003c/b\u003e under \u003cb\u003eSoftware -\u003e Additional Vehicle Information\u003c/b\u003e on your vehicle\u0027s touchscreen. \u003c/br\u003e\u003c/br\u003eSee \u003ca href=\"https://www.notateslaapp.com/news/2173/how-to-check-if-your-tesla-has-hardware-4-ai4-or-hardware-3\"\u003ethis page\u003c/a\u003e for more information."
       ],
       "setup_notes": [
         "See more setup details for \u003ca href=\"https://github.com/commaai/openpilot/wiki/tesla\" target=\"_blank\"\u003eTesla\u003c/a\u003e."
@@ -3871,41 +3871,41 @@
       "harness_connector": "Tesla B",
       "detail_sentence": "openpilot upgrades your <strong>Tesla Model 3 (with HW4)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
-        "Some 2023 model years have HW4. To check which hardware type your vehicle has, look for \u003cb\u003eAutopilot computer\u003c/b\u003e under \u003cb\u003eSoftware -\u003e Additional Vehicle Information\u003c/b\u003e on your vehicle\u0027s touchscreen. \u003c/br\u003e\u003c/br\u003eSee \u003ca href=\"https://www.notateslaapp.com/news/2173/how-to-check-if-your-tesla-has-hardware-4-ai4-or-hardware-3\"\u003ethis page\u003c/a\u003e for more information."
+        "Model years 2023 and 2024 can have either hardware type, depending on build date and factory. To check which hardware type your vehicle has, look for \u003cb\u003eAutopilot computer\u003c/b\u003e under \u003cb\u003eSoftware -\u003e Additional Vehicle Information\u003c/b\u003e on your vehicle\u0027s touchscreen. \u003c/br\u003e\u003c/br\u003eSee \u003ca href=\"https://www.notateslaapp.com/news/2173/how-to-check-if-your-tesla-has-hardware-4-ai4-or-hardware-3\"\u003ethis page\u003c/a\u003e for more information."
       ],
       "setup_notes": [
         "See more setup details for \u003ca href=\"https://github.com/commaai/openpilot/wiki/tesla\" target=\"_blank\"\u003eTesla\u003c/a\u003e."
       ]
     },
     {
-      "name": "Tesla Model Y (with HW3) 2020-23",
+      "name": "Tesla Model Y (with HW3) 2020-24",
       "model": "Model Y (with HW3)",
-      "years": "2020-23",
-      "year_list": "2020, 2021, 2022, 2023",
+      "years": "2020-24",
+      "year_list": "2020, 2021, 2022, 2023, 2024",
       "package": "All",
       "video": "",
       "setup_video": "",
       "harness_connector": "Tesla A",
       "detail_sentence": "openpilot upgrades your <strong>Tesla Model Y (with HW3)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
-        "Some 2023 model years have HW4. To check which hardware type your vehicle has, look for \u003cb\u003eAutopilot computer\u003c/b\u003e under \u003cb\u003eSoftware -\u003e Additional Vehicle Information\u003c/b\u003e on your vehicle\u0027s touchscreen. \u003c/br\u003e\u003c/br\u003eSee \u003ca href=\"https://www.notateslaapp.com/news/2173/how-to-check-if-your-tesla-has-hardware-4-ai4-or-hardware-3\"\u003ethis page\u003c/a\u003e for more information."
+        "Model years 2023 and 2024 can have either hardware type, depending on build date and factory. To check which hardware type your vehicle has, look for \u003cb\u003eAutopilot computer\u003c/b\u003e under \u003cb\u003eSoftware -\u003e Additional Vehicle Information\u003c/b\u003e on your vehicle\u0027s touchscreen. \u003c/br\u003e\u003c/br\u003eSee \u003ca href=\"https://www.notateslaapp.com/news/2173/how-to-check-if-your-tesla-has-hardware-4-ai4-or-hardware-3\"\u003ethis page\u003c/a\u003e for more information."
       ],
       "setup_notes": [
         "See more setup details for \u003ca href=\"https://github.com/commaai/openpilot/wiki/tesla\" target=\"_blank\"\u003eTesla\u003c/a\u003e."
       ]
     },
     {
-      "name": "Tesla Model Y (with HW4) 2024-25",
+      "name": "Tesla Model Y (with HW4) 2023-25",
       "model": "Model Y (with HW4)",
-      "years": "2024-25",
-      "year_list": "2024, 2025",
+      "years": "2023-25",
+      "year_list": "2023, 2024, 2025",
       "package": "All",
       "video": "",
       "setup_video": "",
       "harness_connector": "Tesla B",
       "detail_sentence": "openpilot upgrades your <strong>Tesla Model Y (with HW4)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
-        "Some 2023 model years have HW4. To check which hardware type your vehicle has, look for \u003cb\u003eAutopilot computer\u003c/b\u003e under \u003cb\u003eSoftware -\u003e Additional Vehicle Information\u003c/b\u003e on your vehicle\u0027s touchscreen. \u003c/br\u003e\u003c/br\u003eSee \u003ca href=\"https://www.notateslaapp.com/news/2173/how-to-check-if-your-tesla-has-hardware-4-ai4-or-hardware-3\"\u003ethis page\u003c/a\u003e for more information."
+        "Model years 2023 and 2024 can have either hardware type, depending on build date and factory. To check which hardware type your vehicle has, look for \u003cb\u003eAutopilot computer\u003c/b\u003e under \u003cb\u003eSoftware -\u003e Additional Vehicle Information\u003c/b\u003e on your vehicle\u0027s touchscreen. \u003c/br\u003e\u003c/br\u003eSee \u003ca href=\"https://www.notateslaapp.com/news/2173/how-to-check-if-your-tesla-has-hardware-4-ai4-or-hardware-3\"\u003ethis page\u003c/a\u003e for more information."
       ],
       "setup_notes": [
         "See more setup details for \u003ca href=\"https://github.com/commaai/openpilot/wiki/tesla\" target=\"_blank\"\u003eTesla\u003c/a\u003e."
