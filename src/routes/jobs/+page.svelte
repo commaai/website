@@ -117,7 +117,7 @@
         'Reach out to <a href="mailto:work@comma.ai">work@comma.ai</a> with your resume.',
     },
     {
-      title: "Content Creator",
+      title: "Video Content Creator",
       team: "product",
       location: "On-site in San Diego, CA",
       description: `
@@ -127,10 +127,6 @@
         <br /><br />
         You should be comfortable moving quickly, experimenting with formats, and being hands-on
         with every part of production.
-        <br /><br />
-        Our website gets 100k views per month.
-        Our <a href="https://www.instagram.com/comma_ai">Instagram</a> has 12k followers.
-        We're looking for someone to 
       `,
       qualifications: [
         "A strong portfolio of videos or social content you've created",
