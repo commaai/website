@@ -117,6 +117,27 @@
         'Reach out to <a href="mailto:work@comma.ai">work@comma.ai</a> with your resume.',
     },
     {
+      title: "Video Content Creator",
+      team: "product",
+      location: "On-site in San Diego, CA",
+      description: `
+        You'll create videos and social content that show people what comma is building and why it
+        matters. You'll own the process from finding stories and developing concepts through
+        shooting, editing, publishing, and reviewing performance.
+        <br /><br />
+        You should be comfortable moving quickly, experimenting with formats, and being hands-on
+        with every part of production.
+      `,
+      qualifications: [
+        "A strong portfolio of videos or social content you've created",
+        "Excellent storytelling, shooting, and video editing skills",
+        "Excellent understanding of YouTube and short-form social platforms",
+        "Resourceful, self-directed, and comfortable shipping content quickly",
+      ],
+      howToApply:
+        'Complete our <a href="/leaderboard#content_challenge">content challenge</a> and reach out to <a href="mailto:work@comma.ai">work@comma.ai</a> with your submission.',
+    },
+    {
       title: "Software Engineer",
       team: "openpilot",
       location: "On-site in San Diego, CA",
