@@ -33,7 +33,7 @@
       <span>Products, openpilot releases, car support, and more.</span>
     </div>
 
-    <form on:submit|preventDefault={handleFormSubmit}>
+    <form id="footer-email-form" on:submit|preventDefault={handleFormSubmit}>
       <div class="email-row">
         <input
           name="email"
