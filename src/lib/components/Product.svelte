@@ -183,6 +183,7 @@
           {/if}
         </div>
         <Button
+          id="add-to-cart"
           style="accent"
           fullWidth={true}
           on:click={addItem}

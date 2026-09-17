@@ -124,7 +124,7 @@
       <div class="disclaimer">
         Customs/duties/taxes are between you and your country.
       </div>
-      <Button on:click={checkout} style="accent" fullWidth={true}>
+      <Button id="checkout" on:click={checkout} style="accent" fullWidth={true}>
         Checkout
       </Button>
     {/if}

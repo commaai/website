@@ -33,7 +33,7 @@
         <span>We only send emails we would want to receive.</span>
       </div>
     {:else}
-      <form on:submit|preventDefault={submit}>
+      <form id="email-updates-form" on:submit|preventDefault={submit}>
         <input
           name="email"
           type="email"

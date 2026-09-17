@@ -286,6 +286,7 @@
 
 <Modal
   title="Disclaimer"
+  primaryButtonId="popup-add-to-cart"
   onPrimaryClick={onProceed}
   onClose={() => showDisclaimerModal = false}
   bind:show={showDisclaimerModal}
