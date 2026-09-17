@@ -5,7 +5,6 @@
   export let style = "primary";
   export let fullWidth = false;
   export let disabled = false;
-  // analytics finds buttons by id, so keep an id stable when restyling
   export let id = undefined;
 </script>
 
