@@ -1,4 +1,5 @@
 import { get, writable } from 'svelte/store';
+import { identifyByEmail } from '$lib/utils/attribution';
 
 export const EMAIL_CATEGORIES = [
   { key: 'product', label: 'Product updates', description: 'New products and sales', fieldName: 'group[54660][1]' },
@@ -84,6 +85,7 @@ export function createEmailUpdatesForm() {
     try {
       await submitEmailUpdates(get(email), get(selectedCategories), get(car).trim());
       status.set('success');
+      identifyByEmail(get(email));
     } catch (error) {
       errorMessage.set(error.message);
       status.set('error');
