@@ -18,7 +18,7 @@
     if (!variant.availableForSale) {
       return { label: "Out of stock", style: "out-of-stock" };
     }
-    if (variant.backordered || variant.currentlyNotInStock) {
+    if (variant.currentlyNotInStock) {
       return {
         label: `Ships in ${variant.backordered || DEFAULT_BACKORDER_ESTIMATE}`,
         style: "backordered"
