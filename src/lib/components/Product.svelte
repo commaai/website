@@ -58,7 +58,7 @@
     (variant) => variant.id === selectedVariantId,
   );
 
-  $: selectedVariantBackordered = useVariantBackorderStatus && selectedVariant?.currentlyNotInStock
+  $: selectedVariantBackordered = useVariantBackorderStatus && (selectedVariant?.backordered || selectedVariant?.currentlyNotInStock)
     ? (selectedVariant.backordered || DEFAULT_BACKORDER_ESTIMATE)
     : null;
   $: effectiveBackordered = backordered || (!forceOutOfStock && selectedVariantBackordered);
