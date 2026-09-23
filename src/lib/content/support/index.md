@@ -9,6 +9,4 @@ order: 0
 ::: options
 - [Orders & returns](/support/orders-warranty) — Shipping, returns, and warranty
   image: /images/support/local_shipping.svg
-- [comma prime & connect](/support/prime-connect) — Subscriptions, routes, and LTE
-  image: /images/support/wifi.svg
 :::
