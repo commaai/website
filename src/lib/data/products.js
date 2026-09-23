@@ -218,7 +218,7 @@ export const products = {
       </p>
       <p>
         For SIM card and connectivity help, see
-        <a href="/support/troubleshooting/software#wi-fi-lte-or-sim-connection-issue" target="_blank">this guide</a>.
+        <a href="/support/troubleshooting/software#internet-or-mobile-connection-issues" target="_blank">this guide</a>.
       </p>
     `.trim()
   },

@@ -11,11 +11,11 @@ order: 5
 ::: dropdown comma prime SIM not connecting to network
 If your device's comma prime subcription was enabled recently, leave your device connected to a strong wifi signal and wait at least a day for the sim card to activate. Try rebooting your device as well after enough time has passed. Find an area with a strong mobile signal to make sure it is not due to weak signal to cell towers.
 
-If your device is not on stock openpilot, try flashing your device back to stock openpilot. [Learn how to flash your device](/support/troubleshooting/hardware/how-to-flash).
+If your device is not on stock openpilot, try flashing your device back to stock openpilot. [Learn how to flash your device](/support/troubleshooting/hardware/flash-your-comma).
 :::
 
 ::: dropdown comma prime SIM not working anymore
-If your device is not on stock openpilot, try flashing your device back to stock openpilot. [Learn how to flash your device](/support/troubleshooting/hardware/how-to-flash).
+If your device is not on stock openpilot, try flashing your device back to stock openpilot. [Learn how to flash your device](/support/troubleshooting/hardware/flash-your-comma).
 
 comma prime also maintains data limits to avoid abuse of comma prime (full) cell service. We reserve the right to block your cell usage if you are not on stock software (openpilot release version) and are deemed to be abusing our cell service.
 :::
@@ -26,11 +26,11 @@ We offer ticket support for comma prime issues. If you have tried to resolve the
 
 **Before contacting support**, remove all third party software. Flash your device, then install the latest stock openpilot release during setup. Confirm that the issue still occurs before contacting support. We do not offer support for prime issues when running forks or other third-party software.
 
-[Learn how to flash your device](/support/troubleshooting/hardware/how-to-flash, "card")
+[Learn how to flash your device](/support/troubleshooting/hardware/flash-your-comma "card")
 
 Only once you have done this and made sure the problem still occurs, you may contact support.
 
-[Open a comma prime support ticket](https://commasupport.zendesk.com/hc/en-us/requests/new?ticket_form_id=29233366516631, "external-card")
+[Open a comma prime support ticket](https://commasupport.zendesk.com/hc/en-us/requests/new?ticket_form_id=29233366516631 "external-card")
 
 ### comma prime & connect FAQ
 
@@ -47,7 +47,7 @@ Cancellation takes effect immediately. Credit for the unused portion of your cur
 :::
 
 ::: dropdown What is commacare?
-[commacare](/support/orders-warranty/basic-warranty-and-commacare) extends a comma four's warranty by up to one additional year. It is included with an eligible, continuously active prime or prime lite subscription started within 30 days of receiving the device. The linked article has complete coverage and eligibility information.
+[commacare](/support/orders-warranty/warranty#commacare) extends a comma four's warranty by up to one additional year. It is included with an eligible, continuously active prime or prime lite subscription started within 30 days of receiving the device. The linked article has complete coverage and eligibility information.
 :::
 
 ::: dropdown I installed my own SIM card, but it isn't working. What should I do?

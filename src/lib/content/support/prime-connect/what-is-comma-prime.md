@@ -23,6 +23,6 @@ You can use Wi-Fi or install your own active SIM card. Third-party cellular serv
 
 ### commacare
 
-Both plans include commacare when the subscription is started within 30 days of receiving a comma four and remains continuously active. See [Basic warranty & commacare](/support/orders-warranty/basic-warranty-and-commacare) for coverage details.
+Both plans include commacare when the subscription is started within 30 days of receiving a comma four and remains continuously active. See [Basic warranty & commacare](/support/orders-warranty/warranty#commacare) for coverage details.
 
 You can activate or cancel either plan at any time through [comma connect](https://connect.comma.ai/).
