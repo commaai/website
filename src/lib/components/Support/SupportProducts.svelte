@@ -4,8 +4,7 @@
   import CarHarnessImage from '$lib/images/products/car-harness/car-harness.jpg?w=900';
 </script>
 
-<section class="support-products" aria-labelledby="support-products-title">
-  <h2 id="support-products-title">Products</h2>
+<section class="support-products" aria-label="Product support">
   <div class="product-grid">
     <a class="product-card" href="/support/troubleshooting/hardware">
       <div class="product-image"><img class="comma-four-image" src={CommaFourImage} alt="comma four" loading="lazy" /></div>
@@ -25,8 +24,7 @@
 </section>
 
 <style>
-  .support-products { margin-bottom: 72px; }
-  .support-products h2 { margin: 0 0 24px; font-family: Inter, sans-serif; font-size: clamp(32px, 5vw, 52px); font-weight: 400; line-height: 1; letter-spacing: -.04em; }
+  .support-products { margin-bottom: 32px; }
   .product-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(32px, 6vw, 80px); align-items: end; }
   .product-card { min-width: 0; color: var(--support-text); text-align: center; text-decoration: none; }
   .product-card:hover h3 { text-decoration: underline; text-decoration-color: var(--support-accent); text-decoration-thickness: 2px; text-underline-offset: 5px; }
@@ -36,7 +34,7 @@
   .product-card h3 { margin: 20px 0 0; font-size: 18px; line-height: 1.25; letter-spacing: -.02em; font-weight: 500; }
 
   @media (max-width: 760px) {
-    .support-products { margin-bottom: 48px; }
+    .support-products { margin-bottom: 24px; }
     .product-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
     .product-image { height: 120px; }
     .product-image img { max-width: 100%; height: 100px; }

@@ -148,14 +148,11 @@
   .hero { padding: 48px 0 32px; }
   .intro h1 { margin-bottom: 8px; }
   .intro p { margin: 0 0 24px; font-size: clamp(24px, 3vw, 36px); line-height: 1.15; letter-spacing: -0.03em; }
-  .category-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-  .category-card { position: relative; box-sizing: border-box; min-width: 0; min-height: 180px; border: 1px solid var(--support-strong-border); background: var(--support-surface); padding: 24px; display: flex; flex-direction: column; }
+  .category-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  .category-card { box-sizing: border-box; min-width: 0; border: 1px solid var(--support-border); background: var(--support-surface); color: var(--support-text); display: block; text-decoration: none; }
   @media (hover: hover) and (pointer: fine) {
     .category-card:hover { background: var(--support-hover); }
   }
-  .category-card h2 { margin: 0 0 12px; overflow-wrap: anywhere; }
-  .category-card p { margin: auto 0 0; max-width: 36ch; font-size: 14px; line-height: 1.5; overflow-wrap: anywhere; }
-  .help-card { min-height: 280px; border: 1px solid var(--support-border); padding: 0; justify-content: space-between; }
   .card-image { display: flex; align-items: center; justify-content: flex-start; box-sizing: border-box; width: 100%; height: 170px; padding-left: 40px; flex-shrink: 0; background: #000; }
   .card-image img { width: 96px; height: 96px; filter: invert(1); }
   .help-card-copy { padding: 20px 24px 24px; }
@@ -236,8 +233,6 @@
     .help-shell { padding: 0 5% 40px; }
     .hero { padding: 32px 0 24px; }
     .category-grid { grid-template-columns: 1fr; gap: 12px; }
-    .category-card { padding: 20px; }
-    .help-card { min-height: 0; padding: 0; }
     .card-image { height: 150px; }
     .path-banner { min-height: 160px; }
     .path-banner h2 { padding: 20px; }
