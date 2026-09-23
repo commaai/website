@@ -1,5 +1,4 @@
 <script context="module">
-  import OpenpilotImage from '$lib/images/faq/openpilot.svg';
   import ConnectImage from '$lib/images/faq/connect.svg';
   import ReturnPolicyImage from '$lib/images/faq/30-day.svg';
   import ShopImage from '$lib/images/faq/shop.svg';
@@ -11,7 +10,7 @@
   export const faq = {
     openpilot: {
       title: 'openpilot',
-      image: OpenpilotImage,
+      image: OtherTopicsImage,
       questions: [
         {
           question: 'What is openpilot?',

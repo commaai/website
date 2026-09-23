@@ -170,12 +170,16 @@ function parseMarkdown(path, markdown) {
   }));
   if (!metadata.title || !/^\d+$/.test(metadata.order || '')) throw new Error(`Missing title or order in ${path}`);
   const body = markdown.slice(match[0].length).trim();
+  const articleHeader = /^::: header[^\n]*\nimage:[ \t]*([^\n]+)(?:\nalt:[ \t]*([^\n]+))?\n:::[ \t]*(?:\n|$)/.exec(body);
   const parts = body.split(articleMarker);
   if (parts.length > 2) throw new Error(`More than one article marker in ${path}`);
   return {
     ...metadata,
     order: Number(metadata.order),
     body,
+    articleImage: articleHeader?.[1].trim(),
+    articleImageAlt: articleHeader?.[2]?.trim() || metadata.title,
+    articleContent: marked.parse(articleHeader ? body.slice(articleHeader[0].length).trim() : body, { renderer: supportRenderer }),
     options: findOptions(body),
     content: marked.parse(body, { renderer: supportRenderer }),
     beforeArticles: marked.parse(parts[0].trim(), { renderer: supportRenderer }),
@@ -190,7 +194,7 @@ function byOrder(a, b) {
 export const supportHome = parseMarkdown('support/index.md', homeMarkdown);
 
 const documents = Object.entries(files)
-  .filter(([path, markdown]) => path.startsWith(root) && path.slice(root.length).includes('/') && markdown.trim())
+  .filter(([path, markdown]) => path.startsWith(root) && path !== `${root}README.md` && markdown.trim())
   .map(([path, markdown]) => ({ parts: path.slice(root.length, -3).split('/'), ...parseMarkdown(path, markdown) }));
 
 const supportSections = documents
@@ -207,6 +211,10 @@ const entries = [...supportSections];
 
 for (const document of documents) {
   const [sectionId, second, third] = document.parts;
+  if (!second) {
+    entries.push({ ...document, kind: 'article', id: sectionId, path: sectionId });
+    continue;
+  }
   if (second === 'index' && !third) continue;
   const section = sectionById.get(sectionId);
   if (!section) throw new Error(`Missing section index for ${sectionId}`);
@@ -248,6 +256,6 @@ export const supportEntries = supportSections.flatMap(section => [
   section,
   ...section.articles,
   ...section.groups.flatMap(group => [group, ...group.articles])
-]);
+]).concat(entries.filter(entry => entry.kind === 'article' && !entry.sectionId));
 export const supportById = new Map(supportEntries.map(entry => [entry.id, entry]));
 export const supportByPath = new Map(supportEntries.map(entry => [entry.path, entry]));

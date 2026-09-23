@@ -4,13 +4,13 @@ description: Coverage under the standard hardware warranty and the extended comm
 order: 1
 ---
 
-### Basic hardware warranty
+## Basic hardware warranty
 
 Hardware purchased from the comma shop includes a one-year limited warranty against hardware defects. The warranty does not cover theft, loss, accidental damage, or damage caused by improper handling or repair.
 
 The warranty follows the device. If you did not purchase the device yourself, you must provide the original order number and the email address used for the order. comma cannot retrieve that information for you.
 
-### Get warranty help
+## Get warranty help
 
 First follow the steps in [hardware troubleshooting](/support/troubleshooting/hardware). If the problem continues, [open a hardware support ticket](https://commasupport.zendesk.com/hc/en-us/requests/new?ticket_form_id=14150133300887) and include:
 
@@ -21,7 +21,7 @@ First follow the steps in [hardware troubleshooting](/support/troubleshooting/ha
 
 International customers are responsible for the shipping costs, duties, and customs fees required to send a device to comma for warranty service. comma covers shipping a repaired or replacement device back, but the customer remains responsible for any applicable taxes and duties.
 
-### commacare
+## commacare
 
 commacare extends a comma four's warranty by up to one additional year, for up to two years of total coverage. It provides the same coverage as the standard warranty and does not cover theft, loss, or accidental damage.
 

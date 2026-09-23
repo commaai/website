@@ -3,7 +3,7 @@
   import { faq } from '$lib/constants/faq.svelte';
 </script>
 
-<section class="restored-faqs" aria-labelledby="support-faqs-title">
+<section class="restored-faqs standalone" aria-labelledby="support-faqs-title">
   <div class="all-faqs">
     <h2 id="support-faqs-title">FAQs</h2>
     {#each Object.keys(faq) as key}
@@ -13,11 +13,11 @@
 </section>
 
 <style>
-  .restored-faqs { margin-top: 72px; }
-  .restored-faqs h2 { margin: 0 0 32px; font-family: Inter, sans-serif; font-size: clamp(32px, 5vw, 52px); font-weight: 400; line-height: 1; letter-spacing: -.04em; }
+  .restored-faqs { padding: 32px 0 0; border-top: 1px solid var(--support-border); }
+  .restored-faqs.standalone { padding: 0; border: 0; }
   .faq-card { margin-bottom: 3rem; }
 
   @media (max-width: 760px) {
-    .restored-faqs { margin-top: 48px; }
+    .restored-faqs { padding-top: 48px; }
   }
 </style>

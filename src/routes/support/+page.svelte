@@ -1,18 +1,20 @@
 <script>
+  import '$lib/components/Support/support.css';
   import { page } from '$app/stores';
   import { goto } from '$app/navigation';
   import { afterUpdate, tick } from 'svelte';
-  import ArticleWithToc from '$lib/components/Support/ArticleWithToc.svelte';
+  import Article from '$lib/components/Support/Article.svelte';
   import SupportCatchAll from '$lib/components/Support/SupportCatchAll.svelte';
   import SupportFaqs from '$lib/components/Support/SupportFaqs.svelte';
   import SupportProducts from '$lib/components/Support/SupportProducts.svelte';
+  import SupportHeader from '$lib/components/Support/SupportHeader.svelte';
   import { supportHome, supportById, supportByPath } from '$lib/components/Support/support-content';
 
   let lastScrolledHash = '';
   $: hash = decodeURIComponent($page.url.hash.slice(1));
   $: supportPath = $page.params.path || '';
   $: selectedEntry = supportByPath.get(supportPath);
-  $: selectedSection = selectedEntry && supportById.get(selectedEntry.sectionId || selectedEntry.id);
+  $: selectedSection = selectedEntry?.sectionId ? supportById.get(selectedEntry.sectionId) : selectedEntry?.kind === 'section' ? selectedEntry : null;
   $: selectedGroup = selectedEntry?.kind === 'group' ? selectedEntry : selectedEntry?.groupId ? supportById.get(selectedEntry.groupId) : null;
   $: selectedArticle = selectedEntry?.kind === 'article' ? selectedEntry : null;
   $: landing = selectedArticle ? null : selectedGroup || selectedSection;
@@ -42,7 +44,7 @@
       if (target instanceof HTMLDetailsElement) target.open = true;
       target.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
     }
-    else window.scrollTo(0, 0);
+    else window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   }
 
   function interceptSupportLinks(node) {
@@ -52,39 +54,17 @@
 </script>
 
 <svelte:head>
-  <title>{supportHome.pageTitle}</title>
-  <meta name="description" content={supportHome.description} />
+  <title>{selectedArticle ? `${selectedArticle.title} — comma support` : supportHome.pageTitle}</title>
+  <meta name="description" content={selectedArticle?.description || supportHome.description} />
 </svelte:head>
 
-<div class="help-center light" data-sveltekit-preload-data="off" use:interceptSupportLinks>
+<div class="help-center support-type light" data-sveltekit-preload-data="off" use:interceptSupportLinks>
   <div class="help-shell">
-    <div class="hero">
-      <div class="intro">
-        <h1>{supportHome.title}</h1>
-        <p>{supportHome.subtitle}</p>
-      </div>
-    </div>
-
-    <nav class="breadcrumbs" aria-label="Breadcrumb">
-      <a class="breadcrumb-home" href="/" aria-label="Home">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
-          <path d="m3 11 9-8 9 8" />
-          <path d="M5.5 9.5V21h13V9.5M9.5 21v-7h5v7" />
-        </svg>
-      </a>
-      <span aria-hidden="true">&gt;</span>
-      {#if selectedEntry}<a href="/support">Help</a>{:else}<span>Help</span>{/if}
-      {#if selectedEntry}
-        <span aria-hidden="true">&gt;</span>
-        {#if selectedEntry.kind !== 'section'}
-          <a href="/support/{selectedSection.path}">{selectedSection.title}</a><span aria-hidden="true">&gt;</span>
-        {/if}
-        {#if selectedArticle && selectedGroup}
-          <a href="/support/{selectedGroup.path}">{selectedGroup.title}</a><span aria-hidden="true">&gt;</span>
-        {/if}
-        <span>{selectedEntry.title}</span>
-      {/if}
-    </nav>
+    {#if selectedArticle}
+      <Article article={selectedArticle} embedded />
+    {:else}
+      <SupportHeader title={supportHome.title} description={supportHome.subtitle} />
+    {/if}
 
     {#if !supportPath}
       <SupportProducts />
@@ -98,15 +78,13 @@
       </div>
     {/if}
 
-    {#if selectedEntry}
+    {#if selectedEntry && !selectedArticle}
       <div class="path-page">
         {#if selectedEntry.kind === 'section'}
           <div class="path-banner"><img src={selectedSection.image} alt="" /><h2>{selectedSection.title}</h2></div>
         {/if}
 
-        {#if selectedArticle}
-          <ArticleWithToc article={selectedArticle} />
-        {:else if landing}
+        {#if landing}
           {#if landing.beforeArticles}<div class="section-content">{@html landing.beforeArticles}</div>{/if}
           {#if landingArticles.length}
             <div class="before-buy-links">
@@ -120,9 +98,11 @@
       </div>
     {/if}
 
-    <SupportCatchAll />
+    {#if !supportPath}<hr class="section-divider" />{/if}
+    <SupportCatchAll standalone={!supportPath} />
 
     {#if !supportPath && hash !== 'search'}
+      <hr class="section-divider" />
       <SupportFaqs />
     {/if}
   </div>
@@ -143,12 +123,10 @@
     color-scheme: light;
   }
   .help-center section { padding: 0; background: transparent; }
-  .help-shell { max-width: 1200px; margin: auto; padding: 0 5% 48px; }
+  .help-shell { width: 85%; max-width: 90rem; margin: auto; padding-bottom: 48px; }
   .route-anchor { display: none; }
-  .hero { padding: 48px 0 32px; }
-  .intro h1 { margin-bottom: 8px; }
-  .intro p { margin: 0 0 24px; font-size: clamp(24px, 3vw, 36px); line-height: 1.15; letter-spacing: -0.03em; }
-  .category-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  .category-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-bottom: 64px; padding-top: 32px; }
+  .section-divider { height: 0; margin: 0; border: 0; border-top: 1px solid var(--support-border); }
   .category-card { box-sizing: border-box; min-width: 0; border: 1px solid var(--support-border); background: var(--support-surface); color: var(--support-text); display: block; text-decoration: none; }
   @media (hover: hover) and (pointer: fine) {
     .category-card:hover { background: var(--support-hover); }
@@ -165,24 +143,17 @@
   .section-content :global(.support-option h3) { margin: 0 0 8px; font-size: clamp(22px, 2.5vw, 30px); line-height: 1.12; letter-spacing: -.035em; font-weight: 600; }
   .section-content :global(.support-option p) { margin: 0; max-width: none; color: var(--support-muted); font-size: 13px; line-height: 1.45; }
   .path-page { width: 100%; }
-  .breadcrumbs { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; color: var(--support-muted); font-size: 13px; }
-  .breadcrumbs a { text-decoration: underline; }
-  .breadcrumb-home { display: inline-flex; color: var(--support-text); }
-  .breadcrumb-home svg { width: 16px; height: 16px; stroke-linecap: square; stroke-linejoin: miter; }
   .path-page > h2 { margin: 0 0 24px; }
   .path-banner { display: flex; align-items: center; justify-content: flex-start; min-height: 220px; margin-bottom: 28px; background: #000; color: #fff; overflow: hidden; }
-  .path-banner h2 { margin: 0; padding: 24px 32px; font-size: clamp(28px, 4vw, 48px); line-height: 1.1; }
+  .path-banner h2 { margin: 0; padding: 24px 32px; }
   .path-banner img { width: 120px; height: 120px; margin-left: 48px; flex-shrink: 0; filter: invert(1); }
   .before-buy-links { display: grid; gap: 12px; margin-top: 24px; }
   .before-buy-links a { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; box-sizing: border-box; padding: 16px 20px; border: 1px solid var(--support-border); background: var(--support-surface); font-weight: 600; }
   .before-buy-links a:hover { background: var(--support-hover); }
   .help-center :global(.article-card-arrow) { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; flex: 0 0 28px; }
   .help-center :global(.article-card-arrow svg) { display: block; width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: square; stroke-linejoin: miter; }
-  .section-content { line-height: 1.6; overflow-wrap: anywhere; }
+  .section-content { overflow-wrap: anywhere; }
   .section-after-articles { margin-top: 0; }
-  .section-content :global(h2) { margin: 36px 0 20px; font-family: Inter, sans-serif; font-size: 3rem; font-weight: 400; line-height: 1; letter-spacing: -0.04em; }
-  .section-content :global(h3) { margin-bottom: 2rem; }
-  .section-content :global(li) { font-size: 16px; line-height: 1.6; margin-bottom: 8px; }
   .section-content :global(a) { color: #000; border-bottom: 2px solid #86ff4e; background-color: rgba(134, 255, 78, 0.15); text-decoration: none; }
   .section-content :global(.article-card-link) { display: flex; align-items: center; justify-content: space-between; gap: 16px; box-sizing: border-box; width: 100%; min-height: 64px; padding: 16px 20px; border: 1px solid var(--support-border); background: var(--support-surface); font-weight: 600; }
   .section-content :global(.article-card-link:hover) { background: var(--support-hover); }
@@ -212,7 +183,7 @@
   .help-center :global(.support-dropdown-content) { padding: .25rem 20px 1rem; font: inherit; font-size: 1.25rem; line-height: 1.4; }
   .help-center :global(.support-dropdown-content > *:first-child) { margin-top: 0; }
   .help-center :global(.support-dropdown-content > *:last-child) { margin-bottom: 0; }
-  .help-center :global(.support-dropdown-content li) { font: inherit; font-size: 1.25rem; line-height: 1.4; }
+  .help-center :global(.support-dropdown-content li) { font: inherit; }
   .section-content :global(.support-info-grid) { display: grid; gap: 16px; }
   .section-content :global(.support-info-card) { padding: 24px; border: 1px solid var(--support-border); background: var(--support-surface); font-size: 14px; }
   .section-content :global(.support-info-card h3) { margin: 0 0 16px; font-size: 20px; }
@@ -221,25 +192,20 @@
   [hidden] { display: none !important; }
   a:focus-visible, summary:focus-visible { outline: 3px solid var(--support-accent); outline-offset: 4px; }
 
-  @media (max-width: 1024px) {
-    .section-content :global(h2) { font-size: 2.5rem; }
-  }
-
   @media (min-width: 761px) and (max-width: 1000px) {
-    .category-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .category-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   }
 
   @media (max-width: 760px) {
-    .help-shell { padding: 0 5% 40px; }
-    .hero { padding: 32px 0 24px; }
-    .category-grid { grid-template-columns: 1fr; gap: 12px; }
-    .card-image { height: 150px; }
+    .help-shell { padding-bottom: 40px; }
+    .category-grid { grid-template-columns: 1fr; gap: 12px; padding-top: 24px; }
+    .card-image { height: 80px; padding-left: 24px; }
+    .card-image img { width: 52px; height: 52px; }
     .path-banner { min-height: 160px; }
     .path-banner h2 { padding: 20px; }
     .path-banner img { width: 80px; height: 80px; margin-left: 32px; }
     .section-content :global(.fix-category-grid), .section-content :global(.quick-links), .section-content :global(.watch-grid) { grid-template-columns: 1fr; }
     .section-content :global(.fix-category-grid .help-card) { padding: 20px; }
-    .section-content :global(h2) { font-size: 1.75rem; }
   }
 
   @media (max-width: 480px) {

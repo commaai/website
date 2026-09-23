@@ -1,0 +1,84 @@
+.support-type {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.support-type :is(.shell, .help-shell) {
+  display: flex;
+  flex-direction: column;
+}
+
+.support-type section {
+  margin: 0 0 64px;
+}
+
+.support-type .support-page-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(48px, 7vw, 120px);
+  align-items: start;
+  margin-top: 32px;
+}
+
+.support-type .support-page-grid.has-sidebar {
+  grid-template-columns: minmax(0, 1fr) 260px;
+}
+
+.support-type .support-page-sidebar {
+  position: sticky;
+  top: 100px;
+  align-self: start;
+  max-height: calc(100dvh - 120px);
+  overflow-y: auto;
+}
+
+.support-type :is(main section > h2, .section-content h2, .article-content h2, .path-banner h2, .support-catch-all h2, .restored-faqs h2) {
+  font-size: clamp(32px, 3.2vw, 48px);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -.04em;
+}
+
+.support-type :is(main section > h2, .section-content h2, .article-content h2, .restored-faqs h2, .support-catch-all h2) {
+  margin: 32px 0 20px;
+}
+
+.support-type :is(section, .article-content) > h2:first-child {
+  margin-top: 0;
+}
+
+.support-type :is(.section-body h3, .section-content h3, .article-content h3) {
+  margin: 32px 0 16px;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.support-type :is(.article-content, .section-content, .section-body) > h3:first-child {
+  margin-top: 0;
+}
+
+.support-type :is(.article-content, .section-content, .section-body) p {
+  margin: 0 0 20px;
+}
+
+.support-type :is(.article-content, .section-content, .section-body) li {
+  font: inherit;
+  margin-bottom: 8px;
+}
+
+@media (min-width: 1440px) {
+  .support-type .support-page-grid.has-sidebar {
+    grid-template-columns: minmax(0, 1fr) 300px;
+  }
+}
+
+@media (max-width: 760px) {
+  .support-type .support-page-grid.has-sidebar {
+    grid-template-columns: 1fr;
+  }
+
+  .support-type .support-page-sidebar {
+    display: none;
+  }
+}
