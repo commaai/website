@@ -5,7 +5,7 @@ order: 1
 ---
 
 ::: header Software Troubleshooting
-image: /images/support/other.svg
+image: other
 alt: Software Troubleshooting banner
 :::
 

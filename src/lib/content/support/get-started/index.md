@@ -1,6 +1,6 @@
 ---
 title: Getting started
-image: /images/support/cable.svg
+image: cable
 order: 1
 ---
 

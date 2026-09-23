@@ -5,7 +5,7 @@ order: 1
 ---
 
 ::: header comma prime
-image: /images/support/connect.svg
+image: connect
 alt: comma prime banner
 :::
 

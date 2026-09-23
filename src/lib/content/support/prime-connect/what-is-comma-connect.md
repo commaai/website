@@ -4,7 +4,7 @@ order: 0
 ---
 
 ::: header comma connect
-image: /images/support/connect.svg
+image: connect
 alt: comma connect banner
 :::
 

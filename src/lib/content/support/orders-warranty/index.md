@@ -1,6 +1,6 @@
 ---
 title: Orders, returns & warranty
-image: /images/support/local_shipping.svg
+image: shipping
 order: 4
 ---
 

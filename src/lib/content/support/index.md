@@ -8,9 +8,9 @@ order: 0
 
 ::: options
 - [Orders & Returns](/support/orders-warranty) — Shipping, returns, and exchanges
-  image: /images/support/local_shipping.svg
+  image: shipping
 - [Warranty](/support/orders-warranty/warranty) — Coverage, claims, and commacare
-  image: /images/support/build.svg
+  image: warranty
 - [Vehicle Compatibility](/vehicles) — Check if your car works with openpilot
-  image: /images/support/directions_car.svg
+  image: car
 :::

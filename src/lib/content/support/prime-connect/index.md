@@ -1,6 +1,6 @@
 ---
 title: comma prime & connect
-image: /images/support/wifi.svg
+image: connectivity
 order: 5
 ---
 

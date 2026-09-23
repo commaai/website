@@ -1,6 +1,6 @@
 ---
 title: Before you buy
-image: /images/support/shopping_bag.svg
+image: shop
 order: 0
 ---
 

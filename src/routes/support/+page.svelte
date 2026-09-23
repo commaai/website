@@ -8,16 +8,14 @@
   import SupportFaqs from '$lib/components/Support/SupportFaqs.svelte';
   import SupportProducts from '$lib/components/Support/SupportProducts.svelte';
   import SupportHeader from '$lib/components/Support/SupportHeader.svelte';
-  import { supportHome, supportById, supportByPath } from '$lib/components/Support/support-content';
+  import { supportHome, supportByPath } from '$lib/components/Support/support-content';
 
   let lastScrolledHash = '';
   $: hash = decodeURIComponent($page.url.hash.slice(1));
   $: supportPath = $page.params.path || '';
   $: selectedEntry = supportByPath.get(supportPath);
-  $: selectedSection = selectedEntry?.sectionId ? supportById.get(selectedEntry.sectionId) : selectedEntry?.kind === 'section' ? selectedEntry : null;
-  $: selectedGroup = selectedEntry?.kind === 'group' ? selectedEntry : selectedEntry?.groupId ? supportById.get(selectedEntry.groupId) : null;
   $: selectedArticle = selectedEntry?.kind === 'article' ? selectedEntry : null;
-  $: landing = selectedArticle ? null : selectedGroup || selectedSection;
+  $: landing = selectedEntry?.kind === 'section' || selectedEntry?.kind === 'group' ? selectedEntry : null;
   $: landingArticles = landing?.articles?.filter(article => article.listed !== 'false') || [];
 
   afterUpdate(() => {
@@ -81,7 +79,7 @@
     {#if selectedEntry && !selectedArticle}
       <div class="path-page">
         {#if selectedEntry.kind === 'section'}
-          <div class="path-banner"><img src={selectedSection.image} alt="" /><h2>{selectedSection.title}</h2></div>
+          <div class="path-banner"><img src={selectedEntry.image} alt="" /><h2>{selectedEntry.title}</h2></div>
         {/if}
 
         {#if landing}
@@ -115,16 +113,12 @@
     --support-text: var(--color-foreground);
     --support-muted: var(--color-muted);
     --support-border: #ddd;
-    --support-strong-border: #aaa;
     --support-hover: var(--color-card-background-hover);
-    --support-selected: #e5ffd9;
     --support-accent: var(--color-accent);
     background: var(--support-background); color: var(--support-text);
     color-scheme: light;
   }
-  .help-center section { padding: 0; background: transparent; }
   .help-shell { width: 85%; max-width: 90rem; margin: auto; padding-bottom: 48px; }
-  .route-anchor { display: none; }
   .category-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-bottom: 64px; padding-top: 32px; }
   .section-divider { height: 0; margin: 0; border: 0; border-top: 1px solid var(--support-border); }
   .category-card { box-sizing: border-box; min-width: 0; border: 1px solid var(--support-border); background: var(--support-surface); color: var(--support-text); display: block; text-decoration: none; }
@@ -143,7 +137,6 @@
   .section-content :global(.support-option h3) { margin: 0 0 8px; font-size: clamp(22px, 2.5vw, 30px); line-height: 1.12; letter-spacing: -.035em; font-weight: 600; }
   .section-content :global(.support-option p) { margin: 0; max-width: none; color: var(--support-muted); font-size: 13px; line-height: 1.45; }
   .path-page { width: 100%; }
-  .path-page > h2 { margin: 0 0 24px; }
   .path-banner { display: flex; align-items: center; justify-content: flex-start; min-height: 220px; margin-bottom: 28px; background: #000; color: #fff; overflow: hidden; }
   .path-banner h2 { margin: 0; padding: 24px 32px; }
   .path-banner img { width: 120px; height: 120px; margin-left: 48px; flex-shrink: 0; filter: invert(1); }
@@ -158,15 +151,6 @@
   .section-content :global(.article-card-link) { display: flex; align-items: center; justify-content: space-between; gap: 16px; box-sizing: border-box; width: 100%; min-height: 64px; padding: 16px 20px; border: 1px solid var(--support-border); background: var(--support-surface); font-weight: 600; }
   .section-content :global(.article-card-link:hover) { background: var(--support-hover); }
   .section-content :global(img), .section-content :global(iframe) { max-width: 100%; }
-  .section-content :global(.watch-grid) { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-  .section-content :global(.watch-card) { min-width: 0; border: 1px solid var(--support-border); background: var(--support-surface); }
-  .section-content :global(.video-frame) { aspect-ratio: 16 / 9; background: #111; }
-  .section-content :global(.video-frame iframe) { display: block; width: 100%; height: 100%; border: 0; }
-  .section-content :global(.watch-card > a) { display: flex; justify-content: space-between; gap: 16px; padding: 14px 16px; font-weight: 600; background: transparent; border: 0; }
-  .section-content :global(.watch-card > a:hover) { background: var(--support-hover); }
-  .section-content :global(.quick-links) { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-  .section-content :global(.quick-links > a) { display: flex; justify-content: space-between; gap: 16px; padding: 16px 20px; border: 1px solid var(--support-border); background: var(--support-surface); }
-  .section-content :global(.quick-links > a:hover) { background: var(--support-hover); }
   .help-center :global(.support-dropdown) { margin: 0; border-bottom: 1px solid #333; background: transparent; color: var(--support-text); font-family: Inter, sans-serif; }
   .help-center :global(h1 + .support-dropdown),
   .help-center :global(h2 + .support-dropdown),
@@ -184,17 +168,7 @@
   .help-center :global(.support-dropdown-content > *:first-child) { margin-top: 0; }
   .help-center :global(.support-dropdown-content > *:last-child) { margin-bottom: 0; }
   .help-center :global(.support-dropdown-content li) { font: inherit; }
-  .section-content :global(.support-info-grid) { display: grid; gap: 16px; }
-  .section-content :global(.support-info-card) { padding: 24px; border: 1px solid var(--support-border); background: var(--support-surface); font-size: 14px; }
-  .section-content :global(.support-info-card h3) { margin: 0 0 16px; font-size: 20px; }
-  .section-content :global(.support-info-card p) { margin: 0 0 14px; }
-  .section-content :global(.support-info-card p:last-child) { margin-bottom: 0; }
-  [hidden] { display: none !important; }
-  a:focus-visible, summary:focus-visible { outline: 3px solid var(--support-accent); outline-offset: 4px; }
-
-  @media (min-width: 761px) and (max-width: 1000px) {
-    .category-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  }
+  a:focus-visible { outline: 3px solid var(--support-accent); outline-offset: 4px; }
 
   @media (max-width: 760px) {
     .help-shell { padding-bottom: 40px; }
@@ -204,11 +178,8 @@
     .path-banner { min-height: 160px; }
     .path-banner h2 { padding: 20px; }
     .path-banner img { width: 80px; height: 80px; margin-left: 32px; }
-    .section-content :global(.fix-category-grid), .section-content :global(.quick-links), .section-content :global(.watch-grid) { grid-template-columns: 1fr; }
+    .section-content :global(.fix-category-grid) { grid-template-columns: 1fr; }
     .section-content :global(.fix-category-grid .help-card) { padding: 20px; }
-  }
-
-  @media (max-width: 480px) {
   }
 
 </style>

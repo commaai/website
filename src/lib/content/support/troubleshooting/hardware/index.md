@@ -5,7 +5,7 @@ order: 0
 ---
 
 ::: header Hardware Troubleshooting
-image: /images/support/other.svg
+image: other
 alt: Hardware Troubleshooting banner
 :::
 

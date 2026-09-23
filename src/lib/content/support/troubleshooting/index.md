@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting
-image: /images/support/build.svg
+image: troubleshooting
 order: 3
 ---
 

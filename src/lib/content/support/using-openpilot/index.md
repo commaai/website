@@ -1,6 +1,6 @@
 ---
 title: Using openpilot
-image: /images/support/directions_car.svg
+image: car
 order: 2
 ---
 

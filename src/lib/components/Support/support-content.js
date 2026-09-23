@@ -1,5 +1,14 @@
 import { marked, Renderer } from 'marked';
 import homeMarkdown from '$lib/content/support/index.md?raw';
+import ShippingIcon from '$lib/icons/features/shipping.svg';
+import WarrantyIcon from '$lib/icons/features/warranty.svg';
+import CarIcon from '$lib/icons/features/car.svg';
+import TroubleshootingIcon from '$lib/icons/features/dials.svg';
+import CableIcon from '$lib/icons/features/cable.svg';
+import ShopIcon from '$lib/icons/ui/basket.svg';
+import ConnectivityIcon from '$lib/icons/features/connectivity.svg';
+import ConnectImage from '$lib/images/faq/connect.svg';
+import OtherImage from '$lib/images/faq/other.svg';
 
 const files = import.meta.glob('/src/lib/content/support/**/*.md', {
   eager: true,
@@ -8,12 +17,28 @@ const files = import.meta.glob('/src/lib/content/support/**/*.md', {
 });
 const root = '/src/lib/content/support/';
 const articleMarker = '<!-- articles -->';
+const supportImages = {
+  shipping: ShippingIcon,
+  warranty: WarrantyIcon,
+  car: CarIcon,
+  troubleshooting: TroubleshootingIcon,
+  cable: CableIcon,
+  shop: ShopIcon,
+  connectivity: ConnectivityIcon,
+  connect: ConnectImage,
+  other: OtherImage
+};
 const supportRenderer = new Renderer();
 const renderLink = supportRenderer.link.bind(supportRenderer);
 const renderHeading = supportRenderer.heading.bind(supportRenderer);
 
 function escapeAttribute(value) {
   return value.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
+}
+
+function supportImage(name) {
+  if (!supportImages[name]) throw new Error(`Unknown support image: ${name}`);
+  return supportImages[name];
 }
 
 function headingId(text) {
@@ -89,7 +114,7 @@ const headerExtension = {
   renderer(token) {
     const title = this.parser.parseInline(token.titleTokens);
     const alt = token.alt || token.titleTokens.map(part => part.text || part.raw || '').join('');
-    return `<div class="support-article-header"><h1>${title}</h1><div class="support-article-header-image mobile-first"><img src="${escapeAttribute(token.image)}" alt="${escapeAttribute(alt)}"></div></div>`;
+    return `<div class="support-article-header"><h1>${title}</h1><div class="support-article-header-image mobile-first"><img src="${escapeAttribute(supportImage(token.image))}" alt="${escapeAttribute(alt)}"></div></div>`;
   },
   childTokens: ['titleTokens']
 };
@@ -134,7 +159,7 @@ function parseOptions(source, tokenize = value => value) {
     for (const line of lines.slice(1)) {
       const property = /^\s+image:\s*(\S+)\s*$/.exec(line);
       if (!property || image) throw new Error(`Invalid support option property: ${line}`);
-      image = property[1];
+      image = supportImage(property[1]);
     }
 
     return {
@@ -160,7 +185,7 @@ function findOptions(body) {
 
 marked.use({ extensions: [headerExtension, dropdownExtension, optionsExtension] });
 
-function parseMarkdown(path, markdown) {
+function parseMarkdown(path, markdown, kind) {
   const match = markdown.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n/);
   if (!match) throw new Error(`Missing frontmatter in ${path}`);
   const metadata = Object.fromEntries(match[1].split(/\r?\n/).filter(Boolean).map(line => {
@@ -170,20 +195,27 @@ function parseMarkdown(path, markdown) {
   }));
   if (!metadata.title || !/^\d+$/.test(metadata.order || '')) throw new Error(`Missing title or order in ${path}`);
   const body = markdown.slice(match[0].length).trim();
+  const entry = { ...metadata, order: Number(metadata.order) };
+  if (entry.image) entry.image = supportImage(entry.image);
+
+  if (kind === 'home') return { ...entry, options: findOptions(body) };
+
+  if (kind === 'landing') {
+    const parts = body.split(articleMarker);
+    if (parts.length > 2) throw new Error(`More than one article marker in ${path}`);
+    return {
+      ...entry,
+      beforeArticles: marked.parse(parts[0].trim(), { renderer: supportRenderer }),
+      afterArticles: parts[1] ? marked.parse(parts[1].trim(), { renderer: supportRenderer }) : ''
+    };
+  }
+
   const articleHeader = /^::: header[^\n]*\nimage:[ \t]*([^\n]+)(?:\nalt:[ \t]*([^\n]+))?\n:::[ \t]*(?:\n|$)/.exec(body);
-  const parts = body.split(articleMarker);
-  if (parts.length > 2) throw new Error(`More than one article marker in ${path}`);
   return {
-    ...metadata,
-    order: Number(metadata.order),
-    body,
-    articleImage: articleHeader?.[1].trim(),
+    ...entry,
+    articleImage: articleHeader ? supportImage(articleHeader[1].trim()) : undefined,
     articleImageAlt: articleHeader?.[2]?.trim() || metadata.title,
-    articleContent: marked.parse(articleHeader ? body.slice(articleHeader[0].length).trim() : body, { renderer: supportRenderer }),
-    options: findOptions(body),
-    content: marked.parse(body, { renderer: supportRenderer }),
-    beforeArticles: marked.parse(parts[0].trim(), { renderer: supportRenderer }),
-    afterArticles: parts[1] ? marked.parse(parts[1].trim(), { renderer: supportRenderer }) : ''
+    articleContent: marked.parse(articleHeader ? body.slice(articleHeader[0].length).trim() : body, { renderer: supportRenderer })
   };
 }
 
@@ -191,11 +223,14 @@ function byOrder(a, b) {
   return a.order - b.order || a.title.localeCompare(b.title);
 }
 
-export const supportHome = parseMarkdown('support/index.md', homeMarkdown);
+export const supportHome = parseMarkdown('support/index.md', homeMarkdown, 'home');
 
 const documents = Object.entries(files)
-  .filter(([path, markdown]) => path.startsWith(root) && path !== `${root}README.md` && markdown.trim())
-  .map(([path, markdown]) => ({ parts: path.slice(root.length, -3).split('/'), ...parseMarkdown(path, markdown) }));
+  .filter(([path, markdown]) => path.startsWith(root) && markdown.trim())
+  .map(([path, markdown]) => ({
+    parts: path.slice(root.length, -3).split('/'),
+    ...parseMarkdown(path, markdown, path.endsWith('/index.md') ? 'landing' : 'article')
+  }));
 
 const supportSections = documents
   .filter(document => document.parts.length === 2 && document.parts[1] === 'index')
