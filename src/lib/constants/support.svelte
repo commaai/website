@@ -49,7 +49,7 @@
           question: "Support for a comma prime subscription",
           answer: `
             First ensure your device is running the latest stock openpilot release.
-            We cannot look into issues while running forks or other software; see <a href="/support#why-is-a-stock-route-required-to-open-a-hardware-support-ticket">here</a> for why.
+            We cannot look into issues while running forks or other software; see <a href="/support/troubleshooting/hardware">here</a> for why.
             <br></br>
 
             Use <a href="https://connect.comma.ai">connect.comma.ai</a> to manage and cancel your subscription.

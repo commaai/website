@@ -1,219 +1,248 @@
 <script>
   import { page } from '$app/stores';
+  import { goto } from '$app/navigation';
+  import { afterUpdate, tick } from 'svelte';
+  import ArticleWithToc from '$lib/components/Support/ArticleWithToc.svelte';
+  import SupportCatchAll from '$lib/components/Support/SupportCatchAll.svelte';
+  import SupportProducts from '$lib/components/Support/SupportProducts.svelte';
+  import { supportHome, supportById, supportByPath } from '$lib/components/Support/support-content';
 
-  import Grid from "$lib/components/Grid.svelte";
-  import Faq from '$lib/components/Faq.svelte';
-  import Accordion from '$lib/components/Accordion.svelte';
+  let lastScrolledHash = '';
+  $: hash = decodeURIComponent($page.url.hash.slice(1));
+  $: supportPath = $page.params.path || '';
+  $: selectedEntry = supportByPath.get(supportPath);
+  $: selectedSection = selectedEntry && supportById.get(selectedEntry.sectionId || selectedEntry.id);
+  $: selectedGroup = selectedEntry?.kind === 'group' ? selectedEntry : selectedEntry?.groupId ? supportById.get(selectedEntry.groupId) : null;
+  $: selectedArticle = selectedEntry?.kind === 'article' ? selectedEntry : null;
+  $: landing = selectedArticle ? null : selectedGroup || selectedSection;
+  $: landingArticles = landing?.articles?.filter(article => article.listed !== 'false') || [];
 
-  import { supportFaqs } from '$lib/constants/support.svelte';
-  import { faq } from '$lib/constants/faq.svelte';
+  afterUpdate(() => {
+    if (!hash || hash === lastScrolledHash) return;
+    const target = document.getElementById(hash);
+    if (!target) return;
+    lastScrolledHash = hash;
+    if (target instanceof HTMLDetailsElement) target.open = true;
+    target.scrollIntoView();
+  });
+
+  async function openSupportLink(event) {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    const link = event.target.closest('a');
+    if (!link || !event.currentTarget.contains(link)) return;
+    const url = new URL(link.href, window.location.href);
+    if (url.origin !== window.location.origin || !url.pathname.startsWith('/support')) return;
+    event.preventDefault();
+    await goto(`${url.pathname}${url.hash}`, { noScroll: true, keepFocus: true });
+    await tick();
+    const targetHash = decodeURIComponent(url.hash.slice(1));
+    const target = targetHash && document.getElementById(targetHash);
+    if (target) {
+      if (target instanceof HTMLDetailsElement) target.open = true;
+      target.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
+    }
+    else window.scrollTo(0, 0);
+  }
+
+  function interceptSupportLinks(node) {
+    node.addEventListener('click', openSupportLink);
+    return { destroy: () => node.removeEventListener('click', openSupportLink) };
+  }
 </script>
 
-<section class="light" id="support">
-  <div class="container">
-    <!-- <hr> -->
-    <h1>comma support</h1>
-    <div class="faq-sections">
-      {#each Object.values(supportFaqs) as section}
-        <div class="faq-section">
-          <!-- <h3>{section.title}</h3> -->
-          {#each section.questions as entry}
-            <Accordion>
-              <div slot="label" class="label">
-                <span>{entry.question}</span>
-              </div>
-              <div class="details" slot="content">
-                {@html entry.answer}
-              </div>
-            </Accordion>
-            <hr />
-          {/each}
-        </div>
-      {/each}
-    </div>
-  </div>
-</section>
+<svelte:head>
+  <title>{supportHome.pageTitle}</title>
+  <meta name="description" content={supportHome.description} />
+</svelte:head>
 
-<section class="light" id="faq">
-  <div class="container">
-    <h1>FAQs</h1>
-    {#each Object.keys(faq) as key}
-      <div class="faq-card">
-        <Faq topic={faq[key]} />
+<div class="help-center light" data-sveltekit-preload-data="off" use:interceptSupportLinks>
+  <div class="help-shell">
+    <div class="hero">
+      <div class="intro">
+        <h1>{supportHome.title}</h1>
+        <p>{supportHome.subtitle}</p>
       </div>
-    {/each}
+    </div>
+
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a class="breadcrumb-home" href="/" aria-label="Home">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+          <path d="m3 11 9-8 9 8" />
+          <path d="M5.5 9.5V21h13V9.5M9.5 21v-7h5v7" />
+        </svg>
+      </a>
+      <span aria-hidden="true">&gt;</span>
+      {#if selectedEntry}<a href="/support">help</a>{:else}<span>help</span>{/if}
+      {#if selectedEntry}
+        <span aria-hidden="true">&gt;</span>
+        {#if selectedEntry.kind !== 'section'}
+          <a href="/support/{selectedSection.path}">{selectedSection.title}</a><span aria-hidden="true">&gt;</span>
+        {/if}
+        {#if selectedArticle && selectedGroup}
+          <a href="/support/{selectedGroup.path}">{selectedGroup.title}</a><span aria-hidden="true">&gt;</span>
+        {/if}
+        <span>{selectedEntry.title}</span>
+      {/if}
+    </nav>
+
+    {#if !supportPath}
+      <SupportProducts />
+      <div class="category-grid">
+        {#each supportHome.options as option}
+          <a class="category-card help-card" href={option.href}>
+            {#if option.image}<div class="card-image"><img src={option.image} alt="" /></div>{/if}
+            <div class="help-card-copy"><h2>{option.title}</h2><p>{option.description}</p></div>
+          </a>
+        {/each}
+      </div>
+    {/if}
+
+    {#if selectedEntry}
+      <div class="path-page">
+        {#if selectedEntry.kind === 'section'}
+          <div class="path-banner"><img src={selectedSection.image} alt="" /><h2>{selectedSection.title}</h2></div>
+        {/if}
+
+        {#if selectedArticle}
+          <ArticleWithToc article={selectedArticle} />
+        {:else if landing}
+          {#if landing.beforeArticles}<div class="section-content">{@html landing.beforeArticles}</div>{/if}
+          {#if landingArticles.length}
+            <div class="before-buy-links">
+              {#each landingArticles as article}
+                <a href="/support/{article.path}">{article.title}<span class="article-card-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span></a>
+              {/each}
+            </div>
+          {/if}
+          {#if landing.afterArticles}<div class="section-content section-after-articles">{@html landing.afterArticles}</div>{/if}
+        {/if}
+      </div>
+    {/if}
+
+    <SupportCatchAll />
   </div>
-</section>
+</div>
 
 <style>
-  #support {
-    & .breadcrumbs {
-      display: flex;
-      flex-wrap: wrap;
-      padding: 1rem;
-      background-color: var(--color-card-background);
-      margin-bottom: 2rem;
-      font-size: 1.25rem;
+  .help-center {
+    --support-background: var(--color-background);
+    --support-surface: var(--color-card-background);
+    --support-text: var(--color-foreground);
+    --support-muted: var(--color-muted);
+    --support-border: #ddd;
+    --support-strong-border: #aaa;
+    --support-hover: var(--color-card-background-hover);
+    --support-selected: #e5ffd9;
+    --support-accent: var(--color-accent);
+    background: var(--support-background); color: var(--support-text);
+    color-scheme: light;
+  }
+  .help-center section { padding: 0; background: transparent; }
+  .help-shell { max-width: 1200px; margin: auto; padding: 0 5% 48px; }
+  .route-anchor { display: none; }
+  .hero { padding: 48px 0 32px; }
+  .intro h1 { margin-bottom: 8px; }
+  .intro p { margin: 0 0 24px; font-size: clamp(24px, 3vw, 36px); line-height: 1.15; letter-spacing: -0.03em; }
+  .category-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+  .category-card { position: relative; box-sizing: border-box; min-width: 0; min-height: 180px; border: 1px solid var(--support-strong-border); background: var(--support-surface); padding: 24px; display: flex; flex-direction: column; }
+  @media (hover: hover) and (pointer: fine) {
+    .category-card:hover { background: var(--support-hover); }
+  }
+  .category-card h2 { margin: 0 0 12px; overflow-wrap: anywhere; }
+  .category-card p { margin: auto 0 0; max-width: 36ch; font-size: 14px; line-height: 1.5; overflow-wrap: anywhere; }
+  .help-card { min-height: 280px; border: 1px solid var(--support-border); padding: 0; justify-content: space-between; }
+  .card-image { display: flex; align-items: center; justify-content: flex-start; box-sizing: border-box; width: 100%; height: 170px; padding-left: 40px; flex-shrink: 0; background: #000; }
+  .card-image img { width: 96px; height: 96px; filter: invert(1); }
+  .help-card-copy { padding: 20px 24px 24px; }
+  .help-card h2 { margin: 0 0 8px; font-size: clamp(22px, 2.5vw, 30px); line-height: 1.12; letter-spacing: -0.035em; font-weight: 600; }
+  .help-card p { margin: 0; max-width: none; color: var(--support-muted); font-size: 13px; line-height: 1.45; }
+  .section-content :global(.fix-category-grid) { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  .section-content :global(.fix-category-grid .help-card) { min-height: 180px; padding: 24px; justify-content: flex-end; }
+  .section-content :global(.support-option) { position: relative; box-sizing: border-box; min-width: 0; border: 1px solid var(--support-border); background: var(--support-surface); color: var(--support-text); display: flex; flex-direction: column; text-decoration: none; }
+  .section-content :global(.support-option:hover) { background: var(--support-hover); }
+  .section-content :global(.support-option h3) { margin: 0 0 8px; font-size: clamp(22px, 2.5vw, 30px); line-height: 1.12; letter-spacing: -.035em; font-weight: 600; }
+  .section-content :global(.support-option p) { margin: 0; max-width: none; color: var(--support-muted); font-size: 13px; line-height: 1.45; }
+  .path-page { width: 100%; }
+  .breadcrumbs { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; color: var(--support-muted); font-size: 13px; }
+  .breadcrumbs a { text-decoration: underline; }
+  .breadcrumb-home { display: inline-flex; color: var(--support-text); }
+  .breadcrumb-home svg { width: 16px; height: 16px; stroke-linecap: square; stroke-linejoin: miter; }
+  .path-page > h2 { margin: 0 0 24px; }
+  .path-banner { display: flex; align-items: center; justify-content: flex-start; min-height: 220px; margin-bottom: 28px; background: #000; color: #fff; overflow: hidden; }
+  .path-banner h2 { margin: 0; padding: 24px 32px; font-size: clamp(28px, 4vw, 48px); line-height: 1.1; }
+  .path-banner img { width: 120px; height: 120px; margin-left: 48px; flex-shrink: 0; filter: invert(1); }
+  .before-buy-links { display: grid; gap: 12px; margin-top: 24px; }
+  .before-buy-links a { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; box-sizing: border-box; padding: 16px 20px; border: 1px solid var(--support-border); background: var(--support-surface); font-weight: 600; }
+  .before-buy-links a:hover { background: var(--support-hover); }
+  .help-center :global(.article-card-arrow) { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; flex: 0 0 28px; }
+  .help-center :global(.article-card-arrow svg) { display: block; width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: square; stroke-linejoin: miter; }
+  .section-content { line-height: 1.6; overflow-wrap: anywhere; }
+  .section-after-articles { margin-top: 0; }
+  .section-content :global(h2) { margin: 36px 0 20px; font-family: Inter, sans-serif; font-size: 3rem; font-weight: 400; line-height: 1; letter-spacing: -0.04em; }
+  .section-content :global(h3) { margin-bottom: 2rem; }
+  .section-content :global(li) { font-size: 16px; line-height: 1.6; margin-bottom: 8px; }
+  .section-content :global(a) { color: #000; border-bottom: 2px solid #86ff4e; background-color: rgba(134, 255, 78, 0.15); text-decoration: none; }
+  .section-content :global(.article-card-link) { display: flex; align-items: center; justify-content: space-between; gap: 16px; box-sizing: border-box; width: 100%; min-height: 64px; padding: 16px 20px; border: 1px solid var(--support-border); background: var(--support-surface); font-weight: 600; }
+  .section-content :global(.article-card-link:hover) { background: var(--support-hover); }
+  .section-content :global(img), .section-content :global(iframe) { max-width: 100%; }
+  .section-content :global(.watch-grid) { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  .section-content :global(.watch-card) { min-width: 0; border: 1px solid var(--support-border); background: var(--support-surface); }
+  .section-content :global(.video-frame) { aspect-ratio: 16 / 9; background: #111; }
+  .section-content :global(.video-frame iframe) { display: block; width: 100%; height: 100%; border: 0; }
+  .section-content :global(.watch-card > a) { display: flex; justify-content: space-between; gap: 16px; padding: 14px 16px; font-weight: 600; background: transparent; border: 0; }
+  .section-content :global(.watch-card > a:hover) { background: var(--support-hover); }
+  .section-content :global(.quick-links) { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .section-content :global(.quick-links > a) { display: flex; justify-content: space-between; gap: 16px; padding: 16px 20px; border: 1px solid var(--support-border); background: var(--support-surface); }
+  .section-content :global(.quick-links > a:hover) { background: var(--support-hover); }
+  .help-center :global(.support-dropdown) { margin: 0; border-bottom: 1px solid #333; background: transparent; color: var(--support-text); font-family: Inter, sans-serif; }
+  .help-center :global(h1 + .support-dropdown),
+  .help-center :global(h2 + .support-dropdown),
+  .help-center :global(h3 + .support-dropdown),
+  .help-center :global(h4 + .support-dropdown),
+  .help-center :global(h5 + .support-dropdown),
+  .help-center :global(h6 + .support-dropdown) { border-top: 1px solid #333; }
+  .help-center :global(.support-dropdown summary) { position: relative; display: grid; align-items: center; box-sizing: border-box; padding: 0 52px 0 20px; background: transparent; color: var(--support-text); cursor: pointer; list-style: none; }
+  .help-center :global(.support-dropdown summary::-webkit-details-marker) { display: none; }
+  .help-center :global(.support-dropdown-label) { margin: 1rem 0; font: inherit; font-size: 1.25rem; font-weight: 600; }
+  .help-center :global(.support-dropdown-chevron) { position: absolute; right: 20px; color: var(--support-text); }
+  .help-center :global(.support-dropdown-chevron svg) { display: block; width: 18px; height: 12px; color: var(--support-text); }
+  .help-center :global(.support-dropdown[open] .support-dropdown-chevron) { transform: rotate(180deg); }
+  .help-center :global(.support-dropdown-content) { padding: .25rem 20px 1rem; font: inherit; font-size: 1.25rem; line-height: 1.4; }
+  .help-center :global(.support-dropdown-content > *:first-child) { margin-top: 0; }
+  .help-center :global(.support-dropdown-content > *:last-child) { margin-bottom: 0; }
+  .help-center :global(.support-dropdown-content li) { font: inherit; font-size: 1.25rem; line-height: 1.4; }
+  .section-content :global(.support-info-grid) { display: grid; gap: 16px; }
+  .section-content :global(.support-info-card) { padding: 24px; border: 1px solid var(--support-border); background: var(--support-surface); font-size: 14px; }
+  .section-content :global(.support-info-card h3) { margin: 0 0 16px; font-size: 20px; }
+  .section-content :global(.support-info-card p) { margin: 0 0 14px; }
+  .section-content :global(.support-info-card p:last-child) { margin-bottom: 0; }
+  [hidden] { display: none !important; }
+  a:focus-visible, summary:focus-visible { outline: 3px solid var(--support-accent); outline-offset: 4px; }
 
-      & span {
-        margin: 0 0.5rem;
-        user-select: none;
-      }
-
-      & :last-child {
-        font-weight: 600;
-      }
-    }
-
-    & h2 {
-      margin-bottom: 2rem;
-    }
-
-    & h3 {
-      font-size: 1.875rem;
-      font-weight: 600;
-      margin-top: 0;
-      margin-bottom: 2rem;
-    }
-
-    & a {
-      color: #000;
-      border-bottom: 2px solid #86ff4e;
-      background-color: rgba(134, 255, 78, 0.15);
-    }
-
-    & li {
-      font-size: 1.25rem;
-    }
-
-    & .support-card {
-      border: 1px solid #000;
-      background-color: var(--color-card-background);
-      padding: 1rem;
-      transition: all 0.2s;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-
-      @media (hover: hover) and (pointer: fine) {
-        &:hover {
-          background-color: var(--color-card-background-hover);
-          transform: scale(1.02);
-        }
-      }
-      &:active {
-        background-color: var(--color-card-background-hover);
-        transform: scale(1.02);
-      }
-
-      & img {
-        display: inline-block;
-        mix-blend-mode: multiply;
-        padding-bottom: 1rem;
-        object-fit: contain;
-      }
-
-      & div {
-        font-size: 1.25rem;
-        font-weight: 600;
-      }
-
-      @media only screen and (max-width: 375px) {
-        & div {
-          font-size: 1rem;
-          text-wrap: wrap;
-        }
-      }
-    }
-
-    & .header-line {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-
-      & span {
-        font-size: 1.4rem;
-        font-weight: 600;
-        line-height: 1;
-        margin: 1.5rem 0;
-      }
-
-      & .line {
-        width: 100%;
-        height: 1px;
-        background-color: #000;
-        margin-left: 1rem;
-      }
-    }
+  @media (max-width: 1024px) {
+    .section-content :global(h2) { font-size: 2.5rem; }
   }
 
-  #faq {
-    & .faq-card {
-      margin-bottom: 3rem;
-    }
-
-    & .contact-card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      color: white;
-      background-color: #000;
-      margin: 4rem 0;
-      padding: 6rem 4rem;
-
-      & h2 {
-        color: white;
-        font-size: 2rem;
-        margin-bottom: 2rem;
-      }
-
-      & span {
-        color: white;
-        font-size: 1.25rem;
-        line-height: 1.5;
-        margin-bottom: 1rem;
-      }
-
-      & a {
-        color: white;
-      }
-    }
-
+  @media (min-width: 761px) and (max-width: 1000px) {
+    .category-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
 
-  .faq-sections {
-    margin: 2rem 0;
+  @media (max-width: 760px) {
+    .help-shell { padding: 0 5% 40px; }
+    .hero { padding: 32px 0 24px; }
+    .category-grid { grid-template-columns: 1fr; gap: 12px; }
+    .category-card { padding: 20px; }
+    .help-card { min-height: 0; padding: 0; }
+    .card-image { height: 150px; }
+    .path-banner { min-height: 160px; }
+    .path-banner h2 { padding: 20px; }
+    .path-banner img { width: 80px; height: 80px; margin-left: 32px; }
+    .section-content :global(.fix-category-grid), .section-content :global(.quick-links), .section-content :global(.watch-grid) { grid-template-columns: 1fr; }
+    .section-content :global(.fix-category-grid .help-card) { padding: 20px; }
+    .section-content :global(h2) { font-size: 1.75rem; }
   }
 
-  .faq-section {
-    margin-bottom: 3rem;
+  @media (max-width: 480px) {
   }
 
-  .label {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin: 1rem 0;
-    margin-right: 0.75rem;
-  }
-
-  .details {
-    font-size: 1.25rem !important;
-    line-height: 1.4;
-    padding: 0.25rem 0 1rem;
-  }
-
-  .details :global(a) {
-    color: #000;
-    border-bottom: 2px solid #86ff4e;
-    background-color: rgba(134, 255, 78, 0.15);
-    text-decoration: none;
-  }
-
-  hr {
-    border: none;
-    border-top: 1px solid var(--surface-2);
-    margin: 0;
-  }
 </style>
