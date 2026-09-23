@@ -1,12 +1,12 @@
 ---
-title: how to switch between prime & prime lite
+title: How to switch between prime & prime lite
 description: Cancel your current plan and subscribe to the other prime tier.
 order: 3
 ---
 
 We do support switching between prime plans on your comma device.
 
-### switch plans
+### Switch plans
 
 1. Sign in to [comma connect](https://connect.comma.ai/).
 2. Select your paired device.
@@ -19,4 +19,4 @@ Cancellation is prorated and takes effect on the same day.
 
 Don't know what the difference between the plans are? Read more here.
 
-[what is comma prime?](/support/prime-connect/what-is-comma-prime, "card")
+[What is comma prime?](/support/prime-connect/what-is-comma-prime, "card")

@@ -1,5 +1,5 @@
 ---
-title: driver monitoring
+title: Driver monitoring
 order: 2
 ---
 

@@ -5,7 +5,7 @@
 </script>
 
 <section class="support-products" aria-labelledby="support-products-title">
-  <h2 id="support-products-title">products</h2>
+  <h2 id="support-products-title">Products</h2>
   <div class="product-grid">
     <a class="product-card" href="/support/troubleshooting/hardware">
       <div class="product-image"><img class="comma-four-image" src={CommaFourImage} alt="comma four" loading="lazy" /></div>
@@ -13,13 +13,13 @@
     </a>
 
     <a class="product-card" href="/shop/chestnut">
-      <div class="product-image"><img class="chestnut-image" src={ChestnutImage} alt="chestnut GPU interface" loading="lazy" /></div>
-      <h3>chestnut</h3>
+      <div class="product-image"><img class="chestnut-image" src={ChestnutImage} alt="Chestnut GPU interface" loading="lazy" /></div>
+      <h3>Chestnut</h3>
     </a>
 
     <a class="product-card" href="/support/get-started/installation">
-      <div class="product-image"><img class="harness-image" src={CarHarnessImage} alt="car harness" loading="lazy" /></div>
-      <h3>car harness</h3>
+      <div class="product-image"><img class="harness-image" src={CarHarnessImage} alt="Car harness" loading="lazy" /></div>
+      <h3>Car harness</h3>
     </a>
   </div>
 </section>

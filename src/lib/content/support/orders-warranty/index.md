@@ -1,14 +1,14 @@
 ---
-title: orders, returns & warranty
+title: Orders, returns & warranty
 image: /images/support/local_shipping.svg
 order: 4
 ---
 
-find help with your order, shipping, returns, exchanges, and hardware warranty.
+Find help with your order, shipping, returns, exchanges, and hardware warranty.
 
 <!-- articles -->
 
-### order faq
+### Order FAQ
 
 ::: dropdown When will I receive my order?
 Orders placed after 7:00 AM PT ship the next business day. You will receive an email with tracking information once your order ships; allow 1–2 days for tracking to become active.

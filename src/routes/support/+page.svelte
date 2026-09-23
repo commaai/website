@@ -4,6 +4,7 @@
   import { afterUpdate, tick } from 'svelte';
   import ArticleWithToc from '$lib/components/Support/ArticleWithToc.svelte';
   import SupportCatchAll from '$lib/components/Support/SupportCatchAll.svelte';
+  import SupportFaqs from '$lib/components/Support/SupportFaqs.svelte';
   import SupportProducts from '$lib/components/Support/SupportProducts.svelte';
   import { supportHome, supportById, supportByPath } from '$lib/components/Support/support-content';
 
@@ -72,7 +73,7 @@
         </svg>
       </a>
       <span aria-hidden="true">&gt;</span>
-      {#if selectedEntry}<a href="/support">help</a>{:else}<span>help</span>{/if}
+      {#if selectedEntry}<a href="/support">Help</a>{:else}<span>Help</span>{/if}
       {#if selectedEntry}
         <span aria-hidden="true">&gt;</span>
         {#if selectedEntry.kind !== 'section'}
@@ -120,6 +121,10 @@
     {/if}
 
     <SupportCatchAll />
+
+    {#if !supportPath && hash !== 'search'}
+      <SupportFaqs />
+    {/if}
   </div>
 </div>
 

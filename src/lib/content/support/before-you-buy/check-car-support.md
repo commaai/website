@@ -1,12 +1,12 @@
 ---
-title: check if your car is supported
+title: Check if your car is supported
 description: Find your exact model year and trim before buying a comma four.
 order: 0
 ---
 
 openpilot works with specific cars, model years, and factory equipment. Check your exact car before ordering a comma four.
 
-### find your car on the compatibility list
+### Find your car on the compatibility list
 
 1. Open the [supported cars page](/vehicles).
 2. Select your car's manufacturer.
@@ -19,13 +19,13 @@ Match the model year, not the year you bought or registered the car. You can fin
 
 Unless a listing says otherwise, compatibility refers to cars sold in the US. A car with the same name in another market can use different hardware and may not be supported.
 
-### confirm the required factory features
+### Confirm the required factory features
 
 Some listings support every package and trim. Others require a specific factory driver-assistance package, such as adaptive cruise control or lane keeping assist. Similar-looking controls do not always mean the car has the required system, so check the original window sticker, build sheet, or owner's manual if you are unsure.
 
 If your exact model year or required package is not included in the listing, treat the car as unsupported.
 
-### select the exact car when you order
+### Select the exact car when you order
 
 When buying a comma four, search for and select the same model and year range you confirmed on the compatibility list. This selects the correct car harness for your vehicle.
 
@@ -33,7 +33,7 @@ When buying a comma four, search for and select the same model and year range yo
 
 Do not choose a nearby model or year to make the order go through. Harness connectors and vehicle systems can differ even between closely related cars.
 
-### if your car is not listed
+### If your car is not listed
 
 New cars are added as support becomes available. On the [supported cars page](/vehicles), sign up for compatibility updates to receive an email when the list changes.
 

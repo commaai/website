@@ -1,5 +1,5 @@
 ---
-title: returning your comma
+title: Returning your comma
 description: How the 30-day return policy works, including U.S. and international return instructions.
 order: 0
 ---
@@ -37,4 +37,3 @@ If you have not received a refund within one week of the return being delivered,
 - If multiple devices were purchased at different prices and are still eligible for return, a partial return is refunded at the lowest eligible purchase price. Returning all eligible orders receives a full refund.
 - comma may cancel orders from customers who have made a return within the previous six months.
 - Damage found on a returned device may be deducted from the refund.
-

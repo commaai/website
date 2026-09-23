@@ -1,6 +1,6 @@
 ---
-title: flash your comma
-description: restore your comma device to its factory software state.
+title: Flash your comma
+description: Restore your comma device to its factory software state.
 order: 6
 listed: false
 ---

@@ -1,5 +1,5 @@
 ---
-title: updates and features
+title: Updates and features
 order: 3
 ---
 

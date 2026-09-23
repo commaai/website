@@ -1,23 +1,23 @@
 ---
-title: basic warranty & commacare
+title: Basic warranty & commacare
 description: Coverage under the standard hardware warranty and the extended commacare benefit.
 order: 1
 ---
 
-### basic hardware warranty
+### Basic hardware warranty
 
 Hardware purchased from the comma shop includes a one-year limited warranty against hardware defects. The warranty does not cover theft, loss, accidental damage, or damage caused by improper handling or repair.
 
 The warranty follows the device. If you did not purchase the device yourself, you must provide the original order number and the email address used for the order. comma cannot retrieve that information for you.
 
-### get warranty help
+### Get warranty help
 
 First follow the steps in [hardware troubleshooting](/support/troubleshooting/hardware). If the problem continues, [open a hardware support ticket](https://commasupport.zendesk.com/hc/en-us/requests/new?ticket_form_id=14150133300887) and include:
 
-- your order and device details
-- a clear description of the problem
-- a route recorded while running stock openpilot where the issue occurs
-- relevant photos or video and the troubleshooting steps you have tried
+- Your order and device details
+- A clear description of the problem
+- A route recorded while running stock openpilot where the issue occurs
+- Relevant photos or video and the troubleshooting steps you have tried
 
 International customers are responsible for the shipping costs, duties, and customs fees required to send a device to comma for warranty service. comma covers shipping a repaired or replacement device back, but the customer remains responsible for any applicable taxes and duties.
 

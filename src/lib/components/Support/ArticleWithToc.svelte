@@ -72,7 +72,7 @@
   <article class="article-content">{@html article.content}</article>
   {#if headings.length}
     <nav class="page-subsections" aria-label="On this page">
-      <h3>on this page</h3>
+      <h3>On this page</h3>
       {#each headings as heading}
         <button type="button" class:nested={heading.nested} aria-current={activeHeading === heading.id ? 'location' : undefined} on:click={() => jumpToHeading(heading)}>{heading.label}</button>
       {/each}

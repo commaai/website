@@ -1,5 +1,5 @@
 ---
-title: what is comma connect?
+title: What is comma connect?
 order: 0
 ---
 
@@ -24,6 +24,6 @@ Use connect to check device information, battery voltage, and remote snapshots. 
 
 comma prime and prime lite are activated and managed in connect. Open the settings menu for the paired device to view its plan and billing options.
 
-[learn how to pair to connect](/support/prime-connect/pair-your-device "card")
+[Learn how to pair to connect](/support/prime-connect/pair-your-device "card")
 
-[open comma connect](https://connect.comma.ai/ "external-card")
+[Open comma connect](https://connect.comma.ai/ "external-card")

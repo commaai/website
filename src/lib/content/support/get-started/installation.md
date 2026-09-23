@@ -1,5 +1,5 @@
 ---
-title: install your comma
+title: Install your comma
 order: 0
 listed: false
 ---

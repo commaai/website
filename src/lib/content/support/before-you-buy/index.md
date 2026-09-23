@@ -1,5 +1,5 @@
 ---
-title: before you buy
+title: Before you buy
 image: /images/support/shopping_bag.svg
 order: 0
 ---
@@ -8,9 +8,9 @@ Check your car's compatibility, learn what openpilot does, and choose the hardwa
 
 <!-- articles -->
 
-### openpilot faq
+### openpilot FAQ
 
-::: dropdown what is openpilot?
+::: dropdown What is openpilot?
 openpilot is an open source driver assistance system. On compatible cars, it can steer, accelerate, and brake to provide adaptive cruise control and lane centering.
 
 openpilot uses a camera to monitor driver attention and alerts you if you become distracted. You must stay attentive and be ready to take control at any time. You can take over by steering, pressing a pedal, or pressing the cancel button.
@@ -18,7 +18,7 @@ openpilot uses a camera to monitor driver attention and alerts you if you become
 Learn more about [openpilot](/openpilot), or [check whether your car is supported](/vehicles).
 :::
 
-::: dropdown what is ACC and LKAS?
+::: dropdown What are ACC and LKAS?
 **Adaptive cruise control (ACC)** controls your car's speed. It maintains the speed you set when the road is clear, then slows down and speeds back up to keep a safe following distance from the vehicle ahead.
 
 **Lane keeping assist system (LKAS)** controls steering to help your car stay in its lane. Depending on the car, it may make occasional corrections near the lane lines or continuously keep the car centered.
@@ -30,6 +30,6 @@ On compatible cars, openpilot uses the car's existing acceleration, braking, and
 openpilot does not make the car self-driving. You must stay attentive and be ready to take control at any time.
 :::
 
-### learn more about openpilot
+### Learn more about openpilot
 
-If you want to learn more about openpilot, read [using openpilot](/support/using-openpilot) and [openpilot faq](/support/using-openpilot#openpilot-faq)
+If you want to learn more about openpilot, read [Using openpilot](/support/using-openpilot) and [openpilot FAQ](/support/using-openpilot#openpilot-faq).

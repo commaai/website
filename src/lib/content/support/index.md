@@ -1,16 +1,14 @@
 ---
 title: comma support
-subtitle: need help? start here.
-pageTitle: comma help center
+subtitle: Need help? Start here.
+pageTitle: comma Help Center
 description: Find help with comma hardware, openpilot, connect, and comma prime. Search setup guides and troubleshooting articles.
 order: 0
 ---
 
 ::: options
-- [prime & connect](/support/prime-connect) — subscriptions, routes, and lte
+- [prime & connect](/support/prime-connect) — Subscriptions, routes, and LTE
   image: /images/support/wifi.svg
-- [orders & returns](/support/orders-warranty) — shipping, returns, and warranty
-  image: /images/support/local_shipping.svg
-- [faq](/support/faq) — frequently asked questions
+- [Orders & returns](/support/orders-warranty) — Shipping, returns, and warranty
   image: /images/support/local_shipping.svg
 :::

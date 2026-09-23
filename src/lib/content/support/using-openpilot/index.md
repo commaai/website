@@ -1,5 +1,5 @@
 ---
-title: using openpilot
+title: Using openpilot
 image: /images/support/directions_car.svg
 order: 2
 ---
@@ -8,7 +8,7 @@ Find guides for driving with openpilot, staying attentive, and keeping your soft
 
 <!-- articles -->
 
-### openpilot faq
+### openpilot FAQ
 
 ::: dropdown Do I have to pay attention?
 Yes. You must keep your eyes on the road and be ready to take control at any time. openpilot monitors driver attention and disengages if you are distracted.
@@ -27,14 +27,14 @@ openpilot Automated Lane Centering (ALC) does not automatically drive the vehicl
 
 Conditions that can prevent ALC from working as intended include:
 
-- poor visibility from heavy rain, snow, fog, bright light, or other weather conditions
-- a road-facing camera that is obstructed, covered, or damaged
-- paint, wraps, stickers, or coatings that obstruct vehicle sensors
-- an incorrectly mounted device
-- sharp curves, including ramps and intersections, where the car's available steering torque may not be enough
-- restricted lanes, construction zones, highly banked roads, or strong crosswinds
-- hills, narrow roads, and winding roads
-- extremely hot or cold temperatures
+- Poor visibility from heavy rain, snow, fog, bright light, or other weather conditions
+- A road-facing camera that is obstructed, covered, or damaged
+- Paint, wraps, stickers, or coatings that obstruct vehicle sensors
+- An incorrectly mounted device
+- Sharp curves, including ramps and intersections, where the car's available steering torque may not be enough
+- Restricted lanes, construction zones, highly banked roads, or strong crosswinds
+- Hills, narrow roads, and winding roads
+- Extremely hot or cold temperatures
 
 This is not an exhaustive list. You are responsible for controlling the vehicle at all times.
 :::
@@ -44,17 +44,17 @@ openpilot Adaptive Cruise Control (ACC) does not allow careless or inattentive d
 
 Conditions that can prevent ACC from working as intended include:
 
-- poor visibility from heavy rain, snow, fog, bright light, or other weather conditions
-- a road-facing camera or radar that is obstructed, covered, or damaged
-- paint, wraps, stickers, or coatings that obstruct vehicle sensors
-- an incorrectly mounted device
-- toll booths, pedestrians, cyclists, traffic signs, or stop lights
-- stopped vehicles in the same lane
-- situations that require abrupt braking or acceleration
-- close cut-ins from nearby lanes
-- hills, narrow roads, and winding roads
-- extremely hot or cold temperatures
-- interference from equipment that generates ultrasonic waves
+- Poor visibility from heavy rain, snow, fog, bright light, or other weather conditions
+- A road-facing camera or radar that is obstructed, covered, or damaged
+- Paint, wraps, stickers, or coatings that obstruct vehicle sensors
+- An incorrectly mounted device
+- Toll booths, pedestrians, cyclists, traffic signs, or stop lights
+- Stopped vehicles in the same lane
+- Situations that require abrupt braking or acceleration
+- Close cut-ins from nearby lanes
+- Hills, narrow roads, and winding roads
+- Extremely hot or cold temperatures
+- Interference from equipment that generates ultrasonic waves
 
 openpilot does not detect speed limits. This is not an exhaustive list, and you are responsible for controlling the vehicle at all times.
 :::
