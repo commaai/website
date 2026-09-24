@@ -1,6 +1,22 @@
 {
   "Acura": [
     {
+      "name": "Acura ADX 2025-26",
+      "model": "ADX",
+      "years": "2025-26",
+      "year_list": "2025, 2026",
+      "package": "All",
+      "video": "",
+      "setup_video": "",
+      "harness_connector": "Honda Bosch B",
+      "detail_sentence": "openpilot upgrades your <strong>Acura ADX</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
+      "footnotes": [
+        "Enabling longitudinal control (alpha) will disable all CMBS functionality, including AEB and FCW."
+      ],
+      "setup_notes": [
+      ]
+    },
+    {
       "name": "Acura ILX 2016-18",
       "model": "ILX",
       "years": "2016-18",
@@ -9,7 +25,7 @@
       "video": "",
       "setup_video": "",
       "harness_connector": "Honda Nidec",
-      "detail_sentence": "openpilot upgrades your <strong>Acura ILX</strong> with automated lane centering and adaptive cruise control <strong>while driving above 26 mph</strong>. This car may not be able to take tight turns on its own. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "detail_sentence": "openpilot upgrades your <strong>Acura ILX</strong> with automated lane centering and adaptive cruise control <strong>while driving above 26 mph</strong>. This car may not be able to take tight turns on its own.",
       "footnotes": [
       ],
       "setup_notes": [
@@ -24,7 +40,7 @@
       "video": "",
       "setup_video": "",
       "harness_connector": "Honda Nidec",
-      "detail_sentence": "openpilot upgrades your <strong>Acura ILX</strong> with automated lane centering and adaptive cruise control <strong>while driving above 26 mph</strong>. This car may not be able to take tight turns on its own. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "detail_sentence": "openpilot upgrades your <strong>Acura ILX</strong> with automated lane centering and adaptive cruise control <strong>while driving above 26 mph</strong>. This car may not be able to take tight turns on its own.",
       "footnotes": [
       ],
       "setup_notes": [
@@ -70,7 +86,7 @@
       "video": "",
       "setup_video": "",
       "harness_connector": "Honda Nidec",
-      "detail_sentence": "openpilot upgrades your <strong>Acura RDX</strong> with automated lane centering and adaptive cruise control <strong>while driving above 26 mph</strong>. This car may not be able to take tight turns on its own. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "detail_sentence": "openpilot upgrades your <strong>Acura RDX</strong> with automated lane centering and adaptive cruise control <strong>while driving above 26 mph</strong>. This car may not be able to take tight turns on its own.",
       "footnotes": [
       ],
       "setup_notes": [
@@ -221,6 +237,8 @@
         "The J533 harness plugs in at the CAN gateway under the dashboard, just above the steering column. More information can be found at \u003ca href=\"https://docs.howtocomma.com/docs/j533-harness-install\" target=\"_blank\"\u003ethis guide\u003c/a\u003e."
       ]
     }
+  ],
+  "BYD": [
   ],
   "Chevrolet": [
     {
@@ -1211,10 +1229,10 @@
       ]
     },
     {
-      "name": "Honda Civic Hatchback 2022-24",
+      "name": "Honda Civic Hatchback 2022-26",
       "model": "Civic Hatchback",
-      "years": "2022-24",
-      "year_list": "2022, 2023, 2024",
+      "years": "2022-26",
+      "year_list": "2022, 2023, 2024, 2025, 2026",
       "package": "All",
       "video": "https://youtu.be/ytiOT5lcp6Q",
       "setup_video": "",
@@ -1283,7 +1301,7 @@
       "video": "",
       "setup_video": "",
       "harness_connector": "Honda Nidec",
-      "detail_sentence": "openpilot upgrades your <strong>Honda CR-V</strong> with automated lane centering and adaptive cruise control <strong>while driving above 26 mph</strong>. This car may not be able to take tight turns on its own. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "detail_sentence": "openpilot upgrades your <strong>Honda CR-V</strong> with automated lane centering and adaptive cruise control <strong>while driving above 26 mph</strong>. This car may not be able to take tight turns on its own.",
       "footnotes": [
       ],
       "setup_notes": [
@@ -1376,7 +1394,7 @@
       "video": "",
       "setup_video": "",
       "harness_connector": "Honda Nidec",
-      "detail_sentence": "openpilot upgrades your <strong>Honda Fit</strong> with automated lane centering and adaptive cruise control <strong>while driving above 26 mph</strong>. This car may not be able to take tight turns on its own. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "detail_sentence": "openpilot upgrades your <strong>Honda Fit</strong> with automated lane centering and adaptive cruise control <strong>while driving above 26 mph</strong>. This car may not be able to take tight turns on its own.",
       "footnotes": [
       ],
       "setup_notes": [
@@ -1391,7 +1409,7 @@
       "video": "",
       "setup_video": "",
       "harness_connector": "Honda Nidec",
-      "detail_sentence": "openpilot upgrades your <strong>Honda Freed</strong> with automated lane centering and adaptive cruise control <strong>while driving above 26 mph</strong>. This car may not be able to take tight turns on its own. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "detail_sentence": "openpilot upgrades your <strong>Honda Freed</strong> with automated lane centering and adaptive cruise control <strong>while driving above 26 mph</strong>. This car may not be able to take tight turns on its own.",
       "footnotes": [
       ],
       "setup_notes": [
@@ -1406,7 +1424,7 @@
       "video": "",
       "setup_video": "",
       "harness_connector": "Honda Nidec",
-      "detail_sentence": "openpilot upgrades your <strong>Honda HR-V</strong> with automated lane centering and adaptive cruise control <strong>while driving above 26 mph</strong>. This car may not be able to take tight turns on its own. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "detail_sentence": "openpilot upgrades your <strong>Honda HR-V</strong> with automated lane centering and adaptive cruise control <strong>while driving above 26 mph</strong>. This car may not be able to take tight turns on its own.",
       "footnotes": [
       ],
       "setup_notes": [
@@ -1485,7 +1503,7 @@
       "video": "",
       "setup_video": "",
       "harness_connector": "Honda Nidec",
-      "detail_sentence": "openpilot upgrades your <strong>Honda Odyssey</strong> with automated lane centering and adaptive cruise control <strong>while driving above 26 mph</strong>. This car may not be able to take tight turns on its own. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "detail_sentence": "openpilot upgrades your <strong>Honda Odyssey</strong> with automated lane centering and adaptive cruise control <strong>while driving above 26 mph</strong>. This car may not be able to take tight turns on its own.",
       "footnotes": [
       ],
       "setup_notes": [
@@ -1516,7 +1534,7 @@
       "video": "",
       "setup_video": "",
       "harness_connector": "Honda Nidec",
-      "detail_sentence": "openpilot upgrades your <strong>Honda Odyssey (Singapore)</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>. This car may not be able to take tight turns on its own. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "detail_sentence": "openpilot upgrades your <strong>Honda Odyssey (Singapore)</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>. This car may not be able to take tight turns on its own.",
       "footnotes": [
       ],
       "setup_notes": [
@@ -1531,7 +1549,7 @@
       "video": "",
       "setup_video": "",
       "harness_connector": "Honda Nidec",
-      "detail_sentence": "openpilot upgrades your <strong>Honda Odyssey (Taiwan)</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>. This car may not be able to take tight turns on its own. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "detail_sentence": "openpilot upgrades your <strong>Honda Odyssey (Taiwan)</strong> with automated lane centering and adaptive cruise control <strong>while driving above 19 mph</strong>. This car may not be able to take tight turns on its own.",
       "footnotes": [
       ],
       "setup_notes": [
@@ -1546,7 +1564,7 @@
       "video": "",
       "setup_video": "",
       "harness_connector": "Honda Nidec",
-      "detail_sentence": "openpilot upgrades your <strong>Honda Passport</strong> with automated lane centering and adaptive cruise control <strong>while driving above 26 mph</strong>. This car may not be able to take tight turns on its own. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "detail_sentence": "openpilot upgrades your <strong>Honda Passport</strong> with automated lane centering and adaptive cruise control <strong>while driving above 26 mph</strong>. This car may not be able to take tight turns on its own.",
       "footnotes": [
       ],
       "setup_notes": [
@@ -1576,7 +1594,7 @@
       "video": "",
       "setup_video": "",
       "harness_connector": "Honda Nidec",
-      "detail_sentence": "openpilot upgrades your <strong>Honda Pilot</strong> with automated lane centering and adaptive cruise control <strong>while driving above 26 mph</strong>. This car may not be able to take tight turns on its own. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "detail_sentence": "openpilot upgrades your <strong>Honda Pilot</strong> with automated lane centering and adaptive cruise control <strong>while driving above 26 mph</strong>. This car may not be able to take tight turns on its own.",
       "footnotes": [
       ],
       "setup_notes": [
@@ -1598,15 +1616,46 @@
       ]
     },
     {
-      "name": "Honda Ridgeline 2017-25",
+      "name": "Honda Pilot 2026",
+      "model": "Pilot",
+      "years": "2026",
+      "year_list": "2026",
+      "package": "All",
+      "video": "",
+      "setup_video": "",
+      "harness_connector": "Honda Bosch C",
+      "detail_sentence": "openpilot upgrades your <strong>Honda Pilot</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
+      "footnotes": [
+      ],
+      "setup_notes": [
+      ]
+    },
+    {
+      "name": "Honda Prelude 2026",
+      "model": "Prelude",
+      "years": "2026",
+      "year_list": "2026",
+      "package": "All",
+      "video": "",
+      "setup_video": "",
+      "harness_connector": "Honda Bosch B",
+      "detail_sentence": "openpilot upgrades your <strong>Honda Prelude</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
+      "footnotes": [
+        "Enabling longitudinal control (alpha) will disable all CMBS functionality, including AEB and FCW."
+      ],
+      "setup_notes": [
+      ]
+    },
+    {
+      "name": "Honda Ridgeline 2017-26",
       "model": "Ridgeline",
-      "years": "2017-25",
-      "year_list": "2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025",
+      "years": "2017-26",
+      "year_list": "2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026",
       "package": "Honda Sensing",
       "video": "",
       "setup_video": "",
       "harness_connector": "Honda Nidec",
-      "detail_sentence": "openpilot upgrades your <strong>Honda Ridgeline</strong> with automated lane centering and adaptive cruise control <strong>while driving above 26 mph</strong>. This car may not be able to take tight turns on its own. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "detail_sentence": "openpilot upgrades your <strong>Honda Ridgeline</strong> with automated lane centering and adaptive cruise control <strong>while driving above 26 mph</strong>. This car may not be able to take tight turns on its own.",
       "footnotes": [
       ],
       "setup_notes": [
@@ -2369,6 +2418,21 @@
       ]
     },
     {
+      "name": "Kia Ceed Plug-in Hybrid 2021",
+      "model": "Ceed Plug-in Hybrid",
+      "years": "2021",
+      "year_list": "2021",
+      "package": "Smart Cruise Control (SCC)",
+      "video": "",
+      "setup_video": "",
+      "harness_connector": "Hyundai B",
+      "detail_sentence": "openpilot upgrades your <strong>Kia Ceed Plug-in Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
+      "footnotes": [
+      ],
+      "setup_notes": [
+      ]
+    },
+    {
       "name": "Kia EV6 (Southeast Asia only) 2022-24",
       "model": "EV6 (Southeast Asia only)",
       "years": "2022-24",
@@ -2879,6 +2943,21 @@
       ]
     },
     {
+      "name": "Kia Sportage Plug-in Hybrid 2023",
+      "model": "Sportage Plug-in Hybrid",
+      "years": "2023",
+      "year_list": "2023",
+      "package": "Smart Cruise Control (SCC)",
+      "video": "",
+      "setup_video": "",
+      "harness_connector": "Hyundai N",
+      "detail_sentence": "openpilot upgrades your <strong>Kia Sportage Plug-in Hybrid</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
+      "footnotes": [
+      ],
+      "setup_notes": [
+      ]
+    },
+    {
       "name": "Kia Stinger 2018-20",
       "model": "Stinger",
       "years": "2018-20",
@@ -3351,6 +3430,7 @@
       "footnotes": [
       ],
       "setup_notes": [
+        "Mazda vehicles \u003cb\u003erequire\u003c/b\u003e comma power installation."
       ]
     },
     {
@@ -3366,6 +3446,7 @@
       "footnotes": [
       ],
       "setup_notes": [
+        "Mazda vehicles \u003cb\u003erequire\u003c/b\u003e comma power installation."
       ]
     }
   ],
@@ -3468,7 +3549,7 @@
       "video": "https://youtu.be/dflSSGQwYNc",
       "setup_video": "https://youtu.be/uaISd1j7Z4U",
       "harness_connector": "Rivian A",
-      "detail_sentence": "openpilot upgrades your <strong>Rivian R1S</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "detail_sentence": "openpilot upgrades your <strong>Rivian R1S</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
       ],
       "setup_notes": [
@@ -3483,7 +3564,7 @@
       "video": "https://youtu.be/dflSSGQwYNc",
       "setup_video": "https://youtu.be/uaISd1j7Z4U",
       "harness_connector": "Rivian A",
-      "detail_sentence": "openpilot upgrades your <strong>Rivian R1T</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>. Traffic light and stop sign handling is also available in <a href='https://blog.comma.ai/090release/#experimental-mode' target='_blank' class='highlight'>Experimental mode</a>.",
+      "detail_sentence": "openpilot upgrades your <strong>Rivian R1T</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
       ],
       "setup_notes": [
@@ -3844,6 +3925,23 @@
   ],
   "Tesla": [
     {
+      "name": "Tesla Model 3 (with HW2.5) 2019",
+      "model": "Model 3 (with HW2.5)",
+      "years": "2019",
+      "year_list": "2019",
+      "package": "All",
+      "video": "",
+      "setup_video": "",
+      "harness_connector": "Tesla A",
+      "detail_sentence": "openpilot upgrades your <strong>Tesla Model 3 (with HW2.5)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
+      "footnotes": [
+        "Model year 2019 can have HW2.5 or HW3, and model years 2023 and 2024 can have HW3 or HW4, depending on build date and factory. To check which hardware type your vehicle has, look for \u003cb\u003eAutopilot computer\u003c/b\u003e under \u003cb\u003eSoftware -\u003e Additional Vehicle Information\u003c/b\u003e on your vehicle\u0027s touchscreen. \u003c/br\u003e\u003c/br\u003eSee \u003ca href=\"https://www.notateslaapp.com/news/2173/how-to-check-if-your-tesla-has-hardware-4-ai4-or-hardware-3\"\u003ethis page\u003c/a\u003e for more information."
+      ],
+      "setup_notes": [
+        "See more setup details for \u003ca href=\"https://github.com/commaai/openpilot/wiki/tesla\" target=\"_blank\"\u003eTesla\u003c/a\u003e."
+      ]
+    },
+    {
       "name": "Tesla Model 3 (with HW3) 2019-23",
       "model": "Model 3 (with HW3)",
       "years": "2019-23",
@@ -3854,7 +3952,7 @@
       "harness_connector": "Tesla A",
       "detail_sentence": "openpilot upgrades your <strong>Tesla Model 3 (with HW3)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
-        "Some 2023 model years have HW4. To check which hardware type your vehicle has, look for \u003cb\u003eAutopilot computer\u003c/b\u003e under \u003cb\u003eSoftware -\u003e Additional Vehicle Information\u003c/b\u003e on your vehicle\u0027s touchscreen. \u003c/br\u003e\u003c/br\u003eSee \u003ca href=\"https://www.notateslaapp.com/news/2173/how-to-check-if-your-tesla-has-hardware-4-ai4-or-hardware-3\"\u003ethis page\u003c/a\u003e for more information."
+        "Model year 2019 can have HW2.5 or HW3, and model years 2023 and 2024 can have HW3 or HW4, depending on build date and factory. To check which hardware type your vehicle has, look for \u003cb\u003eAutopilot computer\u003c/b\u003e under \u003cb\u003eSoftware -\u003e Additional Vehicle Information\u003c/b\u003e on your vehicle\u0027s touchscreen. \u003c/br\u003e\u003c/br\u003eSee \u003ca href=\"https://www.notateslaapp.com/news/2173/how-to-check-if-your-tesla-has-hardware-4-ai4-or-hardware-3\"\u003ethis page\u003c/a\u003e for more information."
       ],
       "setup_notes": [
         "See more setup details for \u003ca href=\"https://github.com/commaai/openpilot/wiki/tesla\" target=\"_blank\"\u003eTesla\u003c/a\u003e."
@@ -3871,41 +3969,41 @@
       "harness_connector": "Tesla B",
       "detail_sentence": "openpilot upgrades your <strong>Tesla Model 3 (with HW4)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
-        "Some 2023 model years have HW4. To check which hardware type your vehicle has, look for \u003cb\u003eAutopilot computer\u003c/b\u003e under \u003cb\u003eSoftware -\u003e Additional Vehicle Information\u003c/b\u003e on your vehicle\u0027s touchscreen. \u003c/br\u003e\u003c/br\u003eSee \u003ca href=\"https://www.notateslaapp.com/news/2173/how-to-check-if-your-tesla-has-hardware-4-ai4-or-hardware-3\"\u003ethis page\u003c/a\u003e for more information."
+        "Model year 2019 can have HW2.5 or HW3, and model years 2023 and 2024 can have HW3 or HW4, depending on build date and factory. To check which hardware type your vehicle has, look for \u003cb\u003eAutopilot computer\u003c/b\u003e under \u003cb\u003eSoftware -\u003e Additional Vehicle Information\u003c/b\u003e on your vehicle\u0027s touchscreen. \u003c/br\u003e\u003c/br\u003eSee \u003ca href=\"https://www.notateslaapp.com/news/2173/how-to-check-if-your-tesla-has-hardware-4-ai4-or-hardware-3\"\u003ethis page\u003c/a\u003e for more information."
       ],
       "setup_notes": [
         "See more setup details for \u003ca href=\"https://github.com/commaai/openpilot/wiki/tesla\" target=\"_blank\"\u003eTesla\u003c/a\u003e."
       ]
     },
     {
-      "name": "Tesla Model Y (with HW3) 2020-23",
+      "name": "Tesla Model Y (with HW3) 2020-24",
       "model": "Model Y (with HW3)",
-      "years": "2020-23",
-      "year_list": "2020, 2021, 2022, 2023",
+      "years": "2020-24",
+      "year_list": "2020, 2021, 2022, 2023, 2024",
       "package": "All",
       "video": "",
       "setup_video": "",
       "harness_connector": "Tesla A",
       "detail_sentence": "openpilot upgrades your <strong>Tesla Model Y (with HW3)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
-        "Some 2023 model years have HW4. To check which hardware type your vehicle has, look for \u003cb\u003eAutopilot computer\u003c/b\u003e under \u003cb\u003eSoftware -\u003e Additional Vehicle Information\u003c/b\u003e on your vehicle\u0027s touchscreen. \u003c/br\u003e\u003c/br\u003eSee \u003ca href=\"https://www.notateslaapp.com/news/2173/how-to-check-if-your-tesla-has-hardware-4-ai4-or-hardware-3\"\u003ethis page\u003c/a\u003e for more information."
+        "Model year 2019 can have HW2.5 or HW3, and model years 2023 and 2024 can have HW3 or HW4, depending on build date and factory. To check which hardware type your vehicle has, look for \u003cb\u003eAutopilot computer\u003c/b\u003e under \u003cb\u003eSoftware -\u003e Additional Vehicle Information\u003c/b\u003e on your vehicle\u0027s touchscreen. \u003c/br\u003e\u003c/br\u003eSee \u003ca href=\"https://www.notateslaapp.com/news/2173/how-to-check-if-your-tesla-has-hardware-4-ai4-or-hardware-3\"\u003ethis page\u003c/a\u003e for more information."
       ],
       "setup_notes": [
         "See more setup details for \u003ca href=\"https://github.com/commaai/openpilot/wiki/tesla\" target=\"_blank\"\u003eTesla\u003c/a\u003e."
       ]
     },
     {
-      "name": "Tesla Model Y (with HW4) 2024-25",
+      "name": "Tesla Model Y (with HW4) 2023-25",
       "model": "Model Y (with HW4)",
-      "years": "2024-25",
-      "year_list": "2024, 2025",
+      "years": "2023-25",
+      "year_list": "2023, 2024, 2025",
       "package": "All",
       "video": "",
       "setup_video": "",
       "harness_connector": "Tesla B",
       "detail_sentence": "openpilot upgrades your <strong>Tesla Model Y (with HW4)</strong> with automated lane centering <strong>at all speeds</strong>, and adaptive cruise control <strong>that automatically resumes from a stop</strong>.",
       "footnotes": [
-        "Some 2023 model years have HW4. To check which hardware type your vehicle has, look for \u003cb\u003eAutopilot computer\u003c/b\u003e under \u003cb\u003eSoftware -\u003e Additional Vehicle Information\u003c/b\u003e on your vehicle\u0027s touchscreen. \u003c/br\u003e\u003c/br\u003eSee \u003ca href=\"https://www.notateslaapp.com/news/2173/how-to-check-if-your-tesla-has-hardware-4-ai4-or-hardware-3\"\u003ethis page\u003c/a\u003e for more information."
+        "Model year 2019 can have HW2.5 or HW3, and model years 2023 and 2024 can have HW3 or HW4, depending on build date and factory. To check which hardware type your vehicle has, look for \u003cb\u003eAutopilot computer\u003c/b\u003e under \u003cb\u003eSoftware -\u003e Additional Vehicle Information\u003c/b\u003e on your vehicle\u0027s touchscreen. \u003c/br\u003e\u003c/br\u003eSee \u003ca href=\"https://www.notateslaapp.com/news/2173/how-to-check-if-your-tesla-has-hardware-4-ai4-or-hardware-3\"\u003ethis page\u003c/a\u003e for more information."
       ],
       "setup_notes": [
         "See more setup details for \u003ca href=\"https://github.com/commaai/openpilot/wiki/tesla\" target=\"_blank\"\u003eTesla\u003c/a\u003e."
