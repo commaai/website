@@ -1,5 +1,4 @@
 <script context="module">
-  import OpenpilotImage from '$lib/images/faq/openpilot.svg';
   import ConnectImage from '$lib/images/faq/connect.svg';
   import ReturnPolicyImage from '$lib/images/faq/30-day.svg';
   import ShopImage from '$lib/images/faq/shop.svg';
@@ -11,7 +10,7 @@
   export const faq = {
     openpilot: {
       title: 'openpilot',
-      image: OpenpilotImage,
+      image: OtherTopicsImage,
       questions: [
         {
           question: 'What is openpilot?',
@@ -389,14 +388,7 @@
               <li>The SIM card's service isn't active.</li>
             </ul>
           `
-        }, {
-          question: 'How do I switch between prime and prime lite?',
-          answer: `
-            Currently, this requires cancelling your current subscription and resubscribing at the new tier.
-            Since the subscription is pro-rated, the cancellation happens immediately, and you can resubscribe immediately.
-            Your stored drives from the original subscription are not guaranteed to persist after this process.
-          `
-        }
+        },
       ]
     },
     devices: {
@@ -716,103 +708,6 @@
           question: 'How long does it take to receive my refund?',
           answer: `
             Refunds can take 2-5 business days to process once we have received your return. If you have not received a refund within 1 week of delivery please open a comma shop support ticket on the <a href="https://comma.ai/support">support page</a>. We will process your refund and reimburse the payment method you used for the original purchase which can take up to a week depending on your bank.
-          `
-        },
-      ]
-    },
-    troubleshooting: {
-      title: 'Hardware Troubleshooting',
-      image: OtherTopicsImage,
-      questions: [
-        {
-          question: 'Why is a stock route required to open a hardware support ticket?',
-          answer: `
-            <p>
-              It is our policy for a comma engineer to root cause every hardware issue, for both our understanding of any hardware failures and to provide you with the best experience.
-              A route on the latest stock openpilot is necessary before a ticket is sent to an engineer for review.
-              <strong>Any ticket with a route from third party software will be closed with a request for a new ticket with a stock route.</strong>
-            </p>
-
-            We cannot review logs from third party software for several reasons, including:
-            <ul>
-              <li>your issue may be directly caused by the third party software</li>
-              <li>the third party software may not be up to date with the latest openpilot</li>
-              <li>the third party software lacks the necessary logging for an engineer to review the issue</li>
-            </ul>
-          `
-        }, {
-          question: 'How do you replace the SIM card in a comma 3X?',
-          answer: `
-            <p>
-              All comma 3Xs come with a SIM card. The SIM slot is a
-              push/pull mechanism, where you must push on the card to release it and then
-              guide it out.
-
-              <div class="video-container">
-                <iframe
-                  src="https://www.youtube-nocookie.com/embed/t_XSGZyHjM4"
-                  frameborder="0"
-                  allow="autoplay; encrypted-media"
-                  allowfullscreen=""
-                  title="How to replace the SIM card in a comma 3X"
-                ></iframe>
-              </div>
-            </p>
-            <p>
-              Make sure your SIM is inserted correctly by following the step-by-step guide
-              below:
-
-              <figure>
-                <img src=${CommaThreeSimInsertionImage.img.src} alt="steps to insert comma 3X SIM card">
-              </figure>
-            </p>
-
-            <strong>How to replace the SIM card in a comma 3X</strong>
-
-            <ol>
-              <li>With the comma 3X off and unplugged, tap/push the SIM card with the
-              big SIM card, credit card, or other narrow hard object to release the SIM
-              (you will hear a click).</li>
-              <li>Gently pull the SIM card from the SIM slot (try tweezers)</li>
-              <li>Push the SIM card into the SIM slot (with the metal contacts facing
-              downwards) with your fingernail or plastic card until you hear a click or
-              reach resistance. If you've done this step correctly, the SIM card should
-              stay completely recessed inside the comma 3X.</li>
-            </ol>
-            <p>
-              We recommend you clean the camera lenses with a microfiber cloth before
-              using the comma 3X again.
-            </p>
-            <strong>How to activate the new SIM card</strong>
-            <p>
-              Once your new SIM card is installed, your comma 3X will need to connect
-              to Wi-Fi to activate the SIM card. Best ways to get your comma 3X online:
-              hotspot from your phone, bring your car somewhere with Wi-Fi or connect your
-              comma 3X to a USB charger in a place with Wi-Fi. Your comma 3X
-              requires about 5 minutes of Wi-Fi connection and then can take up to 30
-              minutes to activate and might require a reboot. You will know the activation
-              started when the device displays "CONNECT ONLINE".
-            </p>
-            <p>
-              After the next reboot, your SIM card should connect to the internet and you
-              should have prime again!
-            </p>
-          `
-        }, {
-          question: 'My comma four is having issues. What should I do?',
-          answer: `
-            We recommend first trying to reflash your device at <a href="https://flash.comma.ai">flash.comma.ai</a> and to reseat all the cable connections. comma support is only able to look into issues on stock with a route where the issue occurs. If you are running a fork, we are unable to diagnose defective hardware without a route on stock. Once you have a route, please open a ticket at <a href="https://comma.ai/support">comma.ai/support</a>. Pictures, videos, and uploading logs via wi-fi are very helpful and often expedite the resolution process. Please also include any troubleshooting steps you have already taken. We also recommend reviewing the community <a href="https://github.com/commaai/openpilot/wiki">GitHub wiki</a> and <a href="https://discord.comma.ai">discord.comma.ai</a> for other troubleshooting.
-          `
-        }, {
-          question: 'Performing a Factory Reset',
-          answer: `
-            <p>
-              Reset the comma 3/3X by repeatedly tapping on the screen as soon as the device boots up.
-              After that, the factory reset screen will come up.
-            </p>
-            <p>
-              If this does not work, a more complete factory reset can be performed at <a href="https://flash.comma.ai">flash.comma.ai</a>.
-            </p>
           `
         },
       ]

@@ -1,219 +1,179 @@
 <script>
+  import '$lib/components/Support/support.css';
   import { page } from '$app/stores';
+  import { goto } from '$app/navigation';
+  import { afterUpdate, tick } from 'svelte';
+  import Article from '$lib/components/Support/Article.svelte';
+  import SupportCatchAll from '$lib/components/Support/SupportCatchAll.svelte';
+  import SupportFaqs from '$lib/components/Support/SupportFaqs.svelte';
+  import SupportProducts from '$lib/components/Support/SupportProducts.svelte';
+  import SupportHeader from '$lib/components/Support/SupportHeader.svelte';
+  import ArrowRight from '$lib/icons/arrow-right.svg?raw';
+  import { supportHome, supportByPath } from '$lib/components/Support/support-content';
 
-  import Grid from "$lib/components/Grid.svelte";
-  import Faq from '$lib/components/Faq.svelte';
-  import Accordion from '$lib/components/Accordion.svelte';
+  let lastScrolledHash = '';
+  $: hash = decodeURIComponent($page.url.hash.slice(1));
+  $: supportPath = $page.params.path || '';
+  $: selectedEntry = supportByPath.get(supportPath);
+  $: selectedArticle = selectedEntry?.kind === 'article' ? selectedEntry : null;
+  $: landing = selectedEntry?.kind === 'section' || selectedEntry?.kind === 'group' ? selectedEntry : null;
+  $: landingArticles = landing?.articles?.filter(article => article.listed !== 'false') || [];
 
-  import { supportFaqs } from '$lib/constants/support.svelte';
-  import { faq } from '$lib/constants/faq.svelte';
+  afterUpdate(() => {
+    if (!hash || hash === lastScrolledHash) return;
+    const target = document.getElementById(hash);
+    if (!target) return;
+    lastScrolledHash = hash;
+    if (target instanceof HTMLDetailsElement) target.open = true;
+    target.scrollIntoView();
+  });
+
+  async function openSupportLink(event) {
+    if (event.defaultPrevented) return;
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    const link = event.target.closest('a');
+    if (!link || !event.currentTarget.contains(link)) return;
+    const url = new URL(link.href, window.location.href);
+    if (url.origin !== window.location.origin || !url.pathname.startsWith('/support')) return;
+    event.preventDefault();
+    await goto(`${url.pathname}${url.hash}`, { noScroll: true, keepFocus: true });
+    await tick();
+    const targetHash = decodeURIComponent(url.hash.slice(1));
+    const target = targetHash && document.getElementById(targetHash);
+    if (target) {
+      if (target instanceof HTMLDetailsElement) target.open = true;
+      target.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
+    }
+    else window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }
+
+  function interceptSupportLinks(node) {
+    node.addEventListener('click', openSupportLink);
+    return { destroy: () => node.removeEventListener('click', openSupportLink) };
+  }
 </script>
 
-<section class="light" id="support">
-  <div class="container">
-    <!-- <hr> -->
-    <h1>comma support</h1>
-    <div class="faq-sections">
-      {#each Object.values(supportFaqs) as section}
-        <div class="faq-section">
-          <!-- <h3>{section.title}</h3> -->
-          {#each section.questions as entry}
-            <Accordion>
-              <div slot="label" class="label">
-                <span>{entry.question}</span>
-              </div>
-              <div class="details" slot="content">
-                {@html entry.answer}
-              </div>
-            </Accordion>
-            <hr />
-          {/each}
-        </div>
-      {/each}
-    </div>
-  </div>
-</section>
+<svelte:head>
+  <title>{selectedArticle ? `${selectedArticle.title} — comma support` : supportHome.pageTitle}</title>
+  <meta name="description" content={selectedArticle?.description || supportHome.description} />
+</svelte:head>
 
-<section class="light" id="faq">
-  <div class="container">
-    <h1>FAQs</h1>
-    {#each Object.keys(faq) as key}
-      <div class="faq-card">
-        <Faq topic={faq[key]} />
+<div class="help-center support-type light" data-sveltekit-preload-data="off" use:interceptSupportLinks>
+  <div class="help-shell">
+    {#if selectedArticle}
+      <Article article={selectedArticle} embedded />
+    {:else}
+      <SupportHeader title={supportHome.title} description={supportHome.subtitle} />
+    {/if}
+
+    {#if !supportPath}
+      <SupportProducts />
+      <div class="category-grid">
+        {#each supportHome.options as option}
+          <a class="category-card help-card" href={option.href}>
+            {#if option.image}<div class="card-image"><img src={option.image} alt="" /></div>{/if}
+            <div class="help-card-copy"><h2>{option.title}</h2><p>{option.description}</p></div>
+          </a>
+        {/each}
       </div>
-    {/each}
+    {/if}
+
+    {#if selectedEntry && !selectedArticle}
+      <div class="path-page">
+        {#if selectedEntry.kind === 'section'}
+          <div class="path-banner"><img src={selectedEntry.image} alt="" /><h2>{selectedEntry.title}</h2></div>
+        {/if}
+
+        {#if landing}
+          {#if landing.beforeArticles}<div class="section-content">{@html landing.beforeArticles}</div>{/if}
+          {#if landingArticles.length}
+            <div class="before-buy-links">
+              {#each landingArticles as article}
+                <a href="/support/{article.path}">{article.title}<span class="article-card-arrow" aria-hidden="true">{@html ArrowRight}</span></a>
+              {/each}
+            </div>
+          {/if}
+          {#if landing.afterArticles}<div class="section-content section-after-articles">{@html landing.afterArticles}</div>{/if}
+        {/if}
+      </div>
+    {/if}
+
+    {#if !selectedArticle}
+      <hr class="support-divider" />
+      <SupportCatchAll standalone={!supportPath} />
+    {/if}
+
+    {#if !supportPath && hash !== 'search'}
+      <hr class="support-divider" />
+      <SupportFaqs />
+    {/if}
   </div>
-</section>
+</div>
 
 <style>
-  #support {
-    & .breadcrumbs {
-      display: flex;
-      flex-wrap: wrap;
-      padding: 1rem;
-      background-color: var(--color-card-background);
-      margin-bottom: 2rem;
-      font-size: 1.25rem;
+  .help-center {
+    --support-background: var(--color-background);
+    --support-surface: var(--color-card-background);
+    --support-text: var(--color-foreground);
+    --support-muted: var(--color-muted);
+    --support-border: #ddd;
+    --support-hover: var(--color-card-background-hover);
+    --support-accent: var(--color-accent);
+    background: var(--support-background); color: var(--support-text);
+    color-scheme: light;
+  }
+  .help-shell { width: 85%; max-width: 90rem; margin: auto; padding-bottom: 48px; }
+  .category-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-bottom: 64px; padding-top: 32px; }
+  .category-card { box-sizing: border-box; min-width: 0; border: 1px solid var(--support-border); background: var(--support-surface); color: var(--support-text); display: block; text-decoration: none; }
+  @media (hover: hover) and (pointer: fine) {
+    .category-card:hover { background: var(--support-hover); }
+  }
+  .card-image { display: flex; align-items: center; justify-content: flex-start; box-sizing: border-box; width: 100%; height: 170px; padding-left: 40px; flex-shrink: 0; background: #000; }
+  .card-image img { width: 96px; height: 96px; filter: invert(1); }
+  .help-card-copy { padding: 20px 24px 24px; }
+  .help-card h2 { margin: 0 0 8px; font-size: clamp(22px, 2.5vw, 30px); line-height: 1.12; letter-spacing: -0.035em; font-weight: 600; }
+  .help-card p { margin: 0; max-width: none; color: var(--support-muted); font-size: 13px; line-height: 1.45; }
+  .section-content :global(.fix-category-grid) { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  .section-content :global(.fix-category-grid .help-card) { min-height: 180px; padding: 24px; justify-content: flex-end; }
+  .section-content :global(.support-option) { position: relative; box-sizing: border-box; min-width: 0; border: 1px solid var(--support-border); background: var(--support-surface); color: var(--support-text); display: flex; flex-direction: column; text-decoration: none; }
+  .section-content :global(.support-option:hover) { background: var(--support-hover); }
+  .section-content :global(.support-option h3) { margin: 0 0 8px; font-size: clamp(22px, 2.5vw, 30px); line-height: 1.12; letter-spacing: -.035em; font-weight: 600; }
+  .section-content :global(.support-option p) { margin: 0; max-width: none; color: var(--support-muted); font-size: 13px; line-height: 1.45; }
+  .path-page { width: 100%; }
+  .path-banner { display: flex; align-items: center; justify-content: flex-start; min-height: 220px; margin-bottom: 28px; background: #000; color: #fff; overflow: hidden; }
+  .path-banner h2 { margin: 0; padding: 24px 32px; }
+  .path-banner img { width: 120px; height: 120px; margin-left: 48px; flex-shrink: 0; filter: invert(1); }
+  .before-buy-links { display: grid; gap: 12px; margin-top: 24px; }
+  .before-buy-links a { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; box-sizing: border-box; padding: 16px 20px; border: 1px solid var(--support-border); background: var(--support-surface); font-weight: 600; }
+  .before-buy-links a:hover { background: var(--support-hover); }
+  .section-content { overflow-wrap: anywhere; }
+  .section-after-articles { margin-top: 0; }
+  .section-content :global(a:not(.article-card-link)) { color: #000; border-bottom: 2px solid #86ff4e; background-color: rgba(134, 255, 78, 0.15); text-decoration: none; }
+  .section-content :global(img), .section-content :global(iframe) { max-width: 100%; }
+  .help-center :global(.support-dropdown) { margin: 0; background: transparent; color: var(--support-text); }
+  .help-center :global(.support-dropdown-divider) { border-top-color: #333; }
+  .help-center :global(.support-dropdown summary) { position: relative; display: grid; align-items: center; box-sizing: border-box; padding: 0 52px 0 20px; background: transparent; color: var(--support-text); cursor: pointer; list-style: none; }
+  .help-center :global(.support-dropdown summary::-webkit-details-marker) { display: none; }
+  .help-center :global(.support-dropdown-label) { margin: 1rem 0; font: inherit; font-size: 1.25rem; font-weight: 600; }
+  .help-center :global(.support-dropdown-chevron) { position: absolute; right: 20px; color: var(--support-text); }
+  .help-center :global(.support-dropdown-chevron svg) { display: block; width: 18px; height: 12px; color: var(--support-text); }
+  .help-center :global(.support-dropdown[open] .support-dropdown-chevron) { transform: rotate(180deg); }
+  .help-center :global(.support-dropdown-content) { padding: .25rem 20px 1rem; font: inherit; }
+  .help-center :global(.support-dropdown-content > *:first-child) { margin-top: 0; }
+  .help-center :global(.support-dropdown-content > *:last-child) { margin-bottom: 0; }
+  .help-center :global(.support-dropdown-content li) { font: inherit; }
+  a:focus-visible { outline: 3px solid var(--support-accent); outline-offset: 4px; }
 
-      & span {
-        margin: 0 0.5rem;
-        user-select: none;
-      }
-
-      & :last-child {
-        font-weight: 600;
-      }
-    }
-
-    & h2 {
-      margin-bottom: 2rem;
-    }
-
-    & h3 {
-      font-size: 1.875rem;
-      font-weight: 600;
-      margin-top: 0;
-      margin-bottom: 2rem;
-    }
-
-    & a {
-      color: #000;
-      border-bottom: 2px solid #86ff4e;
-      background-color: rgba(134, 255, 78, 0.15);
-    }
-
-    & li {
-      font-size: 1.25rem;
-    }
-
-    & .support-card {
-      border: 1px solid #000;
-      background-color: var(--color-card-background);
-      padding: 1rem;
-      transition: all 0.2s;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-
-      @media (hover: hover) and (pointer: fine) {
-        &:hover {
-          background-color: var(--color-card-background-hover);
-          transform: scale(1.02);
-        }
-      }
-      &:active {
-        background-color: var(--color-card-background-hover);
-        transform: scale(1.02);
-      }
-
-      & img {
-        display: inline-block;
-        mix-blend-mode: multiply;
-        padding-bottom: 1rem;
-        object-fit: contain;
-      }
-
-      & div {
-        font-size: 1.25rem;
-        font-weight: 600;
-      }
-
-      @media only screen and (max-width: 375px) {
-        & div {
-          font-size: 1rem;
-          text-wrap: wrap;
-        }
-      }
-    }
-
-    & .header-line {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-
-      & span {
-        font-size: 1.4rem;
-        font-weight: 600;
-        line-height: 1;
-        margin: 1.5rem 0;
-      }
-
-      & .line {
-        width: 100%;
-        height: 1px;
-        background-color: #000;
-        margin-left: 1rem;
-      }
-    }
+  @media (max-width: 760px) {
+    .help-shell { padding-bottom: 40px; }
+    .category-grid { grid-template-columns: 1fr; gap: 12px; padding-top: 24px; }
+    .card-image { height: 80px; padding-left: 24px; }
+    .card-image img { width: 52px; height: 52px; }
+    .path-banner { min-height: 160px; }
+    .path-banner h2 { padding: 20px; }
+    .path-banner img { width: 80px; height: 80px; margin-left: 32px; }
+    .section-content :global(.fix-category-grid) { grid-template-columns: 1fr; }
+    .section-content :global(.fix-category-grid .help-card) { padding: 20px; }
   }
 
-  #faq {
-    & .faq-card {
-      margin-bottom: 3rem;
-    }
-
-    & .contact-card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      color: white;
-      background-color: #000;
-      margin: 4rem 0;
-      padding: 6rem 4rem;
-
-      & h2 {
-        color: white;
-        font-size: 2rem;
-        margin-bottom: 2rem;
-      }
-
-      & span {
-        color: white;
-        font-size: 1.25rem;
-        line-height: 1.5;
-        margin-bottom: 1rem;
-      }
-
-      & a {
-        color: white;
-      }
-    }
-
-  }
-
-  .faq-sections {
-    margin: 2rem 0;
-  }
-
-  .faq-section {
-    margin-bottom: 3rem;
-  }
-
-  .label {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin: 1rem 0;
-    margin-right: 0.75rem;
-  }
-
-  .details {
-    font-size: 1.25rem !important;
-    line-height: 1.4;
-    padding: 0.25rem 0 1rem;
-  }
-
-  .details :global(a) {
-    color: #000;
-    border-bottom: 2px solid #86ff4e;
-    background-color: rgba(134, 255, 78, 0.15);
-    text-decoration: none;
-  }
-
-  hr {
-    border: none;
-    border-top: 1px solid var(--surface-2);
-    margin: 0;
-  }
 </style>
