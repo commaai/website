@@ -60,4 +60,10 @@
   .comma-icon { display: inline-flex; align-items: center; }
   .comma-icon :global(svg) { display: block; width: 11px; height: 19px; }
   .footer-breadcrumbs a:hover, .footer-breadcrumbs a:focus-visible { text-decoration: underline; }
+
+  @media (max-width: 1024px) {
+    .footer-breadcrumbs { position: static; transform: none; margin-bottom: 2rem; }
+    .footer-breadcrumbs > * { min-width: 0; overflow-wrap: anywhere; }
+    .footer-breadcrumbs a { height: auto; min-height: 20px; }
+  }
 </style>

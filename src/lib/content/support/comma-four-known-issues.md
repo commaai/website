@@ -1,15 +1,10 @@
 ---
-title: Hardware troubleshooting
-description: For issues with a comma hardware product
+title: comma four known issues
+description: For help troubleshooting
 order: 0
 ---
 
-::: header Hardware Troubleshooting
-image: other
-alt: Hardware Troubleshooting banner
-:::
-
-### Known issues
+## Known issues
 
 ::: dropdown Device won't turn on or keeps restarting
 Check that the device is securely connected to its cable and that the harness connections are fully seated. Follow the [setup guide](/setup) to check the installation.
@@ -38,14 +33,16 @@ Make sure nothing blocks the device's view of the sky. If GPS still has trouble,
 :::
 
 ::: dropdown Car isn't recognized or openpilot won't engage
-First [check whether your car is supported](/vehicles). Then check the harness and cable installation with the [setup guide](/setup), and reseat each connection.
+First check whether your car is supported. Then check the harness and cable installation with the [setup guide](/setup), and reseat each connection.
+
+[check if your car is supported](/vehicles, "article")
 
 If the car is supported and the issue continues on the latest stock openpilot, capture a route showing the issue. A stock route helps support rule out changes made by other software.
 
 [How to capture a route](/support/how-to-capture-a-route "article")
 :::
 
-### Still having issues?
+## Still having issues?
 
 If you have tried to resolve the issues using the existing resources and haven't been able to succeed, it may be time to contact support. Before contacting support, first restore your device to stock by following the following steps.
 

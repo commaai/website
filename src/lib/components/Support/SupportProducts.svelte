@@ -2,6 +2,7 @@
   import CommaFourImage from '$lib/images/products/comma-four/four_screen_on.png?w=900';
   import ChestnutImage from '$lib/images/products/chestnut/bnut_front.png?w=900';
   import CarHarnessImage from '$lib/images/products/car-harness/car-harness.jpg?w=900';
+  import CommaPowerImage from '$lib/images/products/comma-power/comma-power.jpg?w=900';
   import Comma3XImage from '$lib/images/products/comma-3x/comma-3x.jpg?w=900';
   import Comma3Image from '$lib/images/device.png?w=900';
   import Comma2Image from '$lib/images/products/comma-two/comma-two.jpg?w=900';
@@ -13,8 +14,9 @@
   let showAllProducts = false;
 
   const moreProducts = [
-    { name: 'comma 3x', image: Comma3XImage, href: '/support/comma-four-known-issues' },
-    { name: 'comma 3', image: Comma3Image, href: '/support/comma-four-known-issues' },
+    { name: 'comma power', image: CommaPowerImage, href: '/support/products/comma-power' },
+    { name: 'comma threeX', image: Comma3XImage, href: '/support/comma-four-known-issues' },
+    { name: 'comma three', image: Comma3Image, href: '/support/comma-four-known-issues' },
     { name: 'comma 2', image: Comma2Image, href: '/support/comma-four-known-issues' },
     { name: 'comma body', image: BodyImage, href: '/shop/body' },
     { name: 'comma panda', image: PandaImage, href: '/shop/red-panda' },

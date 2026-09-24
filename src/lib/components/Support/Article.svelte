@@ -106,15 +106,14 @@
   .article-content > :global(:not(h2):first-child) { margin-top: 0; }
   .article-content :global(h1), .article-content :global(h2), .article-content :global(h3) { scroll-margin-top: 120px; }
   .article-content :global(a:not(.article-card-link)) { color: #000; border-bottom: 2px solid #86ff4e; background-color: rgba(134, 255, 78, 0.15); text-decoration: none; }
-  .article-content :global(img) { display: block; width: 100%; height: auto; margin: 20px 0 32px; border: 1px solid var(--support-border); }
+  .article-content :global(img) { display: block; width: auto; max-width: 100%; height: auto; max-height: 300px; margin: 32px auto 20px; border: 1px solid var(--support-border); }
   .article-content :global(iframe) { max-width: 100%; }
   .article-content :global(pre) { overflow-x: auto; }
   .sectioned-content :global(section) { padding: 0; scroll-margin-top: 110px; }
-  .sectioned-content :global(.section-body a:not(.article-card-link)) { color: inherit; border: 0; background: none; text-decoration-thickness: 2px; text-decoration-color: var(--color-accent); text-underline-offset: 4px; }
   .sectioned-content :global(.section-body ul) { padding-left: 22px; }
   .sectioned-content :global(.section-body .article-card-link) { margin: 10px 0; }
-  .sectioned-content :global(.section-body summary) { padding: 18px 4px; cursor: pointer; font-size: 18px; font-weight: 600; }
-  .sectioned-content :global(.section-body .support-dropdown-content) { padding: 0 4px 18px; }
+  .sectioned-content :global(.section-body summary) { padding: 18px 20px; cursor: pointer; font-size: 18px; font-weight: 600; }
+  .sectioned-content :global(.section-body .support-dropdown-content) { margin-left: 20px; padding: 0 20px 18px 0; }
   .sectioned-content :global(.section-body .support-dropdown-chevron) { float: right; }
   @media (max-width: 760px) { .shell { padding-bottom: 24px; } }
 </style>

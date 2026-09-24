@@ -15,6 +15,10 @@
   display: none;
 }
 
+.support-type .support-dropdown + .support-dropdown-divider:has(+ :not(.support-dropdown-divider)) {
+  margin-bottom: 20px;
+}
+
 .support-type :is(.shell, .help-shell) {
   display: flex;
   flex-direction: column;

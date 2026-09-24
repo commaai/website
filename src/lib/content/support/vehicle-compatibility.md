@@ -1,35 +1,53 @@
 ---
 title: Vehicle compatibility
-description: Check your car's model year, factory equipment, and support notes before ordering a comma four.
+description: Find your car, check its required equipment, and choose the matching harness before ordering.
 order: 0
 ---
 
-openpilot supports specific makes, models, model years, and factory equipment. Use the [supported cars list](/vehicles) to check your exact car before ordering a comma four or car harness.
+## Open the compatibility page
 
-### Find your model and year
+Start on the [vehicle compatibility page](/vehicles). Its listings cover specific makes, models, model years, and factory equipment. They describe cars sold in the United States unless a listing says otherwise.
 
-1. On the [supported cars page](/vehicles), choose your car's manufacturer.
-2. Find its model and check that your **model year** falls within the listed range.
-3. Open the listing and read the **Support** card and every **Note**. These explain required factory equipment and any limitations for that car.
+![The vehicle compatibility page with the supported vehicle count and make icons](/images/support/vehicle-journey-compatibility-start.png)
 
-![Manufacturer links on the supported cars page](/images/support/compatibility-search.png)
+Choose your car's make from the icons to jump to its listings. You can also use your browser's Find command (**Ctrl+F** on Windows or **Command+F** on Mac) to look for a make or model on the page.
 
-Use the model year shown on your registration, insurance documents, or the label inside the driver's door. It may differ from the year you bought the car.
+![Make icons on the compatibility page, including Honda](/images/support/vehicle-journey-brand-index.png)
 
-The list describes vehicles sold in the United States unless a listing says otherwise. A car with the same name in another market may have different equipment.
+## Find your model and year
 
-### Check factory equipment
+The make link takes you to that manufacturer's list. Find your **exact model**, including whether it is a hybrid, and compare its listed years with your car's model year.
 
-Some listings work with all packages and trims. Others require a particular driver assistance package or feature, such as adaptive cruise control or lane keeping assist. If you are unsure what your car came with, check its window sticker, build sheet, or owner's manual. Similar buttons or feature names do not confirm that the required system is installed.
+![The Honda section of the compatibility list with model names and model years](/images/support/vehicle-journey-make-list.png)
 
-If your exact model year or required factory package is missing from the listing, do not assume a nearby year or trim is compatible.
+For example, a 2019 Honda CR-V falls in the **2017–22** CR-V row. The 2015–16 and 2023–26 rows are different listings, and the CR-V Hybrid has its own rows.
 
-### Choose the matching car harness
+![Honda CR-V rows showing separate model year ranges and hybrid listings](/images/support/vehicle-journey-model-year.png)
 
-When you order a comma four, select the same model and year range that you confirmed on the supported cars page. The car selection determines the harness for your order. Do not select a different model or year to complete checkout; even related vehicles can use different connectors or systems.
+Use the model year on your registration, insurance documents, or the label inside the driver's door; it may differ from the year you bought the car. A car with the same name in another market may also have different equipment. If your exact model and year are not listed, do not assume a nearby year or trim is compatible. You can sign up for updates under **Don't see your car?** section at the top of the page. If you have automotive programming experience, see the [openpilot car porting guide](https://github.com/commaai/openpilot/blob/master/docs/CARS.md#dont-see-your-car-here).
 
-![Selecting a car in the comma four picker](/images/support/comma-four-car-search.png)
+## Read the vehicle card
 
-### If your car is not listed
+Click the row for your model and year. The text at the top describes what openpilot can do on that car. Read the **Support** card to see whether every package and trim works or whether your car needs specific factory equipment. Read every **Note** for limitations, and check the harness name shown beside the comma four.
 
-Sign up for compatibility updates on the [supported cars page](/vehicles) to hear when support changes. If you have automotive programming experience and want to help add a car, read the [openpilot car porting guide](https://github.com/commaai/openpilot/blob/master/docs/CARS.md#dont-see-your-car-here).
+This Honda CR-V needs **Honda Sensing**. Its Note also explains a limitation of an optional control mode.
+
+![Expanded Honda CR-V card with the Support requirement, Note, harness, and Buy now button](/images/support/vehicle-journey-vehicle-card.png)
+
+Other cards say **all packages and trims**, as this Toyota Corolla example does. If a card names a required feature or package, check your car's window sticker, build sheet, or owner's manual before ordering. Similar buttons or feature names alone do not confirm that the required system is installed.
+
+![Toyota Corolla card showing support for all packages and trims](/images/support/vehicle-journey-all-trims.png)
+
+If you see your exact car and trim, **your car is supported!** You are ready to buy a comma four with a matching harness.
+
+## Buy a comma four with the matching harness
+
+Once you have confirmed the exact listing and any required equipment, select **Buy now** in the vehicle card. The comma four shop page selects that car and its matching harness. Check the model, year range, and Support requirement again before adding the device to your cart.
+
+![Comma four shop page with the Honda CR-V 2017–22 harness selected](/images/support/vehicle-journey-comma-four-shop.png)
+
+If your exact make, model, and year are listed and your car has the required trim or factory equipment, it is compatible; you can buy a comma four with its matching harness from the vehicle card.
+
+[Check your car](/vehicles "article")
+
+[Buy a comma four](/shop/comma-four "article")

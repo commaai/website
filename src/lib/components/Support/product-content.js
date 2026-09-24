@@ -2,11 +2,12 @@ import { marked } from 'marked';
 import CommaFourImage from '$lib/images/products/comma-four/four_screen_on.png?w=900';
 import ChestnutImage from '$lib/images/products/chestnut/bnut_front.png?w=900';
 import CarHarnessImage from '$lib/images/products/car-harness/car-harness.jpg?w=900';
+import CommaPowerImage from '$lib/images/products/comma-power/comma-power.jpg?w=900';
 import CommaIcon from '$lib/icons/comma.svg?raw';
 import { supportByPath, supportRenderer } from './support-content';
 import { renderSections } from './section-content';
 
-const images = { 'comma-four': CommaFourImage, chestnut: ChestnutImage, 'car-harness': CarHarnessImage };
+const images = { 'comma-four': CommaFourImage, chestnut: ChestnutImage, 'car-harness': CarHarnessImage, 'comma-power': CommaPowerImage };
 
 const files = import.meta.glob('/src/lib/content/products/*.md', { eager: true, query: '?raw', import: 'default' });
 

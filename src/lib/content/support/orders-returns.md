@@ -6,27 +6,7 @@ order: 4
 
 ## Orders and shipping
 
-Find answers about placing, changing, and tracking an order in the FAQ below. If your order arrives damaged, contact shop support within three days of delivery and include photos of the product and packaging.
-
-[Open the comma shop](/shop "article")
-
-[Contact shop support](https://commasupport.zendesk.com/hc/en-us/requests/new?ticket_form_id=29233377161623 "external")
-
-## Returns and exchanges
-
-Request a return within 30 calendar days of delivery. Exchanges are handled by returning the original item and placing a new order.
-
-[Returning your comma](/support/returning-your-comma "article")
-
-[Start a return](https://comma.ai/returns "external")
-
-## Warranty and commacare
-
-Review the standard hardware warranty, how to request help, and commacare eligibility.
-
-[Basic warranty & commacare](/support/warranty "article")
-
-## Order FAQ
+Find answers about placing, changing, and tracking an order below. If your order arrives damaged, contact shop support within three days of delivery and include photos of the product and packaging.
 
 ::: dropdown When will I receive my order?
 Orders placed after 7:00 AM PT ship the next business day. You will receive an email with tracking information once your order ships; allow 1–2 days for tracking to become active.
@@ -67,3 +47,21 @@ A 10% discount is automatically applied to purchases of 10 or more eligible prod
 
 Orders must be placed through the comma shop. Orders over $10,000 may be paid by purchase order and wire transfer; contact support with your item list or purchase order to get started.
 :::
+
+Still have a concern?
+
+[Contact shop support](https://commasupport.zendesk.com/hc/en-us/requests/new?ticket_form_id=29233377161623 "external")
+
+## Returns and exchanges
+
+Request a return within 30 calendar days of delivery. Exchanges are handled by returning the original item and placing a new order.
+
+[How to return your comma](/support/returning-your-comma "article")
+
+[Start a return](https://comma.ai/returns "external")
+
+## Warranty and commacare
+
+Review the standard hardware warranty, how to request help, and commacare eligibility.
+
+[Basic warranty & commacare](/support/warranty "article")
