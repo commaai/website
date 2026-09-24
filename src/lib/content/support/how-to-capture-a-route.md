@@ -26,3 +26,12 @@ Connect the comma device to Wi-Fi after the drive and leave it powered on so the
 2. Open the drive from the correct date and time.
 3. Copy the route link from your browser.
 4. Include the link, the approximate time of the issue, and a short description of what happened in your support ticket.
+
+## Why is a stock route needed for a hardware support ticket?
+
+It is our policy for a comma engineer to root cause every hardware issue, for both our understanding of any hardware failures and to provide you with the best experience. A route on the latest stock openpilot is necessary before a ticket is sent to an engineer for review. Any ticket with a route from third party software will be closed with a request for a new ticket with a stock route.
+
+We cannot review logs from third party software for several reasons, including:
+- your issue may be directly caused by the third party software
+- the third party software may not be up to date with the latest openpilot
+- the third party software lacks the necessary logging for an engineer to review the issue

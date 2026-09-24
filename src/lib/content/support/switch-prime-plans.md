@@ -1,6 +1,6 @@
 ---
-title: How to switch between prime & prime lite
-description: Cancel your current plan and subscribe to the other prime tier.
+title: How to switch prime plans
+description: How to switch between prime and prime lite plans
 order: 3
 ---
 

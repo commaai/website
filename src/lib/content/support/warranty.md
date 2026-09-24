@@ -12,7 +12,7 @@ The warranty follows the device. If you did not purchase the device yourself, yo
 
 ## Get warranty help
 
-First follow the steps in [hardware troubleshooting](/support/comma-four-known-issues). If the problem continues, [open a hardware support ticket](https://commasupport.zendesk.com/hc/en-us/requests/new?ticket_form_id=14150133300887) and include:
+First check [comma four known issues](/support/comma-four-known-issues) to see if your issue is common. If the problem continues, [open a hardware support ticket](https://commasupport.zendesk.com/hc/en-us/requests/new?ticket_form_id=14150133300887) and include:
 
 - Your order and device details
 - A clear description of the problem
@@ -23,8 +23,11 @@ International customers are responsible for the shipping costs, duties, and cust
 
 ## commacare
 
-commacare extends a comma four's warranty by up to one additional year, for up to two years of total coverage. It provides the same coverage as the standard warranty and does not cover theft, loss, or accidental damage.
+commacare extends your comma four's warranty for up to an additional year beyond the standard one-year warranty, giving you two years of total coverage.
 
-commacare is automatically included with an active comma prime or prime lite subscription. To qualify, start the subscription within 30 days of receiving your comma four and keep it active continuously.
+We've made commacare simple and straightforward:
 
-If you cancel prime, commacare ends immediately and cannot be resumed. Any time remaining under the standard one-year warranty is unaffected.
+- commacare is included automatically with your comma prime ($24/mo) or prime lite ($14/mo) subscription.
+- You must start your prime subscription within the first 30 days of receiving your comma four to be eligible for commacare.
+- If you cancel your prime subscription, your commacare warranty ends immediately and cannot be resumed. The standard warranty terms will continue to apply for any remaining time in the first year.
+- commacare provides the same coverage as the standard one-year warranty. It does not cover theft, loss, or accidental damage.

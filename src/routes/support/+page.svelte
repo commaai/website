@@ -29,6 +29,7 @@
   });
 
   async function openSupportLink(event) {
+    if (event.defaultPrevented) return;
     if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     const link = event.target.closest('a');
     if (!link || !event.currentTarget.contains(link)) return;

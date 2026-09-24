@@ -15,12 +15,12 @@
 
   const moreProducts = [
     { name: 'comma power', image: CommaPowerImage, href: '/support/products/comma-power' },
-    { name: 'comma threeX', image: Comma3XImage, href: '/support/comma-four-known-issues' },
-    { name: 'comma three', image: Comma3Image, href: '/support/comma-four-known-issues' },
-    { name: 'comma 2', image: Comma2Image, href: '/support/comma-four-known-issues' },
-    { name: 'comma body', image: BodyImage, href: '/shop/body' },
-    { name: 'comma panda', image: PandaImage, href: '/shop/red-panda' },
-    { name: 'comma jungle', image: JungleImage, href: '/shop/panda-jungle' }
+    { name: 'comma threeX', image: Comma3XImage, href: '/support/products/comma-3x' },
+    { name: 'comma three', image: Comma3Image, href: '/support/products/comma-three' },
+    { name: 'comma 2', image: Comma2Image, href: '/support/products/comma-two' },
+    { name: 'comma body', image: BodyImage, href: '/support/products/comma-body' },
+    { name: 'comma panda', image: PandaImage, href: '/support/products/comma-panda' },
+    { name: 'comma jungle', image: JungleImage, href: '/support/products/comma-jungle' }
   ];
 </script>
 

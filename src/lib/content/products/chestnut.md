@@ -9,9 +9,7 @@ imageAlt: chestnut GPU interface
 
 chestnut connects a desktop GPU to comma four for larger driving models. It can also connect to a computer over USB4.
 
-[Explore chestnut and its options](/shop/chestnut "article")
-
-## Set up chestnut
+## Set up a chestnut
 
 The chestnut product guide covers the included parts, GPU installation, power connections, and placement in your car.
 
@@ -19,12 +17,10 @@ The chestnut product guide covers the included parts, GPU installation, power co
 
 ## Using chestnut
 
-Connect chestnut to a compatible computer or pair it with comma four. Follow the product guide for the correct cable and power connections.
-
-[See connection options](/shop/chestnut#description "article")
+If you have bought a ready-to-drive chestnut, you must use the `release-chestnut` branch on your comma four to take advantage of the latest big models.
 
 ## Chestnut troubleshooting
 
-Check the GPU, power, and USB connections first. For help from other chestnut users, visit the community.
+Check the GPU, power, and USB connections first. For help from other chestnut users, visit #chestnut channel on our community [Discord](https://discord.comma.ai/).
 
 [Ask the community](https://discord.comma.ai/ "external")

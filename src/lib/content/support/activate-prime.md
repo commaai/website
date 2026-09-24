@@ -17,13 +17,13 @@ prime and prime lite subscriptions are tied to a specific device and cannot be t
 3. Open the settings menu and select **Prime Settings**.
 4. Choose prime or prime lite and follow the checkout instructions.
 
-prime includes cellular service in the United States. prime lite does not include cellular service, but you can connect over Wi-Fi or configure your own active SIM card.
+prime includes cellular service in the United States and Puerto Rico. prime lite does not include cellular service, but you can connect over Wi-Fi or configure your own active SIM card.
 
 **Do you have a brand new device?**
 
 A new comma four includes one free month of prime. Activate the offer from **Prime Settings** in comma connect. Unless you cancel before the trial ends, the subscription continues at $24 per month.
 
-International customers can subscribe to prime lite. Included prime cellular data is only available in the United States.
+International customers can subscribe to prime lite. Included prime cellular data is only available in the United States and Puerto Rico.
 
 ### commacare eligibility
 
@@ -31,18 +31,14 @@ To receive commacare, activate prime or prime lite within 30 days of receiving y
 
 [Learn more about commacare](/support/warranty#commacare "article")
 
+[How to cancel comma prime](/support/cancel-prime "article")
+
 ### Frequently asked questions
 
 ::: dropdown How do I transfer a prime subscription to a new device?
 Subscriptions cannot be transferred between devices. Cancel the subscription for your old device in [comma connect](https://connect.comma.ai/), then subscribe using the new device.
 
 Stored drives from the original device will not transfer to the new device.
-:::
-
-::: dropdown How do I cancel comma prime?
-In [comma connect](https://connect.comma.ai/), open the settings menu, select **Prime Settings**, then select **Cancel subscription**. You can cancel at any time without a cancellation fee, and no further monthly payments will be charged.
-
-Cancellation takes effect immediately. Credit for the unused portion of your current month is returned to your account. You can subscribe again later, but canceling also ends commacare immediately and commacare cannot be resumed.
 :::
 
 ::: dropdown I installed my own SIM card, but it isn't working. What should I do?

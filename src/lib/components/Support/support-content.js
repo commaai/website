@@ -13,7 +13,10 @@ import ArrowRight from '$lib/icons/arrow-right.svg?raw';
 import ExternalIcon from '$lib/icons/ui/external.svg?raw';
 import { renderSections } from './section-content';
 
-const files = import.meta.glob('/src/lib/content/support/**/*.md', {
+const files = import.meta.glob([
+  '/src/lib/content/support/**/*.md',
+  '!/src/lib/content/support/index.md'
+], {
   eager: true,
   query: '?raw',
   import: 'default'

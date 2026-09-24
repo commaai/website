@@ -1,7 +1,6 @@
 <script>
   import './support.css';
   import { tick } from 'svelte';
-  import { goto } from '$app/navigation';
   import SupportHeader from './SupportHeader.svelte';
   import SupportCatchAll from './SupportCatchAll.svelte';
   import SectionNav from './SectionNav.svelte';
@@ -22,9 +21,12 @@
     function updateActive() {
       frame = undefined;
       if (!targets.length) return;
+      const scrollPadding = Number.parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0;
+      const scrollMargin = Number.parseFloat(getComputedStyle(targets[0].node).scrollMarginTop) || 0;
+      const activationLine = scrollPadding + scrollMargin + 2;
       let current = targets[0];
       for (const target of targets) {
-        if (target.node.getBoundingClientRect().top <= 140) current = target;
+        if (target.node.getBoundingClientRect().top <= activationLine) current = target;
       }
       activeHeading = current.id;
     }
@@ -37,7 +39,7 @@
       const currentRevision = ++revision;
       await tick();
       if (disposed || currentRevision !== revision) return;
-      const selector = 'article > section > h2';
+      const selector = 'article > section > h2, article > section > .section-body > h3';
       targets = Array.from(node.querySelectorAll(selector)).map((element, index) => {
         const id = element.id || `article-heading-${index}`;
         element.id = id;
@@ -64,11 +66,11 @@
     };
   }
 
-  async function jumpToHeading(event, heading) {
+  function jumpToHeading(event, heading) {
     if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     event.preventDefault();
-    const target = heading.node;
-    await goto(`#${heading.id}`, { noScroll: true, keepFocus: true });
+    const target = heading.node || document.getElementById(heading.id);
+    if (!target) return;
     target.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
     activeHeading = heading.id;
   }
@@ -108,6 +110,7 @@
   .article-content :global(a:not(.article-card-link)) { color: #000; border-bottom: 2px solid #86ff4e; background-color: rgba(134, 255, 78, 0.15); text-decoration: none; }
   .article-content :global(img) { display: block; width: auto; max-width: 100%; height: auto; max-height: 300px; margin: 32px auto 20px; border: 1px solid var(--support-border); }
   .article-content :global(iframe) { max-width: 100%; }
+  .article-content :global(.sim-replacement-video) { display: block; width: min(100%, 560px); height: auto; aspect-ratio: 16 / 9; margin: 0 auto 20px; }
   .article-content :global(pre) { overflow-x: auto; }
   .sectioned-content :global(section) { padding: 0; scroll-margin-top: 110px; }
   .sectioned-content :global(.section-body ul) { padding-left: 22px; }

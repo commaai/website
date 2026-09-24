@@ -6,7 +6,7 @@
 <section class="restored-faqs standalone" aria-labelledby="support-faqs-title">
   <div class="all-faqs">
     <h2 id="support-faqs-title">FAQs</h2>
-    {#each Object.keys(faq) as key}
+    {#each Object.keys(faq).filter(key => key !== 'connect') as key}
       <div class="faq-card"><Faq topic={faq[key]} /></div>
     {/each}
   </div>

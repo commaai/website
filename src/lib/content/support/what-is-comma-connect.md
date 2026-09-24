@@ -3,11 +3,6 @@ title: What is comma connect?
 order: 0
 ---
 
-::: header comma connect
-image: connect
-alt: comma connect banner
-:::
-
 [comma connect](https://connect.comma.ai/) is the web app for managing your comma device and reviewing your recent drives.
 
 ### Drive history

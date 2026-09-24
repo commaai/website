@@ -35,7 +35,7 @@ Make sure nothing blocks the device's view of the sky. If GPS still has trouble,
 ::: dropdown Car isn't recognized or openpilot won't engage
 First check whether your car is supported. Then check the harness and cable installation with the [setup guide](/setup), and reseat each connection.
 
-[check if your car is supported](/vehicles, "article")
+[check if your car is supported](/vehicles "article")
 
 If the car is supported and the issue continues on the latest stock openpilot, capture a route showing the issue. A stock route helps support rule out changes made by other software.
 

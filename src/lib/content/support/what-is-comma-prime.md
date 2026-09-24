@@ -4,11 +4,6 @@ description:
 order: 1
 ---
 
-::: header comma prime
-image: connect
-alt: comma prime banner
-:::
-
 comma prime is an optional subscription for your comma device. A subscription is not required to use openpilot or any core driving feature.
 
 ### prime

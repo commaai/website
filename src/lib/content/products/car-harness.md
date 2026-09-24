@@ -23,6 +23,6 @@ Once installed, check that each connector is fully seated before your first driv
 
 ## Car harness troubleshooting
 
-If your car is not recognized, confirm your exact car is supported, then reseat the harness and cable connections.
+If your car is not recognized, confirm your exact car is supported, then reseat the harness and cable connections. 
 
-[Hardware troubleshooting](/support/comma-four-known-issues "article")
+Still having issues? Contact support using the links below.

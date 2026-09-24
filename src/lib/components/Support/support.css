@@ -28,6 +28,10 @@
   margin: 0 0 64px;
 }
 
+.support-type .article-content > section:first-of-type:not(:first-child) {
+  margin-top: 64px;
+}
+
 .support-type .support-page-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
