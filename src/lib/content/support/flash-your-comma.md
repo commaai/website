@@ -14,4 +14,4 @@ Flashing erases the software and data on your comma device and restores it to a 
 2. When the flash finishes, complete setup on the device.
 3. Install the latest official openpilot release during setup.
 
-If the issue continues on stock openpilot, return to [hardware troubleshooting](/support/troubleshooting/hardware) and follow the steps to contact support.
+If the issue continues on stock openpilot, return to [hardware troubleshooting](/support/comma-four-known-issues) and follow the steps to contact support.

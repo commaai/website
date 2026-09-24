@@ -13,9 +13,9 @@
   let showAllProducts = false;
 
   const moreProducts = [
-    { name: 'comma 3x', image: Comma3XImage, href: '/support/troubleshooting/hardware' },
-    { name: 'comma 3', image: Comma3Image, href: '/support/troubleshooting/hardware' },
-    { name: 'comma 2', image: Comma2Image, href: '/support/troubleshooting/hardware' },
+    { name: 'comma 3x', image: Comma3XImage, href: '/support/comma-four-known-issues' },
+    { name: 'comma 3', image: Comma3Image, href: '/support/comma-four-known-issues' },
+    { name: 'comma 2', image: Comma2Image, href: '/support/comma-four-known-issues' },
     { name: 'comma body', image: BodyImage, href: '/shop/body' },
     { name: 'comma panda', image: PandaImage, href: '/shop/red-panda' },
     { name: 'comma jungle', image: JungleImage, href: '/shop/panda-jungle' }

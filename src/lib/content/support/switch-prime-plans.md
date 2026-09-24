@@ -19,4 +19,4 @@ Cancellation is prorated and takes effect on the same day.
 
 Don't know what the difference between the plans are? Read more here.
 
-[What is comma prime?](/support/prime-connect/what-is-comma-prime "card")
+[What is comma prime?](/support/what-is-comma-prime "article")

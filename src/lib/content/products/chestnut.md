@@ -27,4 +27,4 @@ Connect chestnut to a compatible computer or pair it with comma four. Follow the
 
 Check the GPU, power, and USB connections first. For help from other chestnut users, visit the community.
 
-[Ask the community](https://discord.comma.ai/ "article")
+[Ask the community](https://discord.comma.ai/ "external")

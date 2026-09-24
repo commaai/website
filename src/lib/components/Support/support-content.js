@@ -9,6 +9,9 @@ import ShopIcon from '$lib/icons/ui/basket.svg';
 import ConnectivityIcon from '$lib/icons/features/connectivity.svg';
 import ConnectImage from '$lib/images/faq/connect.svg';
 import OtherImage from '$lib/images/faq/other.svg';
+import ArrowRight from '$lib/icons/arrow-right.svg?raw';
+import ExternalIcon from '$lib/icons/ui/external.svg?raw';
+import { renderSections } from './section-content';
 
 const files = import.meta.glob('/src/lib/content/support/**/*.md', {
   eager: true,
@@ -50,18 +53,20 @@ function headingId(text) {
 }
 
 supportRenderer.link = function(token) {
-  if (token.title === 'card') {
+  if (token.title === 'article') {
     return renderLink({ ...token, title: null })
       .replace('<a ', '<a class="article-card-link" ')
-      .replace('</a>', '<span class="article-card-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>');
+      .replace('</a>', `<span class="article-card-arrow" aria-hidden="true">${ArrowRight}</span></a>`);
   }
-  if (token.title === 'external-card') {
+  if (token.title === 'external') {
     return renderLink({ ...token, title: null })
       .replace('<a ', '<a class="article-card-link external-card-link" target="_blank" rel="noopener noreferrer" ')
-      .replace('</a>', '<span class="article-card-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>');
+      .replace('</a>', `<span class="article-card-arrow" aria-hidden="true">${ExternalIcon}</span></a>`);
   }
   return renderLink(token);
 };
+
+export { supportRenderer };
 
 supportRenderer.heading = function(token) {
   const html = renderHeading(token);
@@ -88,7 +93,7 @@ const dropdownExtension = {
     const content = this.parser.parse(token.tokens);
     const id = headingId(title);
     const idAttribute = id ? ` id="${escapeAttribute(id)}"` : '';
-    return `<details class="support-dropdown"${idAttribute}><summary><span class="support-dropdown-label">${title}</span><span class="support-dropdown-chevron" aria-hidden="true"><svg viewBox="0 0 12 8"><path d="M10.59.59 6 5.17 1.41.59 0 2l6 6 6-6L10.59.59Z" fill="currentColor"/></svg></span></summary><div class="support-dropdown-content">${content}</div></details>`;
+    return `<hr class="support-dropdown-divider" /><details class="support-dropdown"${idAttribute}><summary><span class="support-dropdown-label">${title}</span><span class="support-dropdown-chevron" aria-hidden="true"><svg viewBox="0 0 12 8"><path d="M10.59.59 6 5.17 1.41.59 0 2l6 6 6-6L10.59.59Z" fill="currentColor"/></svg></span></summary><div class="support-dropdown-content">${content}</div></details><hr class="support-dropdown-divider" />`;
   },
   childTokens: ['titleTokens', 'tokens']
 };
@@ -211,11 +216,13 @@ function parseMarkdown(path, markdown, kind) {
   }
 
   const articleHeader = /^::: header[^\n]*\nimage:[ \t]*([^\n]+)(?:\nalt:[ \t]*([^\n]+))?\n:::[ \t]*(?:\n|$)/.exec(body);
+  const content = articleHeader ? body.slice(articleHeader[0].length).trim() : body;
+  const sections = renderSections(content, source => marked.parse(source, { renderer: supportRenderer }));
   return {
     ...entry,
     articleImage: articleHeader ? supportImage(articleHeader[1].trim()) : undefined,
     articleImageAlt: articleHeader?.[2]?.trim() || metadata.title,
-    articleContent: marked.parse(articleHeader ? body.slice(articleHeader[0].length).trim() : body, { renderer: supportRenderer })
+    ...sections
   };
 }
 

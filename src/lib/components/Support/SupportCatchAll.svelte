@@ -42,8 +42,8 @@
 </section>
 
 <style>
-  .support-catch-all { margin: 64px 0; padding: 32px 0 0; border-top: 1px solid var(--support-border); color: var(--support-text); }
-  .support-catch-all.standalone { padding: 0; border: 0; }
+  .support-catch-all { margin: 64px 0; padding: 0; color: var(--support-text); }
+  .support-catch-all.standalone { padding: 0; }
   .support-catch-all-heading { margin-bottom: 28px; }
   .support-catch-all-heading span { display: block; margin-bottom: -32px; color: var(--support-muted); font-size: 13px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
   .support-catch-all-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }

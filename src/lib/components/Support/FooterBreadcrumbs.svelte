@@ -11,9 +11,7 @@
     ];
     if (!pathname.startsWith('/support/')) return [];
 
-    const productKey = pathname === '/support/orders-warranty'
-      ? 'orders-returns'
-      : pathname.startsWith('/support/products/') ? pathname.split('/')[3] : null;
+    const productKey = pathname.startsWith('/support/products/') ? pathname.split('/')[3] : null;
     const product = productKey && products.get(productKey);
     if (product) return [
       { label: 'comma home', href: '/', icon: true },

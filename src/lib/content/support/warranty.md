@@ -12,7 +12,7 @@ The warranty follows the device. If you did not purchase the device yourself, yo
 
 ## Get warranty help
 
-First follow the steps in [hardware troubleshooting](/support/troubleshooting/hardware). If the problem continues, [open a hardware support ticket](https://commasupport.zendesk.com/hc/en-us/requests/new?ticket_form_id=14150133300887) and include:
+First follow the steps in [hardware troubleshooting](/support/comma-four-known-issues). If the problem continues, [open a hardware support ticket](https://commasupport.zendesk.com/hc/en-us/requests/new?ticket_form_id=14150133300887) and include:
 
 - Your order and device details
 - A clear description of the problem

@@ -13,8 +13,8 @@
 </section>
 
 <style>
-  .restored-faqs { padding: 32px 0 0; border-top: 1px solid var(--support-border); }
-  .restored-faqs.standalone { padding: 0; border: 0; }
+  .restored-faqs { padding: 32px 0 0; }
+  .restored-faqs.standalone { padding: 0; }
   .faq-card { margin-bottom: 3rem; }
 
   @media (max-width: 760px) {

@@ -7,10 +7,10 @@ order: 0
 ---
 
 ::: options
-- [Orders & Returns](/support/orders-warranty) — Shipping, returns, and exchanges
+- [Orders & Returns](/support/orders-returns) — Shipping, returns, and exchanges
   image: shipping
-- [Warranty](/support/orders-warranty/warranty) — Coverage, claims, and commacare
+- [Warranty](/support/warranty) — Coverage, claims, and commacare
   image: warranty
-- [Vehicle Compatibility](/vehicles) — Check if your car works with openpilot
+- [Vehicle Compatibility](/support/vehicle-compatibility) — Check if your car works with openpilot
   image: car
 :::

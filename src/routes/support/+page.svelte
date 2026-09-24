@@ -8,6 +8,7 @@
   import SupportFaqs from '$lib/components/Support/SupportFaqs.svelte';
   import SupportProducts from '$lib/components/Support/SupportProducts.svelte';
   import SupportHeader from '$lib/components/Support/SupportHeader.svelte';
+  import ArrowRight from '$lib/icons/arrow-right.svg?raw';
   import { supportHome, supportByPath } from '$lib/components/Support/support-content';
 
   let lastScrolledHash = '';
@@ -87,7 +88,7 @@
           {#if landingArticles.length}
             <div class="before-buy-links">
               {#each landingArticles as article}
-                <a href="/support/{article.path}">{article.title}<span class="article-card-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span></a>
+                <a href="/support/{article.path}">{article.title}<span class="article-card-arrow" aria-hidden="true">{@html ArrowRight}</span></a>
               {/each}
             </div>
           {/if}
@@ -96,11 +97,13 @@
       </div>
     {/if}
 
-    {#if !supportPath}<hr class="section-divider" />{/if}
-    <SupportCatchAll standalone={!supportPath} />
+    {#if !selectedArticle}
+      <hr class="support-divider" />
+      <SupportCatchAll standalone={!supportPath} />
+    {/if}
 
     {#if !supportPath && hash !== 'search'}
-      <hr class="section-divider" />
+      <hr class="support-divider" />
       <SupportFaqs />
     {/if}
   </div>
@@ -120,7 +123,6 @@
   }
   .help-shell { width: 85%; max-width: 90rem; margin: auto; padding-bottom: 48px; }
   .category-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-bottom: 64px; padding-top: 32px; }
-  .section-divider { height: 0; margin: 0; border: 0; border-top: 1px solid var(--support-border); }
   .category-card { box-sizing: border-box; min-width: 0; border: 1px solid var(--support-border); background: var(--support-surface); color: var(--support-text); display: block; text-decoration: none; }
   @media (hover: hover) and (pointer: fine) {
     .category-card:hover { background: var(--support-hover); }
@@ -143,21 +145,12 @@
   .before-buy-links { display: grid; gap: 12px; margin-top: 24px; }
   .before-buy-links a { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; box-sizing: border-box; padding: 16px 20px; border: 1px solid var(--support-border); background: var(--support-surface); font-weight: 600; }
   .before-buy-links a:hover { background: var(--support-hover); }
-  .help-center :global(.article-card-arrow) { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; flex: 0 0 28px; }
-  .help-center :global(.article-card-arrow svg) { display: block; width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: square; stroke-linejoin: miter; }
   .section-content { overflow-wrap: anywhere; }
   .section-after-articles { margin-top: 0; }
-  .section-content :global(a) { color: #000; border-bottom: 2px solid #86ff4e; background-color: rgba(134, 255, 78, 0.15); text-decoration: none; }
-  .section-content :global(.article-card-link) { display: flex; align-items: center; justify-content: space-between; gap: 16px; box-sizing: border-box; width: 100%; min-height: 64px; padding: 16px 20px; border: 1px solid var(--support-border); background: var(--support-surface); font-weight: 600; }
-  .section-content :global(.article-card-link:hover) { background: var(--support-hover); }
+  .section-content :global(a:not(.article-card-link)) { color: #000; border-bottom: 2px solid #86ff4e; background-color: rgba(134, 255, 78, 0.15); text-decoration: none; }
   .section-content :global(img), .section-content :global(iframe) { max-width: 100%; }
-  .help-center :global(.support-dropdown) { margin: 0; border-bottom: 1px solid #333; background: transparent; color: var(--support-text); font-family: Inter, sans-serif; }
-  .help-center :global(h1 + .support-dropdown),
-  .help-center :global(h2 + .support-dropdown),
-  .help-center :global(h3 + .support-dropdown),
-  .help-center :global(h4 + .support-dropdown),
-  .help-center :global(h5 + .support-dropdown),
-  .help-center :global(h6 + .support-dropdown) { border-top: 1px solid #333; }
+  .help-center :global(.support-dropdown) { margin: 0; background: transparent; color: var(--support-text); font-family: Inter, sans-serif; }
+  .help-center :global(.support-dropdown-divider) { border-top-color: #333; }
   .help-center :global(.support-dropdown summary) { position: relative; display: grid; align-items: center; box-sizing: border-box; padding: 0 52px 0 20px; background: transparent; color: var(--support-text); cursor: pointer; list-style: none; }
   .help-center :global(.support-dropdown summary::-webkit-details-marker) { display: none; }
   .help-center :global(.support-dropdown-label) { margin: 1rem 0; font: inherit; font-size: 1.25rem; font-weight: 600; }

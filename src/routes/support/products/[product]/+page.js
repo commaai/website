@@ -8,5 +8,5 @@ export function load({ params }) {
 }
 
 export function entries() {
-  return [...products.keys()].filter(product => product !== 'orders-returns').map(product => ({ product }));
+  return [...products.keys()].map(product => ({ product }));
 }
