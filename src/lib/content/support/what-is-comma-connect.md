@@ -7,7 +7,7 @@ order: 0
 
 ### Drive history
 
-Your device uploads drive data when it has an internet connection. Drives are available in connect for three days without a subscription and for one year with comma prime or prime lite.
+Your device uploads drive data when it has an internet connection. Drives are available in connect for three days without a subscription.
 
 Select a drive to view its route and available camera footage. If you need to share a drive with support, copy its route name or link from connect.
 
@@ -22,3 +22,5 @@ comma prime and prime lite are activated and managed in connect. Open the settin
 [Learn how to pair to connect](/support/pair-your-device "article")
 
 [Open comma connect](https://connect.comma.ai/ "external")
+
+Learn more about comma prime and how it upgrades your comma connect experience [here](/support/what-is-comma-prime).

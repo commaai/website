@@ -6,7 +6,9 @@ order: 1
 
 ## Basic hardware warranty
 
-Hardware purchased from the comma shop includes a one-year limited warranty against hardware defects. The warranty does not cover theft, loss, accidental damage, or damage caused by improper handling or repair.
+Hardware purchased from the comma shop includes a one-year limited warranty against hardware defects. Eligible comma four devices can extend that coverage with commacare. The warranty does not cover theft, loss, accidental damage, or damage caused by improper handling or repair.
+
+If you open or repair a comma four, you do so at your own risk. comma is not responsible for damage that occurs during repairs. Report any damage present when your device arrives within 14 days of delivery using the [shop support form](https://commasupport.zendesk.com/hc/en-us/requests/new?ticket_form_id=29233377161623). Include photos of the device and its packaging.
 
 The warranty follows the device. If you did not purchase the device yourself, you must provide the original order number and the email address used for the order. comma cannot retrieve that information for you.
 

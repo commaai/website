@@ -7,10 +7,6 @@ imageAlt: comma 3X device
 
 ## Maintaining your comma threeX
 
-If you are having issues with your comma 3X and it is still in-warranty, you can open a support ticket for help.
-
-[Open a support ticket](https://commasupport.zendesk.com/hc/en-us/requests/new "external")
-
 ### Replacing your SIM card
 
 [How to replace the SIM card in a comma 3X](/support/replace-comma-3x-sim-card "article")
@@ -22,6 +18,12 @@ Reset the comma 3X by repeatedly tapping on the screen as soon as the device boo
 If this does not work, a more complete factory reset can be performed at [flash.comma.ai](https://flash.comma.ai).
 
 [Learn how to flash your comma](/support/flash-your-comma "article")
+
+### In-warranty repairs
+
+If you are having issues with your comma 3X and it is still in-warranty, you can open a support ticket for help.
+
+[Open a support ticket](https://commasupport.zendesk.com/hc/en-us/requests/new "external")
 
 ## Upgrading to a comma four
 

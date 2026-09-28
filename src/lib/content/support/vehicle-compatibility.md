@@ -1,6 +1,6 @@
 ---
-title: Vehicle compatibility
-description: Find your car, check its required equipment, and choose the matching harness before ordering.
+title: Is your car compatible?
+description: A guide on how to check if your vehicle is compatible with openpilot
 order: 0
 ---
 

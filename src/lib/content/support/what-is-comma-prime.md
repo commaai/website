@@ -8,7 +8,7 @@ comma prime is an optional subscription for your comma device. A subscription is
 
 ### prime
 
-prime costs $24 per month and includes cellular data service in the United States. It also includes one year of drive storage in comma connect and eligible commacare coverage.
+prime costs $24 per month and includes cellular data service in the United States and Puerto Rico. It also includes one year of drive storage in comma connect and eligible commacare coverage.
 
 ### prime lite
 

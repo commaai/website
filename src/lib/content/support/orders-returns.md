@@ -43,7 +43,7 @@ Orders must be placed through the comma shop. Orders over $10,000 may be paid by
 :::
 
 ::: dropdown What do I do if my device arrives damaged?
-Report the issue within three days of delivery using the [shop support form](https://commasupport.zendesk.com/hc/en-us/requests/new?ticket_form_id=29233377161623). Include photos of both the product and its packaging. comma may not be responsible if you do not report damage within this window.
+Report the damage within 14 days of delivery using the [shop support form](https://commasupport.zendesk.com/hc/en-us/requests/new?ticket_form_id=29233377161623). Include photos of the device and its packaging. comma may not be responsible if you do not report damage within this window.
 
 If a returned device arrives damaged, the repair cost may be deducted from your refund. comma is not responsible for items lost or damaged on their way back, so pack the device carefully.
 :::

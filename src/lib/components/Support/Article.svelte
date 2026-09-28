@@ -115,8 +115,5 @@
   .sectioned-content :global(section) { padding: 0; scroll-margin-top: 110px; }
   .sectioned-content :global(.section-body ul) { padding-left: 22px; }
   .sectioned-content :global(.section-body .article-card-link) { margin: 10px 0; }
-  .sectioned-content :global(.section-body summary) { padding: 18px 20px; cursor: pointer; font-size: 18px; font-weight: 600; }
-  .sectioned-content :global(.section-body .support-dropdown-content) { margin-left: 20px; padding: 0 20px 18px 0; }
-  .sectioned-content :global(.section-body .support-dropdown-chevron) { float: right; }
   @media (max-width: 760px) { .shell { padding-bottom: 24px; } }
 </style>

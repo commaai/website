@@ -56,14 +56,3 @@ We aren't able to transfer comma prime subscriptions between devices. To do so, 
 
 Your stored drives from the original device will not be transferred to the new device.
 :::
-
-::: dropdown What is commacare?
-commacare extends your comma four's warranty for up to an additional year beyond the standard one-year warranty, giving you two years of total coverage.
-
-We've made commacare simple and straightforward:
-
-- commacare is included automatically with your comma prime ($24/mo) or prime lite ($14/mo) subscription.
-- You must start your prime subscription within the first 30 days of receiving your comma four to be eligible for commacare.
-- If you cancel your prime subscription, your commacare warranty ends immediately and cannot be resumed. The standard warranty terms will continue to apply for any remaining time in the first year.
-- commacare provides the same coverage as the standard one-year warranty. It does not cover theft, loss, or accidental damage.
-:::

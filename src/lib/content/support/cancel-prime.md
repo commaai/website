@@ -15,7 +15,7 @@ You can cancel at any time without a cancellation fee. Cancellation takes effect
 ## Billing and account credit
 
 - If you have a free trial, your credit card is charged the monthly subscription fee when the trial ends unless you cancel first.
-- After the trial, your credit card is charged monthly until you cancel. For example, a subscription started on April 5 is charged on May 5, June 5, and each following month until cancellation.
+- After the trial, your credit card is charged monthly until you cancel.
 - When you cancel, the unused portion of your last paid month is prorated and returned as credit to your account.
 
 You can subscribe again at any time.

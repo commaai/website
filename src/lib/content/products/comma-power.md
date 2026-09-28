@@ -13,6 +13,7 @@ With a comma power:
 - The start and end of every drive are recorded.
 - Your comma four remains powered and online while the car is off.
 - Your comma four downloads updates while the car is off.
+- Your comma uploads drives for viewing on connect while your car is off.
 
 ## Install comma power
 

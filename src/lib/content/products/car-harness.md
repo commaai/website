@@ -25,4 +25,4 @@ Once installed, check that each connector is fully seated before your first driv
 
 If your car is not recognized, confirm your exact car is supported, then reseat the harness and cable connections. 
 
-Still having issues? Contact support using the links below.
+Still having issues? [Contact support](https://commasupport.zendesk.com/hc/en-us/requests/new).
