@@ -23,7 +23,7 @@ Find help with hardware issues.
 
 [Capture a route](/support/how-to-capture-a-route "article")
 
-## Add ons for your comma four
+## Add-ons for your comma four
 
 Upgrade your experience with comma connect to view your recent drives and comma prime for 24/7 connection to your comma device and a year of drive cloud storage.
 
