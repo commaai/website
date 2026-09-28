@@ -248,6 +248,76 @@ button, select {
   font-family: Inter, sans-serif;
 }
 
+.support-article-header {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  width: 100%;
+  min-height: 180px;
+  margin: 2rem 0;
+  background-color: #000;
+  overflow: hidden;
+}
+
+.support-article-header h1 {
+  margin: 1rem 2rem;
+  color: white;
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: normal;
+  text-wrap: balance;
+}
+
+.support-article-header-image {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  height: 180px;
+}
+
+.support-article-header img,
+.article-content .support-article-header img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 180px;
+  margin: 0;
+  border: 0;
+  color: white;
+  object-fit: contain;
+}
+
+@media (max-width: 1024px) {
+  .support-article-header h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .support-article-header {
+    grid-template-columns: 1fr;
+  }
+
+  .support-article-header h1 {
+    font-size: 2rem;
+  }
+
+  .support-article-header-image {
+    height: 150px;
+  }
+
+  .support-article-header img {
+    max-height: 150px;
+  }
+}
+
+@media (max-width: 375px) {
+  .support-article-header h1 {
+    font-size: 1.5rem;
+  }
+}
+
 .mobile-first {
   @media only screen and (max-width: 1024px) {
     & {
