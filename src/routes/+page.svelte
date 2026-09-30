@@ -11,6 +11,7 @@
   import DeviceBackImage from "$lib/images/products/comma-four/four_back.png?w=1440";
   import DeviceSideImage from "$lib/images/products/comma-four/four_side.png?w=1440";
   import SetupVideo from "$lib/images/setup/comma-four/setup-stopmotion.mp4";
+  import SetupPoster from "$lib/images/setup/comma-four/setup-stopmotion-poster.webp";
   import MapActivity from "$lib/images/home/map-activity-2x.png";
   import ArrowRight from "$lib/icons/arrow-right.svg?raw";
   import LaneCenteringIcon from "$lib/icons/features/lane-centering.svg?raw";
@@ -67,7 +68,6 @@
   let heroVideoReady = false;
   let screenVideoElement;
   let screenVideoReady = false;
-  let setupVideoElement;
   let selectedDeviceViewIndex = 0;
   $: selectedDeviceView = deviceViews[selectedDeviceViewIndex];
 
@@ -103,7 +103,6 @@
     const handleScreenPlaying = () => screenVideoReady = true;
     let destroyHeroHLS = () => {};
     let destroyScreenHLS = () => {};
-    let setupVideoTimer;
 
     const playVideo = (videoEl) => {
       videoEl.play().catch(() => {});
@@ -129,27 +128,12 @@
       );
     }
 
-    const loadSetupVideo = () => {
-      if (!setupVideoElement) return;
-      setupVideoElement.src = SetupVideo;
-      playVideo(setupVideoElement);
-    };
-
-    if (document.readyState === 'complete') {
-      setupVideoTimer = window.setTimeout(loadSetupVideo, 0);
-    } else {
-      window.addEventListener('load', loadSetupVideo, { once: true });
-    }
-
     return () => {
       mobileHeroQuery.removeEventListener('change', loadHeroVideo);
       heroVideoElement.removeEventListener('playing', handleHeroPlaying);
       screenVideoElement?.removeEventListener('playing', handleScreenPlaying);
       destroyHeroHLS();
       destroyScreenHLS();
-      window.removeEventListener('load', loadSetupVideo);
-      window.clearTimeout(setupVideoTimer);
-      setupVideoElement?.pause();
     };
   });
 
@@ -260,12 +244,13 @@
       </h1>
       <div class="setup-media">
         <video
-          bind:this={setupVideoElement}
           aria-label="A stop-motion demonstration of installing a comma device"
+          src={SetupVideo}
+          poster={SetupPoster}
+          autoplay
           muted
           loop
           playsinline
-          preload="none"
         ></video>
       </div>
       <div class="compatibility-list">
