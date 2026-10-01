@@ -95,7 +95,7 @@
     </a>
     <div class="copy">
       <h2>We're solving self driving cars while delivering shippable intermediaries.</h2>
-      <p>We make the <a class="release-link" href="/shop/comma-four">comma four</a> and develop <a class="release-link" href="/openpilot">openpilot</a>, an open source advanced driver assistance system. We're bringing driver assistance to cars on the road today like Hyundais, Toyotas, Fords, and more ({vehicleCountText} supported models).</p>
+      <p>We make the <a class="release-link" href="/shop/comma-four">comma four</a> and develop <a class="release-link" href="/openpilot">openpilot</a>, an open source advanced driver assistance system. openpilot upgrades driver assistance in cars on the road today like Hyundais, Toyotas, Fords, and more ({vehicleCountText} supported models).</p>
     </div>
   </div>
 </section>
