@@ -13,33 +13,15 @@
   import SetupVideo from "$lib/images/setup/comma-four/setup-stopmotion.mp4";
   import MapActivity from "$lib/images/home/map-activity-2x.png";
   import ArrowRight from "$lib/icons/arrow-right.svg?raw";
-  import LaneCenteringIcon from "$lib/icons/features/lane-centering.svg?raw";
-  import AdaptiveCruiseIcon from "$lib/icons/features/adaptive-cruise.svg?raw";
-  import ReducedFatigueIcon from "$lib/icons/features/moon.svg?raw";
-  import CloudDashcamIcon from "$lib/icons/features/recordings.svg?raw";
+
+  export let meetSub;
+  export let features;
+  export let buyNote = "free over-the-air updates, no subscription";
 
   const CDN_BASE = "https://3comma.net";
   const HeroLandscapeVideo = `${CDN_BASE}/hero-landscape/hero-landscape.m3u8`;
   const HeroPortraitVideo = `${CDN_BASE}/hero-portrait/hero-portrait.m3u8`;
   const ScreenVideo = `${CDN_BASE}/screen-video/screen-video.m3u8`;
-  const commaFourFeatures = [
-    {
-      icon: LaneCenteringIcon,
-      label: "lane centering",
-    },
-    {
-      icon: AdaptiveCruiseIcon,
-      label: "adaptive cruise",
-    },
-    {
-      icon: ReducedFatigueIcon,
-      label: "reduced fatigue",
-    },
-    {
-      icon: CloudDashcamIcon,
-      label: "cloud dashcam",
-    },
-  ];
   const deviceViews = [
     {
       image: DeviceImage,
@@ -70,6 +52,7 @@
   let setupVideoElement;
   let selectedDeviceViewIndex = 0;
   $: selectedDeviceView = deviceViews[selectedDeviceViewIndex];
+  $: hasNotes = features.some((feature) => feature.note);
 
   function initializeHLS(videoEl, src, onReady) {
     if (Hls.isSupported()) {
@@ -191,7 +174,7 @@
     <div class="two-column-layout meet-grid">
       <div class="comma-four-content">
         <h1>meet comma four</h1>
-        <h2>replace your car's lane keeping and cruise control with openpilot. hands-free driving on back roads, not just the highway.</h2>
+        <h2>{meetSub}</h2>
       </div>
 
       <div class="device-gallery">
@@ -232,13 +215,18 @@
         </div>
       </div>
 
-      <div class="feature-grid">
-        {#each commaFourFeatures as feature}
+      <div class="feature-grid" class:with-notes={hasNotes}>
+        {#each features as feature}
           <div class="feature-item">
             <span class="feature-icon">
               {@html feature.icon}
             </span>
-            <span>{feature.label}</span>
+            <span class="feature-copy">
+              <span class="feature-label">{feature.label}</span>
+              {#if feature.note}
+                <span class="feature-note">{feature.note}</span>
+              {/if}
+            </span>
           </div>
         {/each}
       </div>
@@ -248,11 +236,13 @@
           <span>buy now for $999</span>
           <span class="cta-arrow" aria-hidden="true">{@html ArrowRight}</span>
         </a>
-        <p class="buy-note">free over-the-air updates, no subscription</p>
+        <p class="buy-note">{buyNote}</p>
       </div>
     </div>
   </div>
 </section>
+
+<slot name="after-hero" />
 
 <section class="light" id="compatibility">
   <div class="container">
@@ -303,13 +293,14 @@
   </div>
 </section>
 
+<slot name="before-proof" />
+
 <section class="light" id="testimonials">
   <div class="container">
     <h1>don't take our word for it</h1>
     <TestimonialSection />
   </div>
 </section>
-
 
 <section class="light" id="closing-cta">
   <div class="container">
@@ -585,13 +576,47 @@
         justify-content: center;
       }
 
-      & > span:last-child {
+      & .feature-copy {
+        display: flex;
+        flex-flow: column;
+        gap: 0.25rem;
+        min-width: 0;
+      }
+
+      & .feature-label {
         color: white;
         font-size: clamp(1rem, 2vw, 1.5rem);
         font-weight: 400;
         letter-spacing: -0.04em;
         line-height: 1.1;
         white-space: nowrap;
+      }
+
+      & .feature-note {
+        color: white;
+        font-size: 1rem;
+        line-height: 1.25;
+        opacity: 0.6;
+      }
+    }
+
+    /* longer copy needs to wrap, and reads better at one per row */
+    & .feature-grid.with-notes {
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+
+      & .feature-label {
+        font-size: clamp(1rem, 1.5vw, 1.25rem);
+        font-weight: 500;
+        white-space: normal;
+      }
+
+      & .feature-item {
+        align-items: start;
+      }
+
+      & .feature-icon {
+        flex-basis: clamp(2.25rem, 3.5vw, 3rem);
+        height: clamp(2.25rem, 3.5vw, 3rem);
       }
     }
 
@@ -629,6 +654,11 @@
     display: block;
     height: clamp(2rem, 3.3vw, 3rem);
     width: clamp(2rem, 3.3vw, 3rem);
+  }
+
+  #hero .with-notes .feature-icon :global(svg) {
+    height: clamp(1.75rem, 2.6vw, 2.25rem);
+    width: clamp(1.75rem, 2.6vw, 2.25rem);
   }
 
   #compatibility {
@@ -901,5 +931,4 @@
       width: clamp(4rem, 20vw, 5.5625rem);
     }
   }
-
 </style>
