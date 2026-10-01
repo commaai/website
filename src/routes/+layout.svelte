@@ -140,6 +140,7 @@
       <div class="footer-links">
         <strong>Company</strong>
         <a href="https://blog.comma.ai">Blog</a>
+        <a href="/media">Press</a>
         <a class="badged" href="/jobs">
           <span>Jobs</span>
           <Badge style="light" display="inline">we're hiring!</Badge>
