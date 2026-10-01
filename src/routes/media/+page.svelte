@@ -74,9 +74,9 @@
     { title: "Circuit board", image: BoardImage, download: BoardDownload, name: "comma-four-circuit-board.png" },
   ];
   const videos = [
-    { title: "comma four installation", src: SetupVideo, name: "comma-four-installation.mp4" },
     { title: "comma four with openpilot", src: DrivingVideo, name: "comma-four-driving.mp4" },
     { title: "Driver monitoring", src: DriverMonitoringVideo, name: "comma-driver-monitoring.mp4" },
+    { title: "comma four installation", src: SetupVideo, name: "comma-four-installation.mp4" },
   ];
 </script>
 
