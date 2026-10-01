@@ -6,17 +6,17 @@
   import Windshield43Image from "$lib/images/products/comma-four/windshield43.png?w=960";
   import Windshield43Download from "$lib/images/products/comma-four/windshield43.png?format=png&as=url";
   import Factory1Image from "$lib/images/manufacturing/factory-1.png?w=960";
-  import Factory1Download from "$lib/images/manufacturing/factory-1.png?format=png&as=url";
+  import Factory1Download from "$lib/images/manufacturing/factory-1.png?format=jpg&quality=95&as=url";
   import Factory2Image from "$lib/images/manufacturing/factory-2.png?w=960";
-  import Factory2Download from "$lib/images/manufacturing/factory-2.png?format=png&as=url";
+  import Factory2Download from "$lib/images/manufacturing/factory-2.png?format=jpg&quality=95&as=url";
   import Factory3Image from "$lib/images/manufacturing/factory-3.png?w=960";
-  import Factory3Download from "$lib/images/manufacturing/factory-3.png?format=png&as=url";
+  import Factory3Download from "$lib/images/manufacturing/factory-3.png?format=jpg&quality=95&as=url";
   import Factory4Image from "$lib/images/manufacturing/factory-4.png?w=960";
-  import Factory4Download from "$lib/images/manufacturing/factory-4.png?format=png&as=url";
+  import Factory4Download from "$lib/images/manufacturing/factory-4.png?format=jpg&quality=95&as=url";
   import Factory5Image from "$lib/images/manufacturing/factory-5.png?w=960";
-  import Factory5Download from "$lib/images/manufacturing/factory-5.png?format=png&as=url";
+  import Factory5Download from "$lib/images/manufacturing/factory-5.png?format=jpg&quality=95&as=url";
   import Factory6Image from "$lib/images/manufacturing/factory-6.png?w=960";
-  import Factory6Download from "$lib/images/manufacturing/factory-6.png?format=png&as=url";
+  import Factory6Download from "$lib/images/manufacturing/factory-6.png?format=jpg&quality=95&as=url";
   import WindshieldImage from "$lib/images/products/comma-four/windshield.jpg?w=1600";
   import WindshieldDownload from "$lib/images/products/comma-four/windshield.jpg?format=jpg&as=url";
   import BoardImage from "$lib/images/products/comma-four/circuit-board.png?w=960";
@@ -56,12 +56,12 @@
   ];
 
   const factoryImages = [
-    { title: "Circuit board assembly line", image: Factory1Image, download: Factory1Download, name: "comma-factory-1.png" },
-    { title: "Device assembly station", image: Factory2Image, download: Factory2Download, name: "comma-factory-2.png" },
-    { title: "Screens ready for devices", image: Factory3Image, download: Factory3Download, name: "comma-factory-3.png" },
-    { title: "Device testing", image: Factory4Image, download: Factory4Download, name: "comma-factory-4.png" },
-    { title: "Component reels", image: Factory5Image, download: Factory5Download, name: "comma-factory-5.png" },
-    { title: "Circuit board assembly line", image: Factory6Image, download: Factory6Download, name: "comma-factory-6.png" },
+    { title: "Circuit board assembly line", image: Factory1Image, download: Factory1Download, name: "comma-factory-1.jpg" },
+    { title: "Device assembly station", image: Factory2Image, download: Factory2Download, name: "comma-factory-2.jpg" },
+    { title: "Screens ready for devices", image: Factory3Image, download: Factory3Download, name: "comma-factory-3.jpg" },
+    { title: "Device testing", image: Factory4Image, download: Factory4Download, name: "comma-factory-4.jpg" },
+    { title: "Component reels", image: Factory5Image, download: Factory5Download, name: "comma-factory-5.jpg" },
+    { title: "Circuit board assembly line", image: Factory6Image, download: Factory6Download, name: "comma-factory-6.jpg" },
   ];
 
   const productImages = [
@@ -169,7 +169,7 @@
         {#each factoryImages as asset}
           <a class="asset" href={asset.download} download={asset.name}>
             <div class="image-preview"><img src={asset.image} alt={asset.title} loading="lazy" /></div>
-            <span class="asset-caption">{asset.title}<span class="asset-action">Download PNG ↓</span></span>
+            <span class="asset-caption">{asset.title}<span class="asset-action">Download JPG ↓</span></span>
           </a>
         {/each}
       </div>
