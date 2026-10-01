@@ -78,14 +78,14 @@
 </script>
 
 <svelte:head>
-  <title>Media — comma.ai</title>
+  <title>Press &amp; Media Kit — comma.ai</title>
   <meta name="description" content="Company background, product images, and videos for press coverage of comma.ai, comma four, and openpilot." />
   <link rel="canonical" href="https://comma.ai/media" />
 </svelte:head>
 
 <section class="light">
   <div class="container">
-    <h1>Media</h1>
+    <h1>Press &amp; Media Kit</h1>
     <a class="asset header-image" href={WindshieldDownload} download="comma-four-windshield.jpg">
       <img src={WindshieldImage} alt="comma four mounted beneath the rearview mirror during a highway drive" fetchpriority="high" />
       <span class="asset-caption">comma four on the road<span class="asset-action">Download JPG ↓</span></span>
