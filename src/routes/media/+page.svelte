@@ -65,7 +65,7 @@
   ];
 
   const productImages = [
-    { title: "Screen on", image: ScreenImage, download: ScreenDownload, name: "comma-four-screen-on.png" },
+    { title: "comma four + openpilot", image: ScreenImage, download: ScreenDownload, name: "comma-four-screen-on.png" },
     { title: "On the windshield", image: Windshield43Image, download: Windshield43Download, name: "comma-four-windshield.png" },
     { title: "Front", image: FrontImage, download: FrontDownload, name: "comma-four-front.png" },
     { title: "Angled view", image: AngledImage, download: AngledDownload, name: "comma-four-angled.png" },
