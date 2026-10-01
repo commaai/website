@@ -7,8 +7,6 @@
   import Windshield43Download from "$lib/images/products/comma-four/windshield43.png?format=png&as=url";
   import Factory1Image from "$lib/images/manufacturing/factory-1.png?w=960";
   import Factory1Download from "$lib/images/manufacturing/factory-1.png?format=jpg&quality=95&as=url";
-  import Factory2Image from "$lib/images/manufacturing/factory-2.png?w=960";
-  import Factory2Download from "$lib/images/manufacturing/factory-2.png?format=jpg&quality=95&as=url";
   import Factory3Image from "$lib/images/manufacturing/factory-3.png?w=960";
   import Factory3Download from "$lib/images/manufacturing/factory-3.png?format=jpg&quality=95&as=url";
   import Factory4Image from "$lib/images/manufacturing/factory-4.png?w=960";
@@ -20,7 +18,7 @@
   import WindshieldImage from "$lib/images/products/comma-four/windshield.jpg?w=1600";
   import WindshieldDownload from "$lib/images/products/comma-four/windshield.jpg?format=jpg&as=url";
   import BoardImage from "$lib/images/products/comma-four/circuit-board.png?w=960";
-  import BoardDownload from "$lib/images/products/comma-four/circuit-board.png?format=png&as=url";
+  import BoardDownload from "$lib/images/products/comma-four/circuit-board.png?format=jpg&quality=95&as=url";
   import FrontImage from "$lib/images/products/comma-four/four_front.png?w=960";
   import BackImage from "$lib/images/products/comma-four/four_back.png?w=960";
   import AngledImage from "$lib/images/products/comma-four/four_angled.png?w=960";
@@ -57,7 +55,7 @@
 
   const factoryImages = [
     { title: "Circuit board assembly line", image: Factory1Image, download: Factory1Download, name: "comma-factory-1.jpg" },
-    { title: "Device assembly station", image: Factory2Image, download: Factory2Download, name: "comma-factory-2.jpg" },
+    { title: "Circuit board", image: BoardImage, download: BoardDownload, name: "comma-four-circuit-board.jpg" },
     { title: "Screens ready for devices", image: Factory3Image, download: Factory3Download, name: "comma-factory-3.jpg" },
     { title: "Device testing", image: Factory4Image, download: Factory4Download, name: "comma-factory-4.jpg" },
     { title: "Component reels", image: Factory5Image, download: Factory5Download, name: "comma-factory-5.jpg" },
@@ -71,7 +69,6 @@
     { title: "Angled view", image: AngledImage, download: AngledDownload, name: "comma-four-angled.png" },
     { title: "Back", image: BackImage, download: BackDownload, name: "comma-four-back.png" },
     { title: "Side profile", image: SideImage, download: SideDownload, name: "comma-four-side.png" },
-    { title: "Circuit board", image: BoardImage, download: BoardDownload, name: "comma-four-circuit-board.png" },
   ];
   const videos = [
     { title: "comma four with openpilot", src: DrivingVideo, name: "comma-four-driving.mp4" },
