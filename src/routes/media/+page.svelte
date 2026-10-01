@@ -130,7 +130,7 @@
       <div class="video-grid">
         {#each videos as video}
           <div class="asset video-asset">
-            <video class:fill-preview={video.fill} controls playsinline preload="metadata" aria-label={video.title} src={video.src}></video>
+            <video class:fill-preview={video.fill} controls loop playsinline preload="metadata" aria-label={video.title} src={video.src}></video>
             <a class="asset-caption" href={video.src} download={video.name}>{video.title}<span class="asset-action">Download MP4 ↓</span></a>
           </div>
         {/each}
