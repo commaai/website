@@ -76,7 +76,7 @@
   const videos = [
     { title: "comma four with openpilot", src: DrivingVideo, name: "comma-four-driving.mp4" },
     { title: "Driver monitoring", src: DriverMonitoringVideo, name: "comma-driver-monitoring.mp4" },
-    { title: "comma four installation", src: SetupVideo, name: "comma-four-installation.mp4" },
+    { title: "comma four installation", src: SetupVideo, name: "comma-four-installation.mp4", fill: true },
   ];
 </script>
 
@@ -130,7 +130,7 @@
       <div class="video-grid">
         {#each videos as video}
           <div class="asset video-asset">
-            <video controls playsinline preload="metadata" aria-label={video.title} src={video.src}></video>
+            <video class:fill-preview={video.fill} controls playsinline preload="metadata" aria-label={video.title} src={video.src}></video>
             <a class="asset-caption" href={video.src} download={video.name}>{video.title}<span class="asset-action">Download MP4 ↓</span></a>
           </div>
         {/each}
@@ -231,6 +231,7 @@
   .copy-video-url { border: 0; padding: 0; background: transparent; color: inherit; cursor: pointer; }
   video, .manufacturing-video { display: block; width: 100%; aspect-ratio: 16 / 9; flex-shrink: 0; border: 0; background: #111; }
   video { object-fit: contain; }
+  video.fill-preview { object-fit: cover; }
   .copy-fallback { padding: 0 1rem 1rem; font-size: 0.875rem; }
   .copy-fallback input { box-sizing: border-box; display: block; width: 100%; margin-top: 0.5rem; padding: 0.5rem; border: 1px solid var(--asset-border); color: inherit; background: #fff; font: inherit; letter-spacing: inherit; }
   @media (max-width: 1024px) {
