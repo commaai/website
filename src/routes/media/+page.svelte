@@ -201,7 +201,7 @@
   }
   section.light, section.light + section.light { padding: 0 0 var(--section-gap); }
   section.light:first-of-type { padding-top: 2rem; }
-  .copy { font-size: 1.125rem; line-height: 1.6; }
+  .copy, .copy + .release-link { font-size: 1.125rem; line-height: 1.6; }
   .copy > p { margin: 0 0 1rem; }
   .copy > :last-child { margin-bottom: 0; }
   .copy + .release-link { display: inline-block; margin-top: 1rem; }
