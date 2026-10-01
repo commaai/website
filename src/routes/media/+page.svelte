@@ -26,19 +26,13 @@
   import AngledImage from "$lib/images/products/comma-four/four_angled.png?w=960";
   import SideImage from "$lib/images/products/comma-four/four_side.png?w=960";
   import ScreenImage from "$lib/images/products/comma-four/four_screen_on.png?w=960";
-  import CableImage from "$lib/images/products/obd-c-cable/obd-c-cable-four.png?w=960";
-  import MountsImage from "$lib/images/products/replacement-mounts/replacement-mounts-four.png?w=960";
   import FrontDownload from "$lib/images/products/comma-four/four_front.png?format=png&as=url";
   import BackDownload from "$lib/images/products/comma-four/four_back.png?format=png&as=url";
   import AngledDownload from "$lib/images/products/comma-four/four_angled.png?format=png&as=url";
   import SideDownload from "$lib/images/products/comma-four/four_side.png?format=png&as=url";
   import ScreenDownload from "$lib/images/products/comma-four/four_screen_on.png?format=png&as=url";
-  import CableDownload from "$lib/images/products/obd-c-cable/obd-c-cable-four.png?format=png&as=url";
-  import MountsDownload from "$lib/images/products/replacement-mounts/replacement-mounts-four.png?format=png&as=url";
   import DriverMonitoringVideo from "$lib/images/products/comma-four/driver-monitoring-demo.mp4";
   import DrivingVideo from "$lib/images/products/comma-four/driving-landscape.mp4";
-  import HarnessImage from "$lib/images/products/car-harness/car-harness.jpg?w=960";
-  import HarnessDownload from "$lib/images/products/car-harness/car-harness.jpg?format=jpg&as=url";
   import SetupVideo from "$lib/images/setup/comma-four/setup-stopmotion.mp4";
   import { vehicleCountText } from "$lib/constants/vehicles.js";
 
@@ -72,22 +66,16 @@
 
   const productImages = [
     { title: "Screen on", image: ScreenImage, download: ScreenDownload, name: "comma-four-screen-on.png" },
+    { title: "On the windshield", image: Windshield43Image, download: Windshield43Download, name: "comma-four-windshield.png" },
     { title: "Front", image: FrontImage, download: FrontDownload, name: "comma-four-front.png" },
     { title: "Angled view", image: AngledImage, download: AngledDownload, name: "comma-four-angled.png" },
     { title: "Back", image: BackImage, download: BackDownload, name: "comma-four-back.png" },
     { title: "Side profile", image: SideImage, download: SideDownload, name: "comma-four-side.png" },
     { title: "Circuit board", image: BoardImage, download: BoardDownload, name: "comma-four-circuit-board.png" },
-    { title: "On the windshield", image: Windshield43Image, download: Windshield43Download, name: "comma-four-windshield.png" },
-  ];
-  const boxContents = [
-    { title: "comma four", image: ScreenImage, download: ScreenDownload, name: "comma-four-screen-on.png" },
-    { title: "2ft OBD-C cable", image: CableImage, download: CableDownload, name: "comma-four-obd-c-cable.png" },
-    { title: "2 mounts", image: MountsImage, download: MountsDownload, name: "comma-four-mounts.png" },
-    { title: "Car harness", image: HarnessImage, download: HarnessDownload, name: "comma-car-harness.jpg", format: "JPG" },
   ];
   const videos = [
     { title: "comma four installation", src: SetupVideo, name: "comma-four-installation.mp4" },
-    { title: "comma four driving", src: DrivingVideo, name: "comma-four-driving.mp4" },
+    { title: "comma four with openpilot", src: DrivingVideo, name: "comma-four-driving.mp4" },
     { title: "Driver monitoring", src: DriverMonitoringVideo, name: "comma-driver-monitoring.mp4" },
   ];
 </script>
@@ -149,33 +137,8 @@
       </div>
     </div>
 
-    <div class="media-section">
-      <h3>What's In The Box</h3>
-      <div class="asset-grid">
-        {#each boxContents as asset}
-          <a class="asset" href={asset.download} download={asset.name}>
-            <div class="image-preview"><img src={asset.image} alt={asset.title} loading="lazy" /></div>
-            <span class="asset-caption">{asset.title}<span class="asset-action">Download {asset.format || "PNG"} ↓</span></span>
-          </a>
-        {/each}
-      </div>
-    </div>
-
     <div class="media-section" id="built-in-america">
-      <h3>Designed &amp; built in America</h3>
-      <div class="copy">
-        <p>We assemble, provision, test, and ship comma four from our San Diego factory. Circuit board assembly happens in-house, on machines we own and operate.</p>
-        <p>Our two surface-mount production lines handle solder paste printing, component placement, reflow, and automated 3D inspection. Our Ultimate Provisioning fixture brings software flashing, provisioning, and overnight stress testing together.</p>
-        <p>Owning the machines means no outside assembly bill and direct control over the production process. Keeping this work in-house helps us control quality and lower manufacturing costs.</p>
-      </div>
-      <div class="asset-grid factory-grid">
-        {#each factoryImages as asset}
-          <a class="asset" href={asset.download} download={asset.name}>
-            <div class="image-preview"><img src={asset.image} alt={asset.title} loading="lazy" /></div>
-            <span class="asset-caption">{asset.title}<span class="asset-action">Download PNG ↓</span></span>
-          </a>
-        {/each}
-      </div>
+      <h3>Designed &amp; Built in America</h3>
       <div class="asset video-asset">
         <iframe
           class="manufacturing-video"
@@ -198,6 +161,19 @@
           </div>
         {/if}
       </div>
+      <div class="copy">
+        <p>We assemble, provision, test, and ship comma four from our San Diego factory. Circuit board assembly happens in-house, on machines we own and operate.</p>
+        <p>Our two surface-mount production lines handle solder paste printing, component placement, reflow, and automated 3D inspection. Our Ultimate Provisioning fixture brings software flashing, provisioning, and overnight stress testing together.</p>
+      </div>
+      <div class="asset-grid factory-grid">
+        {#each factoryImages as asset}
+          <a class="asset" href={asset.download} download={asset.name}>
+            <div class="image-preview"><img src={asset.image} alt={asset.title} loading="lazy" /></div>
+            <span class="asset-caption">{asset.title}<span class="asset-action">Download PNG ↓</span></span>
+          </a>
+        {/each}
+      </div>
+
     </div>
 
     <div class="media-section" id="brand-assets">
@@ -236,7 +212,8 @@
   .header-image :global(img) { display: block; width: 100%; height: auto; }
   .release-link { text-decoration: underline; text-underline-offset: 0.2em; }
   .media-section + .media-section { margin-top: var(--section-gap); }
-  .factory-grid { margin: 2rem 0; }
+  .factory-grid { margin-top: 2rem; }
+  #built-in-america > .video-asset { margin-bottom: 2rem; }
   .asset-grid, .video-grid { display: grid; gap: var(--grid-gap); align-items: stretch; }
   .asset-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .video-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
