@@ -91,7 +91,7 @@
     <h1>Media</h1>
     <a class="asset header-image" href={WindshieldDownload} download="comma-four-windshield.jpg">
       <img src={WindshieldImage} alt="comma four mounted beneath the rearview mirror during a highway drive" fetchpriority="high" />
-      <span class="asset-caption">comma four on the road<span class="asset-action">Download full-resolution JPG ↓</span></span>
+      <span class="asset-caption">comma four on the road<span class="asset-action">Download JPG ↓</span></span>
     </a>
     <div class="copy">
       <h2>We're solving self driving cars while delivering shippable intermediaries.</h2>
