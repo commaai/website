@@ -253,7 +253,7 @@
           <br><br>
           International shipping is $30 flat rate.
           See fine print below for details. Common shipping questions are answered on
-          <a href="/support#shipping--returns" target="_blank">the FAQ</a>.
+          <a href="/support/orders-returns" target="_blank">orders and shipping</a>.
         </div>
       </Accordion>
     </div>
