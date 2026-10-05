@@ -449,7 +449,8 @@ export const products = {
         Grade B screens are fully functional, but may have some minor cosmetic imperfections.
       </p>
     `.trim(),
-    hideOutOfStockVariants: true
+    hideOutOfStockVariants: true,
+    useVariantBackorderStatus: true
   },
 
   "comma-3x-back-case": {
