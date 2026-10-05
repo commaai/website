@@ -226,12 +226,12 @@
       },
       {
         "source": "/shop/products/comma-three-display",
-        "destination": "/shop",
+        "destination": "/shop/comma-device-screen",
         "type": 301
       },
       {
         "source": "/shop/comma-three-screen",
-        "destination": "/shop",
+        "destination": "/shop/comma-device-screen",
         "type": 301
       },
       {
