@@ -6,7 +6,7 @@
   import ShippingImage from '$lib/images/faq/shipping.svg';
   import OtherTopicsImage from '$lib/images/faq/other.svg';
 
-  import CommaThreeSimInsertionImage from '$lib/images/comma-3x-sim-insertion.png';
+  import CommaThreeSimInsertionImage from '$lib/images/products/comma-prime-sim/comma-prime-sim-installation.png';
 
   export const faq = {
     openpilot: {

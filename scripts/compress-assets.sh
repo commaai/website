@@ -3,7 +3,7 @@
 # Preview: ./scripts/compress-assets.sh [--images-only] [--output artifacts/review]
 # Apply reviewed candidates: ./scripts/compress-assets.sh --apply-report artifacts/review
 # Set FFMPEG/FFPROBE to select different FFmpeg binaries.
-# JPEG92/4:4:4 photos; exact-alpha PNG rounding <=1/255; x264 veryslow CRF20–25.
+# JPEG85 photos; exact-alpha PNG rounding <=1/255; reviewed size caps; x264 CRF20–25.
 set -euo pipefail
 cd "$(dirname "${BASH_SOURCE[0]}")/.."
 exec python3 - "$@" <<'PY'
@@ -101,6 +101,8 @@ def apply_report(folder):
                 for variable in re.findall(pattern, text):
                     text = re.sub(pattern, lambda match: f'import {match[1]} from "{source}?url"', text)
                     text = re.sub(r'(download:\s*' + variable + r',\s*name:\s*"[^"\n]+)\.png"', r'\1.jpg"', text)
+        if any(new.endswith('/windshield43.jpg') for _, new in renames):
+            text = text.replace('download: Windshield43Download, name: "comma-four-windshield.jpg"', 'download: Windshield43Download, name: "comma-four-windshield43.jpg"')
         if text != original:
             text_updates[path] = text
     config = repo / 'vite.config.js'
@@ -169,9 +171,14 @@ def png_metadata(path):
     return info
 
 
+image_caps = {
+    'src/lib/images/products/comma-four/cooling.png': 2880,
+    'static/images/neurips/revH.68.png': 1920,
+    'src/lib/images/products/replacement-mounts/replacement-mounts-four.png': 1920,
+}
 sample = io.BytesIO()
-Image.new('RGB', (1, 1)).save(sample, format='JPEG', quality=92, subsampling=0)
-jpeg92 = Image.open(sample).quantization
+Image.new('RGB', (1, 1)).save(sample, format='JPEG', quality=85, subsampling=0)
+jpeg85 = Image.open(sample).quantization
 
 
 def image_candidate(path):
@@ -182,23 +189,33 @@ def image_candidate(path):
             return None  # Never flatten an APNG or multi-frame image.
         image.load()
         metadata = {key: image.info[key] for key in ['icc_profile', 'exif'] if image.info.get(key)}
+        jpeg_metadata = dict(metadata, **({'dpi': image.info['dpi']} if 'dpi' in image.info else {}))
         original_size = source.stat().st_size
         new = path
+        cap = image_caps.get(str(path))
+        resized = bool(cap and max(image.size) > cap)
+        pixels = image.copy()
+        if resized:
+            pixels.thumbnail((cap, cap), Image.Resampling.LANCZOS)
+        resize_note = f'; resized to {pixels.width}x{pixels.height}' if resized else ''
         if path.suffix.lower() == '.png':
-            rgba = image.convert('RGBA')
+            rgba = pixels.convert('RGBA')
             alpha = rgba.getchannel('A')
             histogram = alpha.histogram()
             opaque = alpha.getextrema() == (255, 255)
-            flatten = str(path) in near_opaque_photos and alpha.getextrema()[0] >= 241 and sum(histogram[:255]) / (image.width * image.height) < .003
+            flatten = str(path) in near_opaque_photos and alpha.getextrema()[0] >= 241 and sum(histogram[:255]) / (pixels.width * pixels.height) < .003
             if ((str(path) in photos and opaque) or flatten) and not source.with_suffix('.jpg').exists():
                 new, destination = path.with_suffix('.jpg'), destination.with_suffix('.jpg')
                 rgb = Image.alpha_composite(Image.new('RGBA', rgba.size, 'white'), rgba).convert('RGB')
-                rgb.save(destination, quality=92, subsampling=0, progressive=True, optimize=True, **metadata)
-                method, minimum = 'JPEG92 4:4:4; full resolution' + ('; negligible photo alpha flattened white' if flatten else ''), .85
+                rgb.save(destination, quality=85, subsampling=0 if 'brand' in path.parts else 2, progressive=True, optimize=True, **jpeg_metadata)
+                method, minimum = 'JPEG85; full resolution' + ('; negligible photo alpha flattened white' if flatten else ''), .85
             else:
-                shutil.copy2(source, destination)
+                if resized:
+                    pixels.save(destination, compress_level=9, pnginfo=png_metadata(source), **metadata, **({'dpi': image.info['dpi']} if 'dpi' in image.info else {}))
+                else:
+                    shutil.copy2(source, destination)
                 run(['oxipng', '-o', '2', str(destination)])
-                method, minimum = 'Lossless PNG optimization', .98
+                method, minimum = ('PNG optimization' if resized else 'Lossless PNG optimization'), .98
                 if original_size > 200000 and image.mode in {'RGB', 'RGBA'} and ('products' in path.parts or path.name in {'device.png', 'device-glow.png'}):
                     rgb = tuple(rgba.getchannel(channel).point(lambda value: min(((value + 1) // 2) * 2, 255)) for channel in ['R', 'G', 'B'])
                     rounded = Image.merge('RGBA', (*rgb, alpha))
@@ -208,16 +225,16 @@ def image_candidate(path):
                     if alternate.stat().st_size < min(original_size * .85, destination.stat().st_size):
                         destination, method, minimum = alternate, 'PNG RGB rounding <=1/255; exact alpha', .85
         else:
-            if image.format != 'JPEG' or original_size < 100000 or image.mode not in {'RGB', 'L'}:
+            if image.format != 'JPEG' or original_size < 20000 or image.mode not in {'RGB', 'L'}:
                 return None
-            if all(jpeg92.get(key) == values for key, values in image.quantization.items()):
-                return None  # Do not repeatedly recompress our existing JPEG92 outputs.
-            image.save(destination, quality=92, subsampling=0, progressive=True, optimize=True, **metadata)
-            method, minimum = 'JPEG92 4:4:4; full resolution', .85
+            if all(jpeg85.get(key) == values for key, values in image.quantization.items()):
+                return None  # Do not repeatedly recompress our existing JPEG85 outputs.
+            image.save(destination, quality=85, subsampling=0 if 'brand' in path.parts else 2, progressive=True, optimize=True, **jpeg_metadata)
+            method, minimum = 'JPEG85; full resolution', .85
         if destination.stat().st_size >= original_size * minimum:
             return None
-        result = record(path, new, destination, method)
-        result.update(width=image.width, height=image.height)
+        result = record(path, new, destination, method + resize_note)
+        result.update(width=pixels.width, height=pixels.height)
         return result
 
 
@@ -245,6 +262,11 @@ if not args.images_only:
         hex_data = ''.join(re.findall(r'^[0-9a-f]{8}: (.*?)  ', data['packets'][0].get('data', ''), re.M)).replace(' ', '')
         raw = bytes.fromhex(hex_data)
         value = re.search(rb'crf=([\d.]+)', raw)
+        if path.stem == 'driving-landscape':
+            keyint = re.search(rb' keyint=(\d+) ', raw)
+            expected = round(float(Fraction(stream(probe(path))['r_frame_rate'])) * 2)
+            if not keyint or int(keyint[1]) != expected or b'scenecut=0' not in raw:
+                return False
         return value and float(value[1]) >= crf and b'me=umh' in raw and b'subme=10' in raw
 
     for path in [p for p in files if p.suffix in {'.mp4', '.m3u8'}]:
@@ -257,7 +279,11 @@ if not args.images_only:
                 print(f'Skipping {path}: requires a local numbered MPEG-TS playlist.')
                 continue
             original_files += [path.parent / name for name in names]
-        if already_encoded(repo / path, crf):
+        data = probe(repo / path)
+        before_stream = stream(data)
+        target = {'screen-video': (960, 430), 'hero-portrait': (540, 720), 'driving-landscape': (1280, 720)}.get(path.stem)
+        resize = bool(target and (before_stream['width'] > target[0] or before_stream['height'] > target[1]))
+        if already_encoded(repo / path, crf) and not resize:
             continue
         original_bytes = sum((repo / p).stat().st_size for p in original_files)
         folder = work / path.parent / path.stem
@@ -270,11 +296,14 @@ if not args.images_only:
         before_stream = stream(data)
         command = [ffmpeg, '-v', 'error', '-y', '-i', str(repo / path), '-map', '0:v:0', '-map', '0:a?',
                    '-c:v', 'libx264', '-preset', 'veryslow', '-crf', str(crf), '-threads', '4', '-pix_fmt', 'yuv420p', '-c:a', 'copy']
+        if resize:
+            command += ['-vf', f'scale={target[0]}:{target[1]}:flags=lanczos']
+        if is_hls or path.stem == 'driving-landscape':
+            keyframes = str(round(float(Fraction(before_stream['r_frame_rate'])) * 2))
+            command += ['-g', keyframes, '-keyint_min', keyframes, '-sc_threshold', '0', '-force_key_frames', 'expr:gte(t,n_forced*2)']
         if is_hls:
             first = re.fullmatch(r'(.*_)(\d+)\.ts', names[0])
-            keyframes = str(round(float(Fraction(before_stream['r_frame_rate'])) * 2))
-            command += ['-g', keyframes, '-keyint_min', keyframes, '-sc_threshold', '0', '-force_key_frames', 'expr:gte(t,n_forced*2)',
-                        '-f', 'hls', '-hls_time', '2', '-hls_list_size', '0', '-hls_playlist_type', 'vod',
+            command += ['-f', 'hls', '-hls_time', '2', '-hls_list_size', '0', '-hls_playlist_type', 'vod',
                         '-start_number', first[2], '-hls_segment_filename', str(folder / (first[1] + '%0' + str(len(first[2])) + 'd.ts'))]
         else:
             command += ['-movflags', '+faststart']
@@ -289,11 +318,12 @@ if not args.images_only:
         run([ffmpeg, '-v', 'error', '-xerror', '-i', str(output), '-f', 'null', '-'])
         original, encoded = probe(repo / path, True), probe(output, True)
         old_video, new_video = stream(original), stream(encoded)
-        assert all(old_video[key] == new_video[key] for key in ['width', 'height', 'r_frame_rate', 'nb_read_frames']), str(path)
+        assert all(old_video[key] == new_video[key] for key in ['r_frame_rate', 'nb_read_frames']), str(path)
+        assert (new_video['width'], new_video['height']) == (target if resize else (old_video['width'], old_video['height'])), str(path)
         audio = lambda info: [(s['codec_name'], s['sample_rate'], s['channels'], s['nb_read_frames']) for s in info['streams'] if s['codec_type'] == 'audio']
         assert audio(original) == audio(encoded), f'Audio changed: {path}'
         assert abs(float(original['format']['duration']) - float(encoded['format']['duration'])) <= .1001, f'Duration changed: {path}'
-        method = f'H.264 veryslow CRF{crf}; original dimensions/FPS/frame count; audio copied'
+        method = f'H.264 veryslow CRF{crf}; {new_video["width"]}x{new_video["height"]}; original FPS/frame count; audio copied'
         for candidate in outputs:
             asset = path.parent / candidate.name if is_hls else path
             if digest(repo / asset) != digest(candidate):

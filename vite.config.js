@@ -2,6 +2,7 @@ import { sveltekit } from '@sveltejs/kit/vite';
 import { imagetools } from 'vite-imagetools';
 import { defineConfig } from 'vite';
 import { mediaKitZip } from './scripts/media-kit-plugin.js';
+import { videoAssets } from './scripts/video-assets-plugin.js';
 
 const filetypesToOptimize = ['jpg', 'jpeg', 'png', 'gif'];
 
@@ -14,6 +15,7 @@ export default defineConfig({
     },
   },
   plugins: [
+    videoAssets(),
     imagetools({
       // Keep full-resolution media downloads byte-for-byte identical to the source.
       exclude: ['public/**/*', /\?url(?:&|$)/],

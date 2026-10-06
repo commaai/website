@@ -29,3 +29,7 @@ vite.config.ts.timestamp-*
 
 # Generated media archive
 /static/comma-media-kit.zip
+
+# Derived from the canonical driving MP4 during dev/build
+/static/videos/hero-landscape/hero-landscape.m3u8
+/static/videos/hero-landscape/part_*.ts
