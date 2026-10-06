@@ -125,9 +125,8 @@
         "Ability to build a CAN core from scratch in VHDL",
         "Cool projects you've built and can show us",
       ],
-      email: "adeeb@comma.ai",
       howToApply:
-        'Email <a href="mailto:adeeb@comma.ai">adeeb@comma.ai</a> with examples of cool projects you\'ve built.',
+        'Email <a href="mailto:work@comma.ai">work@comma.ai</a> with examples of cool projects you\'ve built, or do the <a href="https://github.com/commaai/PCBGolf">PCBGolf challenge</a> and email us your submission.',
     },
     {
       title: "Software Engineer",
