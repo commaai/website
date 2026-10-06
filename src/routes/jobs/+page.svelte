@@ -115,15 +115,13 @@
       team: "hardware",
       location: "On-site in San Diego, CA",
       description: `
-        Join our hardware team to build high-quality, MIT-licensed IP blocks for the world.
-        Can you make a CAN core from scratch in VHDL?
+        We can buy existing IP blocks... or we can build our own and open source them.
+        Can you make a CAN core from scratch in HDL?
         <br /><br />
+        No FPGA experience necessary. Just excellent programming skills and a desire to build the highest quality IP blocks out there.
         Interns welcome too.
       `,
       qualifications: [
-        "Experience building FPGA designs and embedded systems",
-        "Ability to build a CAN core from scratch in VHDL",
-        "Cool projects you've built and can show us",
       ],
       howToApply:
         'Email <a href="mailto:work@comma.ai">work@comma.ai</a> with examples of cool projects you\'ve built, or do the <a href="https://github.com/commaai/PCBGolf">PCBGolf challenge</a>.',
