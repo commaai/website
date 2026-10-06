@@ -207,6 +207,25 @@
       ],
     },
     {
+      title: "FPGA & Embedded Engineer",
+      team: "hardware",
+      location: "On-site in San Diego, CA",
+      description: `
+        Join our hardware team to build high-quality, MIT-licensed IP blocks for the world.
+        Can you make a CAN core from scratch in VHDL?
+        <br /><br />
+        Interns welcome too.
+      `,
+      qualifications: [
+        "Experience building FPGA designs and embedded systems",
+        "Ability to build a CAN core from scratch in VHDL",
+        "Cool projects you've built and can show us",
+      ],
+      email: "adeeb@comma.ai",
+      howToApply:
+        'Email <a href="mailto:adeeb@comma.ai">adeeb@comma.ai</a> with examples of cool projects you\'ve built.',
+    },
+    {
       title: "CNC Machinist (Head of Prototyping)",
       team: "hardware",
       location: "On-site in San Diego, CA",
@@ -294,10 +313,11 @@
   });
 
   async function showApplyEmail(index) {
-    emailTooltipText = "work@comma.ai";
+    const email = jobs[index].email ?? "work@comma.ai";
+    emailTooltipText = email;
     try {
-      await navigator.clipboard.writeText("work@comma.ai");
-      emailTooltipText = "Copied work@comma.ai";
+      await navigator.clipboard.writeText(email);
+      emailTooltipText = `Copied ${email}`;
     } catch {
       // clipboard unavailable; still show the address
     }
