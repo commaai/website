@@ -1,8 +1,8 @@
 import MagicString from 'magic-string';
-import { walk, compile } from 'svelte/compiler';
+import { walk, parse } from 'svelte/compiler';
 
 const processMarkup = async ({ content, filename }) => {
-  const { ast } = compile(content, { filename });
+  const ast = parse(content, { filename });
   const s = new MagicString(content);
 
   walk(ast.html, {
