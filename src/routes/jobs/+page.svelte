@@ -111,6 +111,25 @@
         'Complete our <a href="/leaderboard#content_challenge">content challenge</a> and reach out to <a href="mailto:work@comma.ai">work@comma.ai</a> with your submission.',
     },
     {
+      title: "FPGA & Embedded Engineer",
+      team: "hardware",
+      location: "On-site in San Diego, CA",
+      description: `
+        Join our hardware team to build high-quality, MIT-licensed IP blocks for the world.
+        Can you make a CAN core from scratch in VHDL?
+        <br /><br />
+        Interns welcome too.
+      `,
+      qualifications: [
+        "Experience building FPGA designs and embedded systems",
+        "Ability to build a CAN core from scratch in VHDL",
+        "Cool projects you've built and can show us",
+      ],
+      email: "adeeb@comma.ai",
+      howToApply:
+        'Email <a href="mailto:adeeb@comma.ai">adeeb@comma.ai</a> with examples of cool projects you\'ve built.',
+    },
+    {
       title: "Software Engineer",
       team: "openpilot",
       location: "On-site in San Diego, CA",
@@ -205,25 +224,6 @@
         "Having pull requests upstreamed to openpilot is a plus",
         "Know things about operating systems, CI, and testing",
       ],
-    },
-    {
-      title: "FPGA & Embedded Engineer",
-      team: "hardware",
-      location: "On-site in San Diego, CA",
-      description: `
-        Join our hardware team to build high-quality, MIT-licensed IP blocks for the world.
-        Can you make a CAN core from scratch in VHDL?
-        <br /><br />
-        Interns welcome too.
-      `,
-      qualifications: [
-        "Experience building FPGA designs and embedded systems",
-        "Ability to build a CAN core from scratch in VHDL",
-        "Cool projects you've built and can show us",
-      ],
-      email: "adeeb@comma.ai",
-      howToApply:
-        'Email <a href="mailto:adeeb@comma.ai">adeeb@comma.ai</a> with examples of cool projects you\'ve built.',
     },
     {
       title: "CNC Machinist (Head of Prototyping)",
