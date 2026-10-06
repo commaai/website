@@ -116,7 +116,7 @@
       location: "On-site in San Diego, CA",
       description: `
         We can buy existing IP blocks... or we can build our own and open source them.
-        Want to build a CAN core from scratch in HDL?
+        Can you make a CAN core from scratch in HDL?
         <br /><br />
         No FPGA experience necessary. Just excellent programming skills and a desire to build the highest quality IP blocks out there.
         Interns welcome too.
