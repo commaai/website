@@ -111,6 +111,22 @@
         'Complete our <a href="/leaderboard#content_challenge">content challenge</a> and reach out to <a href="mailto:work@comma.ai">work@comma.ai</a> with your submission.',
     },
     {
+      title: "FPGA & Embedded Engineer",
+      team: "hardware",
+      location: "On-site in San Diego, CA",
+      description: `
+        We can buy existing IP blocks... or we can build our own and open source them.
+        Can you make a CAN core from scratch in HDL?
+        <br /><br />
+        No FPGA experience necessary. Just excellent programming skills and a desire to build the highest quality IP blocks out there.
+        Interns welcome too.
+      `,
+      qualifications: [
+      ],
+      howToApply:
+        'Email <a href="mailto:work@comma.ai">work@comma.ai</a> with examples of cool projects you\'ve built, or do the <a href="https://github.com/commaai/PCBGolf">PCBGolf challenge</a>.',
+    },
+    {
       title: "Software Engineer",
       team: "openpilot",
       location: "On-site in San Diego, CA",
