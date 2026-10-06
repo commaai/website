@@ -126,7 +126,7 @@
         "Cool projects you've built and can show us",
       ],
       howToApply:
-        'Email <a href="mailto:work@comma.ai">work@comma.ai</a> with examples of cool projects you\'ve built, or do the <a href="https://github.com/commaai/PCBGolf">PCBGolf challenge</a> and email us your submission.',
+        'Email <a href="mailto:work@comma.ai">work@comma.ai</a> with examples of cool projects you\'ve built, or do the <a href="https://github.com/commaai/PCBGolf">PCBGolf challenge</a>.',
     },
     {
       title: "Software Engineer",
