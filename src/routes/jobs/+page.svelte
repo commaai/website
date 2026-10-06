@@ -310,11 +310,10 @@
   });
 
   async function showApplyEmail(index) {
-    const email = jobs[index].email ?? "work@comma.ai";
-    emailTooltipText = email;
+    emailTooltipText = "work@comma.ai";
     try {
-      await navigator.clipboard.writeText(email);
-      emailTooltipText = `Copied ${email}`;
+      await navigator.clipboard.writeText("work@comma.ai");
+      emailTooltipText = "Copied work@comma.ai";
     } catch {
       // clipboard unavailable; still show the address
     }
