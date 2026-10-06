@@ -60,6 +60,7 @@ jobs:
         with:
           path: ./build
           compression-level: 0
+          overwrite: true
           if-no-files-found: error
           retention-days: 1
           name: build-artifacts-${{ github.run_id }}
