@@ -118,7 +118,7 @@
         We can buy existing IP blocks... or we can build our own and open source them.
         Can you make a CAN core from scratch in HDL?
         <br /><br />
-        FPGA experience is a plus. We're looking for excellent programming skills and a desire to build the highest quality IP blocks out there.
+        FPGA experience is a plus but not necessary. We're looking for excellent programming skills and a desire to build the highest quality IP blocks out there.
         Interns welcome too.
       `,
       qualifications: [
