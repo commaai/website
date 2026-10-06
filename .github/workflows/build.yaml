@@ -42,9 +42,9 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ./node_modules/.cache/imagetools
-          key: imagetools-${{ hashFiles('**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.gif') }}
+          key: imagetools-${{ runner.os }}-${{ hashFiles('bun.lockb', 'vite.config.js') }}-${{ hashFiles('src/**/*.png', 'src/**/*.jpg', 'src/**/*.jpeg', 'src/**/*.gif') }}
           restore-keys: |
-            imagetools-
+            imagetools-${{ runner.os }}-${{ hashFiles('bun.lockb', 'vite.config.js') }}-
 
       - if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
         name: Build (production)
@@ -57,17 +57,27 @@ jobs:
         run: bun run build
 
       - name: Upload built project
+        if: github.event_name == 'pull_request'
         uses: actions/upload-artifact@v4
         with:
           path: ./build
-          overwrite: true
+          compression-level: 0
+          if-no-files-found: error
           retention-days: 1
           name: build-artifacts-${{ github.run_id }}
 
       # TODO: remove when https://github.com/firebase/firebase-tools/issues/10730 is fixed
       - uses: actions/setup-node@v4
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master' && github.repository == 'commaai/website'
         with:
           node-version: '24.18.0'
+
+      - name: Cache Firebase CLI
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master' && github.repository == 'commaai/website'
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: firebase-cli-${{ runner.os }}-node24-15.32.1
 
       - name: Deploy to prod
         if: github.event_name == 'push' && github.ref == 'refs/heads/master' && github.repository == 'commaai/website'
@@ -76,4 +86,5 @@ jobs:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_COMMA_WEB }}
           channelId: live
+          firebaseToolsVersion: 15.32.1
           projectId: comma-web

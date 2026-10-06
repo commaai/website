@@ -12,20 +12,16 @@ permissions:
   pull-requests: write
 
 concurrency:
-  group: ${{ github.ref }}-${{ github.workflow }}
+  group: preview-${{ github.event.workflow_run.head_repository.full_name }}-${{ github.event.workflow_run.head_branch }}
   cancel-in-progress: true
 
 jobs:
-  pr:
+  preview:
     if: github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'pull_request'
-    name: Find PR number
+    name: Deploy preview
     runs-on: ubuntu-latest
-    timeout-minutes: 1
-    outputs:
-      number: ${{ steps.pr.outputs.number }}
+    timeout-minutes: 5
     steps:
-      # use `gr pr view` to get the PR number
-      # https://github.com/orgs/community/discussions/25220#discussioncomment-11285971
       - name: Find PR number
         id: pr
         env:
@@ -41,20 +37,8 @@ jobs:
           gh pr view --repo "${PR_TARGET_REPO}" "${PR_BRANCH}" \
             --json 'number' \
             --jq '"number=\(.number)"' \
-            >> $GITHUB_OUTPUT
+            >> "$GITHUB_OUTPUT"
 
-      - run: |
-          echo "PR number: ${{ steps.pr.outputs.number }}"
-
-  preview:
-    if: github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'pull_request'
-    name: Deploy preview
-    needs: pr
-    runs-on: ubuntu-latest
-    timeout-minutes: 2
-    outputs:
-      check_id: ${{ steps.check.outputs.result }}
-    steps:
       - name: Create PR check
         uses: actions/github-script@v7
         id: check
@@ -62,19 +46,24 @@ jobs:
           script: |
             const response = await github.rest.checks.create({
               name: 'preview',
-              head_sha: '${{ github.event.workflow_run.head_sha }}',
+              head_sha: context.payload.workflow_run.head_sha,
               status: 'in_progress',
               output: {
                 title: 'Preview deployment',
                 summary: 'In Progress',
               },
-              owner: 'commaai',
-              repo: '${{ github.event.repository.name }}',
+              owner: context.repo.owner,
+              repo: context.repo.repo,
             })
             return response.data.id
 
+      # Only trusted deployment configuration is needed; never execute PR code here.
       - uses: actions/checkout@v4
-      - uses: oven-sh/setup-bun@v2
+        with:
+          sparse-checkout: |
+            firebase.json
+            .firebaserc
+          sparse-checkout-cone-mode: false
 
       - name: Download build artifacts
         uses: actions/download-artifact@v4
@@ -89,6 +78,12 @@ jobs:
         with:
           node-version: '24.18.0'
 
+      - name: Cache Firebase CLI
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: firebase-cli-${{ runner.os }}-node24-15.32.1
+
       - name: Deploy preview
         id: deploy
         uses: FirebaseExtended/action-hosting-deploy@v0
@@ -96,8 +91,9 @@ jobs:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_COMMA_WEB }}
           projectId: comma-web
-          channelId: pr${{ needs.pr.outputs.number }}
+          channelId: pr${{ steps.pr.outputs.number }}
           expires: 5d
+          firebaseToolsVersion: 15.32.1
 
       - name: Comment URL on PR
         uses: thollander/actions-comment-pull-request@v3
@@ -112,30 +108,25 @@ jobs:
             * mark your PR as a draft until it's ready to review
             * post the preview on [Discord](https://discord.comma.ai); feedback from users will speedup the PR review
           comment-tag: run_id
-          pr-number: ${{ needs.pr.outputs.number }}
+          pr-number: ${{ steps.pr.outputs.number }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
-  update_pr_check:
-    if: always() && github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'pull_request'
-    name: Update PR Check
-    needs: preview
-    runs-on: ubuntu-latest
-    timeout-minutes: 1
-    steps:
       - name: Update PR check
+        if: always() && steps.check.outputs.result != ''
         uses: actions/github-script@v7
+        env:
+          CHECK_ID: ${{ steps.check.outputs.result }}
+          CONCLUSION: ${{ job.status }}
         with:
           script: |
-            github.rest.checks.update({
-              check_run_id: ${{ needs.preview.outputs.check_id }},
-              name: 'preview',
-              head_sha: '${{ github.event.workflow_run.head_sha }}',
+            await github.rest.checks.update({
+              check_run_id: Number(process.env.CHECK_ID),
               status: 'completed',
-              conclusion: '${{ needs.preview.result }}',
+              conclusion: process.env.CONCLUSION,
               output: {
                 title: 'Preview deployment',
-                summary: 'Result: ${{ needs.preview.result }}',
+                summary: `Result: ${process.env.CONCLUSION}`,
               },
-              owner: 'commaai',
-              repo: '${{ github.event.repository.name }}',
+              owner: context.repo.owner,
+              repo: context.repo.repo,
             })
