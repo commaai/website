@@ -2,6 +2,7 @@
   import { onMount } from "svelte";
   import Faq from "$lib/components/Faq.svelte";
   import LinkButton from "$lib/components/LinkButton.svelte";
+  import JobsEmailUpdatesForm from "$lib/components/EmailUpdates/JobsEmailUpdatesForm.svelte";
   import { faq } from "$lib/constants/faq.svelte";
   import ArrowRightIcon from "$lib/icons/arrow-right.svg?raw";
   import IconChevron from "$lib/icons/icon-chevron.svg?raw";
@@ -611,6 +612,12 @@
     </div>
   </section>
 
+  <section class="jobs-updates-section" aria-label="Stay in the loop">
+    <div class="container">
+      <JobsEmailUpdatesForm />
+    </div>
+  </section>
+
   <section class="jobs-section" id="faq" aria-label="Jobs FAQ">
     <div class="container">
       <Faq topic={faq.jobs} title="Jobs FAQ" />
@@ -639,6 +646,10 @@
     max-width: var(--jobs-container);
     width: 100%;
     margin: 0 auto;
+  }
+
+  .jobs-updates-section {
+    padding-bottom: var(--jobs-section-y);
   }
 
   .jobs-hero {
