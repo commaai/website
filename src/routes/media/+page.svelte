@@ -189,6 +189,21 @@
   </div>
 </section>
 
+<section class="light">
+  <div class="container" id="download-kit">
+    <div class="download-kit">
+      <div>
+        <h2>Download the whole kit</h2>
+        <p>Product photos, factory images, videos, and brand assets.</p>
+      </div>
+      <!-- The archive is generated after prerendering, so exclude it from link crawling. -->
+      <a class="download-all" href="/comma-media-kit.zip" download="comma-media-kit.zip" rel="external">
+        Download all (ZIP)<span aria-hidden="true">↓</span>
+      </a>
+    </div>
+  </div>
+</section>
+
 <style>
   section.light {
     --section-gap: 4rem;
@@ -206,6 +221,18 @@
   h2 { font-size: 2rem; }
   h3 { border-bottom: 1px solid var(--asset-border); font-size: 1.5rem; padding-bottom: 1rem; }
   .header-image { margin-bottom: var(--section-gap); }
+  #download-kit { scroll-margin-top: 6rem; }
+  .download-kit { display: flex; align-items: center; justify-content: space-between; gap: 3rem; border: 1px solid var(--asset-border); padding: 2rem; }
+  .download-kit h2 { font-size: 1.5rem; margin: 0 0 0.75rem; }
+  .download-kit p { margin: 0; max-width: 34rem; }
+  .download-all { display: flex; flex-shrink: 0; align-items: center; justify-content: space-between; gap: 1.5rem; padding: 1rem 1.5rem; border: 1px solid #000; color: #000; font-weight: 500; }
+  .download-all span { color: inherit; font-size: 1.25rem; }
+  .download-all:hover { opacity: 0.75; }
+  .download-all:focus-visible { outline: 2px solid #000; outline-offset: 4px; }
+  @media (max-width: 768px) {
+    .download-kit { flex-direction: column; align-items: flex-start; gap: 1.5rem; padding: 1.5rem; }
+    .download-all { padding: 0.875rem 1rem; }
+  }
   .header-image :global(img) { display: block; width: 100%; height: auto; }
   .release-link { text-decoration: underline; text-underline-offset: 0.2em; }
   .media-section + .media-section { margin-top: var(--section-gap); }

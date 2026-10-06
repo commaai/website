@@ -250,6 +250,7 @@
     },
     {
       title: "Internships / Co-op",
+      team: "all teams",
       location: "Paid and on-site in San Diego, CA",
       description: `
         Internships are for people we would like to hire but can't because school. We're looking for
@@ -535,11 +536,14 @@
                 <span class="job-header-title">
                   <span class="job-title-line">
                     <span class="job-title">{job.title}</span>
+                  </span>
+                  <span class="job-meta">
                     {#if job.team}
                       <span class="job-team">{job.team}</span>
+                      <span class="job-meta-separator" aria-hidden="true">/</span>
                     {/if}
+                    <span class="job-location">{job.location}</span>
                   </span>
-                  <span class="job-location">{job.location}</span>
                 </span>
                 <span class="job-toggle-icon" aria-hidden="true">
                   {@html IconChevron}
@@ -1068,6 +1072,7 @@
   }
 
   .job-team,
+  .job-meta-separator,
   .job-location {
     color: #000;
     font-family: "JetBrains Mono", monospace;
@@ -1076,17 +1081,24 @@
   }
 
   .job-team {
-    border: 1px solid #000;
-    display: inline-block;
     flex: none;
-    opacity: 0.65;
-    padding: 0.25rem 0.5rem;
+    opacity: 0.8;
+  }
+
+  .job-meta-separator {
+    opacity: 0.4;
   }
 
   .job-location {
-    margin-top: 0.75rem;
     opacity: 0.65;
-    text-transform: uppercase;
+  }
+
+  .job-meta {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.375rem 0.625rem;
+    margin-top: 0.75rem;
   }
 
   .job-actions {
@@ -1400,17 +1412,13 @@
       column-gap: 0.5rem;
     }
 
-    .job-location {
-      display: none;
+    .job-meta {
+      gap: 0.3125rem 0.5rem;
       margin-top: 0.5rem;
     }
 
     .job-actions {
       display: none;
-    }
-
-    .job-item.expanded .job-location {
-      display: block;
     }
 
     .job-item.expanded .job-actions {
@@ -1422,8 +1430,10 @@
     }
 
     .job-team,
+    .job-meta-separator,
     .job-location {
-      font-size: 0.875rem;
+      font-size: 0.75rem;
+      line-height: 1.6;
     }
 
     .apply-wrap {
