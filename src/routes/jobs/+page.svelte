@@ -415,7 +415,7 @@
         />
         <img
           src={`${ASSET_PATH}/Frame-176.png`}
-          srcset={`${ASSET_PATH}/Frame-176-p-500.png 500w, ${ASSET_PATH}/Frame-176.png 640w`}
+          srcset={`${ASSET_PATH}/Frame-176-p-500.jpg 500w, ${ASSET_PATH}/Frame-176.png 640w`}
           sizes="(max-width: 768px) 85vw, 640px"
           loading="lazy"
           alt="comma HQ in San Diego"

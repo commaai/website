@@ -33,10 +33,10 @@
   import InstallGpu from "$lib/images/products/chestnut/ins3.png";
   import InstallGpuPower from "$lib/images/products/chestnut/ins4.png";
   import SecureGpu from "$lib/images/products/chestnut/ins6.png";
-  import InstallFootwell from "$lib/images/products/chestnut/install_footwell.png";
-  import InstallUnderSeat from "$lib/images/products/chestnut/install_under_seat.png";
-  import PluginCommaFour from "$lib/images/products/chestnut/plugin_90.png";
-  import PluginVehiclePower from "$lib/images/products/chestnut/plugin_cig.png";
+  import InstallFootwell from "$lib/images/products/chestnut/install_footwell.jpg";
+  import InstallUnderSeat from "$lib/images/products/chestnut/install_under_seat.jpg";
+  import PluginCommaFour from "$lib/images/products/chestnut/plugin_90.jpg";
+  import PluginVehiclePower from "$lib/images/products/chestnut/plugin_cig.jpg";
   import TechSpecsImage from "$lib/images/products/chestnut/techspecs.png";
 
   export let data;

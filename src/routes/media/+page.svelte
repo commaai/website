@@ -3,20 +3,20 @@
   import CommaMarkWhiteJPG from "$lib/images/brand/comma-mark-white.jpg?format=jpg&as=url";
   import CommaWordmarkBlackJPG from "$lib/images/brand/comma-wordmark-black.jpg?format=jpg&as=url";
   import CommaWordmarkWhiteJPG from "$lib/images/brand/comma-wordmark-white.jpg?format=jpg&as=url";
-  import Windshield43Image from "$lib/images/products/comma-four/windshield43.png?w=960";
-  import Windshield43Download from "$lib/images/products/comma-four/windshield43.png?format=png&as=url";
-  import Factory1Image from "$lib/images/manufacturing/factory-1.png?w=960";
-  import Factory1Download from "$lib/images/manufacturing/factory-1.png?format=jpg&quality=95&as=url";
-  import Factory3Image from "$lib/images/manufacturing/factory-3.png?w=960";
-  import Factory3Download from "$lib/images/manufacturing/factory-3.png?format=jpg&quality=95&as=url";
-  import Factory4Image from "$lib/images/manufacturing/factory-4.png?w=960";
-  import Factory4Download from "$lib/images/manufacturing/factory-4.png?format=jpg&quality=95&as=url";
-  import Factory5Image from "$lib/images/manufacturing/factory-5.png?w=960";
-  import Factory5Download from "$lib/images/manufacturing/factory-5.png?format=jpg&quality=95&as=url";
-  import Factory6Image from "$lib/images/manufacturing/factory-6.png?w=960";
-  import Factory6Download from "$lib/images/manufacturing/factory-6.png?format=jpg&quality=95&as=url";
+  import Windshield43Image from "$lib/images/products/comma-four/windshield43.jpg?w=960";
+  import Windshield43Download from "$lib/images/products/comma-four/windshield43.jpg?url";
+  import Factory1Image from "$lib/images/manufacturing/factory-1.jpg?w=960";
+  import Factory1Download from "$lib/images/manufacturing/factory-1.jpg?url";
+  import Factory3Image from "$lib/images/manufacturing/factory-3.jpg?w=960";
+  import Factory3Download from "$lib/images/manufacturing/factory-3.jpg?url";
+  import Factory4Image from "$lib/images/manufacturing/factory-4.jpg?w=960";
+  import Factory4Download from "$lib/images/manufacturing/factory-4.jpg?url";
+  import Factory5Image from "$lib/images/manufacturing/factory-5.jpg?w=960";
+  import Factory5Download from "$lib/images/manufacturing/factory-5.jpg?url";
+  import Factory6Image from "$lib/images/manufacturing/factory-6.jpg?w=960";
+  import Factory6Download from "$lib/images/manufacturing/factory-6.jpg?url";
   import WindshieldImage from "$lib/images/products/comma-four/windshield.jpg?w=1600";
-  import WindshieldDownload from "$lib/images/products/comma-four/windshield.jpg?format=jpg&as=url";
+  import WindshieldDownload from "$lib/images/products/comma-four/windshield.jpg?url";
   import BoardImage from "$lib/images/products/comma-four/circuit-board.png?w=960";
   import BoardDownload from "$lib/images/products/comma-four/circuit-board.png?format=jpg&quality=95&as=url";
   import FrontImage from "$lib/images/products/comma-four/four_front.png?w=960";
@@ -64,7 +64,7 @@
 
   const productImages = [
     { title: "comma four + openpilot", image: ScreenImage, download: ScreenDownload, name: "comma-four-screen-on.png" },
-    { title: "On the windshield", image: Windshield43Image, download: Windshield43Download, name: "comma-four-windshield.png" },
+    { title: "On the windshield", image: Windshield43Image, download: Windshield43Download, name: "comma-four-windshield.jpg" },
     { title: "Front", image: FrontImage, download: FrontDownload, name: "comma-four-front.png" },
     { title: "Angled view", image: AngledImage, download: AngledDownload, name: "comma-four-angled.png" },
     { title: "Back", image: BackImage, download: BackDownload, name: "comma-four-back.png" },

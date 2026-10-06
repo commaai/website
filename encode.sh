@@ -6,7 +6,7 @@ cd $DIR
 
 VIDEO=${1:-~/Downloads/testvideo2_trash.MP4}
 VIDEO_NAME=${2:-hero}
-ENCODE_MODE=${3:-hw}
+ENCODE_MODE=${3:-sw}
 case "$ENCODE_MODE" in
   hw|HW) ENCODE_MODE=hw ;;
   sw|SW|cpu) ENCODE_MODE=sw ;;
@@ -17,7 +17,7 @@ case "$ENCODE_MODE" in
 esac
 
 if [[ "$ENCODE_MODE" == "hw" ]]; then
-  CODEC_ARGS=(-c:v h264_nvenc -preset p5 -tune hq -rc cbr_hq -b:v 5M -maxrate 5M -bufsize 10M)
+  CODEC_ARGS=(-c:v h264_nvenc -preset p5 -tune hq -rc cbr_hq -b:v 5M -maxrate 5M -bufsize 10M -bf 3 -b_ref_mode middle -spatial_aq 1 -aq-strength 8 -temporal_aq 1 -rc-lookahead 20)
 else
   CODEC_ARGS=(-c:v libx264 -preset veryslow -crf 21 -profile:v high -level 4.1 -maxrate 5M -bufsize 10M -x264-params "nal-hrd=vbr")
 fi
@@ -56,7 +56,6 @@ ffmpeg -y -ss $START_OFFSET -i $VIDEO -t $trim_duration \
   -segment_list $out/${VIDEO_NAME}.m3u8 -segment_list_type m3u8 \
   -segment_time 2 \
   -reset_timestamps 1 \
-  -bf 3 -b_ref_mode middle -spatial_aq 1 -aq-strength 8 -temporal_aq 1 -rc-lookahead 20 \
   $out/part_${UUID}_%03d.ts
 
 printf '\n\n'

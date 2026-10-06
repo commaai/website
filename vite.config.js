@@ -14,6 +14,8 @@ export default defineConfig({
   },
   plugins: [
     imagetools({
+      // Keep full-resolution media downloads byte-for-byte identical to the source.
+      exclude: ['public/**/*', /\?url(?:&|$)/],
       defaultDirectives: (url) => {
         let sourceFileType = url.pathname.split('.').pop();
         if (filetypesToOptimize.includes(sourceFileType)) {
