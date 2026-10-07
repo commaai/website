@@ -46,7 +46,7 @@
     },
     {
       label: "02",
-      title: "Phone screen",
+      title: "Interview",
       body:
         "Typically, we do two calls: a quick intro and screen, then an in-depth technical interview with an engineer.",
     },
@@ -54,7 +54,7 @@
       label: "03",
       title: "Paid micro-internship",
       body:
-        "We'll fly you out to meet the team and work on a real problem for a few days and hopefully ship it to real users. If all goes well, we will make a full-time offer.",
+        "We'll fly you out to meet the team and work on a real problem for a few days and hopefully ship it to real users. If it's a fit, we'll make a full-time offer.",
     },
   ];
 
@@ -224,14 +224,14 @@
       ],
     },
     {
-      title: "CNC Machinist (Head of Prototyping)",
+      title: "Prototyping Engineer",
       team: "hardware",
       location: "On-site in San Diego, CA",
       description: `
         We're building <a href="https://sendcutsend.com/">SendCutSend</a> at home. The shop has
         a Haas VF2, lathe, 3D printers, and a budget for any other tools we'll need to bring
         prototyping fully in-house.
-        You'll own parts from CAD to finished prototype: CAM, setup, fixturing, machining, inspection, and iteration with the hardware team.
+        <strong>Your job is to make prototypes happen, whatever it takes</strong>: CAM, setup, fixturing, machining, inspection, and iteration with the hardware team.
         You'll build prototypes for all future comma products, from comma four to the <a href="https://x.com/__tinygrad__/status/2040944508402360592">exabox</a>.
       `,
       qualifications: [
@@ -290,6 +290,9 @@
   const jobSlugs = jobs.map((job) =>
     job.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")
   );
+  const jobSlugAliases = {
+    "cnc-machinist-head-of-prototyping": "prototyping-engineer",
+  };
 
   let copiedJobIndex = null;
   let copyResetTimeout;
@@ -299,9 +302,14 @@
 
   onMount(() => {
     const hash = decodeURIComponent(window.location.hash.slice(1));
-    const index = jobSlugs.indexOf(hash);
+    const slug = jobSlugAliases[hash] ?? hash;
+    const index = jobSlugs.indexOf(slug);
     if (index !== -1) {
       expandedJobIndexes = new Set([index]);
+      if (slug !== hash) {
+        window.history.replaceState(window.history.state, "", `#${slug}`);
+        requestAnimationFrame(() => document.getElementById(slug)?.scrollIntoView());
+      }
     }
 
     return () => {
@@ -556,7 +564,7 @@
                   </span>
                   <span class="job-meta">
                     {#if job.team}
-                      <span class="job-team">{job.team}</span>
+                      <span class="job-team">{job.team}{job.team === "all teams" ? "" : " team"}</span>
                       <span class="job-meta-separator" aria-hidden="true">/</span>
                     {/if}
                     <span class="job-location">{job.location}</span>
