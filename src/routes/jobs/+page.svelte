@@ -46,7 +46,7 @@
     },
     {
       label: "02",
-      title: "Phone screen",
+      title: "Interview",
       body:
         "Typically, we do two calls: a quick intro and screen, then an in-depth technical interview with an engineer.",
     },
@@ -54,7 +54,7 @@
       label: "03",
       title: "Paid micro-internship",
       body:
-        "We'll fly you out to meet the team and work on a real problem for a few days and hopefully ship it to real users. If all goes well, we will make a full-time offer.",
+        "We'll fly you out to meet the team and work on a real problem for a few days and hopefully ship it to real users. If it's a fit, we'll make a full-time offer.",
     },
   ];
 
