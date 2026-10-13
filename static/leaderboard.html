@@ -595,6 +595,24 @@ Within that audience, feel free to target a more specific subset, such as Rivian
 </details>
 
 <script>
+  document.querySelectorAll('.header-anchor').forEach(anchor => {
+    const originalText = anchor.textContent;
+    const originalLabel = anchor.getAttribute('aria-label');
+    let resetTimer;
+    anchor.addEventListener('click', event => {
+      event.preventDefault();
+      navigator.clipboard.writeText(anchor.href).then(() => {
+        clearTimeout(resetTimer);
+        anchor.textContent = '✔️ ';
+        anchor.setAttribute('aria-label', 'Copied');
+        resetTimer = setTimeout(() => {
+          anchor.textContent = originalText;
+          anchor.setAttribute('aria-label', originalLabel);
+        }, 1500);
+      }).catch(console.error);
+    });
+  });
+
   const el = document.getElementById('countdown');
   const countdownDate = new Date(el?.innerText).getTime();
 
