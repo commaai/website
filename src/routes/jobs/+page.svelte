@@ -245,27 +245,6 @@
         'Email <a href="mailto:work@comma.ai">work@comma.ai</a> with examples of cool projects you\'ve built.',
     },
     {
-      title: "Office Manager",
-      team: "operations",
-      location: "On-site in San Diego, CA",
-      description: `
-        Looking for someone practical, organized, and calm who can keep comma's daily operations
-        running smoothly. You'll own the day-to-day details that make the office work, from
-        facilities and fleet logistics to purchasing support, employee logistics, events, records,
-        vendors, and one-off operational projects.
-      `,
-      qualifications: [
-        "Experience in operations, business, facilities, or office management",
-        "Excellent organizational skills and attention to detail",
-        "Comfortable with basic finance concepts like expenses, invoices, and budgets",
-        "Strong analytical and problem-solving abilities",
-        "Ability to self-motivate, prioritize, and work independently in a small, fast-moving team",
-        "Preferred: experience with Shopify or similar operational tooling",
-      ],
-      howToApply:
-        'Do the <a href="https://github.com/commaai/operations_challenge">operations challenge</a>, then email <a href="mailto:work@comma.ai">work@comma.ai</a>.',
-    },
-    {
       title: "Internships / Co-op",
       team: "all teams",
       location: "Paid and on-site in San Diego, CA",
