@@ -56,3 +56,12 @@ We aren't able to transfer comma prime subscriptions between devices. To do so, 
 
 Your stored drives from the original device will not be transferred to the new device.
 :::
+
+::: dropdown I installed my own SIM card, but it isn't working. What should I do?
+We do not offer support for setting up third party cellular service. Note that lack of third party cellular connectivity, by itself, is not indicative of malfunctioning hardware as each carrier needs to be carefully configured to function properly. If you are not prepared to configure your SIM card to work with the device, we recommend prime over prime lite.
+
+Some common issues include:
+- The APN is not set correctly on the device.
+- The device isn't whitelisted with your carrier.
+- The SIM card's service isn't active.
+:::

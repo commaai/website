@@ -20,13 +20,26 @@
   $: landingArticles = landing?.articles?.filter(article => article.listed !== 'false') || [];
 
   afterUpdate(() => {
-    if (!hash || hash === lastScrolledHash) return;
+    if (!hash) {
+      lastScrolledHash = '';
+      return;
+    }
+    const location = `${supportPath}#${hash}`;
+    if (location === lastScrolledHash) return;
     const target = document.getElementById(hash);
     if (!target) return;
-    lastScrolledHash = hash;
-    if (target instanceof HTMLDetailsElement) target.open = true;
-    target.scrollIntoView();
+    lastScrolledHash = location;
+    revealHashTarget(target).scrollIntoView();
   });
+
+  function revealHashTarget(target) {
+    if (target instanceof HTMLDetailsElement) target.open = true;
+    if (target instanceof HTMLInputElement && target.type === 'checkbox') {
+      target.checked = true;
+      return target.labels?.[0] || target;
+    }
+    return target;
+  }
 
   async function openSupportLink(event) {
     if (event.defaultPrevented) return;
@@ -41,8 +54,7 @@
     const targetHash = decodeURIComponent(url.hash.slice(1));
     const target = targetHash && document.getElementById(targetHash);
     if (target) {
-      if (target instanceof HTMLDetailsElement) target.open = true;
-      target.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
+      revealHashTarget(target).scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
     }
     else window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   }

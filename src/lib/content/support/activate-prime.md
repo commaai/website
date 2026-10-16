@@ -32,17 +32,3 @@ To receive commacare, activate prime or prime lite within 30 days of receiving y
 [Learn more about commacare](/support/warranty#commacare "article")
 
 [How to cancel comma prime](/support/cancel-prime "article")
-
-### Frequently asked questions
-
-::: dropdown How do I transfer a prime subscription to a new device?
-Subscriptions cannot be transferred between devices. Cancel the subscription for your old device in [comma connect](https://connect.comma.ai/), then subscribe using the new device.
-
-Stored drives from the original device will not transfer to the new device.
-:::
-
-::: dropdown I installed my own SIM card, but it isn't working. What should I do?
-comma does not provide setup or troubleshooting support for third-party cellular service. A lack of third-party cellular connectivity alone does not indicate defective hardware.
-
-Check that the APN is configured correctly, the device is allowed by your carrier, and the SIM's service is active. If you do not want to configure your own cellular service, choose prime instead of prime lite.
-:::

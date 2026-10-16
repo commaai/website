@@ -7,18 +7,20 @@ order: 6
 ## Cancel your subscription
 
 1. Sign in to [comma connect](https://connect.comma.ai/) and select your device.
-2. Open the settings menu and select **Prime Settings**.
+2. Open the settings cog and select **Prime Settings**.
 3. Select **Cancel subscription**.
 
-You can cancel at any time without a cancellation fee. Cancellation takes effect immediately, and no further monthly subscription fees will be charged.
+You can do this at any time without incurring a cancellation fee. Upon canceling your comma prime membership, no further fees will be charged.
 
 ## Billing and account credit
 
-- If you have a free trial, your credit card is charged the monthly subscription fee when the trial ends unless you cancel first.
-- After the trial, your credit card is charged monthly until you cancel.
-- When you cancel, the unused portion of your last paid month is prorated and returned as credit to your account.
+We've made the Refund Policy as straightforward as we can, no hidden clauses and no fine print.
 
-You can subscribe again at any time.
+- If you have a free trial period, we will charge your credit card with the monthly subscription fee at the end of the trial period.
+- We will continue to charge your credit card account on a monthly basis until you cancel your subscription. For example, if you joined on April 5 your credit card will be charged on May 5; June 5; July 5; and so on until you cancel your subscription.
+- Your cancellation takes effect immediately. Your last paid monthly fee will be pro-rated and returned as credit on your account.
+
+You can sign back up at any time.
 
 ## commacare after cancellation
 

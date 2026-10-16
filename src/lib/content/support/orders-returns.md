@@ -6,8 +6,6 @@ order: 4
 
 ## Orders and shipping
 
-### Orders FAQ
-
 ::: dropdown When will I receive my order?
 Orders placed after 7:00 AM PT ship the next business day. You will receive an email with tracking information once your order ships; allow 1–2 days for tracking to become active.
 
@@ -43,7 +41,7 @@ Orders must be placed through the comma shop. Orders over $10,000 may be paid by
 :::
 
 ::: dropdown What do I do if my device arrives damaged?
-Report the damage within 14 days of delivery using the [shop support form](https://commasupport.zendesk.com/hc/en-us/requests/new?ticket_form_id=29233377161623). Include photos of the device and its packaging. comma may not be responsible if you do not report damage within this window.
+Report the damage within 3 days of delivery using the [shop support form](https://commasupport.zendesk.com/hc/en-us/requests/new?ticket_form_id=29233377161623). Include photos of the device and its packaging. comma may not be responsible if you do not report damage within this window.
 
 If a returned device arrives damaged, the repair cost may be deducted from your refund. comma is not responsible for items lost or damaged on their way back, so pack the device carefully.
 :::
@@ -94,6 +92,10 @@ Returns are usually processed within 2–5 business days after they arrive. The 
 
 ::: dropdown Can I exchange my order?
 comma does not offer exchanges. If there is an issue with your order, [request a return](https://comma.ai/returns) and place a new order.
+:::
+
+::: dropdown I'm adding support for a new car and would like to extend my return window.
+If you're adding support for a new car, we can extend your return window to 90 days. Open a [ticket](https://commasupport.zendesk.com/hc/en-us/requests/new?ticket_form_id=29233363745559) with support with your order number once you've placed the order. Return window extensions are subject to approval.
 :::
 
 ## Warranty and commacare

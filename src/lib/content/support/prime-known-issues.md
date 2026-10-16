@@ -34,4 +34,4 @@ Before contacting support, confirm that your comma prime subscription is active,
 
 If the issue continues, include the troubleshooting steps you tried, when the cellular connection stopped working, and any relevant screenshots in your ticket.
 
-[Open a support ticket](https://commasupport.zendesk.com/hc/en-us/requests/new "external")
+[Open a support ticket](https://commasupport.zendesk.com/hc/en-us/requests/new?ticket_form_id=29233366516631 "external")

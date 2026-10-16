@@ -31,6 +31,6 @@ Upgrade your experience with comma connect to view your recent drives and comma 
 
 [Claim your comma prime trial](/support/activate-prime "article")
 
-Upgrade your basic warranty with an extra year when you get comma prime within the first 30 days of buying your comma four.
+Upgrade your basic warranty with an extra year when you get comma prime within the first 30 days of receiving your comma four.
 
 [Warranty and commacare](/support/warranty "article")
