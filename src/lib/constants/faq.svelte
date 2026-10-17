@@ -721,7 +721,6 @@
     },
     troubleshooting: {
       title: 'Hardware Troubleshooting',
-      image: OtherTopicsImage,
       questions: [
         {
           question: 'Why is a stock route required to open a hardware support ticket?',
@@ -818,7 +817,6 @@
     },
     jobs: {
       title: 'Jobs',
-      image: OtherTopicsImage,
       questions: [
         {
           question: 'Do you sponsor visas?',
@@ -860,7 +858,6 @@
     },
     other: {
       title: 'Other',
-      image: OtherTopicsImage,
       questions: [
         {
           question: 'How can I invest in comma?',

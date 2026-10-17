@@ -17,7 +17,7 @@ Get your device installed and ready for your first drive.
 
 Find help with hardware issues.
 
-[Known issues](/support/comma-four-known-issues "article")
+[Common issues](/support/comma-four-common-issues "article")
 
 [Flash your comma](/support/flash-your-comma "article")
 

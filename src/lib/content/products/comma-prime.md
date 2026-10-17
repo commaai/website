@@ -1,7 +1,7 @@
 ---
 title: comma prime
 description: Manage your subscription, drives, and connection to comma connect.
-image: comma-prime
+icon: comma
 imageAlt: comma prime
 ---
 
@@ -39,9 +39,9 @@ An eligible, continuously active prime or prime lite subscription can extend com
 
 ## Troubleshooting
 
-For help with cellular service, review the known issues and troubleshooting steps before contacting support.
+For help with cellular service, review the common issues and troubleshooting steps before contacting support.
 
-[comma prime known issues](/support/prime-known-issues "article")
+[comma prime common issues](/support/prime-common-issues "article")
 
 ## Frequently asked questions
 

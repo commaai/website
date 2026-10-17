@@ -1,14 +1,13 @@
 <script>
-  export let title = 'Topics';
   export let items = [];
   export let activeId = '';
   export let onSelect = () => {};
 </script>
 
-<nav class="topics" aria-label={title}>
-  <h2>{title}</h2>
+<nav class="topics" aria-label="Topics">
+  <h2>Topics</h2>
   {#each items as item}
-    <a href={item.href || `#${item.id}`} class:nested={item.nested} aria-current={activeId === item.id ? 'location' : undefined} on:click={(event) => onSelect(event, item)}>{item.label}</a>
+    <a href="#{item.id}" class:nested={item.nested} aria-current={activeId === item.id ? 'location' : undefined} on:click={(event) => onSelect(event, item)}>{item.label}</a>
   {/each}
 </nav>
 

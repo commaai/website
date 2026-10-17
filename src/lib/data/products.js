@@ -223,7 +223,7 @@ export const products = {
       </p>
       <p>
         For SIM card and connectivity help, see
-        <a href="/support/prime-known-issues" target="_blank">this guide</a>.
+        <a href="/support/prime-common-issues" target="_blank">this guide</a>.
       </p>
     `.trim()
   },

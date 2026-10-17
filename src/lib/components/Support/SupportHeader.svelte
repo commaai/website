@@ -3,7 +3,7 @@
   export let description = '';
   export let image = '';
   export let imageAlt = '';
-  export let imageHtml = '';
+  export let icon = '';
 </script>
 
 <header class="support-header">
@@ -11,9 +11,9 @@
     <h1>{title}</h1>
     {#if description}<p>{description}</p>{/if}
   </div>
-  {#if imageHtml || image}
+  {#if icon || image}
     <div class="header-image">
-      {#if imageHtml}<span class="header-icon" aria-hidden="true">{@html imageHtml}</span>{:else}<img src={image} alt={imageAlt} />{/if}
+      {#if icon}<span class="header-icon" aria-hidden="true">{@html icon}</span>{:else}<img src={image} alt={imageAlt} />{/if}
     </div>
   {/if}
 </header>
@@ -28,8 +28,7 @@
   .header-icon { display: grid; place-items: center; width: 170px; height: 170px; border-radius: 24%; background: #171717; color: #fff; }
   .header-icon :global(svg) { width: 51px; height: 89px; }
   @media (max-width: 760px) {
-    .support-header { min-height: 0; }
-    .support-header { flex-direction: column; align-items: stretch; }
+    .support-header { flex-direction: column; align-items: stretch; min-height: 0; }
     .header-copy { box-sizing: border-box; width: 100%; }
     .header-image { flex: none; width: 100%; align-self: center; }
     .header-image img { max-height: 160px; }

@@ -1,10 +1,10 @@
 ---
-title: comma four known issues
+title: comma four common issues
 description: For help troubleshooting
 order: 0
 ---
 
-## Known issues
+## Common issues
 
 ::: dropdown Device won't turn on or keeps restarting
 Check that the device is securely connected to its cable and that the harness connections are fully seated. Follow the [setup guide](/setup) to check the installation.
@@ -13,7 +13,7 @@ If the device still has trouble, try the latest stock openpilot release. You can
 
 [Learn how to flash your comma](/support/flash-your-comma "article")
 
-If the issue continues on stock software, [contact hardware support](/support/comma-four-known-issues#still-having-issues) with the steps you tried.
+If the issue continues on stock software, [contact hardware support](/support/comma-four-common-issues#still-having-issues) with the steps you tried.
 :::
 
 ::: dropdown Blank screen or camera issue
@@ -21,7 +21,7 @@ Reseat the device cable and check the mount and installation using the [setup gu
 
 [Learn how to flash your comma](/support/flash-your-comma "article")
 
-If the issue continues, [contact hardware support](/support/comma-four-known-issues#still-having-issues) and describe what you see.
+If the issue continues, [contact hardware support](/support/comma-four-common-issues#still-having-issues) and describe what you see.
 :::
 
 ::: dropdown Dark border on bottom of comma four video display
@@ -29,7 +29,7 @@ This is a normal display effect that improves contrast behind on-screen elements
 :::
 
 ::: dropdown GPS isn't working
-Make sure nothing blocks the device's view of the sky. If GPS still has trouble, [contact hardware support](/support/comma-four-known-issues#still-having-issues) and include a photo of the device mounted on the windshield.
+Make sure nothing blocks the device's view of the sky. If GPS still has trouble, [contact hardware support](/support/comma-four-common-issues#still-having-issues) and include a photo of the device mounted on the windshield.
 :::
 
 ::: dropdown Car isn't recognized or openpilot won't engage

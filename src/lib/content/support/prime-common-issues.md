@@ -1,10 +1,10 @@
 ---
-title: comma prime known issues
+title: comma prime common issues
 description: Troubleshoot comma prime cellular service and find out when to contact support.
 order: 5
 ---
 
-## Known issues
+## Common issues
 
 ::: dropdown comma prime SIM not connecting to network
 If your device's comma prime subscription was enabled recently, leave your device connected to a strong Wi-Fi signal and wait at least a day for the SIM card to activate. Try rebooting your device after enough time has passed. Find an area with a strong mobile signal to make sure the issue is not due to weak cell coverage.
@@ -13,7 +13,7 @@ If your device is not on stock openpilot, flash it back to the latest stock rele
 
 [Learn how to flash your comma](/support/flash-your-comma "article")
 
-If the SIM still does not connect, [contact support](/support/prime-known-issues#still-having-issues) with the steps you tried.
+If the SIM still does not connect, [contact support](/support/prime-common-issues#still-having-issues) with the steps you tried.
 :::
 
 ::: dropdown comma prime SIM not working anymore
@@ -23,7 +23,7 @@ Check that your subscription is active in comma connect and that you are in an a
 
 comma prime also maintains data limits to avoid abuse of comma prime (full) cell service. We reserve the right to block your cell usage if you are not on stock software (openpilot release version) and are deemed to be abusing our cell service.
 
-If service still does not work, [contact support](/support/prime-known-issues#still-having-issues) with the steps you tried.
+If service still does not work, [contact support](/support/prime-common-issues#still-having-issues) with the steps you tried.
 :::
 
 ## Still having issues?

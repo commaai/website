@@ -1,5 +1,5 @@
 import { error } from '@sveltejs/kit';
-import { products } from '$lib/components/Support/product-content';
+import { products } from '$lib/components/Support/content';
 
 export function load({ params }) {
   const product = products.get(params.product);

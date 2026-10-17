@@ -13,6 +13,10 @@ With openpilot 0.10, comma three moved to a separate long term support release b
 
 ## Maintaining your comma three
 
+### Broken screen
+
+Replacement screens for the comma three are available in the [shop](/shop/comma-device-screen). See the product page for details and repair terms.
+
 ### Performing a Factory Reset
 
 Reset the comma three by repeatedly tapping on the screen as soon as the device boots up. After that, the factory reset screen will come up.
