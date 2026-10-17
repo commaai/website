@@ -1,5 +1,4 @@
 <script context="module">
-  import OpenpilotImage from '$lib/images/faq/openpilot.svg';
   import ConnectImage from '$lib/images/faq/connect.svg';
   import ReturnPolicyImage from '$lib/images/faq/30-day.svg';
   import ShopImage from '$lib/images/faq/shop.svg';
@@ -11,7 +10,7 @@
   export const faq = {
     openpilot: {
       title: 'openpilot',
-      image: OpenpilotImage,
+      image: OtherTopicsImage,
       questions: [
         {
           question: 'What is openpilot?',
@@ -392,11 +391,11 @@
         }, {
           question: 'How do I switch between prime and prime lite?',
           answer: `
-            Currently, this requires cancelling your current subscription and resubscribing at the new tier.
-            Since the subscription is pro-rated, the cancellation happens immediately, and you can resubscribe immediately.
-            Your stored drives from the original subscription are not guaranteed to persist after this process.
+            Open Prime Settings in <a href="https://connect.comma.ai/">comma connect</a>
+            and select the option to switch plans. See the
+            <a href="/support/switch-prime-plans">step-by-step instructions for switching prime plans</a>.
           `
-        }
+        },
       ]
     },
     devices: {
@@ -666,7 +665,7 @@
           question: 'What do I do if my device arrives damaged?',
           answer: `
             <p>
-            Please alert us to any issues with your order within 3 days of delivery by opening a <a href="https://commasupport.zendesk.com/hc/en-us/requests/new?ticket_form_id=29233377161623">support ticket here</a> and including pictures of both the product and packaging. We may not be responsible for damages if we are not notified within this window.
+            Please report any damage present when your device arrives within 3 days of delivery by opening a <a href="https://commasupport.zendesk.com/hc/en-us/requests/new?ticket_form_id=29233377161623">shop support ticket</a> and including pictures of the device and its packaging. We may not be responsible for damages if we are not notified within this window.
             </p>
             <p>
             If we receive a damaged device returned to us, we will deduct the cost of the repair from your return. We are not responsible for lost or damaged items mailed back to us and recommend using the original packaging to make a return or carefully padding your device when sending it back.
@@ -722,7 +721,6 @@
     },
     troubleshooting: {
       title: 'Hardware Troubleshooting',
-      image: OtherTopicsImage,
       questions: [
         {
           question: 'Why is a stock route required to open a hardware support ticket?',
@@ -819,7 +817,6 @@
     },
     jobs: {
       title: 'Jobs',
-      image: OtherTopicsImage,
       questions: [
         {
           question: 'Do you sponsor visas?',
@@ -851,12 +848,16 @@
           answer: `
             Nope. We're just looking for people who do well on our challenges and can independently contribute to solving self-driving cars.
           `
+        }, {
+          question: "I'm ready to claim an openpilot bounty.",
+          answer: `
+            Thanks for contributing! Open a <a href="https://commasupport.zendesk.com/hc/en-us/requests/new?ticket_form_id=29233607274775">ticket</a> with support to claim.
+          `
         },
       ]
     },
     other: {
       title: 'Other',
-      image: OtherTopicsImage,
       questions: [
         {
           question: 'How can I invest in comma?',

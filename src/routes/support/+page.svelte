@@ -1,219 +1,47 @@
 <script>
-  import { page } from '$app/stores';
-
-  import Grid from "$lib/components/Grid.svelte";
-  import Faq from '$lib/components/Faq.svelte';
-  import Accordion from '$lib/components/Accordion.svelte';
-
-  import { supportFaqs } from '$lib/constants/support.svelte';
-  import { faq } from '$lib/constants/faq.svelte';
+  import SupportCatchAll from '$lib/components/Support/SupportCatchAll.svelte';
+  import SupportFaqs from '$lib/components/Support/SupportFaqs.svelte';
+  import SupportProducts from '$lib/components/Support/SupportProducts.svelte';
+  import SupportHeader from '$lib/components/Support/SupportHeader.svelte';
+  import { supportHome } from '$lib/components/Support/content';
 </script>
 
-<section class="light" id="support">
-  <div class="container">
-    <!-- <hr> -->
-    <h1>comma support</h1>
-    <div class="faq-sections">
-      {#each Object.values(supportFaqs) as section}
-        <div class="faq-section">
-          <!-- <h3>{section.title}</h3> -->
-          {#each section.questions as entry}
-            <Accordion>
-              <div slot="label" class="label">
-                <span>{entry.question}</span>
-              </div>
-              <div class="details" slot="content">
-                {@html entry.answer}
-              </div>
-            </Accordion>
-            <hr />
-          {/each}
-        </div>
-      {/each}
-    </div>
-  </div>
-</section>
+<svelte:head>
+  <title>{supportHome.pageTitle}</title>
+  <meta name="description" content={supportHome.description} />
+</svelte:head>
 
-<section class="light" id="faq">
-  <div class="container">
-    <h1>FAQs</h1>
-    {#each Object.keys(faq) as key}
-      <div class="faq-card">
-        <Faq topic={faq[key]} />
-      </div>
-    {/each}
-  </div>
-</section>
+<SupportHeader title={supportHome.title} description={supportHome.subtitle} />
+<SupportProducts />
+<div class="category-grid">
+  {#each supportHome.options as option}
+    <a class="category-card" href={option.href}>
+      <div class="card-image"><img src={option.image} alt="" /></div>
+      <div class="card-copy"><h2>{option.title}</h2><p>{option.description}</p></div>
+    </a>
+  {/each}
+</div>
+<hr class="support-divider" />
+<SupportCatchAll standalone />
+<hr class="support-divider" />
+<SupportFaqs />
 
 <style>
-  #support {
-    & .breadcrumbs {
-      display: flex;
-      flex-wrap: wrap;
-      padding: 1rem;
-      background-color: var(--color-card-background);
-      margin-bottom: 2rem;
-      font-size: 1.25rem;
-
-      & span {
-        margin: 0 0.5rem;
-        user-select: none;
-      }
-
-      & :last-child {
-        font-weight: 600;
-      }
-    }
-
-    & h2 {
-      margin-bottom: 2rem;
-    }
-
-    & h3 {
-      font-size: 1.875rem;
-      font-weight: 600;
-      margin-top: 0;
-      margin-bottom: 2rem;
-    }
-
-    & a {
-      color: #000;
-      border-bottom: 2px solid #86ff4e;
-      background-color: rgba(134, 255, 78, 0.15);
-    }
-
-    & li {
-      font-size: 1.25rem;
-    }
-
-    & .support-card {
-      border: 1px solid #000;
-      background-color: var(--color-card-background);
-      padding: 1rem;
-      transition: all 0.2s;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-
-      @media (hover: hover) and (pointer: fine) {
-        &:hover {
-          background-color: var(--color-card-background-hover);
-          transform: scale(1.02);
-        }
-      }
-      &:active {
-        background-color: var(--color-card-background-hover);
-        transform: scale(1.02);
-      }
-
-      & img {
-        display: inline-block;
-        mix-blend-mode: multiply;
-        padding-bottom: 1rem;
-        object-fit: contain;
-      }
-
-      & div {
-        font-size: 1.25rem;
-        font-weight: 600;
-      }
-
-      @media only screen and (max-width: 375px) {
-        & div {
-          font-size: 1rem;
-          text-wrap: wrap;
-        }
-      }
-    }
-
-    & .header-line {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-
-      & span {
-        font-size: 1.4rem;
-        font-weight: 600;
-        line-height: 1;
-        margin: 1.5rem 0;
-      }
-
-      & .line {
-        width: 100%;
-        height: 1px;
-        background-color: #000;
-        margin-left: 1rem;
-      }
-    }
+  .category-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-bottom: 64px; padding-top: 32px; }
+  .category-card { box-sizing: border-box; min-width: 0; border: 1px solid var(--support-border); background: var(--support-surface); color: var(--support-text); display: block; text-decoration: none; }
+  @media (hover: hover) and (pointer: fine) {
+    .category-card:hover { background: var(--support-hover); }
   }
+  .category-card:focus-visible { outline: 3px solid var(--support-accent); outline-offset: 4px; }
+  .card-image { display: flex; align-items: center; justify-content: flex-start; box-sizing: border-box; width: 100%; height: 170px; padding-left: 40px; flex-shrink: 0; background: #000; }
+  .card-image img { width: 96px; height: 96px; filter: invert(1); }
+  .card-copy { padding: 20px 24px 24px; }
+  .card-copy h2 { margin: 0 0 8px; font-size: clamp(22px, 2.5vw, 30px); line-height: 1.12; letter-spacing: -0.035em; font-weight: 600; }
+  .card-copy p { margin: 0; max-width: none; color: var(--support-muted); font-size: 14px; line-height: 1.45; }
 
-  #faq {
-    & .faq-card {
-      margin-bottom: 3rem;
-    }
-
-    & .contact-card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      color: white;
-      background-color: #000;
-      margin: 4rem 0;
-      padding: 6rem 4rem;
-
-      & h2 {
-        color: white;
-        font-size: 2rem;
-        margin-bottom: 2rem;
-      }
-
-      & span {
-        color: white;
-        font-size: 1.25rem;
-        line-height: 1.5;
-        margin-bottom: 1rem;
-      }
-
-      & a {
-        color: white;
-      }
-    }
-
-  }
-
-  .faq-sections {
-    margin: 2rem 0;
-  }
-
-  .faq-section {
-    margin-bottom: 3rem;
-  }
-
-  .label {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin: 1rem 0;
-    margin-right: 0.75rem;
-  }
-
-  .details {
-    font-size: 1.25rem !important;
-    line-height: 1.4;
-    padding: 0.25rem 0 1rem;
-  }
-
-  .details :global(a) {
-    color: #000;
-    border-bottom: 2px solid #86ff4e;
-    background-color: rgba(134, 255, 78, 0.15);
-    text-decoration: none;
-  }
-
-  hr {
-    border: none;
-    border-top: 1px solid var(--surface-2);
-    margin: 0;
+  @media (max-width: 760px) {
+    .category-grid { grid-template-columns: 1fr; gap: 12px; padding-top: 24px; }
+    .card-image { height: 80px; padding-left: 24px; }
+    .card-image img { width: 52px; height: 52px; }
   }
 </style>
