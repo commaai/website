@@ -1,6 +1,7 @@
 import { sveltekit } from '@sveltejs/kit/vite';
 import { imagetools } from 'vite-imagetools';
 import { defineConfig } from 'vite';
+import { mediaKitZip } from './scripts/media-kit-plugin.js';
 
 const filetypesToOptimize = ['jpg', 'jpeg', 'png', 'gif'];
 
@@ -27,5 +28,6 @@ export default defineConfig({
       }
     }),
     sveltekit(),
+    mediaKitZip(),
   ]
 });

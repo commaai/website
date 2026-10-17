@@ -5,6 +5,7 @@ export const EMAIL_CATEGORIES = [
   { key: 'releases', label: 'New openpilot releases', description: 'Major changes and improvements', fieldName: 'group[54660][4]' },
   { key: 'compatibility', label: 'Car compatibility updates', description: 'Newly supported cars', fieldName: 'group[54660][2]' },
   { key: 'blog', label: 'New blog posts', description: 'New posts on the comma blog', fieldName: 'group[54660][8]' },
+  { key: 'events', label: 'Events and challenges', description: 'COMMA_CON, hackathons, other events, and new challenges', fieldName: 'group[54660][32]' },
 ];
 
 // Not shown on the site - people who subscribe to every category get added to new ones
@@ -18,7 +19,7 @@ function cleanMailchimpMessage(message) {
   return text || 'Please try again.';
 }
 
-function submitEmailUpdates(email, selectedCategories, car) {
+function submitEmailUpdates(email, selectedCategories, car, github) {
   return new Promise((resolve, reject) => {
     const callbackName = `mailchimpEmailUpdates_${Math.random().toString(36).slice(2, 11)}`;
     const script = document.createElement('script');
@@ -32,6 +33,7 @@ function submitEmailUpdates(email, selectedCategories, car) {
 
     // Send entered car by user
     if (car) params.set('VCAR', car);
+    if (github) params.set('GITHUB', github);
 
     for (const { key, fieldName } of EMAIL_CATEGORIES) {
       if (selectedCategories.includes(key)) params.set(fieldName, '1');
@@ -65,10 +67,11 @@ function submitEmailUpdates(email, selectedCategories, car) {
   });
 }
 
-export function createEmailUpdatesForm() {
+export function createEmailUpdatesForm(defaultCategories = EMAIL_CATEGORIES.map(({ key }) => key)) {
   const email = writable('');
   const car = writable('');
-  const selectedCategories = writable(EMAIL_CATEGORIES.map(({ key }) => key));
+  const github = writable('');
+  const selectedCategories = writable(defaultCategories);
   const status = writable('idle');  // idle | submitting | success | error
   const errorMessage = writable('');
 
@@ -82,7 +85,7 @@ export function createEmailUpdatesForm() {
     status.set('submitting');
 
     try {
-      await submitEmailUpdates(get(email), get(selectedCategories), get(car).trim());
+      await submitEmailUpdates(get(email), get(selectedCategories), get(car).trim(), get(github).trim().replace(/^@/, ''));
       status.set('success');
     } catch (error) {
       errorMessage.set(error.message);
@@ -90,5 +93,5 @@ export function createEmailUpdatesForm() {
     }
   }
 
-  return { email, car, selectedCategories, status, errorMessage, submit };
+  return { email, car, github, selectedCategories, status, errorMessage, submit };
 }

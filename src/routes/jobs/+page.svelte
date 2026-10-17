@@ -2,6 +2,7 @@
   import { onMount } from "svelte";
   import Faq from "$lib/components/Faq.svelte";
   import LinkButton from "$lib/components/LinkButton.svelte";
+  import JobsEmailUpdatesForm from "$lib/components/EmailUpdates/JobsEmailUpdatesForm.svelte";
   import { faq } from "$lib/constants/faq.svelte";
   import ArrowRightIcon from "$lib/icons/arrow-right.svg?raw";
   import IconChevron from "$lib/icons/icon-chevron.svg?raw";
@@ -45,7 +46,7 @@
     },
     {
       label: "02",
-      title: "Phone screen",
+      title: "Interview",
       body:
         "Typically, we do two calls: a quick intro and screen, then an in-depth technical interview with an engineer.",
     },
@@ -53,7 +54,7 @@
       label: "03",
       title: "Paid micro-internship",
       body:
-        "We'll fly you out to meet the team and work on a real problem for a few days and hopefully ship it to real users. If all goes well, we will make a full-time offer.",
+        "We'll fly you out to meet the team and work on a real problem for a few days and hopefully ship it to real users. If it's a fit, we'll make a full-time offer.",
     },
   ];
 
@@ -109,6 +110,22 @@
       ],
       howToApply:
         'Complete our <a href="/leaderboard#content_challenge">content challenge</a> and reach out to <a href="mailto:work@comma.ai">work@comma.ai</a> with your submission.',
+    },
+    {
+      title: "FPGA & Embedded Engineer",
+      team: "hardware",
+      location: "On-site in San Diego, CA",
+      description: `
+        We can buy existing IP blocks... or we can build our own and open source them.
+        Can you make a <a href="https://github.com/Logic-Design-Services/CTU-CAN-FD">CAN core</a> from scratch in HDL?
+        <br /><br />
+        FPGA experience is a plus but not necessary. We're looking for excellent programming skills and a desire to build the highest quality IP blocks out there.
+        Interns welcome too.
+      `,
+      qualifications: [
+      ],
+      howToApply:
+        'Email <a href="mailto:work@comma.ai">work@comma.ai</a> with examples of cool projects you\'ve built, or do the <a href="https://github.com/commaai/PCBGolf">PCBGolf challenge</a>.',
     },
     {
       title: "Software Engineer",
@@ -207,14 +224,14 @@
       ],
     },
     {
-      title: "CNC Machinist (Head of Prototyping)",
+      title: "Prototyping Engineer",
       team: "hardware",
       location: "On-site in San Diego, CA",
       description: `
         We're building <a href="https://sendcutsend.com/">SendCutSend</a> at home. The shop has
         a Haas VF2, lathe, 3D printers, and a budget for any other tools we'll need to bring
         prototyping fully in-house.
-        You'll own parts from CAD to finished prototype: CAM, setup, fixturing, machining, inspection, and iteration with the hardware team.
+        <strong>Your job is to make prototypes happen, whatever it takes</strong>: CAM, setup, fixturing, machining, inspection, and iteration with the hardware team.
         You'll build prototypes for all future comma products, from comma four to the <a href="https://x.com/__tinygrad__/status/2040944508402360592">exabox</a>.
       `,
       qualifications: [
@@ -228,28 +245,8 @@
         'Email <a href="mailto:work@comma.ai">work@comma.ai</a> with examples of cool projects you\'ve built.',
     },
     {
-      title: "Office Manager",
-      team: "operations",
-      location: "On-site in San Diego, CA",
-      description: `
-        Looking for someone practical, organized, and calm who can keep comma's daily operations
-        running smoothly. You'll own the day-to-day details that make the office work, from
-        facilities and fleet logistics to purchasing support, employee logistics, events, records,
-        vendors, and one-off operational projects.
-      `,
-      qualifications: [
-        "Experience in operations, business, facilities, or office management",
-        "Excellent organizational skills and attention to detail",
-        "Comfortable with basic finance concepts like expenses, invoices, and budgets",
-        "Strong analytical and problem-solving abilities",
-        "Ability to self-motivate, prioritize, and work independently in a small, fast-moving team",
-        "Preferred: experience with Shopify or similar operational tooling",
-      ],
-      howToApply:
-        'Do the <a href="https://github.com/commaai/operations_challenge">operations challenge</a>, then email <a href="mailto:work@comma.ai">work@comma.ai</a>.',
-    },
-    {
       title: "Internships / Co-op",
+      team: "all teams",
       location: "Paid and on-site in San Diego, CA",
       description: `
         Internships are for people we would like to hire but can't because school. We're looking for
@@ -272,6 +269,9 @@
   const jobSlugs = jobs.map((job) =>
     job.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")
   );
+  const jobSlugAliases = {
+    "cnc-machinist-head-of-prototyping": "prototyping-engineer",
+  };
 
   let copiedJobIndex = null;
   let copyResetTimeout;
@@ -281,9 +281,14 @@
 
   onMount(() => {
     const hash = decodeURIComponent(window.location.hash.slice(1));
-    const index = jobSlugs.indexOf(hash);
+    const slug = jobSlugAliases[hash] ?? hash;
+    const index = jobSlugs.indexOf(slug);
     if (index !== -1) {
       expandedJobIndexes = new Set([index]);
+      if (slug !== hash) {
+        window.history.replaceState(window.history.state, "", `#${slug}`);
+        requestAnimationFrame(() => document.getElementById(slug)?.scrollIntoView());
+      }
     }
 
     return () => {
@@ -535,11 +540,14 @@
                 <span class="job-header-title">
                   <span class="job-title-line">
                     <span class="job-title">{job.title}</span>
-                    {#if job.team}
-                      <span class="job-team">{job.team}</span>
-                    {/if}
                   </span>
-                  <span class="job-location">{job.location}</span>
+                  <span class="job-meta">
+                    {#if job.team}
+                      <span class="job-team">{job.team}{job.team === "all teams" ? "" : " team"}</span>
+                      <span class="job-meta-separator" aria-hidden="true">/</span>
+                    {/if}
+                    <span class="job-location">{job.location}</span>
+                  </span>
                 </span>
                 <span class="job-toggle-icon" aria-hidden="true">
                   {@html IconChevron}
@@ -591,6 +599,12 @@
     </div>
   </section>
 
+  <section class="jobs-updates-section" aria-label="Stay in the loop">
+    <div class="container">
+      <JobsEmailUpdatesForm />
+    </div>
+  </section>
+
   <section class="jobs-section" id="faq" aria-label="Jobs FAQ">
     <div class="container">
       <Faq topic={faq.jobs} title="Jobs FAQ" />
@@ -619,6 +633,10 @@
     max-width: var(--jobs-container);
     width: 100%;
     margin: 0 auto;
+  }
+
+  .jobs-updates-section {
+    padding-bottom: var(--jobs-section-y);
   }
 
   .jobs-hero {
@@ -1068,6 +1086,7 @@
   }
 
   .job-team,
+  .job-meta-separator,
   .job-location {
     color: #000;
     font-family: "JetBrains Mono", monospace;
@@ -1076,17 +1095,24 @@
   }
 
   .job-team {
-    border: 1px solid #000;
-    display: inline-block;
     flex: none;
-    opacity: 0.65;
-    padding: 0.25rem 0.5rem;
+    opacity: 0.8;
+  }
+
+  .job-meta-separator {
+    opacity: 0.4;
   }
 
   .job-location {
-    margin-top: 0.75rem;
     opacity: 0.65;
-    text-transform: uppercase;
+  }
+
+  .job-meta {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.375rem 0.625rem;
+    margin-top: 0.75rem;
   }
 
   .job-actions {
@@ -1400,17 +1426,13 @@
       column-gap: 0.5rem;
     }
 
-    .job-location {
-      display: none;
+    .job-meta {
+      gap: 0.3125rem 0.5rem;
       margin-top: 0.5rem;
     }
 
     .job-actions {
       display: none;
-    }
-
-    .job-item.expanded .job-location {
-      display: block;
     }
 
     .job-item.expanded .job-actions {
@@ -1422,8 +1444,10 @@
     }
 
     .job-team,
+    .job-meta-separator,
     .job-location {
-      font-size: 0.875rem;
+      font-size: 0.75rem;
+      line-height: 1.6;
     }
 
     .apply-wrap {

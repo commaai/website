@@ -14,6 +14,11 @@ export const products = {
       "ready to drive": "Everything you need to use chestnut with comma four.",
       "eGPU dock only": "Use chestnut with your own GPU and power supply."
     },
+    // TODO: put this in a gui in shopify
+    variantBackordered: {
+      "ready to drive": "4-12 weeks",
+      "eGPU dock only": "2-6 weeks"
+    },
     notes: []
   },
 
@@ -444,7 +449,8 @@ export const products = {
         Grade B screens are fully functional, but may have some minor cosmetic imperfections.
       </p>
     `.trim(),
-    hideOutOfStockVariants: true
+    hideOutOfStockVariants: true,
+    useVariantBackorderStatus: true
   },
 
   "comma-3x-back-case": {

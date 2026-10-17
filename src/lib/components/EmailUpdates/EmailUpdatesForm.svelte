@@ -64,7 +64,7 @@
             <input type="radio" name="email-categories" value={true} bind:group={everything}>
             <span>
               <strong>All comma updates</strong>
-              <small>New products, openpilot releases, car support, blog posts, and more</small>
+              <small>New products, openpilot releases, car support, blog posts, events, and challenges</small>
             </span>
           </label>
           <label>

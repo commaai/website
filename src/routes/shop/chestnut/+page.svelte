@@ -69,7 +69,6 @@
       ...data.product.variants,
       nodes: data.product.variants.nodes.map((variant) => ({
         ...variant,
-        backordered: "4-12 weeks",
         images: imagesForVariant(variant),
       })),
     },

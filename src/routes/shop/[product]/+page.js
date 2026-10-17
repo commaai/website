@@ -46,7 +46,8 @@ export async function load({ url, params }) {
     if (product) {
       const variants = product.variants.nodes.map(variant => ({
         ...variant,
-        subtitle: productInfo.variantSubtitles?.[variant.title.trim()]
+        subtitle: productInfo.variantSubtitles?.[variant.title.trim()],
+        backordered: productInfo.variantBackordered?.[variant.title.trim()]
       }));
 
       return {
