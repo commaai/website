@@ -33,9 +33,9 @@ export function parseFrontmatter(path, source) {
 const renderer = {
   link({ href, title, tokens }) {
     const text = this.parser.parseInline(tokens);
-    if (title !== 'card') return `<a href="${escapeHtml(href)}" class="highlight"${title ? ` title="${escapeHtml(title)}"` : ''}>${text}</a>`;
+    if (title !== 'card') return `<a href="${escapeHtml(href)}"${title ? ` title="${escapeHtml(title)}"` : ''}>${text}</a>`;
     const external = /^https?:/.test(href);
-    return `<a href="${escapeHtml(href)}" class="support-card article-card-link${external ? ' external-card-link' : ''}"${external ? ' target="_blank" rel="noopener noreferrer"' : ''}>${text}<span class="article-card-arrow" aria-hidden="true">${external ? ExternalIcon : ArrowRight}</span></a>`;
+    return `<a href="${escapeHtml(href)}" class="card-link"${external ? ' target="_blank" rel="noopener noreferrer"' : ''}>${text}<span class="card-link-arrow" aria-hidden="true">${external ? ExternalIcon : ArrowRight}</span></a>`;
   },
   heading({ depth, id, tokens }) {
     return `<h${depth}${idAttribute(id)}>${this.parser.parseInline(tokens)}</h${depth}>\n`;
@@ -50,7 +50,7 @@ const dropdown = {
     if (match) return { type: 'dropdown', raw: match[0], title: match[1], tokens: this.lexer.blockTokens(match[2]) };
   },
   renderer(token) {
-    return `<details class="support-dropdown"${idAttribute(slugify(token.title))}><summary><span class="support-dropdown-label">${escapeHtml(token.title)}</span><span class="support-dropdown-chevron" aria-hidden="true">${Chevron}</span></summary><div class="support-dropdown-content">${this.parser.parse(token.tokens)}</div></details>`;
+    return `<details class="dropdown"${idAttribute(slugify(token.title))}><summary><span class="dropdown-label">${escapeHtml(token.title)}</span><span class="dropdown-chevron" aria-hidden="true">${Chevron}</span></summary><div class="dropdown-content">${this.parser.parse(token.tokens)}</div></details>`;
   }
 };
 

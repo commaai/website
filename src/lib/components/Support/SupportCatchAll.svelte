@@ -1,4 +1,8 @@
 <script>
+  import Card from './Card.svelte';
+  import CardGrid from './CardGrid.svelte';
+  import SectionHeading from './SectionHeading.svelte';
+
   const cards = [
     {
       label: 'Support',
@@ -23,33 +27,33 @@
   ];
 </script>
 
-<section class="support-catch-all" aria-labelledby="support-catch-all-title">
-  <div class="support-catch-all-heading">
-    <span>Still have an issue?</span>
-    <h2 id="support-catch-all-title">We're here to help.</h2>
+<section aria-labelledby="support-catch-all-title">
+  <div class="heading">
+    <SectionHeading id="support-catch-all-title" eyebrow="Still have an issue?">We're here to help.</SectionHeading>
   </div>
 
-  <div class="support-card-grid">
+  <CardGrid>
     {#each cards as card}
-      <a class="support-card support-catch-all-card" href={card.href} target={card.external ? '_blank' : undefined} rel={card.external ? 'noopener noreferrer' : undefined}>
-        <svg class="support-catch-all-icon" viewBox="0 0 24 24" aria-hidden="true"><path d={card.icon} /></svg>
-        <div>
-          <span class="support-catch-all-label">{card.label}</span>
-          <h3 class="support-card-title">{card.title}</h3>
+      <Card href={card.href} external={card.external}>
+        <div class="content">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d={card.icon} /></svg>
+          <div>
+            <span class="label">{card.label}</span>
+            <h3>{card.title}</h3>
+          </div>
         </div>
-      </a>
+      </Card>
     {/each}
-  </div>
+  </CardGrid>
 </section>
 
 <style>
-  .support-catch-all-heading { margin-bottom: 28px; }
-  .support-catch-all-heading span, .support-catch-all-label { display: block; color: var(--color-muted); font-size: 14px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
-  .support-catch-all-label { margin-bottom: 8px; }
-  .support-catch-all-card { display: flex; flex-direction: column; justify-content: space-between; gap: 32px; min-height: 220px; padding: 28px; }
-  .support-catch-all-icon { width: 40px; height: 40px; fill: currentColor; }
+  .heading { margin-bottom: 28px; }
+  .content { flex: 1; display: flex; flex-direction: column; justify-content: space-between; gap: 32px; box-sizing: border-box; min-height: 218px; padding: 28px; }
+  .label { display: block; margin-bottom: 8px; color: var(--color-muted); font-size: 14px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+  svg { width: 40px; height: 40px; fill: currentColor; }
 
-  @media (max-width: 760px) {
-    .support-catch-all-card { min-height: 160px; padding: 24px; }
+  @media (max-width: 768px) {
+    .content { min-height: 158px; padding: 24px; }
   }
 </style>

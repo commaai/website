@@ -4,7 +4,7 @@
   import { products } from './content';
 
   const featuredProducts = ['comma-four', 'chestnut', 'car-harness', 'comma-prime'];
-  const moreProducts = ['comma-power', 'comma-3x', 'comma-three', 'comma-two', 'comma-body', 'comma-panda', 'comma-jungle'];
+  const moreProducts = ['comma-power', 'comma-3x', 'comma-three', 'comma-two', 'comma-body', 'comma-panda'];
 
   let showAllProducts = false;
 
@@ -47,7 +47,7 @@
   .all-products { display: block; width: fit-content; margin: 32px auto 0; padding: 0; border: 0; background: none; font: inherit; font-size: 14px; font-weight: 500; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
   .all-products:is(:hover, :focus-visible, :active) { text-decoration-color: var(--color-accent); }
 
-  @media (max-width: 760px) {
+  @media (max-width: 768px) {
     .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 24px; }
     .product-image { height: 100px; }
     .product-image img { height: 85px; }

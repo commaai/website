@@ -16,7 +16,6 @@
 
   let activeId = '';
 
-  // Highlight the topic whose heading is in the band just below the sticky header
   function trackActiveHeading(node, toc) {
     let observer;
     function observe(toc) {
@@ -38,7 +37,7 @@
 
 <SupportHeader title={article.title} description={article.description} image={article.image} imageAlt={article.imageAlt || article.title} />
 <div class="support-page" use:trackActiveHeading={article.toc}>
-  <article class="support-prose">{@html article.html}</article>
+  <article class="prose">{@html article.html}</article>
   {#if article.toc.length}
     <aside class="sidebar">
       <nav class="topics" aria-label="Topics">
@@ -50,19 +49,64 @@
     </aside>
   {/if}
 </div>
-<hr class="support-divider" />
+<hr />
 <SupportCatchAll />
 
 <style>
   .support-page { display: flex; align-items: flex-start; gap: clamp(48px, 7vw, 120px); }
-  .support-prose { flex: 1; min-width: 0; }
+  .prose {
+    flex: 1;
+    min-width: 0;
+    overflow-wrap: anywhere;
+
+    & > :first-child { margin-top: 0; }
+    & h2 { margin: var(--support-space) 0 20px; font-size: clamp(32px, 3.2vw, 48px); font-weight: 400; line-height: 1.08; letter-spacing: -.04em; }
+    & h3 { margin: 32px 0 16px; font-size: 21px; font-weight: 600; line-height: 1.3; }
+    & h2 + h3 { margin-top: 0; }
+    & p { margin: 0 0 20px; }
+    & ul { padding-left: 22px; }
+    & li { font: inherit; margin-bottom: 8px; }
+    & img { display: block; width: auto; height: auto; max-height: 300px; margin: 32px auto 20px; border: 1px solid var(--support-border); }
+    & iframe { display: block; width: min(100%, 560px); height: auto; aspect-ratio: 16 / 9; margin: 0 auto 20px; }
+    & pre { overflow-x: auto; }
+    & a:not(.card-link) { border-bottom: 2px solid var(--color-accent); background: var(--support-accent-soft); }
+
+    & .card-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      box-sizing: border-box;
+      min-height: 64px;
+      margin: 10px 0;
+      padding: 16px 20px;
+      border: 1px solid var(--support-border);
+      background: var(--color-card-background);
+      font-weight: 600;
+
+      &:hover { background: var(--color-card-background-hover); }
+    }
+    & .card-link-arrow { display: flex; flex: 0 0 28px; justify-content: center; }
+    & .card-link-arrow svg { width: 24px; height: 24px; }
+
+    & .dropdown { border-bottom: 1px solid var(--support-rule); }
+    & .dropdown summary { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding-right: 2rem; cursor: pointer; list-style: none; }
+    & .dropdown summary::-webkit-details-marker { display: none; }
+    & .dropdown-label { margin: 1rem 0; font-size: 1.25rem; font-weight: 600; }
+    & .dropdown-chevron svg { display: block; width: 18px; height: 12px; }
+    & .dropdown[open] .dropdown-chevron { transform: rotate(180deg); }
+    & .dropdown-content { padding: .25rem 0 1rem; font-size: 1.25rem; line-height: 1.4; }
+    & .dropdown-content > :first-child { margin-top: 0; }
+    & .dropdown-content > :last-child { margin-bottom: 0; }
+  }
+
   .sidebar { flex: 0 0 260px; position: sticky; top: 100px; max-height: calc(100dvh - 120px); overflow-y: auto; }
   .topics { margin: 20px 0 32px; }
   .topics h2 { margin: 0 0 18px; font-size: 16px; font-weight: 600; }
   .topics a { display: block; padding: 12px 16px; border-left: 2px solid var(--support-border); color: var(--color-muted); font-size: 15px; line-height: 1.4; }
   .topics a.nested { padding-left: 28px; font-size: 14px; }
   .topics a:hover { background: var(--color-card-background-hover); }
-  .topics a[aria-current] { border-color: var(--color-accent); color: var(--color-foreground); background: var(--support-highlight); }
+  .topics a[aria-current] { border-color: var(--color-accent); color: var(--color-foreground); background: var(--support-accent-soft); }
   .topics a:focus-visible { outline-offset: -2px; }
 
   @media (min-width: 1440px) {
@@ -72,7 +116,7 @@
     .topics a.nested { padding-left: 30px; font-size: 15px; }
   }
 
-  @media (max-width: 760px) {
+  @media (max-width: 768px) {
     .sidebar { display: none; }
   }
 </style>

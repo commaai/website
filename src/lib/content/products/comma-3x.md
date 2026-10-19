@@ -1,11 +1,11 @@
 ---
-title: comma threeX
+title: comma 3X
 description: Find SIM card and factory reset help for your comma 3X.
 image: $lib/images/products/comma-3x/comma-3x.jpg
 imageAlt: comma 3X device
 ---
 
-## Maintaining your comma threeX
+## Maintaining your comma 3X
 
 ### Broken screen
 

@@ -3,6 +3,8 @@
   import SupportFaqs from '$lib/components/Support/SupportFaqs.svelte';
   import SupportProducts from '$lib/components/Support/SupportProducts.svelte';
   import SupportHeader from '$lib/components/Support/SupportHeader.svelte';
+  import Card from '$lib/components/Support/Card.svelte';
+  import CardGrid from '$lib/components/Support/CardGrid.svelte';
   import ShippingIcon from '$lib/icons/features/shipping.svg';
   import WarrantyIcon from '$lib/icons/features/warranty.svg';
   import CarIcon from '$lib/icons/features/car.svg';
@@ -21,17 +23,17 @@
 
 <SupportHeader title="comma support" description="Need help? Start here." />
 <SupportProducts />
-<div class="support-card-grid">
+<CardGrid>
   {#each options as option}
-    <a class="support-card" href={option.href}>
+    <Card href={option.href}>
       <div class="card-image"><img src={option.image} alt="" /></div>
-      <div class="card-copy"><h2 class="support-card-title">{option.title}</h2><p>{option.description}</p></div>
-    </a>
+      <div class="card-copy"><h2>{option.title}</h2><p>{option.description}</p></div>
+    </Card>
   {/each}
-</div>
-<hr class="support-divider" />
+</CardGrid>
+<hr />
 <SupportCatchAll />
-<hr class="support-divider" />
+<hr />
 <SupportFaqs />
 
 <style>
@@ -40,7 +42,7 @@
   .card-copy { padding: 20px 24px 24px; }
   .card-copy p { margin: 8px 0 0; color: var(--color-muted); font-size: 14px; line-height: 1.45; }
 
-  @media (max-width: 760px) {
+  @media (max-width: 768px) {
     .card-image { height: 80px; padding-left: 24px; }
     .card-image img { width: 52px; height: 52px; }
   }

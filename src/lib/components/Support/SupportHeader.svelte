@@ -25,7 +25,7 @@
   .header-image { display: flex; flex: 1 1 0; justify-content: center; min-width: 180px; }
   .header-image img { display: block; max-height: 180px; }
 
-  @media (max-width: 760px) {
+  @media (max-width: 768px) {
     .support-header { flex-direction: column; align-items: stretch; min-height: 0; }
     .header-copy { align-self: stretch; }
     .header-image { flex: none; }

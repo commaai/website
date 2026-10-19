@@ -7,7 +7,7 @@ imageAlt: comma three device
 
 ## About comma three
 
-Released in July 2021, comma three is the predecessor of comma threeX. It is deprecated for new openpilot releases: openpilot v0.10.0 is the last version compatible with the device. [Read the comma three hardware notes](https://github.com/commaai/hardware/tree/master/comma_three).
+Released in July 2021, comma three is the predecessor of comma 3X. It is deprecated for new openpilot releases: openpilot v0.10.0 is the last version compatible with the device. [Read the comma three hardware notes](https://github.com/commaai/hardware/tree/master/comma_three).
 
 With openpilot 0.10, comma three moved to a separate long term support release branch called `release-tici` for bug fixes. [Read the openpilot 0.10 announcement](https://blog.comma.ai/010release/).
 
