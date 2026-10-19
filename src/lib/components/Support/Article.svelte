@@ -1,13 +1,11 @@
 <script>
   import SupportHeader from './SupportHeader.svelte';
   import SupportCatchAll from './SupportCatchAll.svelte';
-  import SectionNav from './SectionNav.svelte';
 
   export let article;
 
   let activeId = '';
 
-  // Highlights the last table of contents heading scrolled past the top of the viewport.
   function trackActiveHeading(node, toc) {
     let frame;
 
@@ -58,9 +56,25 @@
   <article class="support-prose">{@html article.html}</article>
   {#if article.toc.length}
     <aside class="support-page-sidebar">
-      <SectionNav items={article.toc} {activeId} onSelect={jumpToHeading} />
+      <nav class="topics" aria-label="Topics">
+        <h2>Topics</h2>
+        {#each article.toc as item}
+          <a href="#{item.id}" class:nested={item.nested} aria-current={activeId === item.id ? 'location' : undefined} on:click={(event) => jumpToHeading(event, item)}>{item.label}</a>
+        {/each}
+      </nav>
     </aside>
   {/if}
 </div>
 <hr class="support-divider" />
 <SupportCatchAll />
+
+<style>
+  .topics { margin: 20px 0 32px; }
+  .topics h2 { margin: 0 0 18px; font-size: 16px; font-weight: 600; }
+  .topics a { display: block; padding: 12px 16px; border-left: 2px solid var(--support-border); color: var(--support-muted); font-size: 15px; line-height: 1.4; text-decoration: none; }
+  .topics a.nested { padding-left: 28px; font-size: 14px; }
+  .topics a:hover { background: var(--support-hover); }
+  .topics a[aria-current] { border-color: var(--support-accent); color: var(--support-text); background: #e5ffd9; }
+  .topics a:focus-visible { outline: 2px solid var(--support-accent); outline-offset: -2px; }
+  @media (min-width: 1440px) { .topics h2 { font-size: 18px; } .topics a { font-size: 17px; padding: 14px 18px; } .topics a.nested { padding-left: 30px; font-size: 15px; } }
+</style>

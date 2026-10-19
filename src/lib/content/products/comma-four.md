@@ -1,7 +1,7 @@
 ---
 title: comma four
 description: Everything you need to set up, use, and care for your comma four.
-image: comma-four
+image: $lib/images/products/comma-four/four_screen_on.png
 imageAlt: comma four device
 ---
 

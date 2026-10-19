@@ -5,7 +5,7 @@ description: How to switch between prime and prime lite plans
 
 We do support switching between prime plans on your comma device.
 
-### Switch plans
+## Switch plans
 
 1. Sign in to [comma connect](https://connect.comma.ai/).
 2. Select your paired device.

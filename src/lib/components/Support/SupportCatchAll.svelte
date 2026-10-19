@@ -1,5 +1,28 @@
 <script>
   export let standalone = false;
+
+  const cards = [
+    {
+      label: 'Support',
+      title: 'Open a support ticket',
+      href: 'https://commasupport.zendesk.com/hc/en-us/requests/new',
+      external: true,
+      icon: 'M12 1C6.48 1 2 5.48 2 11v5c0 1.66 1.34 3 3 3h1v-8H4c0-4.42 3.58-8 8-8s8 3.58 8 8v9h-9v2h8c1.66 0 3-1.34 3-3v-8c0-5.52-4.48-10-10-10z'
+    },
+    {
+      label: 'Email support@comma.ai',
+      title: 'Send us an email',
+      href: 'mailto:support@comma.ai',
+      icon: 'M2 4h20v16H2V4zm2 2v1.2l8 6 8-6V6H4zm16 12V9.7l-8 6-8-6V18h16z'
+    },
+    {
+      label: 'Community',
+      title: 'Ask the community',
+      href: 'https://discord.comma.ai/',
+      external: true,
+      icon: 'M21 6h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1zm-4 6V3c0-.55-.45-1-1-1H3c-.55 0-1 .45-1 1v14l4-4h10c.55 0 1-.45 1-1z'
+    }
+  ];
 </script>
 
 <section class="support-catch-all" class:standalone aria-labelledby="support-catch-all-title">
@@ -9,35 +32,15 @@
   </div>
 
   <div class="support-catch-all-grid">
-    <a class="support-catch-all-card" href="https://commasupport.zendesk.com/hc/en-us/requests/new" target="_blank" rel="noopener noreferrer">
-      <svg class="support-catch-all-icon" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M12 1C6.48 1 2 5.48 2 11v5c0 1.66 1.34 3 3 3h1v-8H4c0-4.42 3.58-8 8-8s8 3.58 8 8v9h-9v2h8c1.66 0 3-1.34 3-3v-8c0-5.52-4.48-10-10-10z" />
-      </svg>
-      <div>
-        <span class="support-catch-all-label">Support</span>
-        <h3>Open a support ticket</h3>
-      </div>
-    </a>
-
-    <a class="support-catch-all-card" href="mailto:support@comma.ai">
-      <svg class="support-catch-all-icon" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M2 4h20v16H2V4zm2 2v1.2l8 6 8-6V6H4zm16 12V9.7l-8 6-8-6V18h16z" />
-      </svg>
-      <div>
-        <span class="support-catch-all-label">Email support@comma.ai</span>
-        <h3>Send us an email</h3>
-      </div>
-    </a>
-
-    <a class="support-catch-all-card" href="https://discord.comma.ai/" target="_blank" rel="noopener noreferrer">
-      <svg class="support-catch-all-icon" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M21 6h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1zm-4 6V3c0-.55-.45-1-1-1H3c-.55 0-1 .45-1 1v14l4-4h10c.55 0 1-.45 1-1z" />
-      </svg>
-      <div>
-        <span class="support-catch-all-label">Community</span>
-        <h3>Ask the community</h3>
-      </div>
-    </a>
+    {#each cards as card}
+      <a class="support-catch-all-card" href={card.href} target={card.external ? '_blank' : undefined} rel={card.external ? 'noopener noreferrer' : undefined}>
+        <svg class="support-catch-all-icon" viewBox="0 0 24 24" aria-hidden="true"><path d={card.icon} /></svg>
+        <div>
+          <span class="support-catch-all-label">{card.label}</span>
+          <h3>{card.title}</h3>
+        </div>
+      </a>
+    {/each}
   </div>
 </section>
 

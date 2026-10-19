@@ -1,7 +1,7 @@
 ---
 title: comma two
 description: Learn about comma two support, factory software restoration, and trade-in options.
-image: comma-two
+image: $lib/images/products/comma-two/comma-two.jpg
 imageAlt: comma two device
 ---
 

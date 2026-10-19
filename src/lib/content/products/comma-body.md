@@ -1,7 +1,7 @@
 ---
 title: comma body
 description: A wheeled robotics development kit for comma devices.
-image: comma-body
+image: $lib/images/products/body/comma-body.jpg
 imageAlt: comma body robotics kit
 ---
 

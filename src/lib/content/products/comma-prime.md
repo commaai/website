@@ -1,8 +1,7 @@
 ---
 title: comma prime
 description: Manage your subscription, drives, and connection to comma connect.
-icon: comma
-imageAlt: comma prime
+icon: $lib/icons/comma.svg
 ---
 
 ## About comma prime

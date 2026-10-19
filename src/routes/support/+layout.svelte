@@ -1,24 +1,20 @@
 <script>
   import '$lib/components/Support/support.css';
+  import { browser } from '$app/environment';
   import { page } from '$app/stores';
-  import { afterUpdate } from 'svelte';
+  import { tick } from 'svelte';
 
-  // Open and scroll to the dropdown or FAQ named by the URL hash once it has rendered.
-  let revealed = '';
-  afterUpdate(() => {
-    const { pathname, hash } = $page.url;
-    if (!hash) {
-      revealed = '';
-      return;
-    }
-    if (revealed === pathname + hash) return;
+  $: if (browser) reveal($page.url);
+
+  async function reveal({ hash }) {
+    if (!hash) return;
+    await tick();
     const target = document.getElementById(decodeURIComponent(hash.slice(1)));
     if (!target) return;
-    revealed = pathname + hash;
     if (target instanceof HTMLDetailsElement) target.open = true;
     if (target instanceof HTMLInputElement) target.checked = true;
     (target.labels?.[0] ?? target).scrollIntoView();
-  });
+  }
 </script>
 
 <div class="support-type light">

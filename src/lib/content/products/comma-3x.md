@@ -1,7 +1,7 @@
 ---
 title: comma threeX
 description: Find SIM card and factory reset help for your comma 3X.
-image: comma-3x
+image: $lib/images/products/comma-3x/comma-3x.jpg
 imageAlt: comma 3X device
 ---
 

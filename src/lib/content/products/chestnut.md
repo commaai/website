@@ -1,7 +1,7 @@
 ---
 title: chestnut
 description: Set up and use chestnut with comma four and a desktop GPU.
-image: chestnut
+image: $lib/images/products/chestnut/bnut_front.png
 imageAlt: chestnut GPU interface
 ---
 

@@ -30,7 +30,6 @@ export function parseFrontmatter(path, source) {
   return { metadata, body: source.slice(match[0].length).trim() };
 }
 
-// A link titled "article" or "external", e.g. [Warranty](/support/warranty "article"), renders as a card.
 const linkCards = {
   article: { className: 'article-card-link', attributes: '', icon: ArrowRight },
   external: { className: 'article-card-link external-card-link', attributes: ' target="_blank" rel="noopener noreferrer"', icon: ExternalIcon }
@@ -47,9 +46,6 @@ const renderer = {
   }
 };
 
-// ::: dropdown Question
-// Answer
-// :::
 const dropdown = {
   name: 'dropdown',
   level: 'block',
@@ -76,15 +72,11 @@ const dropdown = {
 
 const markdown = new Marked({ renderer, extensions: [dropdown] });
 
-// Splits the article into a <section> per top-level heading (## or, if the article starts with ###, ###)
-// and returns the rendered html with a table of contents of those sections and their ### subheadings.
 export function renderArticle(body) {
-  const tokens = markdown.lexer(body);
-  const depth = tokens.find(token => token.type === 'heading' && [2, 3].includes(token.depth))?.depth;
   const introduction = [];
   const sections = [];
-  for (const token of tokens) {
-    if (token.type === 'heading' && token.depth === depth) sections.push({ id: slugify(token.text), title: token.text, tokens: [] });
+  for (const token of markdown.lexer(body)) {
+    if (token.type === 'heading' && token.depth === 2) sections.push({ id: slugify(token.text), title: token.text, tokens: [] });
     else (sections.at(-1)?.tokens ?? introduction).push(token);
   }
 
@@ -95,7 +87,7 @@ export function renderArticle(body) {
   const toc = sections.flatMap(({ id, title, tokens }) => [
     { id: `${id}-title`, label: title },
     ...tokens
-      .filter(token => depth === 2 && token.type === 'heading' && token.depth === 3 && slugify(token.text))
+      .filter(token => token.type === 'heading' && token.depth === 3 && slugify(token.text))
       .map(token => ({ id: slugify(token.text), label: token.text, nested: true }))
   ]);
 

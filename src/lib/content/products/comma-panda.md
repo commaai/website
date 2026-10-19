@@ -1,7 +1,7 @@
 ---
 title: comma panda
 description: Firmware and development resources for comma panda.
-image: comma-panda
+image: $lib/images/products/panda/red-panda.jpg
 imageAlt: red panda interface
 ---
 

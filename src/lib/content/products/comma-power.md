@@ -1,7 +1,7 @@
 ---
 title: comma power
 description: Connect your comma device to vehicle power through the OBD-II port.
-image: comma-power
+image: $lib/images/products/comma-power/comma-power.jpg
 imageAlt: comma power adapter
 ---
 

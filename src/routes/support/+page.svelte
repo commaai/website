@@ -3,18 +3,26 @@
   import SupportFaqs from '$lib/components/Support/SupportFaqs.svelte';
   import SupportProducts from '$lib/components/Support/SupportProducts.svelte';
   import SupportHeader from '$lib/components/Support/SupportHeader.svelte';
-  import { supportHome } from '$lib/components/Support/content';
+  import ShippingIcon from '$lib/icons/features/shipping.svg';
+  import WarrantyIcon from '$lib/icons/features/warranty.svg';
+  import CarIcon from '$lib/icons/features/car.svg';
+
+  const options = [
+    { title: 'Orders & Returns', href: '/support/orders-returns', description: 'Shipping, returns, and exchanges', image: ShippingIcon },
+    { title: 'Warranty', href: '/support/warranty', description: 'Coverage, claims, and commacare', image: WarrantyIcon },
+    { title: 'Vehicle Compatibility', href: '/support/vehicle-compatibility', description: 'Check if your car works with openpilot', image: CarIcon }
+  ];
 </script>
 
 <svelte:head>
-  <title>{supportHome.pageTitle}</title>
-  <meta name="description" content={supportHome.description} />
+  <title>comma Help Center</title>
+  <meta name="description" content="Find help with comma hardware, openpilot, connect, and comma prime. Search setup guides and troubleshooting articles." />
 </svelte:head>
 
-<SupportHeader title={supportHome.title} description={supportHome.subtitle} />
+<SupportHeader title="comma support" description="Need help? Start here." />
 <SupportProducts />
 <div class="category-grid">
-  {#each supportHome.options as option}
+  {#each options as option}
     <a class="category-card" href={option.href}>
       <div class="card-image"><img src={option.image} alt="" /></div>
       <div class="card-copy"><h2>{option.title}</h2><p>{option.description}</p></div>

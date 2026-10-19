@@ -12,7 +12,6 @@
   line-height: 1.6;
 }
 
-/* Override the site-wide section padding. */
 .support-type section {
   margin: 0 0 64px;
   padding: 0;
@@ -33,8 +32,6 @@
   letter-spacing: -.04em;
 }
 
-/* Page layout */
-
 .support-type .support-page-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -54,8 +51,6 @@
   max-height: calc(100dvh - 120px);
   overflow-y: auto;
 }
-
-/* Rendered markdown */
 
 .support-prose { min-width: 0; margin-bottom: 32px; overflow-wrap: anywhere; }
 .support-prose > :not(h2):first-child { margin-top: 0; }

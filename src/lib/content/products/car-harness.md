@@ -1,7 +1,7 @@
 ---
 title: car harness
 description: Find the right harness for your car and connect it to comma four.
-image: car-harness
+image: $lib/images/products/car-harness/car-harness.jpg
 imageAlt: car harness
 ---
 

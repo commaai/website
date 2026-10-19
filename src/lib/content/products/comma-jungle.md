@@ -1,7 +1,7 @@
 ---
 title: comma jungle
 description: A development board for testing comma devices and pandas.
-image: comma-jungle
+image: $lib/images/products/panda-jungle/panda-jungle-v2.jpeg
 imageAlt: panda jungle v2 board
 ---
 
