@@ -23,7 +23,7 @@ Reset the comma three by repeatedly tapping on the screen as soon as the device 
 
 If this does not work, a more complete factory reset can be performed at [flash.comma.ai](https://flash.comma.ai).
 
-[Learn how to flash your comma](/support/flash-your-comma "article")
+[Learn how to flash your comma](/support/flash-your-comma "card")
 
 ## Upgrading to a comma four
 

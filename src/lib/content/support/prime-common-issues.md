@@ -10,7 +10,7 @@ If your device's comma prime subscription was enabled recently, leave your devic
 
 If your device is not on stock openpilot, flash it back to the latest stock release.
 
-[Learn how to flash your comma](/support/flash-your-comma "article")
+[Learn how to flash your comma](/support/flash-your-comma "card")
 
 If the SIM still does not connect, [contact support](/support/prime-common-issues#still-having-issues) with the steps you tried.
 :::
@@ -18,7 +18,7 @@ If the SIM still does not connect, [contact support](/support/prime-common-issue
 ::: dropdown comma prime SIM not working anymore
 Check that your subscription is active in comma connect and that you are in an area with mobile coverage. If your device is not on stock openpilot, flash it back to the latest stock release.
 
-[Learn how to flash your comma](/support/flash-your-comma "article")
+[Learn how to flash your comma](/support/flash-your-comma "card")
 
 comma prime also maintains data limits to avoid abuse of comma prime (full) cell service. We reserve the right to block your cell usage if you are not on stock software (openpilot release version) and are deemed to be abusing our cell service.
 
@@ -29,8 +29,8 @@ If service still does not work, [contact support](/support/prime-common-issues#s
 
 Before contacting support, confirm that your comma prime subscription is active, try the device in an area with mobile coverage, and make sure it is running the latest stock openpilot release. If you recently enabled prime, leave the device connected to strong Wi-Fi for at least a day, then reboot it.
 
-[Learn how to flash your comma](/support/flash-your-comma "article")
+[Learn how to flash your comma](/support/flash-your-comma "card")
 
 If the issue continues, include the troubleshooting steps you tried, when the cellular connection stopped working, and any relevant screenshots in your ticket.
 
-[Open a support ticket](https://commasupport.zendesk.com/hc/en-us/requests/new?ticket_form_id=29233366516631 "external")
+[Open a support ticket](https://commasupport.zendesk.com/hc/en-us/requests/new?ticket_form_id=29233366516631 "card")

@@ -55,7 +55,7 @@ If your order was sent by USPS, comma will respond to your support ticket after 
 
 ### Still have a concern?
 
-[Contact shop support](https://commasupport.zendesk.com/hc/en-us/requests/new?ticket_form_id=29233377161623 "external")
+[Contact shop support](https://commasupport.zendesk.com/hc/en-us/requests/new?ticket_form_id=29233377161623 "card")
 
 ## Returns
 
@@ -68,7 +68,7 @@ Returns are usually processed within 2–5 business days after they arrive, and 
 
 UPS 2nd Day Air and international shipping fees are non-refundable.
 
-[Start a return](https://comma.ai/returns "external")
+[Start a return](https://comma.ai/returns "card")
 
 ### Return policy
 
@@ -101,4 +101,4 @@ If you're adding support for a new car, we can extend your return window to 90 d
 
 comma offers a one-year limited warranty against hardware defects. If you believe your device is defective, [open a hardware support ticket](https://commasupport.zendesk.com/hc/en-us/requests/new?ticket_form_id=14150133300887). Read the article below for more information and extended warranty with commacare.
 
-[Basic warranty & commacare](/support/warranty "article")
+[Basic warranty & commacare](/support/warranty "card")

@@ -1,7 +1,6 @@
 import { parseFrontmatter, renderArticle } from './markdown';
 
 const images = import.meta.glob('/src/lib/images/**/*.{png,jpg,jpeg}', { eager: true, query: '?w=900', import: 'default' });
-const icons = import.meta.glob('/src/lib/icons/*.svg', { eager: true, query: '?raw', import: 'default' });
 
 function resolve(files, path, source) {
   const file = files[path.replace(/^\$lib\//, '/src/lib/')];
@@ -17,7 +16,6 @@ function loadMarkdown(files) {
     return [slug, {
       ...metadata,
       image: metadata.image && resolve(images, metadata.image, path),
-      icon: metadata.icon && resolve(icons, metadata.icon, path),
       ...renderArticle(body)
     }];
   }));

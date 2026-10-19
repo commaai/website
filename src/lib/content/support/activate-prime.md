@@ -7,7 +7,7 @@ description: Subscribe to prime or prime lite and claim an eligible free prime o
 
 prime and prime lite subscriptions are tied to a specific device and cannot be transferred.
 
-[Pair your device with comma connect](/support/pair-your-device "article")
+[Pair your device with comma connect](/support/pair-your-device "card")
 
 ## Choose and activate a plan
 
@@ -28,6 +28,6 @@ International customers can subscribe to prime lite. Included prime cellular dat
 
 To receive commacare, activate prime or prime lite within 30 days of receiving your comma four and keep the subscription active. Canceling ends commacare immediately, and the coverage cannot be resumed by subscribing again.
 
-[Learn more about commacare](/support/warranty#commacare "article")
+[Learn more about commacare](/support/warranty#commacare "card")
 
-[How to cancel comma prime](/support/cancel-prime "article")
+[How to cancel comma prime](/support/cancel-prime "card")

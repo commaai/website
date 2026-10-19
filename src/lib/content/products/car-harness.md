@@ -9,13 +9,13 @@ imageAlt: car harness
 
 A car harness connects comma four to your vehicle. The correct harness depends on your exact model, model year, and factory equipment.
 
-[Check car compatibility](/support/vehicle-compatibility "article")
+[Check car compatibility](/support/vehicle-compatibility "card")
 
 ## Install your car harness
 
 Use the setup guide for the connection points and installation steps for your vehicle.
 
-[Install your comma and harness](/setup "article")
+[Install your comma and harness](/setup "card")
 
 ## Using your car harness
 

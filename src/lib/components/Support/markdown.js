@@ -1,6 +1,7 @@
 import { Marked } from 'marked';
 import ArrowRight from '$lib/icons/arrow-right.svg?raw';
 import ExternalIcon from '$lib/icons/ui/external.svg?raw';
+import Chevron from '$lib/icons/icon-chevron.svg?raw';
 
 function escapeHtml(value) {
   return value.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
@@ -9,13 +10,12 @@ function escapeHtml(value) {
 function slugify(text) {
   return text
     .toLowerCase()
-    .replace(/<[^>]*>|[`*_~]/g, '')
+    .replace(/[`*_~]/g, '')
     .replace(/[^\p{L}\p{N}]+/gu, '-')
     .replace(/^-|-$/g, '');
 }
 
-function idAttribute(text) {
-  const id = slugify(text);
+function idAttribute(id) {
   return id ? ` id="${escapeHtml(id)}"` : '';
 }
 
@@ -30,66 +30,38 @@ export function parseFrontmatter(path, source) {
   return { metadata, body: source.slice(match[0].length).trim() };
 }
 
-const linkCards = {
-  article: { className: 'article-card-link', attributes: '', icon: ArrowRight },
-  external: { className: 'article-card-link external-card-link', attributes: ' target="_blank" rel="noopener noreferrer"', icon: ExternalIcon }
-};
-
 const renderer = {
   link({ href, title, tokens }) {
-    const card = linkCards[title];
-    if (!card) return false;
-    return `<a href="${escapeHtml(href)}" class="${card.className}"${card.attributes}>${this.parser.parseInline(tokens)}<span class="article-card-arrow" aria-hidden="true">${card.icon}</span></a>`;
+    const text = this.parser.parseInline(tokens);
+    if (title !== 'card') return `<a href="${escapeHtml(href)}" class="highlight"${title ? ` title="${escapeHtml(title)}"` : ''}>${text}</a>`;
+    const external = /^https?:/.test(href);
+    return `<a href="${escapeHtml(href)}" class="support-card article-card-link${external ? ' external-card-link' : ''}"${external ? ' target="_blank" rel="noopener noreferrer"' : ''}>${text}<span class="article-card-arrow" aria-hidden="true">${external ? ExternalIcon : ArrowRight}</span></a>`;
   },
-  heading({ depth, text, tokens }) {
-    return `<h${depth}${idAttribute(text)}>${this.parser.parseInline(tokens)}</h${depth}>\n`;
+  heading({ depth, id, tokens }) {
+    return `<h${depth}${idAttribute(id)}>${this.parser.parseInline(tokens)}</h${depth}>\n`;
   }
 };
 
 const dropdown = {
   name: 'dropdown',
   level: 'block',
-  start(src) {
-    return src.indexOf('::: dropdown');
-  },
   tokenizer(src) {
-    const match = /^::: dropdown[ \t]+([^\n]+)\n([\s\S]*?)\n:::[ \t]*(?:\n|$)/.exec(src);
-    if (!match) return;
-    return {
-      type: 'dropdown',
-      raw: match[0],
-      titleTokens: this.lexer.inlineTokens(match[1].trim()),
-      tokens: this.lexer.blockTokens(match[2].trim(), [])
-    };
+    const match = /^::: dropdown (.+)\n([\s\S]*?)\n:::(?:\n|$)/.exec(src);
+    if (match) return { type: 'dropdown', raw: match[0], title: match[1], tokens: this.lexer.blockTokens(match[2]) };
   },
   renderer(token) {
-    const title = this.parser.parseInline(token.titleTokens);
-    const content = this.parser.parse(token.tokens);
-    return `<details class="support-dropdown"${idAttribute(title)}><summary><span class="support-dropdown-label">${title}</span><span class="support-dropdown-chevron" aria-hidden="true"><svg viewBox="0 0 12 8"><path d="M10.59.59 6 5.17 1.41.59 0 2l6 6 6-6L10.59.59Z" fill="currentColor"/></svg></span></summary><div class="support-dropdown-content">${content}</div></details>`;
-  },
-  childTokens: ['titleTokens', 'tokens']
+    return `<details class="support-dropdown"${idAttribute(slugify(token.title))}><summary><span class="support-dropdown-label">${escapeHtml(token.title)}</span><span class="support-dropdown-chevron" aria-hidden="true">${Chevron}</span></summary><div class="support-dropdown-content">${this.parser.parse(token.tokens)}</div></details>`;
+  }
 };
 
 const markdown = new Marked({ renderer, extensions: [dropdown] });
 
 export function renderArticle(body) {
-  const introduction = [];
-  const sections = [];
-  for (const token of markdown.lexer(body)) {
-    if (token.type === 'heading' && token.depth === 2) sections.push({ id: slugify(token.text), title: token.text, tokens: [] });
-    else (sections.at(-1)?.tokens ?? introduction).push(token);
-  }
-
-  const html = markdown.parser(introduction) + sections.map(({ id, title, tokens }) =>
-    `<section id="${escapeHtml(id)}" aria-labelledby="${escapeHtml(id)}-title"><h2 id="${escapeHtml(id)}-title">${escapeHtml(title)}</h2><div class="section-body">${markdown.parser(tokens)}</div></section>`
-  ).join('');
-
-  const toc = sections.flatMap(({ id, title, tokens }) => [
-    { id: `${id}-title`, label: title },
-    ...tokens
-      .filter(token => token.type === 'heading' && token.depth === 3 && slugify(token.text))
-      .map(token => ({ id: slugify(token.text), label: token.text, nested: true }))
-  ]);
-
-  return { html, toc };
+  const tokens = markdown.lexer(body);
+  const headings = tokens.filter(token => token.type === 'heading');
+  headings.forEach(token => token.id = slugify(token.text));
+  const toc = headings
+    .filter(token => (token.depth === 2 || token.depth === 3) && token.id)
+    .map(token => ({ id: token.id, label: token.text, nested: token.depth === 3 }));
+  return { html: markdown.parser(tokens), toc };
 }

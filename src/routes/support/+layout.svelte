@@ -4,9 +4,11 @@
   import { page } from '$app/stores';
   import { tick } from 'svelte';
 
-  $: if (browser) reveal($page.url);
+  let revealedHref;
+  $: if (browser && $page.url.href !== revealedHref) reveal($page.url);
 
-  async function reveal({ hash }) {
+  async function reveal({ href, hash }) {
+    revealedHref = href;
     if (!hash) return;
     await tick();
     const target = document.getElementById(decodeURIComponent(hash.slice(1)));
@@ -24,6 +26,6 @@
 </div>
 
 <style>
-  .shell { display: flex; flex-direction: column; width: 85%; max-width: 90rem; margin: auto; padding-bottom: 48px; }
+  .shell { display: flex; flex-direction: column; gap: var(--support-space); width: 85%; max-width: 90rem; margin: auto; padding: var(--support-space) 0 48px; }
   @media (max-width: 760px) { .shell { padding-bottom: 40px; } }
 </style>

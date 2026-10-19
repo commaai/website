@@ -15,7 +15,7 @@ Released in January 2020, comma two ran openpilot on the NEOS operating system. 
 
 If you need to restore or recover your comma two, follow comma's NEOS instructions for macOS, Linux, or Windows. The guide covers connecting the device to a computer, entering fastboot mode, and flashing the factory software.
 
-[Restore your comma two with NEOS](https://github.com/commaai/eon-neos#readme "external")
+[Restore your comma two with NEOS](https://github.com/commaai/eon-neos#readme "card")
 
 ## Upgrading to a comma four
 

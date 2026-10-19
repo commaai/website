@@ -1,6 +1,4 @@
 <script>
-  export let standalone = false;
-
   const cards = [
     {
       label: 'Support',
@@ -25,19 +23,19 @@
   ];
 </script>
 
-<section class="support-catch-all" class:standalone aria-labelledby="support-catch-all-title">
+<section class="support-catch-all" aria-labelledby="support-catch-all-title">
   <div class="support-catch-all-heading">
     <span>Still have an issue?</span>
     <h2 id="support-catch-all-title">We're here to help.</h2>
   </div>
 
-  <div class="support-catch-all-grid">
+  <div class="support-card-grid">
     {#each cards as card}
-      <a class="support-catch-all-card" href={card.href} target={card.external ? '_blank' : undefined} rel={card.external ? 'noopener noreferrer' : undefined}>
+      <a class="support-card support-catch-all-card" href={card.href} target={card.external ? '_blank' : undefined} rel={card.external ? 'noopener noreferrer' : undefined}>
         <svg class="support-catch-all-icon" viewBox="0 0 24 24" aria-hidden="true"><path d={card.icon} /></svg>
         <div>
           <span class="support-catch-all-label">{card.label}</span>
-          <h3>{card.title}</h3>
+          <h3 class="support-card-title">{card.title}</h3>
         </div>
       </a>
     {/each}
@@ -45,21 +43,13 @@
 </section>
 
 <style>
-  .support-catch-all { margin: 64px 0; color: var(--support-text); }
-  .support-catch-all.standalone { padding: 0; }
   .support-catch-all-heading { margin-bottom: 28px; }
-  .support-catch-all-heading span { display: block; margin-bottom: -32px; color: var(--support-muted); font-size: 14px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
-  .support-catch-all-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-  .support-catch-all-card { box-sizing: border-box; min-width: 0; min-height: 220px; padding: 28px; border: 1px solid var(--support-border); background: var(--support-surface); color: var(--support-text); display: flex; flex-direction: column; justify-content: space-between; gap: 32px; text-decoration: none; }
-  .support-catch-all-card:hover { background: var(--support-hover); }
-  .support-catch-all-card:focus-visible { outline: 2px solid var(--support-accent); outline-offset: 3px; }
-  .support-catch-all-icon { display: block; width: 40px; height: 40px; fill: currentColor; }
-  .support-catch-all-label { display: block; margin-bottom: 8px; color: var(--support-muted); font-size: 14px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
-  .support-catch-all-card h3 { margin: 0; font-size: clamp(20px, 2.4vw, 28px); line-height: 1.15; letter-spacing: -.035em; font-weight: 600; }
+  .support-catch-all-heading span, .support-catch-all-label { display: block; color: var(--color-muted); font-size: 14px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+  .support-catch-all-label { margin-bottom: 8px; }
+  .support-catch-all-card { display: flex; flex-direction: column; justify-content: space-between; gap: 32px; min-height: 220px; padding: 28px; }
+  .support-catch-all-icon { width: 40px; height: 40px; fill: currentColor; }
 
   @media (max-width: 760px) {
-    .support-catch-all { padding-top: 48px; }
-    .support-catch-all-grid { grid-template-columns: 1fr; gap: 12px; }
     .support-catch-all-card { min-height: 160px; padding: 24px; }
   }
 </style>

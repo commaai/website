@@ -10,7 +10,7 @@ Check that the device is securely connected to its cable and that the harness co
 
 If the device still has trouble, try the latest stock openpilot release. You can restore the device with [flash.comma.ai](https://flash.comma.ai/). 
 
-[Learn how to flash your comma](/support/flash-your-comma "article")
+[Learn how to flash your comma](/support/flash-your-comma "card")
 
 If the issue continues on stock software, [contact hardware support](/support/comma-four-common-issues#still-having-issues) with the steps you tried.
 :::
@@ -18,7 +18,7 @@ If the issue continues on stock software, [contact hardware support](/support/co
 ::: dropdown Blank screen or camera issue
 Reseat the device cable and check the mount and installation using the [setup guide](/setup). Third party software can sometimes cause symptoms that look like hardware problems, including a blank screen. Restore the device with [flash.comma.ai](https://flash.comma.ai/) and install the latest stock openpilot release before contacting support.
 
-[Learn how to flash your comma](/support/flash-your-comma "article")
+[Learn how to flash your comma](/support/flash-your-comma "card")
 
 If the issue continues, [contact hardware support](/support/comma-four-common-issues#still-having-issues) and describe what you see.
 :::
@@ -34,11 +34,11 @@ Make sure nothing blocks the device's view of the sky. If GPS still has trouble,
 ::: dropdown Car isn't recognized or openpilot won't engage
 First check whether your car is supported. Then check the harness and cable installation with the [setup guide](/setup), and reseat each connection.
 
-[Check if your car is supported](/support/vehicle-compatibility "article")
+[Check if your car is supported](/support/vehicle-compatibility "card")
 
 If the car is supported and the issue continues on the latest stock openpilot, capture a route showing the issue. A stock route helps support rule out changes made by other software.
 
-[How to capture a route](/support/how-to-capture-a-route "article")
+[How to capture a route](/support/how-to-capture-a-route "card")
 :::
 
 ## Still having issues?
@@ -49,12 +49,12 @@ If you have tried to resolve the issues using the existing resources and haven't
 
 2. Remove third party software. Flash your device, then install the latest stock openpilot release during setup. Confirm that the issue still occurs before contacting support.
 
-[Learn how to flash your comma](/support/flash-your-comma "article")
+[Learn how to flash your comma](/support/flash-your-comma "card")
 
 Ensure that the issue occurs while running the latest openpilot release. **We cannot look into issues while running forks or other software.**
 
 If you have not completed the steps above, your ticket will be closed. In your ticket, include the troubleshooting steps you tried and any relevant photos or videos.
 
-[Open a hardware support ticket](https://commasupport.zendesk.com/hc/en-us/requests/new?ticket_form_id=14150133300887 "external")
+[Open a hardware support ticket](https://commasupport.zendesk.com/hc/en-us/requests/new?ticket_form_id=14150133300887 "card")
 
 We also recommend reviewing the community GitHub wiki and discord.comma.ai for help troubleshoot from community members.

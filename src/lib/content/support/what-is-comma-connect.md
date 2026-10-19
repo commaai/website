@@ -19,8 +19,8 @@ Use connect to check device information, battery voltage, and remote snapshots. 
 
 comma prime and prime lite are activated and managed in connect. Open the settings menu for the paired device to view its plan and billing options.
 
-[Learn how to pair to connect](/support/pair-your-device "article")
+[Learn how to pair to connect](/support/pair-your-device "card")
 
-[Open comma connect](https://connect.comma.ai/ "external")
+[Open comma connect](https://connect.comma.ai/ "card")
 
 Learn more about comma prime and how it upgrades your comma connect experience [here](/support/what-is-comma-prime).

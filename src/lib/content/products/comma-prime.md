@@ -1,46 +1,47 @@
 ---
 title: comma prime
 description: Manage your subscription, drives, and connection to comma connect.
-icon: $lib/icons/comma.svg
+image: $lib/images/products/comma-prime/comma-prime.png
+imageAlt: comma prime
 ---
 
 ## About comma prime
 
 comma prime is an optional subscription. Openpilot and its core driving features do not require a subscription.
 
-[What is comma prime?](/support/what-is-comma-prime "article")
+[What is comma prime?](/support/what-is-comma-prime "card")
 
-[What is comma connect?](/support/what-is-comma-connect "article")
+[What is comma connect?](/support/what-is-comma-connect "card")
 
 ## Set up comma prime
 
 Pair your device with comma connect, then choose a plan in Prime Settings.
 
-[Pair your device](/support/pair-your-device "article")
+[Pair your device](/support/pair-your-device "card")
 
-[Activate comma prime](/support/activate-prime "article")
+[Activate comma prime](/support/activate-prime "card")
 
 ## Manage your plan
 
 Use comma connect to review your subscription, change plans, or cancel.
 
-[Switch prime plans](/support/switch-prime-plans "article")
+[Switch prime plans](/support/switch-prime-plans "card")
 
-[How to cancel comma prime](/support/cancel-prime "article")
+[How to cancel comma prime](/support/cancel-prime "card")
 
-[Open comma connect](https://connect.comma.ai/ "external")
+[Open comma connect](https://connect.comma.ai/ "card")
 
 ## commacare
 
 An eligible, continuously active prime or prime lite subscription can extend comma four's warranty. Check the coverage and timing requirements before subscribing.
 
-[Warranty and commacare](/support/warranty "article")
+[Warranty and commacare](/support/warranty "card")
 
 ## Troubleshooting
 
 For help with cellular service, review the common issues and troubleshooting steps before contacting support.
 
-[comma prime common issues](/support/prime-common-issues "article")
+[comma prime common issues](/support/prime-common-issues "card")
 
 ## Frequently asked questions
 

@@ -13,7 +13,7 @@ Replacement screens for the comma 3X are available in the [shop](/shop/comma-dev
 
 ### Replacing your SIM card
 
-[How to replace the SIM card in a comma 3X](/support/replace-comma-3x-sim-card "article")
+[How to replace the SIM card in a comma 3X](/support/replace-comma-3x-sim-card "card")
 
 ### Performing a Factory Reset
 
@@ -21,7 +21,7 @@ Reset the comma 3X by repeatedly tapping on the screen as soon as the device boo
 
 If this does not work, a more complete factory reset can be performed at [flash.comma.ai](https://flash.comma.ai).
 
-[Learn how to flash your comma](/support/flash-your-comma "article")
+[Learn how to flash your comma](/support/flash-your-comma "card")
 
 ### In-warranty repairs
 
@@ -33,7 +33,7 @@ Before opening a ticket:
 2. [Flash your device](/support/flash-your-comma) and install the latest stock openpilot release.
 3. Confirm the issue still occurs, then open a ticket with the troubleshooting steps you tried.
 
-[Open a support ticket](https://commasupport.zendesk.com/hc/en-us/requests/new "external")
+[Open a support ticket](https://commasupport.zendesk.com/hc/en-us/requests/new "card")
 
 ## Upgrading to a comma four
 

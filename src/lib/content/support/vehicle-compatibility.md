@@ -47,6 +47,6 @@ Once you have confirmed the exact listing and any required equipment, select **B
 
 If your exact make, model, and year are listed and your car has the required trim or factory equipment, it is compatible; you can buy a comma four with its matching harness from the vehicle card.
 
-[Check your car](/vehicles "article")
+[Check your car](/vehicles "card")
 
-[Buy a comma four](/shop/comma-four "article")
+[Buy a comma four](/shop/comma-four "card")

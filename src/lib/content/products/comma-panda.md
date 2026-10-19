@@ -9,4 +9,4 @@ imageAlt: red panda interface
 
 comma panda is a CAN and CAN FD interface for cars. Its firmware and development tools are open source.
 
-[View panda firmware on GitHub](https://github.com/commaai/panda "external")
+[View panda firmware on GitHub](https://github.com/commaai/panda "card")
