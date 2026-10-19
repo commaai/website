@@ -1,7 +1,6 @@
 ---
 title: How to pair your device
 description: Pair your comma device with comma connect to view drives, manage prime, and use remote features.
-order: 4
 ---
 
 ## What is comma connect?

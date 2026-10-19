@@ -1,7 +1,6 @@
 ---
 title: comma prime common issues
 description: Troubleshoot comma prime cellular service and find out when to contact support.
-order: 5
 ---
 
 ## Common issues

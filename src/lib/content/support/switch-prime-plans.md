@@ -1,7 +1,6 @@
 ---
 title: How to switch prime plans
 description: How to switch between prime and prime lite plans
-order: 3
 ---
 
 We do support switching between prime plans on your comma device.

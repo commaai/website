@@ -1,7 +1,6 @@
 ---
 title: Basic warranty & commacare
 description: Coverage under the standard hardware warranty and the extended commacare benefit.
-order: 1
 ---
 
 ## Basic hardware warranty

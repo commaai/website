@@ -5,9 +5,9 @@
   function breadcrumbsFor({ route, data, error }) {
     if (error || !route.id?.startsWith('/support')) return [];
     const home = { label: 'comma home', href: '/', icon: true };
-    if (data.product) return [home, { label: 'support', href: '/support' }, { label: `${data.product.title} support` }];
-    if (data.article) return [home, { label: 'support', href: '/support' }, { label: data.article.title }];
-    return [home, { label: 'support' }];
+    const current = data.product ? `${data.product.title} support` : data.article?.title;
+    if (!current) return [home, { label: 'support' }];
+    return [home, { label: 'support', href: '/support' }, { label: current }];
   }
 
   $: crumbs = breadcrumbsFor($page);

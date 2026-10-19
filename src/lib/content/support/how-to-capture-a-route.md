@@ -1,8 +1,6 @@
 ---
 title: How to capture a route
 description: Record an issue and share the drive with comma support.
-order: 5
-listed: false
 ---
 
 ## What is a route?

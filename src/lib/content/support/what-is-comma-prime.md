@@ -1,7 +1,6 @@
 ---
 title: What is comma prime?
 description:
-order: 1
 ---
 
 comma prime is an optional subscription for your comma device. A subscription is not required to use openpilot or any core driving feature.

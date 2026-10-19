@@ -1,8 +1,6 @@
 ---
 title: Flash your comma
 description: Steps to restore device to factory state
-order: 6
-listed: false
 ---
 
 Flashing erases the software and data on your comma device and restores it to a clean factory state.

@@ -1,7 +1,6 @@
 ---
 title: Orders & returns
 description: Find help with your order, shipping, returns, exchanges, and hardware warranty.
-order: 4
 ---
 
 ## Orders and shipping

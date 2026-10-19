@@ -7,7 +7,10 @@
   let revealed = '';
   afterUpdate(() => {
     const { pathname, hash } = $page.url;
-    if (!hash) return (revealed = '');
+    if (!hash) {
+      revealed = '';
+      return;
+    }
     if (revealed === pathname + hash) return;
     const target = document.getElementById(decodeURIComponent(hash.slice(1)));
     if (!target) return;

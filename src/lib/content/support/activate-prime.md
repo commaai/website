@@ -1,7 +1,6 @@
 ---
 title: How to activate prime & prime lite
 description: Subscribe to prime or prime lite and claim an eligible free prime offer.
-order: 2
 ---
 
 ### Before you start

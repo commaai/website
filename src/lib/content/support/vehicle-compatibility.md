@@ -1,7 +1,6 @@
 ---
 title: Is your car compatible?
 description: A guide on how to check if your vehicle is compatible with openpilot
-order: 0
 ---
 
 ## Open the compatibility page

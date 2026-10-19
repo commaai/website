@@ -1,6 +1,5 @@
 ---
 title: What is comma connect?
-order: 0
 ---
 
 [comma connect](https://connect.comma.ai/) is the web app for managing your comma device and reviewing your recent drives.

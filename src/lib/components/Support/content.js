@@ -15,7 +15,7 @@ import CommaJungleImage from '$lib/images/products/panda-jungle/panda-jungle-v2.
 import homeMarkdown from '$lib/content/support/index.md?raw';
 import { parseFrontmatter, renderArticle } from './markdown';
 
-export const productImages = {
+const productImages = {
   'comma-four': CommaFourImage,
   chestnut: ChestnutImage,
   'car-harness': CarHarnessImage,
@@ -29,33 +29,32 @@ export const productImages = {
 };
 
 const optionImages = { shipping: ShippingIcon, warranty: WarrantyIcon, car: CarIcon };
-const headerIcons = { comma: CommaIcon };
+const productIcons = { comma: CommaIcon };
 
 function lookup(images, name, path) {
   if (!images[name]) throw new Error(`Unknown image "${name}" in ${path}`);
   return images[name];
 }
 
-function loadMarkdown(files, parse) {
+// Maps each file's slug to its frontmatter, any fields from images(metadata, path), and its rendered body.
+function loadMarkdown(files, images = () => ({})) {
   return new Map(Object.entries(files).map(([path, source]) => {
     const slug = path.split('/').pop().slice(0, -'.md'.length);
     const { metadata, body } = parseFrontmatter(path, source);
     if (!metadata.title) throw new Error(`Missing title in ${path}`);
-    return [slug, { ...metadata, ...parse(metadata, body, path) }];
+    return [slug, { ...metadata, ...images(metadata, path), ...renderArticle(body) }];
   }));
 }
 
 export const articles = loadMarkdown(
-  import.meta.glob(['/src/lib/content/support/*.md', '!/src/lib/content/support/index.md'], { eager: true, query: '?raw', import: 'default' }),
-  (metadata, body) => renderArticle(body)
+  import.meta.glob(['/src/lib/content/support/*.md', '!/src/lib/content/support/index.md'], { eager: true, query: '?raw', import: 'default' })
 );
 
 export const products = loadMarkdown(
   import.meta.glob('/src/lib/content/products/*.md', { eager: true, query: '?raw', import: 'default' }),
-  (metadata, body, path) => ({
+  (metadata, path) => ({
     image: metadata.image && lookup(productImages, metadata.image, path),
-    icon: metadata.icon && lookup(headerIcons, metadata.icon, path),
-    ...renderArticle(body)
+    icon: metadata.icon && lookup(productIcons, metadata.icon, path)
   })
 );
 

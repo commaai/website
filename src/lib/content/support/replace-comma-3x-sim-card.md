@@ -1,7 +1,6 @@
 ---
 title: How to replace the SIM card in a comma 3X
 description: Replace the SIM card in your comma 3X and activate the new card.
-order: 7
 ---
 
 All comma 3Xs come with a SIM card. The SIM slot is a push/pull mechanism: push on the card to release it, then guide it out.

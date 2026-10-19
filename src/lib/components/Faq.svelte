@@ -15,7 +15,7 @@
 <div>
   <div class="header" id={(title ?? topic.title).toLowerCase().replace(/[^\w\s]/g, '').replaceAll(' ', '-')}>
     <h1>{title ?? topic.title}</h1>
-    <img src={topic.image} loading="eager" alt="{title ?? topic.title} banner" />
+    {#if topic.image}<img src={topic.image} loading="eager" alt="{title ?? topic.title} banner" />{/if}
   </div>
   <div class="questions">
     {#each topic.questions as entry}
