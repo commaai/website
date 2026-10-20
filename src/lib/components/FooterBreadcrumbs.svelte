@@ -16,7 +16,7 @@
       .map((segment, index) => ({ label: labelFor(segment), href: '/' + segments.slice(0, index + 1).join('/') }))
       .filter(({ href }) => pageRoutes.has(href));
     const content = data.article ?? data.product;
-    const current = { label: content?.breadcrumb ?? content?.title ?? labelFor(segments.at(-1)) };
+    const current = { label: content?.title ?? labelFor(segments.at(-1)) };
     return [...ancestors, ...(content?.parents ?? []), current];
   }
 

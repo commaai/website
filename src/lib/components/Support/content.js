@@ -30,7 +30,6 @@ export const articles = loadMarkdown(
 );
 for (const [slug, product] of products) {
   if (articles.has(slug)) throw new Error(`Duplicate support slug "${slug}" in content/support and content/products`);
-  product.breadcrumb = `${product.title} support`;
   articles.set(slug, product);
 }
 
@@ -40,7 +39,7 @@ function parentsOf(page, seen = new Set()) {
   seen.add(page);
   const parent = articles.get(page.parent);
   if (!parent) throw new Error(`Unknown parent "${page.parent}"`);
-  return [...parentsOf(parent, seen), { href: `/support/${page.parent}`, label: parent.breadcrumb ?? parent.title }];
+  return [...parentsOf(parent, seen), { href: `/support/${page.parent}`, label: parent.title }];
 }
 
 for (const article of articles.values()) article.parents = parentsOf(article);
