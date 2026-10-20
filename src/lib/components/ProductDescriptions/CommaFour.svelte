@@ -252,8 +252,8 @@
           US only. Rush orders are fulfilled on the next business day.
           <br><br>
           International shipping is $30 flat rate.
-          See fine print below for details. Common shipping questions are answered on
-          <a href="/support#shipping--returns" target="_blank">the FAQ</a>.
+          See fine print below for details. For common shipping questions, see
+          <a href="/support/orders-returns" target="_blank">Orders and Shipping</a>.
         </div>
       </Accordion>
     </div>
