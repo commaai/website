@@ -43,6 +43,10 @@ For help with cellular service, review the common issues and troubleshooting ste
 
 [comma prime common issues](/support/prime-common-issues "card")
 
+For issues or concerns in regards to billing and your subscription, contact support.
+
+[Open a support ticket](https://commasupport.zendesk.com/hc/en-us/requests/new?ticket_form_id=29233366516631 "card")
+
 ## Frequently asked questions
 
 ::: dropdown How do I claim the free prime offer?
