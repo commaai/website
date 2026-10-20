@@ -56,7 +56,6 @@
   }
 
   .footer-breadcrumbs :global(svg) {
-    display: block;
     width: 11px;
     height: 19px;
   }
