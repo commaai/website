@@ -17,7 +17,7 @@
     </slot>
   </div>
   <hgroup>
-    <span class:highlighted={highlightTitle}>{title}</span>
+    <span class="mono-label" class:highlighted={highlightTitle}>{title}</span>
     <div>
       <slot></slot>
     </div>
@@ -48,10 +48,6 @@
       display: block !important;
 
       & span {
-        font-family: JetBrains Mono, monospace;
-        font-size: 0.875rem;
-        font-weight: 400;
-        text-transform: uppercase;
         line-height: 1.1;
         margin-bottom: 0.25rem;
         color: black;
@@ -73,6 +69,11 @@
         }
       }
     }
+  }
+
+  .icon-slot :global(svg) {
+    width: 24px;
+    height: 24px;
   }
 
   .elevated {

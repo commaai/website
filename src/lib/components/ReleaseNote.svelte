@@ -9,7 +9,7 @@
     <img src={releaseNote.cover} alt="{releaseNote.title} feature highlights" />
     <div>
       <hgroup>
-        <span>{releaseNote.date}</span>
+        <span class="mono-label">{releaseNote.date}</span>
         <a class="highlight" href={releaseNote.link}>{releaseNote.title}</a>
       </hgroup>
       <p>{releaseNote.excerpt}</p>
@@ -30,12 +30,6 @@
   }
 
   hgroup {
-    & span {
-      text-transform: uppercase;
-      font-family: JetBrains Mono, monospace;
-      font-size: 0.875rem;
-    }
-
     & a {
       font-size: 1.5rem;
       display: block !important;

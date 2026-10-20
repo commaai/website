@@ -160,7 +160,7 @@
                       <hgroup>
                         <strong>comma four</strong>
                         {#if FOUR_SALE}
-                          <div style="display: flex; align-items: center;">
+                          <div class="price-group">
                             {#if FOUR_STRIKETHROUGH_PRICE}
                               <div class="understated-price strikethrough-price">${FOUR_STRIKETHROUGH_PRICE}</div>
                             {/if}
@@ -438,7 +438,7 @@
   }
 
   .cards {
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 769px) {
       & div:last-of-type {
         margin-bottom: 0;
       }
@@ -456,6 +456,11 @@
       align-items: center;
       display: flex;
       margin-bottom: 0.75rem;
+
+      & .price-group {
+        display: flex;
+        align-items: center;
+      }
 
       & .strikethrough-price {
         text-decoration: line-through;

@@ -97,8 +97,10 @@
     background: var(--color-card-background);
   }
 
-  .support :global(.support-card:hover) {
-    background: var(--color-card-background-hover);
+  @media (hover: hover) and (pointer: fine) {
+    .support :global(.support-card:hover) {
+      background: var(--color-card-background-hover);
+    }
   }
 
   .shell {

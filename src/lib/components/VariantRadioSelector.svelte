@@ -197,7 +197,7 @@
 
   .option-status {
     padding-top: 0.5rem;
-    font-family: JetBrains Mono, monospace;
+    font-family: var(--font-mono);
     font-size: 0.75rem;
     font-weight: 400;
     line-height: 1.2;

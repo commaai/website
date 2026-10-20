@@ -154,7 +154,7 @@
     align-items: center;
     color: var(--card-meta);
     display: flex;
-    font-family: JetBrains Mono, monospace;
+    font-family: var(--font-mono);
     font-size: 0.8125rem;
     gap: 0.4rem;
     letter-spacing: normal;
@@ -223,7 +223,7 @@
     bottom: 0.6rem;
     padding: 0.1rem 0.4rem;
     color: #fff;
-    font-family: JetBrains Mono, monospace;
+    font-family: var(--font-mono);
     font-size: 0.6875rem;
     background: rgba(0, 0, 0, 0.75);
   }

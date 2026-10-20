@@ -2,7 +2,7 @@
   import Product from "$lib/components/Product.svelte";
   import NoteCard from "$lib/components/NoteCard.svelte";
   import CheckboxCard from "$lib/components/CheckboxCard.svelte";
-  import Accordion from "$lib/components/Accordion.svelte";
+  import PurchaseDetail from "$lib/components/PurchaseDetail.svelte";
   import Badge from "$lib/components/Badge.svelte";
   import HarnessSelector from "$lib/components/HarnessSelector/HarnessSelector.svelte";
   import Modal from "$lib/components/Modal.svelte";
@@ -221,6 +221,7 @@
           slot="actions"
           class="remove-referral"
           class:undo-referral={removedReferralCode}
+          class:mono-label={removedReferralCode}
           aria-label={removedReferralCode ? 'Undo referral discount removal' : 'Remove referral discount'}
           disabled={updatingReferral}
           on:click={removedReferralCode ? handleUndoReferral : handleRemoveReferral}
@@ -242,45 +243,21 @@
   </div>
 
   <div slot="description">
-    <div class="item">
-      <Accordion>
-        <div class="label" slot="label">
-          <div>{@html ShippingIcon}</div>
-          <span>Free Rush (UPS 2nd Day Air) shipping</span>
-        </div>
-        <div class="details" slot="content">
-          US only. Rush orders are fulfilled on the next business day.
-          <br><br>
-          International shipping is $30 flat rate.
-          See fine print below for details. For common shipping questions, see
-          <a href="/support/orders-returns" target="_blank">Orders and Shipping</a>.
-        </div>
-      </Accordion>
-    </div>
-    <div class="item">
-      <Accordion>
-        <div class="label" slot="label">
-          <div>{@html MoneyBackGuaranteeIcon}</div>
-          <span>Try our 30-day money-back trial</span>
-        </div>
-        <div class="details" slot="content">
-          See for yourself why Consumer Reports rated us as the
-          <a href="https://data.consumerreports.org/wp-content/uploads/2020/11/consumer-reports-active-driving-assistance-systems-november-16-2020.pdf">top driver assistance system</a>.
-          We think you’ll love it, but if you’re not satisfied, send it back for a full refund.
-        </div>
-      </Accordion>
-    </div>
-    <div class="item">
-      <Accordion>
-        <div class="label" slot="label">
-          <div>{@html WarrantyIcon}</div>
-          <span>1-year hardware warranty</span>
-        </div>
-        <div class="details" slot="content">
-          1-year limited warranty against hardware defects. Extend it with <a href="/connect#what-is-commacare">commacare</a>.
-        </div>
-      </Accordion>
-    </div>
+    <PurchaseDetail icon={ShippingIcon} title="Free Rush (UPS 2nd Day Air) shipping">
+      US only. Rush orders are fulfilled on the next business day.
+      <br><br>
+      International shipping is $30 flat rate.
+      See fine print below for details. For common shipping questions, see
+      <a href="/support/orders-returns" target="_blank">Orders and Shipping</a>.
+    </PurchaseDetail>
+    <PurchaseDetail icon={MoneyBackGuaranteeIcon} title="Try our 30-day money-back trial">
+      See for yourself why Consumer Reports rated us as the
+      <a href="https://data.consumerreports.org/wp-content/uploads/2020/11/consumer-reports-active-driving-assistance-systems-november-16-2020.pdf">top driver assistance system</a>.
+      We think you’ll love it, but if you’re not satisfied, send it back for a full refund.
+    </PurchaseDetail>
+    <PurchaseDetail icon={WarrantyIcon} title="1-year hardware warranty">
+      1-year limited warranty against hardware defects. Extend it with <a href="/connect#what-is-commacare">commacare</a>.
+    </PurchaseDetail>
   </div>
 </Product>
 
@@ -309,11 +286,6 @@
 </Modal>
 
 <style>
-  .item {
-    padding: 1rem 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-  }
-
   .badges {
     display: flex;
     flex-wrap: wrap;
@@ -350,31 +322,7 @@
   .undo-referral {
     width: auto;
     padding: 0.25rem 0.5rem;
-    font-family: JetBrains Mono, monospace;
-    font-size: 0.875rem;
-    font-weight: 600;
     line-height: 1.1;
-    text-transform: uppercase;
-  }
-
-  .label {
-    display: flex;
-    align-items: center;
-
-    & div {
-      height: 24px;
-      width: 2.5rem;
-    }
-
-    & span {
-      margin-right: 1rem;
-    }
-  }
-
-  .details {
-    max-width: 80%;
-    margin-left: 2.5rem;
-    margin-top: 0.875rem;
   }
 
   .disclaimer {

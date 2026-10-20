@@ -91,6 +91,14 @@
     margin-bottom: 0.75rem;
   }
 
+  .copy strong {
+    opacity: 0.65;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
   .copy span {
     color: var(--muted);
     font-size: 0.875rem;

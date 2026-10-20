@@ -339,7 +339,7 @@
       align-items: flex-start;
       gap: 0.75rem;
 
-      & strong {
+      & > strong {
         opacity: 0.65;
         letter-spacing: 1px;
         text-transform: uppercase;
@@ -347,19 +347,19 @@
         font-weight: 600;
       }
 
-      & a {
+      & > a {
         color: #fff;
         font-size: 1.25rem;
         transition: opacity 0.2s;
       }
 
       @media (hover: hover) and (pointer: fine) {
-        & a:hover {
+        & > a:hover {
           opacity: 0.65;
         }
       }
 
-      & a:active {
+      & > a:active {
         opacity: 0.65;
       }
 

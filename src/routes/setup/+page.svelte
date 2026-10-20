@@ -56,8 +56,8 @@
   <div class="container">
     <div class="header">
       <hgroup>
-        <span style="font-size: 1.5rem; margin-bottom: 0.5rem;">comma four</span>
-        <h2 style="font-size: 3rem; font-weight: 600;">Setup Guide</h2>
+        <span>comma four</span>
+        <h2>Setup Guide</h2>
       </hgroup>
       <Grid columns={2} columnGap="5rem" rowGap="0" templateColumns="1.5fr 0.75fr" alignItems="start" size="large">
         <div class="title">
@@ -83,8 +83,8 @@
           </div>
         </div>
         <div>
-          <div class="parts-card">
-            <div class="header">Parts:</div>
+          <div class="card parts-card">
+            <div class="header mono-label">Parts:</div>
             <div class="contents">
               <div>
                 <Grid rowGap={0} columnGap="1rem" alignItems="center" size="small">
@@ -132,7 +132,7 @@
 <section class="light" id="guide">
   <div class="container">
     <div class="card vehicle-notes">
-      <div class="header">Customize Your Guide</div>
+      <div class="header mono-label">Customize Your Guide</div>
       <div class="contents">
         <p>Select your vehicle to get customized installation notes:</p>
         <HarnessSelector
@@ -339,22 +339,14 @@
       & hgroup {
         margin-bottom: 2rem;
 
-        & h2 {
-          margin: 0.5rem 0 0 0;
+        & span {
+          display: block;
+          font-size: 1.25rem;
+          margin-bottom: 0.5rem;
         }
-      }
 
-      & .media-container {
-        position: relative;
-        padding-bottom: 56.25%; /* 16:9 */
-        height: 0;
-
-        & iframe {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
+        & h2 {
+          margin: 0;
         }
       }
 
@@ -382,27 +374,9 @@
       }
 
       & .parts-card {
-        border: 1px solid #000;
-        border-bottom: 0;
         margin-bottom: 1.5rem;
 
-        & .header {
-          font-size: 0.875rem;
-          font-family: JetBrains Mono, monospace;
-          text-transform: uppercase;
-          color: #fff;
-          background-color: #000;
-          padding: 0.75rem 1rem;
-        }
-
         & .contents {
-          display: flex;
-          flex-flow: column;
-          align-items: start;
-          justify-content: space-between;
-          padding: 0.875rem 1rem;
-          border-bottom: 1px solid #000;
-
           & div {
             width: 100%;
 
@@ -463,9 +437,6 @@
     margin-bottom: 4rem;
 
     & .header {
-      font-size: 0.875rem;
-      font-family: JetBrains Mono, monospace;
-      text-transform: uppercase;
       color: #fff;
       background-color: #000;
       padding: 0.75rem 1rem;
