@@ -384,11 +384,6 @@
 
   .disclaimer {
     margin: 0;
-
-    &.warning {
-      color: #c53e3e;
-      font-weight: 600;
-    }
   }
 
   hr {

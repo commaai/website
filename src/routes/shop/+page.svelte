@@ -458,20 +458,6 @@
     margin: 2rem 0;
   }
 
-  #accessories {
-    & .shop-accessories-label {
-      text-align: center;
-      padding: 2rem 0;
-      margin-bottom: 0;
-      font-size: 1.25rem;
-      font-weight: 600;
-    }
-
-    & .shop-accessories-list {
-      margin-top: 2rem;
-    }
-  }
-
   .service-item {
     margin-bottom: 3rem;
 

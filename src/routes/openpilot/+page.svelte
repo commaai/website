@@ -51,7 +51,7 @@
         <span>Contributors</span>
       </div>
     </Grid>
-    <div class="headline sm-mb-4">
+    <div class="headline">
       <h1>
         openpilot is an
         <a class="highlight" href="https://github.com/commaai/openpilot" target="_blank">open source</a>
@@ -275,6 +275,12 @@
   .headline {
     margin-top: 4rem;
     margin-bottom: 6rem;
+
+    @media screen and (max-width: 768px) {
+      & {
+        margin-bottom: 4rem;
+      }
+    }
 
     & h1 {
       font-size: 2.5rem;
