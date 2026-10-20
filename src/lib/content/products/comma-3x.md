@@ -31,9 +31,9 @@ Before opening a ticket:
 
 1. Use only comma mounts, harnesses, and cables, and reseat all connections.
 2. [Flash your device](/support/flash-your-comma) and install the latest stock openpilot release.
-3. Confirm the issue still occurs, then open a ticket with the troubleshooting steps you tried.
+3. [Capture a route](/support/how-to-capture-a-route) on stock openpilot where the issue occurs.
 
-[Open a support ticket](https://commasupport.zendesk.com/hc/en-us/requests/new "card")
+[Open a support ticket](https://commasupport.zendesk.com/hc/en-us/requests/new?ticket_form_id=14150133300887 "card")
 
 ### Out-of-warranty repairs
 

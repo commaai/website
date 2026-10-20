@@ -884,7 +884,7 @@
           question: 'Why haven\'t I heard back from support?',
           answer: `
             <p>
-              comma support is for comma shop order and warranty related issues. Our inbox is not monitored; please open a support ticket on our <a href="https://comma.ai/support">comma.ai/support</a>.
+              comma support is for comma shop order and warranty related issues.
             </p>
             <p>
               comma does not provide support for openpilot. We recommend the <a href="https://discord.comma.ai">community Discord</a> or open an issue on openpilot’s GitHub.

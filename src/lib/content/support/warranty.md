@@ -7,9 +7,9 @@ description: Coverage under the standard hardware warranty and the extended comm
 
 Hardware in the comma shop comes with a 1 year limited warranty against defects. If you have a device that was not purchased from the comma shop, the 1 year warranty does transfer, but you must provide the original order number and email address associated with the device. We cannot provide this information for you.
 
-Open and repair the comma four at your own risk. comma is not responsible for damages that may occur while repairing devices.
-
 Please alert us to any issues with your order within 3 days of delivery by opening a [support ticket here](https://commasupport.zendesk.com/hc/en-us/requests/new?ticket_form_id=29233377161623) and including pictures of both the product and packaging. We may not be responsible for damages if we are not notified within this window.
+
+Open and repair the comma four at your own risk. comma is not responsible for damages that may occur while repairing devices.
 
 ## Get warranty help
 

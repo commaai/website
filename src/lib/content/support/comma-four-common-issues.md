@@ -53,6 +53,10 @@ If you have tried to resolve the issues using the existing resources and haven't
 
 Ensure that the issue occurs while running the latest openpilot release. **We cannot look into issues while running forks or other software.**
 
+3. If your issue relates to driving or using the device onroad, capture a route on stock openpilot where the issue occurs, and include the route link in your ticket.
+
+[How to capture a route](/support/how-to-capture-a-route "card")
+
 If you have not completed the steps above, your ticket will be closed. In your ticket, include the troubleshooting steps you tried and any relevant photos or videos.
 
 [Open a hardware support ticket](https://commasupport.zendesk.com/hc/en-us/requests/new?ticket_form_id=14150133300887 "card")

@@ -98,7 +98,7 @@ Returns are usually processed within 2–5 business days after they arrive, and 
 
 ### Return policy
 
-UPS 2nd Day Air and international shipping fees are non-refundable. comma may cancel orders from customers who have made a return within the previous six months. If you return only some of multiple eligible devices purchased at different prices, the refund uses the lowest eligible purchase price; returning all eligible orders receives a full refund.
+UPS 2nd Day Air and international shipping fees are non-refundable. We reserve the right to cancel orders from customers who have made returns within 6 months of their most recent purchase. If you return only some of multiple eligible devices purchased at different prices, the refund uses the lowest eligible purchase price; returning all eligible orders receives a full refund.
 
 Parts, repairs, and items marked **Final Sale** are ineligible for return. Only items purchased directly from the comma shop can be returned. comma is not responsible for damage caused by poor packaging or for items lost without tracking.
 
