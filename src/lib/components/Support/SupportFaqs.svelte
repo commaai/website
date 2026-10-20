@@ -12,5 +12,7 @@
 </section>
 
 <style>
-  .faq-card { margin-bottom: 3rem; }
+  .faq-card {
+    margin-bottom: 3rem;
+  }
 </style>

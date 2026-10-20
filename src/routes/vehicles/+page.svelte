@@ -267,6 +267,7 @@
       & .compatibility-make-links {
         grid-template-columns: repeat(auto-fit, 85px);
       }
+
       & .compatibility-make-element {
         width: 85px;
       }
@@ -292,6 +293,7 @@
           background-color: var(--color-card-background-hover);
         }
       }
+
       &:active {
         transform: scale(1.02);
         border: 1px solid rgba(0, 0, 0, .8);

@@ -29,6 +29,7 @@
         transform: scale(1.02);
       }
     }
+
     &:active {
       background-color: var(--color-card-background-hover);
       transform: scale(1.02);

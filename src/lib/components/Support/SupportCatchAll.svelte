@@ -79,12 +79,41 @@
 </section>
 
 <style>
-  .heading { margin-bottom: 28px; }
-  .content { flex: 1; display: flex; flex-direction: column; justify-content: space-between; gap: 32px; box-sizing: border-box; min-height: 218px; padding: 28px; }
-  .label { display: block; margin-bottom: 8px; color: var(--color-muted); font-size: 14px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
-  svg { width: 40px; height: 40px; fill: currentColor; }
+  .heading {
+    margin-bottom: 28px;
+  }
+
+  .content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 32px;
+    box-sizing: border-box;
+    min-height: 218px;
+    padding: 28px;
+  }
+
+  .label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--color-muted);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+
+  svg {
+    width: 40px;
+    height: 40px;
+    fill: currentColor;
+  }
 
   @media (max-width: 768px) {
-    .content { min-height: 158px; padding: 24px; }
+    .content {
+      min-height: 158px;
+      padding: 24px;
+    }
   }
 </style>

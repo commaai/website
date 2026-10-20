@@ -35,10 +35,30 @@
     color-scheme: light;
     line-height: 1.6;
   }
-  .support :global(section) { padding: 0; }
-  .support :global(:is(a, button, summary):focus-visible) { outline: 2px solid var(--color-accent); outline-offset: 3px; }
 
-  .shell { display: flex; flex-direction: column; gap: var(--support-space); width: 85%; max-width: 90rem; margin: auto; padding: var(--support-space) 0 48px; }
-  .shell > :global(hr) { margin: 0; background: var(--support-border); }
+  .support :global(section) {
+    padding: 0;
+  }
+
+  .support :global(:is(a, button, summary):focus-visible) {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+
+  .shell {
+    display: flex;
+    flex-direction: column;
+    gap: var(--support-space);
+    width: 85%;
+    max-width: 90rem;
+    margin: auto;
+    padding: var(--support-space) 0 48px;
+  }
+
+  .shell > :global(hr) {
+    margin: 0;
+    background: var(--support-border);
+  }
+
   @media (max-width: 768px) { .shell { padding-bottom: 40px; } }
 </style>
