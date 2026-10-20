@@ -13,7 +13,7 @@ Replacement screens for the comma 3X are available in the [shop](/shop/comma-dev
 
 ### Replacing your SIM card
 
-[How to replace the SIM card in a comma 3X](/support/replace-comma-3x-sim-card "card")
+[How to replace the SIM card in a comma 3/3X](/support/replace-comma-3x-sim-card "card")
 
 ### Performing a Factory Reset
 
@@ -34,6 +34,10 @@ Before opening a ticket:
 3. Confirm the issue still occurs, then open a ticket with the troubleshooting steps you tried.
 
 [Open a support ticket](https://commasupport.zendesk.com/hc/en-us/requests/new "card")
+
+### Out of warranty repairs
+
+We offer trade-ins for eligible devices. See [upgrading to a comma four](#upgrading-to-a-comma-four) below for details.
 
 ## Upgrading to a comma four
 

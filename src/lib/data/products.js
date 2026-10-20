@@ -222,8 +222,8 @@ export const products = {
         This is a replacement for the SIM that ships with the comma four to support <a href="https://connect.comma.ai/" target="_blank">comma prime</a>.
       </p>
       <p>
-        For SIM card and connectivity help, see
-        <a href="/support/prime-common-issues" target="_blank">this guide</a>.
+        See how to replace the SIM card in a comma 3/3X
+        <a href="/support/replace-comma-3x-sim-card" target="_blank">here</a>.
       </p>
     `.trim()
   },

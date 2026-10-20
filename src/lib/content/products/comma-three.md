@@ -17,6 +17,10 @@ With openpilot 0.10, comma three moved to a separate long term support release b
 
 Replacement screens for the comma three are available in the [shop](/shop/comma-device-screen). See the product page for details and repair terms.
 
+### Replacing your SIM card
+
+[How to replace the SIM card in a comma 3](/support/replace-comma-3x-sim-card "card")
+
 ### Performing a Factory Reset
 
 Reset the comma three by repeatedly tapping on the screen as soon as the device boots up. After that, the factory reset screen will come up.
@@ -24,6 +28,10 @@ Reset the comma three by repeatedly tapping on the screen as soon as the device 
 If this does not work, a more complete factory reset can be performed at [flash.comma.ai](https://flash.comma.ai).
 
 [Learn how to flash your comma](/support/flash-your-comma "card")
+
+### Out of warranty repairs
+
+We offer trade-ins for eligible devices. See [upgrading to a comma four](#upgrading-to-a-comma-four) below for details.
 
 ## Upgrading to a comma four
 

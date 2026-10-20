@@ -22,7 +22,7 @@
   <div class="product-grid">
     {#each showAllProducts ? [...featuredProducts, ...moreProducts] : featuredProducts as slug}
       {@const product = products.get(slug)}
-      <a class="product-card" href="/support/products/{slug}">
+      <a class="product-card" href="/support/{slug}">
         <div class="product-image">
           <img class={slug} src={product.image} alt={product.imageAlt} loading="lazy" />
         </div>

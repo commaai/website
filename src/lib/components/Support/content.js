@@ -21,10 +21,15 @@ function loadMarkdown(files) {
   }));
 }
 
-export const articles = loadMarkdown(
-  import.meta.glob('/src/lib/content/support/*.md', { eager: true, query: '?raw', import: 'default' })
-);
-
 export const products = loadMarkdown(
   import.meta.glob('/src/lib/content/products/*.md', { eager: true, query: '?raw', import: 'default' })
 );
+
+// Product pages share the /support/[article] route, so slugs must be unique across both folders
+export const articles = loadMarkdown(
+  import.meta.glob('/src/lib/content/support/*.md', { eager: true, query: '?raw', import: 'default' })
+);
+for (const [slug, product] of products) {
+  if (articles.has(slug)) throw new Error(`Duplicate support slug "${slug}" in content/support and content/products`);
+  articles.set(slug, product);
+}

@@ -18,7 +18,7 @@
       icon: 'M2 4h20v16H2V4zm2 2v1.2l8 6 8-6V6H4zm16 12V9.7l-8 6-8-6V18h16z'
     },
     {
-      label: 'Community',
+      label: 'comma discord',
       title: 'Ask the community',
       href: 'https://discord.comma.ai/',
       external: true,

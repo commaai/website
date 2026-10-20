@@ -19,4 +19,4 @@ If you don't have an account you will be prompted to make one by logging in with
 
 By default you can view the last 3 days of your recorded drives. Upgrade to [comma prime](/support/what-is-comma-prime) to get a full year of drives saved to the cloud.
 
-Make sure your comma device has access to a strong wifi signal in order to upload your drives. You can also buy [comma prime](/support/what-is-comma-prime) to get 24/7 LTE on your device so your device can upload drives. Additionally, make sure that your [comma power](/support/products/comma-power) is connected to your car so that the device can upload drives when you are offroad and parked.
+Make sure your comma device has access to a strong wifi signal in order to upload your drives. You can also buy [comma prime](/support/what-is-comma-prime) to get 24/7 LTE on your device so your device can upload drives. Additionally, make sure that your [comma power](/support/comma-power) is connected to your car so that the device can upload drives when you are offroad and parked.
