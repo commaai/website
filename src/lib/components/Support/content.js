@@ -25,7 +25,6 @@ export const products = loadMarkdown(
   import.meta.glob('/src/lib/content/products/*.md', { eager: true, query: '?raw', import: 'default' })
 );
 
-// Product pages share the /support/[article] route, so slugs must be unique across both folders
 export const articles = loadMarkdown(
   import.meta.glob('/src/lib/content/support/*.md', { eager: true, query: '?raw', import: 'default' })
 );

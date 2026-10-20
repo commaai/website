@@ -1,6 +1,6 @@
 ---
 title: Is your car compatible?
-description: A guide on how to check if your vehicle is compatible with openpilot
+description: Check whether your vehicle is compatible with openpilot.
 ---
 
 ## Open the compatibility page
@@ -23,7 +23,7 @@ For example, a 2019 Honda CR-V falls in the **2017–22** CR-V row. The 2015–1
 
 ![Honda CR-V rows showing separate model year ranges and hybrid listings](/images/support/vehicle-journey-model-year.png)
 
-Use the model year on your registration, insurance documents, or the label inside the driver's door; it may differ from the year you bought the car. A car with the same name in another market may also have different equipment. If your exact model and year are not listed, do not assume a nearby year or trim is compatible. You can sign up for updates under **Don't see your car?** section at the top of the page. If you have automotive programming experience, see the [openpilot car porting guide](https://github.com/commaai/openpilot/blob/master/docs/CARS.md#dont-see-your-car-here).
+Use the model year on your registration, insurance documents, or the label inside the driver's door; it may differ from the year you bought the car. A car with the same name in another market may also have different equipment. If your exact model and year are not listed, do not assume a nearby year or trim is compatible. You can sign up for updates in the **Don't see your car?** section at the top of the page. If you have automotive programming experience, see the [openpilot car porting guide](https://github.com/commaai/openpilot/blob/master/docs/CARS.md#dont-see-your-car-here).
 
 ## Read the vehicle card
 
@@ -43,7 +43,7 @@ If you see your exact car and trim, **your car is supported!** You are ready to 
 
 Once you have confirmed the exact listing and any required equipment, select **Buy now** in the vehicle card. The comma four shop page selects that car and its matching harness. Check the model, year range, and Support requirement again before adding the device to your cart.
 
-![Comma four shop page with the Honda CR-V 2017–22 harness selected](/images/support/vehicle-journey-comma-four-shop.png)
+![comma four shop page with the Honda CR-V 2017–22 harness selected](/images/support/vehicle-journey-comma-four-shop.png)
 
 If your exact make, model, and year are listed and your car has the required trim or factory equipment, it is compatible; you can buy a comma four with its matching harness from the vehicle card.
 

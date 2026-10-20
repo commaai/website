@@ -1,6 +1,6 @@
 ---
 title: comma four common issues
-description: For help troubleshooting
+description: Troubleshoot common comma four hardware issues and find out when to contact support.
 ---
 
 ## Common issues
@@ -8,7 +8,7 @@ description: For help troubleshooting
 ::: dropdown Device won't turn on or keeps restarting
 Check that the device is securely connected to its cable and that the harness connections are fully seated. Follow the [setup guide](/setup) to check the installation.
 
-If the device still has trouble, try the latest stock openpilot release. You can restore the device with [flash.comma.ai](https://flash.comma.ai/). 
+If the device still has trouble, try the latest stock openpilot release. You can restore the device with [flash.comma.ai](https://flash.comma.ai/).
 
 [Learn how to flash your comma](/support/flash-your-comma "card")
 
@@ -16,7 +16,7 @@ If the issue continues on stock software, [contact hardware support](/support/co
 :::
 
 ::: dropdown Blank screen or camera issue
-Reseat the device cable and check the mount and installation using the [setup guide](/setup). Third party software can sometimes cause symptoms that look like hardware problems, including a blank screen. Restore the device with [flash.comma.ai](https://flash.comma.ai/) and install the latest stock openpilot release before contacting support.
+Reseat the device cable and check the mount and installation using the [setup guide](/setup). Third-party software can sometimes cause symptoms that look like hardware problems, including a blank screen. Restore the device with [flash.comma.ai](https://flash.comma.ai/) and install the latest stock openpilot release before contacting support.
 
 [Learn how to flash your comma](/support/flash-your-comma "card")
 
@@ -43,11 +43,11 @@ If the car is supported and the issue continues on the latest stock openpilot, c
 
 ## Still having issues?
 
-If you have tried to resolve the issues using the existing resources and haven't been able to succeed, it may be time to contact support. Before contacting support, first restore your device to stock by following the following steps.
+If you have tried to resolve the issues using the existing resources and haven't been able to succeed, it may be time to contact support. Before contacting support, first restore your device to stock with the following steps.
 
-1. Remove any third party mounts, harnesses, or cables. Use only hardware from the [comma shop](/shop), and reseat each connection using the [setup guide](/setup).
+1. Remove any third-party mounts, harnesses, or cables. Use only hardware from the [comma shop](/shop), and reseat each connection using the [setup guide](/setup).
 
-2. Remove third party software. Flash your device, then install the latest stock openpilot release during setup. Confirm that the issue still occurs before contacting support.
+2. Remove third-party software. Flash your device, then install the latest stock openpilot release during setup. Confirm that the issue still occurs before contacting support.
 
 [Learn how to flash your comma](/support/flash-your-comma "card")
 
@@ -57,4 +57,4 @@ If you have not completed the steps above, your ticket will be closed. In your t
 
 [Open a hardware support ticket](https://commasupport.zendesk.com/hc/en-us/requests/new?ticket_form_id=14150133300887 "card")
 
-We also recommend reviewing the community GitHub wiki and discord.comma.ai for help troubleshoot from community members.
+We also recommend reviewing the [openpilot wiki](https://github.com/commaai/openpilot/wiki) and the community [Discord](https://discord.comma.ai/) for troubleshooting help from community members.

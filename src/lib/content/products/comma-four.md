@@ -25,7 +25,7 @@ Find help with hardware issues.
 
 ## Add-ons for your comma four
 
-Upgrade your experience with comma connect to view your recent drives and comma prime for 24/7 connection to your comma device and a year of drive cloud storage.
+Upgrade your experience with comma connect to view your recent drives, and with comma prime for a 24/7 connection to your comma device and a year of cloud drive storage.
 
 [Pair your device with comma connect](/support/pair-your-device "card")
 

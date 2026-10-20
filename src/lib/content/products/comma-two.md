@@ -17,7 +17,7 @@ If you need to restore or recover your comma two, follow comma's NEOS instructio
 
 [Restore your comma two with NEOS](https://github.com/commaai/eon-neos#readme "card")
 
-### Out of warranty repairs
+### Out-of-warranty repairs
 
 We offer trade-ins for eligible devices. See [upgrading to a comma four](#upgrading-to-a-comma-four) below for details.
 

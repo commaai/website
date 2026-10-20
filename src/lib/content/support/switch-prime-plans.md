@@ -1,9 +1,9 @@
 ---
 title: How to switch prime plans
-description: How to switch between prime and prime lite plans
+description: Switch between the prime and prime lite plans.
 ---
 
-We do support switching between prime plans on your comma device.
+You can switch your comma device between the prime and prime lite plans.
 
 ## Switch plans
 
@@ -12,10 +12,10 @@ We do support switching between prime plans on your comma device.
 3. Open the settings menu and select **Prime Settings**.
 4. Select "Switch to ___ plan".
 5. Confirm the switch.
-6. Leave your device connected to the internet for at least an hour for the change to take affect.
+6. Leave your device connected to the internet for at least an hour for the change to take effect.
 
 Cancellation is prorated and takes effect on the same day.
 
-Don't know what the difference between the plans are? Read more here.
+Not sure how the plans differ? Read more below.
 
 [What is comma prime?](/support/what-is-comma-prime "card")

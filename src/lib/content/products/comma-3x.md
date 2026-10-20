@@ -15,7 +15,7 @@ Replacement screens for the comma 3X are available in the [shop](/shop/comma-dev
 
 [How to replace the SIM card in a comma 3/3X](/support/replace-comma-3x-sim-card "card")
 
-### Performing a Factory Reset
+### Performing a factory reset
 
 Reset the comma 3X by repeatedly tapping on the screen as soon as the device boots up. After that, the factory reset screen will come up.
 
@@ -25,7 +25,7 @@ If this does not work, a more complete factory reset can be performed at [flash.
 
 ### In-warranty repairs
 
-If you are having issues with your comma 3X and it is still in-warranty, you can open a support ticket for help.
+If you are having issues with your comma 3X and it is still under warranty, you can open a support ticket for help.
 
 Before opening a ticket:
 
@@ -35,7 +35,7 @@ Before opening a ticket:
 
 [Open a support ticket](https://commasupport.zendesk.com/hc/en-us/requests/new "card")
 
-### Out of warranty repairs
+### Out-of-warranty repairs
 
 We offer trade-ins for eligible devices. See [upgrading to a comma four](#upgrading-to-a-comma-four) below for details.
 

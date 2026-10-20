@@ -9,7 +9,7 @@ imageAlt: comma three device
 
 Released in July 2021, comma three is the predecessor of comma 3X. It is deprecated for new openpilot releases: openpilot v0.10.0 is the last version compatible with the device. [Read the comma three hardware notes](https://github.com/commaai/hardware/tree/master/comma_three).
 
-With openpilot 0.10, comma three moved to a separate long term support release branch called `release-tici` for bug fixes. [Read the openpilot 0.10 announcement](https://blog.comma.ai/010release/).
+With openpilot 0.10, comma three moved to a separate long-term support release branch called `release-tici` for bug fixes. [Read the openpilot 0.10 announcement](https://blog.comma.ai/010release/).
 
 ## Maintaining your comma three
 
@@ -21,7 +21,7 @@ Replacement screens for the comma three are available in the [shop](/shop/comma-
 
 [How to replace the SIM card in a comma 3](/support/replace-comma-3x-sim-card "card")
 
-### Performing a Factory Reset
+### Performing a factory reset
 
 Reset the comma three by repeatedly tapping on the screen as soon as the device boots up. After that, the factory reset screen will come up.
 
@@ -29,7 +29,7 @@ If this does not work, a more complete factory reset can be performed at [flash.
 
 [Learn how to flash your comma](/support/flash-your-comma "card")
 
-### Out of warranty repairs
+### Out-of-warranty repairs
 
 We offer trade-ins for eligible devices. See [upgrading to a comma four](#upgrading-to-a-comma-four) below for details.
 

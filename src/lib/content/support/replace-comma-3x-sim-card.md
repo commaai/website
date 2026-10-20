@@ -21,6 +21,6 @@ We recommend you clean the camera lenses with a microfiber cloth before using th
 
 ## Activate the new SIM card
 
-Once your new SIM card is installed, your device will need to connect to Wi-Fi to activate the SIM card. Best ways to get your device online: hotspot from your phone, bring your car somewhere with Wi-Fi or connect your device to a USB charger in a place with Wi-Fi. Your device requires about 5 minutes of Wi-Fi connection and then can take up to 30 minutes to activate and might require a reboot. You will know the activation started when the device displays "CONNECT ONLINE".
+Once your new SIM card is installed, your device will need to connect to Wi-Fi to activate the SIM card. The best ways to get your device online are to use your phone's hotspot, bring your car somewhere with Wi-Fi, or connect your device to a USB charger in a place with Wi-Fi. Your device needs about 5 minutes on Wi-Fi, then can take up to 30 minutes to activate and might require a reboot. You will know the activation started when the device displays "CONNECT ONLINE".
 
 After the next reboot, your SIM card should connect to the internet and you should have prime again!

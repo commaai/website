@@ -13,11 +13,11 @@ You can do this at any time without incurring a cancellation fee. Upon canceling
 
 ## Billing and account credit
 
-We've made the Refund Policy as straightforward as we can, no hidden clauses and no fine print.
+We've made the Refund Policy as straightforward as we can: no hidden clauses and no fine print.
 
 - If you have a free trial period, we will charge your credit card with the monthly subscription fee at the end of the trial period.
-- We will continue to charge your credit card account on a monthly basis until you cancel your subscription. For example, if you joined on April 5 your credit card will be charged on May 5; June 5; July 5; and so on until you cancel your subscription.
-- Your cancellation takes effect immediately. Your last paid monthly fee will be pro-rated and returned as credit on your account.
+- We will continue to charge your credit card account on a monthly basis until you cancel your subscription. For example, if you joined on April 5, your credit card will be charged on May 5; June 5; July 5; and so on until you cancel your subscription.
+- Your cancellation takes effect immediately. Your last paid monthly fee will be prorated and returned as credit on your account.
 
 You can sign back up at any time.
 

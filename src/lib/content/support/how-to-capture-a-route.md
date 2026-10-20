@@ -9,7 +9,7 @@ A route is a recording of one drive. Your comma device starts a route when you t
 
 ## Record the issue
 
-1. Install the latest stock openpilot release. Support cannot troubleshoot routes recorded while using a fork or other third party software.
+1. Install the latest stock openpilot release. Support cannot troubleshoot routes recorded while using a fork or other third-party software.
 2. Drive until the issue happens. Only reproduce an issue when it is safe to do so, and do not interact with the device while driving.
 3. Note the approximate time the issue happened. If your device shows the bookmark control, use it when the issue occurs so the moment is easier to find later.
 4. Park safely and turn the car off to finish the route.
@@ -27,9 +27,9 @@ Connect the comma device to Wi-Fi after the drive and leave it powered on so the
 
 ## Why is a stock route needed for a hardware support ticket?
 
-It is our policy for a comma engineer to root cause every hardware issue, for both our understanding of any hardware failures and to provide you with the best experience. A route on the latest stock openpilot is necessary before a ticket is sent to an engineer for review. Any ticket with a route from third party software will be closed with a request for a new ticket with a stock route.
+It is our policy for a comma engineer to root cause every hardware issue, for both our understanding of any hardware failures and to provide you with the best experience. A route on the latest stock openpilot is necessary before a ticket is sent to an engineer for review. Any ticket with a route from third-party software will be closed with a request for a new ticket with a stock route.
 
-We cannot review logs from third party software for several reasons, including:
-- your issue may be directly caused by the third party software
-- the third party software may not be up to date with the latest openpilot
-- the third party software lacks the necessary logging for an engineer to review the issue
+We cannot review logs from third-party software for several reasons, including:
+- your issue may be directly caused by the third-party software
+- the third-party software may not be up to date with the latest openpilot
+- the third-party software may lack the logging an engineer needs to review the issue
