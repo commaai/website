@@ -295,6 +295,7 @@
           background-color: var(--color-accent-hover);
         }
       }
+
       &:active {
         background-color: var(--color-accent-hover);
       }
@@ -369,6 +370,7 @@
           opacity: 0.65;
         }
       }
+
       & a:active {
         opacity: 0.65;
       }

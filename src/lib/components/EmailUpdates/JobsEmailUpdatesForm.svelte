@@ -78,7 +78,11 @@
     line-height: 1.35;
   }
 
-  form { display: grid; gap: 0.75rem; margin: 0; }
+  form {
+    display: grid;
+    gap: 0.75rem;
+    margin: 0;
+  }
 
   .email-row {
     display: flex;
@@ -113,21 +117,62 @@
     outline-offset: 3px;
   }
 
-  button:disabled { opacity: 0.6; cursor: wait; }
-  button:hover, button:focus-visible { background: var(--color-accent-hover); }
+  button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+  }
 
-  .success { margin: 0; line-height: 1.5; }
-  .error { margin: 0.625rem 0 0; color: #8a0d05; font-size: 0.875rem; line-height: 1.4; }
-  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+  button:hover, button:focus-visible {
+    background: var(--color-accent-hover);
+  }
+
+  .success {
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .error {
+    margin: 0.625rem 0 0;
+    color: #8a0d05;
+    font-size: 0.875rem;
+    line-height: 1.4;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+  }
 
   @media (max-width: 1024px) {
-    .jobs-updates { grid-template-columns: 1fr; gap: 2rem; }
+    .jobs-updates {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
   }
 
   @media (max-width: 768px) {
-    .jobs-updates { padding: 2rem 1rem; }
-    .email-row { flex-direction: column; gap: 0.5rem; }
-    input { border-right: 1px solid #000; }
-    input, button { min-height: 48px; }
+    .jobs-updates {
+      padding: 2rem 1rem;
+    }
+
+    .email-row {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    input {
+      border-right: 1px solid #000;
+    }
+
+    input, button {
+      min-height: 48px;
+    }
   }
 </style>

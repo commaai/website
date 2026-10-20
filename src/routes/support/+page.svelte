@@ -37,13 +37,40 @@
 <SupportFaqs />
 
 <style>
-  .card-image { display: flex; align-items: center; height: 170px; padding-left: 40px; background: #000; }
-  .card-image img { width: 96px; height: 96px; filter: invert(1); }
-  .card-copy { padding: 20px 24px 24px; }
-  .card-copy p { margin: 8px 0 0; color: var(--color-muted); font-size: 14px; line-height: 1.45; }
+  .card-image {
+    display: flex;
+    align-items: center;
+    height: 170px;
+    padding-left: 40px;
+    background: #000;
+  }
+
+  .card-image img {
+    width: 96px;
+    height: 96px;
+    filter: invert(1);
+  }
+
+  .card-copy {
+    padding: 20px 24px 24px;
+  }
+
+  .card-copy p {
+    margin: 8px 0 0;
+    color: var(--color-muted);
+    font-size: 14px;
+    line-height: 1.45;
+  }
 
   @media (max-width: 768px) {
-    .card-image { height: 80px; padding-left: 24px; }
-    .card-image img { width: 52px; height: 52px; }
+    .card-image {
+      height: 80px;
+      padding-left: 24px;
+    }
+
+    .card-image img {
+      width: 52px;
+      height: 52px;
+    }
   }
 </style>

@@ -489,6 +489,7 @@
           font-size: 1.25rem;
         }
       }
+
       color: white;
       font-size: 1.5rem;
       font-weight: 600;
@@ -522,6 +523,7 @@
           & * {
             margin: 0;
           }
+
           & h4 {
             font-weight: 600;
           }

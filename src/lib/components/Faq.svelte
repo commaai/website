@@ -94,11 +94,17 @@
         max-width: 100%;
         overflow-wrap: anywhere;
       }
-      & img { display: none; }
+
+      & img {
+        display: none;
+      }
     }
 
     @media screen and (max-width: 480px) {
-      & { min-height: 120px; padding: 16px 20px; }
+      & {
+        min-height: 120px;
+        padding: 16px 20px;
+      }
     }
   }
 

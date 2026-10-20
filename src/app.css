@@ -94,6 +94,7 @@ body {
           background-color: rgba(81, 255, 0, .25);
         }
       }
+
       &:active {
         background-color: rgba(81, 255, 0, .25);
       }

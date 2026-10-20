@@ -348,8 +348,13 @@
           }
         }
 
-        & .check { color: var(--color-accent-hover); }
-        & .cross { color: var(--color-red); }
+        & .check {
+          color: var(--color-accent-hover);
+        }
+
+        & .cross {
+          color: var(--color-red);
+        }
 
         & .feature-overview {
           display: flex;
@@ -379,7 +384,9 @@
               padding: 0.25rem 0.75rem;
               margin: 0.5rem 0;
 
-              & span { margin-right: 0.5rem; }
+              & span {
+                margin-right: 0.5rem;
+              }
             }
 
             @media screen and (max-width: 768px) {
