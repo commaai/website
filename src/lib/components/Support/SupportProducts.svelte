@@ -53,9 +53,11 @@
     font: inherit;
   }
 
-  .product-card:hover h3 {
-    text-decoration: underline 2px var(--color-accent);
-    text-underline-offset: 5px;
+  @media (hover: hover) and (pointer: fine) {
+    .product-card:hover h3 {
+      text-decoration: underline 2px var(--color-accent);
+      text-underline-offset: 5px;
+    }
   }
 
   .product-image {
@@ -92,8 +94,14 @@
     cursor: pointer;
   }
 
-  .all-products:is(:hover, :focus-visible, :active) {
+  .all-products:is(:focus-visible, :active) {
     text-decoration-color: var(--color-accent);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .all-products:hover {
+      text-decoration-color: var(--color-accent);
+    }
   }
 
   @media (max-width: 768px) {

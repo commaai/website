@@ -619,7 +619,7 @@
 
     background: #fff;
     letter-spacing: 0;
-    overflow-x: hidden;
+    overflow-x: clip;
   }
 
   .jobs-page,
@@ -705,7 +705,7 @@
 
   .eyebrow {
     color: rgba(0, 0, 0, 0.55);
-    font-family: "JetBrains Mono", monospace;
+    font-family: var(--font-mono);
     font-size: 1rem;
     line-height: 1.2;
     margin: 0 0 0.5rem;
@@ -893,7 +893,8 @@
 
   .trait-card :global(a),
   .challenge-copy a,
-  .job-description :global(a) {
+  .job-description :global(a),
+  .job-how-to-apply :global(a) {
     border-bottom: 2px solid var(--color-accent);
     transition: background-color 0.2s;
   }
@@ -903,7 +904,9 @@
   .challenge-copy a:hover,
   .challenge-copy a:focus-visible,
   .job-description :global(a:hover),
-  .job-description :global(a:focus-visible) {
+  .job-description :global(a:focus-visible),
+  .job-how-to-apply :global(a:hover),
+  .job-how-to-apply :global(a:focus-visible) {
     background: rgba(81, 255, 0, 0.25);
   }
 
@@ -1048,7 +1051,7 @@
   .job-team,
   .job-meta-separator,
   .job-location {
-    font-family: "JetBrains Mono", monospace;
+    font-family: var(--font-mono);
     font-size: 1rem;
     line-height: 1.2;
   }
@@ -1118,7 +1121,7 @@
     background: #000;
     bottom: calc(100% + 0.625rem);
     color: #fff;
-    font-family: "JetBrains Mono", monospace;
+    font-family: var(--font-mono);
     font-size: 0.875rem;
     line-height: 1.2;
     padding: 0.5rem 0.75rem;
@@ -1174,7 +1177,7 @@
   }
 
   .job-qualifications {
-    font-family: "JetBrains Mono", monospace;
+    font-family: var(--font-mono);
     font-size: 1.0625rem;
     line-height: 1.25;
     margin-bottom: 1.5rem;
@@ -1203,11 +1206,6 @@
     font-size: 1.125rem;
     line-height: 1.45;
     margin: 0;
-  }
-
-  .job-how-to-apply :global(a) {
-    text-decoration: underline;
-    text-underline-offset: 0.15em;
   }
 
   @media screen and (max-width: 1024px) {

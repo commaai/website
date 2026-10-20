@@ -92,7 +92,7 @@
 
   .content hr {
     margin: 2rem 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.15);
+    background-color: rgba(0, 0, 0, 0.15);
   }
 </style>
 

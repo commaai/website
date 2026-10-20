@@ -5,6 +5,8 @@
   import Badge from "$lib/components/Badge.svelte";
   import EmailUpdatesForm from "$lib/components/EmailUpdates/EmailUpdatesForm.svelte";
   import NoteCard from "$lib/components/NoteCard.svelte";
+  import ProductSection from "$lib/components/ProductSection.svelte";
+  import FinePrint from "$lib/components/FinePrint.svelte";
   import CommunityBanner from "$lib/components/CommunityBanner.svelte";
   
 
@@ -191,8 +193,7 @@
 
 <section class="light" id="description">
   <div class="container">
-    <Grid templateColumns="0.5fr 1.25fr" rowGap="0">
-      <h2>Overview</h2>
+    <ProductSection title="Overview">
       <div class="description">
         <h3>What is the comma body?</h3>
         <p>
@@ -236,10 +237,8 @@
           comma body shouldn’t go anywhere you couldn’t go on a hoverboard, so no stairs, etc.
         </NoteCard>
       </div>
-    </Grid>
-    <hr />
-    <Grid rowGap="0" templateColumns="0.5fr 1.25fr">
-      <h2>In the Box</h2>
+    </ProductSection>
+    <ProductSection title="In the Box">
       <div>
         <ul>
           <li>comma body kit (base, rails, and hardware)</li>
@@ -250,10 +249,8 @@
           <li>1 helmet</li>
         </ul>
       </div>
-    </Grid>
-    <hr />
-    <Grid rowGap="0" templateColumns="0.5fr 1.25fr">
-      <h2>Tech Specs</h2>
+    </ProductSection>
+    <ProductSection title="Tech Specs">
       <div>
         <ul>
           <li>
@@ -282,26 +279,22 @@
           </li>
         </ul>
       </div>
-    </Grid>
-    <hr />
-    <Grid rowGap="0" templateColumns="0.5fr 1.25fr">
-      <h2>Fine Print</h2>
-      <div class="fine-print-copy">
-        <strong>30-Day Return</strong>
-        <p>
-          If for any reason you are dissatisfied with anything purchased at the comma.ai shop, ship it back within 30 days for a full refund.
-          <a target="_blank" href="https://shop.comma.ai/a/returns" class="highlight">comma.ai/returns</a>
-        </p>
-        <strong>Shipping</strong>
-        <p>
-          Free US shipping; we ship with UPS and signature confirmation.
-          This item cannot be shipped internationally, but hopefully this will change in the near future.
-          We do not currently offer expedited shipping. Orders are typically fulfilled during the week of purchase.
-        </p>
-        <strong>Warranty</strong>
-        <p>1-year limited warranty against hardware defects.</p>
-      </div>
-    </Grid>
+    </ProductSection>
+    <FinePrint>
+      <strong>30-Day Return</strong>
+      <p>
+        If for any reason you are dissatisfied with anything purchased at the comma.ai shop, ship it back within 30 days for a full refund.
+        <a target="_blank" href="https://shop.comma.ai/a/returns" class="highlight">comma.ai/returns</a>
+      </p>
+      <strong>Shipping</strong>
+      <p>
+        Free US shipping; we ship with UPS and signature confirmation.
+        This item cannot be shipped internationally, but hopefully this will change in the near future.
+        We do not currently offer expedited shipping. Orders are typically fulfilled during the week of purchase.
+      </p>
+      <strong>Warranty</strong>
+      <p>1-year limited warranty against hardware defects.</p>
+    </FinePrint>
   </div>
 </section>
 
@@ -314,10 +307,6 @@
 <style>
   p {
     font-size: 1.25rem;
-  }
-
-  hr {
-    margin: 3rem 0;
   }
 
   h1 {
@@ -369,7 +358,7 @@
 
       & .label {
         font-size: 1.2rem;
-        font-family: JetBrains Mono, monospace;
+        font-family: var(--font-mono);
         font-weight: 400;
         text-transform: uppercase;
         padding: 1rem 0;
@@ -442,15 +431,6 @@
     @media screen and (max-width: 1024px) {
       & {
         margin-bottom: 3rem;
-      }
-    }
-
-    & .fine-print-copy {
-      padding: 1rem 3rem;
-      background-color: #fafafa;
-
-      & strong + p {
-        margin-top: 0.5rem;
       }
     }
   }

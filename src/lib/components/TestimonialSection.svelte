@@ -48,7 +48,7 @@
 
   .meta {
     color: var(--color-muted);
-    font-family: JetBrains Mono, monospace;
+    font-family: var(--font-mono);
     font-size: 0.875rem;
     letter-spacing: normal;
     line-height: 1;

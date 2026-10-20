@@ -1,7 +1,8 @@
 <script>
   import Product from "$lib/components/Product.svelte";
-  import Grid from "$lib/components/Grid.svelte";
-  import Accordion from "$lib/components/Accordion.svelte";
+  import ProductSection from "$lib/components/ProductSection.svelte";
+  import PurchaseDetail from "$lib/components/PurchaseDetail.svelte";
+  import BoxContents from "$lib/components/BoxContents.svelte";
   import NoteCard from "$lib/components/NoteCard.svelte";
   import Badge from "$lib/components/Badge.svelte";
 
@@ -57,6 +58,22 @@
     ReadyToDriveBack,
   ];
 
+  const tinyChestnutBox = [
+    { image: ChestnutProductImage, alt: "chestnut board and aluminum base", label: "chestnut" },
+    { image: UsbCable1m, alt: "1m USB4 cable", label: "1m USB4" },
+    { image: StandoffsImage, alt: "chestnut standoffs and thumb nuts", label: "standoffs + thumb nuts" },
+    { image: AtxPowerAdapter, alt: "ATX to XT60i power adapter", label: "ATX power adapter" },
+    { image: GpuPowerCable, alt: "GPU power cable", label: "GPU power cable" },
+  ];
+
+  const readyToDriveBox = [
+    ...tinyChestnutBox,
+    { image: RadeonGpu, alt: "AMD Radeon GPU for chestnut", label: "AMD Radeon RX 9060 8GB" },
+    { image: UsbCable3m, alt: "3m USB3 cable", label: "3m USB3" },
+    { image: CarPowerCable, alt: "12V car power cable", label: "car power cable" },
+    { image: MountingStrips, alt: "chestnut mounting strips", label: "mounting strips" },
+  ];
+
   function imagesForVariant(variant) {
     return variant.title.toLowerCase().includes("ready to drive")
       ? readyToDriveImages
@@ -94,36 +111,19 @@
       useVariantRadioSelector={true}
     >
       <div slot="notes">
-        <NoteCard title="Using chestnut with openpilot?">
-          <span slot="icon" class="chestnut-car-icon">{@html CarIcon}</span>
+        <NoteCard title="Using chestnut with openpilot?" icon={CarIcon}>
           Choose ready to drive for everything you need to add desktop-class
           GPU compute to your comma four.
         </NoteCard>
       </div>
       <div slot="description">
-        <div class="purchase-detail">
-          <Accordion>
-            <div class="purchase-detail-label" slot="label">
-              <div>{@html MoneyBackGuaranteeIcon}</div>
-              <span>Try our 30-day money-back trial</span>
-            </div>
-            <div class="purchase-detail-copy" slot="content">
-              We think you’ll love chestnut, but if you’re not satisfied, send
-              it back within 30 days for a full refund.
-            </div>
-          </Accordion>
-        </div>
-        <div class="purchase-detail">
-          <Accordion>
-            <div class="purchase-detail-label" slot="label">
-              <div>{@html WarrantyIcon}</div>
-              <span>1-year hardware warranty</span>
-            </div>
-            <div class="purchase-detail-copy" slot="content">
-              1-year limited warranty against hardware defects.
-            </div>
-          </Accordion>
-        </div>
+        <PurchaseDetail icon={MoneyBackGuaranteeIcon} title="Try our 30-day money-back trial">
+          We think you’ll love chestnut, but if you’re not satisfied, send
+          it back within 30 days for a full refund.
+        </PurchaseDetail>
+        <PurchaseDetail icon={WarrantyIcon} title="1-year hardware warranty">
+          1-year limited warranty against hardware defects.
+        </PurchaseDetail>
       </div>
     </Product>
   </div>
@@ -131,8 +131,7 @@
 
 <section class="light" id="description">
   <div class="container">
-    <Grid rowGap="0" templateColumns="0.5fr 1.25fr">
-      <h2>Meet chestnut</h2>
+    <ProductSection title="Meet chestnut">
       <div class="description">
         <p>
           chestnut is a compute upgrade for
@@ -151,12 +150,9 @@
           Read the <a class="highlight" href="https://blog.comma.ai/chestnut/">launch blog post</a>.
         </p>
       </div>
-    </Grid>
+    </ProductSection>
 
-    <hr />
-
-    <Grid rowGap="0" templateColumns="0.5fr 1.25fr">
-      <h2>Using chestnut</h2>
+    <ProductSection title="Using chestnut">
       <div>
         <img
           class="tech-specs-image"
@@ -168,21 +164,21 @@
           <article>
             <h3>With a PC</h3>
             <div class="connection-path">
-              <h4>USB4</h4>
+              <h4 class="mono-label">USB4</h4>
               <p>
                 Connect chestnut to your computer and use it like any other USB4
                 dock.
               </p>
             </div>
             <div class="connection-path">
-              <h4>USB3 or USB2</h4>
+              <h4 class="mono-label">USB3 or USB2</h4>
               <p>
                 Use <a class="highlight" href="https://github.com/tinygrad/tinygrad">tinygrad</a>
                 to access the GPU over a USB3 or USB2 connection.
               </p>
             </div>
             <div class="connection-path">
-              <h4>Mac</h4>
+              <h4 class="mono-label">Mac</h4>
               <p>
                 Follow the <a class="highlight" href="https://docs.tinygrad.org/tinygpu/">TinyGPU setup guide</a>
                 to use a supported GPU on macOS.
@@ -206,40 +202,16 @@
           </article>
         </div>
       </div>
-    </Grid>
+    </ProductSection>
 
-    <hr />
-
-    <Grid rowGap="0" templateColumns="0.5fr 1.25fr">
-      <h2>In the Box</h2>
+    <ProductSection title="In the Box">
       <div class="box-variants">
         <div class="box-variant">
           <hgroup>
             <h3>tiny chestnut</h3>
             <span>$249</span>
           </hgroup>
-          <div class="box-contents">
-            <div>
-              <img src={ChestnutProductImage} loading="lazy" alt="chestnut board and aluminum base" />
-              <p>chestnut</p>
-            </div>
-            <div>
-              <img src={UsbCable1m} loading="lazy" alt="1m USB4 cable" />
-              <p>1m USB4</p>
-            </div>
-            <div>
-              <img src={StandoffsImage} loading="lazy" alt="chestnut standoffs and thumb nuts" />
-              <p>standoffs + thumb nuts</p>
-            </div>
-            <div>
-              <img src={AtxPowerAdapter} loading="lazy" alt="ATX to XT60i power adapter" />
-              <p>ATX power adapter</p>
-            </div>
-            <div>
-              <img src={GpuPowerCable} loading="lazy" alt="GPU power cable" />
-              <p>GPU power cable</p>
-            </div>
-          </div>
+          <BoxContents items={tinyChestnutBox} />
         </div>
 
         <div class="box-variant">
@@ -247,207 +219,125 @@
             <h3>ready to drive</h3>
             <span>$899</span>
           </hgroup>
-          <div class="box-contents">
-            <div>
-              <img src={ChestnutProductImage} loading="lazy" alt="chestnut board and aluminum base" />
-              <p>chestnut</p>
-            </div>
-            <div>
-              <img src={UsbCable1m} loading="lazy" alt="1m USB4 cable" />
-              <p>1m USB4</p>
-            </div>
-            <div>
-              <img src={StandoffsImage} loading="lazy" alt="chestnut standoffs and thumb nuts" />
-              <p>standoffs + thumb nuts</p>
-            </div>
-            <div>
-              <img src={AtxPowerAdapter} loading="lazy" alt="ATX to XT60i power adapter" />
-              <p>ATX power adapter</p>
-            </div>
-            <div>
-              <img src={GpuPowerCable} loading="lazy" alt="GPU power cable" />
-              <p>GPU power cable</p>
-            </div>
-            <div>
-              <img src={RadeonGpu} loading="lazy" alt="AMD Radeon GPU for chestnut" />
-              <p>AMD Radeon RX 9060 8GB</p>
-            </div>
-            <div>
-              <img src={UsbCable3m} loading="lazy" alt="3m USB3 cable" />
-              <p>3m USB3</p>
-            </div>
-            <div>
-              <img src={CarPowerCable} loading="lazy" alt="12V car power cable" />
-              <p>car power cable</p>
-            </div>
-            <div>
-              <img src={MountingStrips} loading="lazy" alt="chestnut mounting strips" />
-              <p>mounting strips</p>
-            </div>
-          </div>
+          <BoxContents items={readyToDriveBox} />
         </div>
       </div>
-    </Grid>
+    </ProductSection>
 
-    <hr />
-
-    <div id="setup-guide">
-      <Grid rowGap="0" templateColumns="0.5fr 1.25fr">
-        <h2>Setup Guide</h2>
-        <div class="setup-guide">
-          <article class="setup-step">
-            <Badge style="dark">Step 1 <span class="muted">of 7</span></Badge>
-            <h3>Install the standoffs</h3>
-            <div class="setup-step-content">
-              <img class="step-image" src={InstallStandoffs} loading="lazy" alt="standoffs installed on chestnut" />
-              <p>
-                Thread the two standoffs into chestnut’s base so they are ready
-                to support and secure the GPU.
-              </p>
+    <ProductSection title="Setup Guide" id="setup-guide">
+      <div class="setup-guide">
+        <article class="setup-step">
+          <Badge style="dark">Step 1 <span class="muted">of 7</span></Badge>
+          <h3>Install the standoffs</h3>
+          <div class="setup-step-content">
+            <img class="step-image" src={InstallStandoffs} loading="lazy" alt="standoffs installed on chestnut" />
+            <p>
+              Thread the two standoffs into chestnut’s base so they are ready
+              to support and secure the GPU.
+            </p>
+          </div>
+        </article>
+        <hr />
+        <article class="setup-step">
+          <Badge style="dark">Step 2 <span class="muted">of 7</span></Badge>
+          <h3>Connect power to chestnut</h3>
+          <div class="setup-step-content">
+            <img class="step-image" src={InstallChestnutPower} loading="lazy" alt="GPU power cable connected to chestnut" />
+            <p>
+              Plug the GPU power cable into chestnut before installing the GPU.
+            </p>
+          </div>
+        </article>
+        <hr />
+        <article class="setup-step">
+          <Badge style="dark">Step 3 <span class="muted">of 7</span></Badge>
+          <h3>Seat the GPU</h3>
+          <div class="setup-step-content">
+            <img class="step-image" src={InstallGpu} loading="lazy" alt="GPU seated in chestnut" />
+            <p>
+              Align the GPU with chestnut’s PCIe slot and press it firmly
+              into place.
+            </p>
+          </div>
+        </article>
+        <hr />
+        <article class="setup-step">
+          <Badge style="dark">Step 4 <span class="muted">of 7</span></Badge>
+          <h3>Secure the GPU</h3>
+          <div class="setup-step-content">
+            <img class="step-image" src={SecureGpu} loading="lazy" alt="GPU secured with thumb nuts" />
+            <p>
+              Align the GPU with the standoffs and secure it with the thumb
+              nuts.
+            </p>
+          </div>
+        </article>
+        <hr />
+        <article class="setup-step">
+          <Badge style="dark">Step 5 <span class="muted">of 7</span></Badge>
+          <h3>Connect GPU power</h3>
+          <div class="setup-step-content">
+            <img class="step-image" src={InstallGpuPower} loading="lazy" alt="power cable connected to the GPU" />
+            <p>
+              Plug the other end of the 8-pin power cable into the GPU.
+            </p>
+          </div>
+        </article>
+        <hr />
+        <article class="setup-step">
+          <Badge style="dark">Step 6 <span class="muted">of 7</span></Badge>
+          <h3>Mount in your car</h3>
+          <div class="setup-step-content">
+            <div class="step-image-pair">
+              <figure class="zoomed-footwell">
+                <div class="image-viewport">
+                  <img src={InstallFootwell} loading="lazy" alt="chestnut and GPU mounted in the passenger footwell" />
+                </div>
+                <figcaption class="mono-label">Mount in the footwell</figcaption>
+              </figure>
+              <figure>
+                <img src={InstallUnderSeat} loading="lazy" alt="chestnut installed under the passenger seat" />
+                <figcaption class="mono-label">Or install under the passenger seat</figcaption>
+              </figure>
             </div>
-          </article>
-          <hr />
-          <article class="setup-step">
-            <Badge style="dark">Step 2 <span class="muted">of 7</span></Badge>
-            <h3>Connect power to chestnut</h3>
-            <div class="setup-step-content">
-              <img class="step-image" src={InstallChestnutPower} loading="lazy" alt="GPU power cable connected to chestnut" />
-              <p>
-                Plug the GPU power cable into chestnut before installing the GPU.
-              </p>
+            <p>
+              Secure the assembled chestnut and GPU in the passenger footwell
+              with the included mounting strips, leaving room for airflow. If
+              there’s enough room, you can also install chestnut under the
+              passenger seat.
+            </p>
+          </div>
+        </article>
+        <hr />
+        <article class="setup-step">
+          <Badge style="dark">Step 7 <span class="muted">of 7</span></Badge>
+          <h3>Plug it in</h3>
+          <div class="setup-step-content">
+            <div class="step-image-pair">
+              <figure>
+                <img src={PluginVehiclePower} loading="lazy" alt="chestnut vehicle power adapter plugged into the car" />
+                <figcaption class="mono-label">Connect vehicle power</figcaption>
+              </figure>
+              <figure>
+                <img src={PluginCommaFour} loading="lazy" alt="USB cable connected to comma four" />
+                <figcaption class="mono-label">Connect comma four</figcaption>
+              </figure>
             </div>
-          </article>
-          <hr />
-          <article class="setup-step">
-            <Badge style="dark">Step 3 <span class="muted">of 7</span></Badge>
-            <h3>Seat the GPU</h3>
-            <div class="setup-step-content">
-              <img class="step-image" src={InstallGpu} loading="lazy" alt="GPU seated in chestnut" />
-              <p>
-                Align the GPU with chestnut’s PCIe slot and press it firmly
-                into place.
-              </p>
-            </div>
-          </article>
-          <hr />
-          <article class="setup-step">
-            <Badge style="dark">Step 4 <span class="muted">of 7</span></Badge>
-            <h3>Secure the GPU</h3>
-            <div class="setup-step-content">
-              <img class="step-image" src={SecureGpu} loading="lazy" alt="GPU secured with thumb nuts" />
-              <p>
-                Align the GPU with the standoffs and secure it with the thumb
-                nuts.
-              </p>
-            </div>
-          </article>
-          <hr />
-          <article class="setup-step">
-            <Badge style="dark">Step 5 <span class="muted">of 7</span></Badge>
-            <h3>Connect GPU power</h3>
-            <div class="setup-step-content">
-              <img class="step-image" src={InstallGpuPower} loading="lazy" alt="power cable connected to the GPU" />
-              <p>
-                Plug the other end of the 8-pin power cable into the GPU.
-              </p>
-            </div>
-          </article>
-          <hr />
-          <article class="setup-step">
-            <Badge style="dark">Step 6 <span class="muted">of 7</span></Badge>
-            <h3>Mount in your car</h3>
-            <div class="setup-step-content">
-              <div class="step-image-pair">
-                <figure class="zoomed-footwell">
-                  <div class="image-viewport">
-                    <img src={InstallFootwell} loading="lazy" alt="chestnut and GPU mounted in the passenger footwell" />
-                  </div>
-                  <figcaption>Mount in the footwell</figcaption>
-                </figure>
-                <figure>
-                  <img src={InstallUnderSeat} loading="lazy" alt="chestnut installed under the passenger seat" />
-                  <figcaption>Or install under the passenger seat</figcaption>
-                </figure>
-              </div>
-              <p>
-                Secure the assembled chestnut and GPU in the passenger footwell
-                with the included mounting strips, leaving room for airflow. If
-                there’s enough room, you can also install chestnut under the
-                passenger seat.
-              </p>
-            </div>
-          </article>
-          <hr />
-          <article class="setup-step">
-            <Badge style="dark">Step 7 <span class="muted">of 7</span></Badge>
-            <h3>Plug it in</h3>
-            <div class="setup-step-content">
-              <div class="step-image-pair">
-                <figure>
-                  <img src={PluginVehiclePower} loading="lazy" alt="chestnut vehicle power adapter plugged into the car" />
-                  <figcaption>Connect vehicle power</figcaption>
-                </figure>
-                <figure>
-                  <img src={PluginCommaFour} loading="lazy" alt="USB cable connected to comma four" />
-                  <figcaption>Connect comma four</figcaption>
-                </figure>
-              </div>
-              <p>
-                Connect chestnut to vehicle power and plug the USB cable into
-                your comma four.
-              </p>
-            </div>
-          </article>
-        </div>
-      </Grid>
-    </div>
+            <p>
+              Connect chestnut to vehicle power and plug the USB cable into
+              your comma four.
+            </p>
+          </div>
+        </article>
+      </div>
+    </ProductSection>
 
   </div>
 </section>
 
 <style>
-  h2 {
-    font-size: 1.875rem;
-    font-weight: 600;
-  }
-
   p {
     font-size: 1.25rem;
-  }
-
-  hr {
-    margin: 3rem 0;
-  }
-
-  .chestnut-car-icon :global(svg) {
-    display: block;
-    width: 24px;
-    height: 24px;
-  }
-
-  .purchase-detail {
-    padding: 1rem 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-  }
-
-  .purchase-detail-label {
-    display: flex;
-    align-items: center;
-  }
-
-  .purchase-detail-label div {
-    width: 2.5rem;
-    height: 24px;
-  }
-
-  .purchase-detail-label span {
-    margin-right: 1rem;
-  }
-
-  .purchase-detail-copy {
-    max-width: 80%;
-    margin-top: 0.875rem;
-    margin-left: 2.5rem;
   }
 
   #description .description p:first-of-type {
@@ -496,10 +386,6 @@
 
   .connection-path h4 {
     margin: 0 0 0.5rem;
-    font-family: "JetBrains Mono", monospace;
-    font-size: 0.875rem;
-    font-weight: 400;
-    text-transform: uppercase;
   }
 
   .box-variant + .box-variant {
@@ -517,7 +403,7 @@
   }
 
   .box-variant hgroup span {
-    font-family: "JetBrains Mono", monospace;
+    font-family: var(--font-mono);
     font-size: 1.25rem;
   }
 
@@ -525,27 +411,6 @@
     margin: 0;
     font-size: 1.5rem;
     font-weight: 600;
-  }
-
-  .box-contents {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 2rem 1rem;
-    text-align: center;
-  }
-
-  .box-contents > div {
-    min-width: 0;
-  }
-
-  .box-contents img {
-    width: 100%;
-    max-height: 150px;
-    object-fit: contain;
-  }
-
-  .box-contents p {
-    margin: 0 2rem;
   }
 
   .setup-guide {
@@ -594,10 +459,7 @@
 
   .step-image-pair figcaption {
     margin-top: 0.5rem;
-    font-family: "JetBrains Mono", monospace;
-    font-size: 0.875rem;
     text-align: center;
-    text-transform: uppercase;
   }
 
   .setup-guide h3 {
@@ -631,16 +493,6 @@
   }
 
   @media screen and (max-width: 768px) {
-    .box-contents {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1.5rem 0.75rem;
-    }
-
-    .box-contents p {
-      margin: 0;
-      font-size: 1rem;
-    }
-
     .setup-step-content {
       grid-template-columns: 1fr;
       gap: 1.25rem;

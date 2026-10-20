@@ -56,6 +56,7 @@ body {
   --color-accent-hover: #51b124;
   --color-card-background: #f8f9fa;
   --color-card-background-hover: #e8eaec;
+  --font-mono: "JetBrains Mono", monospace;
 
   h1,
   h2,
@@ -201,17 +202,27 @@ a, a:visited, a:active {
     border-bottom: 2px solid #86ff4e;
     background-color: rgba(134, 255, 78, 0.15);
   }
+}
 
-  & :is(.video-container, .media-container) {
-    position: relative;
-    aspect-ratio: 16 / 9;
+/* Small uppercase monospace label: badges, eyebrows, card headers, captions */
+.mono-label {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 400;
+  text-transform: uppercase;
+}
 
-    & iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-    }
+/* 16:9 wrapper for embedded videos */
+.video-container,
+.media-container {
+  position: relative;
+  aspect-ratio: 16 / 9;
+
+  & iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
   }
 }
 

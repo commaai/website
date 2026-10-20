@@ -49,7 +49,7 @@
       </Grid>
     </div>
 
-    <span class="badge-prefix muted">connect</span><Badge style="dark" display="inline">subscription</Badge>
+    <span class="badge-prefix mono-label muted">connect</span><Badge style="dark" display="inline">subscription</Badge>
     <Grid rowGap="0" templateColumns="1.25fr 1fr">
       <h1>Access premium features with connect subscription.</h1>
       <p>Get a connect subscription for live car tracking and cloud storage of your drives for 1 year.</p>
@@ -59,10 +59,10 @@
       <div class="row header">
         <div class="title">Features</div>
         <div class="content badge">
-          <span class="badge-prefix muted">connect</span><Badge style="dark" display="inline">prime & lite subscription</Badge>
+          <span class="badge-prefix mono-label muted">connect</span><Badge style="dark" display="inline">prime & lite subscription</Badge>
         </div>
         <div class="content badge">
-          <span class="badge-prefix muted">connect</span><Badge style="dark" display="inline">free</Badge>
+          <span class="badge-prefix mono-label muted">connect</span><Badge style="dark" display="inline">free</Badge>
         </div>
       </div>
       <div class="row">
@@ -264,6 +264,12 @@
       margin-top: 1rem;
     }
 
+    @media screen and (max-width: 512px) {
+      & h1 {
+        font-size: 2rem;
+      }
+    }
+
     & p {
       font-size: 1.5rem;
       text-wrap: balance;
@@ -273,7 +279,7 @@
       & hgroup {
         & a {
           text-transform: uppercase;
-          font-family: JetBrains Mono, monospace;
+          font-family: var(--font-mono);
           border-bottom: 1px solid #000;
         }
       }
@@ -297,8 +303,6 @@
     }
 
     & .badge-prefix {
-      font-family: JetBrains Mono, monospace;
-      text-transform: uppercase;
       margin-bottom: 0.5rem;
       margin-right: 0.5rem;
     }

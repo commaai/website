@@ -1,6 +1,9 @@
 <script>
   import ProductPage from "../[product]/+page.svelte";
   import Grid from "$lib/components/Grid.svelte";
+  import ProductSection from "$lib/components/ProductSection.svelte";
+  import BoxContents from "$lib/components/BoxContents.svelte";
+  import FinePrint from "$lib/components/FinePrint.svelte";
   import Button from "$lib/components/Button.svelte";
   import SetupGuide from "$lib/components/SetupGuide.svelte";
   import Faq from "$lib/components/Faq.svelte";
@@ -31,14 +34,19 @@
   import { vehicleCountText } from '$lib/constants/vehicles.js';
 
   export let data;
+
+  const boxItems = [
+    { image: FourImage, alt: "comma four device", label: "comma four" },
+    { image: OBDCCableImage, alt: "2ft OBD-C cable", label: "2ft OBD-C cable" },
+    { image: ReplacementMountsImage, alt: "mount", label: "2 mounts" },
+  ];
 </script>
 
 <ProductPage {data} />
 
 <section class="light" id="description">
   <div class="container">
-    <Grid rowGap="0" templateColumns="0.5fr 1.25fr">
-      <h2>Meet the comma four</h2>
+    <ProductSection title="Meet the comma four">
       <div class="description">
         <p>
           comma four is our next generation hardware. It packs the same compute, sensor suite, and functionality as comma 3X into a package one-fifth the size, making it the ideal form factor for your windshield.
@@ -47,34 +55,17 @@
           It runs <a class="highlight" href="/openpilot">openpilot</a>, which with the help of an attentive driver can drive for hours without driver intervention.
         </p>
       </div>
-    </Grid>
-    <hr />
-    <Grid rowGap="0" templateColumns="0.5fr 1.25fr">
-      <h2>In the Box</h2>
-      <div class="box-contents">
-        <div>
-          <img src={FourImage} loading="lazy" alt="comma four device">
-          <p>comma four</p>
-        </div>
-        <div>
-          <img src={OBDCCableImage} loading="lazy" alt="2ft OBD-C cable">
-          <p>2ft OBD-C cable</p>
-        </div>
-        <div>
-          <img src={ReplacementMountsImage} loading="lazy" alt="mount">
-          <p>2 mounts</p>
-        </div>
-      </div>
-    </Grid>
-    <hr />
-    <Grid rowGap="0" templateColumns="0.5fr 1.25fr">
-      <h2>On-device Storage</h2>
+    </ProductSection>
+    <ProductSection title="In the Box">
+      <BoxContents items={boxItems} />
+    </ProductSection>
+    <ProductSection title="On-device Storage">
       <div>
         <p>comma four includes on-board storage to store your drives.</p>
         <div class="spec-card">
           <div class="header">
             <div>{@html MemoryIcon}</div>
-            <span>Storage</span>
+            <span class="mono-label">Storage</span>
           </div>
           <div class="contents">
             <hgroup>
@@ -93,15 +84,13 @@
           Once paired, you can see your recorded drives, SSH into your device from anywhere, and more.
         </p>
       </div>
-    </Grid>
-    <hr />
-    <Grid rowGap="0" templateColumns="0.5fr 1.25fr">
-      <h2>Tech Specs</h2>
+    </ProductSection>
+    <ProductSection title="Tech Specs">
       <div>
         <div class="spec-card">
           <div class="header">
             <div>{@html ThreeSixtyVisionIcon}</div>
-            <span>Cameras</span>
+            <span class="mono-label">Cameras</span>
           </div>
           <div class="contents">
             Dual-cam 360° vision and a narrow cam to see far-away objects
@@ -110,7 +99,7 @@
         <div class="spec-card">
           <div class="header">
             <div>{@html ProcessorIcon}</div>
-            <span>Processor</span>
+            <span class="mono-label">Processor</span>
           </div>
           <div class="contents">
             <span>Qualcomm Snapdragon 845 <span class="max-gradient">MAX</span><br><br>Max cooling for quiet sustained peak performance.</span>
@@ -119,7 +108,7 @@
         <div class="spec-card">
           <div class="header">
             <div>{@html LocationIcon}</div>
-            <span>Sensors</span>
+            <span class="mono-label">Sensors</span>
           </div>
           <div class="contents">
             <ul>
@@ -133,7 +122,7 @@
         <div class="spec-card">
           <div class="header">
             <div>{@html MemoryIcon}</div>
-            <span>Can FD Enabled</span>
+            <span class="mono-label">Can FD Enabled</span>
           </div>
           <div class="contents">
             Supports CAN FD vehicles without extra hardware
@@ -142,7 +131,7 @@
         <div class="spec-card">
           <div class="header">
             <div>{@html MemoryIcon}</div>
-            <span>Storage</span>
+            <span class="mono-label">Storage</span>
           </div>
           <div class="contents">
             128GB built in storage
@@ -151,7 +140,7 @@
         <div class="spec-card">
           <div class="header">
             <div>{@html ConnectivityIcon}</div>
-            <span>Connectivity</span>
+            <span class="mono-label">Connectivity</span>
           </div>
           <div class="contents">
             <ul>
@@ -163,7 +152,7 @@
         <div class="spec-card">
           <div class="header">
             <div>{@html MoonIcon}</div>
-            <span>Night-Vision</span>
+            <span class="mono-label">Night-Vision</span>
           </div>
           <div class="contents">
             IR LED for interior night-vision monitoring
@@ -172,7 +161,7 @@
         <div class="spec-card">
           <div class="header">
             <div>{@html DisplayIcon}</div>
-            <span>Display</span>
+            <span class="mono-label">Display</span>
           </div>
           <div class="contents">
             1.9" 300 PPI OLED display
@@ -181,7 +170,7 @@
         <div class="spec-card">
           <div class="header">
             <div>{@html CableIcon}</div>
-            <span>Ports</span>
+            <span class="mono-label">Ports</span>
           </div>
           <div class="contents">
             <ul>
@@ -191,19 +180,15 @@
           </div>
         </div>
       </div>
-    </Grid>
-    <hr />
-    <Grid rowGap="0" templateColumns="0.5fr 1.25fr">
-      <h2>Snapdragon 845 <span class="max-gradient">MAX</span></h2>
+    </ProductSection>
+    <ProductSection>
+      <svelte:fragment slot="title">Snapdragon 845 <span class="max-gradient">MAX</span></svelte:fragment>
       <div class="cooling-section">
         <img src={CoolingImage} loading="lazy" alt="comma four cooling system">
       </div>
-    </Grid>
-    <hr />
-    <div style="width: 0; height: 0;" id="ui"/>
-    <Grid rowGap="0" templateColumns="0.5fr 1.25fr">
-      <h2>Expressive New Interface</h2>
-      <div class="ui-grid">
+    </ProductSection>
+    <ProductSection title="Expressive New Interface" id="ui">
+      <Grid columns={2} columnGap="1.5rem" alignItems="stretch">
         <div class="ui-card">
           <div class="device-container">
             <img src={DeviceFrameImage} alt="comma four device" class="device-frame" />
@@ -232,8 +217,8 @@
           </div>
           <p>As openpilot's confidence in its ability to understand the scene goes up, the confidence ball rises and turns green.</p>
         </div>
-      </div>
-    </Grid>
+      </Grid>
+    </ProductSection>
     <hr />
     <SetupGuide
       productName="comma four"
@@ -288,46 +273,43 @@
 
 <section class="light" id="fine-print">
   <div class="container">
-    <Grid templateColumns="0.5fr 1.25fr">
-      <h2>Fine Print</h2>
-      <div class="fine-print-copy">
-          <strong>30-Day Return</strong>
-          <p>
-            If for any reason you are dissatisfied with anything purchased at the <a target="_blank" href="/" class="highlight">comma.ai</a> shop,
-            ship it back within 30 days for a full refund. <a target="_blank" href="https://shop.comma.ai/a/returns" class="highlight">comma.ai/returns</a>
-          </p>
-          <p>
-            If you intend to upstream support for a new car model, we may approve an extended return window.
-            Open a ticket request at <a target="_blank" href="https://shop.comma.ai/a/returns" class="highlight">comma.ai/support</a>.
-          </p>
-          <strong>Shipping</strong>
-          <p>
-            Free Rush (UPS 2nd Day Air) shipping (US only); signature confirmation required.
-            International shipping is a $30 flat rate; customs/duties/taxes are between you and your country.
-            Please see FAQ for more information.
-          </p>
-          <strong>Warranty</strong>
-          <p>
-            1-year limited warranty against hardware defects. Extend it with <a href="/connect#what-is-commacare" class="highlight">commacare</a>. Open and repair the comma four at your own risk.
-            comma is not responsible for damages that may occur while repairing devices.
-            Any damage on arrival must be reported to comma support within 14 days of delivery.
-          </p>
-          <strong>Software</strong>
-          <p>
-            The comma four does not ship with software capable of controlling a car.
-            Open source software can be installed separately.
-          </p>
-          <strong>Windshield installation</strong>
-          <p>
-            Before using the device on your windshield, check the state and local laws and ordinances where you drive.
-            Some state laws prohibit or restrict the placement of objects on the windshield of a motor vehicle.
-            IT IS THE USER'S RESPONSIBILITY TO MOUNT THE DEVICE IN COMPLIANCE WITH ALL APPLICABLE LAWS AND ORDINANCES.
-            Always mount your device in a location that does not obstruct the driver's view of the road.
-            comma does not assume any responsibility for any fines, penalties, or damages that may be incurred as a result
-            of any state or local law or ordinance relating to the use of your comma device.
-          </p>
-      </div>
-    </Grid>
+    <FinePrint>
+      <strong>30-Day Return</strong>
+      <p>
+        If for any reason you are dissatisfied with anything purchased at the <a target="_blank" href="/" class="highlight">comma.ai</a> shop,
+        ship it back within 30 days for a full refund. <a target="_blank" href="https://shop.comma.ai/a/returns" class="highlight">comma.ai/returns</a>
+      </p>
+      <p>
+        If you intend to upstream support for a new car model, we may approve an extended return window.
+        Open a ticket request at <a target="_blank" href="https://shop.comma.ai/a/returns" class="highlight">comma.ai/support</a>.
+      </p>
+      <strong>Shipping</strong>
+      <p>
+        Free Rush (UPS 2nd Day Air) shipping (US only); signature confirmation required.
+        International shipping is a $30 flat rate; customs/duties/taxes are between you and your country.
+        Please see FAQ for more information.
+      </p>
+      <strong>Warranty</strong>
+      <p>
+        1-year limited warranty against hardware defects. Extend it with <a href="/connect#what-is-commacare" class="highlight">commacare</a>. Open and repair the comma four at your own risk.
+        comma is not responsible for damages that may occur while repairing devices.
+        Any damage on arrival must be reported to comma support within 14 days of delivery.
+      </p>
+      <strong>Software</strong>
+      <p>
+        The comma four does not ship with software capable of controlling a car.
+        Open source software can be installed separately.
+      </p>
+      <strong>Windshield installation</strong>
+      <p>
+        Before using the device on your windshield, check the state and local laws and ordinances where you drive.
+        Some state laws prohibit or restrict the placement of objects on the windshield of a motor vehicle.
+        IT IS THE USER'S RESPONSIBILITY TO MOUNT THE DEVICE IN COMPLIANCE WITH ALL APPLICABLE LAWS AND ORDINANCES.
+        Always mount your device in a location that does not obstruct the driver's view of the road.
+        comma does not assume any responsibility for any fines, penalties, or damages that may be incurred as a result
+        of any state or local law or ordinance relating to the use of your comma device.
+      </p>
+    </FinePrint>
     <Faq topic={faq.devices} title="comma four FAQ" />
     <Space multiplier={3} />
     <Faq topic={faq.trial} />
@@ -335,11 +317,6 @@
 </section>
 
 <style>
-  h2 {
-    font-size: 1.875rem;
-    font-weight: 600;
-  }
-
   p {
     font-size: 1.25rem;
   }
@@ -381,25 +358,6 @@
       }
     }
 
-    & .box-contents {
-      display: flex;
-      flex-wrap: wrap;
-      text-align: center;
-
-      & > div {
-        width: 300px;
-        margin-bottom: 2rem;
-
-        & img {
-          max-height: 150px;
-        }
-
-        & p {
-          margin: 0 2rem;
-        }
-      }
-    }
-
     & .spec-card {
       border: 1px solid #000;
       margin-bottom: 1.5rem;
@@ -425,9 +383,6 @@
         }
 
         & span {
-          font-family: JetBrains Mono, monospace;
-          font-size: 0.875rem;
-          text-transform: uppercase;
           margin-left: 1rem;
         }
       }
@@ -456,12 +411,13 @@
 
   hgroup {
     & span {
-      font-family: JetBrains Mono, monospace;
+      font-family: var(--font-mono);
       font-size: 1rem;
     }
 
     & h2 {
       font-size: 2.5rem;
+      font-weight: 600;
       line-height: 1.2;
       text-wrap: balance;
     }
@@ -483,32 +439,12 @@
 
   .guarantee {
     font-size: 3rem;
+    font-weight: 600;
     line-height: 1.25;
 
     & a {
       color: white;
     }
-  }
-
-  .fine-print-copy {
-    padding: 1.5rem;
-    background-color: #fafafa;
-
-    & strong, & p {
-      color: #545458;
-      font-size: 0.875rem;
-      line-height: 1.25;
-    }
-
-    & strong + p {
-      margin-top: 0.25rem;
-    }
-  }
-
-  .ui-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
   }
 
   .ui-card {
@@ -542,10 +478,6 @@
   @media screen and (max-width: 768px) {
     .guarantee {
       font-size: 2rem;
-    }
-
-    .ui-grid {
-      grid-template-columns: 1fr;
     }
   }
 </style>

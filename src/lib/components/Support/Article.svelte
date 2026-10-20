@@ -70,6 +70,10 @@
       margin-top: 0;
     }
 
+    & > :last-child {
+      margin-bottom: 0;
+    }
+
     & h2 {
       margin: 56px 0 16px;
     }
@@ -228,8 +232,10 @@
     padding-left: 28px;
   }
 
-  .topics a:hover {
-    background: var(--color-card-background-hover);
+  @media (hover: hover) and (pointer: fine) {
+    .topics a:hover {
+      background: var(--color-card-background-hover);
+    }
   }
 
   .topics a[aria-current] {
