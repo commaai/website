@@ -1,5 +1,5 @@
 ---
-title: Is your car compatible?
+title: How to check car compatibility
 description: Check whether your vehicle is compatible with openpilot.
 ---
 

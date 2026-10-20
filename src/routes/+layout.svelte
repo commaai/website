@@ -13,6 +13,7 @@
   import Grid from "$lib/components/Grid.svelte";
   import SocialIcons from "$lib/components/SocialIcons.svelte";
   import FooterEmailUpdatesForm from "$lib/components/EmailUpdates/FooterEmailUpdatesForm.svelte";
+  import FooterBreadcrumbs from "$lib/components/FooterBreadcrumbs.svelte";
 
   import CommaIcon from "$lib/icons/comma.svg?raw";
   import CartIcon from "$lib/icons/ui/cart.svg?raw";
@@ -125,6 +126,7 @@
 
 <footer>
   <div class="container">
+    <FooterBreadcrumbs />
     <Grid columns={4} wrapMode="single" alignItems="start" size="large">
       <div class="footer-links">
         <strong>Product</strong>

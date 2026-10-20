@@ -1,5 +1,6 @@
 ---
 title: How to activate prime & prime lite
+parent: comma-prime
 description: Subscribe to prime or prime lite and claim an eligible free prime offer.
 ---
 

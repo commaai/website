@@ -1,5 +1,6 @@
 ---
 title: What is comma connect?
+parent: comma-prime
 description: Manage your comma device and review your drives in comma connect.
 ---
 
