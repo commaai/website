@@ -26,7 +26,7 @@
         <div slot="label" class="label">
           <span>{entry.question}</span>
         </div>
-        <div class="details" slot="content">
+        <div class="details rich-text" slot="content">
           {@html entry.answer}
         </div>
       </Accordion>
@@ -120,38 +120,6 @@
       font-size: 1.25rem !important;
       line-height: 1.4;
       padding: 0.25rem 0 1rem;
-
-      & *:first-child {
-        margin-top: 0;
-      }
-
-      & *:last-child {
-        margin-bottom: 0;
-      }
-
-      & a {
-        color: #000;
-        border-bottom: 2px solid #86ff4e;
-        background-color: rgba(134, 255, 78, 0.15);
-      }
-
-      & li {
-        font-size: 1.25rem;
-      }
-
-      & .video-container {
-        position: relative;
-        padding-bottom: 56.25%; /* 16:9 */
-        height: 0;
-
-        & iframe {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-        }
-      }
     }
   }
 </style>

@@ -202,7 +202,7 @@
         </slot>
         <slot name="notes"></slot>
         <hr />
-        <div class="description">
+        <div class="description rich-text">
           <slot name="description"></slot>
         </div>
       </div>
@@ -353,29 +353,6 @@
       }
     }
 
-    & li {
-      font-size: 1rem;
-    }
-
-    & a {
-      color: #000;
-      border-bottom: 2px solid #86ff4e;
-      background-color: rgba(134, 255, 78, 0.15);
-    }
-
-    & .video-container {
-      position: relative;
-      padding-bottom: 56.25%; /* 16:9 */
-      height: 0;
-
-      & iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-      }
-    }
   }
 
   hr {

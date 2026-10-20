@@ -1,6 +1,6 @@
 <script>
   import Grid from "$lib/components/Grid.svelte";
-  import LinkButton from "$lib/components/LinkButton.svelte";
+  import Button from "$lib/components/Button.svelte";
 
   import RecordingsIcon from "$lib/icons/features/recordings.svg?raw";
   import ImmediateIcon from "$lib/icons/features/immediate.svg?raw";
@@ -25,7 +25,7 @@
         <span>{estimatedMinutes} min</span>
       </div>
     </div>
-    <LinkButton href={link} style="primary" fullWidth={true}>View Guide</LinkButton>
+    <Button href={link} style="primary" fullWidth={true}>View Guide</Button>
   </div>
   <div class="mobile-first">
     <img src={image} loading="lazy" alt={productName} />

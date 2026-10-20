@@ -1,5 +1,4 @@
 <script>
-  import LinkButton from "$lib/components/LinkButton.svelte";
   import Grid from "$lib/components/Grid.svelte";
   import ProductCard from "$lib/components/ProductCard.svelte";
   import Accordion from "$lib/components/Accordion.svelte";
@@ -63,9 +62,9 @@
               </span>
               <span class="muted">or ${FOUR_PRICE - FOUR_TRADE_IN_CREDIT - NO_HARNESS_DISCOUNT} after trade-in of any comma device</span>
             </hgroup>
-            <LinkButton href="/shop/comma-four" style="secondary" fullWidth>
+            <Button href="/shop/comma-four" style="secondary" fullWidth>
               Buy now
-            </LinkButton>
+            </Button>
             <p>
               Works with {vehicleCountText} cars from 27 brands.
               <a class="highlight muted" href="/vehicles">Is your car compatible?</a>
@@ -121,9 +120,9 @@
               <span>from $249</span>
               <span class="muted">run openpilot’s biggest models in your car</span>
             </hgroup>
-            <LinkButton href="/shop/chestnut" style="secondary" fullWidth>
+            <Button href="/shop/chestnut" style="secondary" fullWidth>
               Buy now
-            </LinkButton>
+            </Button>
             <p class="muted">
               chestnut turns USB into PCIe, so you can connect a full desktop
               GPU to a <a class="highlight muted" href="/shop/comma-four">comma four</a>

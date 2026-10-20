@@ -1,48 +1,52 @@
 <script>
-  import { createEventDispatcher } from 'svelte';
-  const dispatch = createEventDispatcher();
+  import ArrowRight from '$lib/icons/arrow-right.svg?raw';
 
-  export let style = "primary";
-  export let fullWidth = false;
-  export let disabled = false;
+  export let href = undefined;
+  export let target = undefined;
   export let id = undefined;
+  export let style = "primary"; // or "secondary", "accent"
+  export let fullWidth = false;
+  export let thin = false;
+  export let disabled = false;
 </script>
 
-<button
+<svelte:element
+  this={href ? 'a' : 'button'}
+  {href}
+  {target}
   {id}
-  on:click={!disabled && (event => dispatch('click', event))}
-  class:primary={style == "primary"}
-  class:secondary={style == "secondary"}
-  class:accent={style == "accent"}
+  class={style}
   class:full-width={fullWidth}
+  class:thin
   class:disabled
+  disabled={!href && disabled ? true : undefined}
+  on:click
 >
   <slot></slot>
-</button>
+  {#if href}<span class="arrow" aria-hidden="true">{@html ArrowRight}</span>{/if}
+</svelte:element>
 
 <style>
-  button {
-    background-color: var(--color-accent);
-    border: none;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+  a, button {
+    display: flex;
+    align-items: center;
     justify-content: center;
-    padding: 1.25rem 4rem;
+    box-sizing: border-box;
+    width: fit-content;
+    padding: 1.25rem 3rem;
+    border: none;
     font-size: 1.125rem;
     font-weight: 600;
-    display: flex;
-    width: fit-content;
+    letter-spacing: 0.5px;
+    text-align: center;
+    text-transform: uppercase;
+    text-wrap: balance;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: color 0.2s, background-color 0.2s, opacity 0.2s;
 
     @media (hover: hover) and (pointer: fine) {
-      &.primary:hover:not(.disabled) {
+      &:is(.primary, .secondary):hover:not(.disabled) {
         opacity: 0.75;
-      }
-
-      &.secondary:hover:not(.disabled) {
-        opacity: 0.8;
       }
 
       &.accent:hover:not(.disabled) {
@@ -50,21 +54,20 @@
       }
     }
 
-    &.primary:active:not(.disabled) {
+    &:is(.primary, .secondary):active:not(.disabled) {
       opacity: 0.75;
-    }
-
-    &.secondary:active:not(.disabled) {
-      opacity: 0.8;
     }
 
     &.accent:active:not(.disabled) {
       background-color: var(--color-accent-hover);
     }
-  }
 
-  .full-width {
-    width: 100%;
+    @media screen and (max-width: 768px) {
+      & {
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+    }
   }
 
   .primary {
@@ -86,5 +89,25 @@
     cursor: not-allowed;
     color: white;
     background-color: var(--color-muted);
+  }
+
+  .full-width {
+    width: 100%;
+  }
+
+  .thin {
+    padding: 0.25rem 1rem;
+    font-size: 1rem;
+  }
+
+  .arrow {
+    display: flex;
+    margin-left: 0.75rem;
+    color: inherit;
+  }
+
+  .arrow :global(svg) {
+    width: 24px;
+    height: 24px;
   }
 </style>

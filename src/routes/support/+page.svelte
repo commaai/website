@@ -27,7 +27,7 @@
   {#each options as option}
     <Card href={option.href}>
       <div class="card-image"><img src={option.image} alt="" /></div>
-      <div class="card-copy"><h2>{option.title}</h2><p>{option.description}</p></div>
+      <div class="card-copy"><h2 class="support-heading">{option.title}</h2><p class="support-small">{option.description}</p></div>
     </Card>
   {/each}
 </CardGrid>
@@ -58,8 +58,6 @@
   .card-copy p {
     margin: 8px 0 0;
     color: var(--color-muted);
-    font-size: 14px;
-    line-height: 1.45;
   }
 
   @media (max-width: 768px) {

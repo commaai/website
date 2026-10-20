@@ -5,7 +5,7 @@
   import Accordion from '$lib/components/Accordion.svelte';
   import CommunityBanner from '$lib/components/CommunityBanner.svelte';
   import Faq from '$lib/components/Faq.svelte';
-  import LinkButton from '$lib/components/LinkButton.svelte';
+  import Button from '$lib/components/Button.svelte';
   import NoteCard from '$lib/components/NoteCard.svelte';
   import EmailUpdatesForm from '$lib/components/EmailUpdates/EmailUpdatesForm.svelte';
 
@@ -175,14 +175,14 @@
                         {/if}
                       </hgroup>
                     </div>
-                    <LinkButton
+                    <Button
                       href={`/shop/comma-four?harness=${car_info.name}`}
                       style="primary"
                       fullWidth
                       thin
                     >
                       Buy now
-                    </LinkButton>
+                    </Button>
                     <div class="description">
                       <strong>30-day money-back trial</strong>
                       <div>Don't love it? It's easy to return your device within <strong>30 days</strong> after receiving it for a full refund.</div>

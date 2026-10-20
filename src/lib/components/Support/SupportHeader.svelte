@@ -7,8 +7,8 @@
 
 <header class="support-header">
   <div class="header-copy">
-    <h1>{title}</h1>
-    {#if description}<p>{description}</p>{/if}
+    <h1 class="support-display">{title}</h1>
+    {#if description}<p class="support-lead">{description}</p>{/if}
   </div>
   {#if image}
     <div class="header-image">
@@ -32,17 +32,10 @@
 
   h1 {
     margin: 0 0 18px;
-    font-size: clamp(48px, 7vw, 88px);
-    font-weight: 400;
-    line-height: 1;
-    letter-spacing: -.05em;
   }
 
   p {
     margin: 0;
-    color: var(--color-muted);
-    font-size: clamp(17px, 1.6vw, 20px);
-    line-height: 1.4;
   }
 
   .header-image {

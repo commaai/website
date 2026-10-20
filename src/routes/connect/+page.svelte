@@ -1,7 +1,7 @@
 <script>
   import Badge from "$lib/components/Badge.svelte";
   import Grid from "$lib/components/Grid.svelte";
-  import LinkButton from "$lib/components/LinkButton.svelte";
+  import Button from "$lib/components/Button.svelte";
   import Faq from '$lib/components/Faq.svelte';
   import EmailUpdatesForm from '$lib/components/EmailUpdates/EmailUpdatesForm.svelte';
 
@@ -195,14 +195,14 @@
     </Grid>
 
     <div class="centered">
-      <LinkButton href="https://connect.comma.ai/" style="accent">Get Started</LinkButton>
+      <Button href="https://connect.comma.ai/" style="accent">Get Started</Button>
     </div>
 
     <div class="free-trial">
       <Grid alignItems="center" columnGap="3rem">
         <div>
           <h2>Free 1-month trial with comma four purchase</h2>
-          <LinkButton href="/shop" style="secondary">Shop comma four</LinkButton>
+          <Button href="/shop" style="secondary">Shop comma four</Button>
         </div>
         <div class="mobile-first">
           <img src={CommaFourImage} loading="lazy" alt="comma four device" />
@@ -409,6 +409,8 @@
 
     & .checkmark-list {
       & li {
+        font-size: 1.5rem;
+        line-height: 1.25;
         list-style-image:  url("$lib/icons/ui/checkmark.svg?raw");
         margin: 1rem 0;
       }

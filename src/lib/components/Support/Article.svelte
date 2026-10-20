@@ -37,13 +37,13 @@
 
 <SupportHeader title={article.title} description={article.description} image={article.image} imageAlt={article.imageAlt || article.title} />
 <div class="support-page" use:trackActiveHeading={article.toc}>
-  <article class="prose">{@html article.html}</article>
+  <article class="prose rich-text">{@html article.html}</article>
   {#if article.toc.length}
     <aside class="sidebar">
       <nav class="topics" aria-label="Topics">
-        <h2>Topics</h2>
+        <h2 class="support-label">Topics</h2>
         {#each article.toc as item}
-          <a href="#{item.id}" on:click={e => scrollToTopic(e, item.id)} class:nested={item.nested} aria-current={activeId === item.id ? 'location' : undefined}>{item.label}</a>
+          <a href="#{item.id}" on:click={e => scrollToTopic(e, item.id)} class="support-small" class:nested={item.nested} aria-current={activeId === item.id ? 'location' : undefined}>{item.label}</a>
         {/each}
       </nav>
     </aside>
@@ -56,12 +56,14 @@
   .support-page {
     display: flex;
     align-items: flex-start;
+    justify-content: space-between;
     gap: clamp(48px, 7vw, 120px);
   }
 
   .prose {
     flex: 1;
     min-width: 0;
+    max-width: 46rem;
     overflow-wrap: anywhere;
 
     & > :first-child {
@@ -69,40 +71,48 @@
     }
 
     & h2 {
-      margin: var(--support-space) 0 20px;
-      font-size: clamp(32px, 3.2vw, 48px);
-      font-weight: 400;
-      line-height: 1.08;
-      letter-spacing: -.04em;
+      margin: 56px 0 16px;
     }
 
     & h3 {
-      margin: 32px 0 16px;
-      font-size: 21px;
-      font-weight: 600;
-      line-height: 1.3;
+      margin: 32px 0 12px;
     }
 
     & h2 + h3 {
       margin-top: 0;
     }
 
-    & p {
+    & :is(p, ul, ol) {
       margin: 0 0 20px;
     }
 
-    & ul {
-      padding-left: 22px;
+    & :is(ul, ol) {
+      padding-left: 1.5em;
     }
 
     & li {
-      font: inherit;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
+      padding-left: .25em;
+    }
+
+    & li > p:last-child {
+      margin-bottom: 0;
+    }
+
+    & li::marker {
+      color: var(--color-muted);
+      font-variant-numeric: tabular-nums;
+    }
+
+    & li > :is(ul, ol) {
+      margin: 10px 0 0;
     }
 
     & img {
       display: block;
+      box-sizing: border-box;
       width: auto;
+      max-width: 100%;
       height: auto;
       max-height: 300px;
       margin: 32px auto 20px;
@@ -121,9 +131,9 @@
       overflow-x: auto;
     }
 
-    & a:not(.card-link) {
-      border-bottom: 2px solid var(--color-accent);
-      background: var(--support-accent-soft);
+    & code {
+      font-size: .875em;
+      letter-spacing: 0;
     }
 
     & .card-link {
@@ -131,17 +141,10 @@
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-      box-sizing: border-box;
       min-height: 64px;
       margin: 10px 0;
       padding: 16px 20px;
-      border: 1px solid var(--support-border);
-      background: var(--color-card-background);
       font-weight: 600;
-
-      &:hover {
-        background: var(--color-card-background-hover);
-      }
     }
 
     & .card-link-arrow {
@@ -175,7 +178,6 @@
 
     & .dropdown-label {
       margin: 1rem 0;
-      font-size: 1.25rem;
       font-weight: 600;
     }
 
@@ -191,8 +193,6 @@
 
     & .dropdown-content {
       padding: .25rem 0 1rem;
-      font-size: 1.25rem;
-      line-height: 1.4;
     }
 
     & .dropdown-content > :first-child {
@@ -213,13 +213,11 @@
   }
 
   .topics {
-    margin: 20px 0 32px;
+    margin: 0 0 32px;
   }
 
   .topics h2 {
-    margin: 0 0 18px;
-    font-size: 16px;
-    font-weight: 600;
+    margin: 0 0 14px;
   }
 
   .topics a {
@@ -227,13 +225,10 @@
     padding: 12px 16px;
     border-left: 2px solid var(--support-border);
     color: var(--color-muted);
-    font-size: 15px;
-    line-height: 1.4;
   }
 
   .topics a.nested {
     padding-left: 28px;
-    font-size: 14px;
   }
 
   .topics a:hover {
@@ -255,18 +250,12 @@
       flex-basis: 300px;
     }
 
-    .topics h2 {
-      font-size: 18px;
-    }
-
     .topics a {
-      padding: 14px 18px;
-      font-size: 17px;
+      padding: 12px 18px;
     }
 
     .topics a.nested {
       padding-left: 30px;
-      font-size: 15px;
     }
   }
 

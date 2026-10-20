@@ -1,5 +1,5 @@
 <script>
-  import LinkButton from "$lib/components/LinkButton.svelte";
+  import Button from "$lib/components/Button.svelte";
   import Grid from "$lib/components/Grid.svelte";
   import Space from "$lib/components/Space.svelte";
   import EmailUpdatesForm from "$lib/components/EmailUpdates/EmailUpdatesForm.svelte";
@@ -133,9 +133,9 @@
         Bug fixes and new car ports are strongly encouraged. Check out the
         <a class="highlight" href="https://github.com/commaai/openpilot/blob/master/docs/CONTRIBUTING.md" target="_blank">contributing docs</a>.
       </p>
-      <LinkButton href="https://github.com/commaai/openpilot">
+      <Button href="https://github.com/commaai/openpilot">
         View on GitHub
-      </LinkButton>
+      </Button>
       <div class="release-notes">
         <h3>Latest Release Notes</h3>
         {#each data.releaseNotes as release}
@@ -182,9 +182,9 @@
             </div>
           </Grid>
           <Space multiplier={3} />
-          <LinkButton href="/shop/comma-four" fullWidth={true} style="primary">
+          <Button href="/shop/comma-four" fullWidth={true} style="primary">
             Buy now
-          </LinkButton>
+          </Button>
         </div>
       </Grid>
     </article>
@@ -292,6 +292,8 @@
       list-style: none;
 
       & li {
+        font-size: 1.5rem;
+        line-height: 1.25;
         margin-bottom: 0.5rem;
         padding-left: 2rem;
         background: url("$lib/icons/ui/checkmark.svg?raw") left center no-repeat;
