@@ -6,7 +6,7 @@
 
 <section aria-labelledby="support-faqs-title">
   <SectionHeading id="support-faqs-title">FAQs</SectionHeading>
-  {#each Object.keys(faq).filter(key => !['connect', 'trial', 'shop', 'returns'].includes(key)) as key}
+  {#each Object.keys(faq).filter(key => !['connect', 'shop', 'returns'].includes(key)) as key}
     <div class="faq-card"><Faq topic={faq[key]} /></div>
   {/each}
 </section>

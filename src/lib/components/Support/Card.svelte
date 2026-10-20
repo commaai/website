@@ -3,7 +3,7 @@
   export let external = false;
 </script>
 
-<a class="card" {href} target={external ? '_blank' : undefined} rel={external ? 'noopener noreferrer' : undefined}>
+<a class="card" {href} target={external ? '_blank' : undefined} rel={external ? 'noopener noreferrer' : undefined} on:click>
   <slot />
 </a>
 

@@ -96,26 +96,6 @@ Returns are usually processed within 2–5 business days after they arrive, and 
 
 [Start a return](https://comma.ai/returns "card")
 
-### Money-back trial
-
-::: dropdown What is the 30-day money-back trial?
-Every vehicle is a little different and the experience can be hard to describe, which is why we offer this trial. If you don't love the comma four, you can return it for a refund, no questions asked. All refunds must be initiated through [comma.ai/returns](https://comma.ai/returns) within 30 calendar days of receiving your order.
-:::
-
-::: dropdown When does the 30-day money-back trial start?
-The 30-day money-back trial starts the day your comma four is delivered (signature confirmation required for delivery). If you decide to return your device, get it in the mail within 30 days of receiving it.
-:::
-
-::: dropdown How do I return my comma four?
-Request a return at [comma.ai/returns](https://comma.ai/returns). A prepaid return label (or return instructions if you are outside the U.S.) will be sent to you automatically. $9.99 will be deducted from your refund if you choose to use this label.
-:::
-
-::: dropdown Are international orders eligible for the trial?
-Yes. Get your returned device in the mail within 30 days of receiving it.
-
-You are responsible for international shipping costs to return a device. Use tracking and insurance because comma is not responsible for lost or stolen packages. Return information is provided by email after you request a return at [comma.ai/returns](https://comma.ai/returns).
-:::
-
 ### Return policy
 
 UPS 2nd Day Air and international shipping fees are non-refundable. comma may cancel orders from customers who have made a return within the previous six months. If you return only some of multiple eligible devices purchased at different prices, the refund uses the lowest eligible purchase price; returning all eligible orders receives a full refund.

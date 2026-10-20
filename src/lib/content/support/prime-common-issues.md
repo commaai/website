@@ -6,7 +6,7 @@ description: Troubleshoot comma prime cellular service and find out when to cont
 ## Common issues
 
 ::: dropdown comma prime SIM not connecting to network
-If your device's comma prime subscription was enabled recently, leave your device connected to a strong Wi-Fi signal and wait at least a day for the SIM card to activate. Try rebooting your device after enough time has passed. Find an area with a strong mobile signal to make sure the issue is not due to weak cell coverage.
+If your device's comma prime subscription was enabled recently, connect your device to Wi-Fi to activate the SIM card. Your device requires about 5 minutes of Wi-Fi connection and then can take up to 30 minutes to activate and might require a reboot. You will know the activation started when the device displays "CONNECT ONLINE". Find an area with a strong mobile signal to make sure the issue is not due to weak cell coverage.
 
 If your device is not on stock openpilot, flash it back to the latest stock release.
 
@@ -27,7 +27,7 @@ If service still does not work, [contact support](/support/prime-common-issues#s
 
 ## Still having issues?
 
-Before contacting support, confirm that your comma prime subscription is active, try the device in an area with mobile coverage, and make sure it is running the latest stock openpilot release. If you recently enabled prime, leave the device connected to strong Wi-Fi for at least a day, then reboot it.
+Before contacting support, confirm that your comma prime subscription is active, try the device in an area with mobile coverage, and make sure it is running the latest stock openpilot release. If you recently enabled prime, connect the device to Wi-Fi for about 5 minutes, allow up to 30 minutes for activation, then reboot it.
 
 [Learn how to flash your comma](/support/flash-your-comma "card")
 

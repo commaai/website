@@ -1,4 +1,6 @@
 <script>
+  import { onDestroy } from 'svelte';
+  import { fly } from 'svelte/transition';
   import Card from './Card.svelte';
   import CardGrid from './CardGrid.svelte';
   import SectionHeading from './SectionHeading.svelte';
@@ -15,6 +17,7 @@
       label: 'Email support@comma.ai',
       title: 'Send us an email',
       href: 'mailto:support@comma.ai',
+      copy: 'support@comma.ai',
       icon: 'M2 4h20v16H2V4zm2 2v1.2l8 6 8-6V6H4zm16 12V9.7l-8 6-8-6V18h16z'
     },
     {
@@ -25,6 +28,29 @@
       icon: 'M21 6h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1zm-4 6V3c0-.55-.45-1-1-1H3c-.55 0-1 .45-1 1v14l4-4h10c.55 0 1-.45 1-1z'
     }
   ];
+
+  const checkIcon = 'M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z';
+
+  let copied = false;
+  let copiedTimeout;
+
+  async function handleClick(event, card) {
+    if (!card.copy || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+
+    event.preventDefault();
+    try {
+      await navigator.clipboard.writeText(card.copy);
+    } catch {
+      window.location.href = card.href;
+      return;
+    }
+
+    copied = true;
+    clearTimeout(copiedTimeout);
+    copiedTimeout = setTimeout(() => (copied = false), 2000);
+  }
+
+  onDestroy(() => clearTimeout(copiedTimeout));
 </script>
 
 <section aria-labelledby="support-catch-all-title">
@@ -34,12 +60,17 @@
 
   <CardGrid>
     {#each cards as card}
-      <Card href={card.href} external={card.external}>
+      {@const showCopied = card.copy && copied}
+      <Card href={card.href} external={card.external} on:click={e => handleClick(e, card)}>
         <div class="content">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d={card.icon} /></svg>
+          {#key showCopied}
+            <svg viewBox="0 0 24 24" aria-hidden="true" in:fly={{ y: 8, duration: 200 }}><path d={showCopied ? checkIcon : card.icon} /></svg>
+          {/key}
           <div>
             <span class="label">{card.label}</span>
-            <h3>{card.title}</h3>
+            {#key showCopied}
+              <h3 in:fly={{ y: 8, duration: 200 }} aria-live="polite">{showCopied ? 'Email copied' : card.title}</h3>
+            {/key}
           </div>
         </div>
       </Card>

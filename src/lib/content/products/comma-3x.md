@@ -13,7 +13,7 @@ Replacement screens for the comma 3X are available in the [shop](/shop/comma-dev
 
 ### Replacing your SIM card
 
-[How to replace the SIM card in a comma 3/3X](/support/replace-comma-3x-sim-card "card")
+[How to replace the SIM card in a comma 3X](/support/replace-comma-3x-sim-card "card")
 
 ### Performing a factory reset
 

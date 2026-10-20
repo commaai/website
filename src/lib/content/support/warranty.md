@@ -5,11 +5,11 @@ description: Coverage under the standard hardware warranty and the extended comm
 
 ## Basic hardware warranty
 
-Hardware purchased from the comma shop includes a one-year limited warranty against hardware defects. Eligible comma four devices can extend that coverage with commacare. The warranty does not cover theft, loss, accidental damage, or damage caused by improper handling or repair.
+Hardware in the comma shop comes with a 1 year limited warranty against defects. If you have a device that was not purchased from the comma shop, the 1 year warranty does transfer, but you must provide the original order number and email address associated with the device. We cannot provide this information for you.
 
-If you open or repair a comma four, you do so at your own risk. comma is not responsible for damage that occurs during repairs. Report any damage present when your device arrives within 3 days of delivery using the [shop support form](https://commasupport.zendesk.com/hc/en-us/requests/new?ticket_form_id=29233377161623). Include photos of the device and its packaging.
+Open and repair the comma four at your own risk. comma is not responsible for damages that may occur while repairing devices.
 
-The warranty follows the device. If you did not purchase the device yourself, you must provide the original order number and the email address used for the order. comma cannot retrieve that information for you.
+Please alert us to any issues with your order within 3 days of delivery by opening a [support ticket here](https://commasupport.zendesk.com/hc/en-us/requests/new?ticket_form_id=29233377161623) and including pictures of both the product and packaging. We may not be responsible for damages if we are not notified within this window.
 
 ## Get warranty help
 
@@ -20,7 +20,7 @@ First check [comma four common issues](/support/comma-four-common-issues) to see
 - A route recorded while running stock openpilot where the issue occurs
 - Relevant photos or video and the troubleshooting steps you have tried
 
-International customers are responsible for the shipping costs, duties, and customs fees required to send a device to comma for warranty service. comma covers shipping a repaired or replacement device back, but the customer remains responsible for any applicable taxes and duties.
+The buyer is responsible for all shipping costs, duties, and customs fees to return a device for both 30-day returns and warranty returns. comma covers the costs of sending a repair or replacement device, which will be valued at $1 (the buyer is always responsible for all taxes and duties).
 
 ## commacare
 

@@ -1,6 +1,6 @@
 <script>
   import { onMount } from 'svelte';
-  import { replaceState } from '$app/navigation';
+  import { goto } from '$app/navigation';
   import { products } from './content';
 
   const featuredProducts = ['comma-four', 'chestnut', 'car-harness', 'comma-prime'];
@@ -14,7 +14,7 @@
 
   function toggleAllProducts() {
     showAllProducts = !showAllProducts;
-    replaceState(showAllProducts ? '?all' : location.pathname, {});
+    goto(showAllProducts ? '?all' : location.pathname, { replaceState: true, noScroll: true, keepFocus: true });
   }
 </script>
 
