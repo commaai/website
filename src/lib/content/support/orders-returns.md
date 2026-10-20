@@ -1,5 +1,5 @@
 ---
-title: Orders & returns
+title: Orders & Returns
 description: Find help with your order, shipping, returns, exchanges, and hardware warranty.
 ---
 

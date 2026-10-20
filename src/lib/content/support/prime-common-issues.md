@@ -1,5 +1,6 @@
 ---
 title: comma prime common issues
+parent: /support/comma-prime
 description: Troubleshoot comma prime cellular service and find out when to contact support.
 ---
 
