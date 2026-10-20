@@ -34,13 +34,50 @@
 {/if}
 
 <style>
-  .footer-breadcrumbs { position: absolute; top: calc(var(--footer-top-space) / -2); left: 0; transform: translateY(-50%); display: flex; align-items: center; flex-wrap: wrap; gap: 10px; color: #aaa; font-size: 14px; line-height: 20px; }
-  .footer-breadcrumbs a { display: inline-flex; align-items: center; min-height: 20px; color: #fff; text-decoration: none; text-underline-offset: 3px; }
-  .footer-breadcrumbs :global(svg) { display: block; width: 11px; height: 19px; }
-  .footer-breadcrumbs a:hover, .footer-breadcrumbs a:focus-visible { text-decoration: underline; }
+  .footer-breadcrumbs {
+    position: absolute;
+    top: calc(var(--footer-top-space) / -2);
+    left: 0;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    color: #aaa;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .footer-breadcrumbs a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 20px;
+    color: #fff;
+    text-decoration: none;
+    text-underline-offset: 3px;
+  }
+
+  .footer-breadcrumbs :global(svg) {
+    display: block;
+    width: 11px;
+    height: 19px;
+  }
+
+  .footer-breadcrumbs a:hover,
+  .footer-breadcrumbs a:focus-visible {
+    text-decoration: underline;
+  }
 
   @media (max-width: 1024px) {
-    .footer-breadcrumbs { position: static; transform: none; margin-bottom: 2rem; }
-    .footer-breadcrumbs > * { min-width: 0; overflow-wrap: anywhere; }
+    .footer-breadcrumbs {
+      position: static;
+      transform: none;
+      margin-bottom: 2rem;
+    }
+
+    .footer-breadcrumbs > * {
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
   }
 </style>
