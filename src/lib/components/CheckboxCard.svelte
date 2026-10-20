@@ -23,7 +23,6 @@
   .checkbox-card {
     cursor: pointer;
     display: block;
-    color: var(--color-accent);
   }
 
   .checkbox-card.disabled {
@@ -45,7 +44,6 @@
 
   .checkbox-card.checked :global(.card hgroup span) {
     background-color: #86ff4e;
-    color: black;
   }
 
   .checkbox-card.strikethrough-title :global(.card hgroup > span) {

@@ -362,7 +362,6 @@
             margin-top: 0.25rem;
           }
         }
-
       }
 
       & p {
@@ -377,8 +376,6 @@
     }
 
     & .traits {
-      align-items: stretch;
-
       & .trait {
         display: flex;
         align-content: flex-start;
@@ -433,7 +430,6 @@
     @media only screen and (max-width: 768px) {
       & .trait {
         flex-wrap: nowrap;
-
         border-right: none !important;
         border-bottom: 1px solid #000;
       }
@@ -484,12 +480,10 @@
         }
 
         & span {
-          margin-top: 0.875rem;
           font-size: 1.25rem;
         }
       }
 
-      color: white;
       font-size: 1.5rem;
       font-weight: 600;
     }
@@ -514,7 +508,6 @@
       & .side-by-side {
         display: flex;
         align-items: center;
-        color: black;
 
         & hgroup {
           margin-left: 1rem;

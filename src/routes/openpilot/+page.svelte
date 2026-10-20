@@ -89,7 +89,6 @@
         To assist the driver in maintaining alertness, openpilot includes a driver
         monitoring system that alerts when it detects driver distraction.
       </p>
-      <p />
       <p>
         When used correctly, these features reduce your workload as a driver,
         and can make long drives relaxing instead of tedious.
@@ -234,8 +233,6 @@
       color: var(--color-muted);
       text-transform: uppercase;
       font-family: JetBrains Mono, monospace;
-      font-size: 1rem;
-      font-weight: 400;
     }
 
     @media screen and (max-width: 1024px) {
@@ -252,22 +249,17 @@
   .feature-item {
     display: flex;
     align-items: center;
-    flex-flow: row;
 
     & div {
       border: 1px solid #000;
       width: 48px;
       padding: 0.375rem;
-      display: inline-block;
-      color: black;
     }
 
     & span {
       color: var(--color-muted);
       text-transform: uppercase;
       font-family: JetBrains Mono, monospace;
-      font-size: 1rem;
-      font-weight: 400;
       margin-left: 1rem;
     }
   }
@@ -344,6 +336,10 @@
       margin-bottom: 1rem;
     }
 
+    & .release-notes {
+      width: 80%;
+    }
+
     @media screen and (max-width: 512px) {
       margin-bottom: 4rem;
 
@@ -361,9 +357,5 @@
         width: 100%;
       }
     }
-  }
-
-  .release-notes {
-    width: 80%;
   }
 </style>

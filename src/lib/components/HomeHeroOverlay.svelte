@@ -155,10 +155,8 @@
   }
 
   h1 {
-    color: white;
     font-size: clamp(3rem, 4vw, 4rem);
     letter-spacing: -0.04em;
-    line-height: 1;
     margin: 0;
     max-width: 44rem;
     text-shadow: 0 0 12px rgba(0, 0, 0, 0.8);
@@ -183,13 +181,11 @@
 
   .stat-value,
   .stat-label {
-    color: white;
     text-shadow: 0 0 12px rgba(0, 0, 0, 0.8);
   }
 
   .stat-value {
     font-size: 3rem;
-    font-weight: 400;
     letter-spacing: -0.04em;
     line-height: 1;
   }
@@ -197,7 +193,6 @@
   .stat-label {
     align-items: center;
     display: flex;
-    font-size: 1rem;
     font-weight: 500;
     gap: 0.375rem;
     letter-spacing: -0.04em;
@@ -239,7 +234,6 @@
   }
 
   .action-arrow {
-    display: block;
     flex: 0 0 1.625rem;
     height: 1.625rem;
     width: 1.625rem;
@@ -303,10 +297,8 @@
   }
 
   .hero-compatibility p {
-    color: white;
     flex: 0 0 27.8125rem;
     font-size: 1.5rem;
-    font-weight: 400;
     letter-spacing: -0.04em;
     line-height: 1;
     margin: 0;
@@ -338,7 +330,6 @@
 
   .logo-group img {
     display: block;
-    flex: 0 0 auto;
     max-height: 2.1875rem;
     max-width: 3.25rem;
   }
@@ -374,7 +365,6 @@
   @media screen and (max-width: 768px) {
     .hero-overlay {
       flex: 1;
-      inset: auto;
       margin-top: -8.9375rem;
       position: relative;
     }
@@ -387,7 +377,6 @@
 
     h1 {
       font-size: 1.75rem;
-      line-height: 1;
       max-width: none;
     }
 
@@ -412,7 +401,6 @@
     }
 
     .stat-label {
-      font-size: 1rem;
       font-weight: 400;
       margin-top: 0.375rem;
     }
@@ -426,10 +414,7 @@
 
     .hero-action {
       font-size: 1rem;
-      justify-content: space-between;
       min-height: 3.6875rem;
-      padding: 1.25rem;
-      width: 100%;
     }
 
     .hero-action.primary,

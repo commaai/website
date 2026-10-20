@@ -67,7 +67,6 @@
 <style>
   h1 {
     font-size: 2.5rem;
-    font-weight: 600;
     margin-bottom: 2rem;
   }
 
@@ -93,7 +92,6 @@
 
   .content hr {
     margin: 2rem 0;
-    border: none;
     border-top: 1px solid rgba(0, 0, 0, 0.15);
   }
 </style>

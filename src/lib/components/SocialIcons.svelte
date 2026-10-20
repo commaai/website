@@ -29,9 +29,7 @@
 <style>
   .social-icons {
     display: flex;
-    flex-flow: row;
     align-items: center;
-    justify-content: start;
     gap: 1rem;
 
     & svg {

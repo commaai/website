@@ -22,12 +22,10 @@
   }
 
   h1 {
-    color: black !important;
     margin: 3rem 0 1rem;
   }
 
   span {
-    color: black !important;
     font-size: 1.5rem;
     margin-top: 1rem;
   }

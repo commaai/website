@@ -60,7 +60,6 @@
     padding: 3rem;
     border: 1px solid rgba(0, 0, 0, 0.4);
     background: var(--color-card-background);
-    color: #000;
   }
 
   h2 {
@@ -81,7 +80,6 @@
   form {
     display: grid;
     gap: 0.75rem;
-    margin: 0;
   }
 
   .email-row {
@@ -104,7 +102,6 @@
     padding: 1rem;
     border: 0;
     background: var(--color-accent);
-    color: #000;
     font: inherit;
     font-size: 1rem;
     font-weight: 600;
@@ -165,10 +162,6 @@
     .email-row {
       flex-direction: column;
       gap: 0.5rem;
-    }
-
-    input {
-      border-right: 1px solid #000;
     }
 
     input, button {

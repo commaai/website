@@ -32,7 +32,6 @@
   hgroup {
     & span {
       text-transform: uppercase;
-      margin-bottom: 0.25rem;
       font-family: JetBrains Mono, monospace;
       font-size: 0.875rem;
     }

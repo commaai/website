@@ -239,7 +239,6 @@
   }
 
   h2, h3 {
-    font-weight: 400;
     line-height: 1.25;
     margin: 0 0 1.5rem;
   }
@@ -289,7 +288,6 @@
     gap: 1.5rem;
     padding: 1rem 1.5rem;
     border: 1px solid #000;
-    color: #000;
     font-weight: 500;
   }
 
@@ -346,7 +344,6 @@
   .asset-grid, .video-grid {
     display: grid;
     gap: var(--grid-gap);
-    align-items: stretch;
   }
 
   .asset-grid {
@@ -362,7 +359,6 @@
     flex-direction: column;
     min-width: 0;
     border: 1px solid var(--asset-border);
-    background: #fff;
   }
 
   .asset:hover, .asset:focus-within {
@@ -386,10 +382,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    display: block;
     width: calc(100% - 3rem);
     height: calc(100% - 3rem);
-    margin: 0;
     object-fit: contain;
   }
 
@@ -420,8 +414,6 @@
     flex: 1;
     gap: 0.75rem;
     padding: 1rem;
-    font-size: 1rem;
-    line-height: 1.4;
   }
 
   .asset-action {
@@ -439,21 +431,15 @@
     border: 0;
     padding: 0;
     background: transparent;
-    color: inherit;
     cursor: pointer;
   }
 
   video, .manufacturing-video {
-    display: block;
     width: 100%;
     aspect-ratio: 16 / 9;
     flex-shrink: 0;
     border: 0;
     background: #111;
-  }
-
-  video {
-    object-fit: contain;
   }
 
   video.fill-preview {

@@ -64,10 +64,8 @@
     padding: 0;
     border: 1px solid #000;
     background-color: transparent;
-    color: black;
     font-size: 1rem;
     font-weight: bold;
-    text-align: center;
     cursor: pointer;
   }
 </style>

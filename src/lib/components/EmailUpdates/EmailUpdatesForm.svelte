@@ -121,7 +121,6 @@
   form {
     display: grid;
     gap: 0.75rem;
-    margin: 0;
   }
 
   input[type='email'],

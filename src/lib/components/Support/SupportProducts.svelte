@@ -51,7 +51,6 @@
   .product-card h3 {
     margin: 20px 0 0;
     font: inherit;
-    font-weight: 500;
   }
 
   .product-card:hover h3 {
@@ -88,8 +87,6 @@
     padding: 0;
     border: 0;
     background: none;
-    font-family: inherit;
-    font-weight: 500;
     text-decoration: underline;
     text-underline-offset: 4px;
     cursor: pointer;

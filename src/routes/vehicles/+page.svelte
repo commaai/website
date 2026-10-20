@@ -221,7 +221,6 @@
     background-image: url("/videos/hero-landscape/poster.jpg");
     background-position: 50% 30%;
     background-size: cover;
-    background-attachment: scroll;
     height: 287px;
   }
 
@@ -242,7 +241,6 @@
 
     & .description {
       font-size: 1.25rem;
-      font-weight: 400;
       line-height: 1.3;
     }
 
@@ -259,17 +257,12 @@
     }
 
     & .compatibility-make-element {
-      width: 105px;
       margin-bottom: 1.5rem;
     }
 
     @media screen and (max-width: 480px) {
       & .compatibility-make-links {
         grid-template-columns: repeat(auto-fit, 85px);
-      }
-
-      & .compatibility-make-element {
-        width: 85px;
       }
     }
 
@@ -364,10 +357,8 @@
 
   .car-make-header {
     background-color: #000;
-    justify-content: flex-start;
     align-items: center;
     margin-top: 2rem;
-    margin-bottom: 0;
     padding: 1rem;
     display: flex;
 
@@ -384,7 +375,6 @@
 
       & .muted {
         color: #fff;
-        font-weight: 700;
         opacity: .65;
       }
     }
@@ -440,7 +430,6 @@
 
   .car-detail-content-wrapper {
     padding: 12px 16px 16px;
-    display: block;
   }
 
   .car-detail-tier {

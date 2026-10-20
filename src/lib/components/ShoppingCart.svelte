@@ -136,7 +136,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
     min-height: 5rem;
     padding: 1rem;
     box-sizing: border-box;
@@ -221,7 +220,6 @@
       align-items: center;
       justify-content: space-between;
       margin-bottom: 1.25rem;
-      flex: 1;
 
       & img {
         width: 65px;

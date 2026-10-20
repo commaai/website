@@ -136,7 +136,6 @@
     width: 100%;
     margin-top: 0.75rem;
     padding: 1rem;
-    color: #000;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
@@ -189,7 +188,6 @@
   }
 
   .option-subtitle {
-    display: block;
     margin-top: auto;
     padding-top: 0.5rem;
     color: var(--color-muted);
@@ -198,7 +196,6 @@
   }
 
   .option-status {
-    display: block;
     padding-top: 0.5rem;
     font-family: JetBrains Mono, monospace;
     font-size: 0.75rem;

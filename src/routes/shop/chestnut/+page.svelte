@@ -433,7 +433,6 @@
   .purchase-detail-label {
     display: flex;
     align-items: center;
-    color: #000;
   }
 
   .purchase-detail-label div {
@@ -468,7 +467,6 @@
   .tech-specs-image {
     display: block;
     width: 100%;
-    height: auto;
     margin-bottom: 1.5rem;
   }
 
@@ -568,8 +566,6 @@
   .step-image {
     display: block;
     width: 100%;
-    height: auto;
-    object-fit: contain;
   }
 
   .step-image-pair {
@@ -590,12 +586,10 @@
   .step-image-pair img {
     display: block;
     width: 100%;
-    height: auto;
   }
 
   .step-image-pair .zoomed-footwell .image-viewport img {
     transform: scale(1.5);
-    transform-origin: center;
   }
 
   .step-image-pair figcaption {
@@ -642,10 +636,6 @@
       gap: 1.5rem 0.75rem;
     }
 
-    .box-contents > div {
-      width: auto;
-    }
-
     .box-contents p {
       margin: 0;
       font-size: 1rem;
@@ -658,11 +648,6 @@
 
     .setup-guide p {
       font-size: 1.25rem;
-    }
-
-    .step-image {
-      max-width: none;
-      max-height: none;
     }
   }
 </style>

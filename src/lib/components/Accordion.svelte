@@ -60,9 +60,8 @@
   .chevron {
     position: absolute;
     right: 2rem;
-    color: var(--foreground-color);
+
     & > svg {
-      color: var(--foreground-color);
       width: 18px;
       height: 12px;
     }

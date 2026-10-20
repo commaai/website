@@ -213,7 +213,7 @@
 <style>
   h1 {
     font-size: 2.5rem;
-    font-weight: 600;
+    margin-bottom: 1rem;
   }
 
   .preview {
@@ -272,10 +272,6 @@
   .variant-selector {
     margin: 1rem 0;
 
-    & h1 {
-      margin-bottom: 1rem;
-    }
-
     & .price {
       font-size: 1.5rem;
       display: flex;
@@ -327,15 +323,6 @@
     }
 
     & hgroup {
-      display: flex;
-      align-items: center;
-
-      & img {
-        border: 1px solid rgba(0, 0, 0, 0.12);
-        margin-right: 1rem;
-        max-width: 150px;
-      }
-
       & div {
         display: flex;
         flex-direction: column;
@@ -347,7 +334,6 @@
         }
 
         & strong {
-          font-size: 1.25rem;
           font-weight: 600;
         }
       }

@@ -335,12 +335,10 @@
     position: relative;
     /* Behind nav bar */
     margin: -66px 0 0;
-    width: 100%;
     height: 100vh;
     overflow: hidden;
     padding: 0;
     -webkit-user-drag: none;
-    background: black;
 
     & .hero-video {
       background-image: var(--hero-landscape-poster);
@@ -354,7 +352,6 @@
         display: block;
         height: 100%;
         object-fit: cover;
-        object-position: center;
         opacity: 0;
         transition: opacity 0.3s ease-in;
         user-select: none;
@@ -427,7 +424,6 @@
     column-gap: clamp(3rem, 7vw, 8rem);
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    width: 100%;
   }
 
   .homepage-cta {
@@ -449,7 +445,6 @@
     }
 
     & .cta-arrow {
-      display: block;
       flex: 0 0 auto;
       height: 1.5rem;
       width: 1.5rem;
@@ -538,18 +533,15 @@
     & .comma-four-content {
       grid-area: copy;
       min-width: 0;
-      width: 100%;
     }
 
     & .comma-four-content h1 {
       letter-spacing: -0.04em;
-      line-height: 1;
       margin-bottom: 1rem;
     }
 
     & .comma-four-content h2 {
       font-size: clamp(1.125rem, 2vw, 1.5rem);
-      font-weight: 400;
       letter-spacing: -0.04em;
       line-height: 1.2;
       margin: 0;
@@ -563,12 +555,10 @@
       grid-area: features;
       grid-template-columns: repeat(auto-fit, minmax(min(100%, max(16rem, 45%)), 1fr));
       margin: clamp(1.5rem, 4vw, 3.5rem) 0;
-      width: 100%;
     }
 
     & .feature-item {
       align-items: center;
-      color: white;
       display: flex;
       gap: clamp(0.75rem, 1.5vw, 1.25rem);
       justify-self: start;
@@ -583,9 +573,7 @@
       }
 
       & > span:last-child {
-        color: white;
         font-size: clamp(1rem, 2vw, 1.5rem);
-        font-weight: 400;
         letter-spacing: -0.04em;
         line-height: 1.1;
         white-space: nowrap;
@@ -625,7 +613,6 @@
     & .compatibility-list,
     & .setup-cta {
       min-width: 0;
-      width: 100%;
     }
 
     & .setup-grid {
@@ -649,7 +636,6 @@
       aspect-ratio: 16 / 9;
       grid-area: media;
       overflow: hidden;
-      width: 100%;
 
       & video {
         display: block;
@@ -714,9 +700,7 @@
     & .activity-map {
       margin: 5rem auto 0;
       max-width: 70rem;
-      width: 100%;
 
-      & .map-preview,
       & img {
         display: block;
         width: 100%;
@@ -809,12 +793,10 @@
     align-self: center;
     grid-area: gallery;
     min-width: 0;
-    width: 100%;
   }
 
   .device-image-container {
     position: relative;
-    width: 100%;
   }
 
   .device-main-image {

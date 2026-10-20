@@ -232,7 +232,6 @@
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url("$lib/images/vehicles/cover-vehicles-v2-3x-optimized_1.jpg");
     background-position: 50% 38%;
     background-size: cover;
-    background-attachment: scroll;
 
     & img {
       width: 90%;
@@ -261,7 +260,6 @@
   #connect {
     & h1 {
       font-size: 2.5rem;
-      font-weight: 600;
       line-height: 1.2;
       margin-top: 1rem;
     }
@@ -276,9 +274,6 @@
         & a {
           text-transform: uppercase;
           font-family: JetBrains Mono, monospace;
-        }
-
-        & a {
           border-bottom: 1px solid #000;
         }
       }
@@ -286,7 +281,6 @@
 
     & .features-banner {
       display: flex;
-      flex-direction: row;
       justify-content: center;
       align-items: center;
 
@@ -332,8 +326,6 @@
         & .title {
           font-size: 1.25rem;
           font-weight: 600;
-          display: flex;
-          width: 40%;
         }
 
         & .content {
@@ -379,7 +371,6 @@
             display: none;
 
             & div {
-              display: inline-flex;
               align-items: center;
               padding: 0.25rem 0.75rem;
               margin: 0.5rem 0;
@@ -452,7 +443,6 @@
     @media screen and (max-width: 480px) {
       & .centered a, & .free-trial a {
         width: 100%;
-        box-sizing: border-box;
       }
     }
   }

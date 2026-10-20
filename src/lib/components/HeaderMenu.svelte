@@ -63,7 +63,6 @@
     height: 65px;
     width: 90px;
     padding: 0;
-    text-align: center;
     cursor: pointer;
     transition: background-color 0.2s;
 
@@ -84,7 +83,6 @@
     position: absolute;
     left: 0;
     right: 0;
-    display: flex;
     padding: 0 3rem;
     z-index: 2;
     background-color: black;
@@ -106,9 +104,7 @@
   nav:focus-within {
     & .toggle-button {
       background-color: black;
-      color: white;
-      transition: background-color 250ms, color 250ms;
-      cursor: pointer;
+      transition: background-color 250ms;
       pointer-events: none;
 
       & svg {
@@ -117,18 +113,12 @@
     }
 
     & .menu-container {
-      opacity: 1;
       display: flex;
-
-      & a {
-        opacity: 1;
-      }
     }
   }
 
   .section-links {
     flex: 1;
-    justify-content: flex-start;
     display: flex;
     flex-flow: column;
     width: 62%;
@@ -137,10 +127,8 @@
     & a {
       color: #fff;
       margin-bottom: 2rem;
-      padding: 0;
       font-size: 2.5rem;
       line-height: 0.9;
-      text-decoration: none;
     }
   }
 
@@ -166,7 +154,6 @@
 
       & a {
         font-size: 1.5rem;
-        text-decoration: none;
       }
 
       & div {
@@ -180,7 +167,6 @@
     .menu-container {
       flex-flow: column nowrap;
       row-gap: 1.75rem;
-      justify-content: flex-start;
     }
 
     .section-links {

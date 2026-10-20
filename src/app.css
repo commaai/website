@@ -40,24 +40,13 @@ body {
   color: var(--color-black);
 }
 
-::-moz-selection {
-  background-color: rgba(81, 255, 0, 0.5);
-  color: var(--color-black);
-}
-
 /* Higher opacity for dark backgrounds */
 .dark ::selection {
   background-color: rgba(81, 255, 0, 0.8);
   color: var(--color-black);
 }
 
-.dark ::-moz-selection {
-  background-color: rgba(81, 255, 0, 0.8);
-  color: var(--color-black);
-}
-
 :root {
-  --color-white: #fff;
   --color-black: #000;
   --color-red: #ff4133;
   --color-sale-red: #ff5827;
@@ -226,15 +215,6 @@ a, a:visited, a:active {
   }
 }
 
-blockquote {
-  font-size: 1.2rem;
-  font-style: italic;
-  line-height: 1.4;
-  border-left: 2px solid #000;
-  padding: 1.2rem 2rem;
-  margin: 1rem 0;
-}
-
 section {
   padding-top: 2rem;
   padding-bottom: 5rem;
@@ -261,7 +241,6 @@ img {
 hr {
   border: none;
   height: 1px;
-  color: #333;
   background-color: #333;
 }
 

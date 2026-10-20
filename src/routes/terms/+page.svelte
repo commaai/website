@@ -226,7 +226,6 @@
 
     .links {
       position: unset;
-      top: unset;
     }
   }
 </style>
