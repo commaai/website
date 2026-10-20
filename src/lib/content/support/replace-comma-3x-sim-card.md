@@ -11,7 +11,7 @@ All comma 3Xs come with a SIM card. The SIM slot is a push/pull mechanism: push 
 
 Make sure your SIM is inserted correctly by following the step-by-step guide below:
 
-![Steps to insert a comma 3X SIM card](/images/support/comma-3x-sim-insertion.png)
+![Steps to insert a comma 3X SIM card]($lib/images/comma-3x-sim-insertion.png)
 
 1. With the comma 3X off and unplugged, tap/push the SIM card with the big SIM card, credit card, or other narrow hard object to release the SIM (you will hear a click).
 2. Gently pull the SIM card from the SIM slot (try tweezers).

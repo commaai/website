@@ -56,8 +56,11 @@ const dropdown = {
 
 const markdown = new Marked({ renderer, extensions: [dropdown] });
 
-export function renderArticle(body) {
+export function renderArticle(body, resolveImage) {
   const tokens = markdown.lexer(body);
+  markdown.walkTokens(tokens, token => {
+    if (token.type === 'image' && token.href.startsWith('$lib/')) token.href = resolveImage(token.href);
+  });
   const headings = tokens.filter(token => token.type === 'heading');
   headings.forEach(token => token.id = slugify(token.text));
   const toc = headings

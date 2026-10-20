@@ -87,7 +87,7 @@ If your order was sent by USPS, comma will respond to your support ticket after 
 
 ## Returns
 
-If you are within 30 days of delivery, request a return at [comma.ai/returns](https://comma.ai/returns). Get the device in the mail within 30 days of receiving it.
+If you're within 30 days of your order delivery, you can request a return at [comma.ai/returns](https://comma.ai/returns).
 
 - **U.S. returns:** A prepaid return label is available when you submit your request. If you use it, $9.99 will be deducted from your refund.
 - **International returns:** You are responsible for shipping costs. Use tracking and insurance because comma is not responsible for lost or stolen packages. You will receive the return address after submitting your request.
@@ -128,6 +128,3 @@ If you're adding support for a new car, we can extend your return window to 90 d
 comma offers a one-year limited warranty against hardware defects. If you believe your device is defective, [open a hardware support ticket](https://commasupport.zendesk.com/hc/en-us/requests/new?ticket_form_id=14150133300887). Read the article below for more information, including extended coverage with commacare.
 
 [Basic warranty & commacare](/support/warranty "card")
-
-### Is the 1-year hardware warranty transferable?
-Yes. If your device was not purchased from the comma shop, the warranty still transfers, but you must provide the original order number and the email address associated with the device. comma cannot provide this information for you.
