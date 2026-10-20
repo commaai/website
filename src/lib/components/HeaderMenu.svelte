@@ -125,7 +125,6 @@
     padding: 4rem 0;
 
     & a {
-      color: #fff;
       margin-bottom: 2rem;
       font-size: 2.5rem;
       line-height: 0.9;

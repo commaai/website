@@ -865,10 +865,6 @@
     margin: 0;
   }
 
-  .challenge-section {
-    color: #fff;
-  }
-
   .challenge-section .eyebrow {
     color: rgba(255, 255, 255, 0.65);
   }

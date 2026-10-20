@@ -38,7 +38,6 @@
   }
 
   p {
-    color: white;
     font-size: 1.25rem;
     margin-bottom: 1.5rem;
   }

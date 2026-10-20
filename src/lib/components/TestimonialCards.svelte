@@ -186,11 +186,6 @@
     font-style: italic;
   }
 
-  /* app.css colors every span, so this has to take the foot's color back */
-  .arrow {
-    color: inherit;
-  }
-
   .arrow :global(svg) {
     display: block;
     height: auto;
@@ -255,7 +250,6 @@
   }
 
   .name {
-    color: var(--card-text);
     font-weight: 700;
   }
 
@@ -295,7 +289,6 @@
   }
 
   .mention {
-    color: inherit;
     font-weight: 700;
   }
 

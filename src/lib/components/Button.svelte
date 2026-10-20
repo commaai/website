@@ -103,7 +103,6 @@
   .arrow {
     display: flex;
     margin-left: 0.75rem;
-    color: inherit;
   }
 
   .arrow :global(svg) {

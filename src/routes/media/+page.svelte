@@ -292,7 +292,6 @@
   }
 
   .download-all span {
-    color: inherit;
     font-size: 1.25rem;
   }
 
