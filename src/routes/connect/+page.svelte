@@ -302,6 +302,10 @@
       }
     }
 
+    & .muted-link {
+      color: var(--color-foreground);
+    }
+
     & .badge-prefix {
       margin-bottom: 0.5rem;
       margin-right: 0.5rem;
@@ -418,7 +422,6 @@
       margin-top: 1rem;
       align-items: center;
       justify-content: center;
-      color: white;
       border: 1px solid #fff;
 
       & span {
@@ -427,7 +430,6 @@
       }
 
       & .muted {
-        opacity: 0.65;
         margin-top: 0.75rem;
         line-height: 1.5;
         text-align: center;

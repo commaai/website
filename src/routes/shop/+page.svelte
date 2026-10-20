@@ -366,7 +366,6 @@
 
       & p {
         font-size: 1.125rem;
-        color: white;
       }
 
       & .muted {
@@ -463,7 +462,6 @@
 
       & hgroup {
         & * {
-          color: white;
           line-height: 1.25;
         }
 

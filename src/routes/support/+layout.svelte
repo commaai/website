@@ -31,7 +31,6 @@
     --support-accent-soft: color-mix(in srgb, var(--color-accent) 15%, transparent);
     --support-space: 64px;
     background: var(--color-background);
-    color: var(--color-foreground);
     color-scheme: light;
     font-size: clamp(17px, 1.25vw, 18px);
     line-height: 1.6;

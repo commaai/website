@@ -229,10 +229,6 @@
     transition: background-color 0.2s;
   }
 
-  .hero-action > span {
-    color: inherit;
-  }
-
   .action-arrow {
     flex: 0 0 1.625rem;
     height: 1.625rem;
@@ -257,7 +253,6 @@
     backdrop-filter: blur(8px);
     background: rgba(0, 0, 0, 0.5);
     border: 1px solid white;
-    color: white;
     justify-content: space-between;
     width: 28.9375rem;
   }

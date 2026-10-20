@@ -220,7 +220,6 @@
     display: flex;
     align-items: flex-start;
     flex-flow: column;
-    color: white;
 
     & span:first-of-type {
       margin-top: 0.5rem;

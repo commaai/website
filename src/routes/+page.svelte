@@ -440,10 +440,6 @@
     transition: background-color 0.2s, opacity 0.2s;
     width: 100%;
 
-    & span {
-      color: inherit;
-    }
-
     & .cta-arrow {
       flex: 0 0 auto;
       height: 1.5rem;

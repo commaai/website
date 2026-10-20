@@ -205,7 +205,6 @@
     & > .title {
       font-family: "Monument Extended Black", sans-serif;
       font-size: 20px;
-      color: black;
       height: 20px;
       text-transform: uppercase;
       padding: 0 2rem;
@@ -239,7 +238,6 @@
     justify-content: center;
 
     & a {
-      color: #000;
       margin: 0 1.75rem;
       font-size: 1.125rem;
       transition: text-shadow 0.2s;
@@ -261,7 +259,6 @@
     display: flex;
 
     & .button {
-      color: #000;
       text-transform: uppercase;
       border: none;
       border-left: 1px solid #000;
@@ -348,7 +345,6 @@
       }
 
       & > a {
-        color: #fff;
         font-size: 1.25rem;
         transition: opacity 0.2s;
       }

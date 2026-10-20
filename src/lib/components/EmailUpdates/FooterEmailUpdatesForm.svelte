@@ -135,10 +135,6 @@
     border: 0;
   }
 
-  .submit-button span {
-    color: inherit;
-  }
-
   .submit-button :global(svg) {
     display: block;
     width: 1.5rem;
@@ -175,11 +171,6 @@
     background: transparent;
     border: 1px solid #777;
     transition: background-color 0.2s, border-color 0.2s;
-  }
-
-  /* Both spans would otherwise be whitened by the global `span` color rule. */
-  .options-button span {
-    color: inherit;
   }
 
   .options-button:focus-visible {

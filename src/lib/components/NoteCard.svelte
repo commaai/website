@@ -50,7 +50,6 @@
       & span {
         line-height: 1.1;
         margin-bottom: 0.25rem;
-        color: black;
       }
 
       & div {
