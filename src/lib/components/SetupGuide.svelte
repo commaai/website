@@ -72,13 +72,6 @@
       & span {
         margin-left: 1rem;
       }
-
-      & .divider {
-        width: 1px;
-        height: 3rem;
-        background-color: rgba(0, 0, 0, 0.2);
-        margin: 0 2.5rem;
-      }
     }
   }
 </style>
