@@ -1,6 +1,6 @@
 ---
 title: What is comma prime?
-parent: /support/comma-prime
+parent: comma-prime
 description: What comma prime and prime lite include, and how they differ.
 ---
 

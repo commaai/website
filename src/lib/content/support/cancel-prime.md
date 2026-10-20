@@ -1,6 +1,6 @@
 ---
 title: How to cancel comma prime
-parent: /support/comma-prime
+parent: comma-prime
 description: Cancel your prime subscription and understand what happens to billing and commacare.
 ---
 

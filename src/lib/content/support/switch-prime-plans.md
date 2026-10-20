@@ -1,6 +1,6 @@
 ---
 title: How to switch prime plans
-parent: /support/comma-prime
+parent: comma-prime
 description: Switch between the prime and prime lite plans.
 ---
 

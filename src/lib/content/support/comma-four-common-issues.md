@@ -1,6 +1,6 @@
 ---
 title: comma four common issues
-parent: /support/comma-four
+parent: comma-four
 description: Troubleshoot common comma four hardware issues and find out when to contact support.
 ---
 
