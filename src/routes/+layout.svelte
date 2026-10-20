@@ -85,9 +85,7 @@
   <div class="navbar-container">
     <div class="navbar-section-logo">
       <a class="title" href="/">comma</a>
-      <div class="menu-container">
-        <HeaderMenu />
-      </div>
+      <HeaderMenu />
     </div>
     <nav class="navbar-section-links">
       <a href="/" class:active={$page.url.pathname === '/'}>home</a>
@@ -185,10 +183,6 @@
   .navbar {
     top: 0;
     position: sticky;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
     z-index: 10;
 
     background-color: rgba(245, 245, 245, 0.75);
@@ -247,7 +241,6 @@
     & a {
       color: #000;
       margin: 0 1.75rem;
-      font-family: Inter, sans-serif;
       font-size: 1.125rem;
       transition: text-shadow 0.2s;
     }
@@ -267,18 +260,10 @@
   .navbar-section-buttons {
     display: flex;
 
-    & .cart, & .shop {
-      border: none;
-
-      & svg {
-        margin-right: 0.5rem;
-      }
-    }
-
     & .button {
       color: #000;
       text-transform: uppercase;
-      font-family: Inter, sans-serif;
+      border: none;
       border-left: 1px solid #000;
       padding-left: 56px;
       padding-right: 56px;
@@ -289,6 +274,10 @@
       align-items: center;
       cursor: pointer;
       background-color: var(--color-accent);
+
+      & svg {
+        margin-right: 0.5rem;
+      }
 
       @media (hover: hover) and (pointer: fine) {
         &:hover {
@@ -351,7 +340,6 @@
       gap: 0.75rem;
 
       & strong {
-        color: #fff;
         opacity: 0.65;
         letter-spacing: 1px;
         text-transform: uppercase;
@@ -378,7 +366,6 @@
       & .badged {
         display: flex;
         align-items: center;
-        transition: opacity 0.2s;
 
         & span {
           margin-right: 0.75rem;
@@ -398,12 +385,10 @@
           width: 16px;
           height: 28px;
           margin-right: 0.75rem;
-          color: white;
         }
 
         & span {
           font-size: 1.2rem;
-          font-weight: 400;
         }
       }
     }

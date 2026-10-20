@@ -76,15 +76,8 @@
   }
 
   .elevated {
-    color: black;
     border: 1px solid rgba(0, 0, 0, 0.15);
     background-color: rgba(68, 65, 58, .12);
-
-    & hgroup {
-      & span {
-        color: black;
-      }
-    }
   }
   
   .actions {
@@ -96,6 +89,5 @@
 
   .highlighted {
     background-color: #86ff4e;
-    color: black;
   }
 </style>

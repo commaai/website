@@ -36,14 +36,12 @@
     }
 
     & img {
-      display: inline-block;
       mix-blend-mode: multiply;
     }
 
     & div {
       display: flex;
       gap: 1rem;
-      flex-wrap: nowrap;
       justify-content: space-between;
       align-items: center;
       padding: 1rem 1.25rem;

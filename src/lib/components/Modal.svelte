@@ -34,7 +34,6 @@
     height: 100%;
     z-index: 2000;
     background-color: rgba(0, 0, 0, 0.4);
-    animation: 0.5s ease-in-out fade-in
   }
 
   .modal-container {

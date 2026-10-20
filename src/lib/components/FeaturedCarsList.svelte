@@ -96,9 +96,7 @@
 
     & .car {
       display: flex;
-      flex-direction: row;
       flex-wrap: wrap;
-      justify-content: flex-start;
       flex: 1;
       margin: 0 0.875rem;
     }

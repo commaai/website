@@ -264,7 +264,6 @@
   font-size: 1rem;
 
   &::placeholder {
-    font-size: 1rem;
     color: #656565;
   }
 }

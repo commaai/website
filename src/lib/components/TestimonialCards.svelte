@@ -212,7 +212,6 @@
     position: absolute;
     top: -1px;
     left: -1px;
-    display: block;
     width: calc(100% + 2px);
     height: calc(100% + 2px);
     object-fit: cover;
@@ -235,7 +234,6 @@
     border-radius: 50%;
     box-sizing: border-box;
     display: block;
-    flex: 0 0 2.25rem;
     height: 2.25rem;
     width: 2.25rem;
     object-fit: cover;

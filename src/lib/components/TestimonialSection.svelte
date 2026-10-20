@@ -35,7 +35,6 @@
   h2 {
     font-size: var(--head-size);
     font-weight: 600;
-    line-height: 1;
     margin: 0;
   }
 

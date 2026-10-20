@@ -34,7 +34,6 @@
 <style>
   span {
     display: block;
-    color: white;
     font-size: 2rem;
   }
 

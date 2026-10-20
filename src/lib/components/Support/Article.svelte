@@ -111,9 +111,6 @@
     & img {
       display: block;
       box-sizing: border-box;
-      width: auto;
-      max-width: 100%;
-      height: auto;
       max-height: 300px;
       margin: 32px auto 20px;
       border: 1px solid var(--support-border);

@@ -618,10 +618,8 @@
     --jobs-section-y: clamp(4rem, 7vw, 6rem);
 
     background: #fff;
-    color: #000;
     letter-spacing: 0;
     overflow-x: hidden;
-    width: 100%;
   }
 
   .jobs-page,
@@ -641,22 +639,16 @@
 
   .jobs-hero {
     border-bottom: 1px solid #000;
-    min-height: 0;
     padding: clamp(3.5rem, 8vw, 7rem) 0 clamp(2rem, 4vw, 3.5rem);
-    display: flex;
-    align-items: flex-start;
   }
 
   .jobs-hero h1 {
-    color: #000;
     font-size: clamp(3rem, 6vw, 5.5rem);
-    font-weight: 600;
     line-height: 0.95;
     margin: 0;
     max-width: 14ch;
   }
 
-  .jobs-intro,
   .jobs-section,
   .benefits-section,
   .challenge-section,
@@ -683,24 +675,19 @@
   }
 
   .section-title {
-    color: #000;
-    font-family: Inter, sans-serif;
     font-size: clamp(1.6rem, 2.4vw, 2.5rem);
     font-weight: 700;
     line-height: 1.1;
     margin: 0;
     overflow-wrap: anywhere;
     text-transform: uppercase;
-    word-break: break-word;
   }
 
   .large-text,
   .body-copy,
   .challenge-copy,
   .trait-card p {
-    color: #000;
     font-size: clamp(1.0625rem, 1.35vw, 1.25rem);
-    font-weight: 400;
     line-height: 1.45;
   }
 
@@ -786,17 +773,12 @@
   }
 
   .quote blockquote {
-    border: 0;
-    color: #000;
     font-size: clamp(1.75rem, 3vw, 2.5rem);
-    font-style: normal;
     line-height: 1.25;
     margin: 0;
-    padding: 0;
   }
 
   .quote figcaption {
-    color: #000;
     font-size: 1.25rem;
     line-height: 1.2;
     margin-top: 2rem;
@@ -873,7 +855,6 @@
   }
 
   .trait-card h3 {
-    color: #000;
     font-size: 1.5rem;
     font-weight: 600;
     line-height: 1.2;
@@ -885,7 +866,6 @@
   }
 
   .challenge-section {
-    background: #000;
     color: #fff;
   }
 
@@ -901,7 +881,6 @@
   }
 
   .challenge-section h2 {
-    color: #fff;
     font-size: clamp(2rem, 3vw, 2.75rem);
     font-weight: 600;
     line-height: 1.2;
@@ -909,7 +888,6 @@
   }
 
   .challenge-copy {
-    color: #fff;
     margin: 0 0 1.25rem;
   }
 
@@ -917,7 +895,6 @@
   .challenge-copy a,
   .job-description :global(a) {
     border-bottom: 2px solid var(--color-accent);
-    text-decoration: none;
     transition: background-color 0.2s;
   }
 
@@ -932,7 +909,6 @@
 
   .challenge-image {
     aspect-ratio: 4 / 3;
-    align-self: start;
     object-fit: cover;
   }
 
@@ -960,7 +936,6 @@
   }
 
   .benefit-item span {
-    color: #000;
     font-size: 1.4rem;
     font-weight: 600;
     line-height: 1.2;
@@ -980,7 +955,6 @@
   }
 
   .openings-intro p {
-    color: #000;
     font-size: 1.5rem;
     line-height: 1.3;
     margin: 1.5rem 0 0;
@@ -997,13 +971,8 @@
 
   .job-item {
     border-bottom: 1px solid #000;
-    margin-bottom: 0;
     padding: 1.5rem 0;
     scroll-margin-top: 6rem;
-  }
-
-  .job-item:last-child {
-    margin-bottom: 0;
   }
 
   .job-header {
@@ -1011,18 +980,15 @@
     display: flex;
     gap: 1rem;
     justify-content: space-between;
-    margin-bottom: 0;
   }
 
   .job-toggle {
     align-items: center;
     background: transparent;
     border: 0;
-    color: #000;
     cursor: pointer;
     display: flex;
     flex: 1;
-    font-family: inherit;
     justify-content: space-between;
     min-width: 0;
     padding: 0;
@@ -1054,20 +1020,14 @@
   }
 
   .job-title {
-    color: #000;
-    display: block;
-    flex: 0 1 auto;
     font-size: 1.875rem;
     font-weight: 600;
     line-height: 1.2;
-    margin: 0;
-    min-width: 0;
     overflow-wrap: anywhere;
   }
 
   .job-toggle-icon {
     align-items: center;
-    color: #000;
     display: flex;
     flex: none;
     height: 2rem;
@@ -1088,7 +1048,6 @@
   .job-team,
   .job-meta-separator,
   .job-location {
-    color: #000;
     font-family: "JetBrains Mono", monospace;
     font-size: 1rem;
     line-height: 1.2;
@@ -1116,7 +1075,6 @@
   }
 
   .job-actions {
-    align-items: stretch;
     display: flex;
     flex: none;
     gap: 0.5rem;
@@ -1126,7 +1084,6 @@
     align-items: center;
     background: transparent;
     border: 1px solid #000;
-    color: #000;
     cursor: pointer;
     display: flex;
     flex: none;
@@ -1186,13 +1143,11 @@
     color: #fff;
     cursor: pointer;
     flex: none;
-    font-family: inherit;
     font-size: 0.875rem;
     font-weight: 600;
     letter-spacing: 0.8px;
     line-height: 1.2;
     padding: 0.75rem 1rem;
-    text-decoration: none;
     text-transform: uppercase;
     transition: opacity 0.2s;
     white-space: nowrap;
@@ -1213,15 +1168,12 @@
   }
 
   .job-description {
-    color: #000;
     font-size: 1.125rem;
-    font-weight: 400;
     line-height: 1.45;
     margin-bottom: 1.5rem;
   }
 
   .job-qualifications {
-    color: #000;
     font-family: "JetBrains Mono", monospace;
     font-size: 1.0625rem;
     line-height: 1.25;
@@ -1230,17 +1182,13 @@
   }
 
   .job-item ul {
-    color: #000;
     margin: 0 0 10px;
     padding-left: 2.5rem;
   }
 
   .job-item li {
-    color: #000;
     font-size: 1.125rem;
-    font-weight: 400;
     line-height: 1.45;
-    margin-bottom: 0;
   }
 
   .job-how-to-apply {
@@ -1252,14 +1200,12 @@
   }
 
   .job-how-to-apply p {
-    color: #000;
     font-size: 1.125rem;
     line-height: 1.45;
     margin: 0;
   }
 
   .job-how-to-apply :global(a) {
-    color: #000;
     text-decoration: underline;
     text-underline-offset: 0.15em;
   }
@@ -1312,7 +1258,6 @@
     }
 
     .jobs-hero {
-      min-height: auto;
       padding-top: 3rem;
       padding-bottom: 2rem;
     }
@@ -1329,9 +1274,7 @@
 
     .section-title {
       font-size: 1.45rem;
-      font-weight: 700;
       line-height: 1.12;
-      max-width: 100%;
     }
 
     .large-text,
@@ -1339,8 +1282,6 @@
     .challenge-copy,
     .trait-card p {
       font-size: 1rem;
-      max-width: 100%;
-      overflow-wrap: normal;
     }
 
     .section-spacer {
@@ -1414,7 +1355,6 @@
     }
 
     .job-header-title {
-      margin-bottom: 0;
       margin-right: 0;
     }
 
@@ -1456,7 +1396,6 @@
 
     .apply-button {
       flex: 1;
-      text-align: center;
     }
   }
 </style>

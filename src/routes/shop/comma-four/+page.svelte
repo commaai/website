@@ -348,7 +348,6 @@
     color: #000;
   }
 
-
   hr {
     margin: 3rem 0;
   }
@@ -422,14 +421,12 @@
           & svg {
             width: 36px;
             height: 36px;
-            color: white;
           }
         }
 
         & span {
           font-family: JetBrains Mono, monospace;
           font-size: 0.875rem;
-          font-weight: 400;
           text-transform: uppercase;
           margin-left: 1rem;
         }
@@ -461,30 +458,19 @@
     & span {
       font-family: JetBrains Mono, monospace;
       font-size: 1rem;
-      margin-bottom: 0.5rem;
     }
 
     & h2 {
       font-size: 2.5rem;
-      font-weight: 600;
       line-height: 1.2;
+      text-wrap: balance;
     }
   }
 
   .compatibility {
     margin-bottom: 5rem;
 
-    @media screen and (max-width: 768px) {
-      & {
-        margin-bottom: 5rem;
-      }
-    }
-
     & hgroup {
-      & h2 {
-        text-wrap: balance;
-      }
-
       & span {
         text-transform: uppercase;
       }
@@ -536,7 +522,6 @@
     & .device-frame {
       display: block;
       width: 100%;
-      height: auto;
     }
 
     & .screen-overlay {
@@ -551,7 +536,6 @@
 
     & p {
       margin: 0;
-      font-size: 1.25rem;
     }
   }
 

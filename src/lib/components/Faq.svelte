@@ -51,7 +51,6 @@
 
     & h1 {
       font-size: 3rem;
-      font-weight: 600;
       margin: 0;
       max-width: 60%;
       position: relative;

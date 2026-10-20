@@ -339,15 +339,8 @@
       & hgroup {
         margin-bottom: 2rem;
 
-        & h1 {
-          margin: 0;
-          font-size: 3rem;
-        }
-
         & h2 {
           margin: 0.5rem 0 0 0;
-          font-size: 2rem;
-          font-weight: normal;
         }
       }
 
@@ -374,7 +367,6 @@
         & div {
           display: flex;
           align-items: center;
-          justify-content: center;
         }
 
         & span {
@@ -417,7 +409,6 @@
             & .content-header {
               display: flex;
               align-items: center;
-              justify-content: start;
               gap: 1rem;
 
               & img {
@@ -507,10 +498,6 @@
       margin-bottom: 1rem;
     }
 
-    & .card {
-      margin-bottom: 1rem;
-    }
-
     & .image-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -519,16 +506,13 @@
 
       & img {
         width: 100%;
-        height: auto;
       }
 
       & .crop-wrapper {
         overflow: hidden;
-        position: relative;
         aspect-ratio: 1 / 1;
 
         & img {
-          width: 100%;
           height: 100%;
           display: block;
           object-fit: cover;

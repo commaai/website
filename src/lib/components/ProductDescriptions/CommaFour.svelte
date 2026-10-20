@@ -320,7 +320,6 @@
     align-items: center;
     gap: 0.75rem;
     margin: 1rem 0;
-
   }
 
   .referral-prices {
@@ -351,7 +350,6 @@
   .undo-referral {
     width: auto;
     padding: 0.25rem 0.5rem;
-    color: black;
     font-family: JetBrains Mono, monospace;
     font-size: 0.875rem;
     font-weight: 600;
@@ -362,7 +360,6 @@
   .label {
     display: flex;
     align-items: center;
-    color: black;
 
     & div {
       height: 24px;
@@ -370,9 +367,7 @@
     }
 
     & span {
-      vertical-align: middle;
       margin-right: 1rem;
-      color: black;
     }
   }
 
@@ -396,9 +391,6 @@
   }
 
   .sale-price {
-    font-weight: 700;
-    color: var(--color-sale-red);
-
     & span {
       color: var(--color-sale-red);
     }

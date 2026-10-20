@@ -97,10 +97,6 @@
     line-height: 1.35;
   }
 
-  form {
-    margin: 0;
-  }
-
   .email-row {
     display: grid;
     grid-template-columns: minmax(0, 1fr) 3rem;
