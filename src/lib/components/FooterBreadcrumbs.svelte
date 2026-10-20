@@ -35,10 +35,8 @@
 
 <style>
   .footer-breadcrumbs {
-    position: absolute;
-    top: calc(var(--footer-top-space) / -2);
-    left: 0;
-    transform: translateY(-50%);
+    height: 6rem;
+    margin-top: -6rem;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -70,9 +68,8 @@
 
   @media (max-width: 1024px) {
     .footer-breadcrumbs {
-      position: static;
-      transform: none;
-      margin-bottom: 2rem;
+      height: auto;
+      margin: 0 0 2rem;
     }
 
     .footer-breadcrumbs > * {

@@ -326,14 +326,12 @@
   }
 
   footer {
-    --footer-top-space: 6rem;
     color: #fff;
     background-color: #000;
     padding: 6rem 6rem 1.25rem;
 
     @media screen and (max-width: 1024px) {
       & {
-        --footer-top-space: 2rem;
         padding: 2rem;
       }
 
@@ -343,7 +341,6 @@
     }
 
     & .container {
-      position: relative;
       max-width: 1440px;
       margin-left: auto;
       margin-right: auto;
