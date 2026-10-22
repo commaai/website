@@ -14,6 +14,12 @@
     replaceState(`#${id}`, {});
   }
 
+  function syncDropdownHash({ target }) {
+    if (!(target instanceof HTMLDetailsElement) || !target.id) return;
+    if (target.open) replaceState(`#${target.id}`, {});
+    else if (location.hash === `#${target.id}`) replaceState(location.pathname + location.search, {});
+  }
+
   let activeId = '';
 
   function trackActiveHeading(node, toc) {
@@ -37,7 +43,7 @@
 
 <SupportHeader title={article.title} description={article.description} image={article.image} imageAlt={article.imageAlt || article.title} />
 <div class="support-page" use:trackActiveHeading={article.toc}>
-  <article class="prose">{@html article.html}</article>
+  <article class="prose" on:toggle|capture={syncDropdownHash}>{@html article.html}</article>
   {#if article.toc.length}
     <aside class="sidebar">
       <nav class="topics" aria-label="Topics">

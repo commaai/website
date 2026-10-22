@@ -1,6 +1,7 @@
 <script>
   import { onMount, tick } from 'svelte';
   import { page } from '$app/stores';
+  import { replaceState } from '$app/navigation';
   import Accordion from './Accordion.svelte';
 
   export let topic;
@@ -12,6 +13,14 @@
     await tick();
     document.getElementById(activehash)?.closest('.tab')?.scrollIntoView();
   });
+
+  // only one question open at a time, mirrored in the url hash
+  $: openId = activehash;
+
+  function toggle(id) {
+    openId = openId === id ? '' : id;
+    replaceState(openId ? `#${openId}` : $page.url.pathname + $page.url.search, $page.state);
+  }
 </script>
 
 <div>
@@ -22,7 +31,7 @@
   <div class="questions">
     {#each topic.questions as entry}
       {@const id = entry.question.toLowerCase().replace(/[^\w\s]/g, '').replaceAll(' ', '-')}
-      <Accordion checked={id === activehash} {id}>
+      <Accordion checked={id === openId} {id} on:click={() => toggle(id)}>
         <div slot="label" class="label">
           <span>{entry.question}</span>
         </div>

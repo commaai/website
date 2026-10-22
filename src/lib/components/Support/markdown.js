@@ -50,7 +50,7 @@ const dropdown = {
     if (match) return { type: 'dropdown', raw: match[0], title: match[1], tokens: this.lexer.blockTokens(match[2]) };
   },
   renderer(token) {
-    return `<details class="dropdown"${idAttribute(slugify(token.title))}><summary><span class="dropdown-label">${escapeHtml(token.title)}</span><span class="dropdown-chevron" aria-hidden="true">${Chevron}</span></summary><div class="dropdown-content">${this.parser.parse(token.tokens)}</div></details>`;
+    return `<details class="dropdown" name="dropdown"${idAttribute(slugify(token.title))}><summary><span class="dropdown-label">${escapeHtml(token.title)}</span><span class="dropdown-chevron" aria-hidden="true">${Chevron}</span></summary><div class="dropdown-content">${this.parser.parse(token.tokens)}</div></details>`;
   }
 };
 
