@@ -1,7 +1,7 @@
 <script>
   import ProductPage from "../[product]/+page.svelte";
   import Grid from "$lib/components/Grid.svelte";
-  import LinkButton from "$lib/components/LinkButton.svelte";
+  import Button from "$lib/components/Button.svelte";
   import SetupGuide from "$lib/components/SetupGuide.svelte";
   import Faq from "$lib/components/Faq.svelte";
   import Space from "$lib/components/Space.svelte";
@@ -258,7 +258,7 @@
             A supported vehicle is one that just works when you install a comma device.
             All supported cars provide a better experience than any stock system.
           </p>
-          <LinkButton href="/vehicles" style="secondary" fullWidth={false}>View all {vehicleCountText} cars</LinkButton>
+          <Button href="/vehicles" style="secondary" fullWidth={false}>View all {vehicleCountText} cars</Button>
         </div>
         <img src={CarBrandCollageImage} loading="lazy" alt="collage of some supported car brands" />
       </Grid>
@@ -275,7 +275,7 @@
             comma four ships without software installed, so you need to install software.
             It is compatible with <a href="/openpilot" class="highlight">openpilot</a> and a wide variety of community forks.
           </p>
-          <LinkButton href="/openpilot" style="secondary" fullWidth={false}>openpilot</LinkButton>
+          <Button href="/openpilot" style="secondary" fullWidth={false}>openpilot</Button>
         </div>
       </Grid>
     </div>
@@ -452,10 +452,6 @@
             font-size: 0.875rem;
             text-transform: uppercase;
           }
-        }
-
-        & li {
-          font-size: 1rem;
         }
       }
     }

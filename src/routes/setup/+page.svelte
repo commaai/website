@@ -1,7 +1,7 @@
 <script>
   import Badge from "$lib/components/Badge.svelte";
   import Grid from "$lib/components/Grid.svelte";
-  import LinkButton from "$lib/components/LinkButton.svelte";
+  import Button from "$lib/components/Button.svelte";
   import Faq from "$lib/components/Faq.svelte";
   import HarnessSelector from "$lib/components/HarnessSelector/HarnessSelector.svelte";
   import CheckmarkIcon from "$lib/icons/ui/checkmark.svg?raw";
@@ -145,7 +145,7 @@
         />
 
         {#if selectedVehicle}
-          <div class="setup-notes">
+          <div class="setup-notes rich-text">
             <Grid templateColumns="1.25fr 0.75fr">
               {#if selectedVehicle.setupVideo}
                 <div>
@@ -292,7 +292,7 @@
             Pair your comma four with <a href="https://connect.comma.ai/" target="_blank" class="highlight">connect.comma.ai</a> on your phone to see your recorded drives.
           </p>
           <br />
-          <LinkButton href="https://connect.comma.ai/" target="_blank" style="primary" fullWidth={true}>comma Connect</LinkButton>
+          <Button href="https://connect.comma.ai/" target="_blank" style="primary" fullWidth={true}>comma Connect</Button>
         </div>
       </Grid>
     </div>
@@ -443,7 +443,6 @@
           }
 
           & li {
-            font-size: 1rem;
             text-wrap: balance;
           }
         }
@@ -575,26 +574,6 @@
 
       & li {
         margin-bottom: 0.5rem;
-        font-size: 1.25rem;
-      }
-
-      & a {
-        color: #000;
-        border-bottom: 2px solid #86ff4e;
-        background-color: rgba(134, 255, 78, 0.15);
-      }
-
-      & .media-container {
-        position: relative;
-        padding-bottom: 56.25%; /* 16:9 */
-
-        & iframe {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-        }
       }
     }
   }

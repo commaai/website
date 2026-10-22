@@ -67,9 +67,9 @@
             <svg viewBox="0 0 24 24" aria-hidden="true" in:fly={{ y: 8, duration: 200 }}><path d={showCopied ? checkIcon : card.icon} /></svg>
           {/key}
           <div>
-            <span class="label">{card.label}</span>
+            <span class="label support-label">{card.label}</span>
             {#key showCopied}
-              <h3 in:fly={{ y: 8, duration: 200 }} aria-live="polite">{showCopied ? 'Email copied' : card.title}</h3>
+              <h3 class="support-heading" in:fly={{ y: 8, duration: 200 }} aria-live="polite">{showCopied ? 'Email copied' : card.title}</h3>
             {/key}
           </div>
         </div>
@@ -95,13 +95,7 @@
   }
 
   .label {
-    display: block;
     margin-bottom: 8px;
-    color: var(--color-muted);
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: .04em;
-    text-transform: uppercase;
   }
 
   svg {

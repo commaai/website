@@ -35,7 +35,7 @@ const renderer = {
     const text = this.parser.parseInline(tokens);
     if (title !== 'card') return `<a href="${escapeHtml(href)}"${title ? ` title="${escapeHtml(title)}"` : ''}>${text}</a>`;
     const external = /^https?:/.test(href);
-    return `<a href="${escapeHtml(href)}" class="card-link"${external ? ' target="_blank" rel="noopener noreferrer"' : ''}>${text}<span class="card-link-arrow" aria-hidden="true">${external ? ExternalIcon : ArrowRight}</span></a>`;
+    return `<a href="${escapeHtml(href)}" class="card-link support-card"${external ? ' target="_blank" rel="noopener noreferrer"' : ''}>${text}<span class="card-link-arrow" aria-hidden="true">${external ? ExternalIcon : ArrowRight}</span></a>`;
   },
   heading({ depth, id, tokens }) {
     return `<h${depth}${idAttribute(id)}>${this.parser.parseInline(tokens)}</h${depth}>\n`;

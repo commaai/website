@@ -30,7 +30,7 @@
       </a>
     {/each}
   </div>
-  <button class="all-products" type="button" aria-expanded={showAllProducts} on:click={toggleAllProducts}>
+  <button class="all-products support-small" type="button" aria-expanded={showAllProducts} on:click={toggleAllProducts}>
     {showAllProducts ? 'show fewer products' : 'show all products'}
   </button>
 </section>
@@ -50,9 +50,7 @@
 
   .product-card h3 {
     margin: 20px 0 0;
-    font-size: 18px;
-    line-height: 1.25;
-    letter-spacing: -.02em;
+    font: inherit;
     font-weight: 500;
   }
 
@@ -90,8 +88,7 @@
     padding: 0;
     border: 0;
     background: none;
-    font: inherit;
-    font-size: 14px;
+    font-family: inherit;
     font-weight: 500;
     text-decoration: underline;
     text-underline-offset: 4px;
@@ -122,7 +119,6 @@
 
     .product-card h3 {
       margin-top: 12px;
-      font-size: 14px;
     }
   }
 </style>

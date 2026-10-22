@@ -1,7 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import Faq from "$lib/components/Faq.svelte";
-  import LinkButton from "$lib/components/LinkButton.svelte";
+  import Button from "$lib/components/Button.svelte";
   import JobsEmailUpdatesForm from "$lib/components/EmailUpdates/JobsEmailUpdatesForm.svelte";
   import { faq } from "$lib/constants/faq.svelte";
   import ArrowRightIcon from "$lib/icons/arrow-right.svg?raw";
@@ -371,7 +371,7 @@
           You don't do it by solving the problem one part at a time. There are no parts. There is just
           a machine learning model that contains the human policy of driving.
         </p>
-        <LinkButton href="#open-positions" style="primary">View Openings</LinkButton>
+        <Button href="#open-positions" style="primary">View Openings</Button>
       </div>
     </div>
   </section>
@@ -485,13 +485,13 @@
           The compression challenge is a good place to start, but any strong leaderboard
           challenge or bounty submission works.
         </p>
-        <LinkButton
+        <Button
           href="https://github.com/commaai/comma_video_compression_challenge"
           target="_blank"
           style="secondary"
         >
           Try the compression challenge
-        </LinkButton>
+        </Button>
       </div>
 
       <img
