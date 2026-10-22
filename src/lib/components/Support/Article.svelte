@@ -20,6 +20,11 @@
     else if (location.hash === `#${target.id}`) replaceState(location.pathname + location.search, {});
   }
 
+  function handleAnchorClick(event) {
+    const anchor = event.target.closest('.heading-anchor');
+    if (anchor) scrollToTopic(event, anchor.hash.slice(1));
+  }
+
   let activeId = '';
 
   function trackActiveHeading(node, toc) {
@@ -43,7 +48,7 @@
 
 <SupportHeader title={article.title} description={article.description} image={article.image} imageAlt={article.imageAlt || article.title} />
 <div class="support-page" use:trackActiveHeading={article.toc}>
-  <article class="prose" on:toggle|capture={syncDropdownHash}>{@html article.html}</article>
+  <article class="prose" on:toggle|capture={syncDropdownHash} on:click={handleAnchorClick}>{@html article.html}</article>
   {#if article.toc.length}
     <aside class="sidebar">
       <nav class="topics" aria-label="Topics">
@@ -127,7 +132,30 @@
       overflow-x: auto;
     }
 
-    & a:not(.card-link) {
+    & .heading-anchor {
+      display: inline-flex;
+      vertical-align: middle;
+      margin-left: .3em;
+      color: var(--color-muted);
+      opacity: 0;
+      transition: opacity .15s;
+
+      &:hover {
+        color: var(--color-foreground);
+      }
+
+      & svg {
+        width: .6em;
+        height: .6em;
+      }
+    }
+
+    & h2:hover .heading-anchor,
+    & .heading-anchor:focus-visible {
+      opacity: 1;
+    }
+
+    & a:not(.card-link, .heading-anchor) {
       border-bottom: 2px solid var(--color-accent);
       background: var(--support-accent-soft);
     }
