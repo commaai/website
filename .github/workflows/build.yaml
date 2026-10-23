@@ -77,3 +77,5 @@ jobs:
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_COMMA_WEB }}
           channelId: live
           projectId: comma-web
+          # 15.34.1+ checks the Hosting API via Service Usage
+          firebaseToolsVersion: 15.34.0
