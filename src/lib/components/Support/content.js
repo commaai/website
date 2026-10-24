@@ -15,6 +15,7 @@ function loadMarkdown(files) {
     if (!metadata.title || !metadata.description) throw new Error(`Missing title or description in ${path}`);
     return [slug, {
       ...metadata,
+      source: path.slice(1),
       image: metadata.image && resolve(images, metadata.image, path),
       ...renderArticle(body, image => resolve(images, image, path))
     }];

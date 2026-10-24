@@ -60,6 +60,12 @@
     </aside>
   {/if}
 </div>
+<div class="edit-row">
+  <a class="edit-button" href="https://github.com/commaai/website/edit/master/{article.source}" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9" /><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z" /></svg>
+    Edit this page
+  </a>
+</div>
 <hr />
 <SupportCatchAll />
 
@@ -68,6 +74,39 @@
     display: flex;
     align-items: flex-start;
     gap: clamp(48px, 7vw, 120px);
+  }
+
+  /* overlay the gap above the hr instead of adding to it */
+  .edit-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    box-sizing: border-box;
+    height: var(--support-space);
+    margin: calc(-1 * var(--support-space)) 0;
+    padding-bottom: 12px;
+  }
+
+  .edit-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border: 1px solid var(--support-border);
+    background-color: var(--color-card-background);
+    color: var(--color-muted);
+    font-size: 14px;
+    font-weight: 500;
+
+    &:hover {
+      background-color: var(--color-card-background-hover);
+      color: var(--color-foreground);
+    }
+
+    & svg {
+      width: 14px;
+      height: 14px;
+    }
   }
 
   .prose {
