@@ -16,14 +16,15 @@ A route is a recording of one drive. Your comma device starts a route when you t
 
 ## Upload the route
 
-Connect the comma device to Wi-Fi after the drive and leave it powered on so the route can upload. Upload time depends on the connection and the length of the drive.
+Connect the comma device to Wi-Fi after the drive and leave it powered on so the route can upload. Upload time depends on the connection and the length of the drive. Click "Files" in the drive view and then "upload all log files" to also upload all device log files.
 
 ## Share the route
 
 1. Sign in to [comma connect](https://connect.comma.ai/) with the account paired to your device.
 2. Open the drive from the correct date and time.
-3. Copy the route link from your browser.
-4. Include the link, the approximate time of the issue, and a short description of what happened in your support ticket.
+3. Click "Files" in the drive view and then "upload all log files" to also upload all device log files.
+4. Copy the route link from your browser.
+5. Include the link and a short description of what happened in your support ticket.
 
 ## Why is a stock route needed for a hardware support ticket?
 
