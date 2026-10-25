@@ -4,17 +4,16 @@
   import LinkButton from "$lib/components/LinkButton.svelte";
   import Faq from "$lib/components/Faq.svelte";
   import HarnessSelector from "$lib/components/HarnessSelector/HarnessSelector.svelte";
-  import CheckmarkIcon from "$lib/icons/ui/checkmark.svg?raw";
+  import SetupGuides from "$lib/setup-guides.json";
 
   import { faq } from "$lib/constants/faq.svelte";
 
   import { FOUR_PRICE, FOUR_SALE, FOUR_STRIKETHROUGH_PRICE } from '$lib/constants/prices.js';
 
   import RecordingsIcon from "$lib/icons/features/recordings.svg?raw";
-  import ImmediateIcon from "$lib/icons/features/immediate.svg?raw";
+
 
   import CommaFourDeviceImage from "$lib/images/products/comma-four/four_screen_on.png";
-  import CarHarnessImage from "$lib/images/products/car-harness/car-harness.jpg";
 
   import TrimImage from "$lib/images/setup/comma-four/trim.jpg";
   import Trim1Image from "$lib/images/setup/comma-four/trim-1.jpg";
@@ -41,14 +40,30 @@
     selectedVehicle = value;
   }
 
+  $: guide = SetupGuides[selectedVehicle?.car] || SetupGuides.default;
+  $: setupVideo = getVideoEmbedSrc(guide.video);
+
+  const photos = {
+    'camera-access': [TrimImage, Trim1Image, Trim2Image, Trim3Image],
+    'camera-connect': [CameraImage, Camera1Image, Plug1Image, PlugImage],
+    mount: [AlignImage, Mount1Image, PressImage],
+    device: [ObdcImage, Plug2Image, RemountImage],
+    'camera-close': [Wires1Image, Trim4Image, WiresImage, TrimImage],
+    power: [CommaPowerImage],
+  };
+  const locations = new Set(['footwell', 'cargo', 'cluster', 'glovebox', 'overhead', 'module']);
+
   function getVideoEmbedSrc(videoLink) {
-    const url = new URL(videoLink);
-    if (url.hostname !== "youtu.be" && url.hostname !== "www.youtube.com") {
-      console.warn("Video not supported", videoLink);
+    if (!videoLink) return null;
+    try {
+      const url = new URL(videoLink);
+      if (!['youtu.be', 'www.youtube.com', 'youtube.com'].includes(url.hostname)) return null;
+      const videoId = url.searchParams.get('v') || url.pathname.slice(1);
+      if (!/^[\w-]{11}$/.test(videoId)) return null;
+      return `https://www.youtube.com/embed/${videoId}?rel=0&controls=1&autoplay=0&mute=0`;
+    } catch {
       return null;
     }
-    const videoId = url.searchParams.get("v") || url.pathname.slice(1);
-    return `https://www.youtube.com/embed/${videoId}?rel=0&controls=1&autoplay=0&mute=0`;
   }
 </script>
 
@@ -61,25 +76,28 @@
       </hgroup>
       <Grid columns={2} columnGap="5rem" rowGap="0" templateColumns="1.5fr 0.75fr" alignItems="start" size="large">
         <div class="title">
+          {#if !setupVideo && locations.has(guide.steps[0].media)}
+            <img class="guide-overview" src={'/images/setup/' + guide.steps[0].media + '.svg'} alt={guide.title} />
+          {:else}
           <div class="media-container">
             <iframe
-              src="https://www.youtube.com/embed/Us4FodlaQ74?rel=0&amp;controls=1&amp;autoplay=0&amp;mute=0&amp;start=0"
+              src={setupVideo || 'https://www.youtube.com/embed/Us4FodlaQ74?rel=0&controls=1&autoplay=0&mute=0'}
               frameborder="0"
               allow="autoplay; encrypted-media"
               allowfullscreen=""
               title="setup video"
             ></iframe>
           </div>
+          {/if}
+          {#if setupVideo}
+            <p class="media-caption">Vehicle access reference. The video may show earlier comma hardware; follow the comma four steps below.</p>
+          {/if}
           <div class="overview">
             <div>
               {@html RecordingsIcon}
-              <span>5 steps</span>
+              <span>{guide.steps.length} steps</span>
             </div>
-            <div class="divider" />
-            <div>
-              {@html ImmediateIcon}
-              <span>15 min</span>
-            </div>
+
           </div>
         </div>
         <div>
@@ -105,22 +123,11 @@
                 </Grid>
               </div>
               <ul>
-                <li>comma four</li>
-                <li>OBD-C cable (1.5 ft)</li>
-                <li>2 mounts</li>
+                {#each guide.parts as part}
+                  <li>{part}</li>
+                {/each}
               </ul>
-            </div>
-            <div class="contents">
-              <div>
-                <div class="content-header">
-                  <img src={CarHarnessImage} loading="lazy" alt="car harness" />
-                  <a href="/shop/car-harness" target="_blank" class="highlight">car harness</a>
-                </div>
-              </div>
-              <ul>
-                <li>car harness (harness box & connector)</li>
-                <li>comma power</li>
-              </ul>
+              <a href="/shop/car-harness" class="highlight">Find your car harness</a>
             </div>
           </div>
         </div>
@@ -134,7 +141,7 @@
     <div class="card vehicle-notes">
       <div class="header">Customize Your Guide</div>
       <div class="contents">
-        <p>Select your vehicle to get customized installation notes:</p>
+        <p>Select your vehicle to customize the steps below:</p>
         <HarnessSelector
           label="Select your vehicle"
           placeholder="Search for your vehicle"
@@ -144,140 +151,53 @@
           restoreSelection={true}
         />
 
-        {#if selectedVehicle}
-          <div class="setup-notes">
-            <Grid templateColumns="1.25fr 0.75fr">
-              {#if selectedVehicle.setupVideo}
-                <div>
-                  <p class="note-heading">Setup Video:</p>
-                  <div class="media-container">
-                    <iframe
-                      src={getVideoEmbedSrc(selectedVehicle.setupVideo)}
-                      frameborder="0"
-                      allow="autoplay; encrypted-media"
-                      title="{selectedVehicle.car} setup guide"
-                    ></iframe>
-                  </div>
-                </div>
-              {/if}
-              {#if selectedVehicle.setupNotes.length > 0}
-                <div>
-                  <p class="note-heading">Setup Notes:</p>
-                  <ul>
-                    {#each selectedVehicle.setupNotes as note}
-                      <li>{@html note}</li>
-                    {/each}
-                  </ul>
-                </div>
-              {/if}
-              {#if (selectedVehicle.setupNotes.length === 0) && !selectedVehicle.setupVideo}
-                <div style="display: flex; align-items: center">
-                  <div style="display: flex;">{@html CheckmarkIcon}</div>
-                  <div style="margin-right: 0.5rem"/>
-                  <p>Follow the guide below. There are no specific setup notes for your vehicle.</p>
-                </div>
-              {/if}
-            </Grid>
-          </div>
-        {/if}
+        <div class="setup-notes" aria-live="polite">
+          <p class="note-heading">{selectedVehicle?.car || 'Standard installation'}</p>
+          <p>{guide.summary}</p>
+
+        </div>
       </div>
     </div>
 
-        <div class="step" id="step-1">
-      <Badge style="dark">Step 1 <span class="muted">of 5</span></Badge>
-      <h2>Remove the rearview mirror cover trim</h2>
-      <Grid templateColumns="0.875fr 0.75fr">
-        <div class="image-grid">
-          <img src={TrimImage} loading="lazy" alt="remove the rearview mirror cover trim" />
-          <img src={Trim1Image} loading="lazy" alt="remove trim step 1" />
-          <img src={Trim2Image} loading="lazy" alt="remove trim step 2" />
-          <img src={Trim3Image} loading="lazy" alt="remove trim step 3" />
-        </div>
-        <p>
-          Removal method varies by car.
-          The durable plastic often requires a strong tug to pop it off on Hondas.
-          Toyotas often need a slide outward.
-          If you'd like to see how it's done, find a comma installation guide for your specific make on <a href="https://www.youtube.com/results?search_query=comma+install" class="highlight">YouTube</a>.
-        </p>
-      </Grid>
-    </div>
-    <hr />
-    <div class="step" id="step-2">
-      <Badge style="dark">Step 2 <span class="muted">of 5</span></Badge>
-      <h2>Connect car harness into the camera</h2>
-      <Grid templateColumns="0.875fr 0.75fr">
-        <div class="image-grid">
-          <img src={CameraImage} loading="lazy" alt="unplug car's camera cable" />
-          <img src={Camera1Image} loading="lazy" alt="release camera connector clip" />
-          <img src={Plug1Image} loading="lazy" alt="plug car camera into harness" />
-          <img src={PlugImage} loading="lazy" alt="plug harness into camera port" />
-        </div>
-        <ul>
-          <li>Unplug the existing LKAS camera connector and plug it into the harness.</li>
-          <li>Connect the other end of the harness back into the LKAS camera.</li>
-          <li>
-            Secure the harness – Find a spot for the harness box so the trim can still be installed over it.
-            Peel off the adhesive sticker and attach the harness in place.
-          </li>
-        </ul>
-      </Grid>
-    </div>
-    <hr />
-    <div class="step" id="step-3">
-      <Badge style="dark">Step 3 <span class="muted">of 5</span></Badge>
-      <h2>Place mount high and centered on the windshield</h2>
-      <Grid templateColumns="0.875fr 0.75fr">
-        <div class="image-grid">
-          <div class="crop-wrapper">
-            <img src={AlignImage} loading="lazy" alt="check mount alignment" />
+    {#each guide.steps as step, index (step.id)}
+      {#if index > 0}<hr />{/if}
+      <div class="step" id="step-{index + 1}">
+        <Badge style="dark">Step {index + 1} <span class="muted">of {guide.steps.length}</span></Badge>
+        <h2>{step.title}</h2>
+        <Grid templateColumns="0.875fr 0.75fr">
+          {#if locations.has(step.media)}
+            <figure class="location-figure">
+              <img src={'/images/setup/' + step.media + '.svg'} loading="lazy" alt={step.title} />
+              <figcaption>{step.media === 'module' ? 'Connection overview. Connector appearance varies by vehicle.' : 'Connection area illustration. Trim and module appearance vary by vehicle.'}</figcaption>
+            </figure>
+          {:else}
+            <div class="image-grid" class:single-image={photos[step.media]?.length === 1}>
+              {#each photos[step.media] || [] as photo, photoIndex}
+                <img src={photo} loading="lazy" alt="{step.title} — image {photoIndex + 1}" />
+              {/each}
+            </div>
+          {/if}
+          <div>
+            <ul>
+              {#each step.body as instruction}
+                <li>{instruction}</li>
+              {/each}
+            </ul>
           </div>
-          <img src={Mount1Image} loading="lazy" alt="find a good spot for mount" />
-          <img src={PressImage} loading="lazy" alt="press mount on windshield" />
-        </div>
-        <div>
-          <ul>
-            <li>Mounting prep – Clean the mounting area with the included alcohol wipe and let it dry.</li>
-            <li>Vertical Positioning – Ensure there is enough room for the cable when the device is mounted, and that you can see the screen from a seated position.</li>
-            <li>Horizontal Positioning – Ensure the mount is centered horizontally, otherwise it will not properly center in the lane.</li>
-            <li>Adhere mount – Peel off the 3M tape's cover on the mount. Press firmly in the center of the mount, then the edges. Ensure no bubbles form.</li>
-          </ul>
-        </div>
-      </Grid>
-    </div>
-    <hr />
-    <div class="step" id="step-4">
-      <Badge style="dark">Step 4 <span class="muted">of 5</span></Badge>
-      <h2>Plug in OBD-C and mount the device</h2>
-      <Grid templateColumns="0.875fr 0.75fr">
-        <div class="image-grid">
-          <img src={ObdcImage} loading="lazy" alt="plug OBD-C cable into harness box" />
-          <img src={Plug2Image} loading="lazy" alt="plug in comma four" />
-          <img src={RemountImage} loading="lazy" alt="mount the device" />
-        </div>
+        </Grid>
+      </div>
+    {/each}
+
+    {#if guide.sources?.length}
+      <details class="setup-reference sources">
+        <summary>Vehicle installation references</summary>
         <ul>
-          <li>Plug the OBD-C cable into the harness box – Ensure the cable is fully seated.</li>
-          <li>Plug the OBD-C cable into the comma four. Make sure the cable is all the way in.</li>
-          <li>Mount the device – Ensure the device is fully seated into the mount.</li>
+          {#each guide.sources as source}
+            <li><a href={source.url} target="_blank" rel="noreferrer" class="highlight">{source.title}</a></li>
+          {/each}
         </ul>
-      </Grid>
-    </div>
-    <hr />
-    <div class="step" id="step-5">
-      <Badge style="dark">Step 5 <span class="muted">of 5</span></Badge>
-      <h2>Reinstall the rearview mirror cover trim</h2>
-      <Grid templateColumns="0.875fr 0.75fr">
-        <div class="image-grid">
-          <img src={Wires1Image} loading="lazy" alt="tidy up wires" />
-          <img src={Trim4Image} loading="lazy" alt="re-attach trim" />
-          <img src={WiresImage} loading="lazy" alt="wire management" />
-          <img src={TrimImage} loading="lazy" alt="reinstall trim" />
-        </div>
-        <ul>
-          <li>Ensure the car harness fully fits inside the trim.</li>
-          <li>Generally, it's best to have the OBD-C cable come out of the top.</li>
-        </ul>
-      </Grid>
-    </div>
+      </details>
+    {/if}
 
     <hr />
     <div class="step">
@@ -297,6 +217,7 @@
       </Grid>
     </div>
 
+    {#if guide.power === "optional"}
     <hr />
     <div class="step">
       <Badge style="dark">OPTIONAL STEP</Badge>
@@ -321,6 +242,7 @@
         </div>
       </Grid>
     </div>
+    {/if}
 
   </div>
 </section>
@@ -332,6 +254,17 @@
 </section>
 
 <style>
+  .guide-overview { display: block; width: 100%; max-height: 420px; object-fit: contain; }
+  .location-figure { margin: 0; }
+  .location-figure img { width: 100%; display: block; }
+  .location-figure figcaption, .media-caption { font-size: 0.875rem; color: #666; line-height: 1.5; margin-top: 0.75rem; }
+  .setup-reference { width: 100%; margin-top: 1.5rem; }
+  .setup-reference summary { cursor: pointer; text-decoration: underline; text-underline-offset: 4px; }
+  .setup-reference .media-container { margin-top: 1rem; max-width: 720px; }
+  .sources { margin: 3rem 0; font-size: 1rem; }
+  .sources li { margin: 0.75rem 0; }
+  .image-grid.single-image { grid-template-columns: 1fr; }
+
   #installation-guide {
     padding-bottom: 2rem;
 

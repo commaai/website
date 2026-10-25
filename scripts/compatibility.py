@@ -7,6 +7,7 @@ import json
 import jinja2
 
 from opendbc.car.docs import get_all_car_docs, get_all_footnotes
+from opendbc.car.setup import get_setup_guides
 from opendbc.car.docs_definitions import CarDocs, BaseCarHarness, Column, Device, ExtraCarsColumn, PartType, SupportType
 
 WEB4_DIR = Path(__file__).parent.parent
@@ -38,6 +39,11 @@ if __name__ == "__main__":
     content = render_template(all_car_docs, template_path)
     out_path.write_text(content)
     print(f"Generated and written to {out_path}")
+
+  setup_guides = get_setup_guides(all_car_docs)
+  setup_path = WEB4_DIR / "src/lib/setup-guides.json"
+  setup_path.write_text(json.dumps(setup_guides, indent=2, ensure_ascii=False) + "\n")
+  print(f"Generated and written to {setup_path}")
 
   last_updated = datetime.utcnow().strftime("%B %d, %Y").replace(" 0", " ")
   DATE_FILE.write_text(json.dumps({"last_updated": last_updated}, indent=2))
