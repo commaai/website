@@ -151,6 +151,12 @@
         <div class="setup-notes" aria-live="polite">
           <p class="note-heading">{selectedVehicle?.car || 'Standard installation'}</p>
           <p>{guide.summary}</p>
+          {#if selectedVehicle?.package}
+            <p><strong>Factory equipment:</strong> {selectedVehicle.package}</p>
+          {/if}
+          {#each guide.notes || [] as note}
+            <p class="guide-note">{note}</p>
+          {/each}
 
         </div>
       </div>
@@ -165,9 +171,10 @@
           {#if locations.has(step.media)}
             <figure class="location-figure">
               <img src={'/images/setup/' + step.media + '.svg'} loading="lazy" alt={step.title} />
-              <figcaption>{step.media === 'module' ? 'Connection overview. Connector appearance varies by vehicle.' : 'Connection area illustration. Trim and module appearance vary by vehicle.'}</figcaption>
+              <figcaption>{step.media === 'module' ? 'Connection overview. Connector appearance varies by vehicle.' : 'Location overview. Follow the text for the correct side and use the linked references to identify the connector.'}</figcaption>
             </figure>
           {:else}
+            <figure class="location-figure">
             <div class="image-grid" class:single-image={photos[step.media]?.length === 1}>
               {#each photos[step.media] || [] as photo, photoIndex}
                 {#if step.media === 'mount' && photoIndex === 0}
@@ -177,6 +184,10 @@
                 {/if}
               {/each}
             </div>
+            {#if step.media.startsWith('camera-') || step.media === 'device'}
+              <figcaption>Example installation. Camera covers, connector positions and cable routing vary by vehicle.</figcaption>
+            {/if}
+            </figure>
           {/if}
           <div>
             <ul>
@@ -184,6 +195,9 @@
                 <li>{instruction}</li>
               {/each}
             </ul>
+            {#each step.sources.filter(source => source.url !== 'https://comma.ai/setup') as source}
+              <p class="step-reference"><a href={source.url} target="_blank" rel="noreferrer" class="highlight">{source.title} ↗</a></p>
+            {/each}
           </div>
         </Grid>
       </div>
@@ -228,10 +242,14 @@
           <img src={CommaPowerImage} loading="lazy" alt="comma power" />
         </div>
         <div>
-          <p>
-            Installing the comma power is entirely optional and can be done at any time.
-            Simply connect one end to your car's OBD-II port and the other to the harness box.
-          </p>
+          {#each guide.power_notes || [] as note}
+            <p>{note}</p>
+          {/each}
+          <ul>
+            {#each guide.power_instructions as instruction}
+              <li>{instruction}</li>
+            {/each}
+          </ul>
           <p>
             With a comma power:
           </p>
@@ -255,6 +273,8 @@
 </section>
 
 <style>
+  .step .step-reference { font-size: 1rem; margin: 0.75rem 0; }
+  .setup-notes .guide-note { margin-top: 0.75rem; }
   .video-note { border-left: 3px solid #86ff4e; padding-left: 0.875rem; }
   .location-figure { margin: 0; }
   .location-figure img { width: 100%; display: block; }

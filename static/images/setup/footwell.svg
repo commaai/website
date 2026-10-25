@@ -26,8 +26,6 @@
 <rect x="359" y="165" width="82" height="25" rx="9" fill="white"/>
 </g>
 <path d="M127 391H188L207 407H303V452H144Z M480 422H647L640 452H480Z" fill="#86ff4e" fill-opacity=".3" stroke="#4b9c24" stroke-width="2" stroke-dasharray="6 6"/>
-<path d="M115 226H70V423H136" stroke="#181818" stroke-width="2"/>
-<circle cx="144" cy="423" r="8" fill="#86ff4e" stroke="#181818" stroke-width="2"/>
 <text x="48" y="59" font-family="Arial, sans-serif" font-size="26" fill="#181818">Below the dashboard</text>
 <text x="48" y="562" font-family="Arial, sans-serif" font-size="15" fill="#767676">LOCATION OVERVIEW</text>
 </svg>
