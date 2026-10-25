@@ -48,6 +48,7 @@
     'camera-connect': [CameraImage, Camera1Image, Plug1Image, PlugImage],
     mount: [AlignImage, Mount1Image, PressImage],
     device: [ObdcImage, Plug2Image, RemountImage],
+    'device-remote': [Plug2Image, RemountImage],
     'camera-close': [Wires1Image, Trim4Image, WiresImage, TrimImage],
     power: [CommaPowerImage],
   };
@@ -173,7 +174,11 @@
           {:else}
             <div class="image-grid" class:single-image={photos[step.media]?.length === 1}>
               {#each photos[step.media] || [] as photo, photoIndex}
-                <img src={photo} loading="lazy" alt="{step.title} — image {photoIndex + 1}" />
+                {#if step.media === 'mount' && photoIndex === 0}
+                  <div class="crop-wrapper"><img src={photo} loading="lazy" alt="Check mount alignment" /></div>
+                {:else}
+                  <img src={photo} loading="lazy" alt="{step.title} — image {photoIndex + 1}" />
+                {/if}
               {/each}
             </div>
           {/if}
@@ -260,7 +265,6 @@
   .location-figure figcaption, .media-caption { font-size: 0.875rem; color: #666; line-height: 1.5; margin-top: 0.75rem; }
   .setup-reference { width: 100%; margin-top: 1.5rem; }
   .setup-reference summary { cursor: pointer; text-decoration: underline; text-underline-offset: 4px; }
-  .setup-reference .media-container { margin-top: 1rem; max-width: 720px; }
   .sources { margin: 3rem 0; font-size: 1rem; }
   .sources li { margin: 0.75rem 0; }
   .image-grid.single-image { grid-template-columns: 1fr; }
