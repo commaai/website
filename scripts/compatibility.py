@@ -6,8 +6,7 @@ import json
 
 import jinja2
 
-from opendbc.car.docs import get_all_car_docs, get_all_footnotes
-from opendbc.car.setup import get_setup_guides
+from opendbc.car.docs import get_all_car_docs, get_all_footnotes, get_setup_guides
 from opendbc.car.docs_definitions import CarDocs, BaseCarHarness, Column, Device, ExtraCarsColumn, PartType, SupportType
 
 WEB4_DIR = Path(__file__).parent.parent
