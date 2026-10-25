@@ -77,21 +77,17 @@
       </hgroup>
       <Grid columns={2} columnGap="5rem" rowGap="0" templateColumns="1.5fr 0.75fr" alignItems="start" size="large">
         <div class="title">
-          {#if !setupVideo && locations.has(guide.steps[0].media)}
-            <img class="guide-overview" src={'/images/setup/' + guide.steps[0].media + '.svg'} alt={guide.title} />
-          {:else}
           <div class="media-container">
             <iframe
-              src={setupVideo || 'https://www.youtube.com/embed/Us4FodlaQ74?rel=0&controls=1&autoplay=0&mute=0'}
+              src={setupVideo}
               frameborder="0"
               allow="autoplay; encrypted-media"
               allowfullscreen=""
               title="setup video"
             ></iframe>
           </div>
-          {/if}
-          {#if setupVideo}
-            <p class="media-caption">Vehicle access reference. The video may show earlier comma hardware; follow the comma four steps below.</p>
+          {#if guide.video_is_reference}
+            <p class="media-caption video-note"><strong>Installation may differ.</strong> Some steps in this video may differ for your car or comma hardware. Follow your vehicle’s guide below.</p>
           {/if}
           <div class="overview">
             <div>
@@ -259,7 +255,7 @@
 </section>
 
 <style>
-  .guide-overview { display: block; width: 100%; max-height: 420px; object-fit: contain; }
+  .video-note { border-left: 3px solid #86ff4e; padding-left: 0.875rem; }
   .location-figure { margin: 0; }
   .location-figure img { width: 100%; display: block; }
   .location-figure figcaption, .media-caption { font-size: 0.875rem; color: #666; line-height: 1.5; margin-top: 0.75rem; }

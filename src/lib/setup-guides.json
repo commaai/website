@@ -98,7 +98,9 @@
         "title": "comma four setup",
         "url": "https://comma.ai/setup"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Acura ADX 2025-26": {
     "id": "Acura ADX 2025-26",
@@ -203,7 +205,9 @@
         "title": "Acura installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Honda-Acura"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Acura ILX 2016-18": {
     "id": "Acura ILX 2016-18",
@@ -308,7 +312,9 @@
         "title": "Acura installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Honda-Acura"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Acura ILX 2019": {
     "id": "Acura ILX 2019",
@@ -413,7 +419,9 @@
         "title": "Acura installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Honda-Acura"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Acura MDX 2022-24": {
     "id": "Acura MDX 2022-24",
@@ -518,7 +526,9 @@
         "title": "Acura installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Honda-Acura"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Acura MDX 2025-26": {
     "id": "Acura MDX 2025-26",
@@ -623,7 +633,9 @@
         "title": "Acura installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Honda-Acura"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Acura RDX 2016-18": {
     "id": "Acura RDX 2016-18",
@@ -728,7 +740,9 @@
         "title": "Acura installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Honda-Acura"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Acura RDX 2019-21": {
     "id": "Acura RDX 2019-21",
@@ -833,7 +847,9 @@
         "title": "Acura installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Honda-Acura"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Acura TLX 2021-22": {
     "id": "Acura TLX 2021-22",
@@ -938,7 +954,9 @@
         "title": "Acura installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Honda-Acura"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Acura TLX 2025": {
     "id": "Acura TLX 2025",
@@ -1043,7 +1061,9 @@
         "title": "Acura installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Honda-Acura"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Audi A3 2014-19": {
     "id": "Audi A3 2014-19",
@@ -1151,7 +1171,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Audi A3 Sportback e-tron 2017-18": {
     "id": "Audi A3 Sportback e-tron 2017-18",
@@ -1259,7 +1281,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Audi Q2 2018": {
     "id": "Audi Q2 2018",
@@ -1367,7 +1391,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Audi Q3 2019-24": {
     "id": "Audi Q3 2019-24",
@@ -1475,7 +1501,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Audi RS3 2018": {
     "id": "Audi RS3 2018",
@@ -1583,7 +1611,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Audi S3 2015-17": {
     "id": "Audi S3 2015-17",
@@ -1691,7 +1721,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Chevrolet Bolt EUV 2022-23": {
     "id": "Chevrolet Bolt EUV 2022-23",
@@ -1795,7 +1827,9 @@
         "title": "Chevrolet installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/GM"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Chevrolet Bolt EV 2022-23": {
     "id": "Chevrolet Bolt EV 2022-23",
@@ -1899,7 +1933,9 @@
         "title": "Chevrolet installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/GM"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Chevrolet Equinox 2019-22": {
     "id": "Chevrolet Equinox 2019-22",
@@ -2003,7 +2039,9 @@
         "title": "Chevrolet installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/GM"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Chevrolet Silverado 1500 2020-21": {
     "id": "Chevrolet Silverado 1500 2020-21",
@@ -2107,7 +2145,9 @@
         "title": "Chevrolet installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/GM"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Chevrolet Trailblazer 2021-22": {
     "id": "Chevrolet Trailblazer 2021-22",
@@ -2211,7 +2251,9 @@
         "title": "Chevrolet installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/GM"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Chrysler Pacifica 2017-18": {
     "id": "Chrysler Pacifica 2017-18",
@@ -2316,7 +2358,9 @@
         "title": "Chrysler installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/FCA"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Chrysler Pacifica 2019-20": {
     "id": "Chrysler Pacifica 2019-20",
@@ -2421,7 +2465,9 @@
         "title": "Chrysler installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/FCA"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Chrysler Pacifica 2021-23": {
     "id": "Chrysler Pacifica 2021-23",
@@ -2526,7 +2572,9 @@
         "title": "Chrysler installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/FCA"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Chrysler Pacifica Hybrid 2017-18": {
     "id": "Chrysler Pacifica Hybrid 2017-18",
@@ -2631,7 +2679,9 @@
         "title": "Chrysler installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/FCA"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Chrysler Pacifica Hybrid 2019-25": {
     "id": "Chrysler Pacifica Hybrid 2019-25",
@@ -2736,7 +2786,9 @@
         "title": "Chrysler installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/FCA"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "CUPRA Ateca 2018-23": {
     "id": "CUPRA Ateca 2018-23",
@@ -2844,7 +2896,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "CUPRA Born 2021-23": {
     "id": "CUPRA Born 2021-23",
@@ -2950,7 +3004,9 @@
         "title": "Volkswagen MEB installation",
         "url": "https://github.com/commaai/openpilot/wiki/Volkswagen"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Dodge Durango 2020-21": {
     "id": "Dodge Durango 2020-21",
@@ -3055,7 +3111,9 @@
         "title": "Dodge installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/FCA"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Ford Bronco Sport 2021-24": {
     "id": "Ford Bronco Sport 2021-24",
@@ -3160,7 +3218,9 @@
         "title": "Ford installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/ford"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Ford Escape 2020-22": {
     "id": "Ford Escape 2020-22",
@@ -3265,7 +3325,9 @@
         "title": "Ford installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/ford"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Ford Escape 2023-24": {
     "id": "Ford Escape 2023-24",
@@ -3377,7 +3439,8 @@
         "url": "https://www.youtube.com/watch?v=M6uXf4b2SHM"
       }
     ],
-    "video": "https://www.youtube.com/watch?v=M6uXf4b2SHM"
+    "video": "https://www.youtube.com/watch?v=M6uXf4b2SHM",
+    "video_is_reference": true
   },
   "Ford Escape Hybrid 2020-22": {
     "id": "Ford Escape Hybrid 2020-22",
@@ -3482,7 +3545,9 @@
         "title": "Ford installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/ford"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Ford Escape Hybrid 2023-24": {
     "id": "Ford Escape Hybrid 2023-24",
@@ -3594,7 +3659,8 @@
         "url": "https://www.youtube.com/watch?v=M6uXf4b2SHM"
       }
     ],
-    "video": "https://www.youtube.com/watch?v=M6uXf4b2SHM"
+    "video": "https://www.youtube.com/watch?v=M6uXf4b2SHM",
+    "video_is_reference": true
   },
   "Ford Escape Plug-in Hybrid 2020-22": {
     "id": "Ford Escape Plug-in Hybrid 2020-22",
@@ -3699,7 +3765,9 @@
         "title": "Ford installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/ford"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Ford Escape Plug-in Hybrid 2023-24": {
     "id": "Ford Escape Plug-in Hybrid 2023-24",
@@ -3811,7 +3879,8 @@
         "url": "https://www.youtube.com/watch?v=M6uXf4b2SHM"
       }
     ],
-    "video": "https://www.youtube.com/watch?v=M6uXf4b2SHM"
+    "video": "https://www.youtube.com/watch?v=M6uXf4b2SHM",
+    "video_is_reference": true
   },
   "Ford Expedition 2022-24": {
     "id": "Ford Expedition 2022-24",
@@ -3922,7 +3991,8 @@
         "url": "https://www.youtube.com/watch?v=MewJc9LYp9M"
       }
     ],
-    "video": "https://www.youtube.com/watch?v=MewJc9LYp9M"
+    "video": "https://www.youtube.com/watch?v=MewJc9LYp9M",
+    "video_is_reference": true
   },
   "Ford Explorer 2020-24": {
     "id": "Ford Explorer 2020-24",
@@ -4027,7 +4097,9 @@
         "title": "Ford installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/ford"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Ford Explorer Hybrid 2020-24": {
     "id": "Ford Explorer Hybrid 2020-24",
@@ -4132,7 +4204,9 @@
         "title": "Ford installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/ford"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Ford F-150 2021-23": {
     "id": "Ford F-150 2021-23",
@@ -4243,7 +4317,8 @@
         "url": "https://www.youtube.com/watch?v=MewJc9LYp9M"
       }
     ],
-    "video": "https://www.youtube.com/watch?v=MewJc9LYp9M"
+    "video": "https://www.youtube.com/watch?v=MewJc9LYp9M",
+    "video_is_reference": true
   },
   "Ford F-150 Hybrid 2021-23": {
     "id": "Ford F-150 Hybrid 2021-23",
@@ -4354,7 +4429,8 @@
         "url": "https://www.youtube.com/watch?v=MewJc9LYp9M"
       }
     ],
-    "video": "https://www.youtube.com/watch?v=MewJc9LYp9M"
+    "video": "https://www.youtube.com/watch?v=MewJc9LYp9M",
+    "video_is_reference": true
   },
   "Ford Focus 2018-22": {
     "id": "Ford Focus 2018-22",
@@ -4459,7 +4535,9 @@
         "title": "Ford installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/ford"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Ford Focus Hybrid 2018-22": {
     "id": "Ford Focus Hybrid 2018-22",
@@ -4564,7 +4642,9 @@
         "title": "Ford installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/ford"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Ford Kuga 2020-23": {
     "id": "Ford Kuga 2020-23",
@@ -4669,7 +4749,9 @@
         "title": "Ford installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/ford"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Ford Kuga Hybrid 2020-23": {
     "id": "Ford Kuga Hybrid 2020-23",
@@ -4774,7 +4856,9 @@
         "title": "Ford installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/ford"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Ford Kuga Hybrid 2024": {
     "id": "Ford Kuga Hybrid 2024",
@@ -4886,7 +4970,8 @@
         "url": "https://www.youtube.com/watch?v=uUGkH6C_EQU"
       }
     ],
-    "video": "https://www.youtube.com/watch?v=uUGkH6C_EQU"
+    "video": "https://www.youtube.com/watch?v=uUGkH6C_EQU",
+    "video_is_reference": true
   },
   "Ford Kuga Plug-in Hybrid 2020-23": {
     "id": "Ford Kuga Plug-in Hybrid 2020-23",
@@ -4991,7 +5076,9 @@
         "title": "Ford installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/ford"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Ford Kuga Plug-in Hybrid 2024": {
     "id": "Ford Kuga Plug-in Hybrid 2024",
@@ -5103,7 +5190,8 @@
         "url": "https://www.youtube.com/watch?v=uUGkH6C_EQU"
       }
     ],
-    "video": "https://www.youtube.com/watch?v=uUGkH6C_EQU"
+    "video": "https://www.youtube.com/watch?v=uUGkH6C_EQU",
+    "video_is_reference": true
   },
   "Ford Maverick 2022": {
     "id": "Ford Maverick 2022",
@@ -5208,7 +5296,9 @@
         "title": "Ford installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/ford"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Ford Maverick 2023-24": {
     "id": "Ford Maverick 2023-24",
@@ -5313,7 +5403,9 @@
         "title": "Ford installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/ford"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Ford Maverick Hybrid 2022": {
     "id": "Ford Maverick Hybrid 2022",
@@ -5418,7 +5510,9 @@
         "title": "Ford installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/ford"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Ford Maverick Hybrid 2023-24": {
     "id": "Ford Maverick Hybrid 2023-24",
@@ -5523,7 +5617,9 @@
         "title": "Ford installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/ford"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Ford Mustang Mach-E 2021-24": {
     "id": "Ford Mustang Mach-E 2021-24",
@@ -5635,7 +5731,8 @@
         "url": "https://www.youtube.com/watch?v=AR4_eTF3b_A"
       }
     ],
-    "video": "https://www.youtube.com/watch?v=AR4_eTF3b_A"
+    "video": "https://www.youtube.com/watch?v=AR4_eTF3b_A",
+    "video_is_reference": true
   },
   "Ford Ranger 2024": {
     "id": "Ford Ranger 2024",
@@ -5746,7 +5843,8 @@
         "url": "https://www.youtube.com/watch?v=2oJlXCKYOy0"
       }
     ],
-    "video": "https://www.youtube.com/watch?v=2oJlXCKYOy0"
+    "video": "https://www.youtube.com/watch?v=2oJlXCKYOy0",
+    "video_is_reference": true
   },
   "Genesis G70 2018": {
     "id": "Genesis G70 2018",
@@ -5851,7 +5949,9 @@
         "title": "Genesis installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Genesis G70 2019-21": {
     "id": "Genesis G70 2019-21",
@@ -5956,7 +6056,9 @@
         "title": "Genesis installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Genesis G70 2022-23": {
     "id": "Genesis G70 2022-23",
@@ -6061,7 +6163,9 @@
         "title": "Genesis installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Genesis G80 2017": {
     "id": "Genesis G80 2017",
@@ -6166,7 +6270,9 @@
         "title": "Genesis installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Genesis G80 2018-19": {
     "id": "Genesis G80 2018-19",
@@ -6271,7 +6377,9 @@
         "title": "Genesis installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Genesis G80 (2.5T Advanced Trim, with HDA II) 2024": {
     "id": "Genesis G80 (2.5T Advanced Trim, with HDA II) 2024",
@@ -6376,7 +6484,9 @@
         "title": "Genesis installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Genesis G90 2017-20": {
     "id": "Genesis G90 2017-20",
@@ -6481,7 +6591,9 @@
         "title": "Genesis installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Genesis GV60 (Advanced Trim) 2023": {
     "id": "Genesis GV60 (Advanced Trim) 2023",
@@ -6586,7 +6698,9 @@
         "title": "Genesis installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Genesis GV60 (Performance Trim) 2022-23": {
     "id": "Genesis GV60 (Performance Trim) 2022-23",
@@ -6691,7 +6805,9 @@
         "title": "Genesis installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Genesis GV70 (2.5T Trim, without HDA II) 2022-24": {
     "id": "Genesis GV70 (2.5T Trim, without HDA II) 2022-24",
@@ -6796,7 +6912,9 @@
         "title": "Genesis installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Genesis GV70 (3.5T Trim, without HDA II) 2022-23": {
     "id": "Genesis GV70 (3.5T Trim, without HDA II) 2022-23",
@@ -6901,7 +7019,9 @@
         "title": "Genesis installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Genesis GV70 Electrified (Australia Only) 2022": {
     "id": "Genesis GV70 Electrified (Australia Only) 2022",
@@ -7006,7 +7126,9 @@
         "title": "Genesis installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Genesis GV70 Electrified (with HDA II) 2023-24": {
     "id": "Genesis GV70 Electrified (with HDA II) 2023-24",
@@ -7111,7 +7233,9 @@
         "title": "Genesis installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Genesis GV80 2023": {
     "id": "Genesis GV80 2023",
@@ -7216,7 +7340,9 @@
         "title": "Genesis installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "GMC Sierra 1500 2020-21": {
     "id": "GMC Sierra 1500 2020-21",
@@ -7320,7 +7446,9 @@
         "title": "GMC installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/GM"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Honda Accord 2018-22": {
     "id": "Honda Accord 2018-22",
@@ -7425,7 +7553,9 @@
         "title": "Honda installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Honda-Acura"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Honda Accord 2023-25": {
     "id": "Honda Accord 2023-25",
@@ -7530,7 +7660,9 @@
         "title": "Honda installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Honda-Acura"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Honda Accord Hybrid 2018-22": {
     "id": "Honda Accord Hybrid 2018-22",
@@ -7635,7 +7767,9 @@
         "title": "Honda installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Honda-Acura"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Honda Accord Hybrid 2023-26": {
     "id": "Honda Accord Hybrid 2023-26",
@@ -7740,7 +7874,9 @@
         "title": "Honda installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Honda-Acura"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Honda City (Brazil only) 2023": {
     "id": "Honda City (Brazil only) 2023",
@@ -7845,7 +7981,9 @@
         "title": "Honda installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Honda-Acura"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Honda Civic 2016-18": {
     "id": "Honda Civic 2016-18",
@@ -7950,7 +8088,9 @@
         "title": "Honda installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Honda-Acura"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Honda Civic 2019-21": {
     "id": "Honda Civic 2019-21",
@@ -8055,7 +8195,9 @@
         "title": "Honda installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Honda-Acura"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Honda Civic 2022-26": {
     "id": "Honda Civic 2022-26",
@@ -8160,7 +8302,9 @@
         "title": "Honda installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Honda-Acura"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Honda Civic Hatchback 2017-18": {
     "id": "Honda Civic Hatchback 2017-18",
@@ -8265,7 +8409,9 @@
         "title": "Honda installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Honda-Acura"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Honda Civic Hatchback 2019-21": {
     "id": "Honda Civic Hatchback 2019-21",
@@ -8370,7 +8516,9 @@
         "title": "Honda installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Honda-Acura"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Honda Civic Hatchback 2022-26": {
     "id": "Honda Civic Hatchback 2022-26",
@@ -8475,7 +8623,9 @@
         "title": "Honda installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Honda-Acura"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Honda Civic Hatchback Hybrid 2025-26": {
     "id": "Honda Civic Hatchback Hybrid 2025-26",
@@ -8580,7 +8730,9 @@
         "title": "Honda installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Honda-Acura"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Honda Civic Hatchback Hybrid (Europe only) 2023": {
     "id": "Honda Civic Hatchback Hybrid (Europe only) 2023",
@@ -8685,7 +8837,9 @@
         "title": "Honda installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Honda-Acura"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Honda Civic Hybrid 2025-26": {
     "id": "Honda Civic Hybrid 2025-26",
@@ -8790,7 +8944,9 @@
         "title": "Honda installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Honda-Acura"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Honda CR-V 2015-16": {
     "id": "Honda CR-V 2015-16",
@@ -8895,7 +9051,9 @@
         "title": "Honda installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Honda-Acura"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Honda CR-V 2017-22": {
     "id": "Honda CR-V 2017-22",
@@ -9000,7 +9158,9 @@
         "title": "Honda installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Honda-Acura"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Honda CR-V 2023-26": {
     "id": "Honda CR-V 2023-26",
@@ -9105,7 +9265,9 @@
         "title": "Honda installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Honda-Acura"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Honda CR-V Hybrid 2017-22": {
     "id": "Honda CR-V Hybrid 2017-22",
@@ -9210,7 +9372,9 @@
         "title": "Honda installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Honda-Acura"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Honda CR-V Hybrid 2023-27": {
     "id": "Honda CR-V Hybrid 2023-27",
@@ -9315,7 +9479,9 @@
         "title": "Honda installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Honda-Acura"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Honda e 2020": {
     "id": "Honda e 2020",
@@ -9420,7 +9586,9 @@
         "title": "Honda installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Honda-Acura"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Honda Fit 2018-20": {
     "id": "Honda Fit 2018-20",
@@ -9525,7 +9693,9 @@
         "title": "Honda installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Honda-Acura"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Honda Freed 2020": {
     "id": "Honda Freed 2020",
@@ -9630,7 +9800,9 @@
         "title": "Honda installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Honda-Acura"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Honda HR-V 2019-22": {
     "id": "Honda HR-V 2019-22",
@@ -9735,7 +9907,9 @@
         "title": "Honda installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Honda-Acura"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Honda HR-V 2023-27": {
     "id": "Honda HR-V 2023-27",
@@ -9840,7 +10014,9 @@
         "title": "Honda installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Honda-Acura"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Honda Insight 2019-22": {
     "id": "Honda Insight 2019-22",
@@ -9945,7 +10121,9 @@
         "title": "Honda installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Honda-Acura"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Honda Inspire 2018": {
     "id": "Honda Inspire 2018",
@@ -10050,7 +10228,9 @@
         "title": "Honda installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Honda-Acura"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Honda N-Box 2018": {
     "id": "Honda N-Box 2018",
@@ -10155,7 +10335,9 @@
         "title": "Honda installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Honda-Acura"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Honda Odyssey 2018-20": {
     "id": "Honda Odyssey 2018-20",
@@ -10260,7 +10442,9 @@
         "title": "Honda installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Honda-Acura"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Honda Odyssey 2021-26": {
     "id": "Honda Odyssey 2021-26",
@@ -10365,7 +10549,9 @@
         "title": "Honda installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Honda-Acura"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Honda Odyssey (Singapore) 2021": {
     "id": "Honda Odyssey (Singapore) 2021",
@@ -10470,7 +10656,9 @@
         "title": "Honda installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Honda-Acura"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Honda Odyssey (Taiwan) 2018-19": {
     "id": "Honda Odyssey (Taiwan) 2018-19",
@@ -10575,7 +10763,9 @@
         "title": "Honda installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Honda-Acura"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Honda Passport 2019-25": {
     "id": "Honda Passport 2019-25",
@@ -10680,7 +10870,9 @@
         "title": "Honda installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Honda-Acura"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Honda Passport 2026": {
     "id": "Honda Passport 2026",
@@ -10785,7 +10977,9 @@
         "title": "Honda installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Honda-Acura"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Honda Pilot 2016-22": {
     "id": "Honda Pilot 2016-22",
@@ -10890,7 +11084,9 @@
         "title": "Honda installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Honda-Acura"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Honda Pilot 2023-25": {
     "id": "Honda Pilot 2023-25",
@@ -10995,7 +11191,9 @@
         "title": "Honda installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Honda-Acura"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Honda Pilot 2026": {
     "id": "Honda Pilot 2026",
@@ -11100,7 +11298,9 @@
         "title": "Honda installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Honda-Acura"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Honda Prelude 2026": {
     "id": "Honda Prelude 2026",
@@ -11205,7 +11405,9 @@
         "title": "Honda installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Honda-Acura"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Honda Ridgeline 2017-26": {
     "id": "Honda Ridgeline 2017-26",
@@ -11310,7 +11512,9 @@
         "title": "Honda installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Honda-Acura"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Hyundai Azera 2022": {
     "id": "Hyundai Azera 2022",
@@ -11415,7 +11619,9 @@
         "title": "Hyundai installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Hyundai Azera Hybrid 2019": {
     "id": "Hyundai Azera Hybrid 2019",
@@ -11520,7 +11726,9 @@
         "title": "Hyundai installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Hyundai Azera Hybrid 2020": {
     "id": "Hyundai Azera Hybrid 2020",
@@ -11625,7 +11833,9 @@
         "title": "Hyundai installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Hyundai Custin 2023": {
     "id": "Hyundai Custin 2023",
@@ -11730,7 +11940,9 @@
         "title": "Hyundai installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Hyundai Elantra 2017-18": {
     "id": "Hyundai Elantra 2017-18",
@@ -11835,7 +12047,9 @@
         "title": "Hyundai installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Hyundai Elantra 2019": {
     "id": "Hyundai Elantra 2019",
@@ -11940,7 +12154,9 @@
         "title": "Hyundai installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Hyundai Elantra 2021-23": {
     "id": "Hyundai Elantra 2021-23",
@@ -12045,7 +12261,9 @@
         "title": "Hyundai installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Hyundai Elantra GT 2017-20": {
     "id": "Hyundai Elantra GT 2017-20",
@@ -12150,7 +12368,9 @@
         "title": "Hyundai installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Hyundai Elantra Hybrid 2021-23": {
     "id": "Hyundai Elantra Hybrid 2021-23",
@@ -12255,7 +12475,9 @@
         "title": "Hyundai installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Hyundai Genesis 2015-16": {
     "id": "Hyundai Genesis 2015-16",
@@ -12360,7 +12582,9 @@
         "title": "Hyundai installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Hyundai i30 2017-19": {
     "id": "Hyundai i30 2017-19",
@@ -12465,7 +12689,9 @@
         "title": "Hyundai installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Hyundai Ioniq 5 (Southeast Asia and Europe only) 2022-24": {
     "id": "Hyundai Ioniq 5 (Southeast Asia and Europe only) 2022-24",
@@ -12570,7 +12796,9 @@
         "title": "Hyundai installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Hyundai Ioniq 5 (with HDA II) 2022-24": {
     "id": "Hyundai Ioniq 5 (with HDA II) 2022-24",
@@ -12675,7 +12903,9 @@
         "title": "Hyundai installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Hyundai Ioniq 5 (without HDA II) 2022-24": {
     "id": "Hyundai Ioniq 5 (without HDA II) 2022-24",
@@ -12780,7 +13010,9 @@
         "title": "Hyundai installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Hyundai Ioniq 6 (with HDA II) 2023-24": {
     "id": "Hyundai Ioniq 6 (with HDA II) 2023-24",
@@ -12885,7 +13117,9 @@
         "title": "Hyundai installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Hyundai Ioniq 6 (without HDA II) 2023-24": {
     "id": "Hyundai Ioniq 6 (without HDA II) 2023-24",
@@ -12990,7 +13224,9 @@
         "title": "Hyundai installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Hyundai Ioniq Electric 2019": {
     "id": "Hyundai Ioniq Electric 2019",
@@ -13095,7 +13331,9 @@
         "title": "Hyundai installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Hyundai Ioniq Electric 2020": {
     "id": "Hyundai Ioniq Electric 2020",
@@ -13200,7 +13438,9 @@
         "title": "Hyundai installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Hyundai Ioniq Hybrid 2017-19": {
     "id": "Hyundai Ioniq Hybrid 2017-19",
@@ -13305,7 +13545,9 @@
         "title": "Hyundai installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Hyundai Ioniq Hybrid 2020-22": {
     "id": "Hyundai Ioniq Hybrid 2020-22",
@@ -13410,7 +13652,9 @@
         "title": "Hyundai installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Hyundai Ioniq Plug-in Hybrid 2019": {
     "id": "Hyundai Ioniq Plug-in Hybrid 2019",
@@ -13515,7 +13759,9 @@
         "title": "Hyundai installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Hyundai Ioniq Plug-in Hybrid 2020-22": {
     "id": "Hyundai Ioniq Plug-in Hybrid 2020-22",
@@ -13620,7 +13866,9 @@
         "title": "Hyundai installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Hyundai Kona 2020": {
     "id": "Hyundai Kona 2020",
@@ -13725,7 +13973,9 @@
         "title": "Hyundai installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Hyundai Kona Electric 2018-21": {
     "id": "Hyundai Kona Electric 2018-21",
@@ -13830,7 +14080,9 @@
         "title": "Hyundai installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Hyundai Kona Electric 2022-23": {
     "id": "Hyundai Kona Electric 2022-23",
@@ -13935,7 +14187,9 @@
         "title": "Hyundai installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Hyundai Kona Electric (with HDA II, Korea only) 2023": {
     "id": "Hyundai Kona Electric (with HDA II, Korea only) 2023",
@@ -14040,7 +14294,9 @@
         "title": "Hyundai installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Hyundai Kona Hybrid 2020": {
     "id": "Hyundai Kona Hybrid 2020",
@@ -14145,7 +14401,9 @@
         "title": "Hyundai installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Hyundai Nexo 2021": {
     "id": "Hyundai Nexo 2021",
@@ -14250,7 +14508,9 @@
         "title": "Hyundai installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Hyundai Palisade 2020-22": {
     "id": "Hyundai Palisade 2020-22",
@@ -14355,7 +14615,9 @@
         "title": "Hyundai installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Hyundai Santa Cruz 2022-24": {
     "id": "Hyundai Santa Cruz 2022-24",
@@ -14460,7 +14722,9 @@
         "title": "Hyundai installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Hyundai Santa Fe 2019-20": {
     "id": "Hyundai Santa Fe 2019-20",
@@ -14565,7 +14829,9 @@
         "title": "Hyundai installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Hyundai Santa Fe 2021-23": {
     "id": "Hyundai Santa Fe 2021-23",
@@ -14670,7 +14936,9 @@
         "title": "Hyundai installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Hyundai Santa Fe Hybrid 2022-23": {
     "id": "Hyundai Santa Fe Hybrid 2022-23",
@@ -14775,7 +15043,9 @@
         "title": "Hyundai installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Hyundai Santa Fe Plug-in Hybrid 2022-23": {
     "id": "Hyundai Santa Fe Plug-in Hybrid 2022-23",
@@ -14880,7 +15150,9 @@
         "title": "Hyundai installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Hyundai Sonata 2018-19": {
     "id": "Hyundai Sonata 2018-19",
@@ -14985,7 +15257,9 @@
         "title": "Hyundai installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Hyundai Sonata 2020-23": {
     "id": "Hyundai Sonata 2020-23",
@@ -15090,7 +15364,9 @@
         "title": "Hyundai installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Hyundai Sonata Hybrid 2020-23": {
     "id": "Hyundai Sonata Hybrid 2020-23",
@@ -15195,7 +15471,9 @@
         "title": "Hyundai installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Hyundai Staria 2023": {
     "id": "Hyundai Staria 2023",
@@ -15300,7 +15578,9 @@
         "title": "Hyundai installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Hyundai Tucson 2021": {
     "id": "Hyundai Tucson 2021",
@@ -15405,7 +15685,9 @@
         "title": "Hyundai installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Hyundai Tucson 2022": {
     "id": "Hyundai Tucson 2022",
@@ -15510,7 +15792,9 @@
         "title": "Hyundai installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Hyundai Tucson 2023-24": {
     "id": "Hyundai Tucson 2023-24",
@@ -15615,7 +15899,9 @@
         "title": "Hyundai installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Hyundai Tucson Diesel 2019": {
     "id": "Hyundai Tucson Diesel 2019",
@@ -15720,7 +16006,9 @@
         "title": "Hyundai installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Hyundai Tucson Hybrid 2022-24": {
     "id": "Hyundai Tucson Hybrid 2022-24",
@@ -15825,7 +16113,9 @@
         "title": "Hyundai installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Hyundai Tucson Plug-in Hybrid 2024": {
     "id": "Hyundai Tucson Plug-in Hybrid 2024",
@@ -15930,7 +16220,9 @@
         "title": "Hyundai installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Hyundai Veloster 2019-20": {
     "id": "Hyundai Veloster 2019-20",
@@ -16035,7 +16327,9 @@
         "title": "Hyundai installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Jeep Grand Cherokee 2016-18": {
     "id": "Jeep Grand Cherokee 2016-18",
@@ -16140,7 +16434,9 @@
         "title": "Jeep installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/FCA"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Jeep Grand Cherokee 2019-21": {
     "id": "Jeep Grand Cherokee 2019-21",
@@ -16245,7 +16541,9 @@
         "title": "Jeep installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/FCA"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Kia Carnival 2022-24": {
     "id": "Kia Carnival 2022-24",
@@ -16350,7 +16648,9 @@
         "title": "Kia installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Kia Carnival (China only) 2023": {
     "id": "Kia Carnival (China only) 2023",
@@ -16455,7 +16755,9 @@
         "title": "Kia installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Kia Ceed 2019-21": {
     "id": "Kia Ceed 2019-21",
@@ -16560,7 +16862,9 @@
         "title": "Kia installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Kia Ceed Plug-in Hybrid 2021": {
     "id": "Kia Ceed Plug-in Hybrid 2021",
@@ -16665,7 +16969,9 @@
         "title": "Kia installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Kia EV6 (Southeast Asia only) 2022-24": {
     "id": "Kia EV6 (Southeast Asia only) 2022-24",
@@ -16770,7 +17076,9 @@
         "title": "Kia installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Kia EV6 (with HDA II) 2022-24": {
     "id": "Kia EV6 (with HDA II) 2022-24",
@@ -16875,7 +17183,9 @@
         "title": "Kia installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Kia EV6 (without HDA II) 2022-24": {
     "id": "Kia EV6 (without HDA II) 2022-24",
@@ -16980,7 +17290,9 @@
         "title": "Kia installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Kia Forte 2019-21": {
     "id": "Kia Forte 2019-21",
@@ -17085,7 +17397,9 @@
         "title": "Kia installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Kia Forte 2022-23": {
     "id": "Kia Forte 2022-23",
@@ -17190,7 +17504,9 @@
         "title": "Kia installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Kia K5 2021-24": {
     "id": "Kia K5 2021-24",
@@ -17295,7 +17611,9 @@
         "title": "Kia installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Kia K5 Hybrid 2020-22": {
     "id": "Kia K5 Hybrid 2020-22",
@@ -17400,7 +17718,9 @@
         "title": "Kia installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Kia K7 2017": {
     "id": "Kia K7 2017",
@@ -17505,7 +17825,9 @@
         "title": "Kia installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Kia K8 Hybrid (with HDA II) 2023": {
     "id": "Kia K8 Hybrid (with HDA II) 2023",
@@ -17610,7 +17932,9 @@
         "title": "Kia installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Kia Niro EV 2019": {
     "id": "Kia Niro EV 2019",
@@ -17715,7 +18039,9 @@
         "title": "Kia installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Kia Niro EV 2020": {
     "id": "Kia Niro EV 2020",
@@ -17820,7 +18146,9 @@
         "title": "Kia installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Kia Niro EV 2021": {
     "id": "Kia Niro EV 2021",
@@ -17925,7 +18253,9 @@
         "title": "Kia installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Kia Niro EV 2022": {
     "id": "Kia Niro EV 2022",
@@ -18030,7 +18360,9 @@
         "title": "Kia installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Kia Niro EV (with HDA II) 2024-25": {
     "id": "Kia Niro EV (with HDA II) 2024-25",
@@ -18135,7 +18467,9 @@
         "title": "Kia installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Kia Niro EV (without HDA II) 2023-25": {
     "id": "Kia Niro EV (without HDA II) 2023-25",
@@ -18240,7 +18574,9 @@
         "title": "Kia installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Kia Niro Hybrid 2018": {
     "id": "Kia Niro Hybrid 2018",
@@ -18345,7 +18681,9 @@
         "title": "Kia installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Kia Niro Hybrid 2021": {
     "id": "Kia Niro Hybrid 2021",
@@ -18450,7 +18788,9 @@
         "title": "Kia installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Kia Niro Hybrid 2022": {
     "id": "Kia Niro Hybrid 2022",
@@ -18555,7 +18895,9 @@
         "title": "Kia installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Kia Niro Hybrid 2023-24": {
     "id": "Kia Niro Hybrid 2023-24",
@@ -18660,7 +19002,9 @@
         "title": "Kia installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Kia Niro Plug-in Hybrid 2018-19": {
     "id": "Kia Niro Plug-in Hybrid 2018-19",
@@ -18765,7 +19109,9 @@
         "title": "Kia installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Kia Niro Plug-in Hybrid 2020": {
     "id": "Kia Niro Plug-in Hybrid 2020",
@@ -18870,7 +19216,9 @@
         "title": "Kia installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Kia Niro Plug-in Hybrid 2021": {
     "id": "Kia Niro Plug-in Hybrid 2021",
@@ -18975,7 +19323,9 @@
         "title": "Kia installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Kia Niro Plug-in Hybrid 2022": {
     "id": "Kia Niro Plug-in Hybrid 2022",
@@ -19080,7 +19430,9 @@
         "title": "Kia installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Kia Optima 2017": {
     "id": "Kia Optima 2017",
@@ -19185,7 +19537,9 @@
         "title": "Kia installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Kia Optima 2019-20": {
     "id": "Kia Optima 2019-20",
@@ -19290,7 +19644,9 @@
         "title": "Kia installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Kia Optima Hybrid 2019": {
     "id": "Kia Optima Hybrid 2019",
@@ -19395,7 +19751,9 @@
         "title": "Kia installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Kia Seltos 2021": {
     "id": "Kia Seltos 2021",
@@ -19500,7 +19858,9 @@
         "title": "Kia installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Kia Sorento 2018": {
     "id": "Kia Sorento 2018",
@@ -19605,7 +19965,9 @@
         "title": "Kia installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Kia Sorento 2019": {
     "id": "Kia Sorento 2019",
@@ -19710,7 +20072,9 @@
         "title": "Kia installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Kia Sorento 2021-23": {
     "id": "Kia Sorento 2021-23",
@@ -19815,7 +20179,9 @@
         "title": "Kia installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Kia Sorento Hybrid 2021-23": {
     "id": "Kia Sorento Hybrid 2021-23",
@@ -19920,7 +20286,9 @@
         "title": "Kia installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Kia Sorento Plug-in Hybrid 2022-23": {
     "id": "Kia Sorento Plug-in Hybrid 2022-23",
@@ -20025,7 +20393,9 @@
         "title": "Kia installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Kia Sportage 2023-24": {
     "id": "Kia Sportage 2023-24",
@@ -20130,7 +20500,9 @@
         "title": "Kia installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Kia Sportage Hybrid 2023": {
     "id": "Kia Sportage Hybrid 2023",
@@ -20235,7 +20607,9 @@
         "title": "Kia installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Kia Sportage Plug-in Hybrid 2023": {
     "id": "Kia Sportage Plug-in Hybrid 2023",
@@ -20340,7 +20714,9 @@
         "title": "Kia installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Kia Stinger 2018-20": {
     "id": "Kia Stinger 2018-20",
@@ -20445,7 +20821,9 @@
         "title": "Kia installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Kia Stinger 2022-23": {
     "id": "Kia Stinger 2022-23",
@@ -20550,7 +20928,9 @@
         "title": "Kia installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Kia Telluride 2020-22": {
     "id": "Kia Telluride 2020-22",
@@ -20655,7 +21035,9 @@
         "title": "Kia installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Hyundai-Kia-Genesis"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Lexus CT Hybrid 2017-18": {
     "id": "Lexus CT Hybrid 2017-18",
@@ -20760,7 +21142,9 @@
         "title": "Lexus installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Lexus ES 2017-18": {
     "id": "Lexus ES 2017-18",
@@ -20865,7 +21249,9 @@
         "title": "Lexus installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Lexus ES 2019-25": {
     "id": "Lexus ES 2019-25",
@@ -20970,7 +21356,9 @@
         "title": "Lexus installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Lexus ES Hybrid 2017-18": {
     "id": "Lexus ES Hybrid 2017-18",
@@ -21075,7 +21463,9 @@
         "title": "Lexus installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Lexus ES Hybrid 2019-25": {
     "id": "Lexus ES Hybrid 2019-25",
@@ -21180,7 +21570,9 @@
         "title": "Lexus installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Lexus GS F 2016": {
     "id": "Lexus GS F 2016",
@@ -21285,7 +21677,9 @@
         "title": "Lexus installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Lexus IS 2017-19": {
     "id": "Lexus IS 2017-19",
@@ -21390,7 +21784,9 @@
         "title": "Lexus installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Lexus IS 2022-24": {
     "id": "Lexus IS 2022-24",
@@ -21495,7 +21891,9 @@
         "title": "Lexus installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Lexus LC 2024-25": {
     "id": "Lexus LC 2024-25",
@@ -21600,7 +21998,9 @@
         "title": "Lexus installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Lexus LS 2018": {
     "id": "Lexus LS 2018",
@@ -21705,7 +22105,9 @@
         "title": "Lexus installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Lexus NX 2018-19": {
     "id": "Lexus NX 2018-19",
@@ -21810,7 +22212,9 @@
         "title": "Lexus installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Lexus NX 2020-21": {
     "id": "Lexus NX 2020-21",
@@ -21915,7 +22319,9 @@
         "title": "Lexus installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Lexus NX Hybrid 2018-19": {
     "id": "Lexus NX Hybrid 2018-19",
@@ -22020,7 +22426,9 @@
         "title": "Lexus installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Lexus NX Hybrid 2020-21": {
     "id": "Lexus NX Hybrid 2020-21",
@@ -22125,7 +22533,9 @@
         "title": "Lexus installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Lexus RC 2018-20": {
     "id": "Lexus RC 2018-20",
@@ -22230,7 +22640,9 @@
         "title": "Lexus installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Lexus RC 2023": {
     "id": "Lexus RC 2023",
@@ -22335,7 +22747,9 @@
         "title": "Lexus installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Lexus RX 2016": {
     "id": "Lexus RX 2016",
@@ -22440,7 +22854,9 @@
         "title": "Lexus installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Lexus RX 2017-19": {
     "id": "Lexus RX 2017-19",
@@ -22545,7 +22961,9 @@
         "title": "Lexus installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Lexus RX 2020-22": {
     "id": "Lexus RX 2020-22",
@@ -22650,7 +23068,9 @@
         "title": "Lexus installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Lexus RX Hybrid 2016": {
     "id": "Lexus RX Hybrid 2016",
@@ -22755,7 +23175,9 @@
         "title": "Lexus installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Lexus RX Hybrid 2017-19": {
     "id": "Lexus RX Hybrid 2017-19",
@@ -22860,7 +23282,9 @@
         "title": "Lexus installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Lexus RX Hybrid 2020-22": {
     "id": "Lexus RX Hybrid 2020-22",
@@ -22965,7 +23389,9 @@
         "title": "Lexus installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Lexus UX Hybrid 2019-24": {
     "id": "Lexus UX Hybrid 2019-24",
@@ -23070,7 +23496,9 @@
         "title": "Lexus installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Lincoln Aviator 2020-24": {
     "id": "Lincoln Aviator 2020-24",
@@ -23175,7 +23603,9 @@
         "title": "Lincoln installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/ford"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Lincoln Aviator Plug-in Hybrid 2020-24": {
     "id": "Lincoln Aviator Plug-in Hybrid 2020-24",
@@ -23280,7 +23710,9 @@
         "title": "Lincoln installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/ford"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "MAN eTGE 2020-24": {
     "id": "MAN eTGE 2020-24",
@@ -23388,7 +23820,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "MAN TGE 2017-24": {
     "id": "MAN TGE 2017-24",
@@ -23496,7 +23930,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Mazda CX-5 2022-25": {
     "id": "Mazda CX-5 2022-25",
@@ -23616,7 +24052,9 @@
         "title": "Mazda installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Mazda"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Mazda CX-9 2021-23": {
     "id": "Mazda CX-9 2021-23",
@@ -23736,7 +24174,9 @@
         "title": "Mazda installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Mazda"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Nissan Altima 2019-24": {
     "id": "Nissan Altima 2019-24",
@@ -23843,7 +24283,9 @@
         "title": "Nissan ADAS installation locations",
         "url": "https://github.com/commaai/openpilot/wiki/nissan"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Nissan Leaf 2018-23": {
     "id": "Nissan Leaf 2018-23",
@@ -23950,7 +24392,9 @@
         "title": "Nissan ADAS installation locations",
         "url": "https://github.com/commaai/openpilot/wiki/nissan"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Nissan Rogue 2018-20": {
     "id": "Nissan Rogue 2018-20",
@@ -24057,7 +24501,9 @@
         "title": "Nissan ADAS installation locations",
         "url": "https://github.com/commaai/openpilot/wiki/nissan"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Nissan X-Trail 2017": {
     "id": "Nissan X-Trail 2017",
@@ -24164,7 +24610,9 @@
         "title": "Nissan ADAS installation locations",
         "url": "https://github.com/commaai/openpilot/wiki/nissan"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Ram 1500 2019-24": {
     "id": "Ram 1500 2019-24",
@@ -24269,7 +24717,9 @@
         "title": "Ram installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/FCA"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Rivian R1S 2022-24": {
     "id": "Rivian R1S 2022-24",
@@ -24397,7 +24847,8 @@
         "url": "https://youtu.be/uaISd1j7Z4U"
       }
     ],
-    "video": "https://youtu.be/uaISd1j7Z4U"
+    "video": "https://youtu.be/uaISd1j7Z4U",
+    "video_is_reference": true
   },
   "Rivian R1T 2022-24": {
     "id": "Rivian R1T 2022-24",
@@ -24525,7 +24976,8 @@
         "url": "https://youtu.be/uaISd1j7Z4U"
       }
     ],
-    "video": "https://youtu.be/uaISd1j7Z4U"
+    "video": "https://youtu.be/uaISd1j7Z4U",
+    "video_is_reference": true
   },
   "SEAT Ateca 2016-23": {
     "id": "SEAT Ateca 2016-23",
@@ -24633,7 +25085,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "SEAT Leon 2014-20": {
     "id": "SEAT Leon 2014-20",
@@ -24741,7 +25195,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Subaru Ascent 2019-21": {
     "id": "Subaru Ascent 2019-21",
@@ -24848,7 +25304,9 @@
         "title": "Subaru installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Subaru"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Subaru Crosstrek 2018-19": {
     "id": "Subaru Crosstrek 2018-19",
@@ -24955,7 +25413,9 @@
         "title": "Subaru installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Subaru"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Subaru Crosstrek 2020-23": {
     "id": "Subaru Crosstrek 2020-23",
@@ -25062,7 +25522,9 @@
         "title": "Subaru installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Subaru"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Subaru Forester 2019-21": {
     "id": "Subaru Forester 2019-21",
@@ -25169,7 +25631,9 @@
         "title": "Subaru installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Subaru"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Subaru Impreza 2017-19": {
     "id": "Subaru Impreza 2017-19",
@@ -25276,7 +25740,9 @@
         "title": "Subaru installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Subaru"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Subaru Impreza 2020-22": {
     "id": "Subaru Impreza 2020-22",
@@ -25383,7 +25849,9 @@
         "title": "Subaru installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Subaru"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Subaru Legacy 2020-22": {
     "id": "Subaru Legacy 2020-22",
@@ -25490,7 +25958,9 @@
         "title": "Subaru installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Subaru"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Subaru Outback 2020-22": {
     "id": "Subaru Outback 2020-22",
@@ -25597,7 +26067,9 @@
         "title": "Subaru installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Subaru"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Subaru XV 2018-19": {
     "id": "Subaru XV 2018-19",
@@ -25704,7 +26176,9 @@
         "title": "Subaru installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Subaru"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Subaru XV 2020-21": {
     "id": "Subaru XV 2020-21",
@@ -25811,7 +26285,9 @@
         "title": "Subaru installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Subaru"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Škoda Fabia 2022-23": {
     "id": "Škoda Fabia 2022-23",
@@ -25919,7 +26395,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Škoda Kamiq 2021-23": {
     "id": "Škoda Kamiq 2021-23",
@@ -26027,7 +26505,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Škoda Karoq 2019-23": {
     "id": "Škoda Karoq 2019-23",
@@ -26135,7 +26615,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Škoda Kodiaq 2017-23": {
     "id": "Škoda Kodiaq 2017-23",
@@ -26243,7 +26725,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Škoda Octavia 2015-19": {
     "id": "Škoda Octavia 2015-19",
@@ -26351,7 +26835,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Škoda Octavia RS 2016": {
     "id": "Škoda Octavia RS 2016",
@@ -26459,7 +26945,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Škoda Octavia Scout 2017-19": {
     "id": "Škoda Octavia Scout 2017-19",
@@ -26567,7 +27055,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Škoda Scala 2020-23": {
     "id": "Škoda Scala 2020-23",
@@ -26675,7 +27165,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Škoda Superb 2015-22": {
     "id": "Škoda Superb 2015-22",
@@ -26783,7 +27275,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Tesla Model 3 (with HW2.5) 2019": {
     "id": "Tesla Model 3 (with HW2.5) 2019",
@@ -26890,7 +27384,9 @@
         "title": "Tesla HW3 / HW4 installation",
         "url": "https://wiki.xnor.shop/docs/tesla/hw3-hw4/"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Tesla Model 3 (with HW3) 2019-23": {
     "id": "Tesla Model 3 (with HW3) 2019-23",
@@ -26997,7 +27493,9 @@
         "title": "Tesla HW3 / HW4 installation",
         "url": "https://wiki.xnor.shop/docs/tesla/hw3-hw4/"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Tesla Model 3 (with HW4) 2024-25": {
     "id": "Tesla Model 3 (with HW4) 2024-25",
@@ -27104,7 +27602,9 @@
         "title": "Tesla HW3 / HW4 installation",
         "url": "https://wiki.xnor.shop/docs/tesla/hw3-hw4/"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Tesla Model Y (with HW3) 2020-24": {
     "id": "Tesla Model Y (with HW3) 2020-24",
@@ -27211,7 +27711,9 @@
         "title": "Tesla HW3 / HW4 installation",
         "url": "https://wiki.xnor.shop/docs/tesla/hw3-hw4/"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Tesla Model Y (with HW4) 2023-25": {
     "id": "Tesla Model Y (with HW4) 2023-25",
@@ -27318,7 +27820,9 @@
         "title": "Tesla HW3 / HW4 installation",
         "url": "https://wiki.xnor.shop/docs/tesla/hw3-hw4/"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Toyota Alphard 2019-20": {
     "id": "Toyota Alphard 2019-20",
@@ -27423,7 +27927,9 @@
         "title": "Toyota installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Toyota Alphard Hybrid 2021": {
     "id": "Toyota Alphard Hybrid 2021",
@@ -27528,7 +28034,9 @@
         "title": "Toyota installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Toyota Avalon 2016": {
     "id": "Toyota Avalon 2016",
@@ -27633,7 +28141,9 @@
         "title": "Toyota installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Toyota Avalon 2017-18": {
     "id": "Toyota Avalon 2017-18",
@@ -27738,7 +28248,9 @@
         "title": "Toyota installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Toyota Avalon 2019-21": {
     "id": "Toyota Avalon 2019-21",
@@ -27843,7 +28355,9 @@
         "title": "Toyota installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Toyota Avalon 2022": {
     "id": "Toyota Avalon 2022",
@@ -27948,7 +28462,9 @@
         "title": "Toyota installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Toyota Avalon Hybrid 2019-21": {
     "id": "Toyota Avalon Hybrid 2019-21",
@@ -28053,7 +28569,9 @@
         "title": "Toyota installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Toyota Avalon Hybrid 2022": {
     "id": "Toyota Avalon Hybrid 2022",
@@ -28158,7 +28676,9 @@
         "title": "Toyota installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Toyota C-HR 2017-20": {
     "id": "Toyota C-HR 2017-20",
@@ -28263,7 +28783,9 @@
         "title": "Toyota installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Toyota C-HR 2021": {
     "id": "Toyota C-HR 2021",
@@ -28368,7 +28890,9 @@
         "title": "Toyota installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Toyota C-HR Hybrid 2017-20": {
     "id": "Toyota C-HR Hybrid 2017-20",
@@ -28473,7 +28997,9 @@
         "title": "Toyota installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Toyota C-HR Hybrid 2021-22": {
     "id": "Toyota C-HR Hybrid 2021-22",
@@ -28578,7 +29104,9 @@
         "title": "Toyota installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Toyota Camry 2018-20": {
     "id": "Toyota Camry 2018-20",
@@ -28683,7 +29211,9 @@
         "title": "Toyota installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Toyota Camry 2021-24": {
     "id": "Toyota Camry 2021-24",
@@ -28788,7 +29318,9 @@
         "title": "Toyota installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Toyota Camry Hybrid 2018-20": {
     "id": "Toyota Camry Hybrid 2018-20",
@@ -28893,7 +29425,9 @@
         "title": "Toyota installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Toyota Camry Hybrid 2021-24": {
     "id": "Toyota Camry Hybrid 2021-24",
@@ -28998,7 +29532,9 @@
         "title": "Toyota installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Toyota Corolla 2017-19": {
     "id": "Toyota Corolla 2017-19",
@@ -29103,7 +29639,9 @@
         "title": "Toyota installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Toyota Corolla 2020-22": {
     "id": "Toyota Corolla 2020-22",
@@ -29208,7 +29746,9 @@
         "title": "Toyota installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Toyota Corolla Cross (Non-US only) 2020-23": {
     "id": "Toyota Corolla Cross (Non-US only) 2020-23",
@@ -29313,7 +29853,9 @@
         "title": "Toyota installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Toyota Corolla Cross Hybrid (Non-US only) 2020-22": {
     "id": "Toyota Corolla Cross Hybrid (Non-US only) 2020-22",
@@ -29418,7 +29960,9 @@
         "title": "Toyota installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Toyota Corolla Hatchback 2019-22": {
     "id": "Toyota Corolla Hatchback 2019-22",
@@ -29523,7 +30067,9 @@
         "title": "Toyota installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Toyota Corolla Hybrid 2020-22": {
     "id": "Toyota Corolla Hybrid 2020-22",
@@ -29628,7 +30174,9 @@
         "title": "Toyota installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Toyota Corolla Hybrid (South America only) 2020-23": {
     "id": "Toyota Corolla Hybrid (South America only) 2020-23",
@@ -29733,7 +30281,9 @@
         "title": "Toyota installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Toyota Highlander 2017-19": {
     "id": "Toyota Highlander 2017-19",
@@ -29838,7 +30388,9 @@
         "title": "Toyota installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Toyota Highlander 2020-23": {
     "id": "Toyota Highlander 2020-23",
@@ -29943,7 +30495,9 @@
         "title": "Toyota installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Toyota Highlander Hybrid 2017-19": {
     "id": "Toyota Highlander Hybrid 2017-19",
@@ -30048,7 +30602,9 @@
         "title": "Toyota installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Toyota Highlander Hybrid 2020-23": {
     "id": "Toyota Highlander Hybrid 2020-23",
@@ -30153,7 +30709,9 @@
         "title": "Toyota installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Toyota Mirai 2021": {
     "id": "Toyota Mirai 2021",
@@ -30258,7 +30816,9 @@
         "title": "Toyota installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Toyota Prius 2016": {
     "id": "Toyota Prius 2016",
@@ -30363,7 +30923,9 @@
         "title": "Toyota installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Toyota Prius 2017-20": {
     "id": "Toyota Prius 2017-20",
@@ -30468,7 +31030,9 @@
         "title": "Toyota installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Toyota Prius 2021-22": {
     "id": "Toyota Prius 2021-22",
@@ -30573,7 +31137,9 @@
         "title": "Toyota installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Toyota Prius Prime 2017-20": {
     "id": "Toyota Prius Prime 2017-20",
@@ -30678,7 +31244,9 @@
         "title": "Toyota installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Toyota Prius Prime 2021-22": {
     "id": "Toyota Prius Prime 2021-22",
@@ -30783,7 +31351,9 @@
         "title": "Toyota installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Toyota Prius v 2017": {
     "id": "Toyota Prius v 2017",
@@ -30888,7 +31458,9 @@
         "title": "Toyota installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Toyota RAV4 2016": {
     "id": "Toyota RAV4 2016",
@@ -30993,7 +31565,9 @@
         "title": "Toyota installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Toyota RAV4 2017-18": {
     "id": "Toyota RAV4 2017-18",
@@ -31098,7 +31672,9 @@
         "title": "Toyota installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Toyota RAV4 2019-21": {
     "id": "Toyota RAV4 2019-21",
@@ -31203,7 +31779,9 @@
         "title": "Toyota installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Toyota RAV4 2022": {
     "id": "Toyota RAV4 2022",
@@ -31308,7 +31886,9 @@
         "title": "Toyota installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Toyota RAV4 2023-25": {
     "id": "Toyota RAV4 2023-25",
@@ -31413,7 +31993,9 @@
         "title": "Toyota installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Toyota RAV4 Hybrid 2016": {
     "id": "Toyota RAV4 Hybrid 2016",
@@ -31518,7 +32100,9 @@
         "title": "Toyota installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Toyota RAV4 Hybrid 2017-18": {
     "id": "Toyota RAV4 Hybrid 2017-18",
@@ -31623,7 +32207,9 @@
         "title": "Toyota installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Toyota RAV4 Hybrid 2019-21": {
     "id": "Toyota RAV4 Hybrid 2019-21",
@@ -31728,7 +32314,9 @@
         "title": "Toyota installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Toyota RAV4 Hybrid 2022": {
     "id": "Toyota RAV4 Hybrid 2022",
@@ -31833,7 +32421,9 @@
         "title": "Toyota installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Toyota RAV4 Hybrid 2023-25": {
     "id": "Toyota RAV4 Hybrid 2023-25",
@@ -31938,7 +32528,9 @@
         "title": "Toyota installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Toyota Sienna 2018-20": {
     "id": "Toyota Sienna 2018-20",
@@ -32043,7 +32635,9 @@
         "title": "Toyota installation reference",
         "url": "https://github.com/commaai/openpilot/wiki/Toyota-Lexus"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": false
   },
   "Volkswagen Arteon 2018-23": {
     "id": "Volkswagen Arteon 2018-23",
@@ -32151,7 +32745,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Volkswagen Arteon eHybrid 2020-23": {
     "id": "Volkswagen Arteon eHybrid 2020-23",
@@ -32259,7 +32855,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Volkswagen Arteon R 2020-23": {
     "id": "Volkswagen Arteon R 2020-23",
@@ -32367,7 +32965,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Volkswagen Arteon Shooting Brake 2020-23": {
     "id": "Volkswagen Arteon Shooting Brake 2020-23",
@@ -32475,7 +33075,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Volkswagen Atlas 2018-23": {
     "id": "Volkswagen Atlas 2018-23",
@@ -32583,7 +33185,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Volkswagen Atlas Cross Sport 2020-22": {
     "id": "Volkswagen Atlas Cross Sport 2020-22",
@@ -32691,7 +33295,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Volkswagen California 2021-23": {
     "id": "Volkswagen California 2021-23",
@@ -32799,7 +33405,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Volkswagen Caravelle 2020": {
     "id": "Volkswagen Caravelle 2020",
@@ -32907,7 +33515,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Volkswagen CC 2018-22": {
     "id": "Volkswagen CC 2018-22",
@@ -33015,7 +33625,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Volkswagen Crafter 2017-24": {
     "id": "Volkswagen Crafter 2017-24",
@@ -33123,7 +33735,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Volkswagen e-Crafter 2018-24": {
     "id": "Volkswagen e-Crafter 2018-24",
@@ -33231,7 +33845,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Volkswagen e-Golf 2014-20": {
     "id": "Volkswagen e-Golf 2014-20",
@@ -33339,7 +33955,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Volkswagen Golf 2015-20": {
     "id": "Volkswagen Golf 2015-20",
@@ -33447,7 +34065,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Volkswagen Golf Alltrack 2015-19": {
     "id": "Volkswagen Golf Alltrack 2015-19",
@@ -33555,7 +34175,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Volkswagen Golf GTD 2015-20": {
     "id": "Volkswagen Golf GTD 2015-20",
@@ -33663,7 +34285,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Volkswagen Golf GTE 2015-20": {
     "id": "Volkswagen Golf GTE 2015-20",
@@ -33771,7 +34395,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Volkswagen Golf GTI 2015-21": {
     "id": "Volkswagen Golf GTI 2015-21",
@@ -33879,7 +34505,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Volkswagen Golf R 2015-19": {
     "id": "Volkswagen Golf R 2015-19",
@@ -33987,7 +34615,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Volkswagen Golf SportsVan 2015-20": {
     "id": "Volkswagen Golf SportsVan 2015-20",
@@ -34095,7 +34725,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Volkswagen Grand California 2019-24": {
     "id": "Volkswagen Grand California 2019-24",
@@ -34203,7 +34835,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Volkswagen ID.4 2021-23": {
     "id": "Volkswagen ID.4 2021-23",
@@ -34309,7 +34943,9 @@
         "title": "Volkswagen MEB installation",
         "url": "https://github.com/commaai/openpilot/wiki/Volkswagen"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Volkswagen ID.4 2024-25": {
     "id": "Volkswagen ID.4 2024-25",
@@ -34415,7 +35051,9 @@
         "title": "Volkswagen MEB installation",
         "url": "https://github.com/commaai/openpilot/wiki/Volkswagen"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Volkswagen Jetta 2019-23": {
     "id": "Volkswagen Jetta 2019-23",
@@ -34523,7 +35161,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Volkswagen Jetta GLI 2021-23": {
     "id": "Volkswagen Jetta GLI 2021-23",
@@ -34631,7 +35271,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Volkswagen Passat 2015-22": {
     "id": "Volkswagen Passat 2015-22",
@@ -34739,7 +35381,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Volkswagen Passat Alltrack 2015-22": {
     "id": "Volkswagen Passat Alltrack 2015-22",
@@ -34847,7 +35491,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Volkswagen Passat GTE 2015-22": {
     "id": "Volkswagen Passat GTE 2015-22",
@@ -34955,7 +35601,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Volkswagen Polo 2018-23": {
     "id": "Volkswagen Polo 2018-23",
@@ -35063,7 +35711,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Volkswagen Polo GTI 2018-23": {
     "id": "Volkswagen Polo GTI 2018-23",
@@ -35171,7 +35821,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Volkswagen T-Cross 2021": {
     "id": "Volkswagen T-Cross 2021",
@@ -35279,7 +35931,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Volkswagen T-Roc 2018-23": {
     "id": "Volkswagen T-Roc 2018-23",
@@ -35387,7 +36041,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Volkswagen Taos 2022-24": {
     "id": "Volkswagen Taos 2022-24",
@@ -35495,7 +36151,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Volkswagen Teramont 2018-22": {
     "id": "Volkswagen Teramont 2018-22",
@@ -35603,7 +36261,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Volkswagen Teramont Cross Sport 2021-22": {
     "id": "Volkswagen Teramont Cross Sport 2021-22",
@@ -35711,7 +36371,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Volkswagen Teramont X 2021-22": {
     "id": "Volkswagen Teramont X 2021-22",
@@ -35819,7 +36481,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Volkswagen Tiguan 2018-24": {
     "id": "Volkswagen Tiguan 2018-24",
@@ -35927,7 +36591,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Volkswagen Tiguan eHybrid 2021-23": {
     "id": "Volkswagen Tiguan eHybrid 2021-23",
@@ -36035,7 +36701,9 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   },
   "Volkswagen Touran 2016-23": {
     "id": "Volkswagen Touran 2016-23",
@@ -36143,6 +36811,8 @@
         "title": "Volkswagen gateway installation",
         "url": "https://docs.howtocomma.com/docs/j533-harness-install"
       }
-    ]
+    ],
+    "video": "https://www.youtube.com/watch?v=Us4FodlaQ74",
+    "video_is_reference": true
   }
 }
