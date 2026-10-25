@@ -28,7 +28,7 @@ use `./encode.sh <video_file.mp4>` to update the hero video
 `src/lib/setup-guides.json` is generated from opendbc CarDocs alongside the
 vehicle list by `scripts/compatibility.py`. Shared setup blocks live in
 `opendbc/car/docs_definitions.py`; brand-specific instructions live in each
-brand’s `setup.py`, attached through its CarDocs subclass. Edit content there;
+brand’s existing `values.py`, in its CarDocs subclass. Edit content there;
 the website maps media keys to photos/illustrations and renders the guide.
 
 For this draft, the compatibility workflow uses the companion opendbc branch
