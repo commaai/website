@@ -20,9 +20,18 @@
     else if (location.hash === `#${target.id}`) replaceState(location.pathname + location.search, {});
   }
 
-  function handleAnchorClick(event) {
+  async function handleAnchorClick(event) {
     const anchor = event.target.closest('.heading-anchor');
-    if (anchor) scrollToTopic(event, anchor.hash.slice(1));
+    if (!anchor) return;
+    event.preventDefault();
+    try {
+      await navigator.clipboard.writeText(anchor.href);
+    } catch {
+      return;
+    }
+    anchor.classList.add('copied');
+    clearTimeout(anchor.copiedTimeout);
+    anchor.copiedTimeout = setTimeout(() => anchor.classList.remove('copied'), 2000);
   }
 
   let activeId = '';
@@ -187,10 +196,16 @@
         width: .6em;
         height: .6em;
       }
+
+      &:not(.copied) svg:last-child,
+      &.copied svg:first-child {
+        display: none;
+      }
     }
 
     & h2:hover .heading-anchor,
-    & .heading-anchor:focus-visible {
+    & .heading-anchor:focus-visible,
+    & .heading-anchor.copied {
       opacity: 1;
     }
 

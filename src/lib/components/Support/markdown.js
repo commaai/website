@@ -3,6 +3,7 @@ import ArrowRight from '$lib/icons/arrow-right.svg?raw';
 import ExternalIcon from '$lib/icons/ui/external.svg?raw';
 import Chevron from '$lib/icons/icon-chevron.svg?raw';
 import LinkIcon from '$lib/icons/ui/link.svg?raw';
+import CheckmarkIcon from '$lib/icons/ui/checkmark.svg?raw';
 
 function escapeHtml(value) {
   return value.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
@@ -39,7 +40,7 @@ const renderer = {
     return `<a href="${escapeHtml(href)}" class="card-link"${external ? ' target="_blank" rel="noopener noreferrer"' : ''}>${text}<span class="card-link-arrow" aria-hidden="true">${external ? ExternalIcon : ArrowRight}</span></a>`;
   },
   heading({ depth, id, tokens }) {
-    const anchor = depth === 2 && id ? `<a href="#${escapeHtml(id)}" class="heading-anchor" aria-label="Link to this section">${LinkIcon}</a>` : '';
+    const anchor = depth === 2 && id ? `<a href="#${escapeHtml(id)}" class="heading-anchor" aria-label="Copy link to this section">${LinkIcon}${CheckmarkIcon}</a>` : '';
     return `<h${depth}${idAttribute(id)}>${this.parser.parseInline(tokens)}${anchor}</h${depth}>\n`;
   }
 };
