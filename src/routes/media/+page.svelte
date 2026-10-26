@@ -31,6 +31,9 @@
   import ScreenDownload from "$lib/images/products/comma-four/four_screen_on.png?format=png&as=url";
   import DriverMonitoringVideo from "$lib/images/products/comma-four/driver-monitoring-demo.mp4";
   import DrivingVideo from "$lib/images/products/comma-four/driving-landscape.mp4";
+  import TurnDrivingVideo from "$lib/images/products/comma-four/turn-drive-clip.mp4";
+  import BeachDrivingVideo from "$lib/images/products/comma-four/beach-drive.mp4";
+  import TimelapseDrivingVideo from "$lib/images/products/comma-four/timelapse-drive.mp4";
   import SetupVideo from "$lib/images/setup/comma-four/setup-stopmotion.mp4";
   import { vehicleCountText } from "$lib/constants/vehicles.js";
 
@@ -72,7 +75,10 @@
   ];
   const videos = [
     { title: "comma four with openpilot", src: DrivingVideo, name: "comma-four-driving.mp4" },
+    { title: "comma four with openpilot", src: TurnDrivingVideo, name: "comma-four-turn-drive.mp4" },
     { title: "Driver monitoring", src: DriverMonitoringVideo, name: "comma-driver-monitoring.mp4" },
+    { title: "comma four with openpilot", src: BeachDrivingVideo, name: "comma-four-beach-drive.mp4" },
+    { title: "comma four with openpilot", src: TimelapseDrivingVideo, name: "comma-four-timelapse-drive.mp4" },
     { title: "comma four installation", src: SetupVideo, name: "comma-four-installation.mp4", fill: true },
   ];
 </script>
