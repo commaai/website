@@ -17,6 +17,8 @@
   import Factory6Download from "$lib/images/manufacturing/factory-6.png?format=jpg&quality=95&as=url";
   import WindshieldImage from "$lib/images/products/comma-four/windshield.jpg?w=1600";
   import WindshieldDownload from "$lib/images/products/comma-four/windshield.jpg?format=jpg&as=url";
+  import MapImage from "$lib/images/home/map-activity-2x.png?w=960";
+  import MapDownload from "$lib/images/home/map-activity-2x.png?format=png&as=url";
   import BoardImage from "$lib/images/products/comma-four/circuit-board.png?w=960";
   import BoardDownload from "$lib/images/products/comma-four/circuit-board.png?format=jpg&quality=95&as=url";
   import FrontImage from "$lib/images/products/comma-four/four_front.png?w=960";
@@ -129,7 +131,7 @@
     </div>
 
     <div class="media-section">
-      <h3>Videos</h3>
+      <h3>openpilot on the road</h3>
       <div class="video-grid">
         {#each videos as video}
           <div class="asset video-asset">
@@ -137,6 +139,10 @@
             <a class="asset-caption" href={video.src} download={video.name}>{video.title}<span class="asset-action">Download MP4 ↓</span></a>
           </div>
         {/each}
+        <a class="asset" href={MapDownload} download="openpilot-driving-map.png">
+          <div class="map-preview"><img src={MapImage} alt="Map showing openpilot driving activity around the world" loading="lazy" /></div>
+          <span class="asset-caption">openpilot driving around the world<span class="asset-action">Download PNG ↓</span></span>
+        </a>
       </div>
     </div>
 
@@ -200,7 +206,7 @@
     <div class="download-kit">
       <div>
         <h2>Download the whole kit</h2>
-        <p>Product photos, factory images, videos, and brand assets.</p>
+        <p>Product photos, factory images, videos, the openpilot driving map, and brand assets.</p>
       </div>
       <!-- The archive is generated after prerendering, so exclude it from link crawling. -->
       <a class="download-all" href="/comma-media-kit.zip" download="comma-media-kit.zip" rel="external">
@@ -449,7 +455,7 @@
     cursor: pointer;
   }
 
-  video, .manufacturing-video {
+  video, .manufacturing-video, .map-preview {
     display: block;
     width: 100%;
     aspect-ratio: 16 / 9;
@@ -459,6 +465,17 @@
   }
 
   video {
+    object-fit: contain;
+  }
+
+  .map-preview {
+    background: #000;
+  }
+
+  .map-preview :global(img) {
+    display: block;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
   }
 
