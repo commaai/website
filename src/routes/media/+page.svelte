@@ -17,6 +17,8 @@
   import Factory6Download from "$lib/images/manufacturing/factory-6.png?format=jpg&quality=95&as=url";
   import WindshieldImage from "$lib/images/products/comma-four/windshield.jpg?w=1600";
   import WindshieldDownload from "$lib/images/products/comma-four/windshield.jpg?format=jpg&as=url";
+  import MapImage from "$lib/images/home/map-activity-2x.png?w=1600";
+  import MapDownload from "$lib/images/home/map-activity-2x.png?format=png&as=url";
   import BoardImage from "$lib/images/products/comma-four/circuit-board.png?w=960";
   import BoardDownload from "$lib/images/products/comma-four/circuit-board.png?format=jpg&quality=95&as=url";
   import FrontImage from "$lib/images/products/comma-four/four_front.png?w=960";
@@ -92,7 +94,7 @@
 <section class="light">
   <div class="container">
     <h1>Press &amp; Media Kit</h1>
-    <a class="asset header-image" href={WindshieldDownload} download="comma-four-windshield.jpg">
+    <a class="asset wide-asset header-image" href={WindshieldDownload} download="comma-four-windshield.jpg">
       <img src={WindshieldImage} alt="comma four mounted beneath the rearview mirror during a highway drive" fetchpriority="high" />
       <span class="asset-caption">comma four on the road<span class="asset-action">Download JPG ↓</span></span>
     </a>
@@ -138,6 +140,14 @@
           </div>
         {/each}
       </div>
+    </div>
+
+    <div class="media-section" id="openpilot-map">
+      <h3>openpilot around the world</h3>
+      <a class="asset wide-asset" href={MapDownload} download="openpilot-driving-map.png">
+        <img src={MapImage} alt="Map showing openpilot driving activity around the world" loading="lazy" />
+        <span class="asset-caption">openpilot driving activity<span class="asset-action">Download PNG ↓</span></span>
+      </a>
     </div>
 
     <div class="media-section" id="built-in-america">
@@ -200,7 +210,7 @@
     <div class="download-kit">
       <div>
         <h2>Download the whole kit</h2>
-        <p>Product photos, factory images, videos, and brand assets.</p>
+        <p>Product photos, factory images, videos, the openpilot driving map, and brand assets.</p>
       </div>
       <!-- The archive is generated after prerendering, so exclude it from link crawling. -->
       <a class="download-all" href="/comma-media-kit.zip" download="comma-media-kit.zip" rel="external">
@@ -326,7 +336,7 @@
     }
   }
 
-  .header-image :global(img) {
+  .wide-asset :global(img) {
     display: block;
     width: 100%;
     height: auto;
