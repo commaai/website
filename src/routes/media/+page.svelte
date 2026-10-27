@@ -17,7 +17,7 @@
   import Factory6Download from "$lib/images/manufacturing/factory-6.png?format=jpg&quality=95&as=url";
   import WindshieldImage from "$lib/images/products/comma-four/windshield.jpg?w=1600";
   import WindshieldDownload from "$lib/images/products/comma-four/windshield.jpg?format=jpg&as=url";
-  import MapImage from "$lib/images/home/map-activity-2x.png?w=1600";
+  import MapImage from "$lib/images/home/map-activity-2x.png?w=960";
   import MapDownload from "$lib/images/home/map-activity-2x.png?format=png&as=url";
   import BoardImage from "$lib/images/products/comma-four/circuit-board.png?w=960";
   import BoardDownload from "$lib/images/products/comma-four/circuit-board.png?format=jpg&quality=95&as=url";
@@ -94,7 +94,7 @@
 <section class="light">
   <div class="container">
     <h1>Press &amp; Media Kit</h1>
-    <a class="asset wide-asset header-image" href={WindshieldDownload} download="comma-four-windshield.jpg">
+    <a class="asset header-image" href={WindshieldDownload} download="comma-four-windshield.jpg">
       <img src={WindshieldImage} alt="comma four mounted beneath the rearview mirror during a highway drive" fetchpriority="high" />
       <span class="asset-caption">comma four on the road<span class="asset-action">Download JPG ↓</span></span>
     </a>
@@ -131,7 +131,7 @@
     </div>
 
     <div class="media-section">
-      <h3>Videos</h3>
+      <h3>openpilot on the road</h3>
       <div class="video-grid">
         {#each videos as video}
           <div class="asset video-asset">
@@ -139,15 +139,11 @@
             <a class="asset-caption" href={video.src} download={video.name}>{video.title}<span class="asset-action">Download MP4 ↓</span></a>
           </div>
         {/each}
+        <a class="asset" href={MapDownload} download="openpilot-driving-map.png">
+          <div class="map-preview"><img src={MapImage} alt="Map showing openpilot driving activity around the world" loading="lazy" /></div>
+          <span class="asset-caption">openpilot driving around the world<span class="asset-action">Download PNG ↓</span></span>
+        </a>
       </div>
-    </div>
-
-    <div class="media-section" id="openpilot-map">
-      <h3>openpilot around the world</h3>
-      <a class="asset wide-asset" href={MapDownload} download="openpilot-driving-map.png">
-        <img src={MapImage} alt="Map showing openpilot driving activity around the world" loading="lazy" />
-        <span class="asset-caption">openpilot driving activity<span class="asset-action">Download PNG ↓</span></span>
-      </a>
     </div>
 
     <div class="media-section" id="built-in-america">
@@ -336,7 +332,7 @@
     }
   }
 
-  .wide-asset :global(img) {
+  .header-image :global(img) {
     display: block;
     width: 100%;
     height: auto;
@@ -459,7 +455,7 @@
     cursor: pointer;
   }
 
-  video, .manufacturing-video {
+  video, .manufacturing-video, .map-preview {
     display: block;
     width: 100%;
     aspect-ratio: 16 / 9;
@@ -469,6 +465,17 @@
   }
 
   video {
+    object-fit: contain;
+  }
+
+  .map-preview {
+    background: #000;
+  }
+
+  .map-preview :global(img) {
+    display: block;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
   }
 
