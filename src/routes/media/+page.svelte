@@ -1,4 +1,6 @@
 <script>
+  import CheckmarkIcon from "$lib/icons/ui/checkmark.svg?raw";
+  import CloseIcon from "$lib/icons/ui/close.svg?raw";
   import CommaMarkBlackJPG from "$lib/images/brand/comma-mark-black.jpg?format=jpg&as=url";
   import CommaMarkWhiteJPG from "$lib/images/brand/comma-mark-white.jpg?format=jpg&as=url";
   import CommaWordmarkBlackJPG from "$lib/images/brand/comma-wordmark-black.jpg?format=jpg&as=url";
@@ -185,6 +187,28 @@
 
     </div>
 
+    <div class="media-section" id="naming-guidelines">
+      <h3>Naming guidelines</h3>
+      <div class="copy">
+        <p>Use these names and capitalization when writing about comma, our products, and openpilot. Keep the same casing in titles and at the beginning of a sentence.</p>
+      </div>
+      <div class="naming-table">
+        <table aria-label="Correct and incorrect naming examples">
+          <thead>
+            <tr><th scope="col">Name</th><th scope="col"><span class="naming-heading">Use <span class="naming-icon naming-use" aria-hidden="true">{@html CheckmarkIcon}</span></span></th><th scope="col"><span class="naming-heading">Avoid <span class="naming-icon naming-avoid" aria-hidden="true">{@html CloseIcon}</span></span></th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Company</th><td>comma or comma.ai</td><td>Comma, Comma.ai, Comma AI</td></tr>
+            <tr><th scope="row">comma two</th><td>comma two</td><td>comma 2, Comma 2, Comma Two</td></tr>
+            <tr><th scope="row">comma three</th><td>comma three</td><td>comma 3, Comma 3, Comma Three</td></tr>
+            <tr><th scope="row">comma 3X</th><td>comma 3X</td><td>comma 3x, Comma 3X, comma three X</td></tr>
+            <tr><th scope="row">comma four</th><td>comma four</td><td>comma 4, Comma 4, Comma Four</td></tr>
+            <tr><th scope="row">openpilot</th><td>openpilot</td><td>Openpilot, OpenPilot, Open Pilot</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
     <div class="media-section" id="brand-assets">
       <h3>Brand assets</h3>
       <div class="asset-grid">
@@ -349,6 +373,60 @@
 
   .factory-grid {
     margin-top: 2rem;
+  }
+
+  .naming-table {
+    overflow-x: auto;
+    margin-top: 1.5rem;
+  }
+
+  .naming-table table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    line-height: 1.5;
+  }
+
+  .naming-table th, .naming-table td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--asset-border);
+    vertical-align: top;
+  }
+
+  .naming-table th {
+    font-weight: 500;
+  }
+
+  .naming-heading {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+  }
+
+  .naming-icon {
+    display: inline-flex;
+    flex-shrink: 0;
+  }
+
+  .naming-icon :global(svg) {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  .naming-use :global(svg) {
+    fill: currentColor;
+  }
+
+  .naming-use {
+    color: #16803c;
+  }
+
+  .naming-avoid {
+    color: #c62828;
+  }
+
+  .naming-table td:nth-child(2) {
+    white-space: nowrap;
   }
 
   #built-in-america > .video-asset {
