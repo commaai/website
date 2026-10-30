@@ -1,8 +1,8 @@
 <script>
-  import CommaMarkBlackJPG from "$lib/images/brand/comma-mark-black.jpg?format=jpg&as=url";
-  import CommaMarkWhiteJPG from "$lib/images/brand/comma-mark-white.jpg?format=jpg&as=url";
-  import CommaWordmarkBlackJPG from "$lib/images/brand/comma-wordmark-black.jpg?format=jpg&as=url";
-  import CommaWordmarkWhiteJPG from "$lib/images/brand/comma-wordmark-white.jpg?format=jpg&as=url";
+  import CommaMarkBlackPNG from "$lib/images/brand/comma-mark-black.png?format=png&as=url";
+  import CommaMarkWhitePNG from "$lib/images/brand/comma-mark-white.png?format=png&as=url";
+  import CommaWordmarkBlackPNG from "$lib/images/brand/comma-wordmark-black.png?format=png&as=url";
+  import CommaWordmarkWhitePNG from "$lib/images/brand/comma-wordmark-white.png?format=png&as=url";
   import Windshield43Image from "$lib/images/products/comma-four/windshield43.png?w=960";
   import Windshield43Download from "$lib/images/products/comma-four/windshield43.png?format=png&as=url";
   import Factory1Image from "$lib/images/manufacturing/factory-1.png?w=960";
@@ -62,10 +62,10 @@
   }
 
   const brandAssets = [
-    { title: "comma wordmark — black", src: CommaWordmarkBlackJPG, name: "comma-wordmark-black", dark: false, wordmark: true },
-    { title: "comma wordmark — white", src: CommaWordmarkWhiteJPG, name: "comma-wordmark-white", dark: true, wordmark: true },
-    { title: "comma mark — black", src: CommaMarkBlackJPG, name: "comma-mark-black", dark: false },
-    { title: "comma mark — white", src: CommaMarkWhiteJPG, name: "comma-mark-white", dark: true },
+    { title: "comma wordmark — black", src: CommaWordmarkBlackPNG, name: "comma-wordmark-black", dark: false, wordmark: true },
+    { title: "comma wordmark — white", src: CommaWordmarkWhitePNG, name: "comma-wordmark-white", dark: true, wordmark: true },
+    { title: "comma mark — black", src: CommaMarkBlackPNG, name: "comma-mark-black", dark: false },
+    { title: "comma mark — white", src: CommaMarkWhitePNG, name: "comma-mark-white", dark: true },
   ];
 
   const factoryImages = [
@@ -203,11 +203,11 @@
       </div>
       <div class="asset-grid">
         {#each brandAssets as asset}
-          <a class="asset" href={asset.src} download="{asset.name}.jpg">
+          <a class="asset" href={asset.src} download="{asset.name}.png">
             <div class="image-preview brand-preview" class:dark-preview={asset.dark} class:wordmark-preview={asset.wordmark}>
               <img src={asset.src} alt={asset.title} loading="lazy" />
             </div>
-            <span class="asset-caption">{asset.title}<span class="asset-action">Download JPG ↓</span></span>
+            <span class="asset-caption">{asset.title}<span class="asset-action">Download PNG ↓</span></span>
           </a>
         {/each}
       </div>
@@ -440,18 +440,17 @@
   }
 
   .brand-preview :global(img) {
-    width: 64px;
-    height: 112px;
+    width: calc(100% - 3rem);
+    height: calc(100% - 3rem);
   }
 
   .wordmark-preview :global(img) {
     width: calc(100% - 3rem);
-    max-width: 300px;
-    height: 112px;
+    height: calc(100% - 3rem);
   }
 
   .dark-preview {
-    background: #111;
+    background: #000;
   }
 
   .asset-caption {
