@@ -42,6 +42,16 @@
   const manufacturingVideoUrl = "https://www.youtube.com/watch?v=bM_tojv4ZDg";
   let videoCopyStatus = "";
 
+  async function copyMediaEmail() {
+    try {
+      await navigator.clipboard.writeText("media@comma.ai");
+    } catch {
+      window.prompt("Automatic copying is unavailable. Copy this email address:", "media@comma.ai");
+      return;
+    }
+    window.alert("Copied media@comma.ai to clipboard.");
+  }
+
   async function copyVideoUrl() {
     try {
       await navigator.clipboard.writeText(manufacturingVideoUrl);
@@ -94,6 +104,7 @@
 <section class="light">
   <div class="container">
     <h1>Press &amp; Media Kit</h1>
+    <p class="copy media-contact">For media inquiries, contact <button class="release-link copy-email" type="button" on:click={copyMediaEmail} aria-label="Copy media@comma.ai to clipboard">media@comma.ai</button>.</p>
     <a class="asset header-image" href={WindshieldDownload} download="comma-four-windshield.jpg">
       <img src={WindshieldImage} alt="comma four mounted beneath the rearview mirror during a highway drive" fetchpriority="high" />
       <span class="asset-caption">comma four on the road<span class="asset-action">Download JPG ↓</span></span>
@@ -186,7 +197,10 @@
     </div>
 
     <div class="media-section" id="brand-assets">
-      <h3>Brand assets</h3>
+      <h3>Branding</h3>
+      <div class="copy branding-copy">
+        <p>“comma” and all comma product names—including openpilot, comma four, and comma connect—are written in a single case, with lowercase used in running text.</p>
+      </div>
       <div class="asset-grid">
         {#each brandAssets as asset}
           <a class="asset" href={asset.src} download="{asset.name}.jpg">
@@ -235,6 +249,20 @@
   .copy, .copy + .release-link {
     font-size: 1.125rem;
     line-height: 1.6;
+  }
+
+  .copy-email {
+    border: 0;
+    padding: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    letter-spacing: inherit;
+    cursor: pointer;
+  }
+
+  .media-contact {
+    margin: 0 0 2rem;
   }
 
   .copy > p {
@@ -346,6 +374,8 @@
   .media-section + .media-section {
     margin-top: var(--section-gap);
   }
+
+  .branding-copy { margin-bottom: 2rem; }
 
   .factory-grid {
     margin-top: 2rem;
