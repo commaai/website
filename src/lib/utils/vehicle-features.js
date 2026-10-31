@@ -7,12 +7,24 @@ const ASSUMED_STOCK_FEATURES = {
   dashcam: 'none',
 };
 
+// Makes whose cars already get driving improvements over the air
+const OTA_MAKES = ['Tesla', 'Rivian'];
+
 // Returns what openpilot + comma four adds to or upgrades in a car from vehicles.json, adds first.
 // Each feature includes a kind, label, description, and optional detail and link.
 export function getVehicleFeatures(car) {
   const stock = car.stock_features ?? ASSUMED_STOCK_FEATURES;
   const openpilotLongitudinal = car.longitudinal === 'openpilot';
   const features = [];
+
+  // Cars with camera-based driver monitoring already offer hands-free driving and lane changes (e.g. Super Cruise, BlueCruise)
+  const stockHandsFree = stock.driver_monitoring === 'camera';
+  features.push({
+    kind: stockHandsFree ? 'upgrades' : 'adds',
+    label: 'hands-free driving',
+    description: 'No wheel nags, just keep your eyes on the road',
+    href: '/openpilot#driver-monitoring',
+  });
 
   const laneCenteringMinSpeed = Math.max(car.min_steer_speed_mph, car.min_enable_speed_mph);
   const laneCenteringDetails = [laneCenteringMinSpeed > 0 ? `above ${laneCenteringMinSpeed} mph` : 'at all speeds'];
@@ -39,6 +51,13 @@ export function getVehicleFeatures(car) {
       detail,
     });
   }
+
+  features.push({
+    kind: stockHandsFree ? 'upgrades' : 'adds',
+    label: 'assisted lane changes',
+    description: 'Signal and nudge the wheel, openpilot does the rest',
+    href: '/openpilot#lane-centering',
+  });
 
   features.push({
     kind: stock.driver_monitoring === 'camera' ? 'upgrades' : 'adds',
@@ -68,16 +87,22 @@ export function getVehicleFeatures(car) {
     features.push({
       kind: 'adds',
       label: '360° dashcam',
-      description: 'Records the road and cabin together',
+      description: 'Road and night-vision cabin cameras, backed up to the cloud',
       href: '/openpilot#dashcam',
     });
   }
 
-  // comma connect features
+  features.push({
+    kind: OTA_MAKES.some((make) => car.name.startsWith(make)) ? 'upgrades' : 'adds',
+    label: 'over-the-air updates',
+    description: 'Gets better with every openpilot release',
+    href: '/openpilot',
+  });
+
   features.push({
     kind: 'adds',
-    label: 'live location and remote camera',
-    description: 'Check on your car from anywhere',
+    label: 'check on your car from anywhere',
+    description: 'Live GPS location and remote camera',
     detail: 'with connect subscription',
     href: '/connect',
   });
