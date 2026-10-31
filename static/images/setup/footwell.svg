@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" fill="none">
+<title>Below the dashboard — installation location overview</title>
+<desc>Generic cabin location illustration. Exact trim and connection point vary by vehicle.</desc>
+<rect width="800" height="600" fill="white"/>
+<g stroke="#181818" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<!-- Cabin viewed from between the front seats. -->
+<path d="M66 366 128 141Q141 105 179 102H621Q659 105 672 141L734 366"/>
+<path d="m119 274 43-124q6-16 28-16h420q22 0 28 16l43 124"/>
+<path d="M119 274Q400 233 681 274L705 354Q400 319 95 354Z" fill="#f6f6f6"/>
+<path d="m95 354 22 99 144 25m444-124-22 99-144 25"/>
+<path d="m74 360 23 121m629-121-23 121" stroke="#b5b5b5"/>
+<path d="M355 333 337 466Q400 482 463 466L445 333" fill="white"/>
+<rect x="364" y="286" width="72" height="37" rx="5" fill="white"/>
+<path d="M368 346h64m-55 18h46m-69 70h92" stroke="#777" stroke-width="2"/>
+<rect x="386" y="391" width="28" height="23" rx="6" fill="#eeeeee"/>
+<path d="M152 300h43m-42 9h36m411-9h43m-36 9h36" stroke-width="2"/>
+<path d="M203 290Q245 267 287 290" fill="white"/>
+<circle cx="244" cy="338" r="48" fill="white"/>
+<circle cx="244" cy="338" r="34" stroke-width="2"/>
+<path d="m213 324 20 15m42-15-20 15m-11 12v19"/>
+<rect x="231" y="331" width="26" height="19" rx="7" fill="#eeeeee"/>
+<path d="M490 355h154l-8 50H495Z" fill="white"/>
+<path d="M550 366h35" stroke-width="2"/>
+<path d="M151 515v-24q0-24 24-24h110q24 0 24 24v24m182 0v-24q0-24 24-24h110q24 0 24 24v24" fill="#f6f6f6"/>
+<path d="M400 134v31"/>
+<rect x="359" y="165" width="82" height="25" rx="9" fill="white"/>
+</g>
+<path d="M127 391H188L207 407H303V452H144Z M480 422H647L640 452H480Z" fill="#86ff4e" fill-opacity=".3" stroke="#4b9c24" stroke-width="2" stroke-dasharray="6 6"/>
+<text x="48" y="59" font-family="Arial, sans-serif" font-size="26" fill="#181818">Below the dashboard</text>
+<text x="48" y="562" font-family="Arial, sans-serif" font-size="15" fill="#767676">LOCATION OVERVIEW</text>
+</svg>
