@@ -1,0 +1,3926 @@
+{
+  "Acura ADX 2025-26": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.hondainfocenter.com/Terms-and-Technologies/_content/Terms-and-Technologies/Lane-Keeping-Assist-System-LKAS-All",
+      "https://global.honda/en/tech/Lane_Keeping_Assist_System_LKAS/",
+      "https://global.honda/en/tech/Driver_Attention_Monitor/"
+    ],
+    "notes": "Honda Sensing/AcuraWatch standard includes LKAS (centers vehicle) + FCW; attention monitor is steering-based"
+  },
+  "Acura ILX 2016-18": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://acuranews.com/en-US/releases/release-81698aa263284cb7a904125201f2b161-2016-acura-ilx-overview",
+      "https://global.honda/en/tech/Lane_Keeping_Assist_System_LKAS/"
+    ],
+    "notes": "AcuraWatch Plus/Tech Plus: ACC, FCW/CMBS, LKAS, RDM"
+  },
+  "Acura ILX 2019": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.hondainfocenter.com/Terms-and-Technologies/_content/Terms-and-Technologies/Lane-Keeping-Assist-System-LKAS-All",
+      "https://global.honda/en/tech/Lane_Keeping_Assist_System_LKAS/",
+      "https://global.honda/en/tech/Driver_Attention_Monitor/"
+    ],
+    "notes": "Honda Sensing/AcuraWatch standard includes LKAS (centers vehicle) + FCW; attention monitor is steering-based"
+  },
+  "Acura MDX 2022-24": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.hondainfocenter.com/Terms-and-Technologies/_content/Terms-and-Technologies/Lane-Keeping-Assist-System-LKAS-All",
+      "https://global.honda/en/tech/Lane_Keeping_Assist_System_LKAS/",
+      "https://global.honda/en/tech/Driver_Attention_Monitor/"
+    ],
+    "notes": "Honda Sensing/AcuraWatch standard includes LKAS (centers vehicle) + FCW; attention monitor is steering-based"
+  },
+  "Acura MDX 2025-26": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.hondainfocenter.com/Terms-and-Technologies/_content/Terms-and-Technologies/Lane-Keeping-Assist-System-LKAS-All",
+      "https://global.honda/en/tech/Lane_Keeping_Assist_System_LKAS/",
+      "https://global.honda/en/tech/Driver_Attention_Monitor/"
+    ],
+    "notes": "Honda Sensing/AcuraWatch (required package) includes LKAS (centers vehicle) + FCW; attention monitor is steering-based"
+  },
+  "Acura RDX 2016-18": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.hondainfocenter.com/Terms-and-Technologies/_content/Terms-and-Technologies/Lane-Keeping-Assist-System-LKAS-All",
+      "https://global.honda/en/tech/Lane_Keeping_Assist_System_LKAS/"
+    ],
+    "notes": "AcuraWatch Plus/Advance: ACC, FCW/CMBS, LKAS, RDM"
+  },
+  "Acura RDX 2019-21": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.hondainfocenter.com/Terms-and-Technologies/_content/Terms-and-Technologies/Lane-Keeping-Assist-System-LKAS-All",
+      "https://global.honda/en/tech/Lane_Keeping_Assist_System_LKAS/",
+      "https://global.honda/en/tech/Driver_Attention_Monitor/"
+    ],
+    "notes": "Honda Sensing/AcuraWatch standard includes LKAS (centers vehicle) + FCW; attention monitor is steering-based"
+  },
+  "Acura TLX 2021-22": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.hondainfocenter.com/Terms-and-Technologies/_content/Terms-and-Technologies/Lane-Keeping-Assist-System-LKAS-All",
+      "https://global.honda/en/tech/Lane_Keeping_Assist_System_LKAS/",
+      "https://global.honda/en/tech/Driver_Attention_Monitor/"
+    ],
+    "notes": "Honda Sensing/AcuraWatch standard includes LKAS (centers vehicle) + FCW; attention monitor is steering-based"
+  },
+  "Acura TLX 2025": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.hondainfocenter.com/Terms-and-Technologies/_content/Terms-and-Technologies/Lane-Keeping-Assist-System-LKAS-All",
+      "https://global.honda/en/tech/Lane_Keeping_Assist_System_LKAS/",
+      "https://global.honda/en/tech/Driver_Attention_Monitor/"
+    ],
+    "notes": "Honda Sensing/AcuraWatch standard includes LKAS (centers vehicle) + FCW; attention monitor is steering-based"
+  },
+  "Audi A3 2014-19": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.fleetnews.co.uk/news/manufacturer-news/2016/04/06/new-driver-assistance-and-technology-for-facelifted-audi-a3",
+      "https://www.audiusa.com/en/inside-audi/innovation/driver-assistance/adaptive-cruise-control-with-traffic-jam-assist/"
+    ],
+    "notes": "US: ACC + active lane assist; Traffic Jam Assist EU-only on 2017 facelift"
+  },
+  "Audi A3 Sportback e-tron 2017-18": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.fleetnews.co.uk/news/manufacturer-news/2016/04/06/new-driver-assistance-and-technology-for-facelifted-audi-a3",
+      "https://www.audiusa.com/en/inside-audi/innovation/driver-assistance/adaptive-cruise-control-with-traffic-jam-assist/"
+    ],
+    "notes": "US: active lane assist only; TJA EU-only"
+  },
+  "Audi Q2 2018": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.fleetnews.co.uk/news/manufacturer-news/2016/04/06/new-driver-assistance-and-technology-for-facelifted-audi-a3"
+    ],
+    "notes": "EU-only; ACC with Traffic Jam Assist (steering up to 65 km/h) optional"
+  },
+  "Audi Q3 2019-24": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.motor1.com/news/673343/2024-audi-usa-lineup-changes/",
+      "https://www.audi-technology-portal.de/en/electrics-electronics/driver-assistant-systems/audi-q3-driver-assistance-systems"
+    ],
+    "notes": "Adaptive cruise assist with lane guidance on Premium Plus/2024 Convenience pkg"
+  },
+  "Audi RS3 2018": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.fleetnews.co.uk/news/manufacturer-news/2016/04/06/new-driver-assistance-and-technology-for-facelifted-audi-a3",
+      "https://www.audiusa.com/en/inside-audi/innovation/driver-assistance/adaptive-cruise-control-with-traffic-jam-assist/"
+    ],
+    "notes": "US: active lane assist only; TJA EU-only"
+  },
+  "Audi S3 2015-17": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.fleetnews.co.uk/news/manufacturer-news/2016/04/06/new-driver-assistance-and-technology-for-facelifted-audi-a3",
+      "https://www.audiusa.com/en/inside-audi/innovation/driver-assistance/adaptive-cruise-control-with-traffic-jam-assist/"
+    ],
+    "notes": "US: active lane assist only; TJA EU-only"
+  },
+  "Chevrolet Bolt EUV 2022-23": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.chevrolet.com/safety/driver-assistance"
+    ],
+    "notes": "Lane Keep Assist only; Super Cruise excluded by required package"
+  },
+  "Chevrolet Bolt EV 2022-23": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.chevrolet.com/safety/driver-assistance"
+    ],
+    "notes": "Lane Keep Assist w/ LDW; no Super Cruise on Bolt EV"
+  },
+  "Chevrolet Equinox 2019-22": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.chevrolet.com/safety/driver-assistance"
+    ],
+    "notes": "Lane Keep Assist; FCW standard 2020+, available 2019"
+  },
+  "Chevrolet Silverado 1500 2020-21": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.chevrolet.com/safety/driver-assistance"
+    ],
+    "notes": "Lane Keep Assist; Super Cruise only from 2022"
+  },
+  "Chevrolet Trailblazer 2021-22": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.chevrolet.com/safety/driver-assistance"
+    ],
+    "notes": "Lane Keep Assist standard; no Super Cruise"
+  },
+  "Chrysler Pacifica 2017-18": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://media.stellantisnorthamerica.com/text.do?id=21521"
+    ],
+    "notes": "LaneSense LDW Plus and FCW Plus in Advanced SafetyTec group with ACC"
+  },
+  "Chrysler Pacifica 2019-20": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://media.stellantisnorthamerica.com/text.do?id=21521"
+    ],
+    "notes": "LaneSense LDW Plus and FCW Plus with ACC package"
+  },
+  "Chrysler Pacifica 2021-23": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://media.stellantisnorthamerica.com/text.do?id=21521",
+      "https://thebrakereport.com/chrysler-highlights-safety-in-2021-pacifica-launch/"
+    ],
+    "notes": "LDW with Lane Keep Assist standard; no Highway Assist; FamCAM is a rear-seat camera, not DMS"
+  },
+  "Chrysler Pacifica Hybrid 2017-18": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://media.stellantisnorthamerica.com/text.do?id=21521"
+    ],
+    "notes": "LaneSense LDW Plus and FCW Plus with ACC package"
+  },
+  "Chrysler Pacifica Hybrid 2019-25": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://media.stellantisnorthamerica.com/text.do?id=21521"
+    ],
+    "notes": "LDW/Lane Keep Assist only through 2025; no Highway/Active Driving Assist"
+  },
+  "CUPRA Ateca 2018-23": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.donnellygroup.co.uk/seat/latest-news/the-new-seat-ateca-"
+    ],
+    "notes": "Ateca twin: TJA; Travel Assist from 2020 facelift"
+  },
+  "CUPRA Born 2021-23": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.vw.com/en/iq-drive/travel-assist.html"
+    ],
+    "notes": "MEB: Travel Assist available (as ID.3)"
+  },
+  "Dodge Durango 2020-21": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://media.stellantisnorthamerica.com/text.do?id=21521"
+    ],
+    "notes": "LaneSense LDW Plus and FCW with ACC package; no lane centering"
+  },
+  "Ford Bronco Sport 2021-24": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.capitalone.com/cars/learn/finding-the-right-car/what-is-ford-copilot360/2186"
+    ],
+    "notes": "Co-Pilot360 Assist+ adds ACC Stop&Go with Lane Centering; no BlueCruise/DMS camera"
+  },
+  "Ford Escape 2020-22": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.capitalone.com/cars/learn/finding-the-right-car/what-is-ford-copilot360/2186"
+    ],
+    "notes": "Co-Pilot360 Assist+ adds ACC Stop&Go with Lane Centering; no BlueCruise"
+  },
+  "Ford Escape 2023-24": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://fordauthority.com/2022/09/2023-ford-escape-gets-upgraded-co-pilot360-safety-system/",
+      "https://www.ford.com/support/how-tos/ford-technology/driver-assist-features/ford-bluecruise-availability/"
+    ],
+    "notes": "Co-Pilot360 Assist 2.0 with Lane Centering; BlueCruise not offered on Escape"
+  },
+  "Ford Escape Hybrid 2020-22": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.capitalone.com/cars/learn/finding-the-right-car/what-is-ford-copilot360/2186"
+    ],
+    "notes": "Co-Pilot360 Assist+ adds ACC Stop&Go with Lane Centering; no BlueCruise"
+  },
+  "Ford Escape Hybrid 2023-24": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://fordauthority.com/2022/09/2023-ford-escape-gets-upgraded-co-pilot360-safety-system/",
+      "https://www.ford.com/support/how-tos/ford-technology/driver-assist-features/ford-bluecruise-availability/"
+    ],
+    "notes": "Co-Pilot360 Assist 2.0 with Lane Centering; BlueCruise not offered on Escape"
+  },
+  "Ford Escape Plug-in Hybrid 2020-22": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.capitalone.com/cars/learn/finding-the-right-car/what-is-ford-copilot360/2186"
+    ],
+    "notes": "Co-Pilot360 Assist+ adds ACC Stop&Go with Lane Centering; no BlueCruise"
+  },
+  "Ford Escape Plug-in Hybrid 2023-24": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://fordauthority.com/2022/09/2023-ford-escape-gets-upgraded-co-pilot360-safety-system/",
+      "https://www.ford.com/support/how-tos/ford-technology/driver-assist-features/ford-bluecruise-availability/"
+    ],
+    "notes": "Co-Pilot360 Assist 2.0 with Lane Centering; BlueCruise not offered on Escape"
+  },
+  "Ford Expedition 2022-24": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "camera",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.ford.com/support/how-tos/ford-technology/driver-assist-features/ford-bluecruise-availability/"
+    ],
+    "notes": "BlueCruise 1.0 (with DMS camera) available on Platinum 2022-24"
+  },
+  "Ford Explorer 2020-24": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.ford.com/support/how-tos/ford-technology/driver-assist-features/ford-bluecruise-availability/",
+      "https://www.slashgear.com/1507152/2025-ford-explorer-not-electric-adds-bluecruise"
+    ],
+    "notes": "Co-Pilot360 Assist+ Lane Centering; BlueCruise/DMS only from 2025MY"
+  },
+  "Ford Explorer Hybrid 2020-24": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.ford.com/support/how-tos/ford-technology/driver-assist-features/ford-bluecruise-availability/",
+      "https://www.slashgear.com/1507152/2025-ford-explorer-not-electric-adds-bluecruise"
+    ],
+    "notes": "Co-Pilot360 Assist+ Lane Centering; BlueCruise/DMS only from 2025MY"
+  },
+  "Ford F-150 2021-23": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "camera",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.ford.com/support/how-tos/ford-technology/driver-assist-features/ford-bluecruise-availability/"
+    ],
+    "notes": "BlueCruise 1.0 (DMS camera) available on Lariat and up 2021-23"
+  },
+  "Ford F-150 Hybrid 2021-23": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "camera",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.ford.com/support/how-tos/ford-technology/driver-assist-features/ford-bluecruise-availability/"
+    ],
+    "notes": "BlueCruise 1.0 (DMS camera) available on Lariat and up 2021-23"
+  },
+  "Ford Focus 2018-22": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.media.ford.com/content/fordmedia/feu/en/news/2018/04/10/all-new-ford-focus.html"
+    ],
+    "notes": "Europe: ACC Stop&Go with Lane Centring; Pre-Collision Assist standard"
+  },
+  "Ford Focus Hybrid 2018-22": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.media.ford.com/content/fordmedia/feu/en/news/2018/04/10/all-new-ford-focus.html"
+    ],
+    "notes": "Europe mHEV: ACC Stop&Go with Lane Centring; Pre-Collision Assist standard"
+  },
+  "Ford Kuga 2020-23": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.motor1.com/news/704944/ford-kuga-2024-specs-price/"
+    ],
+    "notes": "Europe: ACC Stop&Go with Lane Centring; no BlueCruise before 2026"
+  },
+  "Ford Kuga Hybrid 2020-23": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.motor1.com/news/704944/ford-kuga-2024-specs-price/"
+    ],
+    "notes": "Europe: ACC Stop&Go with Lane Centring; no BlueCruise before 2026"
+  },
+  "Ford Kuga Hybrid 2024": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.motor1.com/news/704944/ford-kuga-2024-specs-price/",
+      "https://www.fromtheroad.ford.com/eur/en/articles/2026/new-ford-kuga-suv-now-hands-free-with-bluecruise"
+    ],
+    "notes": "Lane centring available on facelift; BlueCruise/DMS only added Feb 2026 (later MY)"
+  },
+  "Ford Kuga Plug-in Hybrid 2020-23": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.motor1.com/news/704944/ford-kuga-2024-specs-price/"
+    ],
+    "notes": "Europe: ACC Stop&Go with Lane Centring; no BlueCruise before 2026"
+  },
+  "Ford Kuga Plug-in Hybrid 2024": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.motor1.com/news/704944/ford-kuga-2024-specs-price/",
+      "https://www.fromtheroad.ford.com/eur/en/articles/2026/new-ford-kuga-suv-now-hands-free-with-bluecruise"
+    ],
+    "notes": "Lane centring available on facelift; BlueCruise/DMS only added Feb 2026 (later MY)"
+  },
+  "Ford Maverick 2022": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.capitalone.com/cars/learn/finding-the-right-car/what-is-ford-copilot360/2186"
+    ],
+    "notes": "Lariat Luxury pkg includes Co-Pilot360 Assist+ (ACC Stop&Go, Lane Centering)"
+  },
+  "Ford Maverick 2023-24": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.capitalone.com/cars/learn/finding-the-right-car/what-is-ford-copilot360/2186"
+    ],
+    "notes": "Co-Pilot360 Assist pkg includes ACC Stop&Go with Lane Centering"
+  },
+  "Ford Maverick Hybrid 2022": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.capitalone.com/cars/learn/finding-the-right-car/what-is-ford-copilot360/2186"
+    ],
+    "notes": "Lariat Luxury pkg includes Co-Pilot360 Assist+ (ACC Stop&Go, Lane Centering)"
+  },
+  "Ford Maverick Hybrid 2023-24": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.capitalone.com/cars/learn/finding-the-right-car/what-is-ford-copilot360/2186"
+    ],
+    "notes": "Co-Pilot360 Assist pkg includes ACC Stop&Go with Lane Centering"
+  },
+  "Ford Mustang Mach-E 2021-24": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "camera",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.ford.com/support/how-tos/ford-technology/driver-assist-features/ford-bluecruise-availability/"
+    ],
+    "notes": "BlueCruise (DMS camera) available all trims; 2021 via Prep Package"
+  },
+  "Ford Ranger 2024": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.capitalone.com/cars/learn/finding-the-right-car/what-is-ford-copilot360/2186"
+    ],
+    "notes": "Co-Pilot360 Assist 2.0 with Lane Centering available; no BlueCruise"
+  },
+  "Genesis G70 2018": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://autotechinsight.spglobal.com/news/5245886/my-2019-genesis-g70-features-advanced-connectivity-driver-assist-technologies",
+      "https://www.genesis.com/content/dam/genesis/us/com/pdf/2022/2022-G70-Brochure-vfin.pdf"
+    ],
+    "notes": "US launch spec lists FCA, BCW, Lane Keeping Assist, DAW; LFA only arrived with 2022 refresh"
+  },
+  "Genesis G70 2019-21": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://autotechinsight.spglobal.com/news/5245886/my-2019-genesis-g70-features-advanced-connectivity-driver-assist-technologies",
+      "https://www.genesis.com/content/dam/genesis/us/com/pdf/2022/2022-G70-Brochure-vfin.pdf"
+    ],
+    "notes": "Lane Keeping Assist only in US; 2022 brochure presents LFA as new (one J.D. Power preview mentions HDA for 2019, unconfirmed)"
+  },
+  "Genesis G70 2022-23": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.genesis.com/content/dam/genesis/us/com/pdf/2022/2022-G70-Brochure-vfin.pdf"
+    ],
+    "notes": "Lane Following Assist and HDA added with 2022 refresh; no US Built-in Cam"
+  },
+  "Genesis G80 2017": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.automotive-fleet.com/144589/genesis-2017-g80"
+    ],
+    "notes": "AEB, BSD, Lane Keep Assist/LDW standard; no HDA in US"
+  },
+  "Genesis G80 2018-19": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.autoguide.com/auto-news/2018/04/5-advanced-safety-features-that-come-standard-on-the-genesis-g80.html"
+    ],
+    "notes": "Lane Keeping Assist standard; HDA/LFA not confirmed for US DH G80 (arrived with 2021 G80)"
+  },
+  "Genesis G80 (2.5T Advanced Trim, with HDA II) 2024": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://owners.genesis.com/us/en/resources/owner-education/advanced-driver-assistance-systems.html"
+    ],
+    "notes": "HDA II with Lane Following Assist; no US driver camera or Built-in Cam pre-facelift"
+  },
+  "Genesis G90 2017-20": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.motorauthority.com/news/1119796_2020-genesis-g90-debuts-at-2019-la-auto-show",
+      "https://www.autoguide.com/auto-news/2016/01/6-things-you-should-know-about-the-2017-genesis-g90-from-hyundai.html"
+    ],
+    "notes": "2017-19 US had Lane Keeping Assist only; LFA + HDA standard on 2020 refresh"
+  },
+  "Genesis GV60 (Advanced Trim) 2023": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://genesisowners.com/genesis-forum/threads/2023-genesis-gv60-safety-and-technology-features.36601/post-480661"
+    ],
+    "notes": "LFA/HDA standard; Built-in Cam not offered in US per owners"
+  },
+  "Genesis GV60 (Performance Trim) 2022-23": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://genesisowners.com/genesis-forum/threads/2023-genesis-gv60-safety-and-technology-features.36601/post-480661"
+    ],
+    "notes": "HDA II standard on Performance; Built-in Cam not offered in US per owners"
+  },
+  "Genesis GV70 (2.5T Trim, without HDA II) 2022-24": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://autotrader.ca/editorial/20201208/2022-genesis-gv70-compact-suv-debuts-packed-with-tech/"
+    ],
+    "notes": "Lane Following Assist/HDA standard on all trims; HDA II only on upper trims; no US factory dashcam"
+  },
+  "Genesis GV70 (3.5T Trim, without HDA II) 2022-23": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://autotrader.ca/editorial/20201208/2022-genesis-gv70-compact-suv-debuts-packed-with-tech/"
+    ],
+    "notes": "Lane Following Assist/HDA standard on all trims; no US factory dashcam"
+  },
+  "Genesis GV70 Electrified (Australia Only) 2022": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.carexpert.com.au/car-news/2023-genesis-electrified-gv70-price-and-specs"
+    ],
+    "notes": "Single AU variant: LFA lane centring, AEB, DAW (no camera); no dashcam listed"
+  },
+  "Genesis GV70 Electrified (with HDA II) 2023-24": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://owners.genesis.com/us/en/resources/owner-education/advanced-driver-assistance-systems.html"
+    ],
+    "notes": "HDA II with LFA; no US driver camera or Built-in Cam pre-facelift"
+  },
+  "Genesis GV80 2023": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://owners.genesis.com/us/en/resources/owner-education/advanced-driver-assistance-systems.html"
+    ],
+    "notes": "LFA/HDA standard, HDA II on upper trims; driver camera only from 2025 facelift"
+  },
+  "GMC Sierra 1500 2020-21": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.chevrolet.com/safety/driver-assistance"
+    ],
+    "notes": "Lane Keep Assist; Super Cruise only from 2022"
+  },
+  "Honda Accord 2018-22": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.hondainfocenter.com/Terms-and-Technologies/_content/Terms-and-Technologies/Lane-Keeping-Assist-System-LKAS-All",
+      "https://global.honda/en/tech/Lane_Keeping_Assist_System_LKAS/",
+      "https://global.honda/en/tech/Driver_Attention_Monitor/"
+    ],
+    "notes": "Honda Sensing/AcuraWatch standard includes LKAS (centers vehicle) + FCW; attention monitor is steering-based"
+  },
+  "Honda Accord 2023-25": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://global.honda/en/tech/Omnidirectional_safety_and_driver_assistive_technologies_Honda_SENSING_360_plus/",
+      "https://global.honda/en/tech/Lane_Keeping_Assist_System_LKAS/",
+      "https://global.honda/en/tech/Driver_Attention_Monitor/"
+    ],
+    "notes": "Honda Sensing standard w/ LKAS + TJA; Sensing 360+ DMS camera is Japan/China only, not US"
+  },
+  "Honda Accord Hybrid 2018-22": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.hondainfocenter.com/Terms-and-Technologies/_content/Terms-and-Technologies/Lane-Keeping-Assist-System-LKAS-All",
+      "https://global.honda/en/tech/Lane_Keeping_Assist_System_LKAS/",
+      "https://global.honda/en/tech/Driver_Attention_Monitor/"
+    ],
+    "notes": "Honda Sensing/AcuraWatch standard includes LKAS (centers vehicle) + FCW; attention monitor is steering-based"
+  },
+  "Honda Accord Hybrid 2023-26": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://global.honda/en/tech/Omnidirectional_safety_and_driver_assistive_technologies_Honda_SENSING_360_plus/",
+      "https://global.honda/en/tech/Lane_Keeping_Assist_System_LKAS/",
+      "https://global.honda/en/tech/Driver_Attention_Monitor/"
+    ],
+    "notes": "Honda Sensing standard w/ LKAS + TJA; Sensing 360+ DMS camera is Japan/China only, not US"
+  },
+  "Honda City (Brazil only) 2023": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://global.honda/en/tech/Lane_Keeping_Assist_System_LKAS/",
+      "https://global.honda/en/tech/Driver_Attention_Monitor/"
+    ],
+    "notes": "Brazil: Honda Sensing (LKAS, ACC, CMBS/FCW) on equipped trims; market-specific details inferred"
+  },
+  "Honda Civic 2016-18": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.hondainfocenter.com/Terms-and-Technologies/_content/Terms-and-Technologies/Lane-Keeping-Assist-System-LKAS-All",
+      "https://global.honda/en/tech/Lane_Keeping_Assist_System_LKAS/",
+      "https://global.honda/en/tech/Driver_Attention_Monitor/"
+    ],
+    "notes": "Honda Sensing/AcuraWatch (required package) includes LKAS (centers vehicle) + FCW; attention monitor is steering-based"
+  },
+  "Honda Civic 2019-21": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.hondainfocenter.com/Terms-and-Technologies/_content/Terms-and-Technologies/Lane-Keeping-Assist-System-LKAS-All",
+      "https://global.honda/en/tech/Lane_Keeping_Assist_System_LKAS/",
+      "https://global.honda/en/tech/Driver_Attention_Monitor/"
+    ],
+    "notes": "Honda Sensing/AcuraWatch standard includes LKAS (centers vehicle) + FCW; attention monitor is steering-based"
+  },
+  "Honda Civic 2022-26": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.hondainfocenter.com/Terms-and-Technologies/_content/Terms-and-Technologies/Lane-Keeping-Assist-System-LKAS-All",
+      "https://global.honda/en/tech/Lane_Keeping_Assist_System_LKAS/",
+      "https://global.honda/en/tech/Driver_Attention_Monitor/"
+    ],
+    "notes": "Honda Sensing/AcuraWatch standard includes LKAS (centers vehicle) + FCW; attention monitor is steering-based"
+  },
+  "Honda Civic Hatchback 2017-18": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.hondainfocenter.com/Terms-and-Technologies/_content/Terms-and-Technologies/Lane-Keeping-Assist-System-LKAS-All",
+      "https://global.honda/en/tech/Lane_Keeping_Assist_System_LKAS/",
+      "https://global.honda/en/tech/Driver_Attention_Monitor/"
+    ],
+    "notes": "Honda Sensing/AcuraWatch (required package) includes LKAS (centers vehicle) + FCW; attention monitor is steering-based"
+  },
+  "Honda Civic Hatchback 2019-21": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.hondainfocenter.com/Terms-and-Technologies/_content/Terms-and-Technologies/Lane-Keeping-Assist-System-LKAS-All",
+      "https://global.honda/en/tech/Lane_Keeping_Assist_System_LKAS/",
+      "https://global.honda/en/tech/Driver_Attention_Monitor/"
+    ],
+    "notes": "Honda Sensing/AcuraWatch standard includes LKAS (centers vehicle) + FCW; attention monitor is steering-based"
+  },
+  "Honda Civic Hatchback 2022-26": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.hondainfocenter.com/Terms-and-Technologies/_content/Terms-and-Technologies/Lane-Keeping-Assist-System-LKAS-All",
+      "https://global.honda/en/tech/Lane_Keeping_Assist_System_LKAS/",
+      "https://global.honda/en/tech/Driver_Attention_Monitor/"
+    ],
+    "notes": "Honda Sensing/AcuraWatch standard includes LKAS (centers vehicle) + FCW; attention monitor is steering-based"
+  },
+  "Honda Civic Hatchback Hybrid 2025-26": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.hondainfocenter.com/Terms-and-Technologies/_content/Terms-and-Technologies/Lane-Keeping-Assist-System-LKAS-All",
+      "https://global.honda/en/tech/Lane_Keeping_Assist_System_LKAS/",
+      "https://global.honda/en/tech/Driver_Attention_Monitor/"
+    ],
+    "notes": "Honda Sensing/AcuraWatch standard includes LKAS (centers vehicle) + FCW; attention monitor is steering-based"
+  },
+  "Honda Civic Hatchback Hybrid (Europe only) 2023": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://global.honda/en/tech/Lane_Keeping_Assist_System_LKAS/",
+      "https://global.honda/en/tech/Driver_Attention_Monitor/"
+    ],
+    "notes": "Europe e:HEV: Honda Sensing standard incl. LKAS, CMBS/FCW"
+  },
+  "Honda Civic Hybrid 2025-26": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.hondainfocenter.com/Terms-and-Technologies/_content/Terms-and-Technologies/Lane-Keeping-Assist-System-LKAS-All",
+      "https://global.honda/en/tech/Lane_Keeping_Assist_System_LKAS/",
+      "https://global.honda/en/tech/Driver_Attention_Monitor/"
+    ],
+    "notes": "Honda Sensing/AcuraWatch standard includes LKAS (centers vehicle) + FCW; attention monitor is steering-based"
+  },
+  "Honda CR-V 2015-16": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://hondanews.ca/en-CA/hci-automobiles/releases/release-0dbd914aabdb9a2b057a5bfd6db7a461b8a3651a-2016-honda-cr-v-achieves-highest-overall-score-for-collision-safety-from-the-national-highway-traffic-safety-administration",
+      "https://global.honda/en/tech/Lane_Keeping_Assist_System_LKAS/"
+    ],
+    "notes": "Touring: LKAS + ACC + CMBS/FCW standard; steering-based attention only"
+  },
+  "Honda CR-V 2017-22": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.hondainfocenter.com/Terms-and-Technologies/_content/Terms-and-Technologies/Lane-Keeping-Assist-System-LKAS-All",
+      "https://global.honda/en/tech/Lane_Keeping_Assist_System_LKAS/",
+      "https://global.honda/en/tech/Driver_Attention_Monitor/"
+    ],
+    "notes": "Honda Sensing/AcuraWatch (required package) includes LKAS (centers vehicle) + FCW; attention monitor is steering-based"
+  },
+  "Honda CR-V 2023-26": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.hondainfocenter.com/Terms-and-Technologies/_content/Terms-and-Technologies/Lane-Keeping-Assist-System-LKAS-All",
+      "https://global.honda/en/tech/Lane_Keeping_Assist_System_LKAS/",
+      "https://global.honda/en/tech/Driver_Attention_Monitor/"
+    ],
+    "notes": "Honda Sensing/AcuraWatch standard includes LKAS (centers vehicle) + FCW; attention monitor is steering-based"
+  },
+  "Honda CR-V Hybrid 2017-22": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.hondainfocenter.com/Terms-and-Technologies/_content/Terms-and-Technologies/Lane-Keeping-Assist-System-LKAS-All",
+      "https://global.honda/en/tech/Lane_Keeping_Assist_System_LKAS/",
+      "https://global.honda/en/tech/Driver_Attention_Monitor/"
+    ],
+    "notes": "Honda Sensing/AcuraWatch (required package) includes LKAS (centers vehicle) + FCW; attention monitor is steering-based"
+  },
+  "Honda CR-V Hybrid 2023-27": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.hondainfocenter.com/Terms-and-Technologies/_content/Terms-and-Technologies/Lane-Keeping-Assist-System-LKAS-All",
+      "https://global.honda/en/tech/Lane_Keeping_Assist_System_LKAS/",
+      "https://global.honda/en/tech/Driver_Attention_Monitor/"
+    ],
+    "notes": "Honda Sensing/AcuraWatch standard includes LKAS (centers vehicle) + FCW; attention monitor is steering-based"
+  },
+  "Honda e 2020": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://global.honda/en/tech/Lane_Keeping_Assist_System_LKAS/",
+      "https://global.honda/en/tech/Driver_Attention_Monitor/"
+    ],
+    "notes": "Europe/Japan: Honda Sensing standard incl. LKAS, CMBS/FCW; side camera mirrors do not record"
+  },
+  "Honda Fit 2018-20": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.hondainfocenter.com/Terms-and-Technologies/_content/Terms-and-Technologies/Lane-Keeping-Assist-System-LKAS-All",
+      "https://global.honda/en/tech/Lane_Keeping_Assist_System_LKAS/",
+      "https://global.honda/en/tech/Driver_Attention_Monitor/"
+    ],
+    "notes": "Honda Sensing/AcuraWatch (required package) includes LKAS (centers vehicle) + FCW; attention monitor is steering-based"
+  },
+  "Honda Freed 2020": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://global.honda/en/tech/Lane_Keeping_Assist_System_LKAS/",
+      "https://global.honda/en/tech/Driver_Attention_Monitor/"
+    ],
+    "notes": "Japan market: Honda Sensing incl. LKAS, CMBS/FCW; dealer-option dashcams only"
+  },
+  "Honda HR-V 2019-22": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.hondainfocenter.com/2021/HR-V/Feature-Guide/Interior-Features/Lane-Keeping-Assist-System-LKAS-EX-and-above/"
+    ],
+    "notes": "Honda Sensing (EX and above) includes LKAS, FCW/CMBS"
+  },
+  "Honda HR-V 2023-27": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.hondainfocenter.com/Terms-and-Technologies/_content/Terms-and-Technologies/Lane-Keeping-Assist-System-LKAS-All",
+      "https://global.honda/en/tech/Lane_Keeping_Assist_System_LKAS/",
+      "https://global.honda/en/tech/Driver_Attention_Monitor/"
+    ],
+    "notes": "Honda Sensing/AcuraWatch standard includes LKAS (centers vehicle) + FCW; attention monitor is steering-based"
+  },
+  "Honda Insight 2019-22": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.hondainfocenter.com/2021/Insight/Feature-Guide/Interior-Features/Lane-Keeping-Assist-System"
+    ],
+    "notes": "Honda Sensing standard on all trims"
+  },
+  "Honda Inspire 2018": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://global.honda/en/tech/Lane_Keeping_Assist_System_LKAS/",
+      "https://global.honda/en/tech/Driver_Attention_Monitor/"
+    ],
+    "notes": "China market (Accord twin): Honda Sensing incl. LKAS, CMBS/FCW"
+  },
+  "Honda N-Box 2018": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://global.honda/en/tech/Lane_Keeping_Assist_System_LKAS/",
+      "https://global.honda/en/tech/Driver_Attention_Monitor/"
+    ],
+    "notes": "Japan market: Honda Sensing incl. LKAS, CMBS/FCW; dealer-option dashcams only"
+  },
+  "Honda Odyssey 2018-20": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.hondainfocenter.com/Terms-and-Technologies/_content/Terms-and-Technologies/Lane-Keeping-Assist-System-LKAS-All",
+      "https://global.honda/en/tech/Lane_Keeping_Assist_System_LKAS/",
+      "https://global.honda/en/tech/Driver_Attention_Monitor/"
+    ],
+    "notes": "Honda Sensing/AcuraWatch (required package) includes LKAS (centers vehicle) + FCW; attention monitor is steering-based"
+  },
+  "Honda Odyssey 2021-26": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.hondainfocenter.com/Terms-and-Technologies/_content/Terms-and-Technologies/Lane-Keeping-Assist-System-LKAS-All",
+      "https://global.honda/en/tech/Lane_Keeping_Assist_System_LKAS/",
+      "https://global.honda/en/tech/Driver_Attention_Monitor/"
+    ],
+    "notes": "Honda Sensing/AcuraWatch standard includes LKAS (centers vehicle) + FCW; attention monitor is steering-based"
+  },
+  "Honda Odyssey (Singapore) 2021": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://global.honda/en/tech/Lane_Keeping_Assist_System_LKAS/",
+      "https://global.honda/en/tech/Driver_Attention_Monitor/"
+    ],
+    "notes": "Singapore: Honda Sensing incl. LKAS, CMBS/FCW"
+  },
+  "Honda Odyssey (Taiwan) 2018-19": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://global.honda/en/tech/Lane_Keeping_Assist_System_LKAS/",
+      "https://global.honda/en/tech/Driver_Attention_Monitor/"
+    ],
+    "notes": "Taiwan: Honda Sensing incl. LKAS, CMBS/FCW"
+  },
+  "Honda Passport 2019-25": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.hondainfocenter.com/Terms-and-Technologies/_content/Terms-and-Technologies/Lane-Keeping-Assist-System-LKAS-All",
+      "https://global.honda/en/tech/Lane_Keeping_Assist_System_LKAS/",
+      "https://global.honda/en/tech/Driver_Attention_Monitor/"
+    ],
+    "notes": "Honda Sensing/AcuraWatch standard includes LKAS (centers vehicle) + FCW; attention monitor is steering-based"
+  },
+  "Honda Passport 2026": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.hondainfocenter.com/2026/passport/feature-guide/safety-features/honda-sensing/",
+      "https://global.honda/en/tech/Driver_Attention_Monitor/"
+    ],
+    "notes": "Honda Sensing standard: LKAS w/ Traffic Jam Assist, FCW; DAM steering-based, no driver camera"
+  },
+  "Honda Pilot 2016-22": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.hondainfocenter.com/2018/pilot/feature-guide/interior-features/lane-keeping-assist-system/",
+      "https://global.honda/en/tech/Driver_Attention_Monitor/"
+    ],
+    "notes": "Honda Sensing trims include LKAS, FCW/CMBS; attention monitor is steering-based"
+  },
+  "Honda Pilot 2023-25": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.hondainfocenter.com/2023/Pilot/Feature-Guide/Interior-Features/Lane-Keeping-Assist-System",
+      "https://global.honda/en/tech/Driver_Attention_Monitor/"
+    ],
+    "notes": "Honda Sensing standard with LKAS + Traffic Jam Assist; DAM is steering-based"
+  },
+  "Honda Pilot 2026": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.hondainfocenter.com/Terms-and-Technologies/_content/Terms-and-Technologies/Lane-Keeping-Assist-System-LKAS-All",
+      "https://global.honda/en/tech/Lane_Keeping_Assist_System_LKAS/",
+      "https://global.honda/en/tech/Driver_Attention_Monitor/"
+    ],
+    "notes": "Honda Sensing/AcuraWatch standard includes LKAS (centers vehicle) + FCW; attention monitor is steering-based"
+  },
+  "Honda Prelude 2026": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.hondainfocenter.com/Terms-and-Technologies/_content/Terms-and-Technologies/Lane-Keeping-Assist-System-LKAS-All",
+      "https://global.honda/en/tech/Lane_Keeping_Assist_System_LKAS/",
+      "https://global.honda/en/tech/Driver_Attention_Monitor/"
+    ],
+    "notes": "Honda Sensing/AcuraWatch standard includes LKAS (centers vehicle) + FCW; attention monitor is steering-based"
+  },
+  "Honda Ridgeline 2017-26": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.hondainfocenter.com/2023/ridgeline/feature-guide/interior-features/lane-keeping-assist-system-lkas/",
+      "https://global.honda/en/tech/Lane_Keeping_Assist_System_LKAS/"
+    ],
+    "notes": "Honda Sensing (top trims 2017-19, standard 2020+) includes LKAS, FCW"
+  },
+  "Hyundai Azera 2022": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "front",
+    "confidence": "medium",
+    "sources": [
+      "https://www.hyundai.com/contents/repn-car/catalog/grandeur-catalog.pdf",
+      "https://www.hyundai.com/content/dam/hyundai/kr/ko/data/vehicles/catalog/grandeur-hybrid-catalog.pdf"
+    ],
+    "notes": "Grandeur IG facelift (Korea/intl, no US Azera); LFA/HDA and optional Built-in Cam"
+  },
+  "Hyundai Azera Hybrid 2019": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "low",
+    "sources": [
+      "https://www.hyundai.com/contents/repn-car/catalog/grandeur-catalog.pdf",
+      "https://www.hyundai.com/content/dam/hyundai/kr/ko/data/vehicles/catalog/grandeur-hybrid-catalog.pdf"
+    ],
+    "notes": "Pre-facelift Grandeur IG Hybrid; LKAS + SCC + FCA, LFA and Built-in Cam arrived with late-2019 facelift"
+  },
+  "Hyundai Azera Hybrid 2020": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "front",
+    "confidence": "medium",
+    "sources": [
+      "https://www.hyundai.com/contents/repn-car/catalog/grandeur-catalog.pdf",
+      "https://www.hyundai.com/content/dam/hyundai/kr/ko/data/vehicles/catalog/grandeur-hybrid-catalog.pdf"
+    ],
+    "notes": "Grandeur IG Hybrid facelift; LFA/HDA and optional Built-in Cam"
+  },
+  "Hyundai Custin 2023": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.hyundai.com/ph/en/find-a-car/custin/safety",
+      "https://www.carguide.ph/2023/10/hyundai-ph-brings-in-first-ever-custin.html?m=1"
+    ],
+    "notes": "SmartSense incl. LFA on top (T-GDI Premium) trim; no factory dashcam listed"
+  },
+  "Hyundai Elantra 2017-18": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "low",
+    "sources": [],
+    "notes": "LKA and FCA with SCC on Limited Ultimate package; no LFA"
+  },
+  "Hyundai Elantra 2019": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "low",
+    "sources": [],
+    "notes": "Facelift; LKA/FCA, no LFA"
+  },
+  "Hyundai Elantra 2021-23": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.jdpower.com/Cars/Shopping-Guides/what-is-highway-driving-assist-and-how-does-it-work"
+    ],
+    "notes": "LFA on SEL Convenience/Limited, HDA on Limited"
+  },
+  "Hyundai Elantra GT 2017-20": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "low",
+    "sources": [],
+    "notes": "LKA/FCA with SmartSense package; no LFA"
+  },
+  "Hyundai Elantra Hybrid 2021-23": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.jdpower.com/Cars/Shopping-Guides/what-is-highway-driving-assist-and-how-does-it-work"
+    ],
+    "notes": "LFA and HDA on Limited"
+  },
+  "Hyundai Genesis 2015-16": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "low",
+    "sources": [],
+    "notes": "LKAS (corrective) + AEB/FCW with Tech/Ultimate package"
+  },
+  "Hyundai i30 2017-19": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "low",
+    "sources": [],
+    "notes": "Europe; LKA, FCA, DAW available; no LFA"
+  },
+  "Hyundai Ioniq 5 (Southeast Asia and Europe only) 2022-24": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://hyundaimobil.co.id/vehicle/assets/files/e-brochure-ioniq-5.pdf",
+      "https://www.gridoto.com/read/223213701/fitur-hyundai-smartsense-yang-ada-di-mobil-listrik-ioniq-5-signature"
+    ],
+    "notes": "HDA/LFA available on upper trims; no factory dashcam found for these markets (Korea-only Built-in Cam)"
+  },
+  "Hyundai Ioniq 5 (with HDA II) 2022-24": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.autoblog.com/2021/03/29/kia-hyundai-genesis-highway-driving-assist-review/"
+    ],
+    "notes": "HDA II on Limited; no driver camera or US dashcam"
+  },
+  "Hyundai Ioniq 5 (without HDA II) 2022-24": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.autoblog.com/2021/03/29/kia-hyundai-genesis-highway-driving-assist-review/"
+    ],
+    "notes": "LFA/HDA on all trims with HDA package"
+  },
+  "Hyundai Ioniq 6 (with HDA II) 2023-24": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.jdpower.com/Cars/Shopping-Guides/what-is-highway-driving-assist-and-how-does-it-work"
+    ],
+    "notes": "HDA II on SEL/Limited; no driver camera or US dashcam"
+  },
+  "Hyundai Ioniq 6 (without HDA II) 2023-24": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.jdpower.com/Cars/Shopping-Guides/what-is-highway-driving-assist-and-how-does-it-work"
+    ],
+    "notes": "LFA standard"
+  },
+  "Hyundai Ioniq Electric 2019": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://research.phhyundai.com/research/2020-Hyundai-Ioniq-Hybrid/City-of-Industry-CA",
+      "https://www.automotiveworld.com/news/2020-ioniq-shows-off-fresh-styling-upgraded-interior-and-more-electric-range-at-los-angeles-auto-show/"
+    ],
+    "notes": "Pre-facelift; LKA/FCA/SCC on Limited, LFA arrived 2020"
+  },
+  "Hyundai Ioniq Electric 2020": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://research.phhyundai.com/research/2020-Hyundai-Ioniq-Hybrid/City-of-Industry-CA",
+      "https://www.automotiveworld.com/news/2020-ioniq-shows-off-fresh-styling-upgraded-interior-and-more-electric-range-at-los-angeles-auto-show/"
+    ],
+    "notes": "2020 facelift added LFA/HDA on Limited"
+  },
+  "Hyundai Ioniq Hybrid 2017-19": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://research.phhyundai.com/research/2020-Hyundai-Ioniq-Hybrid/City-of-Industry-CA",
+      "https://www.automotiveworld.com/news/2020-ioniq-shows-off-fresh-styling-upgraded-interior-and-more-electric-range-at-los-angeles-auto-show/"
+    ],
+    "notes": "Pre-facelift; LKA/FCA, no LFA"
+  },
+  "Hyundai Ioniq Hybrid 2020-22": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://research.phhyundai.com/research/2020-Hyundai-Ioniq-Hybrid/City-of-Industry-CA",
+      "https://www.automotiveworld.com/news/2020-ioniq-shows-off-fresh-styling-upgraded-interior-and-more-electric-range-at-los-angeles-auto-show/"
+    ],
+    "notes": "LFA on SEL/Limited, HDA on Limited"
+  },
+  "Hyundai Ioniq Plug-in Hybrid 2019": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://research.phhyundai.com/research/2020-Hyundai-Ioniq-Hybrid/City-of-Industry-CA",
+      "https://www.automotiveworld.com/news/2020-ioniq-shows-off-fresh-styling-upgraded-interior-and-more-electric-range-at-los-angeles-auto-show/"
+    ],
+    "notes": "Pre-facelift; LKA/FCA, no LFA"
+  },
+  "Hyundai Ioniq Plug-in Hybrid 2020-22": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://research.phhyundai.com/research/2020-Hyundai-Ioniq-Hybrid/City-of-Industry-CA",
+      "https://www.automotiveworld.com/news/2020-ioniq-shows-off-fresh-styling-upgraded-interior-and-more-electric-range-at-los-angeles-auto-show/"
+    ],
+    "notes": "LFA on SEL/Limited, HDA on Limited"
+  },
+  "Hyundai Kona 2020": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.carscoops.com/?p=2191891",
+      "https://autoinformed.com/hyundai-tweaks-2022-kona-and-kona-electric-suvs/"
+    ],
+    "notes": "Pre-facelift; LKA/FCA only, LFA/HDA new for 2022"
+  },
+  "Hyundai Kona Electric 2018-21": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.carscoops.com/?p=2191891",
+      "https://autoinformed.com/hyundai-tweaks-2022-kona-and-kona-electric-suvs/"
+    ],
+    "notes": "US pre-facelift; LKA/FCA, LFA/HDA new for 2022"
+  },
+  "Hyundai Kona Electric 2022-23": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.carscoops.com/?p=2191891",
+      "https://autoinformed.com/hyundai-tweaks-2022-kona-and-kona-electric-suvs/",
+      "https://www.hyundaicanada.com/en/showroom/2022/kona-"
+    ],
+    "notes": "Facelift; LFA standard, HDA available"
+  },
+  "Hyundai Kona Electric (with HDA II, Korea only) 2023": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "front",
+    "confidence": "medium",
+    "sources": [
+      "https://www.hyundaimotorgroup.com/ko/news/CONT0000000000079777"
+    ],
+    "notes": "2nd-gen SX2 Korea; HDA 2 and Built-in Cam 2 available"
+  },
+  "Hyundai Kona Hybrid 2020": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "low",
+    "sources": [
+      "https://www.carscoops.com/?p=2191891",
+      "https://autoinformed.com/hyundai-tweaks-2022-kona-and-kona-electric-suvs/"
+    ],
+    "notes": "Non-US pre-facelift; LKA/FCA, LFA came with facelift"
+  },
+  "Hyundai Nexo 2021": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.jdpower.com/Cars/Shopping-Guides/what-is-highway-driving-assist-and-how-does-it-work"
+    ],
+    "notes": "LFA and HDA standard (US)"
+  },
+  "Hyundai Palisade 2020-22": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.jdpower.com/Cars/Shopping-Guides/what-is-highway-driving-assist-and-how-does-it-work"
+    ],
+    "notes": "LFA standard, HDA on Limited/Calligraphy"
+  },
+  "Hyundai Santa Cruz 2022-24": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.jdpower.com/Cars/Shopping-Guides/what-is-highway-driving-assist-and-how-does-it-work"
+    ],
+    "notes": "LFA standard, HDA on Limited"
+  },
+  "Hyundai Santa Fe 2019-20": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.automotive-fleet.com/311678/2019-hyundai-santa-fe-2-0t-awd",
+      "https://www.automotiveworld.com/news-releases/2021-hyundai-santa-fe-adds-innovative-design-powertrain-and-driver-convenience-technologies",
+      "https://thebrakereport.com/hyundai-ups-the-adas-on-refreshed-2021-santa-fe/"
+    ],
+    "notes": "LKA + SCC standard; LFA/HDA were new for the 2021 refresh"
+  },
+  "Hyundai Santa Fe 2021-23": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.automotiveworld.com/news-releases/2021-hyundai-santa-fe-adds-innovative-design-powertrain-and-driver-convenience-technologies",
+      "https://thebrakereport.com/hyundai-ups-the-adas-on-refreshed-2021-santa-fe/"
+    ],
+    "notes": "LFA standard, HDA on upper trims"
+  },
+  "Hyundai Santa Fe Hybrid 2022-23": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.automotiveworld.com/news-releases/2021-hyundai-santa-fe-adds-innovative-design-powertrain-and-driver-convenience-technologies",
+      "https://thebrakereport.com/hyundai-ups-the-adas-on-refreshed-2021-santa-fe/"
+    ],
+    "notes": "LFA standard, HDA on upper trims"
+  },
+  "Hyundai Santa Fe Plug-in Hybrid 2022-23": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.automotiveworld.com/news-releases/2021-hyundai-santa-fe-adds-innovative-design-powertrain-and-driver-convenience-technologies",
+      "https://thebrakereport.com/hyundai-ups-the-adas-on-refreshed-2021-santa-fe/"
+    ],
+    "notes": "LFA standard, HDA on Limited"
+  },
+  "Hyundai Sonata 2018-19": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "low",
+    "sources": [],
+    "notes": "LKA/FCA, no LFA"
+  },
+  "Hyundai Sonata 2020-23": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.jdpower.com/Cars/Shopping-Guides/what-is-highway-driving-assist-and-how-does-it-work"
+    ],
+    "notes": "LFA standard, HDA on top trims; Built-in Cam was Korea-only"
+  },
+  "Hyundai Sonata Hybrid 2020-23": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.jdpower.com/Cars/Shopping-Guides/what-is-highway-driving-assist-and-how-does-it-work"
+    ],
+    "notes": "LFA standard, HDA on Limited"
+  },
+  "Hyundai Staria 2023": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "front",
+    "confidence": "medium",
+    "sources": [
+      "https://www.heydealer.com/market/cars/jlZPrJnp",
+      "https://www.autoview.co.kr/ko-kr/articles/73166"
+    ],
+    "notes": "Korea/intl; LFA/HDA, optional Built-in Cam"
+  },
+  "Hyundai Tucson 2021": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "front",
+    "confidence": "medium",
+    "sources": [
+      "https://eacar.co.kr/usedcar/view/27",
+      "https://research.phhyundai.com/research/2021-Hyundai-Tucson/City-of-Industry-CA"
+    ],
+    "notes": "4th-gen NX4 (non-US 2021; US 2021 was old TL with LKA only); LFA/HDA and Korea Built-in Cam option"
+  },
+  "Hyundai Tucson 2022": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.jdpower.com/Cars/Shopping-Guides/what-is-highway-driving-assist-and-how-does-it-work"
+    ],
+    "notes": "LFA standard, HDA on Limited"
+  },
+  "Hyundai Tucson 2023-24": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.jdpower.com/Cars/Shopping-Guides/what-is-highway-driving-assist-and-how-does-it-work"
+    ],
+    "notes": "LFA standard, HDA on Limited"
+  },
+  "Hyundai Tucson Diesel 2019": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "low",
+    "sources": [
+      "https://research.phhyundai.com/research/2021-Hyundai-Tucson/City-of-Industry-CA"
+    ],
+    "notes": "Non-US TL facelift; LKA/FCA, no LFA"
+  },
+  "Hyundai Tucson Hybrid 2022-24": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.jdpower.com/Cars/Shopping-Guides/what-is-highway-driving-assist-and-how-does-it-work"
+    ],
+    "notes": "LFA standard, HDA on Limited"
+  },
+  "Hyundai Tucson Plug-in Hybrid 2024": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.jdpower.com/Cars/Shopping-Guides/what-is-highway-driving-assist-and-how-does-it-work"
+    ],
+    "notes": "LFA standard, HDA on Limited"
+  },
+  "Hyundai Veloster 2019-20": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "low",
+    "sources": [],
+    "notes": "LKA/FCA, no LFA"
+  },
+  "Jeep Grand Cherokee 2016-18": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://media.stellantisnorthamerica.com/text.do?id=21521"
+    ],
+    "notes": "WK2: LaneSense LDW Plus and FCW Plus bundled with ACC"
+  },
+  "Jeep Grand Cherokee 2019-21": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://autotechinsight.spglobal.com/news/5259417/jeep-to-offer-hands-free-active-driving-assist-in-new-grand-cherokee-l-later-in-2021"
+    ],
+    "notes": "WK2 LaneSense LDW Plus only; Active Driving Assist arrived on new WL Grand Cherokee L, not WK2"
+  },
+  "Kia Carnival 2022-24": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://kia.com/content/dam/kia/us/brochures/brochure-carnival-mpv-2022.pdf"
+    ],
+    "notes": "LKA+LFA standard all trims; HDA available on upper trims"
+  },
+  "Kia Carnival (China only) 2023": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "low",
+    "sources": [
+      "https://www.autohome.com.cn/3448/19970/0/Section.html"
+    ],
+    "notes": "Inferred from Korean-built KA4 Carnival (LFA/HDA); China spec sheet not confirmed"
+  },
+  "Kia Ceed 2019-21": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://press.kia.com/content/dam/kiapress/IE/pressreleases/Ceed-Launch-September-2018/Ceed-press-release.pdf",
+      "https://am-online.com/news/new-car-news/car-model-news/2018/06/18/kia-s-next-generation-cee-d-priced-from-18-295"
+    ],
+    "notes": "Lane Following Assist optional (DCT models); first Kia in Europe with LFA"
+  },
+  "Kia Ceed Plug-in Hybrid 2021": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://press.kia.com/content/dam/kiapress/IE/pressreleases/Ceed-Launch-September-2018/Ceed-press-release.pdf",
+      "https://am-online.com/news/new-car-news/car-model-news/2018/06/18/kia-s-next-generation-cee-d-priced-from-18-295"
+    ],
+    "notes": "Same Ceed LFA (optional, auto gearbox) as Ceed range"
+  },
+  "Kia EV6 (Southeast Asia only) 2022-24": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.wapcar.my/news/49108kia-ev6-launched-in-malaysia--priced-from-rm-301k-325-ps-awd-506-km-full-adas-49108",
+      "https://www.topgear.com.my/news/all-new-kia-ev6-launched-in-malaysia-rm299888"
+    ],
+    "notes": "Malaysia GT-Line lists LFA, LKA, SCC, FCA; no factory Built-in Cam found for SEA"
+  },
+  "Kia EV6 (with HDA II) 2022-24": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://kia.com/us/en/ev6/specs"
+    ],
+    "notes": "HDA2 with lane centering; driver attention via steering torque only"
+  },
+  "Kia EV6 (without HDA II) 2022-24": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://kia.com/us/en/ev6/specs"
+    ],
+    "notes": "LFA standard; HDA on all trims"
+  },
+  "Kia Forte 2019-21": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.kiamedia.com/us/en/models/forte/2019/features"
+    ],
+    "notes": "LKA+LDW standard; no LFA until 2022 refresh; FCA optional on EX"
+  },
+  "Kia Forte 2022-23": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://KiaMedia.com/us/en/models/forte/2022",
+      "https://www.jdpower.com/automotive-news/2022-kia-forte-changes-include-styling-refresh-and-new-tech"
+    ],
+    "notes": "LFA standard on 2022 refresh; HDA available"
+  },
+  "Kia K5 2021-24": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.autotrader.com/research/kia/k5/2022"
+    ],
+    "notes": "LFA standard all trims; HDA on upper trims"
+  },
+  "Kia K5 Hybrid 2020-22": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.Kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_k5.pdf"
+    ],
+    "notes": "Korean market: LFA/HDA via Drive Wise; factory Built-in Cam availability on 2020-22 unconfirmed"
+  },
+  "Kia K7 2017": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://newstomato.com/ReadNews.aspx?no=725571",
+      "https://www.sateconomy.co.kr/news/view/179587464058256"
+    ],
+    "notes": "2017 K7 added LKAS + DAA; HDA first arrived on 2018MY K7"
+  },
+  "Kia K8 Hybrid (with HDA II) 2023": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "front",
+    "confidence": "medium",
+    "sources": [
+      "https://kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_k8.pdf",
+      "https://www.ajunews.com/view/20210504083533328"
+    ],
+    "notes": "HDA2 in Drive Wise; Built-in Cam offered on K8 (catalog), exact 2023 option list unconfirmed"
+  },
+  "Kia Niro EV 2019": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.kiamedia.com/us/en/models/niro-ev/2019/features"
+    ],
+    "notes": "LFA standard on EX and EX Premium"
+  },
+  "Kia Niro EV 2020": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.kiamedia.com/us/en/models/niro-ev/2019/features"
+    ],
+    "notes": "Same as 2019 Niro EV: LFA standard"
+  },
+  "Kia Niro EV 2021": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.kiamedia.com/us/en/models/niro-ev/2019/features"
+    ],
+    "notes": "Same gen as 2019: LFA standard"
+  },
+  "Kia Niro EV 2022": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.kiamedia.com/us/en/models/niro-ev/2019/features"
+    ],
+    "notes": "Same gen as 2019: LFA standard"
+  },
+  "Kia Niro EV (with HDA II) 2024-25": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.kiamedia.com/us/en/models/niro-ev/2024"
+    ],
+    "notes": "HDA2 on Wave trim"
+  },
+  "Kia Niro EV (without HDA II) 2023-25": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.kiamedia.com/us/en/models/niro-ev/2023"
+    ],
+    "notes": "LFA standard on 2nd-gen Niro EV; HDA available"
+  },
+  "Kia Niro Hybrid 2018": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.kbb.com/kia/niro/2018/"
+    ],
+    "notes": "LDW only (Touring Adv. Tech pkg), no LFA until 2020 refresh; FCW/AEB optional"
+  },
+  "Kia Niro Hybrid 2021": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://kiamedia.com/us/en/media/pressreleases/15726/refreshed-niro-hybrid-debuts-at-2019-los-angeles-auto-show"
+    ],
+    "notes": "LFA added with 2020 refresh (upper trims)"
+  },
+  "Kia Niro Hybrid 2022": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://kiamedia.com/us/en/media/pressreleases/15726/refreshed-niro-hybrid-debuts-at-2019-los-angeles-auto-show"
+    ],
+    "notes": "LFA added with 2020 refresh (upper trims)"
+  },
+  "Kia Niro Hybrid 2023-24": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.kiamedia.com/us/en/models/niro/2023"
+    ],
+    "notes": "2nd gen: LFA standard; HDA available"
+  },
+  "Kia Niro Plug-in Hybrid 2018-19": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.kbb.com/kia/niro-plug-in-hybrid/2019/"
+    ],
+    "notes": "Pre-refresh: LDW/LKA only; FCW with SCC on EX Premium"
+  },
+  "Kia Niro Plug-in Hybrid 2020": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://kiamedia.com/us/en/media/pressreleases/15726/refreshed-niro-hybrid-debuts-at-2019-los-angeles-auto-show",
+      "https://www.kbb.com/kia/niroplug-inhybrid/2020"
+    ],
+    "notes": "PHEV got refresh LFA; trim availability varies by source"
+  },
+  "Kia Niro Plug-in Hybrid 2021": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://kiamedia.com/us/en/media/pressreleases/15726/refreshed-niro-hybrid-debuts-at-2019-los-angeles-auto-show"
+    ],
+    "notes": "LFA available post-refresh"
+  },
+  "Kia Niro Plug-in Hybrid 2022": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://kiamedia.com/us/en/media/pressreleases/15726/refreshed-niro-hybrid-debuts-at-2019-los-angeles-auto-show"
+    ],
+    "notes": "LFA available post-refresh"
+  },
+  "Kia Optima 2017": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.kiamedia.com/us/en/models/optima/2017"
+    ],
+    "notes": "LDW only; FCW/AEB with SXL tech package"
+  },
+  "Kia Optima 2019-20": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://kiamedia.com/us/en/models/optima/2019",
+      "https://www.autoguide.com/auto-news/2018/03/kia-s-best-selling-midsize-sedan-gets-a-refresh.html"
+    ],
+    "notes": "LKA standard from 2019 refresh; no LFA in US"
+  },
+  "Kia Optima Hybrid 2019": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://kiamedia.com/us/en/models/optima/2019"
+    ],
+    "notes": "LKA/LDW only; no LFA in US"
+  },
+  "Kia Seltos 2021": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://blog.consumerguide.com/2021-kia-seltos/"
+    ],
+    "notes": "LFA on S/EX/SX trims, not base LX"
+  },
+  "Kia Sorento 2018": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.kiamedia.com/us/en/models/sorento/2018"
+    ],
+    "notes": "LDW only; FCW/AEB on SXL"
+  },
+  "Kia Sorento 2019": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://kiamedia.com/us/en/models/sorento/2019",
+      "https://www.kbb.com/car-news/2019-kia-sorento-refreshed"
+    ],
+    "notes": "LKA added for 2019; no LFA"
+  },
+  "Kia Sorento 2021-23": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://thebrakereport.com/sorento-adds-adas-for-2023/"
+    ],
+    "notes": "LFA standard on 4th gen; HDA on upper trims"
+  },
+  "Kia Sorento Hybrid 2021-23": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://thebrakereport.com/sorento-adds-adas-for-2023/"
+    ],
+    "notes": "LFA standard; HDA available"
+  },
+  "Kia Sorento Plug-in Hybrid 2022-23": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://thebrakereport.com/sorento-adds-adas-for-2023/"
+    ],
+    "notes": "LFA standard; HDA available"
+  },
+  "Kia Sportage 2023-24": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://thebrakereport.com/sportage-new-for-2023-adds-adas/"
+    ],
+    "notes": "LFA standard even on LX; HDA on upper trims"
+  },
+  "Kia Sportage Hybrid 2023": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://thebrakereport.com/sportage-new-for-2023-adds-adas/",
+      "https://kiamedia.com/us/en/models/sportage-hev/2024"
+    ],
+    "notes": "LFA standard all trims"
+  },
+  "Kia Sportage Plug-in Hybrid 2023": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://thebrakereport.com/sportage-new-for-2023-adds-adas/"
+    ],
+    "notes": "LFA standard all trims"
+  },
+  "Kia Stinger 2018-20": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.autoguide.com/auto-news/2021/03/2022-kia-stinger-is-a-more-feature-rich-sport-sedan.html"
+    ],
+    "notes": "US: LKA + DAW only; LFA arrived with 2022 refresh (Korea had HDA earlier)"
+  },
+  "Kia Stinger 2022-23": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.kiamedia.com:443/us/es/media/pressreleases/17618/2022-kia-stinger-earns-iihs-top-safety-pickplus-award"
+    ],
+    "notes": "LFA standard on 2022 refresh; HDA on GT trims"
+  },
+  "Kia Telluride 2020-22": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.repairerdrivennews.com/2019/06/10/2020-kia-telluride-has-lots-of-high-strength-steel-offers-much-adas-standard/",
+      "https://www.autotrader.ca/editorial/car-news/preview-2020-kia-telluride/"
+    ],
+    "notes": "LFA standard all trims; HDA EX and up"
+  },
+  "Lexus CT Hybrid 2017-18": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://pressroom.lexus.com/2017-lexus-es-300h-safety-system-standard/"
+    ],
+    "notes": "Lexus Safety System+ (1st gen): PCS, Lane Departure Alert w/ Steering Assist, IHB, DRCC; no LTA"
+  },
+  "Lexus ES 2017-18": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://pressroom.lexus.com/2017-lexus-es-300h-safety-system-standard/"
+    ],
+    "notes": "Lexus Safety System+ (1st gen): PCS, Lane Departure Alert w/ Steering Assist, IHB, DRCC; no LTA; standard 2017+"
+  },
+  "Lexus ES 2019-25": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://pressroom.lexus.com/new-level-perfor-sophistication-next-generation-lexus-es/",
+      "https://pressroom.lexus.com/lexus-es-family-grows-for-2021-all-new-awd-black-line-series-enhance-lineup/"
+    ],
+    "notes": "LSS+ 2.0 (2.5 from 2022) with Lane Tracing Assist standard"
+  },
+  "Lexus ES Hybrid 2017-18": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://pressroom.lexus.com/2017-lexus-es-300h-safety-system-standard/"
+    ],
+    "notes": "Lexus Safety System+ (1st gen): PCS, Lane Departure Alert w/ Steering Assist, IHB, DRCC; no LTA; standard on ES 300h 2017+"
+  },
+  "Lexus ES Hybrid 2019-25": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://pressroom.lexus.com/new-level-perfor-sophistication-next-generation-lexus-es/",
+      "https://pressroom.lexus.com/lexus-es-family-grows-for-2021-all-new-awd-black-line-series-enhance-lineup/"
+    ],
+    "notes": "LSS+ 2.0 (2.5 from 2022) with Lane Tracing Assist standard"
+  },
+  "Lexus GS F 2016": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://pressroom.lexus.com/2017-lexus-es-300h-safety-system-standard/"
+    ],
+    "notes": "Lexus Safety System+ (1st gen): PCS, Lane Departure Alert w/ Steering Assist, IHB, DRCC; no LTA"
+  },
+  "Lexus IS 2017-19": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://pressroom.lexus.com/2017-lexus-es-300h-safety-system-standard/"
+    ],
+    "notes": "Lexus Safety System+ (1st gen): PCS, Lane Departure Alert w/ Steering Assist, IHB, DRCC; no LTA; standard from 2017"
+  },
+  "Lexus IS 2022-24": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://pressroom.lexus.com/?generate_pdf=66510"
+    ],
+    "notes": "LSS+ 2.5 with Lane Tracing Assist standard since 2021 IS refresh"
+  },
+  "Lexus LC 2024-25": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://pressroom.lexus.com/?generate_pdf=66510"
+    ],
+    "notes": "LSS+ 2.5 with Lane Tracing Assist (inferred from Lexus LSS 2.5 rollout)"
+  },
+  "Lexus LS 2018": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://pressroom.lexus.com/?generate_pdf=53933",
+      "https://lexusenthusiast.com/2017/11/29/lexus-safety-system-gets-upgrade-for-2018/"
+    ],
+    "notes": "Base LSS+ (LSS+ A excluded): LDA plus All-Speed DRCC with Lane Keep Assist (LKA); DRCC-paired LKA treated as centering per best-case rule"
+  },
+  "Lexus NX 2018-19": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://pressroom.lexus.com/2017-lexus-es-300h-safety-system-standard/"
+    ],
+    "notes": "Lexus Safety System+ (1st gen): PCS, Lane Departure Alert w/ Steering Assist, IHB, DRCC; no LTA; standard 2018+"
+  },
+  "Lexus NX 2020-21": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://pressroom.lexus.com/whats-new-2020-lexus-nx-300/"
+    ],
+    "notes": "LSS+ 2.0 with Lane Tracing Assist standard from 2020"
+  },
+  "Lexus NX Hybrid 2018-19": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://pressroom.lexus.com/2017-lexus-es-300h-safety-system-standard/"
+    ],
+    "notes": "Lexus Safety System+ (1st gen): PCS, Lane Departure Alert w/ Steering Assist, IHB, DRCC; no LTA; standard 2018+"
+  },
+  "Lexus NX Hybrid 2020-21": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://pressroom.lexus.com/whats-new-2020-lexus-nx-300/"
+    ],
+    "notes": "LSS+ 2.0 with Lane Tracing Assist standard from 2020"
+  },
+  "Lexus RC 2018-20": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://pressroom.lexus.com/2017-lexus-es-300h-safety-system-standard/"
+    ],
+    "notes": "Lexus Safety System+ (1st gen): PCS, Lane Departure Alert w/ Steering Assist, IHB, DRCC; no LTA"
+  },
+  "Lexus RC 2023": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://pressroom.lexus.com/?generate_pdf=66510"
+    ],
+    "notes": "2023 RC gets LSS+ 2.5 incl. Enhanced Lane Tracing Assist standard"
+  },
+  "Lexus RX 2016": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://pressroom.lexus.com/2017-lexus-es-300h-safety-system-standard/"
+    ],
+    "notes": "Lexus Safety System+ (1st gen): PCS, Lane Departure Alert w/ Steering Assist, IHB, DRCC; no LTA (LSS+ package required)"
+  },
+  "Lexus RX 2017-19": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://pressroom.lexus.com/2017-lexus-es-300h-safety-system-standard/"
+    ],
+    "notes": "Lexus Safety System+ (1st gen): PCS, Lane Departure Alert w/ Steering Assist, IHB, DRCC; no LTA; standard 2017+"
+  },
+  "Lexus RX 2020-22": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://pressroom.lexus.com/2020-lexus-rx-and-rxl-open-a-new-chapter-for-the-iconic-luxury-crossover/",
+      "https://pressroom.lexus.com/whats-new-2022-lexus-rx-350-and-450h/"
+    ],
+    "notes": "LSS+ 2.0 with Lane Tracing Assist standard from 2020"
+  },
+  "Lexus RX Hybrid 2016": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://pressroom.lexus.com/2017-lexus-es-300h-safety-system-standard/"
+    ],
+    "notes": "Lexus Safety System+ (1st gen): PCS, Lane Departure Alert w/ Steering Assist, IHB, DRCC; no LTA (LSS+ package required)"
+  },
+  "Lexus RX Hybrid 2017-19": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://pressroom.lexus.com/2017-lexus-es-300h-safety-system-standard/"
+    ],
+    "notes": "Lexus Safety System+ (1st gen): PCS, Lane Departure Alert w/ Steering Assist, IHB, DRCC; no LTA; standard 2017+"
+  },
+  "Lexus RX Hybrid 2020-22": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://pressroom.lexus.com/2020-lexus-rx-and-rxl-open-a-new-chapter-for-the-iconic-luxury-crossover/",
+      "https://pressroom.lexus.com/whats-new-2022-lexus-rx-350-and-450h/"
+    ],
+    "notes": "LSS+ 2.0 with Lane Tracing Assist standard from 2020"
+  },
+  "Lexus UX Hybrid 2019-24": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://pressroom.lexus.com/all-new-lexus-ux-crossover-makes-world-debut-geneva/"
+    ],
+    "notes": "LSS+ 2.0 with Lane Tracing Assist (2.5 from 2022)"
+  },
+  "Lincoln Aviator 2020-24": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.carscoops.com/2023/01/2024-lincoln-aviator-getting-a-bold-facelift-hands-free-driving-tech/"
+    ],
+    "notes": "Co-Pilot360 Plus ACC Stop&Go with Lane Centering; ActiveGlide/DMS only from 2025 facelift"
+  },
+  "Lincoln Aviator Plug-in Hybrid 2020-24": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.carscoops.com/2023/01/2024-lincoln-aviator-getting-a-bold-facelift-hands-free-driving-tech/"
+    ],
+    "notes": "Co-Pilot360 Plus ACC Stop&Go with Lane Centering; ActiveGlide/DMS only from 2025 facelift"
+  },
+  "MAN eTGE 2020-24": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "low",
+    "sources": [
+      "https://press.mantruckandbus.com/corporate/download/6eacbaee-f472-486a-bb96-7bfddb414b5e/20240425-mtb-pi-man-tge-next-level-en.pdf"
+    ],
+    "notes": "Cruise Assist (ACC + lane guard + TJA) only with 2024 'Next Level' (MY2025) update; earlier Lane Assist only"
+  },
+  "MAN TGE 2017-24": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "low",
+    "sources": [
+      "https://press.mantruckandbus.com/corporate/download/6eacbaee-f472-486a-bb96-7bfddb414b5e/20240425-mtb-pi-man-tge-next-level-en.pdf",
+      "https://www.automotiveworld.com/?p=416618"
+    ],
+    "notes": "Cruise Assist with 2024 'Next Level' (MY2025) update, Crafter twin got Travel Assist 2024; earlier Lane Assist only"
+  },
+  "Mazda CX-5 2022-25": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.carvana.com/buy/2022-mazda-cx-5/",
+      "https://www.mazdausa.com/resource-center/mazda-cx-5-safety"
+    ],
+    "notes": "Cruising & Traffic Support (low-speed steering/centering) on top trim (2.5 Turbo Signature 2022; Premium Plus later); else LKA; Driver Attention Alert not camera"
+  },
+  "Mazda CX-9 2021-23": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://news.mazdausa.com/2020-08-18-2021-Mazda-CX-9-Exhilarating-Elegance"
+    ],
+    "notes": "i-Activsense: LDW with Lane-Keep Assist, Smart City Brake Support; no CTS; Driver Attention Alert not camera-based"
+  },
+  "Nissan Altima 2019-24": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.businessfleet.com/279293/next-gen-nissan-altima-adds-semi-autonomous-propilot-assist"
+    ],
+    "notes": "ProPILOT Assist (required package); Intelligent Driver Alertness is steering-based"
+  },
+  "Nissan Leaf 2018-23": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://global.nissannews.com/en/releases/nissan-sells-more-than-75000-vehicles-equipped-with-propilot-assist"
+    ],
+    "notes": "ProPILOT Assist (required package)"
+  },
+  "Nissan Rogue 2018-20": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://global.nissannews.com/en/releases/nissan-sells-more-than-75000-vehicles-equipped-with-propilot-assist"
+    ],
+    "notes": "ProPILOT Assist (required package)"
+  },
+  "Nissan X-Trail 2017": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://autocarpro.in/news-international/nissan-releases-trail-propilot-autonomous-drive-tech-japan-24924"
+    ],
+    "notes": "Japan-market X-Trail update (June 2017) with ProPILOT"
+  },
+  "Ram 1500 2019-24": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://hdrams.com/forum/threads/has-ram-updated-acc-and-lane-assist-yet.20199",
+      "https://www.carexpert.com.au/ram/1500/2024/limited/technology"
+    ],
+    "notes": "US LaneSense LDW Plus (brief corrective nudges); Active Driving Assist lane centering only from 2025"
+  },
+  "Rivian R1S 2022-24": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "multi",
+    "confidence": "medium",
+    "sources": [
+      "https://rivian.com/stories/software-update-2023-14-0",
+      "https://driveteslacanada.ca/news/rivian-announces-interior-camera-is-back-on-2025-r1t-and-r1s/"
+    ],
+    "notes": "Gen1 Highway Assist; early cars had an interior camera but it was not used for DMS and was deactivated/dropped mid-2023; Gear Guard + Road Cam"
+  },
+  "Rivian R1T 2022-24": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "multi",
+    "confidence": "medium",
+    "sources": [
+      "https://insideevs.com/news/567898/rivian-video-details-gear-guard/",
+      "https://driveteslacanada.ca/news/rivian-announces-interior-camera-is-back-on-2025-r1t-and-r1s/"
+    ],
+    "notes": "Gen1 Highway Assist; early cars had an interior camera but it was not used for DMS and was deactivated/dropped mid-2023; Gear Guard + Road Cam"
+  },
+  "SEAT Ateca 2016-23": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.donnellygroup.co.uk/seat/latest-news/the-new-seat-ateca-"
+    ],
+    "notes": "Traffic Jam Assist steers in jams; Travel Assist on 2020 facelift"
+  },
+  "SEAT Leon 2014-20": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://fleetworld.co.uk/?p=30792"
+    ],
+    "notes": "Traffic Jam Assist on 2017 facelift; earlier Lane Assist only"
+  },
+  "Subaru Ascent 2019-21": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://media.subaru.com/pressrelease/1667/1/2021-subaru-ascent-press-kit&searchresult",
+      "https://media.subaru.com/pressrelease/1918/subaru-debuts-refreshed-2023-ascent-3-row-suv"
+    ],
+    "notes": "AACC with Lane Centering standard 2021 only (2019-20 Lane Keep Assist); DriverFocus not until 2023"
+  },
+  "Subaru Crosstrek 2018-19": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://media.subaru.com/pressrelease/1305/134/subaru-announces-2019-crosstrek-eyesight-driver-assist-technology"
+    ],
+    "notes": "EyeSight: Lane Keep Assist + Lane Departure/Sway Warning; no lane centering"
+  },
+  "Subaru Crosstrek 2020-23": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://media.subaru.com/pressrelease/1639/1/2021-subaru-crosstrek-press-kit",
+      "https://media.subaru.com/pdf.do?id=1824"
+    ],
+    "notes": "AACC with Lane Centering on CVT EyeSight from 2021; 2020 Lane Keep Assist only"
+  },
+  "Subaru Forester 2019-21": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "camera",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://media.subaru.com/pressrelease/1684/1/2021-subaru-forester-press-kit",
+      "https://media.subaru.com/pressrelease/1474/1/2020-subaru-forester-press-kit"
+    ],
+    "notes": "Lane Centering standard from 2020 (2019 LKA only); DriverFocus camera on Touring"
+  },
+  "Subaru Impreza 2017-19": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://media.subaru.com/newsrelease.do?id=1491"
+    ],
+    "notes": "EyeSight: Lane Keep Assist, Lane Departure/Sway Warning; no lane centering"
+  },
+  "Subaru Impreza 2020-22": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://media.subaru.com/pressrelease/1860/1/2022-subaru-impreza-press-kit&searchresult",
+      "https://media.subaru.com/newsrelease.do?id=1491"
+    ],
+    "notes": "US EyeSight lists Lane Keep Assist only; no AACC Lane Centering on Impreza (unlike Crosstrek)"
+  },
+  "Subaru Legacy 2020-22": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "camera",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://media.subaru.com/newsrelease.do?id=1733&mid=1"
+    ],
+    "notes": "AACC with Lane Centering standard; DriverFocus camera on Limited/Touring XT grades"
+  },
+  "Subaru Outback 2020-22": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "camera",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://media.subaru.com/newsrelease.do?id=1733&mid=1"
+    ],
+    "notes": "AACC with Lane Centering standard; DriverFocus camera on Touring/Touring XT grades"
+  },
+  "Subaru XV 2018-19": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://autodeadline.com.au/Content/Subaru/XV-releases/Article/Pricing-Spec-Make-XV-Ride-High-In-SUV-Pack/1057/1588/23236",
+      "https://www.kolesa.ru/news/obnovlennyy-subaru-xv-podretushirovannaya-optika-i-izmenennaya-motornaya-gamma"
+    ],
+    "notes": "Non-US model; EyeSight Lane Keep Assist; Touring Assist only reached Japan XV in late 2019"
+  },
+  "Subaru XV 2020-21": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "low",
+    "sources": [
+      "https://www.kolesa.ru/news/obnovlennyy-subaru-xv-podretushirovannaya-optika-i-izmenennaya-motornaya-gamma",
+      "https://autobuzz.my/2021/12/20/facts-figures-2021-subaru-xv-with-eyesight-launched-from-rm139k/"
+    ],
+    "notes": "Japan-market XV got EyeSight Touring Assist (lane centering) from Nov 2019 facelift; EU/AU/Asia XV are LKA-only"
+  },
+  "Škoda Fabia 2022-23": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.skoda-storyboard.com/direct-download/2021/02/Press_Kit_SKODA_FABIA_CD.pdf"
+    ],
+    "notes": "Travel Assist optional on Fabia IV"
+  },
+  "Škoda Kamiq 2021-23": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://cdn.skoda-storyboard.com/2018/12/06_Press_Kit_SKODA_SCALA_Safety_and_assistance_systems.pdf",
+      "https://www.skoda-storyboard.com/en/press-kits/skoda-scala-and-skoda-kamiq-media-launch-press-kit/safety-new-safety-equipment-and-assistance-systems-from-higher-vehicle-classes/"
+    ],
+    "notes": "Pre-facelift: Lane Assist + ACC; Travel Assist only from 2024 facelift"
+  },
+  "Škoda Karoq 2019-23": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.skoda-storyboard.com/en/press-kits/the-new-skoda-karoq-world-premiere-press-kit/safety-up-to-nine-airbags-and-various-assistance-systems/"
+    ],
+    "notes": "Traffic Jam Assist from launch; Travel Assist on 2022 facelift"
+  },
+  "Škoda Kodiaq 2017-23": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.skoda-storyboard.com/en/press-kits/the-new-skoda-kodiaq-dynamic-press-launch-press-kit/safety-travel-assist-and-up-to-nine-airbags/",
+      "https://www.skoda-storyboard.com/en/press-releases/inspiring-safety-technology-new-skoda-superb-innovative-assistance-systems-improved-safety-comfort/attachment/su_tech_007_traffic_jam_assist-2/"
+    ],
+    "notes": "Adaptive Lane Assist + TJA; Travel Assist on 2021 facelift"
+  },
+  "Škoda Octavia 2015-19": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "low",
+    "sources": [
+      "https://www.fleetnews.co.uk/news/manufacturer-news/2016/12/16/2017-skoda-octavia-will-feature-new-assistance-systems-and-connected-services"
+    ],
+    "notes": "Mk3: Lane Assist; TJA on 2017 facelift assumed (shared MQB), not confirmed"
+  },
+  "Škoda Octavia RS 2016": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "low",
+    "sources": [
+      "https://www.fleetnews.co.uk/news/manufacturer-news/2016/12/16/2017-skoda-octavia-will-feature-new-assistance-systems-and-connected-services"
+    ],
+    "notes": "Pre-facelift Mk3: Lane Assist (corrective) only"
+  },
+  "Škoda Octavia Scout 2017-19": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "low",
+    "sources": [
+      "https://www.fleetnews.co.uk/news/manufacturer-news/2016/12/16/2017-skoda-octavia-will-feature-new-assistance-systems-and-connected-services"
+    ],
+    "notes": "2017 facelift: TJA assumed (shared MQB), not confirmed"
+  },
+  "Škoda Scala 2020-23": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://cdn.skoda-storyboard.com/2018/12/06_Press_Kit_SKODA_SCALA_Safety_and_assistance_systems.pdf",
+      "https://www.skoda-storyboard.com/en/press-kits/skoda-scala-and-skoda-kamiq-media-launch-press-kit/safety-new-safety-equipment-and-assistance-systems-from-higher-vehicle-classes/"
+    ],
+    "notes": "Lane Assist std + ACC; Travel Assist only from 2024 facelift"
+  },
+  "Škoda Superb 2015-22": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.skoda-storyboard.com/en/press-releases/inspiring-safety-technology-new-skoda-superb-innovative-assistance-systems-improved-safety-comfort/attachment/su_tech_007_traffic_jam_assist-2/"
+    ],
+    "notes": "Adaptive Lane Assist + TJA from 2015; Travel Assist on 2019 facelift"
+  },
+  "Tesla Model 3 (with HW2.5) 2019": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "camera",
+    "fcw": true,
+    "dashcam": "multi",
+    "confidence": "high",
+    "sources": [
+      "https://electrek.co/2021/05/27/tesla-releases-driver-monitoring-system-cabin-camera/",
+      "https://driveteslacanada.ca/?p=29918"
+    ],
+    "notes": "Autopilot Autosteer; cabin camera DMS enabled on radar cars via 2021.32.5 OTA; Dashcam/Sentry with USB"
+  },
+  "Tesla Model 3 (with HW3) 2019-23": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "camera",
+    "fcw": true,
+    "dashcam": "multi",
+    "confidence": "high",
+    "sources": [
+      "https://electrek.co/2021/05/27/tesla-releases-driver-monitoring-system-cabin-camera/"
+    ],
+    "notes": "Autosteer standard; cabin camera DMS since 2021 OTA; Dashcam/Sentry"
+  },
+  "Tesla Model 3 (with HW4) 2024-25": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "camera",
+    "fcw": true,
+    "dashcam": "multi",
+    "confidence": "high",
+    "sources": [
+      "https://electrek.co/2021/05/27/tesla-releases-driver-monitoring-system-cabin-camera/"
+    ],
+    "notes": "Autosteer standard; cabin camera DMS; Dashcam/Sentry"
+  },
+  "Tesla Model Y (with HW3) 2020-24": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "camera",
+    "fcw": true,
+    "dashcam": "multi",
+    "confidence": "high",
+    "sources": [
+      "https://electrek.co/2021/05/27/tesla-releases-driver-monitoring-system-cabin-camera/"
+    ],
+    "notes": "Autosteer standard; cabin camera DMS since 2021 OTA; Dashcam/Sentry"
+  },
+  "Tesla Model Y (with HW4) 2023-25": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "camera",
+    "fcw": true,
+    "dashcam": "multi",
+    "confidence": "high",
+    "sources": [
+      "https://electrek.co/2021/05/27/tesla-releases-driver-monitoring-system-cabin-camera/"
+    ],
+    "notes": "Autosteer standard; cabin camera DMS; Dashcam/Sentry"
+  },
+  "Toyota Alphard 2019-20": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://gazoo.com/car/info/17/12/25/"
+    ],
+    "notes": "Japan-market; 2nd-gen TSS with Lane Tracing Assist standard from Jan 2018 facelift"
+  },
+  "Toyota Alphard Hybrid 2021": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://gazoo.com/car/info/17/12/25/"
+    ],
+    "notes": "Japan-market; 2nd-gen TSS with Lane Tracing Assist standard"
+  },
+  "Toyota Avalon 2016": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://pressroom.toyota.com/toyota-safety-package-tssp-award-nempa/",
+      "https://www.toyota.ca/toyota/en/connect/412/everything-you-need-to-know-about-lane-departure-alert"
+    ],
+    "notes": "TSS-P package (PCS, LDA, DRCC); no lane centering"
+  },
+  "Toyota Avalon 2017-18": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://pressroom.toyota.com/toyota-safety-package-tssp-award-nempa/",
+      "https://www.toyota.ca/toyota/en/connect/412/everything-you-need-to-know-about-lane-departure-alert"
+    ],
+    "notes": "TSS-P: Pre-Collision System + Lane Departure Alert w/ steering assist; no LTA"
+  },
+  "Toyota Avalon 2019-21": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://media.toyota.ca/en/releases/2018/break-with-convention-in-the-all-new-2019-toyota-avalon.html",
+      "https://www.toyota.ca/toyota/en/connect/412/everything-you-need-to-know-about-lane-departure-alert"
+    ],
+    "notes": "TSS-P standard with LDA w/ steering assist; no LTA until 2022 TSS 2.0"
+  },
+  "Toyota Avalon 2022": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.kbb.com/car-news/toyota-launches-new-safety-sense-systems-adds-driver-assists"
+    ],
+    "notes": "TSS 2.0 with Lane Tracing Assist"
+  },
+  "Toyota Avalon Hybrid 2019-21": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://media.toyota.ca/en/releases/2018/break-with-convention-in-the-all-new-2019-toyota-avalon.html",
+      "https://www.toyota.ca/toyota/en/connect/412/everything-you-need-to-know-about-lane-departure-alert"
+    ],
+    "notes": "TSS-P standard with LDA w/ steering assist; no LTA"
+  },
+  "Toyota Avalon Hybrid 2022": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.kbb.com/car-news/toyota-launches-new-safety-sense-systems-adds-driver-assists"
+    ],
+    "notes": "TSS 2.0 with Lane Tracing Assist"
+  },
+  "Toyota C-HR 2017-20": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://pressroom.toyota.com/toyota-safety-package-tssp-award-nempa/",
+      "https://www.toyota.ca/toyota/en/connect/412/everything-you-need-to-know-about-lane-departure-alert"
+    ],
+    "notes": "TSS-P: Pre-Collision System + Lane Departure Alert w/ steering assist; no LTA"
+  },
+  "Toyota C-HR 2021": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.toyota.com/c-hr/2021/compare/c-hr-vs-ecosport"
+    ],
+    "notes": "2021 refresh: TSS 2.0/2.5 standard incl. Lane Tracing Assist"
+  },
+  "Toyota C-HR Hybrid 2017-20": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://pressroom.toyota.com/toyota-safety-package-tssp-award-nempa/",
+      "https://www.toyota.ca/toyota/en/connect/412/everything-you-need-to-know-about-lane-departure-alert"
+    ],
+    "notes": "Non-US model; TSS-P-era suite with LDA w/ steering assist, no LTA"
+  },
+  "Toyota C-HR Hybrid 2021-22": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.toyota.com/c-hr/2021/compare/c-hr-vs-ecosport"
+    ],
+    "notes": "Non-US model; TSS 2.0 facelift with Lane Tracing Assist"
+  },
+  "Toyota Camry 2018-20": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://pressroom.toyota.com/toyota-safety-package-tssp-award-nempa/",
+      "https://www.toyota.ca/toyota/en/connect/412/everything-you-need-to-know-about-lane-departure-alert"
+    ],
+    "notes": "TSS-P: Pre-Collision System + Lane Departure Alert w/ steering assist; no LTA"
+  },
+  "Toyota Camry 2021-24": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.kbb.com/car-news/toyota-launches-new-safety-sense-systems-adds-driver-assists"
+    ],
+    "notes": "TSS 2.0 (2.5+ from 2021) with Lane Tracing Assist standard"
+  },
+  "Toyota Camry Hybrid 2018-20": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://pressroom.toyota.com/toyota-safety-package-tssp-award-nempa/",
+      "https://www.toyota.ca/toyota/en/connect/412/everything-you-need-to-know-about-lane-departure-alert"
+    ],
+    "notes": "TSS-P: Pre-Collision System + Lane Departure Alert w/ steering assist; no LTA"
+  },
+  "Toyota Camry Hybrid 2021-24": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.kbb.com/car-news/toyota-launches-new-safety-sense-systems-adds-driver-assists"
+    ],
+    "notes": "TSS 2.5+ with Lane Tracing Assist standard"
+  },
+  "Toyota Corolla 2017-19": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://pressroom.toyota.com/toyota-safety-package-tssp-award-nempa/",
+      "https://www.toyota.ca/toyota/en/connect/412/everything-you-need-to-know-about-lane-departure-alert"
+    ],
+    "notes": "TSS-P standard; Lane Departure Alert (steering assist on some trims); no LTA"
+  },
+  "Toyota Corolla 2020-22": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.kbb.com/car-news/toyota-launches-new-safety-sense-systems-adds-driver-assists"
+    ],
+    "notes": "TSS 2.0 with Lane Tracing Assist standard"
+  },
+  "Toyota Corolla Cross (Non-US only) 2020-23": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://response.jp/assistance/catalog/model/TO/S254/F001/M001/",
+      "https://www.autoo.com.br/corolla-e-corolla-cross-passam-a-contar-com-frenagem-autonoma-de-serie-na-linha-2023/"
+    ],
+    "notes": "Non-US (Japan/Thailand/Brazil); TSS with LTA on equipped trims"
+  },
+  "Toyota Corolla Cross Hybrid (Non-US only) 2020-22": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://response.jp/assistance/catalog/model/TO/S254/F001/M001/",
+      "https://www.autoo.com.br/corolla-e-corolla-cross-passam-a-contar-com-frenagem-autonoma-de-serie-na-linha-2023/"
+    ],
+    "notes": "Non-US; hybrids carry TSS with Lane Tracing Assist"
+  },
+  "Toyota Corolla Hatchback 2019-22": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.kbb.com/car-news/toyota-launches-new-safety-sense-systems-adds-driver-assists"
+    ],
+    "notes": "TSS 2.0 with Lane Tracing Assist standard"
+  },
+  "Toyota Corolla Hybrid 2020-22": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.kbb.com/car-news/toyota-launches-new-safety-sense-systems-adds-driver-assists"
+    ],
+    "notes": "TSS 2.0 with Lane Tracing Assist standard"
+  },
+  "Toyota Corolla Hybrid (South America only) 2020-23": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.autoo.com.br/corolla-e-corolla-cross-passam-a-contar-com-frenagem-autonoma-de-serie-na-linha-2023/"
+    ],
+    "notes": "Brazil: TSS standard on hybrids incl. LTA lane-keeping assist"
+  },
+  "Toyota Highlander 2017-19": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://pressroom.toyota.com/toyota-safety-package-tssp-award-nempa/",
+      "https://www.toyota.ca/toyota/en/connect/412/everything-you-need-to-know-about-lane-departure-alert"
+    ],
+    "notes": "TSS-P: Pre-Collision System + Lane Departure Alert w/ steering assist; no LTA"
+  },
+  "Toyota Highlander 2020-23": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.kbb.com/car-news/toyota-launches-new-safety-sense-systems-adds-driver-assists"
+    ],
+    "notes": "TSS 2.0 with Lane Tracing Assist standard"
+  },
+  "Toyota Highlander Hybrid 2017-19": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://pressroom.toyota.com/toyota-safety-package-tssp-award-nempa/",
+      "https://www.toyota.ca/toyota/en/connect/412/everything-you-need-to-know-about-lane-departure-alert"
+    ],
+    "notes": "TSS-P: Pre-Collision System + Lane Departure Alert w/ steering assist; no LTA"
+  },
+  "Toyota Highlander Hybrid 2020-23": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.kbb.com/car-news/toyota-launches-new-safety-sense-systems-adds-driver-assists"
+    ],
+    "notes": "TSS 2.0 with Lane Tracing Assist standard"
+  },
+  "Toyota Mirai 2021": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.kbb.com/car-news/toyota-launches-new-safety-sense-systems-adds-driver-assists"
+    ],
+    "notes": "TSS 2.5+ with Lane Tracing Assist; US car has no driver monitor camera (JP Advanced Drive only)"
+  },
+  "Toyota Prius 2016": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://pressroom.toyota.com/toyota-safety-package-tssp-award-nempa/",
+      "https://www.toyota.ca/toyota/en/connect/412/everything-you-need-to-know-about-lane-departure-alert"
+    ],
+    "notes": "TSS-P optional; LDA w/ steering assist; no LTA"
+  },
+  "Toyota Prius 2017-20": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://pressroom.toyota.com/toyota-safety-package-tssp-award-nempa/",
+      "https://www.toyota.ca/toyota/en/connect/412/everything-you-need-to-know-about-lane-departure-alert"
+    ],
+    "notes": "TSS-P: Pre-Collision System + Lane Departure Alert w/ steering assist; no LTA"
+  },
+  "Toyota Prius 2021-22": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.consumerreports.org/cars/toyota/prius/2021/overview/"
+    ],
+    "notes": "Upgraded to TSS 2.0 for 2021 with Lane Tracing Assist"
+  },
+  "Toyota Prius Prime 2017-20": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://pressroom.toyota.com/toyota-safety-package-tssp-award-nempa/",
+      "https://www.toyota.ca/toyota/en/connect/412/everything-you-need-to-know-about-lane-departure-alert"
+    ],
+    "notes": "TSS-P: Pre-Collision System + Lane Departure Alert w/ steering assist; no LTA"
+  },
+  "Toyota Prius Prime 2021-22": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.consumerreports.org/cars/toyota/prius/2021/overview/",
+      "https://media.toyota.co.uk/safety-and-technology-upgrades-for-the-toyota-prius-plug-in/"
+    ],
+    "notes": "Upgraded to TSS 2.0 for 2021 with Lane Tracing Assist"
+  },
+  "Toyota Prius v 2017": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://pressroom.toyota.com/toyota-safety-package-tssp-award-nempa/",
+      "https://www.toyota.ca/toyota/en/connect/412/everything-you-need-to-know-about-lane-departure-alert"
+    ],
+    "notes": "TSS-P standard; LDA; no LTA"
+  },
+  "Toyota RAV4 2016": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://pressroom.toyota.com/toyota-safety-package-tssp-award-nempa/",
+      "https://www.toyota.ca/toyota/en/connect/412/everything-you-need-to-know-about-lane-departure-alert"
+    ],
+    "notes": "TSS-P package; LDA w/ steering assist; no LTA"
+  },
+  "Toyota RAV4 2017-18": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://pressroom.toyota.com/toyota-safety-package-tssp-award-nempa/",
+      "https://www.toyota.ca/toyota/en/connect/412/everything-you-need-to-know-about-lane-departure-alert"
+    ],
+    "notes": "TSS-P: Pre-Collision System + Lane Departure Alert w/ steering assist; no LTA"
+  },
+  "Toyota RAV4 2019-21": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.kbb.com/car-news/toyota-launches-new-safety-sense-systems-adds-driver-assists"
+    ],
+    "notes": "TSS 2.0 with Lane Tracing Assist standard"
+  },
+  "Toyota RAV4 2022": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.kbb.com/car-news/toyota-launches-new-safety-sense-systems-adds-driver-assists"
+    ],
+    "notes": "TSS 2.0 with Lane Tracing Assist standard"
+  },
+  "Toyota RAV4 2023-25": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.kbb.com/car-news/toyota-launches-new-safety-sense-systems-adds-driver-assists"
+    ],
+    "notes": "TSS 2.5 with Lane Tracing Assist standard"
+  },
+  "Toyota RAV4 Hybrid 2016": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://pressroom.toyota.com/toyota-safety-package-tssp-award-nempa/",
+      "https://www.toyota.ca/toyota/en/connect/412/everything-you-need-to-know-about-lane-departure-alert"
+    ],
+    "notes": "TSS-P; LDA w/ steering assist; no LTA"
+  },
+  "Toyota RAV4 Hybrid 2017-18": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://pressroom.toyota.com/toyota-safety-package-tssp-award-nempa/",
+      "https://www.toyota.ca/toyota/en/connect/412/everything-you-need-to-know-about-lane-departure-alert"
+    ],
+    "notes": "TSS-P: Pre-Collision System + Lane Departure Alert w/ steering assist; no LTA"
+  },
+  "Toyota RAV4 Hybrid 2019-21": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.kbb.com/car-news/toyota-launches-new-safety-sense-systems-adds-driver-assists"
+    ],
+    "notes": "TSS 2.0 with Lane Tracing Assist standard"
+  },
+  "Toyota RAV4 Hybrid 2022": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.kbb.com/car-news/toyota-launches-new-safety-sense-systems-adds-driver-assists"
+    ],
+    "notes": "TSS 2.0 with Lane Tracing Assist standard"
+  },
+  "Toyota RAV4 Hybrid 2023-25": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.kbb.com/car-news/toyota-launches-new-safety-sense-systems-adds-driver-assists"
+    ],
+    "notes": "TSS 2.5 with Lane Tracing Assist standard"
+  },
+  "Toyota Sienna 2018-20": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://pressroom.toyota.com/toyota-safety-package-tssp-award-nempa/",
+      "https://www.toyota.ca/toyota/en/connect/412/everything-you-need-to-know-about-lane-departure-alert"
+    ],
+    "notes": "TSS-P: Pre-Collision System + Lane Departure Alert w/ steering assist; no LTA"
+  },
+  "Volkswagen Arteon 2018-23": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.vw.com/en/iq-drive/travel-assist.html",
+      "https://www.automotiveworld.com/news/technology-highlights-new-touareg-part-4/"
+    ],
+    "notes": "EU 2018+ adaptive lane guidance/Emergency Assist; US 2021+ IQ.DRIVE Travel Assist (US 2019-20 Lane Assist only)"
+  },
+  "Volkswagen Arteon eHybrid 2020-23": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.volkswagen-newsroom.com/en/the-new-tiguan-allspace-test-drives-7543/assist-and-convenience-systems-7551",
+      "https://www.vw.com/en/iq-drive/travel-assist.html"
+    ],
+    "notes": "Facelift Arteon: IQ.DRIVE Travel Assist available"
+  },
+  "Volkswagen Arteon R 2020-23": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.volkswagen-newsroom.com/en/the-new-tiguan-allspace-test-drives-7543/assist-and-convenience-systems-7551",
+      "https://www.vw.com/en/iq-drive/travel-assist.html"
+    ],
+    "notes": "Facelift Arteon: IQ.DRIVE Travel Assist available"
+  },
+  "Volkswagen Arteon Shooting Brake 2020-23": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.volkswagen-newsroom.com/en/the-new-tiguan-allspace-test-drives-7543/assist-and-convenience-systems-7551",
+      "https://www.vw.com/en/iq-drive/travel-assist.html"
+    ],
+    "notes": "Facelift Arteon: IQ.DRIVE Travel Assist available"
+  },
+  "Volkswagen Atlas 2018-23": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.repairerdrivennews.com/2022/07/26/hands-on-driver-assistance-package-offered-on-all-2023-volkswagens/",
+      "https://www.jdpower.com/cars/shopping-guides/what-is-volkswagen-iq-drive"
+    ],
+    "notes": "Travel Assist available 2021+ (IQ.DRIVE); 2018-20 ACC + Lane Assist only"
+  },
+  "Volkswagen Atlas Cross Sport 2020-22": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.jdpower.com/cars/shopping-guides/what-is-volkswagen-iq-drive",
+      "https://www.vw.com/en/iq-drive/travel-assist.html"
+    ],
+    "notes": "IQ.DRIVE Travel Assist available from launch on upper trims"
+  },
+  "Volkswagen California 2021-23": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.carscoops.com/?p=1855080",
+      "https://t6forum.com/threads/how-to-activate-adaptive-lane-guidance-in-a-t6-1.35873/page-2"
+    ],
+    "notes": "T6.1: Lane Assist (corrective) only; adaptive lane guidance not factory-enabled"
+  },
+  "Volkswagen Caravelle 2020": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.carscoops.com/?p=1855080",
+      "https://t6forum.com/threads/how-to-activate-adaptive-lane-guidance-in-a-t6-1.35873/page-2"
+    ],
+    "notes": "T6.1: Lane Assist (corrective) only, no Travel Assist"
+  },
+  "Volkswagen CC 2018-22": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "low",
+    "sources": [
+      "https://www.vw.com/en/iq-drive/travel-assist.html",
+      "https://www.automotiveworld.com/news/technology-highlights-new-touareg-part-4/"
+    ],
+    "notes": "China Arteon-based CC; assumed adaptive lane guidance/IQ.DRIVE like Arteon, not verified in FAW-VW spec sheet"
+  },
+  "Volkswagen Crafter 2017-24": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.automotiveworld.com/?p=416618",
+      "https://www.eurotransport.de/fahrzeuge/lkw/volkswagen-crafter-automatisiertes-fahren-im-transporter-1/"
+    ],
+    "notes": "Travel Assist optional only on 2024 facelift; 2017-23 Lane Assist (corrective) only"
+  },
+  "Volkswagen e-Crafter 2018-24": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.electrive.com/2022/07/08/vw-commercial-vehicles-stops-production-of-the-e-crafter",
+      "https://www.eurotransport.de/fahrzeuge/lkw/volkswagen-crafter-automatisiertes-fahren-im-transporter-1/"
+    ],
+    "notes": "Lane Assist only; e-Crafter sales ended 2022, before Crafter got Travel Assist"
+  },
+  "Volkswagen e-Golf 2014-20": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.kbb.com/car-news/volkswagen-announces-e-golf-pricing"
+    ],
+    "notes": "US: Driver Assistance pkg has ACC + Lane Assist; EU-only Traffic Jam Assist not offered in US"
+  },
+  "Volkswagen Golf 2015-20": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.kbb.com/car-news/volkswagen-announces-e-golf-pricing",
+      "https://cdn.uc.assets.prezly.com/16061b4b-17cc-491f-9b4f-e195b2a7bdad/-/inline/no/golf--the-update-2016-en.pdf"
+    ],
+    "notes": "US Mk7: Lane Assist only; EU Mk7.5 offered Traffic Jam Assist (steering <60 km/h)"
+  },
+  "Volkswagen Golf Alltrack 2015-19": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.kbb.com/car-news/volkswagen-announces-e-golf-pricing"
+    ],
+    "notes": "US: ACC + Lane Assist only; EU had Traffic Jam Assist/adaptive lane guidance"
+  },
+  "Volkswagen Golf GTD 2015-20": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://cdn.uc.assets.prezly.com/16061b4b-17cc-491f-9b4f-e195b2a7bdad/-/inline/no/golf--the-update-2016-en.pdf",
+      "https://www.volkswagen-newsroom.com/en/press-releases/premiere-at-the-iaa-update-of-the-golf-sportsvan-golf-sportsvan-the-vehicle-has-not-yet-gone-on-sale-and-therefore-directive-1999-slash-94-ec-does-not-apply-dot-featuring-traffic-jam-assist-gesture-control-and-new-tsi-offering-934"
+    ],
+    "notes": "EU-only model; Traffic Jam Assist (steering up to 60 km/h) with DSG from 2017 facelift"
+  },
+  "Volkswagen Golf GTE 2015-20": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://cdn.uc.assets.prezly.com/16061b4b-17cc-491f-9b4f-e195b2a7bdad/-/inline/no/golf--the-update-2016-en.pdf",
+      "https://www.volkswagen-newsroom.com/en/press-releases/premiere-at-the-iaa-update-of-the-golf-sportsvan-golf-sportsvan-the-vehicle-has-not-yet-gone-on-sale-and-therefore-directive-1999-slash-94-ec-does-not-apply-dot-featuring-traffic-jam-assist-gesture-control-and-new-tsi-offering-934"
+    ],
+    "notes": "EU-only model; Traffic Jam Assist (steering up to 60 km/h) from 2017 facelift"
+  },
+  "Volkswagen Golf GTI 2015-21": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.kbb.com/car-news/volkswagen-announces-e-golf-pricing",
+      "https://cdn.uc.assets.prezly.com/16061b4b-17cc-491f-9b4f-e195b2a7bdad/-/inline/no/golf--the-update-2016-en.pdf"
+    ],
+    "notes": "US GTI: Lane Assist only through 2021; EU Mk7.5 offered Traffic Jam Assist"
+  },
+  "Volkswagen Golf R 2015-19": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.kbb.com/car-news/volkswagen-announces-e-golf-pricing",
+      "https://cdn.uc.assets.prezly.com/16061b4b-17cc-491f-9b4f-e195b2a7bdad/-/inline/no/golf--the-update-2016-en.pdf"
+    ],
+    "notes": "US Golf R: ACC + Lane Assist only; EU offered Traffic Jam Assist"
+  },
+  "Volkswagen Golf SportsVan 2015-20": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.volkswagen-newsroom.com/en/press-releases/premiere-at-the-iaa-update-of-the-golf-sportsvan-golf-sportsvan-the-vehicle-has-not-yet-gone-on-sale-and-therefore-directive-1999-slash-94-ec-does-not-apply-dot-featuring-traffic-jam-assist-gesture-control-and-new-tsi-offering-934"
+    ],
+    "notes": "EU-only; Traffic Jam Assist steers in stop-and-go traffic from 2017 update"
+  },
+  "Volkswagen Grand California 2019-24": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "low",
+    "sources": [
+      "https://vanreviewer.co.uk/news/vw-grand-california-gets-upgrades-ahead-of-caravan-show-debut/",
+      "https://www.automotiveworld.com/?p=416618"
+    ],
+    "notes": "Crafter-based; Travel Assist optional only after mid-2024 Crafter update (timing unclear); earlier Lane Assist only"
+  },
+  "Volkswagen ID.4 2021-23": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.vw.com/en/iq-drive/travel-assist.html",
+      "https://www.jdpower.com/cars/shopping-guides/what-is-volkswagen-iq-drive"
+    ],
+    "notes": "IQ.DRIVE Travel Assist standard/available on most trims; no driver camera"
+  },
+  "Volkswagen ID.4 2024-25": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.vw.com/en/iq-drive/travel-assist.html",
+      "https://www.jdpower.com/cars/shopping-guides/what-is-volkswagen-iq-drive"
+    ],
+    "notes": "IQ.DRIVE Travel Assist standard; no driver camera"
+  },
+  "Volkswagen Jetta 2019-23": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.repairerdrivennews.com/2022/07/26/hands-on-driver-assistance-package-offered-on-all-2023-volkswagens/",
+      "https://www.jdpower.com/cars/shopping-guides/what-is-volkswagen-iq-drive"
+    ],
+    "notes": "Travel Assist on 2022+ SEL (IQ.DRIVE); 2019-21 Lane Assist only"
+  },
+  "Volkswagen Jetta GLI 2021-23": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.repairerdrivennews.com/2022/07/26/hands-on-driver-assistance-package-offered-on-all-2023-volkswagens/",
+      "https://www.jdpower.com/cars/shopping-guides/what-is-volkswagen-iq-drive"
+    ],
+    "notes": "Travel Assist on 2022+ GLI Autobahn (IQ.DRIVE); 2021 Lane Assist only"
+  },
+  "Volkswagen Passat 2015-22": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.repairerdrivennews.com/2022/07/26/hands-on-driver-assistance-package-offered-on-all-2023-volkswagens/"
+    ],
+    "notes": "US NMS Passat: Lane Assist only, never IQ.DRIVE; EU B8 had adaptive lane guidance/Travel Assist"
+  },
+  "Volkswagen Passat Alltrack 2015-22": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.volkswagen-newsroom.com/en/the-new-tiguan-allspace-test-drives-7543/assist-and-convenience-systems-7551",
+      "https://www.vw.com/en/iq-drive/travel-assist.html"
+    ],
+    "notes": "EU B8: adaptive lane guidance/TJA, Travel Assist from 2019 facelift"
+  },
+  "Volkswagen Passat GTE 2015-22": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.volkswagen-newsroom.com/en/the-new-tiguan-allspace-test-drives-7543/assist-and-convenience-systems-7551",
+      "https://www.vw.com/en/iq-drive/travel-assist.html"
+    ],
+    "notes": "EU B8: adaptive lane guidance/TJA, Travel Assist from 2019 facelift"
+  },
+  "Volkswagen Polo 2018-23": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://volkswagen-newsroom.com/en/press-releases/a-first-for-small-cars-new-polo-on-the-road-with-iqdrive-travel-assist-partial-automation-7171/download"
+    ],
+    "notes": "IQ.DRIVE Travel Assist optional on 2021+ facelift; 2018-20 Lane Assist only"
+  },
+  "Volkswagen Polo GTI 2018-23": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://volkswagen-newsroom.com/en/press-releases/a-first-for-small-cars-new-polo-on-the-road-with-iqdrive-travel-assist-partial-automation-7171/download"
+    ],
+    "notes": "IQ.DRIVE Travel Assist optional on 2021+ facelift; 2018-20 Lane Assist only"
+  },
+  "Volkswagen T-Cross 2021": {
+    "lane_centering": "lane_keep",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://autobuzz.my/2018/10/12/volkswagen-t-cross-will-come-with-lane-assist-and-aeb-as-standard/",
+      "https://volkswagen-newsroom.com/en/press-releases/most-compact-volkswagen-suv-is-better-than-ever-the-new-t-cross-is-now-available-to-order-17839/download"
+    ],
+    "notes": "Lane Assist std; Travel Assist only arrived with 2024 facelift"
+  },
+  "Volkswagen T-Roc 2018-23": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.volkswagen-newsroom.com/en/the-new-t-roc-the-new-t-roc-r-the-new-t-roc-cabriolet-7605/innovation-boost-with-iqdrive-travel-assist-and-predictive-acc-7610"
+    ],
+    "notes": "IQ.DRIVE Travel Assist optional on 2022 facelift; earlier Lane Assist/TJA"
+  },
+  "Volkswagen Taos 2022-24": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.jdpower.com/cars/shopping-guides/what-is-volkswagen-iq-drive",
+      "https://www.vw.com/en/iq-drive/travel-assist.html"
+    ],
+    "notes": "IQ.DRIVE Travel Assist available on SE/SEL"
+  },
+  "Volkswagen Teramont 2018-22": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "low",
+    "sources": [
+      "https://www.autohome.com.cn/ask/25181314.html",
+      "https://www.vw.com/en/iq-drive/travel-assist.html"
+    ],
+    "notes": "China Atlas; IQ.Drive L2 (Travel Assist) on 2021+ facelift per Q&A source"
+  },
+  "Volkswagen Teramont Cross Sport 2021-22": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "low",
+    "sources": [
+      "https://www.autohome.com.cn/ask/25181314.html",
+      "https://www.vw.com/en/iq-drive/travel-assist.html"
+    ],
+    "notes": "China Atlas Cross Sport; assumed IQ.Drive Travel Assist like Teramont/US twin"
+  },
+  "Volkswagen Teramont X 2021-22": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "low",
+    "sources": [
+      "https://www.autohome.com.cn/ask/25181314.html",
+      "https://www.vw.com/en/iq-drive/travel-assist.html"
+    ],
+    "notes": "China; assumed IQ.Drive Travel Assist like Teramont"
+  },
+  "Volkswagen Tiguan 2018-24": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.repairerdrivennews.com/2022/07/26/hands-on-driver-assistance-package-offered-on-all-2023-volkswagens/",
+      "https://www.jdpower.com/cars/shopping-guides/what-is-volkswagen-iq-drive"
+    ],
+    "notes": "US: Travel Assist on 2022+ (IQ.DRIVE); 2018-21 Lane Assist only"
+  },
+  "Volkswagen Tiguan eHybrid 2021-23": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "high",
+    "sources": [
+      "https://www.volkswagen-newsroom.com/en/the-new-tiguan-allspace-test-drives-7543/assist-and-convenience-systems-7551"
+    ],
+    "notes": "EU facelift Tiguan: IQ.DRIVE Travel Assist available"
+  },
+  "Volkswagen Touran 2016-23": {
+    "lane_centering": "lane_centering",
+    "driver_monitoring": "none",
+    "fcw": true,
+    "dashcam": "none",
+    "confidence": "medium",
+    "sources": [
+      "https://www.automotiveworld.com/news/technology-highlights-new-touareg-part-4/",
+      "https://www.volkswagen-newsroom.com/en/press-releases/premiere-at-the-iaa-update-of-the-golf-sportsvan-golf-sportsvan-the-vehicle-has-not-yet-gone-on-sale-and-therefore-directive-1999-slash-94-ec-does-not-apply-dot-featuring-traffic-jam-assist-gesture-control-and-new-tsi-offering-934"
+    ],
+    "notes": "EU MQB: Traffic Jam Assist/adaptive lane guidance optional"
+  }
+}

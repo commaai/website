@@ -1,6 +1,7 @@
 import { writable } from 'svelte/store';
 import Vehicles from '$lib/vehicles.json';
 import CarHarnesses from '$lib/constants/car-harnesses.json';
+import { getVehicleFeatures } from '$lib/utils/vehicle-features.js';
 
 import { getProduct } from '$lib/utils/shopify';
 
@@ -46,6 +47,7 @@ async function initializeHarnesses() {
         backordered: harness?.backordered,  // these overrides are only shown if the harness is out of stock in Shopify
         setupNotes: model.setup_notes,
         setupVideo: model.setup_video,
+        features: getVehicleFeatures(model),
       };
     }).filter(Boolean);
   });

@@ -6,6 +6,7 @@
   import Badge from "$lib/components/Badge.svelte";
   import HarnessSelector from "$lib/components/HarnessSelector/HarnessSelector.svelte";
   import Modal from "$lib/components/Modal.svelte";
+  import VehicleFeatures from "$lib/components/VehicleFeatures.svelte";
 
   import ShippingIcon from "$lib/icons/features/shipping.svg?raw";
   import MoneyBackGuaranteeIcon from "$lib/icons/features/money-back-guarantee.svg?raw";
@@ -281,6 +282,12 @@
         </div>
       </Accordion>
     </div>
+    {#if selectedHarness?.features}
+      <div class="vehicle-features">
+        <p>A comma four with openpilot in your <strong>{selectedHarness.make} {selectedHarness.model}</strong>:</p>
+        <VehicleFeatures features={selectedHarness.features} />
+      </div>
+    {/if}
   </div>
 </Product>
 
@@ -384,6 +391,15 @@
 
   .disclaimer {
     margin: 0;
+  }
+
+  .vehicle-features {
+    margin: 1.5rem 0;
+
+    & p {
+      margin: 0 0 1rem;
+      font-size: 1.125rem;
+    }
   }
 
   hr {
