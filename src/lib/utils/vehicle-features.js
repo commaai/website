@@ -76,12 +76,6 @@ export function getVehicleFeatures(car) {
   // comma connect features
   features.push({
     kind: 'adds',
-    label: 'drive replays on your phone',
-    description: 'Watch and share clips of past drives',
-    href: '/connect',
-  });
-  features.push({
-    kind: 'adds',
     label: 'live location and remote camera',
     description: 'Check on your car from anywhere',
     detail: 'with connect subscription',
