@@ -392,6 +392,7 @@
         margin-bottom: 2rem;
 
         & img {
+          width: auto;
           max-height: 150px;
         }
 
