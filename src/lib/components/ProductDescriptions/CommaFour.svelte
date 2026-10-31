@@ -6,6 +6,7 @@
   import Badge from "$lib/components/Badge.svelte";
   import HarnessSelector from "$lib/components/HarnessSelector/HarnessSelector.svelte";
   import Modal from "$lib/components/Modal.svelte";
+  import VehicleFeatures from "$lib/components/VehicleFeatures.svelte";
 
   import ShippingIcon from "$lib/icons/features/shipping.svg?raw";
   import MoneyBackGuaranteeIcon from "$lib/icons/features/money-back-guarantee.svg?raw";
@@ -196,6 +197,12 @@
       showNoHarnessOption={true}
     >
     </HarnessSelector>
+    {#if selectedHarness?.features}
+      <div class="vehicle-features">
+        <p>A comma four in your <strong>{selectedHarness.make} {selectedHarness.model}</strong>:</p>
+        <VehicleFeatures features={selectedHarness.features} />
+      </div>
+    {/if}
     <CheckboxCard bind:this={checkboxCardRef} title="${FOUR_TRADE_IN_CREDIT} credit with trade-in" checked={tradeInChecked} onToggle={handleTradeInToggle}
                   disabled={disableBuyButtonText !== null || referralCode} strikethroughTitle={Boolean(referralCode)}>
       {#if referralCode}
@@ -384,6 +391,15 @@
 
   .disclaimer {
     margin: 0;
+  }
+
+  .vehicle-features {
+    margin: 1.5rem 0;
+
+    & p {
+      margin: 0 0 1rem;
+      font-size: 1.125rem;
+    }
   }
 
   hr {

@@ -22,6 +22,17 @@
   import Faq from "$lib/components/Faq.svelte";
   import { faq } from "$lib/constants/faq.svelte";
 
+  import IntersectionVideo from "$lib/images/openpilot/lateral-intersection.mp4";
+  import IntersectionPoster from "$lib/images/openpilot/lateral-intersection.jpg";
+  import CurveVideo from "$lib/images/openpilot/lateral-curve.mp4";
+  import CurvePoster from "$lib/images/openpilot/lateral-curve.jpg";
+  import CruisePoster from "$lib/images/openpilot/acc-follow.jpg";
+  import MonitoringVideo from "$lib/images/products/comma-four/driver-monitoring-demo.mp4";
+
+  import CruiseVideo from "$lib/images/openpilot/acc-follow.mp4";
+  import WarningVideo from "$lib/images/products/comma-four/confidence_ball.mp4";
+  import CameraImage from "$lib/images/products/comma-four/four_back.png";
+
   const contributorsCount = 1000;
 
   export let data;
@@ -59,14 +70,128 @@
         Hyundai, Honda, and many other brands.
       </h1>
       <ul>
-        <li>Automated Lane Centering</li>
-        <li>Adaptive Cruise Control</li>
+        <li><a href="#lane-centering">Automated Lane Centering</a></li>
+        <li><a href="#adaptive-cruise-control">Adaptive Cruise Control</a></li>
         <li>Lane Change Assist</li>
-        <li>Driver Monitoring (no wheel nags)</li>
+        <li><a href="#driver-monitoring">Driver Monitoring (no wheel nags)</a></li>
         <li>Can drive for hours without intervention</li>
         <li>Open source and developed on GitHub</li>
       </ul>
     </div>
+  </div>
+</section>
+
+<section class="light" id="driving-features">
+  <div class="container">
+    <header class="features-intro">
+      <p class="eyebrow">Learned from real life</p>
+      <h2>A better feel<br />for the road.</h2>
+      <p>Stock driver assistance follows painted lines and fixed rules. openpilot learns from millions of miles of real human driving, so it drives where a person would — even when the lines don’t tell it what to do.</p>
+      <p class="how-it-works">How it works: one neural network learns what the cameras see and how a person would steer, brake, and accelerate.</p>
+    </header>
+    <article class="lane-feature dark" id="lane-centering">
+      <hgroup>
+        <p>01 / Lane centering assist</p>
+        <h2>Read the road.<br />Not just the lines.</h2>
+      </hgroup>
+      <p class="lane-intro">A natural line through the everyday moments that make driving feel human.</p>
+      <div class="scenarios">
+        <div class="scenario">
+          <video src={IntersectionVideo} poster={IntersectionPoster} autoplay muted loop playsinline preload="metadata" aria-label="Through intersections"></video>
+          <div class="scenario-copy">
+            <h3>Through intersections</h3>
+            <p><span>Stock systems</span> Painted lines disappear.</p>
+            <p><strong>openpilot</strong> Keeps a natural path through.</p>
+          </div>
+        </div>
+        <div class="scenario">
+          <video src={CurveVideo} poster={CurvePoster} autoplay muted loop playsinline preload="metadata" aria-label="On curvy roads"></video>
+          <div class="scenario-copy">
+            <h3>On curvy roads</h3>
+            <p><span>Stock systems</span> Fixed rules can feel rigid.</p>
+            <p><strong>openpilot</strong> Follows the bend smoothly.</p>
+          </div>
+        </div>
+        <div class="scenario">
+          <svg viewBox="0 0 640 360" role="img" aria-label="Room for parked cars: illustrated driving path">
+              <rect width="640" height="360" fill="#171b19" />
+              <path d="M180 0V360 M460 0V360" stroke="#66706a" stroke-width="3" />
+              <path d="M320 0V360" stroke="#89918c" stroke-width="3" stroke-dasharray="20 20" /><rect x="393" y="90" width="48" height="88" rx="8" fill="#818a84" /><rect x="400" y="110" width="34" height="40" fill="#222b25" />
+              <path d="M390 380 C390 260 335 240 335 175 S390 70 390 -20" fill="none" stroke="#51ff00" stroke-width="5" />
+              <rect x="367" y="270" width="46" height="78" rx="7" fill="#ecf1ed" />
+              <text x="24" y="32" fill="#aab4ad" font-size="13" font-family="monospace">ILLUSTRATED SCENARIO</text>
+            </svg>
+          <div class="scenario-copy">
+            <h3>Room for parked cars</h3>
+            <p><span>Stock systems</span> Lane lines leave little room.</p>
+            <p><strong>openpilot</strong> Makes space as you pass.</p>
+          </div>
+        </div>
+        <div class="scenario">
+          <svg viewBox="0 0 640 360" role="img" aria-label="No lines? Still a road.: illustrated driving path">
+              <rect width="640" height="360" fill="#171b19" />
+              <path d="M180 0V360 M460 0V360" stroke="#66706a" stroke-width="3" />
+              
+              <path d="M320 380V-20" fill="none" stroke="#51ff00" stroke-width="5" />
+              <rect x="297" y="270" width="46" height="78" rx="7" fill="#ecf1ed" />
+              <text x="24" y="32" fill="#aab4ad" font-size="13" font-family="monospace">ILLUSTRATED SCENARIO</text>
+            </svg>
+          <div class="scenario-copy">
+            <h3>No lines? Still a road.</h3>
+            <p><span>Stock systems</span> No lines to follow.</p>
+            <p><strong>openpilot</strong> Finds the way you would.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article class="driving-feature" id="adaptive-cruise-control">
+      <div>
+        <hgroup>
+          <p>02</p>
+          <h2>Adaptive cruise control</h2>
+        </hgroup>
+        <p>
+          Brakes and accelerates the way a person would. openpilot eases off early and follows traffic smoothly. On supported cars, it also stops for traffic lights and stop signs.
+        </p>
+      </div>
+      <video src={CruiseVideo} poster={CruisePoster} autoplay muted loop playsinline preload="metadata" aria-label="Driving with openpilot"></video>
+    </article>
+    <article class="driving-feature" id="driver-monitoring">
+      <div>
+        <hgroup>
+          <p>03</p>
+          <h2>Driver monitoring</h2>
+        </hgroup>
+        <p>
+          Camera-based attention checks keep you engaged with the road. If you look away, openpilot alerts you. No wheel nagging.
+        </p>
+      </div>
+      <video src={MonitoringVideo} autoplay muted loop playsinline preload="metadata" aria-label="Driver monitoring"></video>
+    </article>
+    <article class="driving-feature" id="forward-collision-warning">
+      <div>
+        <hgroup>
+          <p>04</p>
+          <h2>Forward collision warning</h2>
+        </hgroup>
+        <p>
+          The same model predicts when the car ahead is about to brake hard and warns you early. Works on every supported car.
+        </p>
+      </div>
+      <video src={WarningVideo} autoplay muted loop playsinline preload="metadata" aria-label="openpilot driving model visualization"></video>
+    </article>
+    <article class="driving-feature" id="dashcam">
+      <div>
+        <hgroup>
+          <p>05</p>
+          <h2>360° dashcam</h2>
+        </hgroup>
+        <p>
+          Three cameras. One complete picture. Record what happens on the road and inside your car.
+        </p>
+      </div>
+      <img src={CameraImage} loading="lazy" alt="Road-facing cameras on comma four" />
+    </article>
   </div>
 </section>
 
@@ -217,6 +342,168 @@
 </section>
 
 <style>
+  .features-intro {
+    padding: 4rem 0;
+    max-width: 850px;
+  }
+
+  .features-intro h2,
+  .lane-feature hgroup h2 {
+    font-family: "Monument Extended", Inter, sans-serif;
+    font-size: clamp(2.2rem, 4.5vw, 4rem);
+    letter-spacing: -0.05em;
+    line-height: 1.12;
+    text-transform: none;
+  }
+
+  .features-intro > p {
+    font-size: 1.5rem;
+    line-height: 1.5;
+  }
+
+  .features-intro .eyebrow,
+  .lane-feature hgroup p {
+    font-family: JetBrains Mono, monospace;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    opacity: 1;
+  }
+
+  .features-intro .how-it-works {
+    font-size: 1rem;
+    color: #666;
+    max-width: 650px;
+  }
+
+  .lane-feature {
+    background: #080a09;
+    color: white;
+    padding: 3.5rem;
+    scroll-margin-top: 7rem;
+  }
+
+  .lane-feature hgroup p {
+    color: #51ff00;
+    margin-bottom: 1.5rem;
+  }
+
+  .lane-feature .lane-intro {
+    color: #adb3af;
+    font-size: 1.25rem;
+    max-width: 560px;
+    margin-bottom: 3rem;
+  }
+
+  .scenarios {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+  }
+
+  .scenario {
+    background: #151816;
+    overflow: hidden;
+  }
+
+  .scenario video,
+  .scenario svg {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  .scenario-copy {
+    padding: 1.5rem;
+  }
+
+  .scenario-copy h3 {
+    font-size: 1.4rem;
+    margin: 0 0 1.25rem;
+    line-height: 1.2;
+  }
+
+  .scenario-copy p {
+    font-size: 0.95rem;
+    color: #c1c7c3;
+    margin: 0.5rem 0;
+    line-height: 1.5;
+  }
+
+  .scenario-copy span,
+  .scenario-copy strong {
+    display: block;
+    font-family: JetBrains Mono, monospace;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #929b95;
+  }
+
+  .scenario-copy strong {
+    color: #51ff00;
+    font-weight: 400;
+  }
+
+  @media (max-width: 768px) {
+    .lane-feature {
+      padding: 2rem 1.25rem;
+      margin-left: -1.25rem;
+      margin-right: -1.25rem;
+    }
+
+    .scenarios {
+      grid-template-columns: 1fr;
+    }
+
+    .features-intro {
+      padding: 2rem 0;
+    }
+  }
+
+  #driving-features > .container > h2 {
+    font-size: 2.5rem;
+    margin-bottom: 4rem;
+  }
+
+  .driving-feature {
+    scroll-margin-top: 7rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .driving-feature video,
+  .driving-feature img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: contain;
+    background: #f3f3f3;
+  }
+
+  .driving-feature:nth-of-type(even) > div {
+    order: 2;
+  }
+
+  .headline a {
+    color: inherit;
+    text-underline-offset: 0.2em;
+  }
+
+  @media screen and (max-width: 768px) {
+    .driving-feature {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .driving-feature:nth-of-type(even) > div {
+      order: 0;
+    }
+  }
+
   .stats-item {
     display: flex;
     align-items: flex-start;

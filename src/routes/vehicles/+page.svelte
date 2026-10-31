@@ -8,6 +8,7 @@
   import LinkButton from '$lib/components/LinkButton.svelte';
   import NoteCard from '$lib/components/NoteCard.svelte';
   import EmailUpdatesForm from '$lib/components/EmailUpdates/EmailUpdatesForm.svelte';
+  import VehicleFeatures from '$lib/components/VehicleFeatures.svelte';
 
   import { faq } from '$lib/constants/faq.svelte';
 
@@ -19,6 +20,7 @@
 
   import { FOUR_PRICE, FOUR_STRIKETHROUGH_PRICE, FOUR_SALE } from '$lib/constants/prices.js';
   import { vehicleCountText } from '$lib/constants/vehicles.js';
+  import { getVehicleFeatures } from '$lib/utils/vehicle-features.js';
 
   const brand_images = import.meta.glob('$lib/images/vehicles/brand-icons/*.png', { eager: true });
 </script>
@@ -138,7 +140,14 @@
               <div class="car-detail-content-wrapper">
                 <Grid columns={2} rowGap="0" columnGap="2rem" templateColumns="3fr 2fr">
                   <div>
-                    <div class="car-detail-tier">{@html car_info.detail_sentence }</div>
+                    <div class="car-detail-tier">
+                      {#if make === 'comma'}
+                        {@html car_info.detail_sentence}
+                      {:else}
+                        <p>A comma four in your <strong>{make} {car_info.model}</strong>:</p>
+                        <VehicleFeatures features={getVehicleFeatures(car_info)} />
+                      {/if}
+                    </div>
                     <div class="cards">
                       <NoteCard title="Support" icon={CarIcon} style="elevated">
                         {#if car_info.package !== 'All'}
@@ -446,6 +455,10 @@
   .car-detail-tier {
     margin-bottom: 1rem;
     font-size: 1.25rem;
+
+    & p {
+      margin: 0 0 1rem;
+    }
   }
 
   .cards {
