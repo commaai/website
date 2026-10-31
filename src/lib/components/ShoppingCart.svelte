@@ -7,6 +7,7 @@
     cartBulkDiscountAllocation,
     cartSubtotal,
     cartReferralDiscount,
+    cartReferral,
     checkoutUrl,
   } from "../../store";
   import Button from "./Button.svelte";
@@ -91,13 +92,15 @@
     {#if $cartItems?.length !== 0}
       {@const referralDiscountAmount = $cartReferralDiscount?.amount || 0}
       {@const hasReferralDiscount = Boolean($cartReferralDiscount)}
-      {#if hasReferralDiscount}
-        <div class="referral-discount">
+      {#if $cartReferral}
+        <div class="referral-discount" class:rejected-referral={!hasReferralDiscount}>
           <div class="referral-details">
-            <strong>Referral discount</strong>
-            <span class="referral-code">{$cartReferralDiscount.code}</span>
+            <strong>{hasReferralDiscount ? 'Referral discount' : 'Referral not applied'}</strong>
+            <span class="referral-code">{$cartReferral.code}</span>
           </div>
-          <h4 class="referral-amount">-{formatCurrency({ amount: referralDiscountAmount, currencyCode: $cartSubtotal.currencyCode }, 0)}</h4>
+          {#if hasReferralDiscount}
+            <h4 class="referral-amount">-{formatCurrency({ amount: referralDiscountAmount, currencyCode: $cartSubtotal.currencyCode }, 0)}</h4>
+          {/if}
         </div>
       {/if}
       {#if $cartDiscount || hasReferralDiscount}
@@ -158,6 +161,17 @@
     & .referral-code {
       color: rgba(0, 0, 0, 0.65);
       font-size: 0.875rem;
+    }
+
+  }
+
+  .rejected-referral {
+    color: #737373;
+    background: #f2f2f2;
+    border-color: #bdbdbd;
+
+    & .referral-code {
+      color: #737373;
     }
   }
 
