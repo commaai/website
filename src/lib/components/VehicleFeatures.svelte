@@ -61,14 +61,9 @@
     display: flex;
     align-items: center;
     gap: 0.625rem;
-    margin-bottom: 0.125rem;
-    padding-bottom: 0.5rem;
+    margin-bottom: 0.625rem;
     font-size: 1.125rem;
     font-weight: 700;
-  }
-
-  .upgrades .group-title {
-    border-bottom: 1px solid var(--color-black);
   }
 
   .count {
@@ -100,19 +95,15 @@
     display: flex;
     align-items: flex-start;
     gap: 0.75rem;
+    padding: 0.75rem 0.875rem;
+    border-bottom: 1px dashed #c4c4c4;
     font-size: 1.125rem;
     line-height: 1.4;
   }
 
   .adds li {
-    padding: 0.75rem 0.875rem;
     background-color: #f1ffe9;
-    border-bottom: 1px dashed #a6c797;
-  }
-
-  .upgrades li {
-    padding: 0.75rem 0;
-    border-bottom: 1px solid #ddd;
+    border-bottom-color: #a6c797;
   }
 
   .icon {
@@ -142,16 +133,13 @@
 
   .label {
     color: inherit;
+    font-weight: 700;
   }
 
   a.label {
     text-decoration: underline;
     text-decoration-thickness: 1px;
     text-underline-offset: 3px;
-  }
-
-  .adds .label {
-    font-weight: 700;
   }
 
   .description {
