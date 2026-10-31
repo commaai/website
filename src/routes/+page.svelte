@@ -4,12 +4,11 @@
   import FeaturedCarsList from "$lib/components/FeaturedCarsList.svelte";
   import TestimonialSection from "$lib/components/TestimonialSection.svelte";
   import HomeHeroOverlay from "$lib/components/HomeHeroOverlay.svelte";
+  import DeviceSpinner from "$lib/components/DeviceSpinner.svelte";
 
   import DeviceImage from "$lib/images/products/comma-four/four_front.png?w=1440";
   import DeviceScreenOnImage from "$lib/images/products/comma-four/four_screen_on.png?w=1440";
   import DeviceAngledImage from "$lib/images/products/comma-four/four_angled.png?w=1440";
-  import DeviceBackImage from "$lib/images/products/comma-four/four_back.png?w=1440";
-  import DeviceSideImage from "$lib/images/products/comma-four/four_side.png?w=1440";
   import SetupVideo from "$lib/images/setup/comma-four/setup-stopmotion.mp4";
   import MapActivity from "$lib/images/home/map-activity-2x.png";
   import ArrowRight from "$lib/icons/arrow-right.svg?raw";
@@ -40,26 +39,28 @@
       label: "cloud dashcam",
     },
   ];
+  const SPIN_VIDEO = "/four-360.webm";
+  const SPIN_FRAME_COUNT = 150;
+  // one frame per 2.4 degrees of the turntable, so these land on the canonical poses
   const deviceViews = [
     {
-      image: DeviceImage,
+      frame: 0,
       thumbnail: DeviceScreenOnImage,
       label: "front view",
-      hasLiveScreen: true,
     },
     {
-      image: DeviceAngledImage,
-      thumbnail: DeviceAngledImage,
+      frame: 18,
+      thumbnail: "/four-360/thumb-18.webp",
       label: "three-quarter view",
     },
     {
-      image: DeviceSideImage,
-      thumbnail: DeviceSideImage,
+      frame: 38,
+      thumbnail: "/four-360/thumb-38.webp",
       label: "side view",
     },
     {
-      image: DeviceBackImage,
-      thumbnail: DeviceBackImage,
+      frame: 74,
+      thumbnail: "/four-360/thumb-74.webp",
       label: "rear view",
     },
   ];
@@ -68,8 +69,21 @@
   let screenVideoElement;
   let screenVideoReady = false;
   let setupVideoElement;
-  let selectedDeviceViewIndex = 0;
-  $: selectedDeviceView = deviceViews[selectedDeviceViewIndex];
+  let deviceSpinner;
+  let deviceAtFront = true;
+  let deviceSpinnerReady = false;
+  let deviceAngle = 0;
+  // the screen sits on the front face, so it is edge-on by 90 degrees; fade it
+  // out well before that, where the flat-plane approximation starts to show
+  const SCREEN_FADE_START = 30;
+  const SCREEN_FADE_END = 65;
+  $: screenTurn = Math.abs(deviceAngle);
+  $: screenVisibility =
+    screenTurn <= SCREEN_FADE_START
+      ? 1
+      : screenTurn >= SCREEN_FADE_END
+        ? 0
+        : 1 - (screenTurn - SCREEN_FADE_START) / (SCREEN_FADE_END - SCREEN_FADE_START);
 
   function initializeHLS(videoEl, src, onReady) {
     if (Hls.isSupported()) {
@@ -196,16 +210,20 @@
 
       <div class="device-gallery">
         <div class="device-image-container">
-          <img
-            class="device-main-image"
-            src={selectedDeviceView.image}
-            alt={`comma four ${selectedDeviceView.label}`}
-            loading="lazy"
+          <DeviceSpinner
+            bind:this={deviceSpinner}
+            bind:atFront={deviceAtFront}
+            bind:ready={deviceSpinnerReady}
+            bind:angle={deviceAngle}
+            src={SPIN_VIDEO}
+            frameCount={SPIN_FRAME_COUNT}
+            restImage={DeviceImage}
+            label="comma four"
           />
           <video
             bind:this={screenVideoElement}
             class:ready={screenVideoReady}
-            class:selected={selectedDeviceView.hasLiveScreen}
+            style="--screen-yaw: {deviceAngle}deg; --screen-visibility: {screenVisibility}"
             poster="{CDN_BASE}/screen-video/poster.jpg"
             autoplay
             muted
@@ -218,13 +236,12 @@
         </div>
 
         <div class="device-thumbnails" role="group" aria-label="Choose a comma four view">
-          {#each deviceViews as view, index}
+          {#each deviceViews as view}
             <button
               type="button"
-              class:selected={index === selectedDeviceViewIndex}
-              on:click={() => selectedDeviceViewIndex = index}
-              aria-label={`Show comma four ${view.label}`}
-              aria-pressed={index === selectedDeviceViewIndex}
+              disabled={!deviceSpinnerReady}
+              on:click={() => deviceSpinner?.spinTo(view.frame)}
+              aria-label={`Rotate comma four to the ${view.label}`}
             >
               <img src={view.thumbnail} alt="" loading="lazy" />
             </button>
@@ -813,16 +830,25 @@
   }
 
   .device-image-container {
+    container-type: inline-size;
     position: relative;
     width: 100%;
   }
 
-  .device-main-image {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
+  /*
+    The screen rides on the device's front face, so it is carried around the
+    same vertical axis the turntable spins about. Both numbers below are fitted
+    to the renders rather than guessed: tracking the display panel's edges
+    across 0-48deg puts the axis at x=1738 of the 3360-wide frame and the screen
+    plane only 84 ahead of it, so the screen barely slides and mostly just
+    foreshortens. That fit is orthographic to within 0.3%, which is why there is
+    no perspective on the container: rotateY alone gives the cosine squash the
+    render actually has.
 
+    The face is also raked back about 11.3deg at the top, so its vertical edges
+    lean once it turns: the edge slant measures tan(11.3) * sin(yaw). scaleY
+    undoes the height the rake would otherwise cost, keeping 0deg an exact match.
+  */
   .device-image-container .screen-video-overlay {
     position: absolute;
     left: 23.21%; /* 780 / 3360 */
@@ -832,12 +858,14 @@
     mix-blend-mode: screen;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s ease-in;
+    transform: translateZ(-2.5cqw) rotateY(var(--screen-yaw, 0deg)) rotateX(11.3deg)
+      scaleY(1.0198) translateZ(2.5cqw);
+    transform-origin: 70.91% 50%; /* axis 1738, within the 780..2131 box */
     visibility: hidden;
   }
 
-  .device-image-container .screen-video-overlay.ready.selected {
-    opacity: 1;
+  .device-image-container .screen-video-overlay.ready {
+    opacity: var(--screen-visibility, 0);
     visibility: visible;
   }
 
@@ -863,8 +891,7 @@
   }
 
   .device-thumbnails button:hover,
-  .device-thumbnails button:focus-visible,
-  .device-thumbnails button.selected {
+  .device-thumbnails button:focus-visible {
     opacity: 1;
   }
 
