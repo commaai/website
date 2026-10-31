@@ -197,12 +197,6 @@
       showNoHarnessOption={true}
     >
     </HarnessSelector>
-    {#if selectedHarness?.features}
-      <div class="vehicle-features">
-        <p>A comma four in your <strong>{selectedHarness.make} {selectedHarness.model}</strong>:</p>
-        <VehicleFeatures features={selectedHarness.features} />
-      </div>
-    {/if}
     <CheckboxCard bind:this={checkboxCardRef} title="${FOUR_TRADE_IN_CREDIT} credit with trade-in" checked={tradeInChecked} onToggle={handleTradeInToggle}
                   disabled={disableBuyButtonText !== null || referralCode} strikethroughTitle={Boolean(referralCode)}>
       {#if referralCode}
@@ -288,6 +282,12 @@
         </div>
       </Accordion>
     </div>
+    {#if selectedHarness?.features}
+      <div class="vehicle-features">
+        <p>A comma four in your <strong>{selectedHarness.make} {selectedHarness.model}</strong>:</p>
+        <VehicleFeatures features={selectedHarness.features} />
+      </div>
+    {/if}
   </div>
 </Product>
 

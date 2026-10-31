@@ -26,6 +26,15 @@ export function getVehicleFeatures(car) {
     href: '/openpilot#driver-monitoring',
   });
 
+  if (car.experimental_mode) {
+    features.push({
+      kind: 'adds',
+      label: 'traffic light and stop sign handling',
+      description: 'Stops for red lights and stop signs',
+      href: '/openpilot#adaptive-cruise-control',
+    });
+  }
+
   const laneCenteringMinSpeed = Math.max(car.min_steer_speed_mph, car.min_enable_speed_mph);
   const laneCenteringDetails = [laneCenteringMinSpeed > 0 ? `above ${laneCenteringMinSpeed} mph` : 'at all speeds'];
   features.push({
@@ -73,15 +82,6 @@ export function getVehicleFeatures(car) {
     description: 'Anticipates collision risks on the road ahead',
     href: '/openpilot#forward-collision-warning',
   });
-
-  if (car.experimental_mode) {
-    features.push({
-      kind: 'adds',
-      label: 'traffic light and stop sign handling',
-      description: 'Stops for red lights and stop signs',
-      href: '/openpilot#adaptive-cruise-control',
-    });
-  }
 
   if (stock.dashcam !== 'multi') {
     features.push({

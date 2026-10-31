@@ -136,7 +136,10 @@
     font-weight: 700;
   }
 
+  /* Product descriptions style links with a green bar; keep plain underlines here */
   a.label {
+    border-bottom: none;
+    background-color: transparent;
     text-decoration: underline;
     text-decoration-thickness: 1px;
     text-underline-offset: 3px;
