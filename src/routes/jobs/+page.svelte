@@ -242,7 +242,7 @@
         "Mechanical engineering and CAD skills are a plus",
       ],
       howToApply:
-        'Email <a href="mailto:work@comma.ai">work@comma.ai</a> with examples of cool projects you\'ve built.',
+        'Do the <a href="https://github.com/commaai/prototype_challenge">prototype challenge</a> and submit your solution using the instructions in the README. Also include any cool projects you\'ve built.',
     },
     {
       title: "Internships / Co-op",
