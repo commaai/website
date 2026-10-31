@@ -17,12 +17,12 @@ export function getVehicleFeatures(car) {
   const openpilotLongitudinal = car.longitudinal === 'openpilot';
   const features = [];
 
-  // Cars with camera-based driver monitoring already offer hands-free driving and lane changes (e.g. Super Cruise, BlueCruise)
+  // Cars with camera-based driver monitoring already offer hands-off driving and lane changes (e.g. Super Cruise, BlueCruise)
   const stockHandsFree = stock.driver_monitoring === 'camera';
   features.push({
     kind: stockHandsFree ? 'upgrades' : 'adds',
-    label: 'hands-free driving',
-    description: 'No wheel nags, just keep your eyes on the road',
+    label: 'hands-off, eyes-on driving',
+    description: 'No wheel nags, even on long drives',
     href: '/openpilot#driver-monitoring',
   });
 
