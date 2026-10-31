@@ -95,7 +95,7 @@
     display: flex;
     align-items: flex-start;
     gap: 0.75rem;
-    padding: 0.75rem 0.875rem;
+    padding: 0.75rem 0;
     border-bottom: 1px dashed #c4c4c4;
     font-size: 1.125rem;
     line-height: 1.4;
