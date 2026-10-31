@@ -34,7 +34,7 @@
             </span>
             <span class="text">
               {#if feature.href}
-                <a class="label" href={feature.href}>{feature.label}</a>
+                <a class="label" href={feature.href} target="_blank">{feature.label}</a>
               {:else}
                 <span class="label">{feature.label}</span>
               {/if}

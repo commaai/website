@@ -71,7 +71,7 @@ export function getVehicleFeatures(car) {
   features.push({
     kind: stock.driver_monitoring === 'camera' ? 'upgrades' : 'adds',
     label: 'driver monitoring',
-    description: 'A camera helps keep you attentive',
+    description: 'A camera helps keep you attentive in hands-free mode, and optionally while driving manually',
     href: '/openpilot#driver-monitoring',
   });
 
@@ -88,7 +88,7 @@ export function getVehicleFeatures(car) {
       kind: 'adds',
       label: '360° dashcam',
       description: 'Road and night-vision cabin cameras, backed up to the cloud',
-      href: '/openpilot#dashcam',
+      href: '/connect',
     });
   }
 
@@ -103,7 +103,6 @@ export function getVehicleFeatures(car) {
     kind: 'adds',
     label: 'check on your car from anywhere',
     description: 'Live GPS location and remote camera',
-    detail: 'with connect subscription',
     href: '/connect',
   });
 

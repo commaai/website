@@ -284,7 +284,7 @@
     </div>
     {#if selectedHarness?.features}
       <div class="vehicle-features">
-        <p>A comma four in your <strong>{selectedHarness.make} {selectedHarness.model}</strong>:</p>
+        <p>A comma four with openpilot in your <strong>{selectedHarness.make} {selectedHarness.model}</strong>:</p>
         <VehicleFeatures features={selectedHarness.features} />
       </div>
     {/if}

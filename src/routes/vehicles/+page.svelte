@@ -144,7 +144,7 @@
                       {#if make === 'comma'}
                         {@html car_info.detail_sentence}
                       {:else}
-                        <p>A comma four in your <strong>{make} {car_info.model}</strong>:</p>
+                        <p>A comma four with openpilot in your <strong>{make} {car_info.model}</strong>:</p>
                         <VehicleFeatures features={getVehicleFeatures(car_info)} />
                       {/if}
                     </div>
