@@ -24,6 +24,7 @@
   export let disableBuyButtonText = null;
   export let hideOutOfStockVariants = false;
   export let hideVariantImage = false;
+  export let hideDefaultShippingNote = false;
   export let scrollProductImages = false;
   export let inlineMobileTitlePrice = false;
   export let previousPrice = null;
@@ -191,15 +192,17 @@
         >
           {addToCartLabel}
         </Button>
-        <slot name="shipping">
-          <NoteCard title="Shipping" icon={ShippingIcon}>
-          {#if product?.freeRush}
-            Free Rush (UPS 2nd Day Air) shipping. $30 flat rate internationally.
-          {:else}
-            Free US shipping, $30 flat rate internationally.
-          {/if}
-          </NoteCard>
-        </slot>
+        {#if !hideDefaultShippingNote}
+          <slot name="shipping">
+            <NoteCard title="Shipping" icon={ShippingIcon}>
+            {#if product?.freeRush}
+              Free Rush (UPS 2nd Day Air) shipping. $30 flat rate internationally.
+            {:else}
+              Free US shipping, $30 flat rate internationally.
+            {/if}
+            </NoteCard>
+          </slot>
+        {/if}
         <slot name="notes"></slot>
         <hr />
         <div class="description">

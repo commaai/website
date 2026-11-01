@@ -111,7 +111,6 @@
         <span>try risk-free for 30 days</span>
         <span class="action-detail">
           <!-- TODO: Show after we have $0 down. -->
-          <!-- <span>$0 due today</span> -->
           <span class="action-arrow" aria-hidden="true">{@html ArrowRight}</span>
         </span>
       </a>

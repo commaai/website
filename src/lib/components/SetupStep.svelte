@@ -10,9 +10,7 @@
   <div class="step-content">
     {#if images.length > 0}
       <div class="step-images-grid" class:single-image={images.length === 1}>
-        {#if images.length > 0}
-          <img src={images[0]} alt={header || `Step ${stepNumber}`} class="step-image step-image-first" />
-        {/if}
+        <img src={images[0]} alt={header || `Step ${stepNumber}`} class="step-image step-image-first" />
         {#each images.slice(1) as img}
           <img src={img} alt={header || `Step ${stepNumber}`} class="step-image" />
         {/each}

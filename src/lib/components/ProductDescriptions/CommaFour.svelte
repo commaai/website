@@ -154,8 +154,7 @@
 
 <Product {product} {additionalProductIds} {backordered} {beforeAddToCart} {getCartNote} priceOverride={FOUR_PRICE}
          previousPrice={FOUR_STRIKETHROUGH_PRICE} sale={FOUR_SALE}
-         disableBuyButtonText={disableBuyButtonText}>
-  <div slot="shipping"></div>
+         disableBuyButtonText={disableBuyButtonText} hideDefaultShippingNote={true}>
 
   <div slot="price" class="price" class:sale-price={FOUR_SALE}>
     {#if referralCode}
