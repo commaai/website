@@ -13,6 +13,13 @@
       {% set harness_connector = car.car_parts.parts | selectattr('part_type', 'eq', PartType.connector) | first %}
       "harness_connector": "{{ harness_connector.value.name.replace(' connector','') if harness_connector else "" }}",
       "detail_sentence": "{{ car.detail_sentence }}",
+      "longitudinal": "{{ 'openpilot' if car.longitudinal_control else ('alpha' if car.row[Column.LONGITUDINAL] == 'openpilot available' else 'stock') }}",
+      "min_steer_speed_mph": {{ car.row[Column.FSR_STEERING].split(' ')[0] }},
+      "min_enable_speed_mph": {{ car.row[Column.FSR_LONGITUDINAL].split(' ')[0] }},
+      "auto_resume": {{ 'true' if car.auto_resume else 'false' }},
+      "limited_steering_torque": {{ 'true' if car.row[Column.STEERING_TORQUE] != Star.FULL else 'false' }},
+      "experimental_mode": {{ 'true' if 'Experimental mode' in car.detail_sentence else 'false' }},
+      "stock_features": {{ get_stock_features(car) | tojson }},
       "footnotes": [
         {% for footnote in car.footnotes if not footnote.value.docs_only and not footnote.value.setup_note %}
         {{ footnote.value.text | tojson }}{{ "" if loop.last else "," }}
