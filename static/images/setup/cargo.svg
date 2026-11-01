@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" fill="none">
+<title>Inside the rear cargo area — installation location overview</title>
+<desc>Generic vehicle side cutaway highlighting the rear cargo area. Exact trim and connection point vary by vehicle.</desc>
+<rect width="800" height="600" fill="white"/>
+<text x="48" y="59" font-family="Arial, sans-serif" font-size="26" fill="#181818">Inside the rear cargo area</text>
+<g stroke="#181818" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<path d="m73 331 90-18 99-111q16-17 42-17h239q28 0 46 20l95 108 30 18q14 9 14 29v58H73Z" fill="#f6f6f6"/>
+<path d="m198 308 82-95h115v95Zm217-95h121q17 0 31 16l69 79H415Z" fill="white"/>
+<path d="M105 365h584v53H105" fill="white"/>
+<path d="M319 289v60h57q11 0 11 12v16h-89v-85q0-12 10-12h2q9 0 9 9Z" fill="white"/>
+<path d="M467 289v60h44q11 0 11 12v16h-76v-85q0-12 10-12h2q9 0 9 9Z" fill="white"/>
+<path d="m244 330 18 19m-32-5 27-28m146-3v86" stroke-width="2"/>
+<path d="M550 324h101l38 31v40H550Z" fill="#86ff4e" fill-opacity=".4" stroke="#4b9c24" stroke-width="2" stroke-dasharray="6 6"/>
+<circle cx="190" cy="418" r="47" fill="white"/>
+<circle cx="190" cy="418" r="26" fill="#f6f6f6"/>
+<circle cx="609" cy="418" r="47" fill="white"/>
+<circle cx="609" cy="418" r="26" fill="#f6f6f6"/>
+<path d="M105 469h590" stroke="#d4d4d4" stroke-width="2"/>
+<path d="M679 171h55v187H628" stroke-width="2"/>
+<circle cx="618" cy="358" r="8" fill="#86ff4e" stroke-width="2"/>
+</g>
+<text x="48" y="562" font-family="Arial, sans-serif" font-size="15" fill="#767676">LOCATION OVERVIEW</text>
+</svg>
