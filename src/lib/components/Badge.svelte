@@ -15,7 +15,7 @@
 
 <style>
   div {
-    font-family: var(--font-mono);
+    font-family: JetBrains Mono, monospace;
     font-size: 0.875rem;
     text-transform: uppercase;
     width: fit-content;

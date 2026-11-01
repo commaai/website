@@ -230,7 +230,7 @@
 
     & .title {
       text-transform: uppercase;
-      font-family: var(--font-display);
+      font-family: Monument Extended Black, sans-serif;
       font-size: 2rem;
       font-weight: 600;
       line-height: 1.2;

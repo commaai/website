@@ -3,9 +3,10 @@
  * hashed filename only changes when the fonts do and browsers keep it cached across deploys.
  *
  * The basic latin files are used on every page, so vite.config.js inlines them here as data URIs.
- * The stylesheet is render-blocking, so they're ready for the first layout: no fallback font,
- * no swap, and no layout shift. The other subsets are rarely needed (the browser only fetches one
- * when a page contains a character in its unicode-range), so they stay as regular files.
+ * The stylesheet is render-blocking, so they arrive before the page is drawn instead of being
+ * fetched after it, and are usually decoded before the first paint. The other subsets are rarely
+ * needed (the browser only fetches one when a page contains a character in its unicode-range),
+ * so they stay as regular files.
  *
  * Inter and JetBrains Mono rules are copied from @fontsource/inter and @fontsource/jetbrains-mono.
  */
@@ -285,62 +286,4 @@
   font-weight: 400;
   src: url('@fontsource/jetbrains-mono/files/jetbrains-mono-latin-400-normal.woff2') format('woff2');
   unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
-}
-
-/*
- * Metric-matched fallbacks, used until the fonts above are decoded (or for any glyph they lack).
- * Each local font is scaled to take up the same space as the web font it stands in for, so
- * switching to the web font doesn't reflow the page, however late it lands.
- * Values are computed from the font files (size-adjust: average advance width over sample site
- * copy; ascent/descent/line-gap: the web font's vertical metrics divided by size-adjust). Weights
- * mirror the web fonts so the browser picks the matching face. Recompute if the fonts change.
- */
-
-@font-face {
-  font-family: 'Inter Fallback';
-  font-weight: 400;
-  src: local('Arial'), local('ArialMT');
-  size-adjust: 107.08%;
-  ascent-override: 90.47%;
-  descent-override: 22.53%;
-  line-gap-override: 0%;
-}
-
-@font-face {
-  font-family: 'Inter Fallback';
-  font-weight: 600;
-  src: local('Arial Bold'), local('Arial-BoldMT');
-  size-adjust: 101.67%;
-  ascent-override: 95.28%;
-  descent-override: 23.73%;
-  line-gap-override: 0%;
-}
-
-@font-face {
-  font-family: 'Inter Fallback';
-  font-weight: 700;
-  src: local('Arial Bold'), local('Arial-BoldMT');
-  size-adjust: 102.65%;
-  ascent-override: 94.38%;
-  descent-override: 23.50%;
-  line-gap-override: 0%;
-}
-
-@font-face {
-  font-family: 'JetBrains Mono Fallback';
-  font-weight: 400;
-  src: local('Courier New'), local('CourierNewPSMT');
-  size-adjust: 99.98%;
-  ascent-override: 102.02%;
-  descent-override: 30.00%;
-  line-gap-override: 0%;
-}
-
-@font-face {
-  font-family: 'Monument Extended Black Fallback';
-  src: local('Arial Black'), local('Arial-Black');
-  size-adjust: 134.39%;
-  ascent-override: 63.99%;
-  descent-override: 22.32%;
-  line-gap-override: 7.44%;
 }

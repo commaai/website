@@ -498,7 +498,7 @@
 
   .connection-path h4 {
     margin: 0 0 0.5rem;
-    font-family: var(--font-mono);
+    font-family: "JetBrains Mono", monospace;
     font-size: 0.875rem;
     font-weight: 400;
     text-transform: uppercase;
@@ -519,7 +519,7 @@
   }
 
   .box-variant hgroup span {
-    font-family: var(--font-mono);
+    font-family: "JetBrains Mono", monospace;
     font-size: 1.25rem;
   }
 
@@ -600,7 +600,7 @@
 
   .step-image-pair figcaption {
     margin-top: 0.5rem;
-    font-family: var(--font-mono);
+    font-family: "JetBrains Mono", monospace;
     font-size: 0.875rem;
     text-align: center;
     text-transform: uppercase;

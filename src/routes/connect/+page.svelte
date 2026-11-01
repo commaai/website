@@ -275,7 +275,7 @@
       & hgroup {
         & a {
           text-transform: uppercase;
-          font-family: var(--font-mono);
+          font-family: JetBrains Mono, monospace;
         }
 
         & a {
@@ -303,7 +303,7 @@
     }
 
     & .badge-prefix {
-      font-family: var(--font-mono);
+      font-family: JetBrains Mono, monospace;
       text-transform: uppercase;
       margin-bottom: 0.5rem;
       margin-right: 0.5rem;

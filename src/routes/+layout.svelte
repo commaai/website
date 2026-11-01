@@ -194,7 +194,7 @@
     border-right: 1px solid #000;
 
     & > .title {
-      font-family: var(--font-display);
+      font-family: "Monument Extended Black", sans-serif;
       font-size: 20px;
       color: black;
       height: 20px;
@@ -232,7 +232,7 @@
     & a {
       color: #000;
       margin: 0 1.75rem;
-      font-family: var(--font-sans);
+      font-family: Inter, sans-serif;
       font-size: 1.125rem;
       transition: text-shadow 0.2s;
     }
@@ -263,7 +263,7 @@
     & .button {
       color: #000;
       text-transform: uppercase;
-      font-family: var(--font-sans);
+      font-family: Inter, sans-serif;
       border-left: 1px solid #000;
       padding-left: 56px;
       padding-right: 56px;

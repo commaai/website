@@ -200,7 +200,7 @@
   .option-status {
     display: block;
     padding-top: 0.5rem;
-    font-family: var(--font-mono);
+    font-family: JetBrains Mono, monospace;
     font-size: 0.75rem;
     font-weight: 400;
     line-height: 1.2;

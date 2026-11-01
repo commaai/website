@@ -48,7 +48,7 @@
       display: block !important;
 
       & span {
-        font-family: var(--font-mono);
+        font-family: JetBrains Mono, monospace;
         font-size: 0.875rem;
         font-weight: 400;
         text-transform: uppercase;

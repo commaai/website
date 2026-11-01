@@ -396,7 +396,7 @@
 
         & .header {
           font-size: 0.875rem;
-          font-family: var(--font-mono);
+          font-family: JetBrains Mono, monospace;
           text-transform: uppercase;
           color: #fff;
           background-color: #000;
@@ -474,7 +474,7 @@
 
     & .header {
       font-size: 0.875rem;
-      font-family: var(--font-mono);
+      font-family: JetBrains Mono, monospace;
       text-transform: uppercase;
       color: #fff;
       background-color: #000;

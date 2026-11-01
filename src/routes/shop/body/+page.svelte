@@ -370,7 +370,7 @@
 
       & .label {
         font-size: 1.2rem;
-        font-family: var(--font-mono);
+        font-family: JetBrains Mono, monospace;
         font-weight: 400;
         text-transform: uppercase;
         padding: 1rem 0;

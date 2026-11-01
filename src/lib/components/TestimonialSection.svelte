@@ -49,7 +49,7 @@
 
   .meta {
     color: var(--color-muted);
-    font-family: var(--font-mono);
+    font-family: JetBrains Mono, monospace;
     font-size: 0.875rem;
     letter-spacing: normal;
     line-height: 1;

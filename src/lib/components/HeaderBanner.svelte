@@ -32,7 +32,7 @@
 
   .headline {
     color: black;
-    font-family: var(--font-sans);
+    font-family: Inter, sans-serif;
     font-size: 1.25rem;
     margin: 0 0.5rem;
     text-decoration: none;

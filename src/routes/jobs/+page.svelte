@@ -684,7 +684,7 @@
 
   .section-title {
     color: #000;
-    font-family: var(--font-sans);
+    font-family: Inter, sans-serif;
     font-size: clamp(1.6rem, 2.4vw, 2.5rem);
     font-weight: 700;
     line-height: 1.1;
@@ -718,7 +718,7 @@
 
   .eyebrow {
     color: rgba(0, 0, 0, 0.55);
-    font-family: var(--font-mono);
+    font-family: "JetBrains Mono", monospace;
     font-size: 1rem;
     line-height: 1.2;
     margin: 0 0 0.5rem;
@@ -1089,7 +1089,7 @@
   .job-meta-separator,
   .job-location {
     color: #000;
-    font-family: var(--font-mono);
+    font-family: "JetBrains Mono", monospace;
     font-size: 1rem;
     line-height: 1.2;
   }
@@ -1161,7 +1161,7 @@
     background: #000;
     bottom: calc(100% + 0.625rem);
     color: #fff;
-    font-family: var(--font-mono);
+    font-family: "JetBrains Mono", monospace;
     font-size: 0.875rem;
     line-height: 1.2;
     padding: 0.5rem 0.75rem;
@@ -1222,7 +1222,7 @@
 
   .job-qualifications {
     color: #000;
-    font-family: var(--font-mono);
+    font-family: "JetBrains Mono", monospace;
     font-size: 1.0625rem;
     line-height: 1.25;
     margin-bottom: 1.5rem;
