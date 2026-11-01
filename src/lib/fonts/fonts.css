@@ -1,0 +1,16 @@
+/*
+ * All @font-face rules, in their own stylesheet (linked from +layout.svelte) so its hashed
+ * filename only changes when the fonts do and browsers keep it cached across deploys.
+ * vite.config.js inlines the latin files every page uses as data URIs, so they arrive with
+ * this render-blocking stylesheet instead of being fetched after the page is drawn.
+ */
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/inter/700.css';
+@import '@fontsource/jetbrains-mono/400.css';
+
+@font-face {
+  font-family: 'Monument Extended Black';
+  font-display: block;
+  src: url('./MonumentExtended/MonumentExtended-Black.woff2') format('woff2');
+}
