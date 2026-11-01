@@ -233,7 +233,7 @@
     & span:last-of-type {
       color: var(--color-muted);
       text-transform: uppercase;
-      font-family: JetBrains Mono, monospace;
+      font-family: var(--font-mono);
       font-size: 1rem;
       font-weight: 400;
     }
@@ -265,7 +265,7 @@
     & span {
       color: var(--color-muted);
       text-transform: uppercase;
-      font-family: JetBrains Mono, monospace;
+      font-family: var(--font-mono);
       font-size: 1rem;
       font-weight: 400;
       margin-left: 1rem;
@@ -319,7 +319,7 @@
     & hgroup {
       & p {
         opacity: 0.5;
-        font-family: JetBrains Mono, monospace;
+        font-family: var(--font-mono);
         margin: 0 0 0.5rem;
         font-size: 1.5rem;
       }

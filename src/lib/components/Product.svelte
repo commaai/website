@@ -343,7 +343,7 @@
         & span {
           font-size: 0.875rem;
           text-transform: uppercase;
-          font-family: JetBrains Mono, monospace;
+          font-family: var(--font-mono);
         }
 
         & strong {
