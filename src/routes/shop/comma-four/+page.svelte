@@ -427,7 +427,7 @@
         }
 
         & span {
-          font-family: JetBrains Mono, monospace;
+          font-family: var(--font-mono);
           font-size: 0.875rem;
           font-weight: 400;
           text-transform: uppercase;
@@ -463,7 +463,7 @@
 
   hgroup {
     & span {
-      font-family: JetBrains Mono, monospace;
+      font-family: var(--font-mono);
       font-size: 1rem;
       margin-bottom: 0.5rem;
     }
