@@ -3,7 +3,10 @@
 
   import fontsStylesheet from "$lib/fonts/fonts.css?url";
 
+  import { onMount } from "svelte";
   import { get } from "svelte/store";
+  import { page } from "$app/stores";
+  import { replaceState, afterNavigate } from '$app/navigation';
 
   import Badge from "$lib/components/Badge.svelte";
   import Grid from "$lib/components/Grid.svelte";
@@ -29,9 +32,6 @@
     showCart,
   } from "../store.js";
 
-  import { onMount } from "svelte";
-  import { page } from "$app/stores";
-
   let loading = false;
 
   async function openCart() {
@@ -53,6 +53,14 @@
     await loadCart();
     loading = false;
   }
+
+  afterNavigate(() => {
+    if (!$page.url.searchParams.has('ref')) return;
+
+    const url = new URL($page.url);
+    url.searchParams.delete('ref');
+    replaceState(url, $page.state);
+  })
 
   onMount(async () => {
     const referralCode = getReferralCode();
