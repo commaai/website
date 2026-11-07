@@ -71,8 +71,6 @@
   $: discountedPriceDueToday = referralCode ? priceDueToday - REFERRAL_DISCOUNT : priceDueToday;
   $: priceAfterTradeIn = tradeInChecked ? priceDueToday - FOUR_TRADE_IN_CREDIT : priceDueToday;
   $: displayedPrice = tradeInChecked ? priceAfterTradeIn : priceDueToday;
-  // Shopify's "Continue to checkout" (only shown once a harness is picked) goes through add to cart
-  const handleInstallmentsCheckout = () => document.getElementById('add-to-cart')?.click();
 
   $: additionalProductIds = (() => {
     const ids = [];
@@ -84,6 +82,9 @@
     }
     return ids;
   })();
+  
+  // shopify's "Continue to checkout" (only shown once a harness is picked) goes through add to cart
+  const handleInstallmentsCheckout = () => document.getElementById('add-to-cart')?.click();
 
   const handleHarnessSelection = (value) => {
     selectedHarness = value;
@@ -239,7 +240,6 @@
   </span>
 
   <div slot="notes">
-    <!-- Installments are paid on the amount due at checkout, before any trade-in credit -->
     <ShopPayInstallments
       variantId={product.variants.nodes[0]?.id}
       amount={discountedPriceDueToday}

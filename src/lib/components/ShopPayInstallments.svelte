@@ -1,5 +1,4 @@
 <script context="module">
-  // The same module Shopify themes load for the banner
   const SHOP_JS_URL = "https://cdn.shopify.com/shopifycloud/shop-js/modules/v2/loader.payment-terms.en.esm.js";
 
   // Use the page font for the banner text (the popup renders elsewhere and keeps Shopify's font)
@@ -17,14 +16,14 @@
     if (installed) return;
     installed = true;
 
-    // Shopify's popup hides the scrollbar (`overflow: hidden` on <html>), so pad its width to keep the page from shifting
+    // shopify's popup hides the scrollbar (`overflow: hidden` on <html>), so pad its width to keep the page from shifting
     const html = document.documentElement;
     new MutationObserver(() => {
       const padding = html.style.overflow === "hidden" && scrollbarWidth ? `${scrollbarWidth}px` : "";
       if (html.style.paddingRight !== padding) html.style.paddingRight = padding;
     }).observe(html, { attributeFilter: ["style"] });
 
-    // Shopify's "Continue to checkout" goes to /cart or /checkout on comma.ai, which don't exist, so reroute it
+    // shopify's "Continue to checkout" goes to /cart or /checkout on comma.ai, which don't exist, so reroute it
     document.addEventListener("click", (event) => {
       const path = event.composedPath();
       const isPopupCheckout = path.some(
@@ -47,12 +46,9 @@
   import { getShopInstallmentsPricing, getVariantInstallmentsPricing } from "$lib/utils/shopify";
   import { installmentsMeta } from "$lib/utils/installments.js";
 
-  // Amount the customer pays (USD)
   export let amount = 0;
-  // Product page variant; omit for the cart banner
   export let variantId = null;
   export let onCheckout = null;
-  // Until a variant is selected, Shopify shows its generic banner and popup (no checkout button)
   export let variantSelected = true;
 
   let ready = false;
@@ -60,7 +56,6 @@
   let variantPricing = null;
   $: meta = installmentsMeta({ shopPricing, amount, variantId, variantPricing });
 
-  // Runs before the popup opens, while the scrollbar is still measurable
   function handleClick() {
     activeCheckoutHandler = onCheckout;
     scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
@@ -77,7 +72,6 @@
 {#if ready && meta}
   <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-static-element-interactions -->
   <div class="installments" on:click|capture={handleClick}>
-    <!-- Shopify's banner doesn't revert to generic when the variant is cleared, so recreate it -->
     {#key variantSelected}
       <shopify-payment-terms
         use:usePageFont

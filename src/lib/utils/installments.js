@@ -1,8 +1,7 @@
-// Builds `shopify-meta` for Shopify's <shopify-payment-terms> banner, mirroring Liquid's `{{ form | payment_terms }}` output
+// builds `shopify-meta` for Shopify's <shopify-payment-terms> banner, mirroring Liquid's `{{ form | payment_terms }}` output
 
 const usd = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' });
 
-// price('min_price', 1) -> { min_price: "$1.00", min_price_amount: 1 }
 const price = (key, amount) => ({ [key]: usd.format(Number(amount)), [`${key}_amount`]: Number(amount) });
 
 const priceRange = ({ minPrice, maxPrice }) => ({
@@ -16,8 +15,6 @@ const paymentTerms = (amount, count) => ({
   number_of_payment_terms: count,
 });
 
-// `amount` is what the customer pays, which can differ from the variant price (e.g. page discounts).
-// Pass `variantId` + `variantPricing` for the product banner, omit them for the cart banner.
 export function installmentsMeta({ shopPricing, amount, variantId, variantPricing }) {
   if (!(amount > 0) || !shopPricing?.financingPlans?.length || shopPricing.minPrice.currencyCode !== 'USD') return null;
   if (variantId && !variantPricing?.available) return null;
@@ -49,7 +46,7 @@ export function installmentsMeta({ shopPricing, amount, variantId, variantPricin
   return {
     ...meta,
     variants: [{
-      id: Number(variantId.split('/').pop()), // "gid://shopify/ProductVariant/123" -> 123
+      id: Number(variantId.split('/').pop()),
       ...paymentTerms(amount, variantPricing.installmentsCount?.count || 4),
       eligible: variantPricing.eligible,
       available: true,
