@@ -3,7 +3,6 @@
   import NoteCard from "$lib/components/NoteCard.svelte";
   import CheckboxCard from "$lib/components/CheckboxCard.svelte";
   import Accordion from "$lib/components/Accordion.svelte";
-  import Badge from "$lib/components/Badge.svelte";
   import HarnessSelector from "$lib/components/HarnessSelector/HarnessSelector.svelte";
   import Modal from "$lib/components/Modal.svelte";
   import ShopPayInstallments from "$lib/components/ShopPayInstallments.svelte";
@@ -69,8 +68,9 @@
   // Price calculations
   $: priceDueToday = showDiscount ? FOUR_PRICE - NO_HARNESS_DISCOUNT : FOUR_PRICE;
   $: discountedPriceDueToday = referralCode ? priceDueToday - REFERRAL_DISCOUNT : priceDueToday;
-  $: priceAfterTradeIn = tradeInChecked ? priceDueToday - FOUR_TRADE_IN_CREDIT : priceDueToday;
-  $: displayedPrice = tradeInChecked ? priceAfterTradeIn : priceDueToday;
+  $: showTradeInNote = tradeInChecked && FOUR_TRADE_IN_CREDIT > 0;
+  $: priceAfterTradeIn = showTradeInNote ? priceDueToday - FOUR_TRADE_IN_CREDIT : priceDueToday;
+  const usd = (amount) => formatCurrency({ amount, currencyCode: 'USD' }, 0);
 
   $: additionalProductIds = (() => {
     const ids = [];
@@ -82,9 +82,11 @@
     }
     return ids;
   })();
-  
-  // shopify's "Continue to checkout" (only shown once a harness is picked) goes through add to cart
-  const handleInstallmentsCheckout = () => document.getElementById('add-to-cart')?.click();
+
+  const handleInstallmentsCheckout = () => {
+    if (selectedHarness) document.getElementById('add-to-cart')?.click();
+    else showDisclaimerModal = true;
+  };
 
   const handleHarnessSelection = (value) => {
     selectedHarness = value;
@@ -161,34 +163,39 @@
          disableBuyButtonText={disableBuyButtonText}>
   <div slot="shipping"></div>
 
-  <div slot="price" class="price" class:sale-price={FOUR_SALE}>
-    {#if referralCode}
-      <div class="referral-prices">
-        <s class="original-price">{formatCurrency({ amount: displayedPrice, currencyCode: 'USD' }, 0)}</s>
-        <span>
-          {formatCurrency({ amount: displayedPrice - REFERRAL_DISCOUNT, currencyCode: 'USD' }, 0)}
-          {tradeInChecked && FOUR_TRADE_IN_CREDIT > 0 ? ' after trade-in received' : ''}
-        </span>
-      </div>
-    {:else if tradeInChecked && FOUR_TRADE_IN_CREDIT > 0}
-      <span>{formatCurrency({ amount: priceAfterTradeIn, currencyCode: 'USD' }, 0)} after trade-in received</span>
-    {:else if showDiscount && NO_HARNESS_DISCOUNT > 0}
-      {formatCurrency({ amount: priceDueToday, currencyCode: 'USD' }, 0)}
-    {:else}
-      {formatCurrency({ amount: FOUR_PRICE, currencyCode: 'USD' }, 0)}
-    {/if}
-  </div>
+  <div slot="price"></div>
 
   <span slot="price-accessory">
-    <div class="badges">
-      {#if referralCode}
-        <Badge style="accent">Referral code added</Badge>
-      {/if}
-      <Badge style="dark">Free rush shipping</Badge>
-      {#if tradeInChecked && FOUR_TRADE_IN_CREDIT > 0}
-        <span class="price-due-today">{formatCurrency({ amount: discountedPriceDueToday, currencyCode: 'USD' }, 0)} due today</span>
-      {/if}
+    <div class="payment-options">
+      <div class="option-wrap">
+        <span class="option-label">Buy now</span>
+        <span class="option pay-now-price" class:sale-price={FOUR_SALE}>
+          {#if referralCode}
+            <span class="referral-prices">
+              <s class="original-price">{usd(priceAfterTradeIn)}</s>
+              <span>{usd(priceAfterTradeIn - REFERRAL_DISCOUNT)}</span>
+            </span>
+          {:else}
+            {usd(priceAfterTradeIn)}
+          {/if}
+        </span>
+      </div>
+      <div class="option-wrap">
+        <span class="option-label">Finance</span>
+        <span class="option finance-price">
+          <ShopPayInstallments
+            split
+            variantId={product.variants.nodes[0]?.id}
+            amount={discountedPriceDueToday}
+            onCheckout={handleInstallmentsCheckout}
+          />
+        </span>
+      </div>
     </div>
+    <p class="trade-in-note" class:invisible={!showTradeInNote}>
+      {usd(discountedPriceDueToday)} due today,
+      ${FOUR_TRADE_IN_CREDIT} trade-in credit when old device is received
+    </p>
 
     <hr />
 
@@ -237,36 +244,19 @@
         </button>
       </NoteCard>
     {/if}
+    <NoteCard title="Free rush shipping" icon={ShippingIcon} highlightTitle>
+      UPS 2nd Day Air in the US, fulfilled the next business day. International shipping is $30 flat rate.
+      Visit <a href="/support/orders-returns" target="_blank">Orders and Shipping</a> to learn more.
+    </NoteCard>
   </span>
 
   <div slot="notes">
-    <ShopPayInstallments
-      variantId={product.variants.nodes[0]?.id}
-      amount={discountedPriceDueToday}
-      variantSelected={Boolean(selectedHarness)}
-      onCheckout={handleInstallmentsCheckout}
-    />
     <NoteCard title="Upgrading from another comma device?">
       You do not need a new car harness. All comma devices use the same harness.
     </NoteCard>
   </div>
 
   <div slot="description">
-    <div class="item">
-      <Accordion>
-        <div class="label" slot="label">
-          <div>{@html ShippingIcon}</div>
-          <span>Free Rush (UPS 2nd Day Air) shipping</span>
-        </div>
-        <div class="details" slot="content">
-          US only. Rush orders are fulfilled on the next business day.
-          <br><br>
-          International shipping is $30 flat rate.
-          See fine print below for details. For common shipping questions, see
-          <a href="/support/orders-returns" target="_blank">Orders and Shipping</a>.
-        </div>
-      </Accordion>
-    </div>
     <div class="item">
       <Accordion>
         <div class="label" slot="label">
@@ -301,21 +291,26 @@
   onClose={() => showDisclaimerModal = false}
   bind:show={showDisclaimerModal}
   primaryButtonText={backordered ? `Add to cart (ships in ${backordered})` : "Add to cart"}
+  showPrimaryButton={Boolean(selectedHarness)}
 >
-  {#if additionalProductIds.length === 0}
+  {#if !selectedHarness}
+    <p class="disclaimer">You need to select a harness first.</p>
+  {:else}
+    {#if additionalProductIds.length === 0}
+      <p class="disclaimer">
+        A car harness is required to connect the comma four to your vehicle.
+        You currently have no car harness selected.
+      </p>
+    {/if}
     <p class="disclaimer">
-      A car harness is required to connect the comma four to your vehicle.
-      You currently have no car harness selected.
+      The comma four does not ship with any software.
+      Once you have the device you will be able to install any software you choose at your own risk.
+    </p>
+    <p class="disclaimer">
+      Regardless of what software you choose to install, this device in no way substitutes for a licensed, sober, and attentive driver in the drivers seat.
+      <b>If you are not going to always pay careful attention while driving, do not buy this product.</b>
     </p>
   {/if}
-  <p class="disclaimer">
-    The comma four does not ship with any software.
-    Once you have the device you will be able to install any software you choose at your own risk.
-  </p>
-  <p class="disclaimer">
-    Regardless of what software you choose to install, this device in no way substitutes for a licensed, sober, and attentive driver in the drivers seat.
-    <b>If you are not going to always pay careful attention while driving, do not buy this product.</b>
-  </p>
 </Modal>
 
 <style>
@@ -324,23 +319,20 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.15);
   }
 
-  .badges {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.75rem;
-    margin: 1rem 0;
-
-  }
-
   .referral-prices {
-    display: flex;
-    align-items: baseline;
-    flex-wrap: wrap;
-    gap: 0.5rem;
+    position: relative;
+    display: inline-block;
+    padding: 0.2em 0;
+    line-height: 1;
   }
 
   .original-price {
+    position: absolute;
+    top: 0.4em;
+    right: 100%;
+    margin-right: 0.25em;
+    font-size: 0.5em;
+    white-space: nowrap;
     color: rgba(0, 0, 0, 0.5);
   }
 
@@ -397,12 +389,7 @@
   }
 
   hr {
-    margin: 2rem 0;
-  }
-
-  .price-due-today {
-    font-size: 1rem;
-    color: rgb(81, 81, 81);
+    margin: 1.25rem 0 1.5rem;
   }
 
   .sale-price {
@@ -411,6 +398,92 @@
 
     & span {
       color: var(--color-sale-red);
+    }
+  }
+
+  .payment-options {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    gap: 0.75rem;
+    min-width: 0;
+    margin: 0.5rem 0 0;
+  }
+
+  .option-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-width: 0;
+  }
+
+  .option-label {
+    align-self: flex-start;
+    font-family: JetBrains Mono, monospace;
+    font-size: 0.875rem;
+    line-height: 1.1;
+    text-transform: uppercase;
+    color: black;
+  }
+
+  .option {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-width: 0;
+    padding: 1rem;
+    text-align: center;
+    color: black;
+    border: 1px solid #616161;
+
+    @media only screen and (max-width: 768px) {
+      & {
+        padding: 1rem 0.5rem;
+      }
+    }
+  }
+
+  .finance-price {
+    font-size: 1.5rem;
+
+    @media only screen and (max-width: 768px) {
+      & {
+        font-size: 1.125rem;
+        --installments-rest-font-size: 0.75rem;
+        --installments-rest-white-space: nowrap;
+      }
+    }
+  }
+
+  .pay-now-price {
+    font-size: 2.5rem;
+    line-height: 1.4;
+
+    &:has(.referral-prices) {
+      font-size: 2rem;
+    }
+
+    @media only screen and (max-width: 768px) {
+      & {
+        font-size: 2rem;
+      }
+
+      &:has(.referral-prices) {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  .trade-in-note {
+    margin: 0.5rem 0 0;
+    font-size: 0.875rem;
+    color: rgba(0, 0, 0, 0.6);
+
+    &.invisible {
+      visibility: hidden;
     }
   }
 </style>
