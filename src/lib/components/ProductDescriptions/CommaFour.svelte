@@ -6,6 +6,7 @@
   import Badge from "$lib/components/Badge.svelte";
   import HarnessSelector from "$lib/components/HarnessSelector/HarnessSelector.svelte";
   import Modal from "$lib/components/Modal.svelte";
+  import ShopPayInstallments from "$lib/components/ShopPayInstallments.svelte";
 
   import ShippingIcon from "$lib/icons/features/shipping.svg?raw";
   import MoneyBackGuaranteeIcon from "$lib/icons/features/money-back-guarantee.svg?raw";
@@ -70,6 +71,8 @@
   $: discountedPriceDueToday = referralCode ? priceDueToday - REFERRAL_DISCOUNT : priceDueToday;
   $: priceAfterTradeIn = tradeInChecked ? priceDueToday - FOUR_TRADE_IN_CREDIT : priceDueToday;
   $: displayedPrice = tradeInChecked ? priceAfterTradeIn : priceDueToday;
+  // Shopify's "Continue to checkout" (only shown once a harness is picked) goes through add to cart
+  const handleInstallmentsCheckout = () => document.getElementById('add-to-cart')?.click();
 
   $: additionalProductIds = (() => {
     const ids = [];
@@ -236,6 +239,13 @@
   </span>
 
   <div slot="notes">
+    <!-- Installments are paid on the amount due at checkout, before any trade-in credit -->
+    <ShopPayInstallments
+      variantId={product.variants.nodes[0]?.id}
+      amount={discountedPriceDueToday}
+      variantSelected={Boolean(selectedHarness)}
+      onCheckout={handleInstallmentsCheckout}
+    />
     <NoteCard title="Upgrading from another comma device?">
       You do not need a new car harness. All comma devices use the same harness.
     </NoteCard>

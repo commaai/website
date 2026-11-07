@@ -390,3 +390,51 @@ export async function addToCart({ cartId, variantId, additionalProductIds = [], 
 
   return cartLinesResponse;
 }
+
+// Separate queries so a missing `unauthenticated_read_shop_pay_installments_pricing` scope can't break products/carts
+export async function getVariantInstallmentsPricing(variantId) {
+  const response = await shopifyFetch({
+    query: /* graphql */ `
+      query getVariantInstallmentsPricing($id: ID!) {
+        node(id: $id) {
+          ... on ProductVariant {
+            shopPayInstallmentsPricing {
+              available
+              eligible
+              installmentsCount { count }
+            }
+          }
+        }
+      }
+    `,
+    variables: { id: variantId }
+  });
+  return response.body?.data?.node?.shopPayInstallmentsPricing || null;
+}
+
+let shopInstallmentsPricingRequest = null;
+export function getShopInstallmentsPricing() {
+  // `financingPlans` also needs the `unauthenticated_read_checkouts` scope
+  shopInstallmentsPricingRequest ??= shopifyFetch({
+    query: /* graphql */ `
+      query getShopInstallmentsPricing {
+        shop {
+          shopPayInstallmentsPricing {
+            minPrice { amount currencyCode }
+            maxPrice { amount currencyCode }
+            financingPlans {
+              minPrice { amount }
+              maxPrice { amount }
+              terms {
+                apr
+                loanType
+                installmentsCount { count }
+              }
+            }
+          }
+        }
+      }
+    `
+  }).then((response) => response.body?.data?.shop?.shopPayInstallmentsPricing || null);
+  return shopInstallmentsPricingRequest;
+}
