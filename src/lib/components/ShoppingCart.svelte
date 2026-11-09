@@ -12,11 +12,16 @@
   import Button from "./Button.svelte";
   import SteppableInput from "./SteppableInput.svelte";
   import Space from "./Space.svelte";
+  import ShopPayInstallments from "./ShopPayInstallments.svelte";
   import { formatCurrency } from "$lib/utils/currency";
 
   export let loading = false;
 
   const dispatch = createEventDispatcher();
+
+  $: installmentsAmount = $cartSubtotal?.currencyCode === "USD"
+    ? Number($cartSubtotal.amount) - Number($cartDiscount?.amount || 0)
+    : 0;
 
   function updateProductQuantity(item, quantity) {
     loading = true;
@@ -121,6 +126,7 @@
           <span>{formatCurrency($cartSubtotal)}</span>
         </div>
       {/if}
+      <ShopPayInstallments amount={installmentsAmount} onCheckout={checkout} />
       <div class="disclaimer">
         Customs/duties/taxes are between you and your country.
       </div>
