@@ -26,7 +26,7 @@
     }
   `;
 
-  async function styleBanner(node, onText) {
+  async function styleBanner(node, setText) {
     await customElements.whenDefined("shopify-payment-terms");
     const root = node.shadowRoot;
     if (!root) return;
@@ -36,7 +36,7 @@
       if (style.parentNode !== root) root.append(style);
       const content = root.getElementById("shopify-installments-content")?.cloneNode(true);
       content?.querySelectorAll("svg").forEach((svg) => svg.remove());
-      onText(content?.textContent.replace(/\s+/g, " ").trim() ?? "");
+      setText(content?.textContent.replace(/\s+/g, " ").trim() ?? "");
     };
     new MutationObserver(read).observe(root, { childList: true, subtree: true, characterData: true });
     read();
