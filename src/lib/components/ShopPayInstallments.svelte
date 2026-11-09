@@ -26,7 +26,6 @@
     }
   `;
 
-  // styles the banner's shadow DOM and reports its text (without the logo's title)
   async function styleBanner(node, onText) {
     await customElements.whenDefined("shopify-payment-terms");
     const root = node.shadowRoot;
@@ -34,7 +33,6 @@
     const style = document.createElement("style");
     style.textContent = BANNER_CSS;
     const read = () => {
-      // shopify's render can remove it. check parentNode, because isConnected is false once {#key} detaches this banner
       if (style.parentNode !== root) root.append(style);
       const content = root.getElementById("shopify-installments-content")?.cloneNode(true);
       content?.querySelectorAll("svg").forEach((svg) => svg.remove());
@@ -44,19 +42,16 @@
     read();
   }
 
-  // set by whichever banner was clicked last, since shopify's popup lives outside the component
   let activeCheckoutHandler = null;
   let scrollbarWidth = 0;
 
   if (browser) {
-    // shopify's popup hides the scrollbar (`overflow: hidden` on <html>), so pad its width to keep the page from shifting
     const html = document.documentElement;
     new MutationObserver(() => {
       const padding = html.style.overflow === "hidden" && scrollbarWidth ? `${scrollbarWidth}px` : "";
       if (html.style.paddingRight !== padding) html.style.paddingRight = padding;
     }).observe(html, { attributeFilter: ["style"] });
 
-    // shopify's "Continue to checkout" goes to /cart or /checkout on comma.ai, which don't exist, so reroute it
     document.addEventListener("click", (event) => {
       const path = event.composedPath();
       const isPopupCheckout = path.some(
@@ -82,7 +77,6 @@
   export let amount = 0;
   export let variantId = null;
   export let onCheckout = null;
-  // render "From $X/mo" and the rest of the banner as two separately styled lines, with a skeleton and a fallback
   export let split = false;
 
   let pricing = null; // null until loaded, {} if loading failed
@@ -127,14 +121,12 @@
     {/if}
     <div class="rest">
       {#if split}{rest}{/if}
-      {#key amount}
-        <shopify-payment-terms
-          use:styleBanner={(value) => (text = value)}
-          data-split={split ? "" : undefined}
-          variant-id={meta.variants?.[0].id ?? ""}
-          shopify-meta={JSON.stringify(meta)}
-        ></shopify-payment-terms>
-      {/key}
+      <shopify-payment-terms
+        use:styleBanner={(value) => (text = value)}
+        data-split={split ? "" : undefined}
+        variant-id={meta.variants?.[0].id ?? ""}
+        shopify-meta={JSON.stringify(meta)}
+      ></shopify-payment-terms>
     </div>
   </div>
 {/if}
