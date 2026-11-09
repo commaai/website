@@ -196,7 +196,7 @@
     </div>
     <p class="trade-in-note" class:invisible={!showTradeInNote}>
       {usd(discountedPriceDueToday)} due today,
-      ${FOUR_TRADE_IN_CREDIT} trade-in credit when old device is received
+      {usd(discountedPriceDueToday - FOUR_TRADE_IN_CREDIT)} after trade-in received
     </p>
 
     <hr />
