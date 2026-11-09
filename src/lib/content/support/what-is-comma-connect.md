@@ -14,7 +14,7 @@ Select a drive to view its route and available camera footage. If you need to sh
 
 ## Device information and remote features
 
-Use connect to check device information, battery voltage, and remote snapshots. The available information depends on when your device was last online.
+Use connect to check device information and battery voltage. The available information depends on when your device was last online. When your device is online, you can also livestream its road-facing and cabin cameras.
 
 ## Subscription management
 

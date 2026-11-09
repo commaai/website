@@ -13,7 +13,7 @@
   import RecordingsIcon from "$lib/icons/features/recordings.svg?raw";
   import TwentyFourSevenIcon from "$lib/icons/features/twenty-four-seven.png";
   import MarkerIcon from "$lib/icons/features/marker.png";
-  import SnapshotIcon from "$lib/icons/features/snapshot.png";
+  import LivestreamIcon from "$lib/icons/features/livestream.svg?raw";
   import CommandLineIcon from "$lib/icons/features/command-line.svg?raw";
   import CommacareIcon from "$lib/icons/features/commacare.svg?raw";
   import CheckmarkIcon from "$lib/icons/ui/checkmark.svg?raw";
@@ -43,7 +43,7 @@
         <div class="icon">{@html RecordingsIcon}</div>
         <div class="icon"><img src={TwentyFourSevenIcon} loading="lazy" alt=""></div>
         <div class="icon"><img src={MarkerIcon} loading="lazy" alt=""></div>
-        <div class="icon"><img src={SnapshotIcon} loading="lazy" alt=""></div>
+        <div class="icon">{@html LivestreamIcon}</div>
         <div class="icon">{@html CommandLineIcon}</div>
         <div class="icon">{@html CommacareIcon}</div>
       </Grid>
@@ -134,10 +134,10 @@
       </div>
       <div class="row">
         <div class="feature-overview">
-          <div class="icon"><img src={SnapshotIcon} loading="lazy" alt=""></div>
+          <div class="icon">{@html LivestreamIcon}</div>
           <hgroup>
-            <div>Take pictures remotely</div>
-            <span class="muted">Know what's going on around your car. comma four features HD road-facing and night-vision-enabled cabin cameras.</span>
+            <div>Livestream your cameras</div>
+            <span class="muted">See around your car in real time with HD road-facing and night-vision cabin cameras.</span>
           </hgroup>
         </div>
         <div class="content">
@@ -174,7 +174,7 @@
       <ul class="checkmark-list">
         <li>24/7 connectivity</li>
         <li>Live GPS tracking</li>
-        <li>Take pictures remotely</li>
+        <li>Livestream your cameras</li>
         <li>1 year storage of drive videos</li>
         <li>Simple SSH for developers</li>
       </ul>
