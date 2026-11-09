@@ -411,6 +411,7 @@
   }
 
   .option-wrap {
+    container-type: inline-size;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
@@ -447,13 +448,13 @@
   }
 
   .finance-price {
-    font-size: 1.5rem;
+    font-size: min(1.5rem, 10.5cqw);
+    --installments-rest-font-size: min(0.875rem, 6.8cqw);
 
     @media only screen and (max-width: 768px) {
       & {
-        font-size: 1.125rem;
-        --installments-rest-font-size: 0.75rem;
-        --installments-rest-white-space: nowrap;
+        font-size: min(1.125rem, 11.5cqw);
+        --installments-rest-font-size: min(0.75rem, 7.5cqw);
       }
     }
   }
@@ -463,7 +464,7 @@
     line-height: 1.4;
 
     &:has(.referral-prices) {
-      font-size: 2rem;
+      font-size: min(2rem, 19.5cqw);
     }
 
     @media only screen and (max-width: 768px) {
@@ -472,7 +473,7 @@
       }
 
       &:has(.referral-prices) {
-        font-size: 1.5rem;
+        font-size: min(1.5rem, 19.5cqw);
       }
     }
   }
