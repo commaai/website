@@ -59,6 +59,7 @@
   let backordered = null;
   let removedReferralCode = null;
   let updatingReferral = false;
+  let installmentsTimedOut = false;
 
   $: referralCode = $cartReferralCode;
 
@@ -178,17 +179,20 @@
           {/if}
         </span>
       </div>
-      <div class="option-wrap">
-        <span class="option-label">Finance</span>
-        <span class="option finance-price">
-          <ShopPayInstallments
-            split
-            variantId={product.variants.nodes[0]?.id}
-            amount={discountedPriceDueToday}
-            onCheckout={handleInstallmentsCheckout}
-          />
-        </span>
-      </div>
+      {#if !installmentsTimedOut}
+        <div class="option-wrap">
+          <span class="option-label">Finance</span>
+          <span class="option finance-price">
+            <ShopPayInstallments
+              split
+              variantId={product.variants.nodes[0]?.id}
+              amount={discountedPriceDueToday}
+              onCheckout={handleInstallmentsCheckout}
+              bind:timedOut={installmentsTimedOut}
+            />
+          </span>
+        </div>
+      {/if}
     </div>
     <p class="trade-in-note" class:invisible={!showTradeInNote}>
       {usd(discountedPriceDueToday)} due today,
@@ -397,13 +401,13 @@
   }
 
   .payment-options {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
     gap: 0.75rem;
     margin: 0.5rem 0 0;
   }
 
   .option-wrap {
+    flex: 1;
     container-type: inline-size;
     display: flex;
     flex-direction: column;

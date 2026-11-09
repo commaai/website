@@ -2,6 +2,7 @@
   import { browser } from "$app/environment";
 
   const SHOP_JS_URL = "https://cdn.shopify.com/shopifycloud/shop-js/modules/v2/loader.payment-terms.en.esm.js";
+  const LOADING_TIMEOUT_MS = 8000;
 
   // split mode hides shopify's text (we render it ourselves) and keeps only its shop logo and info button
   const BANNER_CSS = `
@@ -78,19 +79,28 @@
   export let variantId = null;
   export let onCheckout = null;
   export let split = false;
+  export let timedOut = false;
 
   let pricing = null; // null until loaded, {} if loading failed
   let text = "";
-  $: meta = pricing && installmentsMeta({ ...pricing, amount, variantId });
+  $: meta = !timedOut && pricing && installmentsMeta({ ...pricing, amount, variantId });
   $: [, lead = "", rest = ""] = (meta && text.match(/^(From \S+\/mo) ?(.*)$/)) || [];
-  $: loading = !pricing || (meta && !text);
+  $: loading = !timedOut && (!pricing || (meta && !text));
 
   function handleClick() {
     activeCheckoutHandler = onCheckout;
     scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
   }
 
-  onMount(async () => {
+  onMount(() => {
+    const timeout = setTimeout(() => {
+      if (loading) timedOut = true;
+    }, LOADING_TIMEOUT_MS);
+    loadPricing();
+    return () => clearTimeout(timeout);
+  });
+
+  async function loadPricing() {
     try {
       const [shopPricing, variantPricing] = await Promise.all([
         getShopInstallmentsPricing(),
@@ -102,7 +112,7 @@
       console.error(error);
       pricing = {};
     }
-  });
+  }
 </script>
 
 {#if split && loading}
@@ -110,7 +120,7 @@
     <span class="lead"><span class="bar">From $00.00/mo</span></span>
     <span class="rest"><span class="bar">or 0% APR with shop ⓘ</span></span>
   </span>
-{:else if split && !lead}
+{:else if split && !lead && !timedOut}
   <span class="fallback">View installment options at checkout</span>
 {/if}
 {#if meta}

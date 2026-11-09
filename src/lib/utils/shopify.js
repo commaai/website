@@ -391,7 +391,6 @@ export async function addToCart({ cartId, variantId, additionalProductIds = [], 
   return cartLinesResponse;
 }
 
-// Separate queries so a missing `unauthenticated_read_shop_pay_installments_pricing` scope can't break products/carts
 export async function getVariantInstallmentsPricing(variantId) {
   const response = await shopifyFetch({
     query: /* graphql */ `
@@ -414,7 +413,6 @@ export async function getVariantInstallmentsPricing(variantId) {
 
 let shopInstallmentsPricingRequest = null;
 export function getShopInstallmentsPricing() {
-  // `financingPlans` also needs the `unauthenticated_read_checkouts` scope
   shopInstallmentsPricingRequest ??= shopifyFetch({
     query: /* graphql */ `
       query getShopInstallmentsPricing {
