@@ -18,7 +18,7 @@
 </script>
 
 <script>
-  import { onMount } from 'svelte';
+  import { onMount, tick } from 'svelte';
   import { getProduct } from '$lib/utils/shopify';
   import { products as productsData } from '$lib/data/products.js';
   import { DEFAULT_BACKORDER_ESTIMATE } from '$lib/constants/shipping.js';
@@ -132,13 +132,11 @@
     // Autofill trade-in checkbox
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('trade-in') === '1' && !urlParams.has('ref')) {
-      if (checkboxCardRef) {
-        checkboxCardRef.setChecked(true);
-        tradeInChecked = true;
-      }
-      if (harnessSelectorRef) {
-        harnessSelectorRef.setSelection(NO_HARNESS_OPTION);
-      }
+      // the selector reports its selection during its own update, so let that settle before checking the box
+      harnessSelectorRef?.setSelection(NO_HARNESS_OPTION);
+      await tick();
+      checkboxCardRef?.setChecked(true);
+      tradeInChecked = true;
     }
 
     // Fetch trade-in product variant ID
@@ -246,7 +244,7 @@
     {/if}
     <NoteCard title="Free rush shipping" icon={ShippingIcon} highlightTitle>
       UPS 2nd Day Air in the US, fulfilled the next business day. International shipping is $30 flat rate.
-      Visit <a href="/support/orders-returns" target="_blank">Orders and Shipping</a> to learn more.
+      See <a href="/shop/comma-four#fine-print">fine print</a> and <a href="/support/orders-returns" target="_blank">orders and shipping</a> for more details.
     </NoteCard>
   </span>
 
@@ -320,17 +318,14 @@
   }
 
   .referral-prices {
-    position: relative;
-    display: inline-block;
+    display: flex;
+    align-items: flex-start;
     padding: 0.2em 0;
     line-height: 1;
   }
 
   .original-price {
-    position: absolute;
-    top: 0.4em;
-    right: 100%;
-    margin-right: 0.25em;
+    margin: 0.25em 0.25em 0 0;
     font-size: 0.5em;
     white-space: nowrap;
     color: rgba(0, 0, 0, 0.5);
@@ -403,10 +398,8 @@
 
   .payment-options {
     display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 0.75rem;
-    min-width: 0;
     margin: 0.5rem 0 0;
   }
 
@@ -415,11 +408,9 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    min-width: 0;
   }
 
   .option-label {
-    align-self: flex-start;
     font-family: JetBrains Mono, monospace;
     font-size: 0.875rem;
     line-height: 1.1;
@@ -433,8 +424,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
-    min-width: 0;
     padding: 1rem;
     text-align: center;
     color: black;
@@ -460,20 +449,12 @@
   }
 
   .pay-now-price {
-    font-size: 2.5rem;
+    font-size: min(2.5rem, 20.5cqw);
     line-height: 1.4;
-
-    &:has(.referral-prices) {
-      font-size: min(2rem, 19.5cqw);
-    }
 
     @media only screen and (max-width: 768px) {
       & {
-        font-size: 2rem;
-      }
-
-      &:has(.referral-prices) {
-        font-size: min(1.5rem, 19.5cqw);
+        font-size: min(2rem, 20.5cqw);
       }
     }
   }
