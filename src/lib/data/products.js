@@ -448,32 +448,6 @@ export const products = {
     useVariantBackorderStatus: true
   },
 
-  "comma-3x-back-case": {
-    title: "comma 3X back case",
-    id: "gid://shopify/Product/7871177818175",
-    route: "/shop/comma-3x-back-case",
-    category: "accessories",
-    price: "$25",
-    images: [
-      "/src/lib/images/products/comma-3x-back-case/comma-3x-back-case.jpg"
-    ],
-    notes: [
-      {
-        title: "Note: final sale",
-        content: `Open and repair the comma 3/3X at your own risk.
-        comma is not responsible for damages that may occur while repairing devices.
-        No warranty except DOA.`,
-      }
-    ],
-    description: `
-      <strong>comma 3X back case</strong>
-      <ul>
-        <li>comma 3X back case</li>
-        <li>Includes screws</li>
-      </ul>
-    `.trim()
-  },
-
   "comma-ai-hoodie": {
     title: "comma hoodie",
     id: "gid://shopify/Product/11027682317",
