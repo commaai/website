@@ -1,11 +1,7 @@
 <script>
   import "../app.css";
 
-  import MonumentExtendedBlack from "$lib/fonts/MonumentExtended/MonumentExtended-Black.woff2";
-  import "@fontsource/inter/400.css";
-  import "@fontsource/inter/600.css";
-  import "@fontsource/inter/700.css";
-  import '@fontsource/jetbrains-mono/400.css';
+  import fontsStylesheet from "$lib/fonts/fonts.css?url";
 
   import { get } from "svelte/store";
 
@@ -13,6 +9,7 @@
   import Grid from "$lib/components/Grid.svelte";
   import SocialIcons from "$lib/components/SocialIcons.svelte";
   import FooterEmailUpdatesForm from "$lib/components/EmailUpdates/FooterEmailUpdatesForm.svelte";
+  import FooterBreadcrumbs from "$lib/components/FooterBreadcrumbs.svelte";
 
   import CommaIcon from "$lib/icons/comma.svg?raw";
   import CartIcon from "$lib/icons/ui/cart.svg?raw";
@@ -23,7 +20,6 @@
   import { printConsoleBanner } from '$lib/utils/console';
   import { getReferralCode } from '$lib/utils/referral';
 
-  import HeaderBanner from "$lib/components/HeaderBanner.svelte";
   import HeaderMenu from "$lib/components/HeaderMenu.svelte";
   import ShoppingCart from "$lib/components/ShoppingCart.svelte";
   import {
@@ -73,13 +69,7 @@
 </script>
 
 <svelte:head>
-  <link
-    rel="preload"
-    href={MonumentExtendedBlack}
-    as="font"
-    type="font/woff2"
-    crossorigin="anonymous"
-  />
+  <link rel="stylesheet" href={fontsStylesheet} />
 </svelte:head>
 
 <header class="navbar">
@@ -120,14 +110,13 @@
   />
 {/if}
 
-<HeaderBanner />
-
 <main>
   <slot></slot>
 </main>
 
 <footer>
   <div class="container">
+    <FooterBreadcrumbs />
     <Grid columns={4} wrapMode="single" alignItems="start" size="large">
       <div class="footer-links">
         <strong>Product</strong>
@@ -143,6 +132,7 @@
       <div class="footer-links">
         <strong>Company</strong>
         <a href="https://blog.comma.ai">Blog</a>
+        <a href="/media">Press &amp; Media Kit</a>
         <a class="badged" href="/jobs">
           <span>Jobs</span>
           <Badge style="light" display="inline">we're hiring!</Badge>
@@ -177,13 +167,6 @@
 </footer>
 
 <style>
-  @font-face {
-    font-display: block;
-    font-family: "Monument Extended Black";
-    font-style: normal;
-    src: url("$lib/fonts/MonumentExtended/MonumentExtended-Black.woff2");
-  }
-
   .navbar {
     top: 0;
     position: sticky;
@@ -211,7 +194,7 @@
     border-right: 1px solid #000;
 
     & > .title {
-      font-family: "Monument Extended Black", sans-serif;
+      font-family: var(--font-display);
       font-size: 20px;
       color: black;
       height: 20px;
@@ -249,7 +232,7 @@
     & a {
       color: #000;
       margin: 0 1.75rem;
-      font-family: Inter, sans-serif;
+      font-family: var(--font-sans);
       font-size: 1.125rem;
       transition: text-shadow 0.2s;
     }
@@ -280,7 +263,7 @@
     & .button {
       color: #000;
       text-transform: uppercase;
-      font-family: Inter, sans-serif;
+      font-family: var(--font-sans);
       border-left: 1px solid #000;
       padding-left: 56px;
       padding-right: 56px;
@@ -297,6 +280,7 @@
           background-color: var(--color-accent-hover);
         }
       }
+
       &:active {
         background-color: var(--color-accent-hover);
       }
@@ -371,6 +355,7 @@
           opacity: 0.65;
         }
       }
+
       & a:active {
         opacity: 0.65;
       }

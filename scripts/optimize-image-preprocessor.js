@@ -20,13 +20,17 @@ const processMarkup = async ({ content, filename }) => {
             .filter(Boolean)
             .join(' ');
 
+          const dimensions = node.attributes.some(attr => attr.name === 'width' || attr.name === 'height')
+            ? ''
+            : `width={(${srcValue}).img.w} height={(${srcValue}).img.h}`;
+
           const pictureHtml = `
             <picture>
               {#if typeof ${srcValue} === 'object' && (${srcValue}).sources}
                 {#each Object.entries((${srcValue}).sources) as [filetype, src]}
                   <source srcset={src.split(' ')[0]} type={'image/' + filetype} />
                 {/each}
-                <img src={(${srcValue}).img.src} ${otherAttributes} />
+                <img src={(${srcValue}).img.src} ${dimensions} ${otherAttributes} />
               {:else}
                 <img src={${srcValue}} ${otherAttributes} />
               {/if}

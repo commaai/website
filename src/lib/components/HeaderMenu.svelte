@@ -97,6 +97,7 @@
         color: var(--color-accent);
       }
     }
+
     & a:active {
       color: var(--color-accent);
     }

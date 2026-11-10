@@ -167,7 +167,7 @@
   const handleOptionKeyDown = (e, item) => { if (e.key === 'Enter') { handleOptionClick(item); } }
 </script>
 
-<div class="dropdown" use:clickOutside on:clickOutside={() => menuOpen = false}>
+<div class="dropdown" id="harness-selector" use:clickOutside on:clickOutside={() => menuOpen = false}>
   <div>
     {#if menuOpen}
       <button class="clear" on:click={handleClear}>{@html CloseIcon}</button>
@@ -202,7 +202,7 @@
     {/if}
     <span class="chevron">{@html ChevronIcon}</span>
   </div>
-  <div class="dropdown-content" class:show={menuOpen}>
+  <div class="dropdown-content" id="harness-options" class:show={menuOpen}>
     {#if searchTerms.length > 0}
       {#if filteredItems.length > 0}
         {#each filteredItems as item}

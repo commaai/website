@@ -5,6 +5,8 @@
   export let show = false;
   export let title = "";
   export let primaryButtonText = "Add to cart";
+  export let primaryButtonId = undefined;
+  export let showPrimaryButton = true;
 
   export let onPrimaryClick = () => {};
   export let onClose = () => {};
@@ -16,7 +18,9 @@
       <div tabindex="-1" class="modal" use:clickOutside on:clickOutside={onClose}>
         <span>{title}</span>
         <slot />
-        <Button on:click={onPrimaryClick} style="accent" fullWidth>{primaryButtonText}</Button>
+        {#if showPrimaryButton}
+          <Button id={primaryButtonId} on:click={onPrimaryClick} style="accent" fullWidth>{primaryButtonText}</Button>
+        {/if}
         <Button on:click={onClose} style="primary" fullWidth>Go back</Button>
       </div>
     </div>

@@ -1,0 +1,27 @@
+---
+title: What is comma connect?
+parent: comma-prime
+description: Manage your comma device and review your drives in comma connect.
+---
+
+[comma connect](https://connect.comma.ai/) is the web app for managing your comma device and reviewing your recent drives.
+
+## Drive history
+
+Your device uploads drive data when it has an internet connection. Drives are available in connect for three days without a subscription.
+
+Select a drive to view its route and available camera footage. If you need to share a drive with support, copy its route name or link from connect.
+
+## Device information and remote features
+
+Use connect to check device information and battery voltage. The available information depends on when your device was last online. When your device is online, you can also livestream its road-facing and cabin cameras.
+
+## Subscription management
+
+comma prime and prime lite are activated and managed in connect. Open the settings menu for the paired device to view its plan and billing options.
+
+[Learn how to pair to connect](/support/pair-your-device "card")
+
+[Open comma connect](https://connect.comma.ai/ "card")
+
+Learn more about comma prime and how it upgrades your comma connect experience [here](/support/what-is-comma-prime).

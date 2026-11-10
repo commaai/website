@@ -14,6 +14,11 @@ export const products = {
       "ready to drive": "Everything you need to use chestnut with comma four.",
       "eGPU dock only": "Use chestnut with your own GPU and power supply."
     },
+    // TODO: put this in a gui in shopify
+    variantBackordered: {
+      "ready to drive": "4-12 weeks",
+      "eGPU dock only": "2-6 weeks"
+    },
     notes: []
   },
 
@@ -149,31 +154,6 @@ export const products = {
     `.trim()
   },
 
-  "panda-paw": {
-    title: "panda paw",
-    id: "gid://shopify/Product/335696887821",
-    route: "/shop/panda-paw",
-    category: "accessories",
-    price: "$20",
-    images: [
-      "/src/lib/images/products/panda-paw/panda-paw.jpg",
-      "/src/lib/images/products/panda-paw/panda-paw-back.jpeg"
-    ],
-    notes: [],
-    description: `
-      <strong>Description</strong>
-      <p>Bricked your panda? You must be kidding, because panda are unbrickable if you have the convenient panda paw!</p>
-      <p>Just press the button to put your panda in boot mode, no matter what you did to it. Also makes it easy to connect to a computer with a USB Mini-B cable (not included).</p>
-      <p>Note that paw PCB color may vary, and you may not like the new color. All paw work the same though, so if you were worried, don't worry.</p>
-      <hr/>
-      <strong>Open Source</strong>
-      <p>
-        Buy it here or build it yourself. panda paw are
-        <a href="https://github.com/commaai/hardware/tree/master/tools/paw" target="_blank">open source hardware</a>.
-      </p>
-    `.trim()
-  },
-
   "comma-power": {
     title: "comma power",
     id: "gid://shopify/Product/341670756365",
@@ -243,7 +223,7 @@ export const products = {
       </p>
       <p>
         See how to replace the SIM card in a comma 3/3X
-        <a href="/support#how-do-you-replace-the-sim-card-in-a-comma-3x" target="_blank">here</a>.
+        <a href="/support/replace-comma-3x-sim-card" target="_blank">here</a>.
       </p>
     `.trim()
   },
@@ -294,6 +274,7 @@ export const products = {
     route: "/shop/harness-connector",
     category: "accessories",
     price: "$50",
+    useVariantBackorderStatus: true,
     images: [
       "/src/lib/images/products/harness-connector/harness-connector.jpg",
       "/src/lib/images/products/car-harness/connectors.jpg"
@@ -468,7 +449,8 @@ export const products = {
         Grade B screens are fully functional, but may have some minor cosmetic imperfections.
       </p>
     `.trim(),
-    hideOutOfStockVariants: true
+    hideOutOfStockVariants: true,
+    useVariantBackorderStatus: true
   },
 
   "comma-3x-back-case": {
@@ -565,7 +547,7 @@ export const products = {
 
   "comma-four-trade-in": {
     title: "comma four trade-in",
-    id: "gid://shopify/Product/8334690189375",
+    id: "gid://shopify/Product/7966994202687",
   },
 
   "body": {

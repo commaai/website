@@ -287,7 +287,7 @@
 
     & .title {
       text-transform: uppercase;
-      font-family: Monument Extended Black, sans-serif;
+      font-family: var(--font-display);
       font-size: 2rem;
       font-weight: 600;
       line-height: 1.2;
@@ -324,6 +324,7 @@
       & .compatibility-make-links {
         grid-template-columns: repeat(auto-fit, 85px);
       }
+
       & .compatibility-make-element {
         width: 85px;
       }
@@ -349,6 +350,7 @@
           background-color: var(--color-card-background-hover);
         }
       }
+
       &:active {
         transform: scale(1.02);
         border: 1px solid rgba(0, 0, 0, .8);

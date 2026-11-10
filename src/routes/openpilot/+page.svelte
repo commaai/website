@@ -51,7 +51,7 @@
         <span>Contributors</span>
       </div>
     </Grid>
-    <div class="headline sm-mb-4">
+    <div class="headline">
       <h1>
         openpilot is an
         <a class="highlight" href="https://github.com/commaai/openpilot" target="_blank">open source</a>
@@ -233,7 +233,7 @@
     & span:last-of-type {
       color: var(--color-muted);
       text-transform: uppercase;
-      font-family: JetBrains Mono, monospace;
+      font-family: var(--font-mono);
       font-size: 1rem;
       font-weight: 400;
     }
@@ -265,7 +265,7 @@
     & span {
       color: var(--color-muted);
       text-transform: uppercase;
-      font-family: JetBrains Mono, monospace;
+      font-family: var(--font-mono);
       font-size: 1rem;
       font-weight: 400;
       margin-left: 1rem;
@@ -275,6 +275,12 @@
   .headline {
     margin-top: 4rem;
     margin-bottom: 6rem;
+
+    @media screen and (max-width: 768px) {
+      & {
+        margin-bottom: 4rem;
+      }
+    }
 
     & h1 {
       font-size: 2.5rem;
@@ -313,7 +319,7 @@
     & hgroup {
       & p {
         opacity: 0.5;
-        font-family: JetBrains Mono, monospace;
+        font-family: var(--font-mono);
         margin: 0 0 0.5rem;
         font-size: 1.5rem;
       }

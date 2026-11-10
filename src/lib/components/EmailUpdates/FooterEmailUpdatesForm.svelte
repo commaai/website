@@ -30,10 +30,10 @@
   {:else}
     <div class="copy">
       <strong>Get the latest updates</strong>
-      <span>Products, openpilot releases, car support, and more.</span>
+      <span>Products, openpilot releases, car support, events, and more.</span>
     </div>
 
-    <form on:submit|preventDefault={handleFormSubmit}>
+    <form id="footer-email-form" on:submit|preventDefault={handleFormSubmit}>
       <div class="email-row">
         <input
           name="email"

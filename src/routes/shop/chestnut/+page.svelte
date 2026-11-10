@@ -69,7 +69,6 @@
       ...data.product.variants,
       nodes: data.product.variants.nodes.map((variant) => ({
         ...variant,
-        backordered: "4-12 weeks",
         images: imagesForVariant(variant),
       })),
     },
@@ -499,7 +498,7 @@
 
   .connection-path h4 {
     margin: 0 0 0.5rem;
-    font-family: "JetBrains Mono", monospace;
+    font-family: var(--font-mono);
     font-size: 0.875rem;
     font-weight: 400;
     text-transform: uppercase;
@@ -520,7 +519,7 @@
   }
 
   .box-variant hgroup span {
-    font-family: "JetBrains Mono", monospace;
+    font-family: var(--font-mono);
     font-size: 1.25rem;
   }
 
@@ -601,7 +600,7 @@
 
   .step-image-pair figcaption {
     margin-top: 0.5rem;
-    font-family: "JetBrains Mono", monospace;
+    font-family: var(--font-mono);
     font-size: 0.875rem;
     text-align: center;
     text-transform: uppercase;

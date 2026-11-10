@@ -5,9 +5,11 @@
   export let style = "primary";
   export let fullWidth = false;
   export let disabled = false;
+  export let id = undefined;
 </script>
 
 <button
+  {id}
   on:click={!disabled && (event => dispatch('click', event))}
   class:primary={style == "primary"}
   class:secondary={style == "secondary"}
