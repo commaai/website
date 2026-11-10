@@ -43,6 +43,7 @@
           color: var(--color-accent);
         }
       }
+
       &:active {
         color: var(--color-accent);
       }

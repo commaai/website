@@ -1,6 +1,7 @@
 import { sveltekit } from '@sveltejs/kit/vite';
 import { imagetools } from 'vite-imagetools';
 import { defineConfig } from 'vite';
+import { mediaKitZip } from './scripts/media-kit-plugin.js';
 
 const filetypesToOptimize = ['jpg', 'jpeg', 'png', 'gif'];
 
@@ -10,6 +11,8 @@ export default defineConfig({
     // URIs adds ~180KB to the home page HTML and stalls PostHog's DOM snapshot.
     assetsInlineLimit: (filePath) => {
       if (filePath.includes('/icons/home/brands/')) return false;
+      // fonts every page uses; inlined into src/lib/fonts/fonts.css so they're ready for first layout
+      if (/(MonumentExtended-Black|-latin-\d+-normal)\.woff2$/.test(filePath)) return true;
     },
   },
   plugins: [
@@ -27,5 +30,6 @@ export default defineConfig({
       }
     }),
     sveltekit(),
+    mediaKitZip(),
   ]
 });

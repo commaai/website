@@ -39,6 +39,7 @@ async function initializeHarnesses() {
         ...harnessInfo[harness.id],
         ...harness,
         make,
+        model: model.model,
         car: model.name,
         yearList: model.year_list?.replaceAll(',', ''),
         package: model.package,
@@ -54,6 +55,7 @@ async function initializeHarnesses() {
   let genericHarnessList = CarHarnesses.map(harness => {
     return {
       ...harnessInfo[harness.id],
+      model: harness.title,
       car: harness.title,
       id: harness.id,
       backordered: harness.backordered,

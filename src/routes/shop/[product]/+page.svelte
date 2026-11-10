@@ -22,6 +22,7 @@
         forceOutOfStock={product.forceOutOfStock || false}
         hideOutOfStockVariants={product.hideOutOfStockVariants || false}
         useVariantRadioSelector={product.useVariantRadioSelector || false}
+        useVariantBackorderStatus={product.useVariantBackorderStatus || false}
         variantSelectorSize={product.variantSelectorSize || "big"}
       >
         <div slot="notes">

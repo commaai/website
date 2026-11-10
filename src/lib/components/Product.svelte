@@ -183,6 +183,7 @@
           {/if}
         </div>
         <Button
+          id="add-to-cart"
           style="accent"
           fullWidth={true}
           on:click={addItem}
@@ -288,7 +289,7 @@
 
     & .sale-price {
       font-weight: 700;
-      color: var(--color-red);
+      color: var(--color-sale-red);
     }
 
     & img {
@@ -342,7 +343,7 @@
         & span {
           font-size: 0.875rem;
           text-transform: uppercase;
-          font-family: JetBrains Mono, monospace;
+          font-family: var(--font-mono);
         }
 
         & strong {

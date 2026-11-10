@@ -2,16 +2,14 @@
   import { onMount } from 'svelte';
   import Hls from 'hls.js/light';
   import FeaturedCarsList from "$lib/components/FeaturedCarsList.svelte";
-  import FeaturedArticles from "$lib/components/FeaturedArticles.svelte";
-  import FeaturedTweets from "$lib/components/FeaturedTweets.svelte";
+  import TestimonialSection from "$lib/components/TestimonialSection.svelte";
   import HomeHeroOverlay from "$lib/components/HomeHeroOverlay.svelte";
-  import Grid from "$lib/components/Grid.svelte";
 
-  import DeviceImage from "$lib/images/products/comma-four/four_front.png";
-  import DeviceScreenOnImage from "$lib/images/products/comma-four/four_screen_on.png";
-  import DeviceAngledImage from "$lib/images/products/comma-four/four_angled.png";
-  import DeviceBackImage from "$lib/images/products/comma-four/four_back.png";
-  import DeviceSideImage from "$lib/images/products/comma-four/four_side.png";
+  import DeviceImage from "$lib/images/products/comma-four/four_front.png?w=1440";
+  import DeviceScreenOnImage from "$lib/images/products/comma-four/four_screen_on.png?w=1440";
+  import DeviceAngledImage from "$lib/images/products/comma-four/four_angled.png?w=1440";
+  import DeviceBackImage from "$lib/images/products/comma-four/four_back.png?w=1440";
+  import DeviceSideImage from "$lib/images/products/comma-four/four_side.png?w=1440";
   import SetupVideo from "$lib/images/setup/comma-four/setup-stopmotion.mp4";
   import MapActivity from "$lib/images/home/map-activity-2x.png";
   import ArrowRight from "$lib/icons/arrow-right.svg?raw";
@@ -245,7 +243,7 @@
         {/each}
       </div>
 
-      <a class="homepage-cta comma-four-cta" href="/shop/comma-four">
+      <a class="homepage-cta accent-cta" href="/shop/comma-four">
         <span>buy now for $999</span>
         <span class="cta-arrow" aria-hidden="true">{@html ArrowRight}</span>
       </a>
@@ -283,7 +281,7 @@
   </div>
 </section>
 
-<section class="dark" id="social">
+<section class="dark" id="openpilot">
   <div class="container">
     <h1 class="map-headline">
       comma runs <a href="/openpilot" class="highlight">open source software,</a>&nbsp;driving all over the world with no subscription needed
@@ -299,45 +297,36 @@
         />
       </div>
     </figure>
-    <FeaturedArticles />
-    <h1>
-      follow us on 𝕏
-      <a href="https://twitter.com/comma_ai" target="_blank" class="highlight">@comma_ai</a>
-    </h1>
-    <FeaturedTweets />
+  </div>
+</section>
+
+<section class="light" id="testimonials">
+  <div class="container">
+    <h1>don't take our word for it</h1>
+    <TestimonialSection />
   </div>
 </section>
 
 
-<section class="light" id="recruit">
+<section class="light" id="closing-cta">
   <div class="container">
-    <h1 class="mb-5 sm-mb-3">join us in building the future</h1>
-    <Grid columns={2} columnGap="6rem" size="large">
-      <Grid columns={2}>
-        <div class="recruiting-card">
-          <span class="muted">/01</span>
-          <span>product</span>
+    <div class="closing-grid">
+      <img class="closing-device" src={DeviceAngledImage} alt="comma four" width="1440" height="960" loading="lazy"/>
+      <div class="closing-copy">
+        <h1>ready to make driving chill?</h1>
+        <p class="closing-sub">hands free driving for the car you already have</p>
+        <div class="closing-actions">
+          <a class="homepage-cta dark-cta" href="/vehicles">
+            <span>check your car</span>
+            <span class="cta-arrow" aria-hidden="true">{@html ArrowRight}</span>
+          </a>
+          <a class="homepage-cta accent-cta" href="/shop/comma-four">
+            <span>buy now for $999</span>
+            <span class="cta-arrow" aria-hidden="true">{@html ArrowRight}</span>
+          </a>
         </div>
-        <div class="recruiting-card">
-          <span class="muted">/02</span>
-          <span>autonomy</span>
-        </div>
-        <div class="recruiting-card">
-          <span class="muted">/03</span>
-          <span>operations</span>
-        </div>
-      </Grid>
-      <div>
-        <h4>
-          We're looking for talented individuals, able to work independently,
-          and ready to make a meaningful impact.
-        </h4>
-        <a class="homepage-cta dark-cta" href="/jobs">
-          <span>see open positions</span>
-          <span class="cta-arrow" aria-hidden="true">{@html ArrowRight}</span>
-        </a>
       </div>
-    </Grid>
+    </div>
   </div>
 </section>
 
@@ -465,7 +454,6 @@
       height: 1.5rem;
       width: 1.5rem;
     }
-
   }
 
   .cta-arrow :global(svg) {
@@ -477,8 +465,9 @@
   :is(
     #hero .comma-four-content h1,
     #compatibility .setup-heading,
-    #social h1,
-    #recruit > .container > h1
+    #openpilot h1,
+    #testimonials h1,
+    #closing-cta h1
   ) {
     font-size: clamp(2.3rem, 4vw, 4rem);
   }
@@ -488,14 +477,27 @@
     color: white;
   }
 
-  @media (hover: hover) and (pointer: fine) {
-    .dark-cta:hover {
-      opacity: 0.75;
-    }
+  .accent-cta {
+    background-color: var(--color-accent);
+    color: black;
   }
 
   .dark-cta:active {
     opacity: 0.75;
+  }
+
+  .accent-cta:active {
+    background-color: var(--color-accent-hover);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .dark-cta:hover {
+      opacity: 0.75;
+    }
+
+    .accent-cta:hover {
+      background-color: var(--color-accent-hover);
+    }
   }
 
   @media screen and (max-width: 768px) {
@@ -505,6 +507,10 @@
 
     section:not(.hero-image) > .container {
       width: calc(100% - 2.5rem);
+    }
+
+    #testimonials {
+      padding-bottom: 3rem;
     }
 
     .two-column-layout {
@@ -586,20 +592,8 @@
       }
     }
 
-    & .comma-four-cta {
-      background-color: var(--color-accent);
-      color: black;
+    & .homepage-cta {
       grid-area: cta;
-    }
-
-    @media (hover: hover) and (pointer: fine) {
-      & .comma-four-cta:hover {
-        background-color: var(--color-accent-hover);
-      }
-    }
-
-    & .comma-four-cta:active {
-      background-color: var(--color-accent-hover);
     }
 
     @media screen and (max-width: 599px) {
@@ -711,7 +705,7 @@
     }
   }
 
-  #social {
+  #openpilot {
     & .map-headline {
       letter-spacing: -0.04em;
       margin-bottom: 0;
@@ -744,36 +738,69 @@
     }
   }
 
-  #recruit {
-    & .recruiting-card {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 1.5rem;
-      border: 1px solid #000;
+  #closing-cta {
+    padding-top: 0;
 
-      & span {
-        display: block;
+    & .container {
+      border-top: 1px solid rgba(0, 0, 0, 0.25);
+      padding-top: 5rem;
+    }
+
+    & .closing-grid {
+      align-items: center;
+      display: grid;
+      gap: 2rem 4rem;
+      grid-template-columns: minmax(0, 22rem) 1fr;
+    }
+
+    & .closing-device {
+      display: block;
+      height: auto;
+      width: 100%;
+    }
+
+    & h1 {
+      margin: 0;
+    }
+
+    & .closing-sub {
+      color: var(--color-muted);
+      font-size: clamp(1.125rem, 2vw, 1.5rem);
+      letter-spacing: -0.04em;
+      line-height: 1.2;
+      margin: 1rem 0 0;
+    }
+
+    & .closing-actions {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-top: 2rem;
+    }
+
+    @media screen and (max-width: 1024px) {
+      & .closing-grid {
+        grid-template-columns: minmax(0, 1fr);
       }
 
-      & span:first-child {
-        font-family: JetBrains Mono, monospace;
-        font-size: 0.875rem;
-        font-weight: 400;
-        line-height: 1;
-        margin-bottom: 0.375rem;
-      }
-
-      & span:last-child {
-        font-size: 2rem;
-        font-weight: 600;
-        line-height: 1;
+      & .closing-device {
+        max-width: 18rem;
       }
     }
 
     @media screen and (max-width: 768px) {
-      & h4 {
-        margin-bottom: 2rem;
+      & .container {
+        padding-top: 3rem;
+      }
+
+      & .closing-actions {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media screen and (max-width: 599px) {
+      & .closing-device {
+        margin-inline: auto;
       }
     }
   }

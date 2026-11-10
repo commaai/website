@@ -5,8 +5,6 @@
   import Accordion from "$lib/components/Accordion.svelte";
   import Button from "$lib/components/Button.svelte";
   import Badge from "$lib/components/Badge.svelte";
-  import HeaderBanner from "$lib/components/HeaderBanner.svelte";
-
   import FourImage from "$lib/images/products/comma-four/four_screen_on.png";
   import ChestnutImage from "$lib/images/products/chestnut/bnut_34.png";
 
@@ -31,9 +29,8 @@
   const componentOrder = [
     'car-harness', 'replacement-mounts', 'red-panda', 'harness-connector',
     'harness-box', 'obd-c-cable', 'comma-power', 'comma-prime-sim',
-    'panda-jungle', 'panda-paw', 'comma-ai-hoodie', 'comma-ai-beanie',
+    'panda-jungle', 'comma-ai-hoodie', 'comma-ai-beanie',
     'comma-ai-t-shirt', 'comma-power-extender', 'comma-device-screen',
-    'comma-3x-back-case',
   ];
 
   $: accessoryProducts = componentOrder
@@ -47,8 +44,6 @@
     })
     .filter(Boolean);
 </script>
-
-<HeaderBanner />
 
 <section class="dark" id="devices">
   <div class="container">
@@ -359,7 +354,7 @@
 
           & .sale-price {
             font-weight: 700;
-            color: var(--color-red);
+            color: var(--color-sale-red);
           }
 
           &.muted {
@@ -462,20 +457,6 @@
     margin: 2rem 0;
   }
 
-  #accessories {
-    & .shop-accessories-label {
-      text-align: center;
-      padding: 2rem 0;
-      margin-bottom: 0;
-      font-size: 1.25rem;
-      font-weight: 600;
-    }
-
-    & .shop-accessories-list {
-      margin-top: 2rem;
-    }
-  }
-
   .service-item {
     margin-bottom: 3rem;
 
@@ -507,6 +488,7 @@
           font-size: 1.25rem;
         }
       }
+
       color: white;
       font-size: 1.5rem;
       font-weight: 600;
@@ -540,6 +522,7 @@
           & * {
             margin: 0;
           }
+
           & h4 {
             font-weight: 600;
           }

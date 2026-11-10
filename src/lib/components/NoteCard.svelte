@@ -22,6 +22,11 @@
       <slot></slot>
     </div>
   </hgroup>
+  {#if $$slots.actions}
+    <div class="actions">
+      <slot name="actions"></slot>
+    </div>
+  {/if}
 </div>
 
 <style>
@@ -33,12 +38,17 @@
     color: black;
     border: 1px solid #616161;
 
+    & .icon-slot {
+      display: flex;
+      flex: 0 0 2rem;
+    }
+
     & hgroup {
       margin-left: 1rem;
       display: block !important;
 
       & span {
-        font-family: JetBrains Mono, monospace;
+        font-family: var(--font-mono);
         font-size: 0.875rem;
         font-weight: 400;
         text-transform: uppercase;
@@ -75,6 +85,13 @@
         color: black;
       }
     }
+  }
+  
+  .actions {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    padding-left: 1rem;
   }
 
   .highlighted {

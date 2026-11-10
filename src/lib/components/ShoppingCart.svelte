@@ -12,11 +12,16 @@
   import Button from "./Button.svelte";
   import SteppableInput from "./SteppableInput.svelte";
   import Space from "./Space.svelte";
+  import ShopPayInstallments from "./ShopPayInstallments.svelte";
   import { formatCurrency } from "$lib/utils/currency";
 
   export let loading = false;
 
   const dispatch = createEventDispatcher();
+
+  $: installmentsAmount = $cartSubtotal?.currencyCode === "USD"
+    ? Number($cartSubtotal.amount) - Number($cartDiscount?.amount || 0)
+    : 0;
 
   function updateProductQuantity(item, quantity) {
     loading = true;
@@ -94,7 +99,7 @@
       {#if hasReferralDiscount}
         <div class="referral-discount">
           <div class="referral-details">
-            <strong>Referral discount applied</strong>
+            <strong>Referral discount</strong>
             <span class="referral-code">{$cartReferralDiscount.code}</span>
           </div>
           <h4 class="referral-amount">-{formatCurrency({ amount: referralDiscountAmount, currencyCode: $cartSubtotal.currencyCode }, 0)}</h4>
@@ -121,10 +126,11 @@
           <span>{formatCurrency($cartSubtotal)}</span>
         </div>
       {/if}
+      <ShopPayInstallments amount={installmentsAmount} onCheckout={checkout} />
       <div class="disclaimer">
         Customs/duties/taxes are between you and your country.
       </div>
-      <Button on:click={checkout} style="accent" fullWidth={true}>
+      <Button id="checkout" on:click={checkout} style="accent" fullWidth={true}>
         Checkout
       </Button>
     {/if}

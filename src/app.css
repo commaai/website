@@ -1,5 +1,3 @@
-@import './space.css';
-
 html {
   scroll-padding-top: 6rem;
 }
@@ -21,7 +19,7 @@ body {
 
 body {
   color: #000;
-  font-family: Inter, sans-serif;
+  font-family: var(--font-sans);
   font-size: 16px;
   font-weight: 400;
   line-height: 1.4;
@@ -62,12 +60,18 @@ body {
   --color-white: #fff;
   --color-black: #000;
   --color-red: #ff4133;
+  --color-sale-red: #ff5827;
   --color-foreground: white;
   --color-background: black;
   --color-accent: #51ff00;
   --color-accent-hover: #51b124;
   --color-card-background: #f8f9fa;
   --color-card-background-hover: #e8eaec;
+
+  /* font faces are declared in src/lib/fonts/fonts.css */
+  --font-sans: Inter, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-display: 'Monument Extended Black', sans-serif;
 
   h1,
   h2,
@@ -95,6 +99,7 @@ body {
           background-color: rgba(81, 255, 0, .25);
         }
       }
+
       &:active {
         background-color: rgba(81, 255, 0, .25);
       }
@@ -233,6 +238,7 @@ section.dark + section.dark {
 
 img {
   max-width: 100%;
+  height: auto;
 }
 
 hr {
@@ -244,7 +250,7 @@ hr {
 
 button, select {
   color: #000;
-  font-family: Inter, sans-serif;
+  font-family: var(--font-sans);
 }
 
 .mobile-first {

@@ -5,6 +5,17 @@ import { cartId, cartCreatedAt, checkoutUrl, cartTotalQuantity } from '../../sto
 const USER_ERRORS_GQL = `userErrors { code field message }`;
 const WARNINGS_GQL = `warnings { code message target }`;
 
+// adds the posthog distinct id and session id to the cart
+function cartAttributes() {
+  const id = globalThis.posthog?.get_distinct_id?.();
+  const session = globalThis.posthog?.get_session_id?.();
+
+  const attributes = [];
+  if (id) attributes.push({ key: '_ph_distinct_id', value: id });
+  if (session) attributes.push({ key: '_ph_session_id', value: session });
+  return attributes;
+}
+
 export async function shopifyFetch({ query, variables }) {
   const apiToken = import.meta.env.VITE_SHOPIFY_STOREFRONT_API_TOKEN;
   const storeUrl = import.meta.env.VITE_SHOPIFY_STORE_URL;
@@ -122,6 +133,8 @@ export async function _loadCart() {
                       altText
                     }
                     product {
+                      id
+                      handle
                       images(first: 1) {
                         edges {
                           node {
@@ -204,7 +217,10 @@ export async function createCart(referralCode = null) {
       }
     `,
     variables: {
-      input: { discountCodes: referralCode ? [referralCode] : [] }
+      input: {
+        discountCodes: referralCode ? [referralCode] : [],
+        attributes: cartAttributes(),
+      }
     }
   }).then(response => {
     cartId.set(response.body?.data?.cartCreate?.cart?.id)
@@ -234,6 +250,42 @@ export async function updateCart({ cartId, lineId, variantId, quantity }) {
           quantity: quantity
         }
       ]
+    }
+  });
+}
+
+export async function removeCartLines({ cartId, lineIds }) {
+  if (!lineIds.length) return;
+
+  return shopifyFetch({
+    query: /* graphql */ `
+      mutation cartLinesRemove($cartId: ID!, $lineIds: [ID!]!) {
+        cartLinesRemove(cartId: $cartId, lineIds: $lineIds) {
+          ${USER_ERRORS_GQL}
+          ${WARNINGS_GQL}
+        }
+      }
+    `,
+    variables: {
+      cartId,
+      lineIds
+    }
+  });
+}
+
+export async function updateCartDiscountCodes({ cartId, discountCodes }) {
+  return shopifyFetch({
+    query: /* graphql */ `
+      mutation cartDiscountCodesUpdate($cartId: ID!, $discountCodes: [String!]!) {
+        cartDiscountCodesUpdate(cartId: $cartId, discountCodes: $discountCodes) {
+          ${USER_ERRORS_GQL}
+          ${WARNINGS_GQL}
+        }
+      }
+    `,
+    variables: {
+      cartId,
+      discountCodes
     }
   });
 }
@@ -287,6 +339,21 @@ export async function addToCart({ cartId, variantId, additionalProductIds = [], 
     return cartLinesResponse;
   }
 
+  // set it again here, the cart may have been created before posthog loaded
+  const attributes = cartAttributes();
+  if (attributes.length) {
+    await shopifyFetch({
+      query: /* graphql */ `
+        mutation cartAttributesUpdate($cartId: ID!, $attributes: [AttributeInput!]!) {
+          cartAttributesUpdate(cartId: $cartId, attributes: $attributes) {
+            ${USER_ERRORS_GQL}
+          }
+        }
+      `,
+      variables: { cartId, attributes }
+    });
+  }
+
   // Update the cart note
   if (note) {
     const cartNoteResponse = await shopifyFetch({
@@ -322,4 +389,50 @@ export async function addToCart({ cartId, variantId, additionalProductIds = [], 
   }
 
   return cartLinesResponse;
+}
+
+export async function getVariantInstallmentsPricing(variantId) {
+  const response = await shopifyFetch({
+    query: /* graphql */ `
+      query getVariantInstallmentsPricing($id: ID!) {
+        node(id: $id) {
+          ... on ProductVariant {
+            shopPayInstallmentsPricing {
+              available
+              eligible
+              installmentsCount { count }
+            }
+          }
+        }
+      }
+    `,
+    variables: { id: variantId }
+  });
+  return response.body?.data?.node?.shopPayInstallmentsPricing || null;
+}
+
+let shopInstallmentsPricingRequest = null;
+export function getShopInstallmentsPricing() {
+  shopInstallmentsPricingRequest ??= shopifyFetch({
+    query: /* graphql */ `
+      query getShopInstallmentsPricing {
+        shop {
+          shopPayInstallmentsPricing {
+            minPrice { amount currencyCode }
+            maxPrice { amount currencyCode }
+            financingPlans {
+              minPrice { amount }
+              maxPrice { amount }
+              terms {
+                apr
+                loanType
+                installmentsCount { count }
+              }
+            }
+          }
+        }
+      }
+    `
+  }).then((response) => response.body?.data?.shop?.shopPayInstallmentsPricing || null);
+  return shopInstallmentsPricingRequest;
 }

@@ -50,9 +50,11 @@
   }
 
   function updateQueryParams(selectedHarness) {
-    const searchParams = new URLSearchParams();
+    const searchParams = new URLSearchParams($page.url.searchParams);
     if (selectedHarness) {
       searchParams.set("harness", encodeURIComponent(selectedHarness.car));
+    } else {
+      searchParams.delete("harness");
     }
 
     // https://github.com/sveltejs/kit/discussions/3245#discussioncomment-1931570
@@ -79,20 +81,59 @@
     }
   }
 
-  // Normalize diacritics for matching (e.g., "Škoda" -> "Skoda")
-  function normalizeDiacritics(str) {
-    return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  // Strip diacritics and punctuation ("Škoda" -> "skoda", "CR-V" -> "crv")
+  function normalize(str) {
+    return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9\s]/g, '');
   }
+
+  // Common misspellings and shorthands
+  const SEARCH_ALIASES = Object.entries({
+    ev: 'electri',  // electric and electrified
+    bev: 'electri',
+    vw: 'volkswagen',
+    chevy: 'chevrolet',
+    subie: 'subaru',
+    obd2: 'obdii',
+
+    hundai: 'hyundai',
+    hyndai: 'hyundai',
+    hyundia: 'hyundai',
+    huyndai: 'hyundai',
+    volkswagon: 'volkswagen',
+    wolksvagen: 'volkswagen',
+    volkwagen: 'volkswagen',
+    totota: 'toyota',
+    toyata: 'toyota',
+    telsa: 'tesla',
+    chevorlet: 'chevrolet',
+    leksus: 'lexus',
+    auddi: 'audi',
+    jeeep: 'jeep',
+  });
 
   /* Filtered Dropdown */
   let inputValue = "";
   let inputRef;
 
-  $: searchTerms = normalizeDiacritics(inputValue.toLowerCase()).split(/\s+/).filter(Boolean);
-  $: filteredItems = $harnesses.filter(item => {
-    const car = normalizeDiacritics(`${item.car} ${item.yearList ?? ''}`.toLowerCase());  // add all years in range
-    return searchTerms.every(term => car.includes(term));
-  });
+  // Lower is a better match: 0 exact word, 1 starts the first word, 2 starts a later word or an alias, 3 inside a word, inf is no match
+  function searchScore(item, terms) {
+    const make_model = normalize([item.make, item.model].filter(Boolean).join(' '));
+    const car = `${make_model} ${make_model.replace(/([a-z]) (?=[0-9])/g, '$1')} ${item.yearList ?? ''}`;  // "Ioniq 5" also matches "ioniq5"
+    const padded = ` ${car} `;
+    const aliases = SEARCH_ALIASES.filter(([, word]) => car.includes(word));
+    return terms.reduce((total, term) => total
+      + (padded.includes(` ${term} `) ? 0
+      : car.startsWith(term) ? 1
+      : padded.includes(` ${term}`) || aliases.some(([alias]) => alias.startsWith(term)) ? 2
+      : car.includes(term) ? 3
+      : Infinity), 0);
+  }
+
+  $: searchTerms = normalize(inputValue).split(/\s+/).filter(Boolean);
+  $: scores = new Map($harnesses.map(item => [item, searchScore(item, searchTerms)]));
+  // Generic harnesses have no make and rank after every car
+  $: filteredItems = $harnesses.filter(item => isFinite(scores.get(item)))
+    .sort((a, b) => !a.make - !b.make || scores.get(a) - scores.get(b));
 
   const handleClear = () => {
     // clear search input or close menu
@@ -127,7 +168,7 @@
   const handleOptionKeyDown = (e, item) => { if (e.key === 'Enter') { handleOptionClick(item); } }
 </script>
 
-<div class="dropdown" use:clickOutside on:clickOutside={() => menuOpen = false}>
+<div class="dropdown" id="harness-selector" use:clickOutside on:clickOutside={() => menuOpen = false}>
   <div>
     {#if menuOpen}
       <button class="clear" on:click={handleClear}>{@html CloseIcon}</button>
@@ -162,7 +203,7 @@
     {/if}
     <span class="chevron">{@html ChevronIcon}</span>
   </div>
-  <div class="dropdown-content" class:show={menuOpen}>
+  <div class="dropdown-content" id="harness-options" class:show={menuOpen}>
     {#if searchTerms.length > 0}
       {#if filteredItems.length > 0}
         {#each filteredItems as item}
@@ -288,7 +329,7 @@
 .chevron {
   position: absolute;
   top: 50%;
-  right: 13px;
+  right: 12px;
   transform: translate(-50%, -50%);
   pointer-events: none;
 

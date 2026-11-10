@@ -396,7 +396,7 @@
 
         & .header {
           font-size: 0.875rem;
-          font-family: JetBrains Mono, monospace;
+          font-family: var(--font-mono);
           text-transform: uppercase;
           color: #fff;
           background-color: #000;
@@ -463,7 +463,7 @@
   }
 
   .red-price {
-    color: var(--color-red);
+    color: var(--color-sale-red);
     font-weight: 700;
   }
 
@@ -474,7 +474,7 @@
 
     & .header {
       font-size: 0.875rem;
-      font-family: JetBrains Mono, monospace;
+      font-family: var(--font-mono);
       text-transform: uppercase;
       color: #fff;
       background-color: #000;

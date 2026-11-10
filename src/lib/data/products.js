@@ -14,6 +14,11 @@ export const products = {
       "ready to drive": "Everything you need to use chestnut with comma four.",
       "eGPU dock only": "Use chestnut with your own GPU and power supply."
     },
+    // TODO: put this in a gui in shopify
+    variantBackordered: {
+      "ready to drive": "4-12 weeks",
+      "eGPU dock only": "2-6 weeks"
+    },
     notes: []
   },
 
@@ -149,31 +154,6 @@ export const products = {
     `.trim()
   },
 
-  "panda-paw": {
-    title: "panda paw",
-    id: "gid://shopify/Product/335696887821",
-    route: "/shop/panda-paw",
-    category: "accessories",
-    price: "$20",
-    images: [
-      "/src/lib/images/products/panda-paw/panda-paw.jpg",
-      "/src/lib/images/products/panda-paw/panda-paw-back.jpeg"
-    ],
-    notes: [],
-    description: `
-      <strong>Description</strong>
-      <p>Bricked your panda? You must be kidding, because panda are unbrickable if you have the convenient panda paw!</p>
-      <p>Just press the button to put your panda in boot mode, no matter what you did to it. Also makes it easy to connect to a computer with a USB Mini-B cable (not included).</p>
-      <p>Note that paw PCB color may vary, and you may not like the new color. All paw work the same though, so if you were worried, don't worry.</p>
-      <hr/>
-      <strong>Open Source</strong>
-      <p>
-        Buy it here or build it yourself. panda paw are
-        <a href="https://github.com/commaai/hardware/tree/master/tools/paw" target="_blank">open source hardware</a>.
-      </p>
-    `.trim()
-  },
-
   "comma-power": {
     title: "comma power",
     id: "gid://shopify/Product/341670756365",
@@ -243,7 +223,7 @@ export const products = {
       </p>
       <p>
         See how to replace the SIM card in a comma 3/3X
-        <a href="/support#how-do-you-replace-the-sim-card-in-a-comma-3x" target="_blank">here</a>.
+        <a href="/support/replace-comma-3x-sim-card" target="_blank">here</a>.
       </p>
     `.trim()
   },
@@ -294,6 +274,7 @@ export const products = {
     route: "/shop/harness-connector",
     category: "accessories",
     price: "$50",
+    useVariantBackorderStatus: true,
     images: [
       "/src/lib/images/products/harness-connector/harness-connector.jpg",
       "/src/lib/images/products/car-harness/connectors.jpg"
@@ -444,7 +425,7 @@ export const products = {
     id: "gid://shopify/Product/6786322858047",
     route: "/shop/comma-device-screen",
     category: "accessories",
-    price: "$40",
+    price: "$100",
     images: [
       "/src/lib/images/products/comma-three-device-screen/comma-three-device-screen.jpg"
     ],
@@ -457,44 +438,14 @@ export const products = {
       }
     ],
     description: `
-      <strong>comma 3X - screen + front case</strong>
+      <strong>comma 3/3X - screen only</strong>
       <ul>
-        <li>comma 3X display pre-attached to front case</li>
-        <li>includes 4 screws to attach to back piece</li>
+        <li>comma 3/3X display only</li>
+        <li>does not include the front case</li>
       </ul>
-      <strong>What's Grade B?</strong>
-      <p>
-        We no longer have inventory of our Grade A screens, so we are offering Grade B screens at a discount.
-        Grade B screens are fully functional, but may have some minor cosmetic imperfections.
-      </p>
     `.trim(),
-    hideOutOfStockVariants: true
-  },
-
-  "comma-3x-back-case": {
-    title: "comma 3X back case",
-    id: "gid://shopify/Product/7871177818175",
-    route: "/shop/comma-3x-back-case",
-    category: "accessories",
-    price: "$25",
-    images: [
-      "/src/lib/images/products/comma-3x-back-case/comma-3x-back-case.jpg"
-    ],
-    notes: [
-      {
-        title: "Note: final sale",
-        content: `Open and repair the comma 3/3X at your own risk.
-        comma is not responsible for damages that may occur while repairing devices.
-        No warranty except DOA.`,
-      }
-    ],
-    description: `
-      <strong>comma 3X back case</strong>
-      <ul>
-        <li>comma 3X back case</li>
-        <li>Includes screws</li>
-      </ul>
-    `.trim()
+    hideOutOfStockVariants: true,
+    useVariantBackorderStatus: true
   },
 
   "comma-ai-hoodie": {

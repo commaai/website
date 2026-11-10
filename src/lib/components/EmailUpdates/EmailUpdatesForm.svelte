@@ -38,11 +38,12 @@
         <span>We only send emails we would want to receive.</span>
       </div>
     {:else}
-      <form on:submit|preventDefault={submit}>
+      <form id="email-updates-form" on:submit|preventDefault={submit}>
         <input
           name="email"
           type="email"
           autocomplete="email"
+          data-1p-ignore
           placeholder="Enter your email"
           maxlength="256"
           required
@@ -68,7 +69,7 @@
             <input type="radio" name="email-categories" value={true} bind:group={everything}>
             <span>
               <strong>All comma updates</strong>
-              <small>New products, openpilot releases, car support, blog posts, and more</small>
+              <small>New products, openpilot releases, car support, blog posts, events, and challenges</small>
             </span>
           </label>
           <label>
