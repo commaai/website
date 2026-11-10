@@ -249,10 +249,10 @@
   width: 100%;
 }
 
-/* nudged out of the row's padding to line up with the chevron */
+/* pulled into the row's padding to line up with the chevron */
 .no-match-arrow {
-  position: relative;
-  left: 26px;
+  display: block;
+  margin-right: -26px;
 }
 
 .no-match-arrow :global(svg) {
@@ -261,6 +261,7 @@
   height: 20px;
 }
 
+/* thickened to match the chevron */
 .no-match-arrow :global(path) {
   stroke: currentColor;
   stroke-width: 1px;

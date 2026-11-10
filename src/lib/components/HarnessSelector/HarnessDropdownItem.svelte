@@ -47,10 +47,6 @@
     }
   }
 
-  a.dropdown-item .subtitle {
-    text-decoration: underline;
-  }
-
   .item-info {
     display: flex;
     flex-direction: column;
