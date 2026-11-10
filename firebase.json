@@ -235,6 +235,11 @@
         "type": 301
       },
       {
+        "source": "/shop/comma-3x-back-case",
+        "destination": "/shop",
+        "type": 301
+      },
+      {
         "source": "/blog",
         "destination": "https://blog.comma.ai",
         "type": 302
