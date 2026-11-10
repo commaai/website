@@ -249,10 +249,10 @@
   width: 100%;
 }
 
-/* nudged into the row's padding to line up with the chevron */
+/* pulled into the row's padding */
 .no-match-arrow {
-  position: relative;
-  left: 28px;
+  display: block;
+  margin-right: -26px;
 }
 
 .no-match-arrow :global(svg) {
