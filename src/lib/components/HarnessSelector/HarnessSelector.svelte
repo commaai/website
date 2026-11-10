@@ -210,10 +210,7 @@
           <DropdownItem value={item} on:click={() => handleOptionClick(item)} on:keydown={(e) => handleOptionKeyDown(e, item)} />
         {/each}
       {:else}
-        <DropdownItem value={{
-          car: 'No matching vehicles',
-          href: `/vehicles?car=${encodeURIComponent(inputValue)}#email-updates`,
-        }}>
+        <DropdownItem value={{ car: 'No matching vehicles' }} href="/vehicles?car={encodeURIComponent(inputValue)}#email-updates">
           <svelte:fragment slot="subtitle">
             Get an email when <strong>{inputValue}</strong> is supported
           </svelte:fragment>
@@ -249,7 +246,6 @@
   width: 100%;
 }
 
-/* pulled into the row's padding */
 .no-match-arrow {
   display: block;
   margin-right: -26px;

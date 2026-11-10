@@ -1,11 +1,12 @@
 <script>
   export let value;
   export let selected = false;
+  export let href = undefined;
 </script>
 
 <svelte:element
-  this={value?.href ? 'a' : 'div'}
-  href={value?.href}
+  this={href ? 'a' : 'div'}
+  {href}
   class="dropdown-item"
   role="option"
   aria-selected={selected}
@@ -19,7 +20,7 @@
     </div>
     {#if $$slots.subtitle || value?.title}
       <div class="subtitle">
-        <slot name="subtitle">Harness: {value?.title}</slot>
+        <slot name="subtitle">Harness: {value.title}</slot>
       </div>
     {/if}
   </div>
