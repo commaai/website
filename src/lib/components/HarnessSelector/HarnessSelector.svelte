@@ -14,6 +14,7 @@
 
   import ArrowRight from '$lib/icons/arrow-right.svg?raw';
   import ChevronIcon from '$lib/icons/icon-chevron.svg?raw';
+  import SearchIcon from '$lib/icons/ui/search.svg?raw';
   import CloseIcon from '$lib/icons/ui/close.svg?raw';
   import CarIcon from '$lib/icons/features/car.svg?raw';
 
@@ -148,6 +149,11 @@
     selection = null;
   }
 
+  const handleClearText = () => {
+    inputValue = "";
+    inputRef?.focus();
+  }
+
   /* Dropdown Options */
   let menuOpen = false;
   let filteredItems = [];
@@ -171,7 +177,7 @@
 <div class="dropdown" id="harness-selector" use:clickOutside on:clickOutside={() => menuOpen = false}>
   <div>
     {#if menuOpen}
-      <button class="clear" on:click={handleClear}>{@html CloseIcon}</button>
+      <span class="search-icon">{@html SearchIcon}</span>
       <input
         type="text"
         placeholder={placeholder}
@@ -181,7 +187,6 @@
         bind:this={inputRef}
         on:click={() => menuOpen = true}
         on:focus={() => menuOpen = true}
-        style={menuOpen ? 'padding: 14px 3rem' : ''}
       />
     {:else if selection}
       <button class="clear" on:click={handleClear}>{@html CloseIcon}</button>
@@ -201,7 +206,13 @@
         </div>
       </div>
     {/if}
-    <span class="chevron">{@html ChevronIcon}</span>
+    {#if menuOpen && inputValue}
+      <button class="end-icon" aria-label="Clear search" on:click={handleClearText}>{@html CloseIcon}</button>
+    {:else if menuOpen}
+      <button class="end-icon chevron open" aria-label="Close" on:click={() => menuOpen = false}>{@html ChevronIcon}</button>
+    {:else}
+      <span class="end-icon chevron">{@html ChevronIcon}</span>
+    {/if}
   </div>
   <div class="dropdown-content" id="harness-options" class:show={menuOpen}>
     {#if searchTerms.length > 0}
@@ -282,7 +293,7 @@
   width: 100%;
   min-height: 84px;
   border: 1px solid #a0a0a0;
-  padding: 14px;
+  padding: 14px 3rem;
   outline: none;
   font-size: 1rem;
 
@@ -323,17 +334,43 @@
   }
 }
 
-.chevron {
+.end-icon {
   position: absolute;
   top: 50%;
   right: 12px;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  color: inherit;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
 
-  & > svg {
-    width: 18px;
-    height: 12px;
-  }
+span.end-icon {
+  pointer-events: none;
+}
+
+.chevron > :global(svg) {
+  width: 18px;
+  height: 12px;
+}
+
+.open > :global(svg) {
+  transform: rotate(180deg);
+}
+
+.search-icon {
+  position: absolute;
+  left: 13px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
 }
 
 .clear {
