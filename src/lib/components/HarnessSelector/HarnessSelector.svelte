@@ -12,7 +12,6 @@
   import NoteCard from '$lib/components/NoteCard.svelte';
   import DropdownItem from './HarnessDropdownItem.svelte';
 
-  import ArrowRight from '$lib/icons/arrow-right.svg?raw';
   import ChevronIcon from '$lib/icons/icon-chevron.svg?raw';
   import CloseIcon from '$lib/icons/ui/close.svg?raw';
   import CarIcon from '$lib/icons/features/car.svg?raw';
@@ -210,12 +209,7 @@
           <DropdownItem value={item} on:click={() => handleOptionClick(item)} on:keydown={(e) => handleOptionKeyDown(e, item)} />
         {/each}
       {:else}
-        <DropdownItem value={{ car: 'No matching vehicles' }} href="/vehicles?car={encodeURIComponent(inputValue)}#email-updates">
-          <svelte:fragment slot="subtitle">
-            Get an email when <strong>{inputValue}</strong> is supported
-          </svelte:fragment>
-          <span class="no-match-arrow">{@html ArrowRight}</span>
-        </DropdownItem>
+        <DropdownItem value={{ car: 'No matching vehicles' }} />
       {/if}
     {:else}
       {#if showNoHarnessOption}
@@ -244,23 +238,6 @@
   display: inline-block;
   margin: 1.25rem auto 0;
   width: 100%;
-}
-
-.no-match-arrow {
-  display: block;
-  margin-right: -26px;
-}
-
-.no-match-arrow :global(svg) {
-  display: block;
-  width: 20px;
-  height: 20px;
-}
-
-/* thickened to match the chevron */
-.no-match-arrow :global(path) {
-  stroke: currentColor;
-  stroke-width: 1px;
 }
 
 .dropdown-content {
