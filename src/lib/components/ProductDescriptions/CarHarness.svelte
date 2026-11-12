@@ -2,6 +2,7 @@
   import Product from "$lib/components/Product.svelte";
   import NoteCard from "$lib/components/NoteCard.svelte";
   import HarnessSelector from "$lib/components/HarnessSelector/HarnessSelector.svelte";
+  import CarIcon from "$lib/icons/features/car.svg?raw";
 
   export let product;
 </script>
@@ -15,6 +16,10 @@
       Does not include the
       <a href="/shop/obd-c-cable" target="_blank">OBD-C cable</a>, sold
       separately.
+    </NoteCard>
+    <NoteCard title="Buying a comma device?" icon={CarIcon} highlightTitle>
+      A free car harness is included with every
+      <a href="/shop/comma-four">comma four</a>.
     </NoteCard>
   </div>
 
