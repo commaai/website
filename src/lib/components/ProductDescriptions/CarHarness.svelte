@@ -9,6 +9,10 @@
 
 <Product {product} VariantSelector={HarnessSelector} autoSelectFirstVariant={false}>
   <div slot="notes">
+    <NoteCard title="Buying a comma?" icon={CarIcon}>
+      A free car harness is included with the purchase of
+      <a href="/shop/comma-four" class="highlight">comma four</a>.
+    </NoteCard>
     <NoteCard title="Compatibility">
       Harness compatibility based on the US car market.
     </NoteCard>
@@ -16,10 +20,6 @@
       Does not include the
       <a href="/shop/obd-c-cable" target="_blank">OBD-C cable</a>, sold
       separately.
-    </NoteCard>
-    <NoteCard title="Buying a comma device?" icon={CarIcon} highlightTitle>
-      A free car harness is included with every
-      <a href="/shop/comma-four">comma four</a>.
     </NoteCard>
   </div>
 
