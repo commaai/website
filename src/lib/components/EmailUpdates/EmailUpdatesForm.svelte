@@ -1,5 +1,6 @@
 <script>
   import Grid from '$lib/components/Grid.svelte';
+  import { browser } from '$app/environment';
   import { page } from '$app/stores';
   import { EMAIL_CATEGORIES, createEmailUpdatesForm } from '$lib/email-updates.js';
 
@@ -13,7 +14,7 @@
   let everything = true;
 
   // linked to as ?car=2017%20bolt#email-updates
-  $: carParam = askForCar ? $page.url.searchParams.get('car') : null;
+  $: carParam = browser && askForCar ? $page.url.searchParams.get('car') : null;
   $: if (carParam) car.set(carParam);
 
   $: primaryCategory = EMAIL_CATEGORIES.find(({ key }) => key === defaultCategory);
