@@ -85,6 +85,7 @@
           </div>
           <div class="recommended-car-stack">
             <strong>SUV</strong>
+            <div>Volkswagen ID.4 2021&#8209;25</div>
             <div>Toyota Highlander 2020&#8209;23</div>
             <div>Hyundai Palisade 2020&#8209;22</div>
           </div>
