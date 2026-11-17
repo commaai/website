@@ -18,13 +18,14 @@
   import CommacareIcon from "$lib/icons/features/commacare.svg?raw";
   import CheckmarkIcon from "$lib/icons/ui/checkmark.svg?raw";
   import CloseIcon from "$lib/icons/ui/close.svg?raw";
+  import ArrowRight from "$lib/icons/arrow-right.svg?raw";
 </script>
 
 <div class="banner">
   <img src={ConnectHeroImage} loading="lazy" alt="comma connect application" />
 </div>
 
-<section class="light" id="connect">
+<section class="dark" id="connect">
   <div class="container">
     <div class="header">
       <hgroup>
@@ -36,24 +37,15 @@
         Recordings of your drives will upload to connect where they will be stored for 3 days.
         Subscribe to comma connect to keep your drives accessible for 1 year.
       </p>
+      <a class="card-link" href="/support/pair-your-device" target="_blank">Learn how to pair your device with comma connect<span class="card-link-arrow" aria-hidden="true">{@html ArrowRight}</span></a>
     </div>
+  </div>
+</section>
 
-    <div class="features-banner">
-      <Grid columns={6} wrapMode="double" columnGap="2rem" size="medium">
-        <div class="icon">{@html RecordingsIcon}</div>
-        <div class="icon"><img src={TwentyFourSevenIcon} loading="lazy" alt=""></div>
-        <div class="icon"><img src={MarkerIcon} loading="lazy" alt=""></div>
-        <div class="icon">{@html LivestreamIcon}</div>
-        <div class="icon">{@html CommandLineIcon}</div>
-        <div class="icon">{@html CommacareIcon}</div>
-      </Grid>
-    </div>
-
+<section class="light" id="price">
+  <div class="container">
     <span class="badge-prefix muted">connect</span><Badge style="dark" display="inline">subscription</Badge>
-    <Grid rowGap="0" templateColumns="1.25fr 1fr">
-      <h1>Access premium features with connect subscription.</h1>
-      <p>Get a connect subscription for live car tracking and cloud storage of your drives for 1 year.</p>
-    </Grid>
+    <h1>Access premium features with connect subscription.</h1>
 
     <div id="features-table">
       <div class="row header">
@@ -163,51 +155,42 @@
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-<section class="dark" id="price">
-  <div class="container">
-    <Badge style="dark" display="inline">connect</Badge><Badge style="light" display="inline">subscription</Badge>
-    <Grid rowGap="0" templateColumns="1.25fr 1fr">
-      <h1>Real time vehicle connectivity.</h1>
-      <ul class="checkmark-list">
-        <li>24/7 connectivity</li>
-        <li>Live GPS tracking</li>
-        <li>Livestream your cameras</li>
-        <li>1 year storage of drive videos</li>
-        <li>Simple SSH for developers</li>
-      </ul>
-    </Grid>
     <Grid alignItems="stretch">
       <div class="price-card">
-        <div><Badge style="light" display="inline">Subscription</Badge><Badge style="accent" display="inline">Prime</Badge></div>
+        <div><span class="badge-prefix muted">subscription</span><Badge style="accent" display="inline">Prime</Badge></div>
         <span>$24/mo.</span>
         <div class="muted">includes data</div>
         <div class="muted">*only offered in the U.S.</div>
       </div>
       <div class="price-card">
-        <div><Badge style="light" display="inline">Subscription</Badge><Badge style="dark" display="inline">Lite</Badge></div>
+        <div><span class="badge-prefix muted">subscription</span><Badge style="dark" display="inline">Lite</Badge></div>
         <span>$14/mo.</span>
         <div class="muted">supply your own SIM card<br>(no data included)</div>
         <div class="muted">*works internationally</div>
       </div>
     </Grid>
 
-    <div class="centered">
-      <LinkButton href="https://connect.comma.ai/" style="accent">Get Started</LinkButton>
+    <div class="button-pair">
+      <LinkButton href="https://connect.comma.ai/prime" style="accent" target="_blank">Get Started</LinkButton>
+      <LinkButton href="/support/activate-prime" style="primary" target="_blank">Learn how to activate prime</LinkButton>
     </div>
+  </div>
+</section>
 
-    <div class="free-trial">
-      <Grid alignItems="center" columnGap="3rem">
-        <div>
-          <h2>Free 1-month trial with comma four purchase</h2>
-          <LinkButton href="/shop" style="secondary">Shop comma four</LinkButton>
+<section class="light" id="free-trial">
+  <div class="container">
+    <div class="green-banner">
+      <div class="copy">
+        <h2>Get a free 1-month trial with your purchase of comma four</h2>
+        <div class="button-pair">
+          <LinkButton href="/shop" style="primary" target="_blank">Shop comma four</LinkButton>
+          <LinkButton href="https://connect.comma.ai/prime" style="accent" target="_blank">Activate trial</LinkButton>
         </div>
-        <div class="mobile-first">
-          <img src={CommaFourImage} loading="lazy" alt="comma four device" />
-        </div>
-      </Grid>
+      </div>
+      <div class="image">
+        <img src={CommaFourImage} loading="lazy" alt="comma four device" />
+      </div>
     </div>
   </div>
 </section>
@@ -258,48 +241,70 @@
     }
   }
 
+  #connect h1, #price h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-top: 1rem;
+  }
+
   #connect {
-    & h1 {
-      font-size: 2.5rem;
-      font-weight: 600;
-      line-height: 1.2;
-      margin-top: 1rem;
-    }
+    padding-bottom: 3rem;
+    color: var(--color-foreground);
 
     & p {
       font-size: 1.5rem;
       text-wrap: balance;
     }
 
-    & .header {
-      & hgroup {
-        & a {
-          text-transform: uppercase;
-          font-family: var(--font-mono);
-        }
-
-        & a {
-          border-bottom: 1px solid #000;
-        }
-      }
+    & .header hgroup a {
+      text-transform: uppercase;
+      font-family: var(--font-mono);
+      border-bottom: 1px solid var(--color-foreground);
     }
+  }
 
-    & .features-banner {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
+  /* matches card links in support articles */
+  .card-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    box-sizing: border-box;
+    min-height: 64px;
+    margin-top: 2rem;
+    padding: 16px 20px;
+    border: 1px solid #ddd;
+    background: var(--color-card-background);
+    color: var(--color-black);
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.25;
 
-      margin: 6rem 0;
-      padding: 8.25rem 0rem;
+    &:hover {
+      background: var(--color-card-background-hover);
+    }
+  }
 
-      background-image: radial-gradient(circle, #f8fff5, #ccffb4);
+  .card-link-arrow {
+    /* app.css colors every span, so take the link's color back */
+    color: inherit;
+    display: flex;
+    flex: 0 0 28px;
+    justify-content: center;
+  }
 
-      @media screen and (max-width: 768px) {
-        & {
-          margin: 3rem 0;
-        }
-      }
+  /* :global() only works in top-level selectors in Svelte 4, not inside nested rules */
+  .card-link-arrow :global(svg) {
+    width: 24px;
+    height: 24px;
+  }
+
+  #price {
+    padding-top: 3rem;
+
+    & h1 {
+      margin-top: 1.75rem;
     }
 
     & .badge-prefix {
@@ -311,6 +316,7 @@
 
     & #features-table {
       padding-top: 2rem;
+      margin-bottom: 3rem;
 
       @media screen and (max-width: 768px) {
         & {
@@ -400,19 +406,6 @@
         }
       }
     }
-  }
-
-  #price {
-    & h1 {
-      margin-top: 2rem;
-    }
-
-    & .checkmark-list {
-      & li {
-        list-style-image:  url("$lib/icons/ui/checkmark.svg?raw");
-        margin: 1rem 0;
-      }
-    }
 
     & .price-card {
       display: flex;
@@ -421,10 +414,10 @@
       margin-top: 1rem;
       align-items: center;
       justify-content: center;
-      color: white;
-      border: 1px solid #fff;
+      color: var(--color-foreground);
+      border: 1px solid;
 
-      & span {
+      & > span {
         font-size: 2rem;
         margin-top: 1.5rem;
       }
@@ -437,21 +430,103 @@
       }
     }
 
-    & .centered {
-      display: flex;
-      justify-content: center;
-      margin-top: 2rem;
+    & .button-pair {
+      margin: 2rem auto 0;
+    }
+  }
+
+  /* buttons side by side, both as wide as the longer one */
+  .button-pair {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    gap: 1rem;
+    width: fit-content;
+    max-width: 100%;
+
+    /* phones: stack them, still the same width */
+    @media screen and (max-width: 600px) {
+      grid-auto-flow: row;
+    }
+  }
+
+  .button-pair > :global(a) {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  #free-trial {
+    /* section padding; the image reaches into it, leaving 2rem of green */
+    --pad: 5rem;
+    /* gradient centered on the image column: 50% + 23.5rem (44rem text + 3rem gap),
+       or 13.5rem in from the 85%-wide container once the column hits its 27rem min */
+    background-image: radial-gradient(circle at calc(50% + min(23.5rem, 42.5% - 13.5rem)) 50%, #f8fff5, #ccffb4);
+    padding-block: var(--pad);
+
+    @media screen and (min-width: 1440px) {
+      --pad: 7rem;
     }
 
-    & .free-trial {
-      padding: 6rem 0 0;
+    /* text sets the row height and the image fills it; the image column's 27rem min
+       makes the text shrink first, then the layout stacks */
+    & .green-banner {
+      display: grid;
+      grid-template-columns: minmax(0, 44rem) minmax(27rem, 1fr);
+      gap: 3rem;
     }
 
-    @media screen and (max-width: 480px) {
-      & .centered a, & .free-trial a {
+    & .copy h2 {
+      margin-bottom: 2rem;
+    }
+
+    /* contain: size keeps the image out of the row height */
+    & .image {
+      contain: size;
+      margin-block: calc(2rem - var(--pad));
+
+      & img {
+        display: block;
         width: 100%;
-        box-sizing: border-box;
+        height: 100%;
+        object-fit: contain;
+        /* the png has 100px more transparent space above the device than below */
+        transform: translateY(-2.2%);
       }
     }
+
+    /* stacked: image on top, heading and button row centered */
+    @media screen and (max-width: 1200px) {
+      background-image: radial-gradient(circle at 50% 25%, #f8fff5, #ccffb4);
+
+      & .green-banner {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      & .copy {
+        text-align: center;
+
+        & .button-pair {
+          margin: 0 auto;
+        }
+      }
+
+      & .image {
+        contain: none;
+        margin: 0;
+        order: -1;
+
+        & img {
+          max-width: 20rem;
+          height: auto;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+
+  /* app.css trims padding to 1rem between two light sections */
+  #faq {
+    padding-top: 3rem;
   }
 </style>
