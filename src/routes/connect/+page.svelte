@@ -264,7 +264,6 @@
     }
   }
 
-  /* matches card links in support articles */
   .card-link {
     display: flex;
     align-items: center;
@@ -287,14 +286,12 @@
   }
 
   .card-link-arrow {
-    /* app.css colors every span, so take the link's color back */
     color: inherit;
     display: flex;
     flex: 0 0 28px;
     justify-content: center;
   }
 
-  /* :global() only works in top-level selectors in Svelte 4, not inside nested rules */
   .card-link-arrow :global(svg) {
     width: 24px;
     height: 24px;
@@ -435,7 +432,6 @@
     }
   }
 
-  /* buttons side by side, both as wide as the longer one */
   .button-pair {
     display: grid;
     grid-auto-flow: column;
@@ -444,7 +440,6 @@
     width: fit-content;
     max-width: 100%;
 
-    /* phones: stack them, still the same width */
     @media screen and (max-width: 600px) {
       grid-auto-flow: row;
     }
@@ -456,10 +451,7 @@
   }
 
   #free-trial {
-    /* section padding; the image reaches into it, leaving 2rem of green */
     --pad: 5rem;
-    /* gradient centered on the image column: 50% + 23.5rem (44rem text + 3rem gap),
-       or 13.5rem in from the 85%-wide container once the column hits its 27rem min */
     background-image: radial-gradient(circle at calc(50% + min(23.5rem, 42.5% - 13.5rem)) 50%, #f8fff5, #ccffb4);
     padding-block: var(--pad);
 
@@ -467,8 +459,6 @@
       --pad: 7rem;
     }
 
-    /* text sets the row height and the image fills it; the image column's 27rem min
-       makes the text shrink first, then the layout stacks */
     & .green-banner {
       display: grid;
       grid-template-columns: minmax(0, 44rem) minmax(27rem, 1fr);
@@ -479,7 +469,6 @@
       margin-bottom: 2rem;
     }
 
-    /* contain: size keeps the image out of the row height */
     & .image {
       contain: size;
       margin-block: calc(2rem - var(--pad));
@@ -494,7 +483,6 @@
       }
     }
 
-    /* stacked: image on top, heading and button row centered */
     @media screen and (max-width: 1200px) {
       background-image: radial-gradient(circle at 50% 25%, #f8fff5, #ccffb4);
 
@@ -525,7 +513,6 @@
     }
   }
 
-  /* app.css trims padding to 1rem between two light sections */
   #faq {
     padding-top: 3rem;
   }
