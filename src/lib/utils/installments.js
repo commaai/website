@@ -1,6 +1,6 @@
 // builds `shopify-meta` for Shopify's <shopify-payment-terms> banner, mirroring Liquid's `{{ form | payment_terms }}` output
 
-const usd = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' });
+export const usd = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' });
 
 const price = (key, amount) => ({ [key]: usd.format(Number(amount)), [`${key}_amount`]: Number(amount) });
 
@@ -51,5 +51,19 @@ export function installmentsMeta({ shopPricing, amount, variantId, variantPricin
       eligible: variantPricing.eligible,
       available: true,
     }],
+  };
+}
+
+// longest monthly term of the financing plan covering `amount`, for the "From $X/mo" headline
+export function monthlyPlan({ financingPlans }, amount) {
+  const plan = financingPlans.find((p) => amount >= Number(p.minPrice.amount) && amount <= Number(p.maxPrice.amount));
+  const terms = plan?.terms.filter((t) => t.frequency === 'MONTHLY' && t.installmentsCount?.count) ?? [];
+  if (!terms.length) return null;
+
+  const { apr, installmentsCount: { count: months } } = terms.reduce((a, b) => (b.installmentsCount.count > a.installmentsCount.count ? b : a));
+  const rate = apr / 1200;
+  return {
+    payment: rate ? (amount * rate) / (1 - (1 + rate) ** -months) : amount / months,
+    hasZeroApr: terms.some((t) => t.apr === 0),
   };
 }
