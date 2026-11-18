@@ -37,7 +37,10 @@
         Recordings of your drives will upload to connect where they will be stored for 3 days.
         Subscribe to comma connect to keep your drives accessible for 1 year.
       </p>
-      <a class="card-link" href="/support/pair-your-device" target="_blank">Learn how to pair your device with comma connect<span class="card-link-arrow" aria-hidden="true">{@html ArrowRight}</span></a>
+      <a class="pair-link" href="/support/pair-your-device" target="_blank">
+        <span>How to pair comma device with comma connect</span>
+        <span class="pair-link-arrow" aria-hidden="true">{@html ArrowRight}</span>
+      </a>
     </div>
   </div>
 </section>
@@ -172,8 +175,8 @@
     </Grid>
 
     <div class="button-pair">
-      <LinkButton href="https://connect.comma.ai/prime" style="accent" target="_blank">Get Started</LinkButton>
       <LinkButton href="/support/activate-prime" style="primary" target="_blank">Learn how to activate prime</LinkButton>
+      <LinkButton href="https://connect.comma.ai/prime" style="accent" target="_blank">Get Started</LinkButton>
     </div>
   </div>
 </section>
@@ -264,37 +267,58 @@
     }
   }
 
-  .card-link {
-    display: flex;
+  .pair-link {
     align-items: center;
-    justify-content: space-between;
-    gap: 16px;
+    backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid white;
     box-sizing: border-box;
-    min-height: 64px;
+    color: white;
+    display: flex;
+    font-size: 1.5rem;
+    font-weight: 400;
+    gap: 1.5rem;
+    justify-content: space-between;
     margin-top: 2rem;
-    padding: 16px 20px;
-    border: 1px solid #ddd;
-    background: var(--color-card-background);
-    color: var(--color-black);
-    font-size: 1.25rem;
-    font-weight: 600;
-    line-height: 1.25;
+    min-height: 4.3125rem;
+    padding: 1.25rem;
+    max-width: 100%;
+    transition: background-color 0.2s;
+    width: fit-content;
 
-    &:hover {
-      background: var(--color-card-background-hover);
+    & > span {
+      color: inherit;
+    }
+
+    &:active {
+      background: rgba(0, 0, 0, 0.72);
     }
   }
 
-  .card-link-arrow {
-    color: inherit;
-    display: flex;
-    flex: 0 0 28px;
-    justify-content: center;
+  @media (hover: hover) and (pointer: fine) {
+    .pair-link:hover {
+      background: rgba(0, 0, 0, 0.72);
+    }
   }
 
-  .card-link-arrow :global(svg) {
-    width: 24px;
-    height: 24px;
+  .pair-link-arrow {
+    display: block;
+    flex: 0 0 1.625rem;
+    height: 1.625rem;
+    width: 1.625rem;
+  }
+
+  .pair-link-arrow :global(svg) {
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
+
+  @media screen and (max-width: 768px) {
+    .pair-link {
+      min-height: 3.6875rem;
+      width: 100%;
+    }
   }
 
   #price {
@@ -428,7 +452,7 @@
     }
 
     & .button-pair {
-      margin: 2rem auto 0;
+      margin: 2rem 0 0;
     }
   }
 
