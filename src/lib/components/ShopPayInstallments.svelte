@@ -14,6 +14,7 @@
     :host([data-split]) { --size: var(--installments-rest-font-size, 0.875rem); }
     :host([data-split]) #shopify-installments { display: inline; }
     :host([data-split]) #shopify-installments-content { font-size: 0; }
+    :host([data-split]) [data-testid="zero-apr-badge"] { display: none; }
     :host([data-split]) #shopify-installments-content > div { vertical-align: -0.2rem; }
     :host([data-split]) #shopify-installments-content svg {
       vertical-align: baseline;
@@ -27,20 +28,28 @@
     }
   `;
 
-  async function styleBanner(node, setText) {
-    await customElements.whenDefined("shopify-payment-terms");
-    const root = node.shadowRoot;
-    if (!root) return;
-    const style = document.createElement("style");
-    style.textContent = BANNER_CSS;
-    const read = () => {
-      if (style.parentNode !== root) root.append(style);
-      const content = root.getElementById("shopify-installments-content")?.cloneNode(true);
-      content?.querySelectorAll("svg").forEach((svg) => svg.remove());
-      setText(content?.textContent.replace(/\s+/g, " ").trim() ?? "");
+  function styleBanner(node, setRendered) {
+    let destroyed = false;
+    let observer = null;
+    customElements.whenDefined("shopify-payment-terms").then(() => {
+      const root = node.shadowRoot;
+      if (destroyed || !root) return;
+      const style = document.createElement("style");
+      style.textContent = BANNER_CSS;
+      const read = () => {
+        if (style.parentNode !== root) root.append(style);
+        setRendered(Boolean(root.getElementById("shopify-installments-content")?.textContent.trim()));
+      };
+      observer = new MutationObserver(read);
+      observer.observe(root, { childList: true, subtree: true, characterData: true });
+      read();
+    });
+    return {
+      destroy() {
+        destroyed = true;
+        observer?.disconnect();
+      },
     };
-    new MutationObserver(read).observe(root, { childList: true, subtree: true, characterData: true });
-    read();
   }
 
   let activeCheckoutHandler = null;
@@ -73,19 +82,20 @@
 <script>
   import { onMount } from "svelte";
   import { getShopInstallmentsPricing, getVariantInstallmentsPricing } from "$lib/utils/shopify";
-  import { installmentsMeta } from "$lib/utils/installments.js";
+  import { installmentsMeta, monthlyPlan, usd } from "$lib/utils/installments.js";
 
   export let amount = 0;
   export let variantId = null;
   export let onCheckout = null;
   export let split = false;
+  export let inline = false;
   export let timedOut = false;
 
   let pricing = null; // null until loaded, {} if loading failed
-  let text = "";
+  let rendered = false;
   $: meta = !timedOut && pricing && installmentsMeta({ ...pricing, amount, variantId });
-  $: [, lead = "", rest = ""] = (meta && text.match(/^(From \S+\/mo) ?(.*)$/)) || [];
-  $: loading = !timedOut && (!pricing || (meta && !text));
+  $: plan = meta && monthlyPlan(pricing.shopPricing, amount);
+  $: loading = !timedOut && (!pricing || (meta && !rendered));
 
   function handleClick() {
     activeCheckoutHandler = onCheckout;
@@ -116,23 +126,23 @@
 </script>
 
 {#if split && loading}
-  <span class="split skeleton" aria-hidden="true">
+  <span class="split skeleton" class:inline aria-hidden="true">
     <span class="lead"><span class="bar">From $00.00/mo</span></span>
     <span class="rest"><span class="bar">or 0% APR with shop ⓘ</span></span>
   </span>
-{:else if split && !lead && !timedOut}
-  <span class="fallback">View installment options at checkout</span>
+{:else if split && !plan && !timedOut}
+  <span class="fallback" class:inline>View installment options at checkout</span>
 {/if}
 {#if meta}
   <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-static-element-interactions -->
-  <div class:split class:pending={split && !lead} on:click|capture={handleClick}>
+  <div class:split class:inline class:pending={split && (!plan || !rendered)} on:click|capture={handleClick}>
     {#if split}
-      <span class="lead">{lead}</span>
+      <span class="lead">From <strong>{usd.format(plan?.payment ?? 0)}/mo</strong></span>
     {/if}
     <div class="rest">
-      {#if split}{rest}{/if}
+      {#if split}{plan?.hasZeroApr ? "or 0% APR with " : "with "}{/if}
       <shopify-payment-terms
-        use:styleBanner={(value) => (text = value)}
+        use:styleBanner={(value) => (rendered = value)}
         data-split={split ? "" : undefined}
         variant-id={meta.variants?.[0].id ?? ""}
         shopify-meta={JSON.stringify(meta)}
@@ -150,6 +160,11 @@
   .fallback {
     font-size: 0.875rem;
     color: rgba(0, 0, 0, 0.6);
+
+    &.inline {
+      font-size: inherit;
+      color: inherit;
+    }
   }
 
   .skeleton .bar {
@@ -177,6 +192,10 @@
 
     & .lead {
       white-space: nowrap;
+
+      & strong {
+        font-weight: inherit;
+      }
     }
 
     & .rest {
@@ -184,6 +203,22 @@
       font-size: var(--installments-rest-font-size, 0.875rem);
       white-space: nowrap;
       color: rgba(0, 0, 0, 0.6);
+    }
+
+    &.inline {
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: baseline;
+      column-gap: 0.25em;
+
+      & .lead strong {
+        font-weight: 700;
+      }
+
+      & .rest {
+        min-height: 0;
+        color: inherit;
+      }
     }
   }
 </style>

@@ -5,6 +5,8 @@
   import Accordion from "$lib/components/Accordion.svelte";
   import Button from "$lib/components/Button.svelte";
   import Badge from "$lib/components/Badge.svelte";
+  import ShopPayInstallments from "$lib/components/ShopPayInstallments.svelte";
+  import { goto } from "$app/navigation";
   import FourImage from "$lib/images/products/comma-four/four_screen_on.png";
   import ChestnutImage from "$lib/images/products/chestnut/bnut_34.png";
 
@@ -61,6 +63,9 @@
                 <span class:sale-price={FOUR_SALE}>${FOUR_PRICE}</span>
               </span>
               <span class="muted">or ${FOUR_PRICE - FOUR_TRADE_IN_CREDIT - NO_HARNESS_DISCOUNT} after trade-in of any comma device</span>
+              <div class="muted installments">
+                <ShopPayInstallments split inline amount={FOUR_PRICE} onCheckout={() => goto("/shop/comma-four")} />
+              </div>
             </hgroup>
             <LinkButton href="/shop/comma-four" style="secondary" fullWidth>
               Buy now
@@ -341,12 +346,12 @@
           font-size: 2.5rem;
         }
 
+        & > span:first-of-type {
+          font-size: 1.5rem;
+        }
+
         & span {
           display: block;
-
-          &:first-of-type {
-            font-size: 1.5rem;
-          }
 
           & .strikethrough-price {
             text-decoration: line-through;
@@ -361,6 +366,12 @@
             font-size: 1rem;
             margin-top: 0.25rem;
           }
+        }
+
+        & .installments {
+          font-size: 1rem;
+          --installments-rest-font-size: 1rem;
+          margin-top: 0.25rem;
         }
 
       }
