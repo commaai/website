@@ -1,7 +1,6 @@
 <script>
   import Badge from "$lib/components/Badge.svelte";
   import Grid from "$lib/components/Grid.svelte";
-  import LinkButton from "$lib/components/LinkButton.svelte";
   import Faq from '$lib/components/Faq.svelte';
   import EmailUpdatesForm from '$lib/components/EmailUpdates/EmailUpdatesForm.svelte';
 
@@ -25,7 +24,7 @@
   <img src={ConnectHeroImage} loading="lazy" alt="comma connect application" />
 </div>
 
-<section class="dark" id="connect">
+<section class="light" id="connect">
   <div class="container">
     <div class="header">
       <hgroup>
@@ -37,18 +36,30 @@
         Recordings of your drives will upload to connect where they will be stored for 3 days.
         Subscribe to comma connect to keep your drives accessible for 1 year.
       </p>
-      <a class="pair-link" href="/support/pair-your-device" target="_blank">
-        <span>How to pair comma device with comma connect</span>
-        <span class="pair-link-arrow" aria-hidden="true">{@html ArrowRight}</span>
-      </a>
+      <div class="cta-row">
+        <a class="cta dark-cta" href="/support/pair-your-device" target="_blank">
+          <span>How to pair comma device with comma connect</span>
+          <span class="cta-arrow" aria-hidden="true">{@html ArrowRight}</span>
+        </a>
+      </div>
     </div>
-  </div>
-</section>
 
-<section class="light" id="price">
-  <div class="container">
+    <div class="features-banner">
+      <Grid columns={6} wrapMode="double" columnGap="2rem" size="medium">
+        <div class="icon">{@html RecordingsIcon}</div>
+        <div class="icon"><img src={TwentyFourSevenIcon} loading="lazy" alt=""></div>
+        <div class="icon"><img src={MarkerIcon} loading="lazy" alt=""></div>
+        <div class="icon">{@html LivestreamIcon}</div>
+        <div class="icon">{@html CommandLineIcon}</div>
+        <div class="icon">{@html CommacareIcon}</div>
+      </Grid>
+    </div>
+
     <span class="badge-prefix muted">connect</span><Badge style="dark" display="inline">subscription</Badge>
-    <h1>Access premium features with connect subscription.</h1>
+    <Grid rowGap="0" templateColumns="1.25fr 1fr">
+      <h1>Access premium features with connect subscription.</h1>
+      <p>Get a connect subscription for live car tracking and cloud storage of your drives for 1 year.</p>
+    </Grid>
 
     <div id="features-table">
       <div class="row header">
@@ -158,42 +169,56 @@
         </div>
       </div>
     </div>
-
-    <Grid alignItems="stretch">
-      <div class="price-card">
-        <div><span class="badge-prefix muted">subscription</span><Badge style="accent" display="inline">Prime</Badge></div>
-        <span>$24/mo.</span>
-        <div class="muted">includes data</div>
-        <div class="muted">*only offered in the U.S.</div>
-      </div>
-      <div class="price-card">
-        <div><span class="badge-prefix muted">subscription</span><Badge style="dark" display="inline">Lite</Badge></div>
-        <span>$14/mo.</span>
-        <div class="muted">supply your own SIM card<br>(no data included)</div>
-        <div class="muted">*works internationally</div>
-      </div>
-    </Grid>
-
-    <div class="button-pair">
-      <LinkButton href="/support/activate-prime" style="primary" target="_blank">Learn how to activate prime</LinkButton>
-      <LinkButton href="https://connect.comma.ai/prime" style="accent" target="_blank">Get Started</LinkButton>
-    </div>
   </div>
 </section>
 
-<section class="light" id="free-trial">
+<section class="dark" id="price">
   <div class="container">
-    <div class="green-banner">
-      <div class="copy">
-        <h2>Get a free 1-month trial with your purchase of comma four</h2>
-        <div class="button-pair">
-          <LinkButton href="/shop" style="primary" target="_blank">Shop comma four</LinkButton>
-          <LinkButton href="https://connect.comma.ai/prime" style="accent" target="_blank">Activate trial</LinkButton>
+    <Badge style="dark" display="inline">connect</Badge><Badge style="light" display="inline">subscription</Badge>
+    <Grid rowGap="0" templateColumns="1.25fr 1fr">
+      <h1>Real time vehicle connectivity.</h1>
+      <ul class="checkmark-list">
+        <li>24/7 connectivity</li>
+        <li>Live GPS tracking</li>
+        <li>Livestream your cameras</li>
+        <li>1 year storage of drive videos</li>
+        <li>Simple SSH for developers</li>
+      </ul>
+    </Grid>
+    <Grid alignItems="stretch">
+      <a class="price-card" href="https://connect.comma.ai/prime" target="_blank">
+        <div><Badge style="light" display="inline">Subscription</Badge><Badge style="accent" display="inline">Prime</Badge></div>
+        <span>$24/mo.</span>
+        <div class="muted">includes data</div>
+        <div class="muted">*only offered in the U.S.</div>
+      </a>
+      <a class="price-card" href="https://connect.comma.ai/prime" target="_blank">
+        <div><Badge style="light" display="inline">Subscription</Badge><Badge style="dark" display="inline">Lite</Badge></div>
+        <span>$14/mo.</span>
+        <div class="muted">supply your own SIM card<br>(no data included)</div>
+        <div class="muted">*works internationally</div>
+      </a>
+    </Grid>
+
+    <div class="free-trial">
+      <Grid alignItems="center" columnGap="3rem">
+        <div>
+          <h2>Free 1-month trial with comma four purchase</h2>
+          <div class="cta-row">
+            <a class="cta light-cta" href="/shop">
+              <span>Shop comma four</span>
+              <span class="cta-arrow" aria-hidden="true">{@html ArrowRight}</span>
+            </a>
+            <a class="cta accent-cta" href="https://connect.comma.ai/prime" target="_blank">
+              <span>Activate trial</span>
+              <span class="cta-arrow" aria-hidden="true">{@html ArrowRight}</span>
+            </a>
+          </div>
         </div>
-      </div>
-      <div class="image">
-        <img src={CommaFourImage} loading="lazy" alt="comma four device" />
-      </div>
+        <div class="mobile-first">
+          <img src={CommaFourImage} loading="lazy" alt="comma four device" />
+        </div>
+      </Grid>
     </div>
   </div>
 </section>
@@ -244,88 +269,131 @@
     }
   }
 
-  #connect h1, #price h1 {
-    font-size: 2.5rem;
-    font-weight: 600;
-    line-height: 1.2;
-    margin-top: 1rem;
+  .cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .cta {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    font-size: 1.5rem;
+    font-weight: 500;
+    gap: 0.75rem;
+    justify-content: center;
+    letter-spacing: -0.04em;
+    min-height: 4.3125rem;
+    padding: 0.75rem 1.5rem;
+    transition: background-color 0.2s, opacity 0.2s;
+
+    & span {
+      color: inherit;
+    }
+
+    & .cta-arrow {
+      display: block;
+      flex: 0 0 auto;
+      height: 1.5rem;
+      width: 1.5rem;
+    }
+  }
+
+  .cta-arrow :global(svg) {
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
+
+  .dark-cta {
+    background: black;
+    color: white;
+  }
+
+  .light-cta {
+    background: white;
+    color: black;
+  }
+
+  .accent-cta {
+    background-color: var(--color-accent);
+    color: black;
+  }
+
+  .dark-cta:active,
+  .light-cta:active {
+    opacity: 0.75;
+  }
+
+  .accent-cta:active {
+    background-color: var(--color-accent-hover);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .dark-cta:hover,
+    .light-cta:hover {
+      opacity: 0.75;
+    }
+
+    .accent-cta:hover {
+      background-color: var(--color-accent-hover);
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .cta {
+      font-size: 1rem;
+      justify-content: space-between;
+      min-height: 3.6875rem;
+      padding: 0.75rem 1.25rem;
+      width: 100%;
+    }
   }
 
   #connect {
-    padding-bottom: 3rem;
-    color: var(--color-foreground);
+    & h1 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      line-height: 1.2;
+      margin-top: 1rem;
+    }
 
     & p {
       font-size: 1.5rem;
       text-wrap: balance;
     }
 
-    & .header hgroup a {
-      text-transform: uppercase;
-      font-family: var(--font-mono);
-      border-bottom: 1px solid var(--color-foreground);
-    }
-  }
+    & .header {
+      & hgroup {
+        & a {
+          text-transform: uppercase;
+          font-family: var(--font-mono);
+        }
 
-  .pair-link {
-    align-items: center;
-    backdrop-filter: blur(8px);
-    background: rgba(0, 0, 0, 0.5);
-    border: 1px solid white;
-    box-sizing: border-box;
-    color: white;
-    display: flex;
-    font-size: 1.5rem;
-    font-weight: 400;
-    gap: 1.5rem;
-    justify-content: space-between;
-    margin-top: 2rem;
-    min-height: 4.3125rem;
-    padding: 1.25rem;
-    max-width: 100%;
-    transition: background-color 0.2s;
-    width: fit-content;
-
-    & > span {
-      color: inherit;
+        & a {
+          border-bottom: 1px solid #000;
+        }
+      }
     }
 
-    &:active {
-      background: rgba(0, 0, 0, 0.72);
-    }
-  }
+    & .features-banner {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
 
-  @media (hover: hover) and (pointer: fine) {
-    .pair-link:hover {
-      background: rgba(0, 0, 0, 0.72);
-    }
-  }
+      margin: 6rem 0;
+      padding: 8.25rem 0rem;
 
-  .pair-link-arrow {
-    display: block;
-    flex: 0 0 1.625rem;
-    height: 1.625rem;
-    width: 1.625rem;
-  }
+      background-image: radial-gradient(circle, #f8fff5, #ccffb4);
 
-  .pair-link-arrow :global(svg) {
-    display: block;
-    height: 100%;
-    width: 100%;
-  }
-
-  @media screen and (max-width: 768px) {
-    .pair-link {
-      min-height: 3.6875rem;
-      width: 100%;
-    }
-  }
-
-  #price {
-    padding-top: 3rem;
-
-    & h1 {
-      margin-top: 1.75rem;
+      @media screen and (max-width: 768px) {
+        & {
+          margin: 3rem 0;
+        }
+      }
     }
 
     & .badge-prefix {
@@ -337,7 +405,6 @@
 
     & #features-table {
       padding-top: 2rem;
-      margin-bottom: 3rem;
 
       @media screen and (max-width: 768px) {
         & {
@@ -427,6 +494,19 @@
         }
       }
     }
+  }
+
+  #price {
+    & h1 {
+      margin-top: 2rem;
+    }
+
+    & .checkmark-list {
+      & li {
+        list-style-image:  url("$lib/icons/ui/checkmark.svg?raw");
+        margin: 1rem 0;
+      }
+    }
 
     & .price-card {
       display: flex;
@@ -435,10 +515,11 @@
       margin-top: 1rem;
       align-items: center;
       justify-content: center;
-      color: var(--color-foreground);
-      border: 1px solid;
+      color: white;
+      border: 1px solid #fff;
+      cursor: pointer;
 
-      & > span {
+      & span {
         font-size: 2rem;
         margin-top: 1.5rem;
       }
@@ -451,93 +532,8 @@
       }
     }
 
-    & .button-pair {
-      margin: 2rem 0 0;
+    & .free-trial {
+      padding: 6rem 0 0;
     }
-  }
-
-  .button-pair {
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: 1fr;
-    gap: 1rem;
-    width: fit-content;
-    max-width: 100%;
-
-    @media screen and (max-width: 600px) {
-      grid-auto-flow: row;
-    }
-  }
-
-  .button-pair > :global(a) {
-    width: 100%;
-    box-sizing: border-box;
-  }
-
-  #free-trial {
-    --pad: 5rem;
-    background-image: radial-gradient(circle at calc(50% + min(23.5rem, 42.5% - 13.5rem)) 50%, #f8fff5, #ccffb4);
-    padding-block: var(--pad);
-
-    @media screen and (min-width: 1440px) {
-      --pad: 7rem;
-    }
-
-    & .green-banner {
-      display: grid;
-      grid-template-columns: minmax(0, 44rem) minmax(27rem, 1fr);
-      gap: 3rem;
-    }
-
-    & .copy h2 {
-      margin-bottom: 2rem;
-    }
-
-    & .image {
-      contain: size;
-      margin-block: calc(2rem - var(--pad));
-
-      & img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        /* the png has 100px more transparent space above the device than below */
-        transform: translateY(-2.2%);
-      }
-    }
-
-    @media screen and (max-width: 1200px) {
-      background-image: radial-gradient(circle at 50% 25%, #f8fff5, #ccffb4);
-
-      & .green-banner {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-
-      & .copy {
-        text-align: center;
-
-        & .button-pair {
-          margin: 0 auto;
-        }
-      }
-
-      & .image {
-        contain: none;
-        margin: 0;
-        order: -1;
-
-        & img {
-          max-width: 20rem;
-          height: auto;
-          margin: 0 auto;
-        }
-      }
-    }
-  }
-
-  #faq {
-    padding-top: 3rem;
   }
 </style>
