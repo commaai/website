@@ -553,6 +553,11 @@
       min-height: 3.6875rem;
       padding: 0.75rem 1.25rem;
     }
+
+    .finance-line {
+      font-size: 0.875rem;
+      --installments-rest-font-size: 0.875rem;
+    }
   }
 
   #hero {
@@ -561,7 +566,8 @@
       grid-template-areas:
         "copy gallery"
         "features gallery"
-        "cta gallery";
+        "cta gallery"
+        "finance .";
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
@@ -623,7 +629,15 @@
     }
 
     & .buy-stack {
-      grid-area: cta;
+      display: contents;
+
+      & .homepage-cta {
+        grid-area: cta;
+      }
+
+      & .finance-line {
+        grid-area: finance;
+      }
     }
 
     @media screen and (max-width: 599px) {
@@ -635,6 +649,11 @@
           "cta";
         grid-template-columns: minmax(0, 1fr);
         row-gap: 2rem;
+      }
+
+      & .buy-stack {
+        display: block;
+        grid-area: cta;
       }
 
       & .feature-grid {
