@@ -193,7 +193,6 @@
       {/if}
     </div>
 
-
     <hr />
 
     <strong>Select a harness to connect the comma four to your car.</strong>
