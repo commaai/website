@@ -23,6 +23,6 @@ We offer trade-ins for eligible devices. See [upgrading to a comma four](#upgrad
 
 ## Upgrading to a comma four
 
-You can trade in your comma two for $250 credit toward a new comma four, regardless of its condition. The offer is for the original purchaser of the comma two when buying a new comma four. Select the trade-in option on the comma four product page and send your comma two back within 30 days of receiving the new device.
+You can trade in your comma two for $50 credit toward a new comma four, regardless of its condition. The offer is for the original purchaser of the comma two when buying a new comma four. Select the trade-in option on the comma four product page and send your comma two back within 30 days of receiving the new device.
 
 [Read the trade-in instructions and terms](/shop/comma-four-trade-in).
