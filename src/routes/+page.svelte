@@ -13,6 +13,9 @@
   import SetupVideo from "$lib/images/setup/comma-four/setup-stopmotion.mp4";
   import MapActivity from "$lib/images/home/map-activity-2x.png";
   import ArrowRight from "$lib/icons/arrow-right.svg?raw";
+  import { FOUR_PRICE } from "$lib/constants/prices.js";
+  import ShopPayInstallments from "$lib/components/ShopPayInstallments.svelte";
+  const toFour = () => { window.location.href = "/shop/comma-four"; };
   import LaneCenteringIcon from "$lib/icons/features/lane-centering.svg?raw";
   import AdaptiveCruiseIcon from "$lib/icons/features/adaptive-cruise.svg?raw";
   import ReducedFatigueIcon from "$lib/icons/features/moon.svg?raw";
@@ -243,10 +246,15 @@
         {/each}
       </div>
 
-      <a class="homepage-cta accent-cta" href="/shop/comma-four">
-        <span>buy now for $999</span>
-        <span class="cta-arrow" aria-hidden="true">{@html ArrowRight}</span>
-      </a>
+      <div class="buy-row">
+        <a class="homepage-cta accent-cta" href="/shop/comma-four">
+          <span>buy now for ${FOUR_PRICE}</span>
+          <span class="cta-arrow" aria-hidden="true">{@html ArrowRight}</span>
+        </a>
+        <span class="finance-box">
+          <ShopPayInstallments split amount={FOUR_PRICE} onCheckout={toFour} />
+        </span>
+      </div>
     </div>
   </div>
 </section>
@@ -320,10 +328,15 @@
             <span>check your car</span>
             <span class="cta-arrow" aria-hidden="true">{@html ArrowRight}</span>
           </a>
-          <a class="homepage-cta accent-cta" href="/shop/comma-four">
-            <span>buy now for $999</span>
-            <span class="cta-arrow" aria-hidden="true">{@html ArrowRight}</span>
-          </a>
+          <div class="buy-row">
+            <a class="homepage-cta accent-cta" href="/shop/comma-four">
+              <span>buy now for ${FOUR_PRICE}</span>
+              <span class="cta-arrow" aria-hidden="true">{@html ArrowRight}</span>
+            </a>
+            <span class="finance-box">
+              <ShopPayInstallments split amount={FOUR_PRICE} onCheckout={toFour} />
+            </span>
+          </div>
         </div>
       </div>
     </div>
@@ -331,6 +344,47 @@
 </section>
 
 <style>
+  .buy-row {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .finance-box {
+    align-items: center;
+    border: 1px solid currentColor;
+    box-sizing: border-box;
+    container-type: inline-size;
+    display: flex;
+    flex-direction: column;
+    font-size: min(1.5rem, 10.5cqw);
+    justify-content: center;
+    min-height: 4.3125rem;
+    padding: 0.75rem 1rem;
+    text-align: center;
+    --installments-rest-font-size: min(0.875rem, 6.8cqw);
+  }
+
+  .buy-row .finance-box :global(.split .rest) {
+    color: inherit;
+    opacity: 0.7;
+  }
+
+  #closing-cta .buy-row {
+    color: black;
+
+    & .finance-box {
+      border: none;
+      background-color: rgba(127, 127, 127, 0.15);
+    }
+  }
+
+  @media screen and (max-width: 599px) {
+    .buy-row {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+
   .hero-image {
     position: relative;
     /* Behind nav bar */
@@ -592,7 +646,7 @@
       }
     }
 
-    & .homepage-cta {
+    & .buy-row {
       grid-area: cta;
     }
 
@@ -774,7 +828,7 @@
     & .closing-actions {
       display: grid;
       gap: 1rem;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: minmax(0, 1fr);
       margin-top: 2rem;
     }
 
