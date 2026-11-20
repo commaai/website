@@ -13,6 +13,9 @@
   import SetupVideo from "$lib/images/setup/comma-four/setup-stopmotion.mp4";
   import MapActivity from "$lib/images/home/map-activity-2x.png";
   import ArrowRight from "$lib/icons/arrow-right.svg?raw";
+  import { FOUR_PRICE } from "$lib/constants/prices.js";
+  import ShopPayInstallments from "$lib/components/ShopPayInstallments.svelte";
+  import { goto } from "$app/navigation";
   import LaneCenteringIcon from "$lib/icons/features/lane-centering.svg?raw";
   import AdaptiveCruiseIcon from "$lib/icons/features/adaptive-cruise.svg?raw";
   import ReducedFatigueIcon from "$lib/icons/features/moon.svg?raw";
@@ -243,10 +246,15 @@
         {/each}
       </div>
 
-      <a class="homepage-cta accent-cta" href="/shop/comma-four">
-        <span>buy now for $999</span>
-        <span class="cta-arrow" aria-hidden="true">{@html ArrowRight}</span>
-      </a>
+      <div class="buy-stack">
+        <a class="homepage-cta accent-cta" href="/shop/comma-four">
+          <span>buy now for ${FOUR_PRICE}</span>
+          <span class="cta-arrow" aria-hidden="true">{@html ArrowRight}</span>
+        </a>
+        <div class="finance-line">
+          <ShopPayInstallments split inline amount={FOUR_PRICE} onCheckout={() => goto("/shop/comma-four")} />
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -320,10 +328,15 @@
             <span>check your car</span>
             <span class="cta-arrow" aria-hidden="true">{@html ArrowRight}</span>
           </a>
-          <a class="homepage-cta accent-cta" href="/shop/comma-four">
-            <span>buy now for $999</span>
-            <span class="cta-arrow" aria-hidden="true">{@html ArrowRight}</span>
-          </a>
+          <div class="buy-stack">
+            <a class="homepage-cta accent-cta" href="/shop/comma-four">
+              <span>buy now for ${FOUR_PRICE}</span>
+              <span class="cta-arrow" aria-hidden="true">{@html ArrowRight}</span>
+            </a>
+            <div class="finance-line">
+              <ShopPayInstallments split inline amount={FOUR_PRICE} onCheckout={() => goto("/shop/comma-four")} />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -331,6 +344,17 @@
 </section>
 
 <style>
+  .finance-line {
+    font-size: 1rem;
+    margin-top: 0.4rem;
+    opacity: 0.75;
+    --installments-rest-font-size: 1rem;
+  }
+
+  .finance-line :global(.split) {
+    justify-content: center;
+  }
+
   .hero-image {
     position: relative;
     /* Behind nav bar */
@@ -523,6 +547,11 @@
       min-height: 3.6875rem;
       padding: 0.75rem 1.25rem;
     }
+
+    .finance-line {
+      font-size: 0.875rem;
+      --installments-rest-font-size: 0.875rem;
+    }
   }
 
   #hero {
@@ -592,8 +621,12 @@
       }
     }
 
-    & .homepage-cta {
+    & .buy-stack {
       grid-area: cta;
+    }
+
+    & .finance-line {
+      color: white;
     }
 
     @media screen and (max-width: 599px) {
@@ -778,9 +811,24 @@
       margin-top: 2rem;
     }
 
+    & .buy-stack {
+      position: relative;
+    }
+
+    & .finance-line {
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 100%;
+    }
+
     @media screen and (max-width: 1024px) {
       & .closing-grid {
         grid-template-columns: minmax(0, 1fr);
+      }
+
+      & .finance-line {
+        position: static;
       }
 
       & .closing-device {

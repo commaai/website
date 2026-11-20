@@ -1,7 +1,6 @@
 <script>
   import Badge from "$lib/components/Badge.svelte";
   import Grid from "$lib/components/Grid.svelte";
-  import LinkButton from "$lib/components/LinkButton.svelte";
   import Faq from '$lib/components/Faq.svelte';
   import EmailUpdatesForm from '$lib/components/EmailUpdates/EmailUpdatesForm.svelte';
 
@@ -18,6 +17,7 @@
   import CommacareIcon from "$lib/icons/features/commacare.svg?raw";
   import CheckmarkIcon from "$lib/icons/ui/checkmark.svg?raw";
   import CloseIcon from "$lib/icons/ui/close.svg?raw";
+  import ArrowRight from "$lib/icons/arrow-right.svg?raw";
 </script>
 
 <div class="banner">
@@ -36,6 +36,12 @@
         Recordings of your drives will upload to connect where they will be stored for 3 days.
         Subscribe to comma connect to keep your drives accessible for 1 year.
       </p>
+      <div class="cta-row">
+        <a class="cta dark-cta" href="/support/pair-your-device" target="_blank">
+          <span>How to pair comma device with comma connect</span>
+          <span class="cta-arrow" aria-hidden="true">{@html ArrowRight}</span>
+        </a>
+      </div>
     </div>
 
     <div class="features-banner">
@@ -180,29 +186,34 @@
       </ul>
     </Grid>
     <Grid alignItems="stretch">
-      <div class="price-card">
+      <a class="price-card" href="https://connect.comma.ai/prime" target="_blank">
         <div><Badge style="light" display="inline">Subscription</Badge><Badge style="accent" display="inline">Prime</Badge></div>
         <span>$24/mo.</span>
         <div class="muted">includes data</div>
         <div class="muted">*only offered in the U.S.</div>
-      </div>
-      <div class="price-card">
+      </a>
+      <a class="price-card" href="https://connect.comma.ai/prime" target="_blank">
         <div><Badge style="light" display="inline">Subscription</Badge><Badge style="dark" display="inline">Lite</Badge></div>
         <span>$14/mo.</span>
         <div class="muted">supply your own SIM card<br>(no data included)</div>
         <div class="muted">*works internationally</div>
-      </div>
+      </a>
     </Grid>
-
-    <div class="centered">
-      <LinkButton href="https://connect.comma.ai/" style="accent">Get Started</LinkButton>
-    </div>
 
     <div class="free-trial">
       <Grid alignItems="center" columnGap="3rem">
         <div>
           <h2>Free 1-month trial with comma four purchase</h2>
-          <LinkButton href="/shop" style="secondary">Shop comma four</LinkButton>
+          <div class="cta-row">
+            <a class="cta light-cta" href="/shop">
+              <span>Shop comma four</span>
+              <span class="cta-arrow" aria-hidden="true">{@html ArrowRight}</span>
+            </a>
+            <a class="cta accent-cta" href="https://connect.comma.ai/prime" target="_blank">
+              <span>Activate trial</span>
+              <span class="cta-arrow" aria-hidden="true">{@html ArrowRight}</span>
+            </a>
+          </div>
         </div>
         <div class="mobile-first">
           <img src={CommaFourImage} loading="lazy" alt="comma four device" />
@@ -255,6 +266,89 @@
 
     & svg {
       padding: 0.5rem;
+    }
+  }
+
+  .cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .cta {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    font-size: 1.5rem;
+    font-weight: 500;
+    gap: 0.75rem;
+    justify-content: center;
+    letter-spacing: -0.04em;
+    min-height: 4.3125rem;
+    padding: 0.75rem 1.5rem;
+    transition: background-color 0.2s, opacity 0.2s;
+
+    & span {
+      color: inherit;
+    }
+
+    & .cta-arrow {
+      display: block;
+      flex: 0 0 auto;
+      height: 1.5rem;
+      width: 1.5rem;
+    }
+  }
+
+  .cta-arrow :global(svg) {
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
+
+  .dark-cta {
+    background: black;
+    color: white;
+  }
+
+  .light-cta {
+    background: white;
+    color: black;
+  }
+
+  .accent-cta {
+    background-color: var(--color-accent);
+    color: black;
+  }
+
+  .dark-cta:active,
+  .light-cta:active {
+    opacity: 0.75;
+  }
+
+  .accent-cta:active {
+    background-color: var(--color-accent-hover);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .dark-cta:hover,
+    .light-cta:hover {
+      opacity: 0.75;
+    }
+
+    .accent-cta:hover {
+      background-color: var(--color-accent-hover);
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .cta {
+      font-size: 1rem;
+      justify-content: space-between;
+      min-height: 3.6875rem;
+      padding: 0.75rem 1.25rem;
+      width: 100%;
     }
   }
 
@@ -423,6 +517,7 @@
       justify-content: center;
       color: white;
       border: 1px solid #fff;
+      cursor: pointer;
 
       & span {
         font-size: 2rem;
@@ -437,21 +532,8 @@
       }
     }
 
-    & .centered {
-      display: flex;
-      justify-content: center;
-      margin-top: 2rem;
-    }
-
     & .free-trial {
       padding: 6rem 0 0;
-    }
-
-    @media screen and (max-width: 480px) {
-      & .centered a, & .free-trial a {
-        width: 100%;
-        box-sizing: border-box;
-      }
     }
   }
 </style>

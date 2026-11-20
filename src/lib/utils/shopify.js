@@ -426,6 +426,7 @@ export function getShopInstallmentsPricing() {
               terms {
                 apr
                 loanType
+                frequency
                 installmentsCount { count }
               }
             }

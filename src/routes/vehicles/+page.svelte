@@ -20,7 +20,13 @@
   import { FOUR_PRICE, FOUR_STRIKETHROUGH_PRICE, FOUR_SALE } from '$lib/constants/prices.js';
   import { vehicleCountText } from '$lib/constants/vehicles.js';
 
+  import ShopPayInstallments from '$lib/components/ShopPayInstallments.svelte';
+  import { goto } from '$app/navigation';
+
   const brand_images = import.meta.glob('$lib/images/vehicles/brand-icons/*.png', { eager: true });
+
+  // only load the installments line for cars that were opened
+  let opened = {};
 </script>
 
 <div class="vehicles-cover-image"></div>
@@ -121,7 +127,7 @@
 
       {#each cars as car_info}
         <div class="car-row">
-          <Accordion backgroundColor="var(--color-card-background)">
+          <Accordion backgroundColor="var(--color-card-background)" on:click={() => (opened[car_info.name] = true)}>
             <div slot="label">
               <div class="car-details-wrapper">
                 <div class="car-details">
@@ -176,6 +182,12 @@
                         {/if}
                       </hgroup>
                     </div>
+                    {#if opened[car_info.name]}
+                      <div class="installments">
+                        <span class="label">Pay over time</span>
+                        <ShopPayInstallments split inline amount={FOUR_PRICE} onCheckout={() => goto(`/shop/comma-four?harness=${car_info.name}`)} />
+                      </div>
+                    {/if}
                     <LinkButton
                       href={`/shop/comma-four?harness=${car_info.name}`}
                       style="primary"
@@ -505,6 +517,27 @@
         & div {
           font-size: .875rem;
         }
+      }
+    }
+
+    & .installments {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: .25rem 1rem;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: .5rem .75rem;
+      margin-bottom: .75rem;
+      font-size: .875rem;
+      --installments-rest-font-size: .875rem;
+
+      & .label {
+        font-family: var(--font-mono);
+        text-transform: uppercase;
+        font-size: .75rem;
+        opacity: .65;
       }
     }
 

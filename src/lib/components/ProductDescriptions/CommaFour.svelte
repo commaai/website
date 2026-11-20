@@ -24,7 +24,6 @@
   import { DEFAULT_BACKORDER_ESTIMATE } from '$lib/constants/shipping.js';
   import { formatCurrency } from "$lib/utils/currency";
   import { applyReferralDiscount, cartReferralCode, removeReferralDiscount } from '../../../store.js';
-  import { REFERRAL_DISCOUNT } from '$lib/utils/referral.js';
 
   export let product;
   let disableBuyButtonText = "SELECT YOUR CAR";
@@ -68,9 +67,10 @@
 
   // Price calculations
   $: priceDueToday = showDiscount ? FOUR_PRICE - NO_HARNESS_DISCOUNT : FOUR_PRICE;
-  $: discountedPriceDueToday = referralCode ? priceDueToday - REFERRAL_DISCOUNT : priceDueToday;
   $: showTradeInNote = tradeInChecked && FOUR_TRADE_IN_CREDIT > 0;
   $: priceAfterTradeIn = showTradeInNote ? priceDueToday - FOUR_TRADE_IN_CREDIT : priceDueToday;
+  // with a trade-in the sale doesn't lower the price, so there's no "was"
+  $: wasPrice = FOUR_STRIKETHROUGH_PRICE && !showTradeInNote ? FOUR_STRIKETHROUGH_PRICE - (showDiscount ? NO_HARNESS_DISCOUNT : 0) : null;
   const usd = (amount) => formatCurrency({ amount, currencyCode: 'USD' }, 0);
 
   $: additionalProductIds = (() => {
@@ -158,7 +158,7 @@
 </script>
 
 <Product {product} {additionalProductIds} {backordered} {beforeAddToCart} {getCartNote} priceOverride={FOUR_PRICE}
-         previousPrice={FOUR_STRIKETHROUGH_PRICE} sale={FOUR_SALE}
+         sale={FOUR_SALE}
          disableBuyButtonText={disableBuyButtonText}>
   <div slot="shipping"></div>
 
@@ -169,13 +169,11 @@
       <div class="option-wrap">
         <span class="option-label">Buy now</span>
         <span class="option pay-now-price" class:sale-price={FOUR_SALE}>
-          {#if referralCode}
-            <span class="referral-prices">
-              <s class="original-price">{usd(priceAfterTradeIn)}</s>
-              <span>{usd(priceAfterTradeIn - REFERRAL_DISCOUNT)}</span>
-            </span>
-          {:else}
-            {usd(priceAfterTradeIn)}
+          {usd(priceAfterTradeIn)}
+          {#if wasPrice}
+            <span class="was-price">was <s>{usd(wasPrice)}</s></span>
+          {:else if showTradeInNote}
+            <span class="was-price">after trade-in, {usd(priceDueToday)} due today</span>
           {/if}
         </span>
       </div>
@@ -186,7 +184,7 @@
             <ShopPayInstallments
               split
               variantId={product.variants.nodes[0]?.id}
-              amount={discountedPriceDueToday}
+              amount={priceDueToday}
               onCheckout={handleInstallmentsCheckout}
               bind:timedOut={installmentsTimedOut}
             />
@@ -194,10 +192,6 @@
         </div>
       {/if}
     </div>
-    <p class="trade-in-note" class:invisible={!showTradeInNote}>
-      {usd(discountedPriceDueToday)} due today,
-      {usd(discountedPriceDueToday - FOUR_TRADE_IN_CREDIT)} after trade-in received
-    </p>
 
     <hr />
 
@@ -209,10 +203,13 @@
       showNoHarnessOption={true}
     >
     </HarnessSelector>
-    <CheckboxCard bind:this={checkboxCardRef} title="${FOUR_TRADE_IN_CREDIT} credit with trade-in" checked={tradeInChecked} onToggle={handleTradeInToggle}
+    <CheckboxCard bind:this={checkboxCardRef} title={FOUR_SALE ? `$${FOUR_PRICE - FOUR_TRADE_IN_CREDIT} with trade-in` : `$${FOUR_TRADE_IN_CREDIT} credit with trade-in`} checked={tradeInChecked} onToggle={handleTradeInToggle}
                   disabled={disableBuyButtonText !== null || referralCode} strikethroughTitle={Boolean(referralCode)}>
       {#if referralCode}
         Trade in credit is <b>not available</b> when using a referral code.
+      {:else if FOUR_SALE}
+        Trade in any comma device, in any condition, and pay ${FOUR_PRICE - FOUR_TRADE_IN_CREDIT}. That's the usual ${FOUR_TRADE_IN_CREDIT + FOUR_STRIKETHROUGH_PRICE - FOUR_PRICE} off ${FOUR_STRIKETHROUGH_PRICE}; it doesn't stack with the sale price.
+        <a href="/shop/comma-four-trade-in">Instructions and Terms</a>
       {:else}
         Get ${FOUR_TRADE_IN_CREDIT} credit when you trade in your old comma device. Any comma device, in any condition.
         <a href="/shop/comma-four-trade-in">Instructions and Terms</a>
@@ -220,21 +217,14 @@
     </CheckboxCard>
     {#if referralCode || removedReferralCode}
       <NoteCard
-        title={removedReferralCode ? 'Referral discount removed' : `$${REFERRAL_DISCOUNT} referral discount applied`}
+        title={removedReferralCode ? 'Referral removed' : `Referral: ${referralCode}`}
         icon={GiftIcon}
-        highlightTitle={!removedReferralCode}
       >
-        {#if !removedReferralCode}
-          <div class="referral-message">
-            Your referral discount will be applied to this order at checkout.
-            <a href="https://comma.ai/terms#referral-terms" target="_blank" rel="noopener noreferrer">Terms and conditions</a> apply.
-          </div>
-        {/if}
         <button
           slot="actions"
           class="remove-referral"
           class:undo-referral={removedReferralCode}
-          aria-label={removedReferralCode ? 'Undo referral discount removal' : 'Remove referral discount'}
+          aria-label={removedReferralCode ? 'Undo referral removal' : 'Remove referral'}
           disabled={updatingReferral}
           on:click={removedReferralCode ? handleUndoReferral : handleRemoveReferral}
         >
@@ -319,20 +309,6 @@
   .item {
     padding: 1rem 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-  }
-
-  .referral-prices {
-    display: flex;
-    align-items: flex-start;
-    padding: 0.2em 0;
-    line-height: 1;
-  }
-
-  .original-price {
-    margin: 0.25em 0.25em 0 0;
-    font-size: 0.5em;
-    white-space: nowrap;
-    color: rgba(0, 0, 0, 0.5);
   }
 
   .remove-referral {
@@ -452,6 +428,20 @@
     }
   }
 
+  .sale-price .was-price {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1;
+    margin-top: 0.1em;
+    color: rgba(0, 0, 0, 0.5);
+
+    @media only screen and (max-width: 768px) {
+      & {
+        font-size: 0.875rem;
+      }
+    }
+  }
+
   .pay-now-price {
     font-size: min(2.5rem, 20.5cqw);
     line-height: 1.4;
@@ -460,16 +450,6 @@
       & {
         font-size: min(2rem, 20.5cqw);
       }
-    }
-  }
-
-  .trade-in-note {
-    margin: 0.5rem 0 0;
-    font-size: 0.875rem;
-    color: rgba(0, 0, 0, 0.6);
-
-    &.invisible {
-      visibility: hidden;
     }
   }
 </style>
