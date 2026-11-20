@@ -15,7 +15,7 @@
   import ArrowRight from "$lib/icons/arrow-right.svg?raw";
   import { FOUR_PRICE } from "$lib/constants/prices.js";
   import ShopPayInstallments from "$lib/components/ShopPayInstallments.svelte";
-  const toFour = () => { window.location.href = "/shop/comma-four"; };
+  import { goto } from "$app/navigation";
   import LaneCenteringIcon from "$lib/icons/features/lane-centering.svg?raw";
   import AdaptiveCruiseIcon from "$lib/icons/features/adaptive-cruise.svg?raw";
   import ReducedFatigueIcon from "$lib/icons/features/moon.svg?raw";
@@ -252,7 +252,7 @@
           <span class="cta-arrow" aria-hidden="true">{@html ArrowRight}</span>
         </a>
         <div class="finance-line">
-          <ShopPayInstallments split inline amount={FOUR_PRICE} onCheckout={toFour} />
+          <ShopPayInstallments split inline amount={FOUR_PRICE} onCheckout={() => goto("/shop/comma-four")} />
         </div>
       </div>
     </div>
@@ -334,7 +334,7 @@
               <span class="cta-arrow" aria-hidden="true">{@html ArrowRight}</span>
             </a>
             <div class="finance-line">
-              <ShopPayInstallments split inline amount={FOUR_PRICE} onCheckout={toFour} />
+              <ShopPayInstallments split inline amount={FOUR_PRICE} onCheckout={() => goto("/shop/comma-four")} />
             </div>
           </div>
         </div>
