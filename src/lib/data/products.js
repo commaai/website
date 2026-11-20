@@ -27,7 +27,7 @@ export const products = {
     id: "gid://shopify/Product/7964554231871",
     route: "/shop/four",
     category: "device",
-    price: "$999",
+    price: "$799",
     freeRush: true,
     images: [
       "/src/lib/images/products/comma-four/four_screen_on.png",
@@ -516,7 +516,7 @@ export const products = {
 
   "comma-four-trade-in": {
     title: "comma four trade-in",
-    id: "gid://shopify/Product/7966994202687",
+    id: "gid://shopify/Product/8541392568383",
   },
 
   "body": {

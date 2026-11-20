@@ -53,14 +53,6 @@
     {/if}
     {#each $cartItems as item}
       {@const imageUrl = item.node.merchandise.image?.url || item.node.merchandise.product.images.edges[0]?.node?.originalSrc}
-      {@const referralDiscountAllocation = item.node.discountAllocations?.find(
-        ({ code: appliedDiscountCode }) =>
-          appliedDiscountCode && $cartReferralDiscount?.code && appliedDiscountCode.toLowerCase() === $cartReferralDiscount?.code.toLowerCase()
-      )}
-      {@const priceExcludingReferralDiscount = {
-        amount: Number(item.node.estimatedCost.totalAmount.amount) + Number(referralDiscountAllocation?.discountedAmount.amount || 0),
-        currencyCode: item.node.estimatedCost.totalAmount.currencyCode
-      }}
       <div class="item">
         {#if imageUrl}
           <img
@@ -87,26 +79,16 @@
           />
         </div>
         <div>
-          {formatCurrency(priceExcludingReferralDiscount)}
+          {formatCurrency(item.node.estimatedCost.totalAmount)}
         </div>
       </div>
     {/each}
   </div>
   <div class="footer">
     {#if $cartItems?.length !== 0}
-      {@const referralDiscountAmount = $cartReferralDiscount?.amount || 0}
       {@const hasReferralDiscount = Boolean($cartReferralDiscount)}
-      {#if hasReferralDiscount}
-        <div class="referral-discount">
-          <div class="referral-details">
-            <strong>Referral discount</strong>
-            <span class="referral-code">{$cartReferralDiscount.code}</span>
-          </div>
-          <h4 class="referral-amount">-{formatCurrency({ amount: referralDiscountAmount, currencyCode: $cartSubtotal.currencyCode }, 0)}</h4>
-        </div>
-      {/if}
-      {#if $cartDiscount || hasReferralDiscount}
-        {@const subtotalAmountBeforeDiscount = Number($cartSubtotal.amount) + Number(referralDiscountAmount || 0)}
+      {#if $cartDiscount}
+        {@const subtotalAmountBeforeDiscount = Number($cartSubtotal.amount)}
         {@const subtotalAmountAfterDiscount = Number($cartSubtotal.amount) - Number($cartDiscount?.amount || 0)}
         {#if $cartBulkDiscountAllocation && !hasReferralDiscount}
           <div class="price">
@@ -138,35 +120,6 @@
 </div>
 
 <style>
-  .referral-discount {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    min-height: 5rem;
-    padding: 1rem;
-    box-sizing: border-box;
-    background: color-mix(in srgb, var(--color-accent) 10%, transparent);
-    border: 1px solid rgba(48, 153, 0, 0.5);
-
-    & .referral-amount {
-      margin: 0;
-      color: var(--color-accent-hover);
-      white-space: nowrap;
-    }
-  }
-
-  .referral-details {
-    display: flex;
-    flex-direction: column;
-    gap: 0.125rem;
-
-    & .referral-code {
-      color: rgba(0, 0, 0, 0.65);
-      font-size: 0.875rem;
-    }
-  }
-
   .overlay {
     position: fixed;
     top: 0;
