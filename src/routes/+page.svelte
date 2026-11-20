@@ -246,14 +246,14 @@
         {/each}
       </div>
 
-      <div class="buy-row">
+      <div class="buy-stack">
         <a class="homepage-cta accent-cta" href="/shop/comma-four">
           <span>buy now for ${FOUR_PRICE}</span>
           <span class="cta-arrow" aria-hidden="true">{@html ArrowRight}</span>
         </a>
-        <span class="finance-box">
-          <ShopPayInstallments split amount={FOUR_PRICE} onCheckout={toFour} />
-        </span>
+        <div class="finance-line">
+          <ShopPayInstallments split inline amount={FOUR_PRICE} onCheckout={toFour} />
+        </div>
       </div>
     </div>
   </div>
@@ -328,14 +328,14 @@
             <span>check your car</span>
             <span class="cta-arrow" aria-hidden="true">{@html ArrowRight}</span>
           </a>
-          <div class="buy-row">
+          <div class="buy-stack">
             <a class="homepage-cta accent-cta" href="/shop/comma-four">
               <span>buy now for ${FOUR_PRICE}</span>
               <span class="cta-arrow" aria-hidden="true">{@html ArrowRight}</span>
             </a>
-            <span class="finance-box">
-              <ShopPayInstallments split amount={FOUR_PRICE} onCheckout={toFour} />
-            </span>
+            <div class="finance-line">
+              <ShopPayInstallments split inline amount={FOUR_PRICE} onCheckout={toFour} />
+            </div>
           </div>
         </div>
       </div>
@@ -344,45 +344,21 @@
 </section>
 
 <style>
-  .buy-row {
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .finance-box {
-    align-items: center;
-    border: 1px solid currentColor;
-    box-sizing: border-box;
-    container-type: inline-size;
-    display: flex;
-    flex-direction: column;
-    font-size: min(1.5rem, 10.5cqw);
-    justify-content: center;
-    min-height: 4.3125rem;
-    padding: 0.75rem 1rem;
+  .finance-line {
+    color: white;
+    font-size: 1rem;
+    margin-top: 0.4rem;
+    opacity: 0.75;
     text-align: center;
-    --installments-rest-font-size: min(0.875rem, 6.8cqw);
+    --installments-rest-font-size: 1rem;
   }
 
-  .buy-row .finance-box :global(.split .rest) {
-    color: inherit;
-    opacity: 0.7;
+  .finance-line :global(.split) {
+    justify-content: center;
   }
 
-  #closing-cta .buy-row {
+  #closing-cta .finance-line {
     color: black;
-
-    & .finance-box {
-      border: none;
-      background-color: rgba(127, 127, 127, 0.15);
-    }
-  }
-
-  @media screen and (max-width: 599px) {
-    .buy-row {
-      grid-template-columns: minmax(0, 1fr);
-    }
   }
 
   .hero-image {
@@ -646,7 +622,7 @@
       }
     }
 
-    & .buy-row {
+    & .buy-stack {
       grid-area: cta;
     }
 
@@ -826,9 +802,10 @@
     }
 
     & .closing-actions {
+      align-items: start;
       display: grid;
       gap: 1rem;
-      grid-template-columns: minmax(0, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       margin-top: 2rem;
     }
 
