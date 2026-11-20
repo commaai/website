@@ -6,7 +6,7 @@ description: Find help with your order, shipping, returns, exchanges, and hardwa
 ## Orders
 
 ::: dropdown Do you offer bulk pricing or purchase orders?
-A 10% discount is automatically applied to purchases of 10 or more eligible products; parts are excluded. If the discount is not applied, [contact support](https://commasupport.zendesk.com/hc/en-us/requests/new). For larger quantities, contact support to discuss deeper discounts that scale with quantity.
+Bulk pricing is paused during the sale; [contact support](https://commasupport.zendesk.com/hc/en-us/requests/new) for larger orders.
 
 Orders must be placed through the comma shop, the official and only retailer of comma devices. Orders over $10,000 may be paid by purchase order and wire transfer; contact support with your item list or purchase order to get started.
 :::
