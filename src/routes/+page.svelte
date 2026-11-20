@@ -560,8 +560,7 @@
       grid-template-areas:
         "copy gallery"
         "features gallery"
-        "cta gallery"
-        "finance .";
+        "cta gallery";
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
@@ -622,17 +621,12 @@
       }
     }
 
-    & .homepage-cta {
-      grid-area: cta;
-    }
-
     & .buy-stack {
-      display: contents;
+      grid-area: cta;
     }
 
     & .finance-line {
       color: white;
-      grid-area: finance;
     }
 
     @media screen and (max-width: 599px) {
@@ -644,11 +638,6 @@
           "cta";
         grid-template-columns: minmax(0, 1fr);
         row-gap: 2rem;
-      }
-
-      & .buy-stack {
-        display: block;
-        grid-area: cta;
       }
 
       & .feature-grid {
@@ -816,16 +805,30 @@
     }
 
     & .closing-actions {
-      align-items: start;
       display: grid;
       gap: 1rem;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       margin-top: 2rem;
     }
 
+    & .buy-stack {
+      position: relative;
+    }
+
+    & .finance-line {
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 100%;
+    }
+
     @media screen and (max-width: 1024px) {
       & .closing-grid {
         grid-template-columns: minmax(0, 1fr);
+      }
+
+      & .finance-line {
+        position: static;
       }
 
       & .closing-device {
