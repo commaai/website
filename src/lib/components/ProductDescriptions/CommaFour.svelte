@@ -203,10 +203,13 @@
       showNoHarnessOption={true}
     >
     </HarnessSelector>
-    <CheckboxCard bind:this={checkboxCardRef} title="${FOUR_TRADE_IN_CREDIT} credit with trade-in" checked={tradeInChecked} onToggle={handleTradeInToggle}
+    <CheckboxCard bind:this={checkboxCardRef} title={FOUR_SALE ? `$${FOUR_PRICE - FOUR_TRADE_IN_CREDIT} with trade-in` : `$${FOUR_TRADE_IN_CREDIT} credit with trade-in`} checked={tradeInChecked} onToggle={handleTradeInToggle}
                   disabled={disableBuyButtonText !== null || referralCode} strikethroughTitle={Boolean(referralCode)}>
       {#if referralCode}
         Trade in credit is <b>not available</b> when using a referral code.
+      {:else if FOUR_SALE}
+        Trade in any comma device, in any condition, and pay ${FOUR_PRICE - FOUR_TRADE_IN_CREDIT}. That's the usual ${FOUR_TRADE_IN_CREDIT + FOUR_STRIKETHROUGH_PRICE - FOUR_PRICE} off ${FOUR_STRIKETHROUGH_PRICE}; it doesn't stack with the sale price.
+        <a href="/shop/comma-four-trade-in">Instructions and Terms</a>
       {:else}
         Get ${FOUR_TRADE_IN_CREDIT} credit when you trade in your old comma device. Any comma device, in any condition.
         <a href="/shop/comma-four-trade-in">Instructions and Terms</a>
