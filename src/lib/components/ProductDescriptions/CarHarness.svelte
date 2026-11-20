@@ -2,12 +2,17 @@
   import Product from "$lib/components/Product.svelte";
   import NoteCard from "$lib/components/NoteCard.svelte";
   import HarnessSelector from "$lib/components/HarnessSelector/HarnessSelector.svelte";
+  import CarIcon from "$lib/icons/features/car.svg?raw";
 
   export let product;
 </script>
 
 <Product {product} VariantSelector={HarnessSelector} autoSelectFirstVariant={false}>
   <div slot="notes">
+    <NoteCard title="Buying a comma?" icon={CarIcon}>
+      A free car harness is included with the purchase of
+      <a href="/shop/comma-four" class="highlight">comma four</a>.
+    </NoteCard>
     <NoteCard title="Compatibility">
       Harness compatibility based on the US car market.
     </NoteCard>

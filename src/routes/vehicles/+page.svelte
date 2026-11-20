@@ -20,7 +20,13 @@
   import { FOUR_PRICE, FOUR_STRIKETHROUGH_PRICE, FOUR_SALE } from '$lib/constants/prices.js';
   import { vehicleCountText } from '$lib/constants/vehicles.js';
 
+  import ShopPayInstallments from '$lib/components/ShopPayInstallments.svelte';
+  import { goto } from '$app/navigation';
+
   const brand_images = import.meta.glob('$lib/images/vehicles/brand-icons/*.png', { eager: true });
+
+  // only load the installments line for cars that were opened
+  let opened = {};
 </script>
 
 <div class="vehicles-cover-image"></div>
@@ -73,7 +79,6 @@
     <div class="recommended-cars">
       <hgroup>
         <h2>Our favorite openpilot cars</h2>
-        <p>Generally, newer Hyundai and Toyota models are great choices. These are some of our favorites:</p>
       </hgroup>
       <div class="recommended-car-columns">
         <Grid columns="4" size="large" wrapMode="single">
@@ -85,13 +90,16 @@
           </div>
           <div class="recommended-car-stack">
             <strong>SUV</strong>
+            <div>Volkswagen ID.4 2021&#8209;25</div>
             <div>Toyota Highlander 2020&#8209;23</div>
             <div>Hyundai Palisade 2020&#8209;22</div>
+            <div>Tesla Model Y</div>
           </div>
           <div class="recommended-car-stack">
             <strong>Sedan</strong>
             <div>Toyota Corolla 2020&#8209;22</div>
             <div>Hyundai Sonata 2020&#8209;23</div>
+            <div>Tesla Model 3</div>
           </div>
           <div class="recommended-car-stack">
             <strong>Truck</strong>
@@ -120,7 +128,7 @@
 
       {#each cars as car_info}
         <div class="car-row">
-          <Accordion backgroundColor="var(--color-card-background)">
+          <Accordion backgroundColor="var(--color-card-background)" on:click={() => (opened[car_info.name] = true)}>
             <div slot="label">
               <div class="car-details-wrapper">
                 <div class="car-details">
@@ -175,6 +183,12 @@
                         {/if}
                       </hgroup>
                     </div>
+                    {#if opened[car_info.name]}
+                      <div class="installments">
+                        <span class="label">Pay over time</span>
+                        <ShopPayInstallments split inline amount={FOUR_PRICE} onCheckout={() => goto(`/shop/comma-four?harness=${car_info.name}`)} />
+                      </div>
+                    {/if}
                     <LinkButton
                       href={`/shop/comma-four?harness=${car_info.name}`}
                       style="primary"
@@ -504,6 +518,27 @@
         & div {
           font-size: .875rem;
         }
+      }
+    }
+
+    & .installments {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: .25rem 1rem;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: .5rem .75rem;
+      margin-bottom: .75rem;
+      font-size: .875rem;
+      --installments-rest-font-size: .875rem;
+
+      & .label {
+        font-family: var(--font-mono);
+        text-transform: uppercase;
+        font-size: .75rem;
+        opacity: .65;
       }
     }
 

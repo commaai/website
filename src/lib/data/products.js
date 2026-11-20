@@ -27,7 +27,7 @@ export const products = {
     id: "gid://shopify/Product/7964554231871",
     route: "/shop/four",
     category: "device",
-    price: "$999",
+    price: "$799",
     freeRush: true,
     images: [
       "/src/lib/images/products/comma-four/four_screen_on.png",
@@ -425,7 +425,7 @@ export const products = {
     id: "gid://shopify/Product/6786322858047",
     route: "/shop/comma-device-screen",
     category: "accessories",
-    price: "$40",
+    price: "$100",
     images: [
       "/src/lib/images/products/comma-three-device-screen/comma-three-device-screen.jpg"
     ],
@@ -438,45 +438,14 @@ export const products = {
       }
     ],
     description: `
-      <strong>comma 3X - screen + front case</strong>
+      <strong>comma 3/3X - screen only</strong>
       <ul>
-        <li>comma 3X display pre-attached to front case</li>
-        <li>includes 4 screws to attach to back piece</li>
+        <li>comma 3/3X display only</li>
+        <li>does not include the front case</li>
       </ul>
-      <strong>What's Grade B?</strong>
-      <p>
-        We no longer have inventory of our Grade A screens, so we are offering Grade B screens at a discount.
-        Grade B screens are fully functional, but may have some minor cosmetic imperfections.
-      </p>
     `.trim(),
     hideOutOfStockVariants: true,
     useVariantBackorderStatus: true
-  },
-
-  "comma-3x-back-case": {
-    title: "comma 3X back case",
-    id: "gid://shopify/Product/7871177818175",
-    route: "/shop/comma-3x-back-case",
-    category: "accessories",
-    price: "$25",
-    images: [
-      "/src/lib/images/products/comma-3x-back-case/comma-3x-back-case.jpg"
-    ],
-    notes: [
-      {
-        title: "Note: final sale",
-        content: `Open and repair the comma 3/3X at your own risk.
-        comma is not responsible for damages that may occur while repairing devices.
-        No warranty except DOA.`,
-      }
-    ],
-    description: `
-      <strong>comma 3X back case</strong>
-      <ul>
-        <li>comma 3X back case</li>
-        <li>Includes screws</li>
-      </ul>
-    `.trim()
   },
 
   "comma-ai-hoodie": {
@@ -547,7 +516,7 @@ export const products = {
 
   "comma-four-trade-in": {
     title: "comma four trade-in",
-    id: "gid://shopify/Product/7966994202687",
+    id: "gid://shopify/Product/8541392568383",
   },
 
   "body": {

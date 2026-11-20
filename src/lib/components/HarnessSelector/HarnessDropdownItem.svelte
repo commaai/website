@@ -1,23 +1,33 @@
 <script>
   export let value;
   export let selected = false;
+  export let href = undefined;
 </script>
 
-<div class="dropdown-item" role="option" aria-selected={selected} on:click on:keydown tabindex="0">
+<svelte:element
+  this={href ? 'a' : 'div'}
+  {href}
+  class="dropdown-item"
+  role="option"
+  aria-selected={selected}
+  on:click
+  on:keydown
+  tabindex="0"
+>
   <div class="item-info">
     <div class="title">
       {value?.car}
     </div>
-    {#if value?.title}
+    {#if $$slots.subtitle || value?.title}
       <div class="subtitle">
-        Harness: {value.title}
+        <slot name="subtitle">Harness: {value.title}</slot>
       </div>
     {/if}
   </div>
   <div class="accessory-label">
     <slot/>
   </div>
-</div>
+</svelte:element>
 
 <style>
   .dropdown-item {
