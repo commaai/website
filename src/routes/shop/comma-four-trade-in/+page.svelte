@@ -56,7 +56,7 @@
           This offer is for new comma four purchases only.
         </li>
         <li>
-          The regular trade-in credit is ${FOUR_TRADE_IN_CREDIT + FOUR_STRIKETHROUGH_PRICE - FOUR_PRICE}. During a sale it is reduced by the sale discount to the current amount, ${FOUR_TRADE_IN_CREDIT}.
+          The regular trade-in credit is ${FOUR_TRADE_IN_CREDIT + FOUR_STRIKETHROUGH_PRICE - FOUR_PRICE}. During a sale it is reduced by the sale discount to the current credit of ${FOUR_TRADE_IN_CREDIT}.
         </li>
         <li>
           Trade-in device must be shipped back to us within 30 days of receiving your new comma four. We are not responsible for lost or damaged packages.
