@@ -348,7 +348,7 @@
     font-size: 1rem;
     margin-top: 0.4rem;
     opacity: 0.75;
-    --installments-rest-font-size: 1em;
+    --installments-rest-font-size: 1rem;
   }
 
   .finance-line :global(.split) {
@@ -550,6 +550,7 @@
 
     .finance-line {
       font-size: 0.875rem;
+      --installments-rest-font-size: 0.875rem;
     }
   }
 
