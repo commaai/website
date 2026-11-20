@@ -345,20 +345,14 @@
 
 <style>
   .finance-line {
-    color: white;
     font-size: 1rem;
     margin-top: 0.4rem;
     opacity: 0.75;
-    text-align: center;
-    --installments-rest-font-size: 1rem;
+    --installments-rest-font-size: 1em;
   }
 
   .finance-line :global(.split) {
     justify-content: center;
-  }
-
-  #closing-cta .finance-line {
-    color: black;
   }
 
   .hero-image {
@@ -556,7 +550,6 @@
 
     .finance-line {
       font-size: 0.875rem;
-      --installments-rest-font-size: 0.875rem;
     }
   }
 
@@ -628,16 +621,17 @@
       }
     }
 
+    & .homepage-cta {
+      grid-area: cta;
+    }
+
     & .buy-stack {
       display: contents;
+    }
 
-      & .homepage-cta {
-        grid-area: cta;
-      }
-
-      & .finance-line {
-        grid-area: finance;
-      }
+    & .finance-line {
+      color: white;
+      grid-area: finance;
     }
 
     @media screen and (max-width: 599px) {
