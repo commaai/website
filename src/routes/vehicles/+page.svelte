@@ -79,7 +79,6 @@
     <div class="recommended-cars">
       <hgroup>
         <h2>Our favorite openpilot cars</h2>
-        <p>Generally, newer Hyundai and Toyota models are great choices. These are some of our favorites:</p>
       </hgroup>
       <div class="recommended-car-columns">
         <Grid columns="4" size="large" wrapMode="single">
@@ -94,11 +93,13 @@
             <div>Volkswagen ID.4 2021&#8209;25</div>
             <div>Toyota Highlander 2020&#8209;23</div>
             <div>Hyundai Palisade 2020&#8209;22</div>
+            <div>Tesla Model Y</div>
           </div>
           <div class="recommended-car-stack">
             <strong>Sedan</strong>
             <div>Toyota Corolla 2020&#8209;22</div>
             <div>Hyundai Sonata 2020&#8209;23</div>
+            <div>Tesla Model 3</div>
           </div>
           <div class="recommended-car-stack">
             <strong>Truck</strong>
