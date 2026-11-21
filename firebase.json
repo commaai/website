@@ -385,23 +385,8 @@
         "type": 301
       },
       {
-        "source": "/shop/comma-three-camera.html",
-        "destination": "/shop",
-        "type": 301
-      },
-      {
-        "source": "/shop/comma-three-gps-module.html",
-        "destination": "/shop",
-        "type": 301
-      },
-      {
         "regex": "^/shop/([^/]+)\\.html$",
         "destination": "/shop/:1",
-        "type": 301
-      },
-      {
-        "source": "/shop/parts",
-        "destination": "/shop",
         "type": 301
       },
       {
