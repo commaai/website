@@ -1,5 +1,14 @@
 <script>
+  import { onMount } from 'svelte';
+  import { goto } from '$app/navigation';
   import { page } from '$app/stores';
+
+  // Old or mistyped shop links land on the shop instead of a dead end
+  onMount(() => {
+    if ($page.status === 404 && $page.url.pathname.startsWith('/shop/')) {
+      goto('/shop', { replaceState: true });
+    }
+  });
 
   import CommaIcon from '$lib/icons/comma.svg?raw';
 </script>

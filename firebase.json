@@ -378,6 +378,31 @@
         "source": "/shop/products/:product",
         "destination": "/shop/:product",
         "type": 301
+      },
+      {
+        "source": "/shop/comma-3x.html",
+        "destination": "/shop/comma-four",
+        "type": 301
+      },
+      {
+        "regex": "^/shop/([^/]+)\\.html$",
+        "destination": "/shop/:1",
+        "type": 301
+      },
+      {
+        "source": "/compatibility",
+        "destination": "/vehicles",
+        "type": 301
+      },
+      {
+        "source": "/setup/comma-three",
+        "destination": "/setup",
+        "type": 301
+      },
+      {
+        "source": "/setup/comma-3x",
+        "destination": "/setup",
+        "type": 301
       }
     ]
   }
