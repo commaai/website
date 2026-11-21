@@ -24,12 +24,16 @@
   import { DEFAULT_BACKORDER_ESTIMATE } from '$lib/constants/shipping.js';
   import { formatCurrency } from "$lib/utils/currency";
   import { applyReferralDiscount, cartReferralCode, removeReferralDiscount } from '../../../store.js';
+  import { createEmailUpdatesForm } from '$lib/email-updates.js';
 
   export let product;
   let disableBuyButtonText = "SELECT YOUR CAR";
 
   let harnessSelectorRef;
   let checkboxCardRef;
+
+  const { email: notifyEmail, car: notifyCar, status: notifyStatus, errorMessage: notifyError, submit: notifySubmit } = createEmailUpdatesForm(['compatibility']);
+  let notifyOpen = false;
 
   let showDisclaimerModal = false;
   let onProceed;
@@ -203,6 +207,22 @@
       showNoHarnessOption={true}
     >
     </HarnessSelector>
+    <div class="missing-car">
+      {#if $notifyStatus === 'success'}
+        <span>Thanks, we'll email you when it's supported.</span>
+      {:else if !notifyOpen}
+        <button type="button" on:click={() => (notifyOpen = true)}>Don't see your car? <u>Email me when it's supported</u></button>
+      {:else}
+        <form on:submit|preventDefault={notifySubmit}>
+          <input type="text" placeholder="Your car, e.g. 2021 Mazda 3" bind:value={$notifyCar} data-1p-ignore>
+          <div class="row">
+            <input type="email" placeholder="Email" required bind:value={$notifyEmail} autocomplete="email">
+            <button type="submit" disabled={$notifyStatus === 'submitting'}>Notify me</button>
+          </div>
+          {#if $notifyError}<span class="error">{$notifyError}</span>{/if}
+        </form>
+      {/if}
+    </div>
     <CheckboxCard bind:this={checkboxCardRef} title={FOUR_SALE ? `$${FOUR_PRICE - FOUR_TRADE_IN_CREDIT} with trade-in` : `$${FOUR_TRADE_IN_CREDIT} credit with trade-in`} checked={tradeInChecked} onToggle={handleTradeInToggle}
                   disabled={disableBuyButtonText !== null || referralCode} strikethroughTitle={Boolean(referralCode)}>
       {#if referralCode}
@@ -306,6 +326,66 @@
 </Modal>
 
 <style>
+  .missing-car {
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    color: rgba(0, 0, 0, 0.6);
+
+    & > button {
+      padding: 0;
+      border: 0;
+      background: none;
+      font: inherit;
+      color: inherit;
+      cursor: pointer;
+
+      & u {
+        color: black;
+      }
+    }
+
+    & form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 0.75rem;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      background-color: var(--color-card-background);
+    }
+
+    & .row {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    & input {
+      flex: 1;
+      box-sizing: border-box;
+      width: 100%;
+      min-width: 0;
+      padding: 0.625rem 0.75rem;
+      border: 1px solid #616161;
+      font: inherit;
+      font-size: 1rem;
+      background: white;
+    }
+
+    & button[type="submit"] {
+      padding: 0 1rem;
+      border: 0;
+      background: black;
+      color: white;
+      font-family: var(--font-mono);
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    & .error {
+      color: var(--color-sale-red);
+    }
+  }
+
   .item {
     padding: 1rem 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.15);
