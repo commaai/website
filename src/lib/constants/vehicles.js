@@ -4,6 +4,8 @@ export const vehicleCountText = `${Math.round(Object.values(vehicles).reduce((su
 
 // Harness selection options
 export const NO_HARNESS_OPTION = {
-  car: "I already have a car harness (‑$50)",
-  subtitle: "Upgrading from another comma device? You don't need a new harness.",
+  car: "I already have a harness (‑$50)",
+  subtitle: "Upgrading from any comma device",
 };
+// Older ?harness= links carry the previous label
+export const NO_HARNESS_LEGACY_NAMES = ["I already have a car harness (‑$50)"];
