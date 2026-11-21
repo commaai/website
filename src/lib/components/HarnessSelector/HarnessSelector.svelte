@@ -34,6 +34,14 @@
     selection = newSelection;
   }
 
+  // Bring the selector into view with its search open, e.g. when a disabled buy button is tapped
+  export async function open() {
+    document.getElementById('harness-selector')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    menuOpen = true;
+    await tick();
+    inputRef?.focus({ preventScroll: true });
+  }
+
   // Load harnesses based on the options
   $: harnesses = showVehicleHarnesses && showGenericHarnesses ? allHarnesses : showVehicleHarnesses ? vehicleHarnesses : genericHarnesses;
   $: if (browser && $harnesses.length > 0) setInitialSelection();

@@ -113,6 +113,10 @@
     }
   }
 
+  const handleDisabledBuyClick = () => {
+    if (!selectedHarness) harnessSelectorRef?.open();
+  }
+
   const handleTradeInToggle = () => {
     tradeInChecked = !tradeInChecked;
   }
@@ -163,7 +167,8 @@
 
 <Product {product} {additionalProductIds} {backordered} {beforeAddToCart} {getCartNote} priceOverride={FOUR_PRICE}
          sale={FOUR_SALE}
-         disableBuyButtonText={disableBuyButtonText}>
+         disableBuyButtonText={disableBuyButtonText}
+         on:disabledclick={handleDisabledBuyClick}>
   <div slot="shipping"></div>
 
   <div slot="price"></div>
