@@ -19,6 +19,14 @@
     background-color: black;
   }
 
+  /* On the home page, float over the top of the full-viewport hero (like the nav) instead of pushing it below the fold */
+  :global(body:has(.hero-image)) .banner {
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 66px;
+  }
+
   .wrapper {
     padding: 1rem 0;
     margin-left: auto;
