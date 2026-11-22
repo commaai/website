@@ -10,7 +10,7 @@
 
 <button
   {id}
-  on:click={!disabled && (event => dispatch('click', event))}
+  on:click={event => dispatch(disabled ? 'disabledclick' : 'click', event)}
   class:primary={style == "primary"}
   class:secondary={style == "secondary"}
   class:accent={style == "accent"}

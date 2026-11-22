@@ -113,6 +113,10 @@
     }
   }
 
+  const handleDisabledBuyClick = () => {
+    if (!selectedHarness) harnessSelectorRef?.open();
+  }
+
   const handleTradeInToggle = () => {
     tradeInChecked = !tradeInChecked;
   }
@@ -163,7 +167,8 @@
 
 <Product {product} {additionalProductIds} {backordered} {beforeAddToCart} {getCartNote} priceOverride={FOUR_PRICE}
          sale={FOUR_SALE}
-         disableBuyButtonText={disableBuyButtonText}>
+         disableBuyButtonText={disableBuyButtonText}
+         on:disabledclick={handleDisabledBuyClick}>
   <div slot="shipping"></div>
 
   <div slot="price"></div>
@@ -202,7 +207,9 @@
     <strong>Select a harness to connect the comma four to your car.</strong>
     <HarnessSelector
       bind:this={harnessSelectorRef}
-      label="Select your car"
+      label="Find your car"
+      sublabel="325+ cars · harness included"
+      prominent
       onChange={handleHarnessSelection}
       showNoHarnessOption={true}
     >

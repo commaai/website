@@ -187,6 +187,7 @@
           style="accent"
           fullWidth={true}
           on:click={addItem}
+          on:disabledclick
           disabled={forceOutOfStock || !selectedVariant || selectedVariant?.availableForSale === false || disableBuyButtonText !== null}
         >
           {addToCartLabel}
