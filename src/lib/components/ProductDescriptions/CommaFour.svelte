@@ -207,7 +207,9 @@
     <strong>Select a harness to connect the comma four to your car.</strong>
     <HarnessSelector
       bind:this={harnessSelectorRef}
-      label="Select your car"
+      label="Find your car"
+      sublabel="325+ cars · harness included"
+      prominent
       onChange={handleHarnessSelection}
       showNoHarnessOption={true}
     >

@@ -21,6 +21,8 @@
   export let onChange;
 
   export let label = "Select vehicle";
+  export let sublabel = null;
+  export let prominent = false; // outlined in accent green, for when picking a car is the next step
   export let placeholder = "Search for a vehicle or harness";
   export let showNoHarnessOption = false; // shows "I already have a harness" option
   export let showVehicleHarnesses = true; // If true, includes the harnesses by each vehicle model
@@ -207,8 +209,11 @@
         <slot name="accessoryLabel"/>
       </DropdownItem>
     {:else}
-      <div class="selection-placeholder" on:click={handleSelectClick} on:keydown={handleSelectKeyDown} role="button" tabindex="0">
-        <div class="label">{label}</div>
+      <div class="selection-placeholder" class:prominent on:click={handleSelectClick} on:keydown={handleSelectKeyDown} role="button" tabindex="0">
+        <div class="label">
+          {label}
+          {#if sublabel}<span class="sublabel">{sublabel}</span>{/if}
+        </div>
         <div class="accessory">
           <slot name="accessoryLabel"/>
         </div>
@@ -333,6 +338,28 @@
     font-weight: 600;
     color: #515151;
     text-wrap: balance;
+  }
+
+  &.prominent {
+    border: 3px solid var(--color-accent);
+    padding: calc(1rem - 2px) calc(3rem - 2px) calc(1rem - 2px) calc(1.5rem - 2px);
+
+    &:hover {
+      border-color: var(--color-accent-hover);
+    }
+
+    & .label {
+      font-size: 1.25rem;
+      color: black;
+    }
+  }
+
+  & .sublabel {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.6);
   }
 
   & .accessory {
