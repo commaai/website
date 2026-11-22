@@ -16,16 +16,11 @@ async function fetchHarnessVariants() {
   }, {});
 }
 
-let initialized = false;
 const vehicleHarnesses = writable([]); // List of vehicle model harnesses, excluding developer and generic make harnesses
 const genericHarnesses = writable([]); // List of developer and generic make harnesses
 const allHarnesses = writable([]); // List of all vehicle model harnesses, including developer and generic make harnesses
 
-async function initializeHarnesses() {
-  if (initialized) return;
-
-  const harnessInfo = await fetchHarnessVariants();
-
+function setHarnesses(harnessInfo) {
   // Add harnesses for vehicles
   let vehiclesHarnessList = Object.entries(Vehicles).flatMap(([make, models]) => {
     return models.map(model => {
@@ -66,10 +61,11 @@ async function initializeHarnesses() {
   // Combine the two lists
   let allHarnessList = vehiclesHarnessList.concat(genericHarnessList);
   allHarnesses.set(allHarnessList);
-
-  initialized = true;
 }
 
-initializeHarnesses();
+// Publish the static lists right away so a ?harness= selection renders on hydration instead of
+// popping in (and pushing the page down) once Shopify answers, then merge in the stock status.
+setHarnesses({});
+fetchHarnessVariants().then(setHarnesses, console.error);
 
 export { allHarnesses, vehicleHarnesses, genericHarnesses };

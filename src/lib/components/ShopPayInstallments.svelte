@@ -11,8 +11,14 @@
       font-weight: inherit !important;
       letter-spacing: inherit !important;
     }
-    :host([data-split]) { --size: var(--installments-rest-font-size, 0.875rem); }
-    :host([data-split]) #shopify-installments { display: inline; }
+    :host([data-split]) {
+      --size: var(--installments-rest-font-size, 0.875rem);
+      line-height: inherit;
+    }
+    :host([data-split]) #shopify-installments {
+      display: inline;
+      line-height: inherit;
+    }
     :host([data-split]) #shopify-installments-content { font-size: 0; }
     :host([data-split]) [data-testid="zero-apr-badge"] { display: none; }
     :host([data-split]) #shopify-installments-content > div { vertical-align: -0.2rem; }
@@ -21,10 +27,21 @@
       width: auto;
       height: min(14px, calc(var(--size) * 1.15));
     }
-    :host([data-split]) #shopify-installments-cta { padding-right: 0; }
+    /* top-aligned and no taller than the line, so the info button never grows the row past the skeleton's height */
+    :host([data-split]) #shopify-installments-cta {
+      display: inline-flex;
+      align-items: center;
+      height: 1lh;
+      padding-top: 0;
+      padding-bottom: 0;
+      padding-right: 0;
+      font-size: inherit;
+      line-height: inherit;
+      vertical-align: top;
+    }
     :host([data-split]) #shopify-installments-cta svg {
-      width: min(20px, calc(var(--size) * 1.45));
-      height: min(20px, calc(var(--size) * 1.45));
+      width: min(20px, calc(var(--size) * 1.45), 1lh);
+      height: min(20px, calc(var(--size) * 1.45), 1lh);
     }
   `;
 
@@ -126,16 +143,20 @@
 </script>
 
 {#if split && loading}
-  <span class="split skeleton" class:inline aria-hidden="true">
+  <!-- same elements as the real banner below, so page styles lay both out alike -->
+  <div class="split skeleton" class:inline aria-hidden="true">
     <span class="lead"><span class="bar">From $00.00/mo</span></span>
-    <span class="rest"><span class="bar">or 0% APR with shop ⓘ</span></span>
-  </span>
-{:else if split && !plan && !timedOut}
+    <div class="rest"><span class="bar">or 0% APR with shop ⓘ</span></div>
+  </div>
+{:else if split && (!plan || timedOut)}
   <span class="fallback" class:inline>View installment options at checkout</span>
+{:else if loading}
+  <!-- holds the cart's two-line banner open so the cart footer doesn't jump when it renders -->
+  <div class="banner-placeholder" aria-hidden="true"></div>
 {/if}
 {#if meta}
   <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-static-element-interactions -->
-  <div class:split class:inline class:pending={split && (!plan || !rendered)} on:click|capture={handleClick}>
+  <div class:split class:inline class:pending={!rendered || (split && !plan)} on:click|capture={handleClick}>
     {#if split}
       <span class="lead">From <strong>{usd.format(plan?.payment ?? 0)}/mo</strong></span>
     {/if}
@@ -155,6 +176,10 @@
   .pending {
     position: absolute;
     visibility: hidden;
+  }
+
+  .banner-placeholder {
+    height: 3.25rem;
   }
 
   .fallback {

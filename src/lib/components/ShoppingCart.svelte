@@ -184,7 +184,8 @@
 
       & img {
         width: 65px;
-        height: auto;
+        height: 65px;
+        object-fit: contain;
       }
 
       & .details {
