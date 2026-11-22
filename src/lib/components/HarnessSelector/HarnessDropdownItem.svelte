@@ -18,9 +18,9 @@
     <div class="title">
       {value?.car}
     </div>
-    {#if $$slots.subtitle || value?.title}
+    {#if $$slots.subtitle || value?.subtitle || value?.title}
       <div class="subtitle">
-        <slot name="subtitle">Harness: {value.title}</slot>
+        <slot name="subtitle">{value.subtitle ?? `Harness: ${value.title}`}</slot>
       </div>
     {/if}
   </div>

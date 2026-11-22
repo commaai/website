@@ -7,7 +7,7 @@
   import { clickOutside } from '$lib/utils/clickOutside';
   import { allHarnesses, vehicleHarnesses, genericHarnesses } from '$lib/utils/harnesses';
   import { selectedCar } from '../../../store';
-  import { NO_HARNESS_OPTION } from '$lib/constants/vehicles.js';
+  import { NO_HARNESS_OPTION, NO_HARNESS_LEGACY_NAMES } from '$lib/constants/vehicles.js';
 
   import NoteCard from '$lib/components/NoteCard.svelte';
   import DropdownItem from './HarnessDropdownItem.svelte';
@@ -67,7 +67,7 @@
   const setInitialSelection = () => {
     let carName = decodeURIComponent($page.url.searchParams.get('harness'));
 
-    if (carName === NO_HARNESS_OPTION.car) {
+    if (carName === NO_HARNESS_OPTION.car || NO_HARNESS_LEGACY_NAMES.includes(carName)) {
       selection = NO_HARNESS_OPTION;
       return;
     }

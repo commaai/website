@@ -262,12 +262,6 @@
     </NoteCard>
   </span>
 
-  <div slot="notes">
-    <NoteCard title="Upgrading from another comma device?">
-      You do not need a new car harness. All comma devices use the same harness.
-    </NoteCard>
-  </div>
-
   <div slot="description">
     <div class="item">
       <Accordion>
