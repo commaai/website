@@ -91,6 +91,30 @@
 
   const jobs = [
     {
+      title: "Consumer Growth Lead",
+      team: "product",
+      location: "On-site in San Diego, CA",
+      description: `
+        Your job is to get comma four into as many people's hands as possible. You'll own the
+        whole path from someone first hearing about comma to a comma four on their windshield:
+        videos, photos, the <a href="/shop">shop</a>, emails, launches, partnerships, and whatever
+        else works. How you do it is up to you.
+        <br /><br />
+        This isn't a marketing job with a fixed list of responsibilities. You find the
+        opportunities, ship the work, measure what it sold, and double down on what works.
+        Followers and impressions are nice. Units sold is the score.
+      `,
+      qualifications: [
+        "Excellent taste and a high bar for everything you put into the world",
+        "You care about selling products, not just generating engagement",
+        "Comfortable shooting a video in the morning, redesigning the product page in the afternoon, and negotiating a distribution deal the next day",
+        "Resourceful and self-directed. You figure things out instead of waiting for someone else to",
+        "Preferred: you've started an e-commerce brand, launched a physical product, or built and monetized an audience",
+      ],
+      howToApply:
+        'Email <a href="mailto:work@comma.ai">work@comma.ai</a> with something you\'ve grown, sold, built, or marketed. We care more about what you\'ve done than your past job titles.',
+    },
+    {
       title: "Video Content Creator",
       team: "product",
       location: "On-site in San Diego, CA",
