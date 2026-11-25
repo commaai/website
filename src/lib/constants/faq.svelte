@@ -856,42 +856,5 @@
         },
       ]
     },
-    other: {
-      title: 'Other',
-      questions: [
-        {
-          question: 'How can I invest in comma?',
-          answer: `
-            comma is a private company and we are not seeking outside investment at this time.
-          `
-        }, {
-          question: 'Can I get a review device? (I am a Reviewer / Media / YouTuber)',
-          answer: `
-            We have a 30-day no questions asked return policy if you would like to experience a comma four for yourself.
-          `
-        }, {
-          question: 'I\'d like to partner with comma.',
-          answer: `
-            <p>
-              We don't really know what that means. We offer wholesale pricing and these
-              <a href="/shop#services">services</a>.
-            </p>
-            <p>
-              Car companies: <a href="https://blog.comma.ai/working-with-comma-a-guide-for-car-companies/">How to work with us?</a>
-            </p>
-          `
-        }, {
-          question: 'Why haven\'t I heard back from support?',
-          answer: `
-            <p>
-              comma support is for comma shop order and warranty related issues.
-            </p>
-            <p>
-              comma does not provide support for openpilot. We recommend the <a href="https://discord.comma.ai">community Discord</a> or open an issue on openpilot’s GitHub.
-            </p>
-          `
-        },
-      ]
-    },
   }
 </script>
