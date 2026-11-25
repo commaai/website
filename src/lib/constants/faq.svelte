@@ -56,8 +56,7 @@
           question: 'What should I buy to run openpilot in my car?',
           answer: `
             After verifying that your car is compatible, we recommend purchasing a comma
-            device in our <a href="/shop">shop</a>. Don't forget to purchase a
-            car harness to connect it to your vehicle. Add to cart, check out, and
+            device in our <a href="/shop">shop</a>. Add to cart, check out, and
             you’re good to go!
           `
         }, {
@@ -66,14 +65,13 @@
             Yes, the driver must always be able to immediately retake manual control of
             the vehicle, by stepping on the brake pedal or by pressing the cancel
             button. When openpilot is engaged, a driver monitoring system actively
-            tracks driver awareness to help prevent distractions. The openpilot system
-            disengages if you are distracted. Drivers must keep their eyes on the road
-            at all times and be ready to take control of the car.
+            tracks driver awareness to help prevent distractions. Drivers must keep their eyes on the road
+            and be ready to take control of the car at all times.
           `
         }, {
           question: 'What is the openpilot safety model?',
           answer: `
-            More info about the openpilot safety model can be found
+            Read about the openpilot safety model
             <a href="https://github.com/commaai/openpilot/blob/master/docs/SAFETY.md">here</a>.
           `
         }, {
@@ -332,7 +330,7 @@
               <a href="https://connect.comma.ai/">connect.comma.ai</a> and sign up with the new
               device.
             </p>
-            
+
             <p>
               Note: your stored drives from your original device will not be transferred to your new device.
             </p>
@@ -468,12 +466,12 @@
         }, {
           question: 'When does the 30-day money-back trial start?',
           answer: `
-            The 30-day money-back trial starts the day your comma four is delivered (signature confirmation required for delivery). If you do decide to return your device, we ask that you get the return device in the mail within 30 days of receiving it.
+            The 30-day money-back trial starts the day your comma four is delivered. If you do decide to return your device, we ask that you get the return device in the mail within 30 days of receiving it.
           `
         }, {
           question: 'How do I return my comma four?',
           answer: `
-            To return your device, please request a return at <a href="https://comma.ai/returns">comma.ai/returns</a>. A prepaid return label (or return instructions if not in the US) will be automatically sent to you. $9.99 will be deducted from your refund if you choose to use this label.
+            To return your device, use our automated return system at <a href="https://comma.ai/returns">comma.ai/returns</a>. A prepaid return label (or return instructions if not in the US) will be automatically sent to you. $9.99 will be deducted from your refund if you choose to use this shipping label.
           `
         }, {
           question: 'Are international orders eligible for the trial?',
