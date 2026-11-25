@@ -57,20 +57,20 @@
 
 <SupportHeader title={article.title} description={article.description} image={article.image} imageAlt={article.imageAlt || article.title} />
 <div class="support-page" use:trackActiveHeading={article.toc}>
-  <article class="prose" on:toggle|capture={syncDropdownHash} on:click={handleAnchorClick}>{@html article.html}</article>
+  <article class="prose type-prose" on:toggle|capture={syncDropdownHash} on:click={handleAnchorClick}>{@html article.html}</article>
   {#if article.toc.length}
     <aside class="sidebar">
       <nav class="topics" aria-label="Topics">
-        <h2>Topics</h2>
+        <h2 class="type-body type-strong">Topics</h2>
         {#each article.toc as item}
-          <a href="#{item.id}" on:click={e => scrollToTopic(e, item.id)} class:nested={item.nested} aria-current={activeId === item.id ? 'location' : undefined}>{item.label}</a>
+          <a href="#{item.id}" on:click={e => scrollToTopic(e, item.id)} class:nested={item.nested} class:type-small={item.nested} aria-current={activeId === item.id ? 'location' : undefined}>{item.label}</a>
         {/each}
       </nav>
     </aside>
   {/if}
 </div>
 <div class="edit-row">
-  <a class="edit-button" href="https://github.com/commaai/website/edit/master/{article.source}" target="_blank" rel="noopener">
+  <a class="edit-button type-small" href="https://github.com/commaai/website/edit/master/{article.source}" target="_blank" rel="noopener">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9" /><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z" /></svg>
     Edit this page
   </a>
@@ -104,8 +104,6 @@
     border: 1px solid var(--support-border);
     background-color: var(--color-card-background);
     color: var(--color-muted);
-    font-size: 14px;
-    font-weight: 500;
 
     &:hover {
       background-color: var(--color-card-background-hover);
@@ -129,17 +127,10 @@
 
     & h2 {
       margin: var(--support-space) 0 20px;
-      font-size: clamp(32px, 3.2vw, 48px);
-      font-weight: 400;
-      line-height: 1.08;
-      letter-spacing: -.04em;
     }
 
     & h3 {
       margin: 32px 0 16px;
-      font-size: 21px;
-      font-weight: 600;
-      line-height: 1.3;
     }
 
     & h2 + h3 {
@@ -155,7 +146,6 @@
     }
 
     & li {
-      font: inherit;
       margin-bottom: 8px;
     }
 
@@ -225,7 +215,6 @@
       padding: 16px 20px;
       border: 1px solid var(--support-border);
       background: var(--color-card-background);
-      font-weight: 600;
 
       &:hover {
         background: var(--color-card-background-hover);
@@ -263,8 +252,6 @@
 
     & .dropdown-label {
       margin: 1rem 0;
-      font-size: 1.25rem;
-      font-weight: 600;
     }
 
     & .dropdown-chevron svg {
@@ -279,8 +266,6 @@
 
     & .dropdown-content {
       padding: .25rem 0 1rem;
-      font-size: 1.25rem;
-      line-height: 1.4;
     }
 
     & .dropdown-content > :first-child {
@@ -306,8 +291,6 @@
 
   .topics h2 {
     margin: 0 0 18px;
-    font-size: 16px;
-    font-weight: 600;
   }
 
   .topics a {
@@ -315,13 +298,10 @@
     padding: 12px 16px;
     border-left: 2px solid var(--support-border);
     color: var(--color-muted);
-    font-size: 15px;
-    line-height: 1.4;
   }
 
   .topics a.nested {
     padding-left: 28px;
-    font-size: 14px;
   }
 
   .topics a:hover {
@@ -343,18 +323,12 @@
       flex-basis: 300px;
     }
 
-    .topics h2 {
-      font-size: 18px;
-    }
-
     .topics a {
       padding: 14px 18px;
-      font-size: 17px;
     }
 
     .topics a.nested {
       padding-left: 30px;
-      font-size: 15px;
     }
   }
 

@@ -37,7 +37,7 @@ export const products = {
     ],
     notes: [],
     description: `
-      <strong>Description</strong>
+      <strong class="type-h5">Description</strong>
       <p>
         comma four is the next generation comma hardware designed to live in your car. It works on 325+ car models and adds the best driver assistance in the world to your existing car.
       </p>
@@ -87,7 +87,7 @@ export const products = {
       }
     ],
     description: `
-      <strong>Description</strong>
+      <strong class="type-h5">Description</strong>
       <p>
         pandas are the nicest universal car interfaces ever. They give you full
         access to the many communication buses of your car.
@@ -108,8 +108,8 @@ export const products = {
       <div>
         <hgroup>
           <div>
-            <span>variant</span>
-            <strong>red panda</strong>
+            <span class="type-label">variant</span>
+            <strong class="type-h5">red panda</strong>
           </div>
         </hgroup>
         <p>
@@ -143,7 +143,7 @@ export const products = {
     ],
     notes: [],
     description: `
-      <strong>Description</strong>
+      <strong class="type-h5">Description</strong>
       <p>What's better than debug board? pandas in a jungle! (pandas not included, only panda jungle)</p>
       <p>Plug up to 6 comma devices or pandas in at once. Use provided switch to "start" all panda ignitions at once.</p>
       <p>Great for comma device development and debugging!</p>
@@ -170,7 +170,7 @@ export const products = {
       }
     ],
     description: `
-      <strong>Description</strong>
+      <strong class="type-h5">Description</strong>
       <p>
         Use your car's OBD-II port to power your car harness.
       </p>
@@ -188,7 +188,7 @@ export const products = {
     ],
     notes: [],
     description: `
-      <strong>Description</strong>
+      <strong class="type-h5">Description</strong>
       <p>
         Use to extend the cable range of your comma power.
       </p>
@@ -217,7 +217,7 @@ export const products = {
       }
     ],
     description: `
-      <strong>Description</strong>
+      <strong class="type-h5">Description</strong>
       <p>
         This is a replacement for the SIM that ships with the comma four to support <a href="https://connect.comma.ai/" target="_blank">comma prime</a>.
       </p>
@@ -241,7 +241,7 @@ export const products = {
     ],
     notes: [],
     description: `
-      <strong>Description</strong>
+      <strong class="type-h5">Description</strong>
       <p>
         The OBD-C cable is the standard cable for connecting your comma device to
         your car.
@@ -255,8 +255,8 @@ export const products = {
       <div>
         <hgroup>
           <div>
-            <span>variant</span>
-            <strong>comma long (9.5 ft)</strong>
+            <span class="type-label">variant</span>
+            <strong class="type-h5">comma long (9.5 ft)</strong>
           </div>
         </hgroup>
         <p>
@@ -286,7 +286,7 @@ export const products = {
       }
     ],
     description: `
-      <strong>Description</strong>
+      <strong class="type-h5">Description</strong>
       <p>
         The harness connector does <b>not</b> include the car harness box and only
         ships with the wires and connectors needed to install an existing car harness
@@ -304,7 +304,7 @@ export const products = {
         connector, choose "Development".
       </p>
       <hr />
-      <strong>Open Source</strong>
+      <strong class="type-h5">Open Source</strong>
       <p>
         Buy it here or build it yourself. Harness connectors are <a
         href="https://github.com/commaai/hardware/tree/master/harness"
@@ -348,15 +348,15 @@ export const products = {
       }
     ],
     description: `
-      <strong>Description</strong>
+      <strong class="type-h5">Description</strong>
       <p>
         comma four mounts are compatible with every vehicle openpilot supports.
       </p>
       <hr />
       <hgroup>
         <div>
-          <span>Variant</span>
-          <strong>comma four</strong>
+          <span class="type-label">Variant</span>
+          <strong class="type-h5">comma four</strong>
         </div>
       </hgroup>
       <p>
@@ -372,8 +372,8 @@ export const products = {
       <hr />
       <hgroup>
         <div>
-           <span>Variant</span>
-          <strong>comma 3X</strong>
+           <span class="type-label">Variant</span>
+          <strong class="type-h5">comma 3X</strong>
         </div>
       </hgroup>
       <p>
@@ -389,8 +389,8 @@ export const products = {
       <hr />
       <hgroup>
         <div>
-          <span>Variant</span>
-          <strong>comma 3X (8°)</strong>
+          <span class="type-label">Variant</span>
+          <strong class="type-h5">comma 3X (8°)</strong>
         </div>
       </hgroup>
       <p>
@@ -405,7 +405,7 @@ export const products = {
         (1) alcohol wipe
       </p>
       <hr />
-      <strong>DIY Mounts</strong>
+      <strong class="type-h5">DIY Mounts</strong>
       <p>
         3D print comma two, three, and 3X mounts from our <a
           href="https://github.com/commaai/hardware"
@@ -438,7 +438,7 @@ export const products = {
       }
     ],
     description: `
-      <strong>comma 3/3X - screen only</strong>
+      <strong class="type-h5">comma 3/3X - screen only</strong>
       <ul>
         <li>comma 3/3X display only</li>
         <li>does not include the front case</li>
@@ -462,7 +462,7 @@ export const products = {
     ],
     notes: [],
     description: `
-      <strong>Description</strong>
+      <strong class="type-h5">Description</strong>
       <p>
         The perfect mid-weight hoodie. Made from a polyester cotton blend,
         they're not too heavy and not too warm. They have a double-lined hood for warmth,
@@ -485,7 +485,7 @@ export const products = {
     ],
     notes: [],
     description: `
-      <strong>Description</strong>
+      <strong class="type-h5">Description</strong>
       <p>A black beanie with a comma on it.</p>
       <p><b>The beanie will never ever be sold for less than $69.</b></p>
     `.trim()
@@ -504,7 +504,7 @@ export const products = {
     ],
     notes: [],
     description: `
-      <strong>Description</strong>
+      <strong class="type-h5">Description</strong>
       <p>Okay, okay we heard you. We aren't a high end fashion brand, we are a tech company. We sell a company t-shirt—for a reasonable price.</p>
       <p>
         This signature t-shirt is markedly soft, unisex that is versatile and lends itself to daily wear.
@@ -539,7 +539,7 @@ export const products = {
       }
     ],
     description: `
-      <strong>Description</strong>
+      <strong class="type-h5">Description</strong>
       <p>
         The body is a robotics dev kit that can run <a href="https://github.com/commaai/openpilot" target="_blank">openpilot</a>,
         open source software with over a million hours of usage in the field.

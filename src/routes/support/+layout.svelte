@@ -33,7 +33,6 @@
     background: var(--color-background);
     color: var(--color-foreground);
     color-scheme: light;
-    line-height: 1.6;
   }
 
   .support :global(section) {
@@ -60,5 +59,9 @@
     background: var(--support-border);
   }
 
-  @media (max-width: 768px) { .shell { padding-bottom: 40px; } }
+  @media (max-width: 768px) {
+    .shell {
+      padding-bottom: 40px;
+    }
+  }
 </style>

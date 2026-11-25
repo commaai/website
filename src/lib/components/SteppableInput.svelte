@@ -6,6 +6,7 @@
 
 <div>
   <button
+    class="type-strong"
     on:click={() => {
       let nextValue = value - 1;
       onChange(nextValue);
@@ -24,6 +25,7 @@
     }}
   />
   <button
+    class="type-strong"
     on:click={() => {
       let nextValue = value + 1;
       onChange(nextValue);
@@ -46,7 +48,6 @@
     border: none;
     border-top: 1px solid #000;
     border-bottom: 1px solid #000;
-    font-size: 1rem;
     border-radius: 0;
 
     &[type="number"],
@@ -65,8 +66,6 @@
     border: 1px solid #000;
     background-color: transparent;
     color: black;
-    font-size: 1rem;
-    font-weight: bold;
     text-align: center;
     cursor: pointer;
   }

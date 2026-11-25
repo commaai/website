@@ -210,9 +210,9 @@
       </DropdownItem>
     {:else}
       <div class="selection-placeholder" class:prominent on:click={handleSelectClick} on:keydown={handleSelectKeyDown} role="button" tabindex="0">
-        <div class="label">
+        <div class="label type-strong" class:type-body={!prominent} class:type-large={prominent}>
           {label}
-          {#if sublabel}<span class="sublabel">{sublabel}</span>{/if}
+          {#if sublabel}<span class="sublabel type-small type-regular">{sublabel}</span>{/if}
         </div>
         <div class="accessory">
           <slot name="accessoryLabel"/>
@@ -308,10 +308,8 @@
   border: 1px solid #a0a0a0;
   padding: 14px 3rem;
   outline: none;
-  font-size: 1rem;
 
   &::placeholder {
-    font-size: 1rem;
     color: #656565;
   }
 }
@@ -334,8 +332,6 @@
   }
 
   & .label {
-    font-size: 1rem;
-    font-weight: 600;
     color: #515151;
     text-wrap: balance;
   }
@@ -349,7 +345,6 @@
     }
 
     & .label {
-      font-size: 1.25rem;
       color: black;
     }
   }
@@ -357,14 +352,10 @@
   & .sublabel {
     display: block;
     margin-top: 0.25rem;
-    font-size: 0.875rem;
-    font-weight: 400;
     color: rgba(0, 0, 0, 0.6);
   }
 
   & .accessory {
-    font-size: 1.25rem;
-    font-weight: 600;
     text-wrap: nowrap;
   }
 }

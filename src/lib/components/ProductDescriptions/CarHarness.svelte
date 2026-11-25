@@ -24,7 +24,7 @@
   </div>
 
   <div slot="description">
-    <strong>Description</strong>
+    <strong class="type-h5">Description</strong>
     <p>
       The car harness is our universal interface to your car. Use the car
       harness to connect your comma device to your vehicle.
@@ -44,7 +44,7 @@
       ></iframe>
     </div>
     <hr />
-    <strong>Highlights</strong>
+    <strong class="type-h5">Highlights</strong>
     <ul>
       <li>Stealth install; car parts remain in place, no messy cables</li>
       <li>
@@ -55,7 +55,7 @@
       </li>
     </ul>
     <hr />
-    <strong>What's in the box?</strong>
+    <strong class="type-h5">What's in the box?</strong>
     <p>
       Each vehicle has a specific harness based on make, model and year. Each
       kit includes the following:

@@ -9,8 +9,8 @@
 <Grid columns={2} columnGap="10rem" rowGap="3.5rem">
   <div>
     <span>{@html DiscordIcon}</span>
-    <span>Join the conversation</span>
-    <p>
+    <span class="type-h3 type-regular">Join the conversation</span>
+    <p class="type-large">
       Have a question or want to learn more?
       There are thousands of knowledgeable community members on the Discord.
     </p>
@@ -20,8 +20,8 @@
   </div>
   <div>
     <span>{@html GitHubIcon}</span>
-    <span>Developer Resources</span>
-    <p>
+    <span class="type-h3 type-regular">Developer Resources</span>
+    <p class="type-large">
       Check out the code behind the comma four and openpilot.
       Review, fork, and contribute to the open source ecosystem.
     </p>
@@ -35,12 +35,10 @@
   span {
     display: block;
     color: white;
-    font-size: 2rem;
   }
 
   p {
     color: white;
-    font-size: 1.25rem;
     margin-bottom: 1.5rem;
   }
 </style>

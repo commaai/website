@@ -38,56 +38,56 @@
 <section class="light" id="description">
   <div class="container">
     <Grid rowGap="0" templateColumns="0.5fr 1.25fr">
-      <h2>Meet the comma four</h2>
+      <h2 class="type-h3">Meet the comma four</h2>
       <div class="description">
-        <p>
+        <p class="type-large">
           comma four is our next generation hardware. It packs the same compute, sensor suite, and functionality as comma 3X into a package one-fifth the size, making it the ideal form factor for your windshield.
         </p>
-        <p>
+        <p class="type-large">
           It runs <a class="highlight" href="/openpilot">openpilot</a>, which with the help of an attentive driver can drive for hours without driver intervention.
         </p>
       </div>
     </Grid>
     <hr />
     <Grid rowGap="0" templateColumns="0.5fr 1.25fr">
-      <h2>In the Box</h2>
+      <h2 class="type-h3">In the Box</h2>
       <div class="box-contents">
         <div>
           <img src={FourImage} loading="lazy" alt="comma four device">
-          <p>comma four</p>
+          <p class="type-large">comma four</p>
         </div>
         <div>
           <img src={OBDCCableImage} loading="lazy" alt="2ft OBD-C cable">
-          <p>2ft OBD-C cable</p>
+          <p class="type-large">2ft OBD-C cable</p>
         </div>
         <div>
           <img src={ReplacementMountsImage} loading="lazy" alt="mount">
-          <p>2 mounts</p>
+          <p class="type-large">2 mounts</p>
         </div>
       </div>
     </Grid>
     <hr />
     <Grid rowGap="0" templateColumns="0.5fr 1.25fr">
-      <h2>On-device Storage</h2>
+      <h2 class="type-h3">On-device Storage</h2>
       <div>
-        <p>comma four includes on-board storage to store your drives.</p>
+        <p class="type-large">comma four includes on-board storage to store your drives.</p>
         <div class="spec-card">
           <div class="header">
             <div>{@html MemoryIcon}</div>
-            <span>Storage</span>
+            <span class="type-label">Storage</span>
           </div>
           <div class="contents">
             <hgroup>
-              <strong>128<span class="unit">GB</span></strong>
+              <strong class="type-h5">128<span class="unit type-label">GB</span></strong>
               <span>built in storage</span>
             </hgroup>
             <div>10 hours of footage</div>
           </div>
         </div>
-        <p>
+        <p class="type-large">
           Want your video footage saved for longer? – Sign up for comma prime for 1 year of cloud video storage.
         </p>
-        <p>
+        <p class="type-large">
           comma four includes one free month of comma prime.
           To claim your free prime trial, log into <a href="https://connect.comma.ai/" target="_blank" class="highlight">comma connect</a>.
           Once paired, you can see your recorded drives, SSH into your device from anywhere, and more.
@@ -96,12 +96,12 @@
     </Grid>
     <hr />
     <Grid rowGap="0" templateColumns="0.5fr 1.25fr">
-      <h2>Tech Specs</h2>
+      <h2 class="type-h3">Tech Specs</h2>
       <div>
         <div class="spec-card">
           <div class="header">
             <div>{@html ThreeSixtyVisionIcon}</div>
-            <span>Cameras</span>
+            <span class="type-label">Cameras</span>
           </div>
           <div class="contents">
             Dual-cam 360° vision and a narrow cam to see far-away objects
@@ -110,16 +110,16 @@
         <div class="spec-card">
           <div class="header">
             <div>{@html ProcessorIcon}</div>
-            <span>Processor</span>
+            <span class="type-label">Processor</span>
           </div>
           <div class="contents">
-            <span>Qualcomm Snapdragon 845 <span class="max-gradient">MAX</span><br><br>Max cooling for quiet sustained peak performance.</span>
+            <span>Qualcomm Snapdragon 845 <span class="max-gradient type-strong">MAX</span><br><br>Max cooling for quiet sustained peak performance.</span>
           </div>
         </div>
         <div class="spec-card">
           <div class="header">
             <div>{@html LocationIcon}</div>
-            <span>Sensors</span>
+            <span class="type-label">Sensors</span>
           </div>
           <div class="contents">
             <ul>
@@ -133,7 +133,7 @@
         <div class="spec-card">
           <div class="header">
             <div>{@html MemoryIcon}</div>
-            <span>Can FD Enabled</span>
+            <span class="type-label">Can FD Enabled</span>
           </div>
           <div class="contents">
             Supports CAN FD vehicles without extra hardware
@@ -142,7 +142,7 @@
         <div class="spec-card">
           <div class="header">
             <div>{@html MemoryIcon}</div>
-            <span>Storage</span>
+            <span class="type-label">Storage</span>
           </div>
           <div class="contents">
             128GB built in storage
@@ -151,7 +151,7 @@
         <div class="spec-card">
           <div class="header">
             <div>{@html ConnectivityIcon}</div>
-            <span>Connectivity</span>
+            <span class="type-label">Connectivity</span>
           </div>
           <div class="contents">
             <ul>
@@ -163,7 +163,7 @@
         <div class="spec-card">
           <div class="header">
             <div>{@html MoonIcon}</div>
-            <span>Night-Vision</span>
+            <span class="type-label">Night-Vision</span>
           </div>
           <div class="contents">
             IR LED for interior night-vision monitoring
@@ -172,7 +172,7 @@
         <div class="spec-card">
           <div class="header">
             <div>{@html DisplayIcon}</div>
-            <span>Display</span>
+            <span class="type-label">Display</span>
           </div>
           <div class="contents">
             1.9" 300 PPI OLED display
@@ -181,7 +181,7 @@
         <div class="spec-card">
           <div class="header">
             <div>{@html CableIcon}</div>
-            <span>Ports</span>
+            <span class="type-label">Ports</span>
           </div>
           <div class="contents">
             <ul>
@@ -194,7 +194,7 @@
     </Grid>
     <hr />
     <Grid rowGap="0" templateColumns="0.5fr 1.25fr">
-      <h2>Snapdragon 845 <span class="max-gradient">MAX</span></h2>
+      <h2 class="type-h3">Snapdragon 845 <span class="max-gradient type-strong">MAX</span></h2>
       <div class="cooling-section">
         <img src={CoolingImage} loading="lazy" alt="comma four cooling system">
       </div>
@@ -202,35 +202,35 @@
     <hr />
     <div style="width: 0; height: 0;" id="ui"/>
     <Grid rowGap="0" templateColumns="0.5fr 1.25fr">
-      <h2>Expressive New Interface</h2>
+      <h2 class="type-h3">Expressive New Interface</h2>
       <div class="ui-grid">
         <div class="ui-card">
           <div class="device-container">
             <img src={DeviceFrameImage} alt="comma four device" class="device-frame" />
             <video loop autoplay muted playsinline class="screen-overlay" src={SettingsVideo}></video>
           </div>
-          <p>Configure comma four entirely on the device. No app, subscription, or account required.</p>
+          <p class="type-large">Configure comma four entirely on the device. No app, subscription, or account required.</p>
         </div>
         <div class="ui-card">
           <div class="device-container">
             <img src={DeviceFrameImage} alt="comma four device" class="device-frame" />
             <video loop autoplay muted playsinline class="screen-overlay" src={EngageDisengageVideo}></video>
           </div>
-          <p>comma four wakes up when you engage, and hibernates when you disengage.</p>
+          <p class="type-large">comma four wakes up when you engage, and hibernates when you disengage.</p>
         </div>
         <div class="ui-card">
           <div class="device-container">
             <img src={DeviceFrameImage} alt="comma four device" class="device-frame" />
             <video loop autoplay muted playsinline class="screen-overlay" src={SteeringArcVideo}></video>
           </div>
-          <p>As openpilot approaches its steering limits, the steering arc grows to warn you.</p>
+          <p class="type-large">As openpilot approaches its steering limits, the steering arc grows to warn you.</p>
         </div>
         <div class="ui-card">
           <div class="device-container">
             <img src={DeviceFrameImage} alt="comma four device" class="device-frame" />
             <video loop autoplay muted playsinline class="screen-overlay" src={ConfidenceBallVideo}></video>
           </div>
-          <p>As openpilot's confidence in its ability to understand the scene goes up, the confidence ball rises and turns green.</p>
+          <p class="type-large">As openpilot's confidence in its ability to understand the scene goes up, the confidence ball rises and turns green.</p>
         </div>
       </div>
     </Grid>
@@ -251,10 +251,10 @@
       <Grid>
         <div>
           <hgroup>
-            <span>Car harness</span>
+            <span class="type-label">Car harness</span>
             <h2>comma four is compatible with {vehicleCountText} cars</h2>
           </hgroup>
-          <p>
+          <p class="type-large">
             A supported vehicle is one that just works when you install a comma device.
             All supported cars provide a better experience than any stock system.
           </p>
@@ -268,10 +268,10 @@
         <img src={FourImage} loading="lazy" alt="comma four device" />
         <div>
           <hgroup>
-            <span>Software</span>
+            <span class="type-label">Software</span>
             <h2>Works with openpilot</h2>
           </hgroup>
-          <p>
+          <p class="type-large">
             comma four ships without software installed, so you need to install software.
             It is compatible with <a href="/openpilot" class="highlight">openpilot</a> and a wide variety of community forks.
           </p>
@@ -289,8 +289,8 @@
 <section class="light" id="fine-print">
   <div class="container">
     <Grid templateColumns="0.5fr 1.25fr">
-      <h2>Fine Print</h2>
-      <div class="fine-print-copy">
+      <h2 class="type-h3">Fine Print</h2>
+      <div class="fine-print-copy type-small">
           <strong>30-Day Return</strong>
           <p>
             If for any reason you are dissatisfied with anything purchased at the <a target="_blank" href="/" class="highlight">comma.ai</a> shop,
@@ -335,15 +335,6 @@
 </section>
 
 <style>
-  h2 {
-    font-size: 1.875rem;
-    font-weight: 600;
-  }
-
-  p {
-    font-size: 1.25rem;
-  }
-
   a {
     color: #000;
   }
@@ -358,7 +349,6 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    font-weight: bold;
   }
 
   .cooling-section {
@@ -428,10 +418,6 @@
         }
 
         & span {
-          font-family: var(--font-mono);
-          font-size: 0.875rem;
-          font-weight: 400;
-          text-transform: uppercase;
           margin-left: 1rem;
         }
       }
@@ -442,38 +428,15 @@
         justify-content: space-between;
         padding: 0.875rem 1rem;
 
-        & hgroup {
-          & strong {
-            display: block;
-            font-size: 1.25rem;
-            font-weight: 600;
-          }
-
-          & .unit {
-            font-size: 0.875rem;
-            text-transform: uppercase;
-          }
-        }
-
-        & li {
-          font-size: 1rem;
+        & hgroup strong {
+          display: block;
         }
       }
     }
   }
 
-  hgroup {
-    & span {
-      font-family: var(--font-mono);
-      font-size: 1rem;
-      margin-bottom: 0.5rem;
-    }
-
-    & h2 {
-      font-size: 2.5rem;
-      font-weight: 600;
-      line-height: 1.2;
-    }
+  hgroup span {
+    margin-bottom: 0.5rem;
   }
 
   .compatibility {
@@ -485,25 +448,12 @@
       }
     }
 
-    & hgroup {
-      & h2 {
-        text-wrap: balance;
-      }
-
-      & span {
-        text-transform: uppercase;
-      }
-    }
-
     & p, & p > a {
       color: white;
     }
   }
 
   .guarantee {
-    font-size: 3rem;
-    line-height: 1.25;
-
     & a {
       color: white;
     }
@@ -515,8 +465,6 @@
 
     & strong, & p {
       color: #545458;
-      font-size: 0.875rem;
-      line-height: 1.25;
     }
 
     & strong + p {
@@ -556,15 +504,10 @@
 
     & p {
       margin: 0;
-      font-size: 1.25rem;
     }
   }
 
   @media screen and (max-width: 768px) {
-    .guarantee {
-      font-size: 2rem;
-    }
-
     .ui-grid {
       grid-template-columns: 1fr;
     }

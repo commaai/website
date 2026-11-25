@@ -6,10 +6,10 @@
   <img src={product.images[0]} loading="lazy" alt="{product.title} product" />
   <div>
     <hgroup>
-      <h2>{product.title}</h2>
+      <h2 class="type-h5">{product.title}</h2>
       <span>{product.price ?? 0}</span>
     </hgroup>
-    <span>Buy</span>
+    <span class="type-caps">Buy</span>
   </div>
 </a>
 
@@ -50,12 +50,8 @@
 
       & hgroup {
         & h2 {
-          font-size: 1.25rem;
-          font-weight: 600;
-          line-height: 1.2;
           margin-bottom: 0.375rem;
           overflow: hidden;
-          text-wrap: balance;
           text-overflow: ellipsis;
         }
       }
@@ -64,7 +60,6 @@
         color: #fff;
         background-color: #000;
         padding: 0.5rem 1rem;
-        text-transform: uppercase;
       }
     }
   }

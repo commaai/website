@@ -145,13 +145,13 @@
       <div>
         <div class="variant-selector">
           <div class="title-price" class:inline-mobile={inlineMobileTitlePrice}>
-            <h1>{product?.title}</h1>
-            <div class="price">
+            <h1 class="type-h2">{product?.title}</h1>
+            <div class="price type-lead">
               {#if previousPrice}
                 <div class="strikethrough-price">${previousPrice}</div>
               {/if}
               <slot name="price">
-                <div class:sale-price={sale}>{priceLabel}</div>
+                <div class:sale-price={sale} class:type-strong={sale}>{priceLabel}</div>
               </slot>
             </div>
           </div>
@@ -212,11 +212,6 @@
 {/if}
 
 <style>
-  h1 {
-    font-size: 2.5rem;
-    font-weight: 600;
-  }
-
   .preview {
     & img {
       display: block;
@@ -278,7 +273,6 @@
     }
 
     & .price {
-      font-size: 1.5rem;
       display: flex;
       flex-direction: column;
       gap: 0.25rem;
@@ -289,7 +283,6 @@
     }
 
     & .sale-price {
-      font-weight: 700;
       color: var(--color-sale-red);
     }
 
@@ -319,10 +312,6 @@
   }
 
   .description {
-    & strong {
-      font-size: 1.25rem;
-    }
-
     & hr {
       margin: 2rem 0;
     }
@@ -340,22 +329,7 @@
       & div {
         display: flex;
         flex-direction: column;
-
-        & span {
-          font-size: 0.875rem;
-          text-transform: uppercase;
-          font-family: var(--font-mono);
-        }
-
-        & strong {
-          font-size: 1.25rem;
-          font-weight: 600;
-        }
       }
-    }
-
-    & li {
-      font-size: 1rem;
     }
 
     & a {

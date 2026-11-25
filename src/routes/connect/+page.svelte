@@ -28,16 +28,16 @@
   <div class="container">
     <div class="header">
       <hgroup>
-        <a class="muted" href="https://connect.comma.ai/" target="_blank">connect.comma.ai</a>
-        <h1>See your recorded drives online.</h1>
+        <a class="muted type-label" href="https://connect.comma.ai/" target="_blank">connect.comma.ai</a>
+        <h1 class="type-h2">See your recorded drives online.</h1>
       </hgroup>
-      <p>
+      <p class="type-lead">
         <a href="https://connect.comma.ai/" target="_blank" class="highlight">comma connect</a> is an app that lets you manage your openpilot experience.
         Recordings of your drives will upload to connect where they will be stored for 3 days.
         Subscribe to comma connect to keep your drives accessible for 1 year.
       </p>
       <div class="cta-row">
-        <a class="cta dark-cta" href="/support/pair-your-device" target="_blank">
+        <a class="cta dark-cta type-lead" href="/support/pair-your-device" target="_blank">
           <span>How to pair comma device with comma connect</span>
           <span class="cta-arrow" aria-hidden="true">{@html ArrowRight}</span>
         </a>
@@ -55,20 +55,20 @@
       </Grid>
     </div>
 
-    <span class="badge-prefix muted">connect</span><Badge style="dark" display="inline">subscription</Badge>
+    <span class="badge-prefix muted type-label">connect</span><Badge style="dark" display="inline">subscription</Badge>
     <Grid rowGap="0" templateColumns="1.25fr 1fr">
-      <h1>Access premium features with connect subscription.</h1>
-      <p>Get a connect subscription for live car tracking and cloud storage of your drives for 1 year.</p>
+      <h1 class="type-h2">Access premium features with connect subscription.</h1>
+      <p class="type-lead">Get a connect subscription for live car tracking and cloud storage of your drives for 1 year.</p>
     </Grid>
 
     <div id="features-table">
       <div class="row header">
-        <div class="title">Features</div>
+        <div class="title type-h5">Features</div>
         <div class="content badge">
-          <span class="badge-prefix muted">connect</span><Badge style="dark" display="inline">prime & lite subscription</Badge>
+          <span class="badge-prefix muted type-label">connect</span><Badge style="dark" display="inline">prime & lite subscription</Badge>
         </div>
         <div class="content badge">
-          <span class="badge-prefix muted">connect</span><Badge style="dark" display="inline">free</Badge>
+          <span class="badge-prefix muted type-label">connect</span><Badge style="dark" display="inline">free</Badge>
         </div>
       </div>
       <div class="row">
@@ -76,7 +76,7 @@
           <div class="icon">{@html RecordingsIcon}</div>
           <div>
             <hgroup>
-              <div>Cloud storage of drive videos</div>
+              <div class="type-h5">Cloud storage of drive videos</div>
               <span class="muted">Review your driving history, access routes, and watch videos of past drives.</span>
             </hgroup>
             <div class="mobile-badge"><Badge style="dark" display="inline-flex"><span class="check">{@html CheckmarkIcon}</span> 1 year of storage</Badge></div>
@@ -84,18 +84,18 @@
         </div>
         <div class="content">
           <div class="check">{@html CheckmarkIcon}</div>
-          <div>1 year of storage</div>
+          <div class="type-strong">1 year of storage</div>
         </div>
         <div class="content">
           <div class="check">{@html CheckmarkIcon}</div>
-          <div>3 days of storage</div>
+          <div class="type-strong">3 days of storage</div>
         </div>
       </div>
       <div class="row">
         <div class="feature-overview">
           <div class="icon"><img src={TwentyFourSevenIcon} loading="lazy" alt=""></div>
           <hgroup>
-            <div>24/7 connectivity</div>
+            <div class="type-h5">24/7 connectivity</div>
             <span class="muted">Always-on. Always LTE connected.</span>
           </hgroup>
         </div>
@@ -111,7 +111,7 @@
           <div class="icon">{@html CommacareIcon}</div>
           <div>
             <hgroup>
-              <div>commacare</div>
+              <div class="type-h5">commacare</div>
               <span class="muted">Extend your comma four's standard one year warranty for an additional year. <a class="muted-link" href="#what-is-commacare">See Terms</a></span>
             </hgroup>
           </div>
@@ -127,7 +127,7 @@
         <div class="feature-overview">
           <div class="icon"><img src={MarkerIcon} loading="lazy" alt=""></div>
           <hgroup>
-            <div>Live GPS tracking</div>
+            <div class="type-h5">Live GPS tracking</div>
             <span class="muted">Always know your vehicle's location with a live map view.</span>
           </hgroup>
         </div>
@@ -142,7 +142,7 @@
         <div class="feature-overview">
           <div class="icon">{@html LivestreamIcon}</div>
           <hgroup>
-            <div>Livestream your cameras</div>
+            <div class="type-h5">Livestream your cameras</div>
             <span class="muted">See around your car in real time with HD road-facing and night-vision cabin cameras.</span>
           </hgroup>
         </div>
@@ -157,7 +157,7 @@
         <div class="feature-overview">
           <div class="icon">{@html CommandLineIcon}</div>
           <hgroup>
-            <div>Simple SSH for developers</div>
+            <div class="type-h5">Simple SSH for developers</div>
             <span class="muted">Easy way to connect and deploy code to your comma device.</span>
           </hgroup>
         </div>
@@ -177,7 +177,7 @@
     <Badge style="dark" display="inline">connect</Badge><Badge style="light" display="inline">subscription</Badge>
     <Grid rowGap="0" templateColumns="1.25fr 1fr">
       <h1>Real time vehicle connectivity.</h1>
-      <ul class="checkmark-list">
+      <ul class="checkmark-list type-lead">
         <li>24/7 connectivity</li>
         <li>Live GPS tracking</li>
         <li>Livestream your cameras</li>
@@ -188,13 +188,13 @@
     <Grid alignItems="stretch">
       <a class="price-card" href="https://connect.comma.ai/prime" target="_blank">
         <div><Badge style="light" display="inline">Subscription</Badge><Badge style="accent" display="inline">Prime</Badge></div>
-        <span>$24/mo.</span>
+        <span class="type-h3 type-regular">$24/mo.</span>
         <div class="muted">includes data</div>
         <div class="muted">*only offered in the U.S.</div>
       </a>
       <a class="price-card" href="https://connect.comma.ai/prime" target="_blank">
         <div><Badge style="light" display="inline">Subscription</Badge><Badge style="dark" display="inline">Lite</Badge></div>
-        <span>$14/mo.</span>
+        <span class="type-h3 type-regular">$14/mo.</span>
         <div class="muted">supply your own SIM card<br>(no data included)</div>
         <div class="muted">*works internationally</div>
       </a>
@@ -203,13 +203,13 @@
     <div class="free-trial">
       <Grid alignItems="center" columnGap="3rem">
         <div>
-          <h2>Free 1-month trial with comma four purchase</h2>
+          <h2 class="type-regular">Free 1-month trial with comma four purchase</h2>
           <div class="cta-row">
-            <a class="cta light-cta" href="/shop">
+            <a class="cta light-cta type-lead" href="/shop">
               <span>Shop comma four</span>
               <span class="cta-arrow" aria-hidden="true">{@html ArrowRight}</span>
             </a>
-            <a class="cta accent-cta" href="https://connect.comma.ai/prime" target="_blank">
+            <a class="cta accent-cta type-lead" href="https://connect.comma.ai/prime" target="_blank">
               <span>Activate trial</span>
               <span class="cta-arrow" aria-hidden="true">{@html ArrowRight}</span>
             </a>
@@ -280,11 +280,8 @@
     align-items: center;
     box-sizing: border-box;
     display: flex;
-    font-size: 1.5rem;
-    font-weight: 500;
     gap: 0.75rem;
     justify-content: center;
-    letter-spacing: -0.04em;
     min-height: 4.3125rem;
     padding: 0.75rem 1.5rem;
     transition: background-color 0.2s, opacity 0.2s;
@@ -344,7 +341,6 @@
 
   @media screen and (max-width: 768px) {
     .cta {
-      font-size: 1rem;
       justify-content: space-between;
       min-height: 3.6875rem;
       padding: 0.75rem 1.25rem;
@@ -354,24 +350,15 @@
 
   #connect {
     & h1 {
-      font-size: 2.5rem;
-      font-weight: 600;
-      line-height: 1.2;
       margin-top: 1rem;
     }
 
     & p {
-      font-size: 1.5rem;
       text-wrap: balance;
     }
 
     & .header {
       & hgroup {
-        & a {
-          text-transform: uppercase;
-          font-family: var(--font-mono);
-        }
-
         & a {
           border-bottom: 1px solid #000;
         }
@@ -397,8 +384,6 @@
     }
 
     & .badge-prefix {
-      font-family: var(--font-mono);
-      text-transform: uppercase;
       margin-bottom: 0.5rem;
       margin-right: 0.5rem;
     }
@@ -424,14 +409,11 @@
         }
 
         & .title {
-          font-size: 1.25rem;
-          font-weight: 600;
           display: flex;
           width: 40%;
         }
 
         & .content {
-          font-weight: 600;
           text-align: center;
           margin: auto;
 
@@ -461,12 +443,6 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-
-            & div {
-              font-size: 1.25rem;
-              font-weight: 600;
-              line-height: 1.25;
-            }
           }
 
           & .mobile-badge {
@@ -520,14 +496,12 @@
       cursor: pointer;
 
       & span {
-        font-size: 2rem;
         margin-top: 1.5rem;
       }
 
       & .muted {
         opacity: 0.65;
         margin-top: 0.75rem;
-        line-height: 1.5;
         text-align: center;
       }
     }

@@ -15,11 +15,11 @@
   tabindex="0"
 >
   <div class="item-info">
-    <div class="title">
+    <div class="title type-strong">
       {value?.car}
     </div>
     {#if $$slots.subtitle || value?.subtitle || value?.title}
-      <div class="subtitle">
+      <div class="subtitle type-small">
         <slot name="subtitle">{value.subtitle ?? `Harness: ${value.title}`}</slot>
       </div>
     {/if}
@@ -55,21 +55,15 @@
   }
 
   .title {
-    font-size: 1rem;
-    font-weight: 600;
     margin-right: 0.5rem;
   }
 
   .subtitle {
-    font-size: 0.875rem;
-    font-weight: 400;
     color: rgb(81, 81, 81);
     margin-right: 0.5rem;
   }
 
   .accessory-label {
-    font-size: 1.25rem;
-    font-weight: 600;
     text-wrap: nowrap;
   }
 </style>

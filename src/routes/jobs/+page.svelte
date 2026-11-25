@@ -356,17 +356,17 @@
 <div class="jobs-page light">
   <section class="jobs-hero" aria-labelledby="jobs-title">
     <div class="container">
-      <h1 id="jobs-title">Come build the future</h1>
+      <h1 id="jobs-title" class="type-hero">Come build the future</h1>
     </div>
   </section>
 
   <section class="jobs-intro" aria-label="Jobs introduction">
     <div class="container split-grid">
-      <h2 class="section-title">
+      <h2 class="section-title type-h3">
         We're solving self driving cars while delivering shippable intermediaries.
       </h2>
       <div>
-        <p class="large-text">
+        <p class="large-text type-lead">
           If Tesla is the iOS of self driving, we are the Android. How do you solve self driving cars?
           You don't do it by solving the problem one part at a time. There are no parts. There is just
           a machine learning model that contains the human policy of driving.
@@ -395,8 +395,8 @@
   <section class="jobs-section" aria-labelledby="who-we-are">
     <div class="container">
       <div class="split-grid">
-        <h2 id="who-we-are" class="section-title">Who we are</h2>
-        <p class="large-text">
+        <h2 id="who-we-are" class="section-title type-h3">Who we are</h2>
+        <p class="large-text type-lead">
           We have 90+ million miles of driving data sitting on hard drives ready to be trained on.
           Write the training code, fix the bugs, and watch it drive. Think AlphaGo, but for self
           driving cars. And the minute we do solve it, we already have thousands of users to deploy to.
@@ -406,9 +406,9 @@
 
       <div class="section-spacer"></div>
 
-      <p class="eyebrow">On-site only, no remote</p>
-      <h2 class="section-title">We're in San Diego</h2>
-      <p class="body-copy">comma HQ is located in sunny San Diego, California.</p>
+      <p class="eyebrow type-label">On-site only, no remote</p>
+      <h2 class="section-title type-h3">We're in San Diego</h2>
+      <p class="body-copy type-lead">comma HQ is located in sunny San Diego, California.</p>
 
       <div class="photo-grid">
         <img
@@ -432,7 +432,7 @@
   <section class="quote-section" aria-label="Employee quotes">
     <div class="container quote-container">
       <figure class="quote">
-        <blockquote>"{quotes[activeQuote].text}"</blockquote>
+        <blockquote class="type-h3 type-regular">"{quotes[activeQuote].text}"</blockquote>
         <figcaption>- {quotes[activeQuote].author}, {quotes[activeQuote].team}</figcaption>
       </figure>
 
@@ -460,11 +460,11 @@
 
   <section class="jobs-section" aria-labelledby="hiring-process">
     <div class="container">
-      <h2 id="hiring-process" class="section-title">Our Process</h2>
+      <h2 id="hiring-process" class="section-title type-h3">Our Process</h2>
       <div class="traits-grid">
         {#each processSteps as step}
           <article class="trait-card">
-            <h3>{step.label}. {step.title}</h3>
+            <h3 class="type-h4">{step.label}. {step.title}</h3>
             <p>{@html step.body}</p>
           </article>
         {/each}
@@ -475,13 +475,13 @@
   <section class="challenge-section dark" aria-labelledby="challenge-title">
     <div class="container challenge-grid">
       <div>
-        <p class="eyebrow">Start here</p>
+        <p class="eyebrow type-label">Start here</p>
         <h2 id="challenge-title">Ready to apply?</h2>
-        <p class="challenge-copy">
+        <p class="challenge-copy type-lead">
           Email your resume, GitHub, and challenge or bounty solution to
           <a href="mailto:work@comma.ai">work@comma.ai</a>.
         </p>
-        <p class="challenge-copy">
+        <p class="challenge-copy type-lead">
           The compression challenge is a good place to start, but any strong leaderboard
           challenge or bounty submission works.
         </p>
@@ -507,12 +507,12 @@
 
   <section class="benefits-section" aria-labelledby="benefits-title">
     <div class="container split-grid">
-      <h2 id="benefits-title" class="section-title">Explore Our Benefits</h2>
+      <h2 id="benefits-title" class="section-title type-h3">Explore Our Benefits</h2>
       <div class="benefits-list">
         {#each benefits as benefit}
           <div class="benefit-item">
             <img src={benefit.icon} loading="lazy" alt="" aria-hidden="true" />
-            <span>{benefit.text}</span>
+            <span class="type-h4">{benefit.text}</span>
           </div>
         {/each}
       </div>
@@ -522,8 +522,8 @@
   <section class="jobs-section" aria-labelledby="open-positions">
     <div class="container openings-grid">
       <div class="openings-intro">
-        <h2 id="open-positions" class="section-title">Open Positions</h2>
-        <p>All positions are on-site in San Diego, CA</p>
+        <h2 id="open-positions" class="section-title type-h3">Open Positions</h2>
+        <p class="type-lead">All positions are on-site in San Diego, CA</p>
       </div>
 
       <div class="jobs-list">
@@ -539,9 +539,9 @@
               >
                 <span class="job-header-title">
                   <span class="job-title-line">
-                    <span class="job-title">{job.title}</span>
+                    <span class="job-title type-h3">{job.title}</span>
                   </span>
-                  <span class="job-meta">
+                  <span class="job-meta type-mono type-small">
                     {#if job.team}
                       <span class="job-team">{job.team}{job.team === "all teams" ? "" : " team"}</span>
                       <span class="job-meta-separator" aria-hidden="true">/</span>
@@ -565,9 +565,9 @@
                 </button>
                 <div class="apply-wrap">
                   {#if emailTooltipIndex === index}
-                    <span class="email-tooltip" role="status">{emailTooltipText}</span>
+                    <span class="email-tooltip type-mono type-small" role="status">{emailTooltipText}</span>
                   {/if}
-                  <button type="button" class="apply-button" on:click={() => showApplyEmail(index)}>
+                  <button type="button" class="apply-button type-caps type-small" on:click={() => showApplyEmail(index)}>
                     Email Us
                   </button>
                 </div>
@@ -575,11 +575,11 @@
             </div>
 
             {#if expandedJobIndexes.has(index)}
-              <div class="job-panel" id={`job-panel-${index}`}>
+              <div class="job-panel type-large" id={`job-panel-${index}`}>
                 <div class="job-description">{@html job.description}</div>
 
                 {#if job.qualifications.length > 0}
-                  <div class="job-qualifications">Qualifications</div>
+                  <div class="job-qualifications type-label">Qualifications</div>
                   <ul>
                     {#each job.qualifications as qualification}
                       <li>{qualification}</li>
@@ -588,7 +588,7 @@
                 {/if}
 
                 <div class="job-how-to-apply">
-                  <div class="job-qualifications">How to apply</div>
+                  <div class="job-qualifications type-label">How to apply</div>
                   <p>{@html job.howToApply ?? DEFAULT_HOW_TO_APPLY}</p>
                 </div>
               </div>
@@ -619,7 +619,6 @@
 
     background: #fff;
     color: #000;
-    letter-spacing: 0;
     overflow-x: hidden;
     width: 100%;
   }
@@ -649,9 +648,6 @@
 
   .jobs-hero h1 {
     color: #000;
-    font-size: clamp(3rem, 6vw, 5.5rem);
-    font-weight: 600;
-    line-height: 0.95;
     margin: 0;
     max-width: 14ch;
   }
@@ -684,13 +680,9 @@
 
   .section-title {
     color: #000;
-    font-family: var(--font-sans);
-    font-size: clamp(1.6rem, 2.4vw, 2.5rem);
-    font-weight: 700;
-    line-height: 1.1;
     margin: 0;
     overflow-wrap: anywhere;
-    text-transform: uppercase;
+    text-transform: uppercase; /* type deviation: D5, case the copy depends on */
     word-break: break-word;
   }
 
@@ -699,9 +691,6 @@
   .challenge-copy,
   .trait-card p {
     color: #000;
-    font-size: clamp(1.0625rem, 1.35vw, 1.25rem);
-    font-weight: 400;
-    line-height: 1.45;
   }
 
   .large-text {
@@ -718,11 +707,7 @@
 
   .eyebrow {
     color: rgba(0, 0, 0, 0.55);
-    font-family: var(--font-mono);
-    font-size: 1rem;
-    line-height: 1.2;
     margin: 0 0 0.5rem;
-    text-transform: uppercase;
   }
 
   .jobs-video {
@@ -788,17 +773,12 @@
   .quote blockquote {
     border: 0;
     color: #000;
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
-    font-style: normal;
-    line-height: 1.25;
     margin: 0;
     padding: 0;
   }
 
   .quote figcaption {
     color: #000;
-    font-size: 1.25rem;
-    line-height: 1.2;
     margin-top: 2rem;
   }
 
@@ -874,9 +854,6 @@
 
   .trait-card h3 {
     color: #000;
-    font-size: 1.5rem;
-    font-weight: 600;
-    line-height: 1.2;
     margin: 0 0 1rem;
   }
 
@@ -902,9 +879,6 @@
 
   .challenge-section h2 {
     color: #fff;
-    font-size: clamp(2rem, 3vw, 2.75rem);
-    font-weight: 600;
-    line-height: 1.2;
     margin: 0 0 1rem;
   }
 
@@ -961,9 +935,6 @@
 
   .benefit-item span {
     color: #000;
-    font-size: 1.4rem;
-    font-weight: 600;
-    line-height: 1.2;
     margin-left: 1rem;
   }
 
@@ -981,14 +952,7 @@
 
   .openings-intro p {
     color: #000;
-    font-size: 1.5rem;
-    line-height: 1.3;
     margin: 1.5rem 0 0;
-  }
-
-  .openings-intro .section-title {
-    font-size: 2rem;
-    line-height: 1.2;
   }
 
   .jobs-list {
@@ -1022,7 +986,6 @@
     cursor: pointer;
     display: flex;
     flex: 1;
-    font-family: inherit;
     justify-content: space-between;
     min-width: 0;
     padding: 0;
@@ -1057,9 +1020,6 @@
     color: #000;
     display: block;
     flex: 0 1 auto;
-    font-size: 1.875rem;
-    font-weight: 600;
-    line-height: 1.2;
     margin: 0;
     min-width: 0;
     overflow-wrap: anywhere;
@@ -1089,9 +1049,6 @@
   .job-meta-separator,
   .job-location {
     color: #000;
-    font-family: var(--font-mono);
-    font-size: 1rem;
-    line-height: 1.2;
   }
 
   .job-team {
@@ -1111,6 +1068,7 @@
     align-items: center;
     display: flex;
     flex-wrap: wrap;
+    font-size: var(--text-job-meta); /* type deviation: D10, team/location row must stay on one line on mobile */
     gap: 0.375rem 0.625rem;
     margin-top: 0.75rem;
   }
@@ -1161,9 +1119,6 @@
     background: #000;
     bottom: calc(100% + 0.625rem);
     color: #fff;
-    font-family: var(--font-mono);
-    font-size: 0.875rem;
-    line-height: 1.2;
     padding: 0.5rem 0.75rem;
     position: absolute;
     right: 0;
@@ -1186,14 +1141,8 @@
     color: #fff;
     cursor: pointer;
     flex: none;
-    font-family: inherit;
-    font-size: 0.875rem;
-    font-weight: 600;
-    letter-spacing: 0.8px;
-    line-height: 1.2;
     padding: 0.75rem 1rem;
     text-decoration: none;
-    text-transform: uppercase;
     transition: opacity 0.2s;
     white-space: nowrap;
   }
@@ -1214,19 +1163,12 @@
 
   .job-description {
     color: #000;
-    font-size: 1.125rem;
-    font-weight: 400;
-    line-height: 1.45;
     margin-bottom: 1.5rem;
   }
 
   .job-qualifications {
     color: #000;
-    font-family: var(--font-mono);
-    font-size: 1.0625rem;
-    line-height: 1.25;
     margin-bottom: 1.5rem;
-    text-transform: uppercase;
   }
 
   .job-item ul {
@@ -1237,9 +1179,6 @@
 
   .job-item li {
     color: #000;
-    font-size: 1.125rem;
-    font-weight: 400;
-    line-height: 1.45;
     margin-bottom: 0;
   }
 
@@ -1253,8 +1192,6 @@
 
   .job-how-to-apply p {
     color: #000;
-    font-size: 1.125rem;
-    line-height: 1.45;
     margin: 0;
   }
 
@@ -1265,10 +1202,6 @@
   }
 
   @media screen and (max-width: 1024px) {
-    .jobs-hero h1 {
-      font-size: 3rem;
-    }
-
     .split-grid,
     .photo-grid,
     .challenge-grid,
@@ -1318,7 +1251,6 @@
     }
 
     .jobs-hero h1 {
-      font-size: 2.4rem;
       max-width: none;
     }
 
@@ -1328,9 +1260,6 @@
     }
 
     .section-title {
-      font-size: 1.45rem;
-      font-weight: 700;
-      line-height: 1.12;
       max-width: 100%;
     }
 
@@ -1338,7 +1267,6 @@
     .body-copy,
     .challenge-copy,
     .trait-card p {
-      font-size: 1rem;
       max-width: 100%;
       overflow-wrap: normal;
     }
@@ -1347,12 +1275,7 @@
       height: 3rem;
     }
 
-    .quote blockquote {
-      font-size: 1.35rem;
-    }
-
     .quote figcaption {
-      font-size: 1rem;
       margin-top: 1.5rem;
     }
 
@@ -1378,26 +1301,13 @@
       border-top: 1px solid #000;
     }
 
-    .challenge-section h2 {
-      font-size: 1.875rem;
-    }
-
     .benefit-item span {
-      font-size: 1rem;
       margin-left: 0.5rem;
     }
 
     .benefit-item img {
       height: 40px;
       width: 40px;
-    }
-
-    .openings-intro p {
-      font-size: 1.25rem;
-    }
-
-    .openings-intro .section-title {
-      font-size: 1.5rem;
     }
 
     .job-item {
@@ -1416,10 +1326,6 @@
     .job-header-title {
       margin-bottom: 0;
       margin-right: 0;
-    }
-
-    .job-title {
-      font-size: 1.5rem;
     }
 
     .job-title-line {
@@ -1441,13 +1347,6 @@
 
     .job-panel {
       margin-top: 1rem;
-    }
-
-    .job-team,
-    .job-meta-separator,
-    .job-location {
-      font-size: 0.75rem;
-      line-height: 1.6;
     }
 
     .apply-wrap {

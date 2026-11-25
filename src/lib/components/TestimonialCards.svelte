@@ -55,7 +55,7 @@
               loop
               playsinline
             ></video>
-            <span class="dur">{item[0].duration}</span>
+            <span class="dur type-mono type-small">{item[0].duration}</span>
           </div>
         {/if}
 
@@ -64,30 +64,30 @@
             <div class="head">
               <img class="avatar" src={avatarFor(post.handle)} alt="" loading="lazy" />
               <span class="who">
-                <span class="name">{post.name}</span>
-                <span class="handle">@{post.handle}</span>
+                <span class="name type-strong">{post.name}</span>
+                <span class="handle type-small">@{post.handle}</span>
               </span>
               {#if i === 0}
                 <span class="source-icon" aria-hidden="true">{@html XIcon}</span>
               {/if}
             </div>
-            <p class="body">{#each segment(post.body) as part}{#if part.handle}<span class="mention">{part.text}</span>{:else}{part.text}{/if}{/each}</p>
+            <p class="body">{#each segment(post.body) as part}{#if part.handle}<span class="mention type-strong">{part.text}</span>{:else}{part.text}{/if}{/each}</p>
           </div>
         {/each}
 
-        <span class="foot date">{last.timestamp}</span>
+        <span class="foot type-label">{last.timestamp}</span>
       </a>
     {:else}
       <a class="card" href={item.url} target="_blank" rel="noopener">
         <div class="head">
           <img class="logo" src={item.logo} alt="Logo of {item.outlet}" />
           {#if item.video}
-            <span class="outlet">{item.outlet}</span>
+            <span class="outlet type-strong">{item.outlet}</span>
             <span class="source-icon yt" aria-hidden="true">{@html PlayIcon}</span>
           {/if}
         </div>
-        <p class:quoted={quoted(item.quote)}>{item.quote}</p>
-        <span class="foot">
+        <p class:type-italic={quoted(item.quote)}>{item.quote}</p>
+        <span class="foot type-label">
           {item.video ? "watch" : "read"}
           <span class="arrow" aria-hidden="true">{@html ArrowRight}</span>
         </span>
@@ -124,6 +124,7 @@
   }
 
   .head {
+    --tracking: var(--tracking-normal); /* type deviation: D8, mimics an X/press embed header */
     align-items: center;
     display: flex;
     gap: 0.75rem;
@@ -154,12 +155,8 @@
     align-items: center;
     color: var(--card-meta);
     display: flex;
-    font-family: var(--font-mono);
-    font-size: 0.8125rem;
     gap: 0.4rem;
-    letter-spacing: normal;
     margin-top: auto;
-    text-transform: uppercase;
     transition: color 0.2s;
   }
 
@@ -176,14 +173,7 @@
 
   .outlet {
     color: #000;
-    font-size: 1.0625rem;
-    font-weight: 700;
-    letter-spacing: normal;
     white-space: nowrap;
-  }
-
-  .quoted {
-    font-style: italic;
   }
 
   /* app.css colors every span, so this has to take the foot's color back */
@@ -224,8 +214,6 @@
     bottom: 0.6rem;
     padding: 0.1rem 0.4rem;
     color: #fff;
-    font-family: var(--font-mono);
-    font-size: 0.6875rem;
     background: rgba(0, 0, 0, 0.75);
   }
 
@@ -244,13 +232,11 @@
   .who {
     display: flex;
     flex-flow: column;
-    line-height: 1.2;
     min-width: 0;
   }
 
   .name,
   .handle {
-    letter-spacing: normal;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -258,12 +244,10 @@
 
   .name {
     color: var(--card-text);
-    font-weight: 700;
   }
 
   .handle {
     color: var(--card-meta);
-    font-size: 0.875rem;
   }
 
   .post {
@@ -298,11 +282,6 @@
 
   .mention {
     color: inherit;
-    font-weight: 700;
-  }
-
-  .date {
-    font-size: 0.75rem;
   }
 
   @media (hover: hover) and (pointer: fine) {

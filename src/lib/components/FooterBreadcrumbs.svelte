@@ -24,7 +24,7 @@
 </script>
 
 {#if crumbs.length}
-  <nav class="footer-breadcrumbs" aria-label="Breadcrumb">
+  <nav class="footer-breadcrumbs type-small" aria-label="Breadcrumb">
     <a href="/" aria-label="comma home">{@html CommaIcon}</a>
     {#each crumbs as { label, href }}
       <span aria-hidden="true">&gt;</span>
@@ -42,8 +42,6 @@
     flex-wrap: wrap;
     gap: 10px;
     color: #aaa;
-    font-size: 14px;
-    line-height: 20px;
   }
 
   .footer-breadcrumbs a {

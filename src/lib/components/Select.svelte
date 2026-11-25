@@ -2,7 +2,7 @@
   export let value;
 </script>
 
-<div class="select">
+<div class="select type-h5">
   <select bind:value>
     <slot></slot>
   </select>
@@ -15,13 +15,10 @@
     background: #fff;
     border: 1px solid #a0a0a0;
     padding: 0.25em 0.5em;
-    font-size: 1.25rem;
     cursor: pointer;
   }
 
   select {
-    font-size: inherit;
-    font-weight: 600;
     text-wrap: balance;
     appearance: none;
     background-color: transparent;

@@ -30,11 +30,11 @@
   >
     <div>
       <h2>{title}</h2>
-      <div class="updates-subtitle"><slot /></div>
+      <div class="updates-subtitle type-large"><slot /></div>
     </div>
 
     {#if $status === 'success'}
-      <div class="success" role="status">
+      <div class="success type-large" role="status">
         <strong>Thanks for signing up!</strong>
         <span>We only send emails we would want to receive.</span>
       </div>
@@ -83,11 +83,11 @@
         </fieldset>
 
         {#if $status === 'error'}
-          <p class="error" role="alert">{$errorMessage}</p>
+          <p class="error type-small" role="alert">{$errorMessage}</p>
         {/if}
 
         <button
-          class="submit-button"
+          class="submit-button type-strong"
           type="submit"
           disabled={$status === 'submitting' || !$email}
         >
@@ -108,16 +108,11 @@
 
   h2 {
     margin: 0 0 0.75rem;
-    font-weight: 600;
-    line-height: 1.05;
-    letter-spacing: -0.06em;
   }
 
   .updates-subtitle :global(p) {
     max-width: 30rem;
     margin: 0;
-    font-size: 1.125rem;
-    line-height: 1.35;
   }
 
   .updates-subtitle :global(p + p) {
@@ -136,7 +131,6 @@
     box-sizing: border-box;
     padding: 1rem;
     color: #000;
-    font: inherit;
     background: #fff;
     border: 1px solid #000;
   }
@@ -153,16 +147,11 @@
   }
 
   .car-field small {
-    font-size: 0.8125rem;
-    line-height: 1.35;
-    letter-spacing: 0;
     opacity: 0.7;
   }
 
   .submit-button {
     padding: 1rem;
-    font: inherit;
-    font-weight: 600;
     cursor: pointer;
     background: var(--color-accent);
     border: none;
@@ -214,17 +203,10 @@
     justify-items: start;
   }
 
-  .category-options small {
-    font-size: 0.875rem;
-    letter-spacing: 0;
-  }
-
   .success {
     display: grid;
     gap: 0.25rem;
     padding: 2rem;
-    font-size: 1.125rem;
-    line-height: 1.35;
     background: color-mix(in srgb, var(--color-accent) 10%, transparent);
     border: 1px solid rgba(48, 153, 0, 0.5);
   }
@@ -233,7 +215,6 @@
     margin: 0;
     padding: 0.75rem;
     color: #8a0d05;
-    font-size: 0.875rem;
     background: color-mix(in srgb, var(--color-red) 10%, transparent);
     border: 1px solid var(--color-red);
   }

@@ -55,12 +55,12 @@
           <div class="product-content">
             <Badge style="accent">NEW DEVICE!</Badge>
             <hgroup>
-              <h1>comma four</h1>
-              <span>
+              <h1 class="type-h2">comma four</h1>
+              <span class="type-lead">
                 {#if FOUR_STRIKETHROUGH_PRICE}
                   <span class="strikethrough-price">${FOUR_STRIKETHROUGH_PRICE}</span>
                 {/if}
-                <span class:sale-price={FOUR_SALE}>${FOUR_PRICE}</span>
+                <span class:sale-price={FOUR_SALE} class:type-strong={FOUR_SALE}>${FOUR_PRICE}</span>
               </span>
               <span class="muted">or ${FOUR_PRICE - FOUR_TRADE_IN_CREDIT - NO_HARNESS_DISCOUNT} after trade-in of any comma device</span>
               <div class="muted installments">
@@ -70,7 +70,7 @@
             <LinkButton href="/shop/comma-four" style="secondary" fullWidth>
               Buy now
             </LinkButton>
-            <p>
+            <p class="type-large">
               Works with {vehicleCountText} cars from 27 brands.
               <a class="highlight muted" href="/vehicles">Is your car compatible?</a>
             </p>
@@ -85,7 +85,7 @@
           <div class="trait">
             <div>{@html CarIcon}</div>
             <hgroup>
-              <h2>Works with {vehicleCountText} cars</h2>
+              <h2 class="type-caps type-small">Works with {vehicleCountText} cars</h2>
               <div>
                 Compatible with {vehicleCountText} vehicles.
                 <a class="highlight" href="/vehicles">Check compatibility</a>.
@@ -95,7 +95,7 @@
           <div class="trait">
             <div>{@html RecordingsIcon}</div>
             <hgroup>
-              <h2>Easy to plug in</h2>
+              <h2 class="type-caps type-small">Easy to plug in</h2>
               <div>
                 Check out our step-by-step guide. Get set up in your car in 15 minutes.
               </div>
@@ -104,7 +104,7 @@
           <div class="trait">
             <div>{@html CalendarIcon}</div>
             <hgroup>
-              <h2>30-day money-back trial</h2>
+              <h2 class="type-caps type-small">30-day money-back trial</h2>
               <div>
                 See for yourself why Consumer Reports rated us as the
                 <a class="highlight" href="https://data.consumerreports.org/wp-content/uploads/2020/11/consumer-reports-active-driving-assistance-systems-november-16-2020.pdf" target="_blank">top ADAS system</a>.
@@ -121,14 +121,14 @@
           <div class="product-content">
             <Badge style="accent">NEW!</Badge>
             <hgroup>
-              <h1>chestnut</h1>
-              <span>from $249</span>
+              <h1 class="type-h2">chestnut</h1>
+              <span class="type-lead">from $249</span>
               <span class="muted">run openpilot’s biggest models in your car</span>
             </hgroup>
             <LinkButton href="/shop/chestnut" style="secondary" fullWidth>
               Buy now
             </LinkButton>
-            <p class="muted">
+            <p class="type-large muted">
               chestnut turns USB into PCIe, so you can connect a full desktop
               GPU to a <a class="highlight muted" href="/shop/comma-four">comma four</a>
               or your computer.
@@ -144,7 +144,7 @@
           <div class="trait">
             <div>{@html CarIcon}</div>
             <hgroup>
-              <h2>Ready to drive</h2>
+              <h2 class="type-caps type-small">Ready to drive</h2>
               <div>
                 Comes with everything you need to add desktop-class GPU compute
                 to your comma four.
@@ -154,7 +154,7 @@
           <div class="trait">
             <div>{@html ProcessorIcon}</div>
             <hgroup>
-              <h2>Bring your own GPU</h2>
+              <h2 class="type-caps type-small">Bring your own GPU</h2>
               <div>
                 Use tiny chestnut with your own GPU and power supply.
               </div>
@@ -163,7 +163,7 @@
           <div class="trait">
             <div>{@html CableIcon}</div>
             <hgroup>
-              <h2>Any computer, any USB</h2>
+              <h2 class="type-caps type-small">Any computer, any USB</h2>
               <div>
                 With <a class="highlight" href="https://github.com/tinygrad/tinygrad">tinygrad</a>,
                 use your GPU over USB4, USB3, or USB2 on Linux or macOS.
@@ -198,12 +198,12 @@
       <Accordion style="dark">
         <div class="service-label" slot="label">
           <hgroup>
-            <h2>Custom car ports</h2>
-            <p>
+            <h2 class="type-h3">Custom car ports</h2>
+            <p class="type-large">
               Hire the openpilot team to add support for additional car brands
               and models.
             </p>
-            <span>See pricing</span>
+            <span class="type-large type-strong">See pricing</span>
           </hgroup>
         </div>
         <div class="service-details" slot="content">
@@ -247,7 +247,7 @@
                 <li>$500,000 Total (due at start of project)</li>
               </ul>
               <hr />
-              <span class="price">$50,000.00</span>
+              <span class="price type-strong">$50,000.00</span>
               <Button
                 style="accent"
                 on:click={() => {
@@ -342,14 +342,6 @@
       & hgroup {
         margin-bottom: 2rem;
 
-        & h1 {
-          font-size: 2.5rem;
-        }
-
-        & > span:first-of-type {
-          font-size: 1.5rem;
-        }
-
         & span {
           display: block;
 
@@ -358,26 +350,22 @@
           }
 
           & .sale-price {
-            font-weight: 700;
             color: var(--color-sale-red);
           }
 
           &.muted {
-            font-size: 1rem;
             margin-top: 0.25rem;
           }
         }
 
         & .installments {
-          font-size: 1rem;
-          --installments-rest-font-size: 1rem;
+          --installments-rest-font-size: var(--text-base); /* type deviation: D3, ShopPay's size API into its shadow root */
           margin-top: 0.25rem;
         }
 
       }
 
       & p {
-        font-size: 1.125rem;
         color: white;
       }
 
@@ -400,9 +388,6 @@
         }
 
         & h2 {
-          font-size: 1rem;
-          font-weight: 600;
-          text-transform: uppercase;
           margin-bottom: 0.5rem;
         }
 
@@ -479,30 +464,23 @@
       & hgroup {
         & * {
           color: white;
-          line-height: 1.25;
         }
 
         & h2 {
           margin-bottom: 0.25rem;
-          font-size: 1.75rem;
-          font-weight: 600;
         }
 
         & p {
           opacity: 0.65;
-          font-size: 1.25rem;
           margin-top: 0;
         }
 
         & span {
           margin-top: 0.875rem;
-          font-size: 1.25rem;
         }
       }
 
       color: white;
-      font-size: 1.5rem;
-      font-weight: 600;
     }
 
     & .service-details {
@@ -512,10 +490,6 @@
 
       & h3 {
         margin-top: 0;
-      }
-
-      & span {
-        font-weight: 700;
       }
 
       & hr {
@@ -532,10 +506,6 @@
 
           & * {
             margin: 0;
-          }
-
-          & h4 {
-            font-weight: 600;
           }
         }
       }

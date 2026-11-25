@@ -32,33 +32,33 @@
     <Grid columns={4}>
       <div class="stats-item">
         <div>{@html RoadIcon}</div>
-        <span>300+ million</span>
-        <span>Miles driven</span>
+        <span class="type-h3 type-regular">300+ million</span>
+        <span class="type-label">Miles driven</span>
       </div>
       <div class="stats-item">
         <div>{@html SteerIcon}</div>
-        <span>56%</span>
-        <span>Miles driven are engaged</span>
+        <span class="type-h3 type-regular">56%</span>
+        <span class="type-label">Miles driven are engaged</span>
       </div>
       <div class="stats-item">
         <div>{@html CarIcon}</div>
-        <span>20,000+</span>
-        <span>Active users</span>
+        <span class="type-h3 type-regular">20,000+</span>
+        <span class="type-label">Active users</span>
       </div>
       <div class="stats-item">
         <div>{@html PeopleIcon}</div>
-        <span>{Math.floor(contributorsCount / 10) * 10}+</span>
-        <span>Contributors</span>
+        <span class="type-h3 type-regular">{Math.floor(contributorsCount / 10) * 10}+</span>
+        <span class="type-label">Contributors</span>
       </div>
     </Grid>
     <div class="headline">
-      <h1>
+      <h1 class="type-h2">
         openpilot is an
         <a class="highlight" href="https://github.com/commaai/openpilot" target="_blank">open source</a>
         advanced driver assistance system that works on {vehicleCountText} car models of Toyota,
         Hyundai, Honda, and many other brands.
       </h1>
-      <ul>
+      <ul class="type-lead">
         <li>Automated Lane Centering</li>
         <li>Adaptive Cruise Control</li>
         <li>Lane Change Assist</li>
@@ -74,33 +74,33 @@
   <div class="container">
     <article>
       <hgroup>
-        <p>01</p>
+        <p class="type-mono type-lead">01</p>
         <h2>Makes driving chill</h2>
       </hgroup>
-      <p>
+      <p class="type-lead">
         Currently, openpilot performs the functions of Adaptive Cruise Control
         (ACC) and Automated Lane Centering (ALC). openpilot can accelerate,
         brake automatically for other vehicles, and steer to follow the
         road/lane.
       </p>
-      <p>
+      <p class="type-lead">
         Like other ACC and ALC systems, openpilot requires the driver to be alert,
         pay attention, and be ready to take over at all times.
         To assist the driver in maintaining alertness, openpilot includes a driver
         monitoring system that alerts when it detects driver distraction.
       </p>
       <p />
-      <p>
+      <p class="type-lead">
         When used correctly, these features reduce your workload as a driver,
         and can make long drives relaxing instead of tedious.
       </p>
     </article>
     <article>
       <hgroup>
-        <p>02</p>
+        <p class="type-mono type-lead">02</p>
         <h2>Connects to your car</h2>
       </hgroup>
-      <p>
+      <p class="type-lead">
         openpilot works by connecting to your car's CAN network. Modern cars
         accept electronic steering, gas, and brake commands to allow for ADAS
         features. openpilot can use these commands to provide much better ADAS
@@ -109,10 +109,10 @@
     </article>
     <article>
       <hgroup>
-        <p>03</p>
+        <p class="type-mono type-lead">03</p>
         <h2>Modern machine learning</h2>
       </hgroup>
-      <p>
+      <p class="type-lead">
         openpilot contains a state-of-the-art neural network that understands
         the road scene and predicts where to drive. This neural network has
         learned to drive by watching the millions of miles of driving data
@@ -123,10 +123,10 @@
     </article>
     <article>
       <hgroup>
-        <p>04</p>
+        <p class="type-mono type-lead">04</p>
         <h2>Open source and community supported</h2>
       </hgroup>
-      <p>
+      <p class="type-lead">
         openpilot is developed by comma and by users like you. We welcome both
         pull requests and issues on
         <a class="highlight" href="https://github.com/commaai/openpilot" target="_blank">GitHub</a>.
@@ -145,10 +145,10 @@
     </article>
     <article>
       <hgroup>
-        <p>05</p>
+        <p class="type-mono type-lead">05</p>
         <h2>Try openpilot on the comma four</h2>
       </hgroup>
-      <p>
+      <p class="type-lead">
         Love it or return it. Every comma four comes with a 30-day money back
         trial.
       </p>
@@ -158,27 +158,27 @@
           <Grid columns={2}>
             <div class="feature-item">
               <div>{@html ThreeSixtyVisionIcon}</div>
-              <span>360° vision<br />W/ 3 cameras</span>
+              <span class="type-label">360° vision<br />W/ 3 cameras</span>
             </div>
             <div class="feature-item">
               <div>{@html ProcessorIcon}</div>
-              <span>Qualcomm snapdragon 845 MAX</span>
+              <span class="type-label">Qualcomm snapdragon 845 MAX</span>
             </div>
             <div class="feature-item">
               <div>{@html ConnectivityIcon}</div>
-              <span>LTE & WiFi</span>
+              <span class="type-label">LTE & WiFi</span>
             </div>
             <div class="feature-item">
               <div>{@html DisplayIcon}</div>
-              <span>BEAUTIFUL<br />OLED display</span>
+              <span class="type-label">BEAUTIFUL<br />OLED display</span>
             </div>
             <div class="feature-item">
               <div>{@html MemoryIcon}</div>
-              <span>CAN FD ENABLED</span>
+              <span class="type-label">CAN FD ENABLED</span>
             </div>
             <div class="feature-item">
               <div>{@html LocationIcon}</div>
-              <span>High-precision GPS</span>
+              <span class="type-label">High-precision GPS</span>
             </div>
           </Grid>
           <Space multiplier={3} />
@@ -190,10 +190,10 @@
     </article>
     <article>
       <hgroup>
-        <p>06</p>
+        <p class="type-mono type-lead">06</p>
         <h2>Proven on the road</h2>
       </hgroup>
-      <p>
+      <p class="type-lead">
         Our 20,000+ users have driven over 300 million miles with a device
         running openpilot. Over 56% of those miles were driven by openpilot,
         with the driver supervising.
@@ -226,26 +226,10 @@
     & span:first-of-type {
       margin-top: 0.5rem;
       margin-bottom: 0.25rem;
-      font-size: 2rem;
-      font-weight: 600;
     }
 
     & span:last-of-type {
       color: var(--color-muted);
-      text-transform: uppercase;
-      font-family: var(--font-mono);
-      font-size: 1rem;
-      font-weight: 400;
-    }
-
-    @media screen and (max-width: 1024px) {
-      & span:first-of-type {
-        font-size: 1.5rem;
-      }
-
-      & span:last-of-type {
-        font-size: 0.875rem;
-      }
     }
   }
 
@@ -264,10 +248,6 @@
 
     & span {
       color: var(--color-muted);
-      text-transform: uppercase;
-      font-family: var(--font-mono);
-      font-size: 1rem;
-      font-weight: 400;
       margin-left: 1rem;
     }
   }
@@ -282,11 +262,6 @@
       }
     }
 
-    & h1 {
-      font-size: 2.5rem;
-      line-height: 1.2;
-    }
-
     & ul {
       padding-left: 0;
       list-style: none;
@@ -299,16 +274,8 @@
     }
 
     @media screen and (max-width: 512px) {
-      & h1 {
-        font-size: 2rem;
-      }
-
       & ul {
         padding-top: 1rem;
-
-        & li {
-          font-size: 1.25rem;
-        }
       }
     }
   }
@@ -319,22 +286,13 @@
     & hgroup {
       & p {
         opacity: 0.5;
-        font-family: var(--font-mono);
         margin: 0 0 0.5rem;
-        font-size: 1.5rem;
       }
 
       & h2 {
-        font-weight: 600;
-        font-size: 2.5rem;
-        text-transform: lowercase;
-        line-height: 1.2;
+        text-transform: lowercase; /* type deviation: D5, case the copy depends on */
         margin-bottom: 1rem;
       }
-    }
-
-    & p {
-      font-size: 1.5rem;
     }
 
     & h3 {
@@ -344,16 +302,6 @@
 
     @media screen and (max-width: 512px) {
       margin-bottom: 4rem;
-
-      & hgroup {
-        & h2 {
-          font-size: 2rem;
-        }
-      }
-
-      & p {
-        font-size: 1.25rem;
-      }
 
       & .release-notes {
         width: 100%;

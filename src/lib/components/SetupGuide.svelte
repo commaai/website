@@ -16,8 +16,8 @@
 <Grid alignItems="center" size="large">
   <div class="installation-guide">
     <hgroup>
-      <span>{productName}</span>
-      <h2>{title}</h2>
+      <span class="type-lead">{productName}</span>
+      <h2 class="type-h3">{title}</h2>
     </hgroup>
     <div class="overview">
       <div>
@@ -52,7 +52,6 @@
     & hgroup {
       & span {
         display: block;
-        font-size: 1.25rem;
         margin-bottom: 0.5rem;
       }
     }

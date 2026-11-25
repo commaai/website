@@ -24,7 +24,7 @@
     aria-modal="true"
     tabindex="-1"
   >
-    <div class="section-links">
+    <div class="section-links type-h2 type-regular">
       <a href="/">home</a>
       <a href="/openpilot">openpilot</a>
       <a href="/shop/comma-four">comma four</a>
@@ -38,16 +38,16 @@
     </div>
     <div class="news-feed">
       <div class="blog">
-        <div class="title">Latest from the blog:</div>
+        <div class="title type-caps type-small">Latest from the blog:</div>
         {#each $page.data.blogPosts as blogPost}
           <div class="entry">
-            <a href={blogPost.link}>{blogPost.title}</a>
-            <div>{blogPost.date} - {blogPost.readTime}</div>
+            <a class="type-lead" href={blogPost.link}>{blogPost.title}</a>
+            <div class="type-small">{blogPost.date} - {blogPost.readTime}</div>
           </div>
         {/each}
       </div>
       <div class="social-links">
-        <div class="title">Social</div>
+        <div class="title type-caps type-small">Social</div>
         <SocialIcons size="2rem" />
       </div>
     </div>
@@ -138,8 +138,6 @@
       color: #fff;
       margin-bottom: 2rem;
       padding: 0;
-      font-size: 2.5rem;
-      line-height: 0.9;
       text-decoration: none;
     }
   }
@@ -154,10 +152,7 @@
 
     & .title {
       color: rgba(255, 255, 255, 0.45);
-      letter-spacing: 1px;
-      text-transform: uppercase;
       margin-bottom: 1rem;
-      font-size: 0.875rem;
     }
 
     & .entry {
@@ -165,13 +160,11 @@
       margin-bottom: 2rem;
 
       & a {
-        font-size: 1.5rem;
         text-decoration: none;
       }
 
       & div {
         color: rgba(255, 255, 255, 0.65);
-        font-size: 0.875rem;
       }
     }
   }
@@ -187,10 +180,6 @@
       width: 100%;
       padding: 2.5rem 0 0;
       flex: unset;
-    }
-
-    .section-links a {
-      font-size: 1.5rem;
     }
 
     .news-feed {

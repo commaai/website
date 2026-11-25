@@ -16,7 +16,7 @@
 <div class="page light">
   {@html CommaIcon}
   <h1>{$page.error.message}</h1>
-  <span>An issue occurred. <a class="highlight" href="/">Click here</a> to go back to the homepage.</span>
+  <span class="type-lead">An issue occurred. <a class="highlight" href="/">Click here</a> to go back to the homepage.</span>
 </div>
 
 <style>
@@ -37,7 +37,6 @@
 
   span {
     color: black !important;
-    font-size: 1.5rem;
     margin-top: 1rem;
   }
 </style>

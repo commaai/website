@@ -17,8 +17,8 @@
     </slot>
   </div>
   <hgroup>
-    <span class:highlighted={highlightTitle}>{title}</span>
-    <div>
+    <span class="type-label" class:highlighted={highlightTitle}>{title}</span>
+    <div class="type-small">
       <slot></slot>
     </div>
   </hgroup>
@@ -48,11 +48,6 @@
       display: block !important;
 
       & span {
-        font-family: var(--font-mono);
-        font-size: 0.875rem;
-        font-weight: 400;
-        text-transform: uppercase;
-        line-height: 1.1;
         margin-bottom: 0.25rem;
         color: black;
       }
@@ -60,8 +55,6 @@
       & div {
         display: block;
         color: #000000A6;
-        font-size: 0.875rem;
-        line-height: 1.25;
       }
 
       & a {

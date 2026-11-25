@@ -6,14 +6,15 @@
 
   // split mode hides shopify's text (we render it ourselves) and keeps only its shop logo and info button
   const BANNER_CSS = `
+    /* type deviation: D1, ShopPay shadow DOM; document rules can't reach it */
     #shopify-installments, #shopify-installments * {
       font-family: inherit !important;
       font-weight: inherit !important;
       letter-spacing: inherit !important;
     }
-    :host([data-split]) { --size: var(--installments-rest-font-size, 0.875rem); }
+    :host([data-split]) { --size: var(--installments-rest-font-size, var(--text-sm)); } /* type deviation: D1, ShopPay shadow DOM; document rules can't reach it */
     :host([data-split]) #shopify-installments { display: inline; }
-    :host([data-split]) #shopify-installments-content { font-size: 0; }
+    :host([data-split]) #shopify-installments-content { font-size: 0; } /* type deviation: D1, ShopPay shadow DOM; document rules can't reach it */
     :host([data-split]) [data-testid="zero-apr-badge"] { display: none; }
     :host([data-split]) #shopify-installments-content > div { vertical-align: -0.2rem; }
     :host([data-split]) #shopify-installments-content svg {
@@ -131,7 +132,7 @@
     <span class="rest"><span class="bar">or 0% APR with shop ⓘ</span></span>
   </span>
 {:else if split && !plan && !timedOut}
-  <span class="fallback" class:inline>View installment options at checkout</span>
+  <span class="fallback" class:type-small={!inline} class:inline>View installment options at checkout</span>
 {/if}
 {#if meta}
   <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-static-element-interactions -->
@@ -158,11 +159,9 @@
   }
 
   .fallback {
-    font-size: 0.875rem;
     color: rgba(0, 0, 0, 0.6);
 
     &.inline {
-      font-size: inherit;
       color: inherit;
     }
   }
@@ -192,15 +191,11 @@
 
     & .lead {
       white-space: nowrap;
-
-      & strong {
-        font-weight: inherit;
-      }
     }
 
     & .rest {
       min-height: 1.89em;
-      font-size: var(--installments-rest-font-size, 0.875rem);
+      font-size: var(--installments-rest-font-size, var(--text-sm)); /* type deviation: D3, ShopPay's size API into its shadow root */
       white-space: nowrap;
       color: rgba(0, 0, 0, 0.6);
     }
@@ -210,10 +205,6 @@
       flex-wrap: wrap;
       align-items: baseline;
       column-gap: 0.25em;
-
-      & .lead strong {
-        font-weight: 700;
-      }
 
       & .rest {
         min-height: 0;

@@ -76,12 +76,12 @@
 <header class="navbar">
   <div class="navbar-container">
     <div class="navbar-section-logo">
-      <a class="title" href="/">comma</a>
+      <a class="title type-display type-large" href="/">comma</a>
       <div class="menu-container">
         <HeaderMenu />
       </div>
     </div>
-    <nav class="navbar-section-links">
+    <nav class="navbar-section-links type-large">
       <a href="/" class:active={$page.url.pathname === '/'}>home</a>
       <a href="/openpilot" class:active={$page.url.pathname.startsWith('/openpilot')}>openpilot</a>
       <a href="/shop/comma-four" class:active={$page.url.pathname.startsWith('/shop/comma-four')}>comma four</a>
@@ -89,12 +89,12 @@
       <a href="/jobs" class:active={$page.url.pathname.startsWith('/jobs')}>jobs</a>
     </nav>
     <div class="navbar-section-buttons">
-      <a class="button shop" href="/shop">
+      <a class="button shop type-caps" href="/shop">
         {@html BasketIcon}
         Shop
       </a>
       {#if $cartTotalQuantity > 0}
-        <button class="button cart" on:click={openCart}>
+        <button class="button cart type-caps" on:click={openCart}>
           {@html CartIcon}
           <div class="cart-text">cart ({$cartTotalQuantity})</div>
         </button>
@@ -121,8 +121,8 @@
   <div class="container">
     <FooterBreadcrumbs />
     <Grid columns={4} wrapMode="single" alignItems="start" size="large">
-      <div class="footer-links">
-        <strong>Product</strong>
+      <div class="footer-links type-large">
+        <strong class="type-body type-caps">Product</strong>
         <a href="/openpilot">openpilot</a>
         <a class="badged" href="/shop/comma-four">
           <span>comma four</span>
@@ -132,8 +132,8 @@
         <a href="/vehicles">Compatibility</a>
         <a href="/shop">Shop</a>
       </div>
-      <div class="footer-links">
-        <strong>Company</strong>
+      <div class="footer-links type-large">
+        <strong class="type-body type-caps">Company</strong>
         <a href="https://blog.comma.ai">Blog</a>
         <a href="/media">Press &amp; Media Kit</a>
         <a class="badged" href="/jobs">
@@ -145,8 +145,8 @@
           <Badge style="accent" display="inline">New Challenge!</Badge>
         </a>
       </div>
-      <div class="footer-links">
-        <strong>Support</strong>
+      <div class="footer-links type-large">
+        <strong class="type-body type-caps">Support</strong>
         <a href="/support">Support & FAQs</a>
         <a href="/setup">Setup Guide</a>
         <a class="badged" href="https://discord.comma.ai/">
@@ -155,14 +155,14 @@
         </a>
       </div>
       <div class="footer-links">
-        <div class="tagline">{@html CommaIcon}<span>make driving chill</span></div>
+        <div class="tagline">{@html CommaIcon}<span class="type-large">make driving chill</span></div>
         <SocialIcons size="1.5rem" />
         <div class="mailing-list">
           <FooterEmailUpdatesForm />
         </div>
       </div>
     </Grid>
-    <div class="copyright">
+    <div class="copyright type-small">
       <span>© comma_ai 2026</span>
       <a href="/terms">Terms & Privacy</a>
     </div>
@@ -197,11 +197,8 @@
     border-right: 1px solid #000;
 
     & > .title {
-      font-family: var(--font-display);
-      font-size: 20px;
       color: black;
       height: 20px;
-      text-transform: uppercase;
       padding: 0 2rem;
     }
 
@@ -235,8 +232,6 @@
     & a {
       color: #000;
       margin: 0 1.75rem;
-      font-family: var(--font-sans);
-      font-size: 1.125rem;
       transition: text-shadow 0.2s;
     }
 
@@ -265,14 +260,9 @@
 
     & .button {
       color: #000;
-      text-transform: uppercase;
-      font-family: var(--font-sans);
       border-left: 1px solid #000;
       padding-left: 56px;
       padding-right: 56px;
-      font-size: 1rem;
-      font-weight: 700;
-      letter-spacing: 1px;
       display: flex;
       align-items: center;
       cursor: pointer;
@@ -341,15 +331,10 @@
       & strong {
         color: #fff;
         opacity: 0.65;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        font-size: 1rem;
-        font-weight: 600;
       }
 
       & a {
         color: #fff;
-        font-size: 1.25rem;
         transition: opacity 0.2s;
       }
 
@@ -388,11 +373,6 @@
           margin-right: 0.75rem;
           color: white;
         }
-
-        & span {
-          font-size: 1.2rem;
-          font-weight: 400;
-        }
       }
     }
 
@@ -411,7 +391,6 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 0.875rem;
       margin-top: 6rem;
       opacity: 0.65;
       padding-top: 20px;

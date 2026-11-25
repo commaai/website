@@ -56,9 +56,9 @@
               {/if}
             </span>
             {#if variant.subtitle}
-              <span class="option-subtitle">{variant.subtitle}</span>
+              <span class="option-subtitle type-small">{variant.subtitle}</span>
             {/if}
-            <span class="option-status {stockStatus.style}">{stockStatus.label}</span>
+            <span class="option-status type-label {stockStatus.style}">{stockStatus.label}</span>
           </span>
         </label>
       {/each}
@@ -68,7 +68,7 @@
   {#if !showAll && variants.length > visibleLimit}
     <button
       type="button"
-      class="show-more"
+      class="show-more type-strong"
       aria-expanded="false"
       aria-controls="variant-options"
       on:click={() => showAll = true}
@@ -137,8 +137,6 @@
     margin-top: 0.75rem;
     padding: 1rem;
     color: #000;
-    font-size: 1rem;
-    font-weight: 600;
     cursor: pointer;
     background-color: #fff;
     border: 1px solid #000;
@@ -174,9 +172,6 @@
   strong,
   .option-price {
     min-width: 0;
-    font-size: 1rem;
-    font-weight: 600;
-    line-height: 1.25;
   }
 
   strong {
@@ -185,7 +180,6 @@
 
   .option-price {
     flex: 0 0 auto;
-    font-weight: 400;
   }
 
   .option-subtitle {
@@ -193,19 +187,11 @@
     margin-top: auto;
     padding-top: 0.5rem;
     color: var(--color-muted);
-    font-size: 0.875rem;
-    line-height: 1.35;
   }
 
   .option-status {
     display: block;
     padding-top: 0.5rem;
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    font-weight: 400;
-    line-height: 1.2;
-    letter-spacing: 0;
-    text-transform: uppercase;
   }
 
   .option-heading + .option-status {

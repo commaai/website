@@ -37,7 +37,7 @@ const renderer = {
     const text = this.parser.parseInline(tokens);
     if (title !== 'card') return `<a href="${escapeHtml(href)}"${title ? ` title="${escapeHtml(title)}"` : ''}>${text}</a>`;
     const external = /^https?:/.test(href);
-    return `<a href="${escapeHtml(href)}" class="card-link"${external ? ' target="_blank" rel="noopener noreferrer"' : ''}>${text}<span class="card-link-arrow" aria-hidden="true">${external ? ExternalIcon : ArrowRight}</span></a>`;
+    return `<a href="${escapeHtml(href)}" class="card-link type-strong"${external ? ' target="_blank" rel="noopener noreferrer"' : ''}>${text}<span class="card-link-arrow" aria-hidden="true">${external ? ExternalIcon : ArrowRight}</span></a>`;
   },
   heading({ depth, id, tokens }) {
     const anchor = depth === 2 && id ? `<a href="#${escapeHtml(id)}" class="heading-anchor" aria-label="Copy link to this section">${LinkIcon}${CheckmarkIcon}</a>` : '';
@@ -53,7 +53,7 @@ const dropdown = {
     if (match) return { type: 'dropdown', raw: match[0], title: match[1], tokens: this.lexer.blockTokens(match[2]) };
   },
   renderer(token) {
-    return `<details class="dropdown" name="dropdown"${idAttribute(slugify(token.title))}><summary><span class="dropdown-label">${escapeHtml(token.title)}</span><span class="dropdown-chevron" aria-hidden="true">${Chevron}</span></summary><div class="dropdown-content">${this.parser.parse(token.tokens)}</div></details>`;
+    return `<details class="dropdown" name="dropdown"${idAttribute(slugify(token.title))}><summary><span class="dropdown-label type-h5">${escapeHtml(token.title)}</span><span class="dropdown-chevron" aria-hidden="true">${Chevron}</span></summary><div class="dropdown-content type-large">${this.parser.parse(token.tokens)}</div></details>`;
   }
 };
 
