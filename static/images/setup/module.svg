@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" fill="none">
+  <title>Inline harness connection — conceptual overview</title>
+  <desc>The vehicle wiring connects to the harness, which connects to the vehicle module. Blocks show connection order only, not physical hardware, connector shapes, or installation location.</desc>
+  <rect width="800" height="600" fill="white"/>
+  <text x="48" y="59" font-family="Arial, sans-serif" font-size="26" fill="#181818">Inline connection</text>
+  <g stroke="#181818" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M216 299H320M480 299H584"/>
+    <rect x="56" y="239" width="160" height="120" rx="8" fill="#f6f6f6"/>
+    <rect x="320" y="239" width="160" height="120" rx="8" fill="#86ff4e" fill-opacity=".35"/>
+    <rect x="584" y="239" width="160" height="120" rx="8" fill="#f6f6f6"/>
+  </g>
+  <g font-family="Arial, sans-serif" font-size="18" fill="#181818" text-anchor="middle" letter-spacing="1">
+    <text x="136" y="306">VEHICLE</text>
+    <text x="400" y="306">HARNESS</text>
+    <text x="664" y="306">MODULE</text>
+  </g>
+  <text x="48" y="562" font-family="Arial, sans-serif" font-size="15" fill="#767676">CONNECTION OVERVIEW</text>
+</svg>
