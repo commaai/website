@@ -94,7 +94,7 @@ body {
   --text-h4: clamp(var(--text-lg), 1.67vw, var(--text-xl));
   --text-lead: clamp(var(--text-md), 2vw, var(--text-xl));
 
-  /* stepped sizes: re-declared in the @media block below, never in a component */
+  /* stepped sizes: redeclared in the @media block below, never in a component */
   --text-hero-overlay: var(--text-h1);
   --text-job-meta: var(--text-sm);
 
