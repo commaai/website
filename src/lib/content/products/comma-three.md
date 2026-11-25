@@ -1,7 +1,7 @@
 ---
 title: comma three
 description: Learn about comma three support, factory reset, and trade-in options.
-image: $lib/images/products/comma-three/comma-three.png
+image: $lib/images/products/comma-three/comma-three.jpg
 imageAlt: comma three device
 ---
 
