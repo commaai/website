@@ -181,7 +181,7 @@
     const text = searchText(item);
     const termScores = terms.map(term => termScore(term, text));
     return {
-      matched: termScores.some(score => score !== null),
+      matched: termScores.some((score, i) => score !== null && !isYear(terms[i])),  // a year alone isn't a match
       exact: termScores.every(score => score !== null && score <= EXACT_SCORE),
       missed: termScores.reduce((total, score, i) => total + (score !== null ? 0 : isYear(terms[i]) ? 0.5 : terms.length - i), 0),
       score: termScores.reduce((total, score) => total + (score ?? 0), 0),
