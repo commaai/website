@@ -126,25 +126,92 @@
   let inputValue = "";
   let inputRef;
 
-  // Lower is a better match: 0 exact word, 1 starts the first word, 2 starts a later word or an alias, 3 inside a word, inf is no match
-  function searchScore(item, terms) {
-    const make_model = normalize([item.make, item.model].filter(Boolean).join(' '));
-    const car = `${make_model} ${make_model.replace(/([a-z]) (?=[0-9])/g, '$1')} ${item.yearList ?? ''}`;  // "Ioniq 5" also matches "ioniq5"
-    const padded = ` ${car} `;
-    const aliases = SEARCH_ALIASES.filter(([, word]) => car.includes(word));
-    return terms.reduce((total, term) => total
-      + (padded.includes(` ${term} `) ? 0
-      : car.startsWith(term) ? 1
-      : padded.includes(` ${term}`) || aliases.some(([alias]) => alias.startsWith(term)) ? 2
-      : car.includes(term) ? 3
-      : Infinity), 0);
+  // Edits to turn a into b, where swapping two neighboring letters counts as one ("seinna" -> "sienna")
+  function editDistance(a, b) {
+    const d = Array.from({ length: a.length + 1 }, (_, i) => [i, ...Array(b.length).fill(0)]);
+    for (let j = 1; j <= b.length; j++) d[0][j] = j;
+    for (let i = 1; i <= a.length; i++) {
+      for (let j = 1; j <= b.length; j++) {
+        d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+        if (i > 1 && j > 1 && a[i - 1] === b[j - 2] && a[i - 2] === b[j - 1]) {
+          d[i][j] = Math.min(d[i][j], d[i - 2][j - 2] + 1);
+        }
+      }
+    }
+    return d[a.length][b.length];
   }
+
+  // Closest any word (or its start, for half-typed words) comes to the term
+  function closestDistance(term, words) {
+    return Math.min(...words.map(word => Math.min(editDistance(term, word), editDistance(term, word.slice(0, term.length)))));
+  }
+
+  function searchText(item) {
+    const make_model = normalize([item.make, item.model].filter(Boolean).join(' '));
+    // "Ioniq 5" also matches "ioniq5", and "Model Y" matches "modely"
+    const car = `${make_model} ${make_model.replace(/([a-z]) (?=[0-9])/g, '$1')} ${make_model.replace(/ /g, '')} ${item.yearList ?? ''}`;
+    return { car, words: car.split(' ').filter(Boolean), aliases: SEARCH_ALIASES.filter(([, word]) => car.includes(word)) };
+  }
+
+  // Lower is a better match: 0 exact word, 1 starts the first word, 2 starts a later word or an alias, 3 inside a word,
+  // 4 a model followed by a number ("rx350"), 5-6 a typo, null no match. 4 and up are only guesses ("volt" is not a "bolt").
+  function termScore(term, { car, words, aliases }) {
+    const padded = ` ${car} `;
+    if (padded.includes(` ${term} `)) return 0;
+    if (car.startsWith(term)) return 1;
+    if (padded.includes(` ${term}`) || aliases.some(([alias]) => alias.startsWith(term))) return 2;
+    if (car.includes(term)) return 3;
+    const letters = term.match(/^([a-z]+)[0-9]+$/)?.[1];
+    if (letters?.length >= 2 && words.includes(letters)) return 4;
+    // typos, but never in years or other numbers
+    if (term.length >= 4 && !/[0-9]/.test(term)) {
+      const distance = closestDistance(term, words);
+      if (distance <= (term.length >= 7 ? 2 : 1)) return 4 + distance;
+    }
+    return null;
+  }
+
+  const EXACT_SCORE = 3;
+  const isYear = term => /^(19|20)[0-9]{2}$/.test(term);
+
+  // A word that doesn't match (a trim like "se" or "xle", a year that isn't supported) costs a car instead of hiding it.
+  // People type the model before the trim, so missing an earlier word costs more ("civic sport" is a Civic, not a Bronco Sport),
+  // and a missed year costs least ("2018 cx-9" is a CX-9, not a 2018 Acura).
+  function searchScore(item, terms) {
+    const text = searchText(item);
+    const termScores = terms.map(term => termScore(term, text));
+    return {
+      matched: termScores.some(score => score !== null),
+      exact: termScores.every(score => score !== null && score <= EXACT_SCORE),
+      missed: termScores.reduce((total, score, i) => total + (score !== null ? 0 : isYear(terms[i]) ? 0.5 : terms.length - i), 0),
+      score: termScores.reduce((total, score) => total + (score ?? 0), 0),
+      text,
+    };
+  }
+
+  const MAX_CLOSEST = 5;
 
   $: searchTerms = normalize(inputValue).split(/\s+/).filter(Boolean);
   $: scores = new Map($harnesses.map(item => [item, searchScore(item, searchTerms)]));
-  // Generic harnesses have no make and rank after every car
-  $: filteredItems = $harnesses.filter(item => isFinite(scores.get(item)))
-    .sort((a, b) => !a.make - !b.make || scores.get(a) - scores.get(b));
+  // Cars matching every word exactly if there are any. Otherwise the closest tier, the ones missing the least,
+  // and failing that a few that look like the search. Generic harnesses have no make and rank after every car.
+  $: exactItems = $harnesses.filter(item => scores.get(item).exact);
+  $: fewestMissed = Math.min(...$harnesses.filter(item => scores.get(item).matched).map(item => scores.get(item).missed));
+  $: closeItems = $harnesses.filter(item => scores.get(item).matched && scores.get(item).missed === fewestMissed);
+  $: exactMatch = exactItems.length > 0;
+  $: filteredItems = (exactMatch ? exactItems : closeItems.length > 0 ? closeItems : lookalikeItems($harnesses, searchTerms))
+    .sort((a, b) => !a.make - !b.make || scores.get(a).score - scores.get(b).score);
+
+  // The cars that look most like the search, however far off it is. Ties go to words starting with the same letter ("tyta" is a Toyota, not an Octavia).
+  function lookalikeItems(items, terms) {
+    const termDistance = (term, words) => Math.min(...words.map(word => closestDistance(term, [word]) + (word[0] === term[0] ? 0 : 0.5)));
+    const distance = item => terms.reduce((total, term) => total + termDistance(term, scores.get(item).text.words), 0);
+    return items.filter(item => item.make)
+      .map(item => [item, distance(item)])
+      .sort((a, b) => a[1] - b[1])
+      .slice(0, MAX_CLOSEST)
+      .map(([item]) => item);
+  }
 
   const handleClear = () => {
     // clear search input or close menu
@@ -229,12 +296,14 @@
   </div>
   <div class="dropdown-content" id="harness-options" class:show={menuOpen}>
     {#if searchTerms.length > 0}
-      {#if filteredItems.length > 0}
-        {#each filteredItems as item}
-          <DropdownItem value={item} on:click={() => handleOptionClick(item)} on:keydown={(e) => handleOptionKeyDown(e, item)} />
-        {/each}
-      {:else}
-        <DropdownItem value={{ car: 'No matching vehicles' }} href="/vehicles?car={encodeURIComponent(inputValue)}#email-updates">
+      {#if !exactMatch && filteredItems.length > 0}
+        <div class="closest-note type-small">No exact match for <strong>{inputValue}</strong>. Closest:</div>
+      {/if}
+      {#each filteredItems as item}
+        <DropdownItem value={item} on:click={() => handleOptionClick(item)} on:keydown={(e) => handleOptionKeyDown(e, item)} />
+      {/each}
+      {#if !exactMatch}
+        <DropdownItem value={{ car: filteredItems.length > 0 ? "Don't see your car?" : 'No matching vehicles' }} href="/vehicles?car={encodeURIComponent(inputValue)}#email-updates">
           <svelte:fragment slot="subtitle">
             Get an email when <strong>{inputValue}</strong> is supported
           </svelte:fragment>
@@ -268,6 +337,13 @@
   display: inline-block;
   margin: 1.25rem auto 0;
   width: 100%;
+}
+
+.closest-note {
+  padding: 0.75rem 1.5rem;
+  color: rgba(0, 0, 0, 0.6);
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #ddd;
 }
 
 .no-match-arrow {
