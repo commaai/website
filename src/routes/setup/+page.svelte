@@ -292,7 +292,9 @@
             Pair your comma four with <a href="https://connect.comma.ai/" target="_blank" class="highlight">connect.comma.ai</a> on your phone to see your recorded drives.
           </p>
           <br />
-          <LinkButton href="https://connect.comma.ai/" target="_blank" style="primary" fullWidth={true}>comma Connect</LinkButton>
+          <LinkButton href="https://connect.comma.ai/" target="_blank" style="primary" fullWidth={true}>
+            <span style="text-transform: none">comma connect</span>
+          </LinkButton>
         </div>
       </Grid>
     </div>

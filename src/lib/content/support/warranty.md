@@ -1,5 +1,5 @@
 ---
-title: Warranty & Commacare
+title: Warranty & commacare
 description: Coverage under the standard hardware warranty and the extended commacare warranty.
 ---
 
