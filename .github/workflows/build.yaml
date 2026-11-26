@@ -11,6 +11,10 @@ concurrency:
   group: ${{ github.ref }}-${{ github.workflow }}-${{ github.event_name }}
   cancel-in-progress: true
 
+env:
+  # 15.34.1+ checks the Hosting API via Service Usage
+  FIREBASE_TOOLS_VERSION: 15.34.0
+
 permissions:
   checks: write
   contents: read
@@ -42,9 +46,10 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ./node_modules/.cache/imagetools
-          key: imagetools-${{ hashFiles('**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.gif') }}
+          # the patch changes imagetools' cache ids, so a new patch needs a fresh cache
+          key: imagetools-${{ hashFiles('patches/vite-imagetools*') }}-${{ hashFiles('**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.gif') }}
           restore-keys: |
-            imagetools-
+            imagetools-${{ hashFiles('patches/vite-imagetools*') }}-
 
       - if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
         name: Build (production)
@@ -69,6 +74,13 @@ jobs:
         with:
           node-version: '24.18.0'
 
+      - name: Cache firebase-tools
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master' && github.repository == 'commaai/website'
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm/_npx
+          key: firebase-tools-${{ runner.os }}-${{ env.FIREBASE_TOOLS_VERSION }}
+
       - name: Deploy to prod
         if: github.event_name == 'push' && github.ref == 'refs/heads/master' && github.repository == 'commaai/website'
         uses: FirebaseExtended/action-hosting-deploy@v0
@@ -77,5 +89,4 @@ jobs:
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_COMMA_WEB }}
           channelId: live
           projectId: comma-web
-          # 15.34.1+ checks the Hosting API via Service Usage
-          firebaseToolsVersion: 15.34.0
+          firebaseToolsVersion: ${{ env.FIREBASE_TOOLS_VERSION }}

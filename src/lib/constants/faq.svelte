@@ -803,7 +803,7 @@
           question: 'Performing a Factory Reset',
           answer: `
             <p>
-              Reset the comma 3/3X by repeatedly tapping on the screen as soon as the device boots up.
+              Reset your comma three or comma 3X by repeatedly tapping on the screen as soon as the device boots up.
               After that, the factory reset screen will come up.
             </p>
             <p>

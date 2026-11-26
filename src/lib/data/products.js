@@ -81,9 +81,9 @@ export const products = {
         content: `A panda is not necessary if purchasing a
         <a href="/shop/comma-four" target="_blank">comma four</a>.
         <br /><br />
-        A red panda is required if using a comma 3 on a CAN FD vehicle. Check
+        A red panda is required if using a comma three on a CAN FD vehicle. Check
         <a href="https://github.com/commaai/openpilot/blob/master/docs/CARS.md" target="_blank" rel="noopener noreferrer">compatibility</a> to see if your car requires
-        a red panda with comma 3.`,
+        a red panda with comma three.`,
       }
     ],
     description: `
@@ -208,7 +208,7 @@ export const products = {
     notes: [
       {
         title: "Product Compatibility",
-        content: "This product is only for the comma 3/3X.",
+        content: "This product is only for the comma three and comma 3X.",
       },
       {
         title: "Note",
@@ -222,7 +222,7 @@ export const products = {
         This is a replacement for the SIM that ships with the comma four to support <a href="https://connect.comma.ai/" target="_blank">comma prime</a>.
       </p>
       <p>
-        See how to replace the SIM card in a comma 3/3X
+        See how to replace the SIM card in a comma three or comma 3X
         <a href="/support/replace-comma-3x-sim-card" target="_blank">here</a>.
       </p>
     `.trim()
@@ -344,7 +344,7 @@ export const products = {
     notes: [
       {
         title: "Note",
-        content: "comma four mounts are not compatible with comma 3X/three.",
+        content: "comma four mounts are not compatible with comma three or comma 3X.",
       }
     ],
     description: `
@@ -432,15 +432,15 @@ export const products = {
     notes: [
       {
         title: "Note: final sale",
-        content: `Open and repair the comma 3/3X at your own risk.
+        content: `Open and repair your comma three or comma 3X at your own risk.
         comma is not responsible for damages that may occur while repairing devices.
         No warranty except DOA.`,
       }
     ],
     description: `
-      <strong class="type-h5">comma 3/3X - screen only</strong>
+      <strong class="type-h5">comma three and comma 3X - screen only</strong>
       <ul>
-        <li>comma 3/3X display only</li>
+        <li>Display only, for comma three and comma 3X</li>
         <li>does not include the front case</li>
       </ul>
     `.trim(),

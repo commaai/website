@@ -10,6 +10,7 @@
   import SocialIcons from "$lib/components/SocialIcons.svelte";
   import FooterEmailUpdatesForm from "$lib/components/EmailUpdates/FooterEmailUpdatesForm.svelte";
   import FooterBreadcrumbs from "$lib/components/FooterBreadcrumbs.svelte";
+  import FooterEditLink from "$lib/components/FooterEditLink.svelte";
 
   import CommaIcon from "$lib/icons/comma.svg?raw";
   import CartIcon from "$lib/icons/ui/cart.svg?raw";
@@ -163,7 +164,10 @@
       </div>
     </Grid>
     <div class="copyright type-small">
-      <span>© comma_ai 2026</span>
+      <div class="copyright-start">
+        <span>© comma_ai 2026</span>
+        <FooterEditLink />
+      </div>
       <a href="/terms">Terms & Privacy</a>
     </div>
   </div>
@@ -391,6 +395,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 1rem;
       margin-top: 6rem;
       opacity: 0.65;
       padding-top: 20px;
@@ -399,6 +404,19 @@
       @media screen and (max-width: 1024px) {
         margin-top: 4rem;
       }
+    }
+
+    & .copyright-start {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem 1.5rem;
+      min-width: 0;
+    }
+
+    & .copyright > a {
+      flex-shrink: 0;
+      white-space: nowrap;
     }
   }
 </style>

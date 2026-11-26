@@ -1,0 +1,13 @@
+diff --git a/dist/index.js b/dist/index.js
+index 812b53d4e401879101313a8e5197315faab1e354..45272f2e144fb73fa272fbac0a44c44804beba53 100644
+--- a/dist/index.js
++++ b/dist/index.js
+@@ -102,7 +102,7 @@ function imagetools(userOptions = {}) {
+                 warn: (msg) => this.warn(msg),
+                 error: (msg) => this.error(msg)
+             };
+-            const imageBuffer = await img.clone().toBuffer();
++            const imageBuffer = await readFile(pathname);
+             const imageHash = hash([imageBuffer]);
+             for (const config of imageConfigs) {
+                 const id = generateImageID(config, imageHash);

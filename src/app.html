@@ -33,6 +33,10 @@
             defaults: '2025-05-24',
             person_profiles: 'identified_only', // or 'always' to create profiles for anonymous users as well
         })
+
+        // ChatGPT clicks land with ?oppref=; PostHog forwards it to OpenAI with the order
+        const oppref = new URLSearchParams(location.search).get('oppref');
+        if (oppref) posthog.setPersonProperties({ oppref, oppref_at: Date.now() });
     </script>
 
     <!-- Twitter conversion tracking base code -->

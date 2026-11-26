@@ -5,6 +5,10 @@ on:
     workflows: ["Build"]
     types: ["completed"]
 
+env:
+  # 15.34.1+ checks the Hosting API via Service Usage
+  FIREBASE_TOOLS_VERSION: 15.34.0
+
 permissions:
   actions: read
   checks: write
@@ -89,6 +93,12 @@ jobs:
         with:
           node-version: '24.18.0'
 
+      - name: Cache firebase-tools
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm/_npx
+          key: firebase-tools-${{ runner.os }}-${{ env.FIREBASE_TOOLS_VERSION }}
+
       - name: Deploy preview
         id: deploy
         uses: FirebaseExtended/action-hosting-deploy@v0
@@ -96,8 +106,7 @@ jobs:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_COMMA_WEB }}
           projectId: comma-web
-          # 15.34.1+ checks the Hosting API via Service Usage
-          firebaseToolsVersion: 15.34.0
+          firebaseToolsVersion: ${{ env.FIREBASE_TOOLS_VERSION }}
           channelId: pr${{ needs.pr.outputs.number }}
           expires: 5d
 
