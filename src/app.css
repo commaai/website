@@ -97,6 +97,7 @@ body {
   /* stepped sizes: redeclared in the @media block below, never in a component */
   --text-hero-overlay: var(--text-h1);
   --text-job-meta: var(--text-sm);
+  --text-menu: var(--text-h2);
 
   --leading-none: 1;
   --leading-tight: 1.1;
@@ -187,6 +188,7 @@ h4 {
   :root {
     --text-hero-overlay: var(--text-2xl);
     --text-job-meta: var(--text-xs);
+    --text-menu: var(--text-xl);
   }
 
   h1 {
@@ -215,7 +217,7 @@ h4 {
  * Accepted reasons: third-party shadow DOM, container-query fitting, an icon glyph set in text, a case the copy
  * depends on, a multi-line statement's leading, embed imitation (via --tracking), a size that feeds a calc,
  * a size that must step to keep a one-line/fit constraint on mobile (via the :root stepped tokens only).
- * Stepped sizes (--text-hero-overlay, --text-job-meta) come only from the :root @media block above.
+ * Stepped sizes (--text-hero-overlay, --text-job-meta, --text-menu) come only from the :root @media block above.
  */
 
 *,

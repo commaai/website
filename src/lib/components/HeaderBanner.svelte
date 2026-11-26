@@ -56,6 +56,10 @@
     margin-left: 0.35em;
   }
 
+  .headline > span {
+    display: inline-block;
+  }
+
   .headline .discount {
     color: var(--color-sale-red);
     margin-left: 0;

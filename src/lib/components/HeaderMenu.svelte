@@ -136,6 +136,9 @@
 
     & a {
       color: #fff;
+      /* type deviation: D12, all ten mobile menu links must fit on a short phone screen */
+      font-size: var(--text-menu);
+      line-height: var(--leading-none);
       margin-bottom: 2rem;
       padding: 0;
       text-decoration: none;

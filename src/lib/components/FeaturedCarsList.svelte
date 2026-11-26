@@ -115,6 +115,7 @@
     & .car-year {
       color: rgba(0, 0, 0, 0.5);
       flex: 1;
+      white-space: nowrap;
     }
   }
 
