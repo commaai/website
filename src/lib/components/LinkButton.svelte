@@ -9,6 +9,7 @@
 <a
   {href}
   {target}
+  class="type-body type-caps"
   class:primary={style == "primary"}
   class:secondary={style == "secondary"}
   class:accent={style == "accent"}
@@ -36,12 +37,8 @@
   a {
     background-color: var(--color-accent);
     text-align: center;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
     justify-content: center;
     padding: 1.25rem 3rem;
-    font-size: 1.125rem;
-    font-weight: 600;
     width: fit-content;
     display: flex;
     align-items: center;
@@ -85,7 +82,6 @@
   }
 
   a.thin {
-    font-size: 1rem;
     padding: 0.25rem 1rem;
   }
 

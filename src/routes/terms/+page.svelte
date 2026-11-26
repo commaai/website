@@ -11,7 +11,7 @@
         <a href="#privacy">Privacy Policy</a>
         <a href="#referral-terms">Referral Terms and Conditions</a>
       </div>
-      <div class="terms">
+      <div class="terms type-large">
         <h2>openpilot Terms and Conditions</h2>
         <p>Last Updated on October 12, 2022</p>
         <p>
@@ -106,7 +106,7 @@
 
       <hr />
 
-      <div id="privacy">
+      <div id="privacy" class="type-large">
         <h2>openpilot Privacy Policy</h2>
         <p>
           This Privacy Policy explains our policies and practices regarding how data may be collected, stored, used, transferred, shared or sold by Comma.ai, Inc. for openpilot.
@@ -172,7 +172,7 @@
 
       <hr />
 
-      <div id="referral-terms">
+      <div id="referral-terms" class="type-large">
         <h2>Referral Terms and Conditions</h2>
         <p>
           A “new customer” is someone who has not previously purchased a comma product. comma determines eligibility and whether a referral qualifies at its sole discretion. In general, comma considers whether the new customer purchased a comma four through the referral link and whether the applicable return period expired without the order being cancelled, returned, refunded, charged back, or identified as fraudulent or self-referred.
@@ -194,14 +194,6 @@
 <style>
   h1 {
     margin-bottom: 6rem;
-  }
-
-  h2, h3 {
-    font-weight: 600;
-  }
-
-  p {
-    font-size: 1.25rem;
   }
 
   .links {

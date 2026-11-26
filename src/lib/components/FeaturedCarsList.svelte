@@ -47,7 +47,7 @@
 <div class="table">
   {#each featuredCars as car}
     <div class="compatibility-row">
-      <div class="compatibility-item">
+      <div class="compatibility-item type-large">
         <img
           src={car.brandIcon}
           loading="lazy"
@@ -86,7 +86,6 @@
   .compatibility-item {
     align-items: center;
     display: flex;
-    font-size: 1.125rem;
 
     & .car-brand-logo {
       width: 3rem;
@@ -105,7 +104,6 @@
 
     & .car-identifier {
       width: 12rem;
-      line-height: 1.2;
     }
 
     @media screen and (max-width: 768px) {
@@ -116,8 +114,8 @@
 
     & .car-year {
       color: rgba(0, 0, 0, 0.5);
-      line-height: 1.2;
       flex: 1;
+      white-space: nowrap;
     }
   }
 

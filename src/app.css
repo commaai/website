@@ -20,10 +20,9 @@ body {
 body {
   color: #000;
   font-family: var(--font-sans);
-  font-size: 16px;
+  font-size: var(--text-base);
   font-weight: 400;
-  line-height: 1.4;
-  letter-spacing: -0.04em;
+  line-height: var(--leading-normal);
 
   margin: 0;
   min-height: 100%;
@@ -72,6 +71,46 @@ body {
   --font-sans: Inter, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
   --font-display: 'Monument Extended Black', sans-serif;
+
+  /* type scale (static steps); the roles below use these, components use the roles */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-md: 1.125rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 1.75rem;
+  --text-3xl: 2rem;
+  --text-4xl: 2.5rem;
+  --text-5xl: 3rem;
+  --text-6xl: 4rem;
+  --text-7xl: 5.5rem;
+
+  /* role sizes: fluid between 390px and 1440px, so no role needs a breakpoint */
+  --text-hero: clamp(var(--text-5xl), 6vw, var(--text-7xl));
+  --text-h1: clamp(var(--text-4xl), 4vw, var(--text-6xl));
+  --text-h2: clamp(var(--text-3xl), 3vw, var(--text-5xl));
+  --text-h3: clamp(var(--text-xl), 2.25vw, var(--text-3xl));
+  --text-h4: clamp(var(--text-lg), 1.67vw, var(--text-xl));
+  --text-lead: clamp(var(--text-md), 2vw, var(--text-xl));
+
+  /* stepped sizes: redeclared in the @media block below, never in a component */
+  --text-hero-overlay: var(--text-h1);
+  --text-job-meta: var(--text-sm);
+  --text-menu: var(--text-h2);
+
+  --leading-none: 1;
+  --leading-tight: 1.1;
+  --leading-snug: 1.2;
+  --leading-normal: 1.4;
+  --leading-relaxed: 1.6;
+
+  /* em-based; applied through --tracking so each element resolves it against its own size */
+  --tracking-tighter: -0.05em;
+  --tracking-tight: -0.04em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.04em;
+  --tracking: var(--tracking-tight);
 
   h1,
   h2,
@@ -126,81 +165,195 @@ body {
 }
 
 h1 {
-  font-size: 4rem;
-  font-weight: 600;
   margin-top: 0;
   margin-bottom: 2rem;
-  line-height: 1;
 }
 
 h2 {
-  font-size: 3rem;
-  font-weight: 400;
   margin-top: 0;
   margin-bottom: 2rem;
-  line-height: 1;
 }
 
 h3 {
-  font-size: 2rem;
-  font-weight: 400;
   margin-top: 2rem;
   margin-bottom: 0;
-  line-height: 1;
 }
 
 h4 {
-  font-size: 1.5rem;
-  font-weight: 400;
   margin-top: 0;
   margin-bottom: 2rem;
-  line-height: 1.2;
-}
-
-li {
-  font-size: 1.5rem;
-  font-weight: 400;
-  line-height: 1.25;
-}
-
-@media (max-width: 1024px) {
-  h1 {
-    font-size: 3rem;
-  }
-
-  h2 {
-    font-size: 2.5rem;
-  }
-
-  h3 {
-    font-size: 1.75rem;
-  }
-
-  h4 {
-    font-size: 1.25rem;
-  }
 }
 
 @media (max-width: 768px) {
+  :root {
+    --text-hero-overlay: var(--text-2xl);
+    --text-job-meta: var(--text-xs);
+    --text-menu: var(--text-xl);
+  }
+
   h1 {
-    font-size: 2.3rem;
     margin-bottom: 1rem;
   }
 
   h2 {
-    font-size: 1.75rem;
     margin-bottom: 1rem;
   }
 
   h3 {
-    font-size: 1.5rem;
     margin-bottom: 1rem;
   }
 
   h4 {
-    font-size: 1.25rem;
     margin-bottom: 1rem;
   }
+}
+
+/*
+ * Type system.
+ * Pick the element default when it fits, otherwise one role class plus at most one modifier.
+ * Components never set font-size, font-weight, line-height, letter-spacing, --tracking, text-transform,
+ * font-family, font-style or the font shorthand. The only exceptions are registered deviations, each marked
+ * in place with the comment "type deviation: Dn, <reason>" (Dn is the registered number; the reason is required).
+ * Accepted reasons: third-party shadow DOM, container-query fitting, an icon glyph set in text, a case the copy
+ * depends on, a multi-line statement's leading, embed imitation (via --tracking), a size that feeds a calc,
+ * a size that must step to keep a one-line/fit constraint on mobile (via the :root stepped tokens only).
+ * Stepped sizes (--text-hero-overlay, --text-job-meta, --text-menu) come only from the :root @media block above.
+ */
+
+*,
+::before,
+::after {
+  letter-spacing: var(--tracking);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+.type-hero,
+.type-h1,
+.type-h2,
+.type-h3,
+.type-h4,
+.type-h5 {
+  font-weight: 600;
+  line-height: var(--leading-tight);
+  text-wrap: balance;
+}
+
+.type-hero {
+  --tracking: var(--tracking-tighter);
+  font-size: var(--text-hero);
+  line-height: var(--leading-none);
+}
+
+h1,
+.type-h1 {
+  font-size: var(--text-h1);
+}
+
+h2,
+.type-h2 {
+  font-size: var(--text-h2);
+}
+
+h3,
+.type-h3 {
+  font-size: var(--text-h3);
+}
+
+h4,
+.type-h4 {
+  font-size: var(--text-h4);
+}
+
+h5,
+.type-h5,
+.type-prose h3 {
+  font-size: var(--text-lg);
+  line-height: var(--leading-snug);
+}
+
+.type-body,
+.type-lead,
+.type-large {
+  font-weight: 400;
+  line-height: var(--leading-normal);
+  text-wrap: wrap;
+}
+
+.type-body {
+  font-size: var(--text-base);
+}
+
+.type-lead {
+  font-size: var(--text-lead);
+}
+
+.type-large {
+  font-size: var(--text-lg);
+}
+
+small,
+.type-small {
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+}
+
+.type-label {
+  --tracking: var(--tracking-normal);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: 400;
+  line-height: var(--leading-snug);
+  text-transform: uppercase;
+}
+
+.type-caps {
+  --tracking: var(--tracking-wide);
+  font-weight: 600;
+  line-height: var(--leading-snug);
+  text-transform: uppercase;
+}
+
+.type-mono {
+  --tracking: var(--tracking-normal);
+  font-family: var(--font-mono);
+}
+
+.type-display {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+}
+
+.type-prose {
+  line-height: var(--leading-relaxed);
+}
+
+.type-prose h2 {
+  font-weight: 400;
+}
+
+b,
+strong,
+.type-strong {
+  font-weight: 600;
+}
+
+.type-regular {
+  font-weight: 400;
+}
+
+.type-italic {
+  font-style: italic;
 }
 
 a, a:visited, a:active {
@@ -209,9 +362,6 @@ a, a:visited, a:active {
 }
 
 blockquote {
-  font-size: 1.2rem;
-  font-style: italic;
-  line-height: 1.4;
   border-left: 2px solid #000;
   padding: 1.2rem 2rem;
   margin: 1rem 0;
@@ -250,7 +400,6 @@ hr {
 
 button, select {
   color: #000;
-  font-family: var(--font-sans);
 }
 
 .mobile-first {

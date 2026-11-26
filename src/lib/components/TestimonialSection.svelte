@@ -7,7 +7,7 @@
 <div class="subhead">
   <h2>owners on 𝕏</h2>
   <span class="line" aria-hidden="true"></span>
-  <a class="meta" href="https://twitter.com/comma_ai" target="_blank" rel="noopener">@comma_ai</a>
+  <a class="meta type-mono type-small" href="https://twitter.com/comma_ai" target="_blank" rel="noopener">@comma_ai</a>
 </div>
 <TestimonialCards items={tweets} style="tweet" />
 
@@ -19,7 +19,7 @@
 
 <style>
   .subhead {
-    --head-size: clamp(1.75rem, 3vw, 2.5rem);
+    --head-size: var(--text-h2); /* type deviation: D9, feeds a baseline-nudge calc, not a font-size */
     --lowercase-drop: calc(var(--head-size) * 0.0908);
 
     align-items: center;
@@ -33,9 +33,6 @@
   }
 
   h2 {
-    font-size: var(--head-size);
-    font-weight: 600;
-    line-height: 1;
     margin: 0;
   }
 
@@ -49,10 +46,6 @@
 
   .meta {
     color: var(--color-muted);
-    font-family: var(--font-mono);
-    font-size: 0.875rem;
-    letter-spacing: normal;
-    line-height: 1;
     transform: translateY(var(--lowercase-drop));
     transition: color 0.2s;
     white-space: nowrap;

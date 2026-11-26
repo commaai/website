@@ -10,6 +10,7 @@
 
 <button
   {id}
+  class="type-body type-caps"
   on:click={event => dispatch(disabled ? 'disabledclick' : 'click', event)}
   class:primary={style == "primary"}
   class:secondary={style == "secondary"}
@@ -25,12 +26,8 @@
     background-color: var(--color-accent);
     border: none;
     text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
     justify-content: center;
     padding: 1.25rem 4rem;
-    font-size: 1.125rem;
-    font-weight: 600;
     display: flex;
     width: fit-content;
     cursor: pointer;

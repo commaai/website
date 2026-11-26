@@ -56,8 +56,8 @@
   <div class="container">
     <div class="header">
       <hgroup>
-        <span style="font-size: 1.5rem; margin-bottom: 0.5rem;">comma four</span>
-        <h2 style="font-size: 3rem; font-weight: 600;">Setup Guide</h2>
+        <span class="type-lead">comma four</span>
+        <h2 class="type-h1">Setup Guide</h2>
       </hgroup>
       <Grid columns={2} columnGap="5rem" rowGap="0" templateColumns="1.5fr 0.75fr" alignItems="start" size="large">
         <div class="title">
@@ -84,7 +84,7 @@
         </div>
         <div>
           <div class="parts-card">
-            <div class="header">Parts:</div>
+            <div class="header type-label">Parts:</div>
             <div class="contents">
               <div>
                 <Grid rowGap={0} columnGap="1rem" alignItems="center" size="small">
@@ -97,7 +97,7 @@
                       {#if FOUR_STRIKETHROUGH_PRICE}
                         <span class="muted strikethrough-price">${FOUR_STRIKETHROUGH_PRICE}</span>
                       {/if}
-                      <span class="red-price">${FOUR_PRICE}</span>
+                      <span class="red-price type-strong">${FOUR_PRICE}</span>
                     </div>
                   {:else}
                     <span class="muted">${FOUR_PRICE}</span>
@@ -132,9 +132,9 @@
 <section class="light" id="guide">
   <div class="container">
     <div class="card vehicle-notes">
-      <div class="header">Customize Your Guide</div>
+      <div class="header type-label">Customize Your Guide</div>
       <div class="contents">
-        <p>Select your vehicle to get customized installation notes:</p>
+        <p class="type-large">Select your vehicle to get customized installation notes:</p>
         <HarnessSelector
           label="Select your vehicle"
           placeholder="Search for your vehicle"
@@ -145,11 +145,11 @@
         />
 
         {#if selectedVehicle}
-          <div class="setup-notes">
+          <div class="setup-notes type-large">
             <Grid templateColumns="1.25fr 0.75fr">
               {#if selectedVehicle.setupVideo}
                 <div>
-                  <p class="note-heading">Setup Video:</p>
+                  <p class="note-heading type-h5">Setup Video:</p>
                   <div class="media-container">
                     <iframe
                       src={getVideoEmbedSrc(selectedVehicle.setupVideo)}
@@ -162,7 +162,7 @@
               {/if}
               {#if selectedVehicle.setupNotes.length > 0}
                 <div>
-                  <p class="note-heading">Setup Notes:</p>
+                  <p class="note-heading type-h5">Setup Notes:</p>
                   <ul>
                     {#each selectedVehicle.setupNotes as note}
                       <li>{@html note}</li>
@@ -185,7 +185,7 @@
 
         <div class="step" id="step-1">
       <Badge style="dark">Step 1 <span class="muted">of 5</span></Badge>
-      <h2>Remove the rearview mirror cover trim</h2>
+      <h2 class="type-regular">Remove the rearview mirror cover trim</h2>
       <Grid templateColumns="0.875fr 0.75fr">
         <div class="image-grid">
           <img src={TrimImage} loading="lazy" alt="remove the rearview mirror cover trim" />
@@ -193,7 +193,7 @@
           <img src={Trim2Image} loading="lazy" alt="remove trim step 2" />
           <img src={Trim3Image} loading="lazy" alt="remove trim step 3" />
         </div>
-        <p>
+        <p class="type-lead">
           Removal method varies by car.
           The durable plastic often requires a strong tug to pop it off on Hondas.
           Toyotas often need a slide outward.
@@ -204,7 +204,7 @@
     <hr />
     <div class="step" id="step-2">
       <Badge style="dark">Step 2 <span class="muted">of 5</span></Badge>
-      <h2>Connect car harness into the camera</h2>
+      <h2 class="type-regular">Connect car harness into the camera</h2>
       <Grid templateColumns="0.875fr 0.75fr">
         <div class="image-grid">
           <img src={CameraImage} loading="lazy" alt="unplug car's camera cable" />
@@ -212,7 +212,7 @@
           <img src={Plug1Image} loading="lazy" alt="plug car camera into harness" />
           <img src={PlugImage} loading="lazy" alt="plug harness into camera port" />
         </div>
-        <ul>
+        <ul class="type-lead">
           <li>Unplug the existing LKAS camera connector and plug it into the harness.</li>
           <li>Connect the other end of the harness back into the LKAS camera.</li>
           <li>
@@ -225,7 +225,7 @@
     <hr />
     <div class="step" id="step-3">
       <Badge style="dark">Step 3 <span class="muted">of 5</span></Badge>
-      <h2>Place mount high and centered on the windshield</h2>
+      <h2 class="type-regular">Place mount high and centered on the windshield</h2>
       <Grid templateColumns="0.875fr 0.75fr">
         <div class="image-grid">
           <div class="crop-wrapper">
@@ -235,7 +235,7 @@
           <img src={PressImage} loading="lazy" alt="press mount on windshield" />
         </div>
         <div>
-          <ul>
+          <ul class="type-lead">
             <li>Mounting prep – Clean the mounting area with the included alcohol wipe and let it dry.</li>
             <li>Vertical Positioning – Ensure there is enough room for the cable when the device is mounted, and that you can see the screen from a seated position.</li>
             <li>Horizontal Positioning – Ensure the mount is centered horizontally, otherwise it will not properly center in the lane.</li>
@@ -247,14 +247,14 @@
     <hr />
     <div class="step" id="step-4">
       <Badge style="dark">Step 4 <span class="muted">of 5</span></Badge>
-      <h2>Plug in OBD-C and mount the device</h2>
+      <h2 class="type-regular">Plug in OBD-C and mount the device</h2>
       <Grid templateColumns="0.875fr 0.75fr">
         <div class="image-grid">
           <img src={ObdcImage} loading="lazy" alt="plug OBD-C cable into harness box" />
           <img src={Plug2Image} loading="lazy" alt="plug in comma four" />
           <img src={RemountImage} loading="lazy" alt="mount the device" />
         </div>
-        <ul>
+        <ul class="type-lead">
           <li>Plug the OBD-C cable into the harness box – Ensure the cable is fully seated.</li>
           <li>Plug the OBD-C cable into the comma four. Make sure the cable is all the way in.</li>
           <li>Mount the device – Ensure the device is fully seated into the mount.</li>
@@ -264,7 +264,7 @@
     <hr />
     <div class="step" id="step-5">
       <Badge style="dark">Step 5 <span class="muted">of 5</span></Badge>
-      <h2>Reinstall the rearview mirror cover trim</h2>
+      <h2 class="type-regular">Reinstall the rearview mirror cover trim</h2>
       <Grid templateColumns="0.875fr 0.75fr">
         <div class="image-grid">
           <img src={Wires1Image} loading="lazy" alt="tidy up wires" />
@@ -272,9 +272,9 @@
           <img src={WiresImage} loading="lazy" alt="wire management" />
           <img src={TrimImage} loading="lazy" alt="reinstall trim" />
         </div>
-        <ul>
+        <ul class="type-lead">
           <li>Ensure the car harness fully fits inside the trim.</li>
-          <li>Generally, it's best to have the OBD-C cable come out of the top.</li>
+          <li>Generally, it's best to have the OBD&#8209;C cable come out of the top.</li>
         </ul>
       </Grid>
     </div>
@@ -282,18 +282,18 @@
     <hr />
     <div class="step">
       <Badge style="dark">OPTIONAL STEP</Badge>
-      <h2>Pair your device with comma connect</h2>
+      <h2 class="type-regular">Pair your device with comma connect</h2>
       <Grid templateColumns="0.875fr 0.75fr">
         <div>
           <img src={StepSixImage} loading="lazy" alt="comma connect application logo" />
         </div>
         <div>
-          <p>
+          <p class="type-lead">
             Pair your comma four with <a href="https://connect.comma.ai/" target="_blank" class="highlight">connect.comma.ai</a> on your phone to see your recorded drives.
           </p>
           <br />
           <LinkButton href="https://connect.comma.ai/" target="_blank" style="primary" fullWidth={true}>
-            <span style="text-transform: none">comma connect</span>
+            <span class="brand-name">comma connect</span>
           </LinkButton>
         </div>
       </Grid>
@@ -302,20 +302,20 @@
     <hr />
     <div class="step">
       <Badge style="dark">OPTIONAL STEP</Badge>
-      <h2>Add the comma power</h2>
+      <h2 class="type-regular">Add the comma power</h2>
       <Grid templateColumns="0.875fr 0.75fr">
         <div>
           <img src={CommaPowerImage} loading="lazy" alt="comma power" />
         </div>
         <div>
-          <p>
+          <p class="type-lead">
             Installing the comma power is entirely optional and can be done at any time.
             Simply connect one end to your car's OBD-II port and the other to the harness box.
           </p>
-          <p>
+          <p class="type-lead">
             With a comma power:
           </p>
-          <ul>
+          <ul class="type-lead">
             <li>The start and end of every drive are recorded.</li>
             <li>Your comma four remains powered and online while the car is off.</li>
             <li>Your comma four downloads updates while the car is off.</li>
@@ -341,15 +341,12 @@
       & hgroup {
         margin-bottom: 2rem;
 
-        & h1 {
-          margin: 0;
-          font-size: 3rem;
+        & span {
+          margin-bottom: 0.5rem;
         }
 
         & h2 {
           margin: 0.5rem 0 0 0;
-          font-size: 2rem;
-          font-weight: normal;
         }
       }
 
@@ -397,9 +394,6 @@
         margin-bottom: 1.5rem;
 
         & .header {
-          font-size: 0.875rem;
-          font-family: var(--font-mono);
-          text-transform: uppercase;
           color: #fff;
           background-color: #000;
           padding: 0.75rem 1rem;
@@ -445,7 +439,6 @@
           }
 
           & li {
-            font-size: 1rem;
             text-wrap: balance;
           }
         }
@@ -466,7 +459,6 @@
 
   .red-price {
     color: var(--color-sale-red);
-    font-weight: 700;
   }
 
   .card {
@@ -475,9 +467,6 @@
     margin-bottom: 4rem;
 
     & .header {
-      font-size: 0.875rem;
-      font-family: var(--font-mono);
-      text-transform: uppercase;
       color: #fff;
       background-color: #000;
       padding: 0.75rem 1rem;
@@ -496,14 +485,6 @@
   .step {
     & h2 {
       margin-top: 1rem;
-    }
-
-    & p, & li {
-      font-size: 1.5rem;
-
-      @media screen and (max-width: 1024px) {
-        font-size: 1.25rem;
-      }
     }
 
     & li {
@@ -555,7 +536,6 @@
 
   .vehicle-notes {
     margin-top: 1rem;
-    font-size: 1.25rem;
 
     & p {
       margin: 0.25rem 0 0;
@@ -566,7 +546,6 @@
       margin: 1rem 0 0.5rem;
 
       & .note-heading {
-        font-weight: 600;
         margin-bottom: 0.5rem;
       }
 
@@ -577,7 +556,6 @@
 
       & li {
         margin-bottom: 0.5rem;
-        font-size: 1.25rem;
       }
 
       & a {
@@ -599,5 +577,9 @@
         }
       }
     }
+  }
+
+  .brand-name {
+    text-transform: none; /* type deviation: D5, case the copy depends on */
   }
 </style>

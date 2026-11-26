@@ -34,10 +34,10 @@
 <section id="vehicles" class="light">
   <div class="container">
     <Grid columnGap="4rem" rowGap="2rem" templateColumns="1.25fr 1fr">
-      <div class="title">
+      <div class="title type-display type-h3">
         openpilot supports {vehicleCountText} vehicles
       </div>
-      <div class="description">
+      <div class="description type-large">
         A supported vehicle is one that just works when you install a comma four.
         All supported cars provide a better experience than any stock system.
         Supported vehicles reference the US market unless otherwise specified.
@@ -54,7 +54,7 @@
               <img src={brand_images[brand_img_path].default} loading="eager" alt="{brand} car brand" />
             {/if}
           </a>
-          <div class="compatibility-make-name">{brand}</div>
+          <div class="compatibility-make-name type-strong">{brand}</div>
         </div>
         {/if}
       {/each}
@@ -82,26 +82,26 @@
       </hgroup>
       <div class="recommended-car-columns">
         <Grid columns="4" size="large" wrapMode="single">
-          <div class="recommended-car-stack">
+          <div class="recommended-car-stack type-large">
             <strong>EV</strong>
             <div>Kia EV6</div>
             <div>Hyundai Ioniq 5</div>
             <div>Toyota Prius 2021&#8209;22</div>
           </div>
-          <div class="recommended-car-stack">
+          <div class="recommended-car-stack type-large">
             <strong>SUV</strong>
             <div>Volkswagen ID.4 2021&#8209;25</div>
             <div>Toyota Highlander 2020&#8209;23</div>
             <div>Hyundai Palisade 2020&#8209;22</div>
             <div>Tesla Model Y</div>
           </div>
-          <div class="recommended-car-stack">
+          <div class="recommended-car-stack type-large">
             <strong>Sedan</strong>
             <div>Toyota Corolla 2020&#8209;22</div>
             <div>Hyundai Sonata 2020&#8209;23</div>
             <div>Tesla Model 3</div>
           </div>
-          <div class="recommended-car-stack">
+          <div class="recommended-car-stack type-large">
             <strong>Truck</strong>
             <div>Ram 1500 2019&#8209;24</div>
             <div>Chevrolet Silverado 1500 2020&#8209;21</div>
@@ -114,7 +114,7 @@
 
 <section class="light" id="compatibility-chart">
   <div class="container" style="width:85%; max-width: 60rem">
-    <p class="last-updated">Last updated: {compatibilityMeta.last_updated}</p>
+    <p class="last-updated type-italic">Last updated: {compatibilityMeta.last_updated}</p>
 
     {#each Object.entries(vehicles) as [make, cars]}
       {#if cars.length !== 0}
@@ -123,7 +123,7 @@
         {#if brand_images[brand_img_path]}
           <img src={brand_images[brand_img_path].default} alt="{make} car brand" />
         {/if}
-        <h3>{make} <span class="muted">({cars.length})</span></h3>
+        <h3 class="type-h4">{make} <span class="muted">({cars.length})</span></h3>
       </div>
 
       {#each cars as car_info}
@@ -146,7 +146,7 @@
               <div class="car-detail-content-wrapper">
                 <Grid columns={2} rowGap="0" columnGap="2rem" templateColumns="3fr 2fr">
                   <div>
-                    <div class="car-detail-tier">{@html car_info.detail_sentence }</div>
+                    <div class="car-detail-tier type-large">{@html car_info.detail_sentence }</div>
                     <div class="cards">
                       <NoteCard title="Support" icon={CarIcon} style="elevated">
                         {#if car_info.package !== 'All'}
@@ -170,22 +170,22 @@
                         {#if FOUR_SALE}
                           <div style="display: flex; align-items: center;">
                             {#if FOUR_STRIKETHROUGH_PRICE}
-                              <div class="understated-price strikethrough-price">${FOUR_STRIKETHROUGH_PRICE}</div>
+                              <div class="understated-price strikethrough-price type-small">${FOUR_STRIKETHROUGH_PRICE}</div>
                             {/if}
-                            <div class="red-price">${FOUR_PRICE}</div>
+                            <div class="red-price type-small type-strong">${FOUR_PRICE}</div>
                           </div>
                         {:else}
-                          <div class="understated-price">${FOUR_PRICE}</div>
+                          <div class="understated-price type-small">${FOUR_PRICE}</div>
                         {/if}
                         {#if car_info.harness_connector !== "" }
                           <strong>car harness: { car_info.harness_connector }</strong>
-                          <div class="understated-price">included</div>
+                          <div class="understated-price type-small">included</div>
                         {/if}
                       </hgroup>
                     </div>
                     {#if opened[car_info.name]}
-                      <div class="installments">
-                        <span class="label">Pay over time</span>
+                      <div class="installments type-small">
+                        <span class="label type-label">Pay over time</span>
                         <ShopPayInstallments split inline amount={FOUR_PRICE} onCheckout={() => goto(`/shop/comma-four?harness=${car_info.name}`)} />
                       </div>
                     {/if}
@@ -241,24 +241,6 @@
 
   #vehicles {
     padding-bottom: 0;
-
-    & .title {
-      text-transform: uppercase;
-      font-family: var(--font-display);
-      font-size: 2rem;
-      font-weight: 600;
-      line-height: 1.2;
-
-      @media screen and (max-width: 512px) {
-        font-size: 1.5rem;
-      }
-    }
-
-    & .description {
-      font-size: 1.25rem;
-      font-weight: 400;
-      line-height: 1.3;
-    }
 
     & .compatibility-make-links {
       display: grid;
@@ -319,14 +301,11 @@
     & .compatibility-make-name {
       text-align: center;
       margin-top: .5rem;
-      font-weight: 600;
-      line-height: 1.2;
     }
   }
 
   .last-updated {
     text-align: center;
-    font-style: italic;
     margin-bottom: 1rem;
   }
 
@@ -343,8 +322,6 @@
       & .recommended-car-stack {
         display: grid;
         gap: 0.5em;
-        font-size: 1.125rem;
-        line-height: 1.35;
       }
     }
 
@@ -356,23 +333,6 @@
   .recommended-cars hgroup {
     & h2 {
       margin: 0 0 0.75rem;
-      font-weight: 600;
-      line-height: 1.05;
-      letter-spacing: -0.06em;
-    }
-
-    & p {
-      margin: 0;
-      font-size: 1.125rem;
-      line-height: 1.35;
-    }
-  }
-
-  /* Only the top step; below 1024 the global h2 scale already applies. */
-  @media screen and (min-width: 1025px) {
-    #vehicles :global(.updates-card h2),
-    .recommended-cars h2 {
-      font-size: 2.75rem;
     }
   }
 
@@ -392,13 +352,10 @@
 
     & h3 {
       color: #fff;
-      font-weight: 700;
-      font-size: 1.5em;
       margin: 0;
 
       & .muted {
         color: #fff;
-        font-weight: 700;
         opacity: .65;
       }
     }
@@ -428,7 +385,6 @@
       & .model {
         flex: 1;
         margin-right: 8px;
-        font-weight: 600;
         padding-right: 20px;
       }
 
@@ -459,7 +415,6 @@
 
   .car-detail-tier {
     margin-bottom: 1rem;
-    font-size: 1.25rem;
   }
 
   .cards {
@@ -474,7 +429,6 @@
     background-color: rgba(68, 65, 58, .12);
     border: 1px solid rgba(117, 93, 36, .25);
     padding: .75rem;
-    font-size: 14px;
 
     & .product-wrapper {
       justify-content: space-between;
@@ -489,7 +443,6 @@
 
       & .red-price {
         color: var(--color-sale-red);
-        font-weight: 700;
       }
 
       & img {
@@ -506,17 +459,8 @@
         flex: 1;
         margin-right: .75rem;
 
-        & strong {
-          font-size: 1rem;
-          font-weight: 600;
-        }
-
         & .understated-price {
           opacity: .65;
-        }
-
-        & div {
-          font-size: .875rem;
         }
       }
     }
@@ -531,13 +475,9 @@
       border: 1px solid #ccc;
       padding: .5rem .75rem;
       margin-bottom: .75rem;
-      font-size: .875rem;
-      --installments-rest-font-size: .875rem;
+      --installments-rest-font-size: var(--text-sm); /* type deviation: D3, ShopPay's size API into its shadow root */
 
       & .label {
-        font-family: var(--font-mono);
-        text-transform: uppercase;
-        font-size: .75rem;
         opacity: .65;
       }
     }
@@ -546,7 +486,6 @@
       border-top: 1px solid rgba(117, 93, 36, .25);
       margin: .5rem 0;
       padding-top: .75rem;
-      font-size: 1rem;
     }
   }
 

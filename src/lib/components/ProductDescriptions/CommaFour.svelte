@@ -176,19 +176,19 @@
   <span slot="price-accessory">
     <div class="payment-options">
       <div class="option-wrap">
-        <span class="option-label">Buy now</span>
-        <span class="option pay-now-price" class:sale-price={FOUR_SALE}>
+        <span class="option-label type-label">Buy now</span>
+        <span class="option pay-now-price" class:sale-price={FOUR_SALE} class:type-strong={FOUR_SALE}>
           {usd(priceAfterTradeIn)}
           {#if wasPrice}
-            <span class="was-price">was <s>{usd(wasPrice)}</s></span>
+            <span class="was-price type-small type-regular">was <s>{usd(wasPrice)}</s></span>
           {:else if showTradeInNote}
-            <span class="was-price">after trade-in, {usd(priceDueToday)} due today</span>
+            <span class="was-price type-small type-regular">after trade-in, {usd(priceDueToday)} due today</span>
           {/if}
         </span>
       </div>
       {#if !installmentsTimedOut}
         <div class="option-wrap">
-          <span class="option-label">Finance</span>
+          <span class="option-label type-label">Finance</span>
           <span class="option finance-price">
             <ShopPayInstallments
               split
@@ -214,17 +214,17 @@
       showNoHarnessOption={true}
     >
     </HarnessSelector>
-    <div class="missing-car">
+    <div class="missing-car type-small">
       {#if $notifyStatus === 'success'}
         <span>Thanks, we'll email you when it's supported.</span>
       {:else if !notifyOpen}
         <button type="button" on:click={() => (notifyOpen = true)}>Don't see your car? <u>Email me when it's supported</u></button>
       {:else}
         <form on:submit|preventDefault={notifySubmit}>
-          <input type="text" placeholder="Your car, e.g. 2021 Mazda 3" bind:value={$notifyCar} data-1p-ignore>
+          <input class="type-body" type="text" placeholder="Your car, e.g. 2021 Mazda 3" bind:value={$notifyCar} data-1p-ignore>
           <div class="row">
-            <input type="email" placeholder="Email" required bind:value={$notifyEmail} autocomplete="email">
-            <button type="submit" disabled={$notifyStatus === 'submitting'}>Notify me</button>
+            <input class="type-body" type="email" placeholder="Email" required bind:value={$notifyEmail} autocomplete="email">
+            <button class="type-label" type="submit" disabled={$notifyStatus === 'submitting'}>Notify me</button>
           </div>
           {#if $notifyError}<span class="error">{$notifyError}</span>{/if}
         </form>
@@ -251,6 +251,7 @@
           slot="actions"
           class="remove-referral"
           class:undo-referral={removedReferralCode}
+          class:type-label={removedReferralCode}
           aria-label={removedReferralCode ? 'Undo referral removal' : 'Remove referral'}
           disabled={updatingReferral}
           on:click={removedReferralCode ? handleUndoReferral : handleRemoveReferral}
@@ -329,14 +330,12 @@
 <style>
   .missing-car {
     margin-top: 0.5rem;
-    font-size: 0.875rem;
     color: rgba(0, 0, 0, 0.6);
 
     & > button {
       padding: 0;
       border: 0;
       background: none;
-      font: inherit;
       color: inherit;
       cursor: pointer;
 
@@ -366,8 +365,6 @@
       min-width: 0;
       padding: 0.625rem 0.75rem;
       border: 1px solid #616161;
-      font: inherit;
-      font-size: 1rem;
       background: white;
     }
 
@@ -376,9 +373,6 @@
       border: 0;
       background: black;
       color: white;
-      font-family: var(--font-mono);
-      font-size: 0.875rem;
-      text-transform: uppercase;
       cursor: pointer;
     }
 
@@ -410,11 +404,6 @@
     width: auto;
     padding: 0.25rem 0.5rem;
     color: black;
-    font-family: var(--font-mono);
-    font-size: 0.875rem;
-    font-weight: 600;
-    line-height: 1.1;
-    text-transform: uppercase;
   }
 
   .label {
@@ -449,7 +438,6 @@
   }
 
   .sale-price {
-    font-weight: 700;
     color: var(--color-sale-red);
 
     & span {
@@ -472,10 +460,6 @@
   }
 
   .option-label {
-    font-family: JetBrains Mono, monospace;
-    font-size: 0.875rem;
-    line-height: 1.1;
-    text-transform: uppercase;
     color: black;
   }
 
@@ -498,39 +482,16 @@
   }
 
   .finance-price {
-    font-size: min(1.5rem, 10.5cqw);
-    --installments-rest-font-size: min(0.875rem, 6.8cqw);
-
-    @media only screen and (max-width: 768px) {
-      & {
-        font-size: min(1.125rem, 11.5cqw);
-        --installments-rest-font-size: min(0.75rem, 7.5cqw);
-      }
-    }
+    font-size: min(var(--text-lead), 10.5cqw); /* type deviation: D2, fits the price to the card via container query */
+    --installments-rest-font-size: min(var(--text-sm), 6.8cqw); /* type deviation: D2, D3, container-query fit fed through ShopPay's size API */
   }
 
   .sale-price .was-price {
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1;
     margin-top: 0.1em;
     color: rgba(0, 0, 0, 0.5);
-
-    @media only screen and (max-width: 768px) {
-      & {
-        font-size: 0.875rem;
-      }
-    }
   }
 
   .pay-now-price {
-    font-size: min(2.5rem, 20.5cqw);
-    line-height: 1.4;
-
-    @media only screen and (max-width: 768px) {
-      & {
-        font-size: min(2rem, 20.5cqw);
-      }
-    }
+    font-size: min(var(--text-h2), 20.5cqw); /* type deviation: D2, fits the price to the card via container query */
   }
 </style>

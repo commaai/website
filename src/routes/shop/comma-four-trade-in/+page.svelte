@@ -8,15 +8,15 @@
 
 <section class="light" id="trade-in">
   <div class="container">
-    <h1>comma four trade-in</h1>
+    <h1 class="type-h2">comma four trade-in</h1>
 
-    <div class="content">
+    <div class="content type-prose">
       <p>
         Trade in any older comma device (EON, comma two, comma three, or comma 3X) for ${FOUR_TRADE_IN_CREDIT} credit towards a brand new comma four. Device can be in any condition as long as you are the original purchaser.
       </p>
 
       <hr>
-      <strong>Trade-in Instructions</strong>
+      <strong class="type-h5">Trade-in Instructions</strong>
       <p>
         1. Check the trade-in option on the <a href="/shop/comma-four" class="highlight">comma four</a> product page. If you forgot to do this before placing your order, please contact <a href="/support" class="highlight">support</a>.
       </p>
@@ -30,7 +30,7 @@
         Can't find it? Open a ticket with <a href="/support" class="highlight">support</a>.
       </p>
       <p>Address to:</p>
-      <p style="margin-left: 1em; font-size: 0.75em"><b>
+      <p class="type-small" style="margin-left: 1em"><b>
         comma four upgrade<br>
         Upgrade Order #<br>
         3900 Harney Street<br>
@@ -41,7 +41,7 @@
       </p>
 
       <hr>
-      <strong>THE FINE PRINT</strong>
+      <strong class="type-h5">THE FINE PRINT</strong>
       <ul>
         <li>
           This trade-in offer is ONLY good for the original device owner. <b>What does this mean?</b> The device sent for trade-in must have been purchased
@@ -69,26 +69,21 @@
 
 <style>
   h1 {
-    font-size: 2.5rem;
-    font-weight: 600;
     margin-bottom: 2rem;
   }
 
   li {
-    font-size: 1rem;
     margin-bottom: 1rem;
   }
 
   .content {
     max-width: 800px;
-    line-height: 1.6;
   }
 
   .content strong {
     display: block;
     margin-top: 2rem;
     margin-bottom: 1rem;
-    font-size: 1.25rem;
   }
 
   .content p {

@@ -86,28 +86,28 @@
 
     <div class="hero-stats">
       <div class="stat">
-        <span class="stat-value">30,000+</span>
+        <span class="stat-value type-h2 type-regular">30,000+</span>
         <span class="stat-label">cars on the road with a comma</span>
       </div>
       <div class="stat">
-        <span class="stat-value">{milesDriven.toLocaleString("en-US")}</span>
+        <span class="stat-value type-h2 type-regular">{milesDriven.toLocaleString("en-US")}</span>
         <span class="stat-label">
           <span class="live-dot" aria-label="live estimate"></span>
           miles driven
         </span>
       </div>
       <div class="stat">
-        <span class="stat-value">#2</span>
+        <span class="stat-value type-h2 type-regular">#2</span>
         <span class="stat-label">after Tesla in hands-free miles</span>
       </div>
     </div>
 
     <div class="hero-actions">
-      <a class="hero-action primary" href="/vehicles">
+      <a class="hero-action primary type-lead" href="/vehicles">
         <span>check your car</span>
         <span class="action-arrow" aria-hidden="true">{@html ArrowRight}</span>
       </a>
-      <a class="hero-action secondary" href="/shop/comma-four">
+      <a class="hero-action secondary type-lead" href="/shop/comma-four">
         <span>try risk-free for 30 days</span>
         <span class="action-detail">
           <!-- TODO: Show after we have $0 down. -->
@@ -118,7 +118,7 @@
     </div>
 
     <div class="hero-compatibility">
-      <p>works with {vehicleCountText} models across 27 brands</p>
+      <p class="type-lead">works with {vehicleCountText} models across 27 brands</p>
       <div class="logo-viewport" aria-hidden="true">
         <div class="logo-track">
           {#each Array(4) as _}
@@ -156,9 +156,7 @@
 
   h1 {
     color: white;
-    font-size: clamp(3rem, 4vw, 4rem);
-    letter-spacing: -0.04em;
-    line-height: 1;
+    font-size: var(--text-hero-overlay); /* type deviation: D4, mobile hero title must fit above the stats and CTAs */
     margin: 0;
     max-width: 44rem;
     text-shadow: 0 0 12px rgba(0, 0, 0, 0.8);
@@ -187,21 +185,10 @@
     text-shadow: 0 0 12px rgba(0, 0, 0, 0.8);
   }
 
-  .stat-value {
-    font-size: 3rem;
-    font-weight: 400;
-    letter-spacing: -0.04em;
-    line-height: 1;
-  }
-
   .stat-label {
     align-items: center;
     display: flex;
-    font-size: 1rem;
-    font-weight: 500;
     gap: 0.375rem;
-    letter-spacing: -0.04em;
-    line-height: 1.2;
     margin-top: 0.9375rem;
   }
 
@@ -226,9 +213,6 @@
     align-items: center;
     box-sizing: border-box;
     display: flex;
-    font-size: 1.5rem;
-    font-weight: 500;
-    letter-spacing: -0.04em;
     min-height: 4.3125rem;
     padding: 1.25rem;
     transition: background-color 0.2s;
@@ -272,7 +256,6 @@
     align-items: center;
     display: flex;
     flex: 0 0 auto;
-    font-size: 0.75rem;
     gap: 0.625rem;
   }
 
@@ -305,10 +288,6 @@
   .hero-compatibility p {
     color: white;
     flex: 0 0 27.8125rem;
-    font-size: 1.5rem;
-    font-weight: 400;
-    letter-spacing: -0.04em;
-    line-height: 1;
     margin: 0;
     text-shadow: 0 0 12px rgba(0, 0, 0, 0.8);
   }
@@ -386,8 +365,6 @@
     }
 
     h1 {
-      font-size: 1.75rem;
-      line-height: 1;
       max-width: none;
     }
 
@@ -407,13 +384,7 @@
       width: auto;
     }
 
-    .stat-value {
-      font-size: 1.75rem;
-    }
-
     .stat-label {
-      font-size: 1rem;
-      font-weight: 400;
       margin-top: 0.375rem;
     }
 
@@ -425,7 +396,6 @@
     }
 
     .hero-action {
-      font-size: 1rem;
       justify-content: space-between;
       min-height: 3.6875rem;
       padding: 1.25rem;
@@ -438,10 +408,6 @@
       width: 100%;
     }
 
-    .action-detail {
-      font-size: 1rem;
-    }
-
     .hero-compatibility {
       flex-direction: column;
       gap: 1.0625rem;
@@ -451,7 +417,6 @@
 
     .hero-compatibility p {
       flex-basis: auto;
-      font-size: 1rem;
       text-align: center;
       width: 100%;
     }

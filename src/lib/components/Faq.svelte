@@ -25,17 +25,17 @@
 
 <div>
   <div class="header" id={(title ?? topic.title).toLowerCase().replace(/[^\w\s]/g, '').replaceAll(' ', '-')}>
-    <h1>{title ?? topic.title}</h1>
+    <h1 class="type-h2">{title ?? topic.title}</h1>
     {#if topic.image}<img src={topic.image} loading="eager" alt="{title ?? topic.title} banner" />{/if}
   </div>
   <div class="questions">
     {#each topic.questions as entry}
       {@const id = entry.question.toLowerCase().replace(/[^\w\s]/g, '').replaceAll(' ', '-')}
       <Accordion checked={id === openId} {id} on:click={() => toggle(id)}>
-        <div slot="label" class="label">
+        <div slot="label" class="label type-h5">
           <span>{entry.question}</span>
         </div>
-        <div class="details" slot="content">
+        <div class="details type-large" slot="content">
           {@html entry.answer}
         </div>
       </Accordion>
@@ -59,32 +59,11 @@
     margin-bottom: 2rem;
 
     & h1 {
-      font-size: 3rem;
-      font-weight: 600;
       margin: 0;
       max-width: 60%;
       position: relative;
       z-index: 1;
       color: white;
-      text-wrap: balance;
-
-      @media screen and (max-width: 1024px) {
-        & {
-          font-size: 2.5rem;
-        }
-      }
-
-      @media screen and (max-width: 480px) {
-        & {
-          font-size: 2rem;
-        }
-      }
-
-      @media screen and (max-width: 375px) {
-        & {
-          font-size: 1.5rem;
-        }
-      }
     }
 
     & img {
@@ -119,15 +98,11 @@
 
   .questions {
     & .label {
-      font-size: 1.25rem;
-      font-weight: 600;
       margin: 1rem 0;
       margin-right: 0.75rem;
     }
 
     & .details {
-      font-size: 1.25rem !important;
-      line-height: 1.4;
       padding: 0.25rem 0 1rem;
 
       & *:first-child {
@@ -142,10 +117,6 @@
         color: #000;
         border-bottom: 2px solid #86ff4e;
         background-color: rgba(134, 255, 78, 0.15);
-      }
-
-      & li {
-        font-size: 1.25rem;
       }
 
       & .video-container {

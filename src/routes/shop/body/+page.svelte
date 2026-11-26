@@ -27,12 +27,12 @@
 
 <section class="light" id="overview">
   <div class="container">
-    <h1>
+    <h1 class="type-h2 type-regular">
       The body is a robotics dev kit that can run <a href="https://github.com/commaai/openpilot" class="highlight">openpilot</a>,
       open source software with over a million hours of usage in the field.
     </h1>
     <img src={CommaBodyHeightImage} loading="lazy" alt="comma body height comparison" width="424px" />
-    <h1 style="text-wrap: balance;">
+    <h1 class="type-h2 type-regular">
       We believe that in order to solve AI, you must be embedded in the real world.
     </h1>
     <img src={CommaBodyWinkImage} loading="lazy" alt="comma body screen with winking animation" width="70%" />
@@ -42,7 +42,7 @@
 <section class="dark" id="features">
   <div class="container">
     <div class="features">
-      <h1>The body is human scale, and has a human usable development environment.</h1>
+      <h1 class="type-h2 type-regular">The body is human scale, and has a human usable development environment.</h1>
       <div class="image-grid">
         <Grid columns={3} alignItems="center">
           <img src={CommaBodyScreenImage} loading="lazy" alt="comma body screen" />
@@ -52,11 +52,11 @@
       </div>
       <div class="item">
         <Accordion style="dark">
-          <div class="label" slot="label">
+          <div class="label type-label" slot="label">
             {@html ThreeSixtyVisionIcon}
             <span>Sensorium streaming</span>
           </div>
-          <div class="details" slot="content">
+          <div class="details type-large type-prose" slot="content">
             The comma 3X has 3 cameras, broadcast with sub 100 ms latency through an H265 encoder.
             Onboard, it has a Kalman filter running at 100Hz integrating the IMU and camera odometry to determine it's 3-DoF position.
             With the addition of a little <a href="https://www.youtube.com/watch?v=7Hlb8YX2-W8" target="_blank" class="highlight muted">SLAM</a>,
@@ -68,11 +68,11 @@
       </div>
       <div class="item">
         <Accordion style="dark">
-          <div class="label" slot="label">
+          <div class="label type-label" slot="label">
             {@html DialsIcon}
             <span>Precise motor control</span>
           </div>
-          <div class="details" slot="content">
+          <div class="details type-large type-prose" slot="content">
             The body base has <a href="https://github.com/commaai/body" target="_blank" class="highlight muted">open source firmware</a>
             directly controlling two 150W sensored brushless motors, allowing instant torque.
             And since they have hall effect sensors, you have precise wheel odometry without an encoder that can slip.
@@ -84,11 +84,11 @@
       </div>
       <div class="item">
         <Accordion style="dark">
-          <div class="label" slot="label">
+          <div class="label type-label" slot="label">
             {@html UbuntuIcon}
             <span>Runs Ubuntu 20.04</span>
           </div>
-          <div class="details" slot="content">
+          <div class="details type-large type-prose" slot="content">
             The comma 3X runs Ubuntu with a normal SSH server.
             It's responsive enough to develop on, including with VS Code remote.
             No dealing with cross compilation, downloading firmware, and stupid variants of Linux like Yocto that dev kits love to run.
@@ -98,11 +98,11 @@
       </div>
       <div class="item">
         <Accordion style="dark">
-          <div class="label" slot="label">
+          <div class="label type-label" slot="label">
             {@html CommandLineIcon}
             <span>Open source software</span>
           </div>
-          <div class="details" slot="content">
+          <div class="details type-large type-prose" slot="content">
             The comma body runs our open source software, <a href="https://github.com/commaai/openpilot" target="_blank" class="highlight muted">openpilot</a>.
             From openpilot’s perspective, the comma body is a car.
             It runs the same camera and logging software, so we’ll be able to learn from the fleet of bodies in the same way we learn from our fleet of cars.
@@ -116,7 +116,7 @@
 <section class="light" id="technical-specs">
   <div class="container">
     <div class="technical-specs">
-      <h1>Technical Specs</h1>
+      <h1 class="type-h2 type-regular">Technical Specs</h1>
       <div class="chart">
         <Grid columns={3}>
           <div class="body-assembly">
@@ -181,7 +181,7 @@
         title="Get body updates"
         defaultCategory="product"
       >
-        <p>Follow along with comma body.</p>
+        <p class="type-large">Follow along with comma body.</p>
       </EmailUpdatesForm>
     </div>
   </div>
@@ -189,10 +189,10 @@
 
 <ProductPage {data} />
 
-<section class="light" id="description">
+<section class="light type-large" id="description">
   <div class="container">
     <Grid templateColumns="0.5fr 1.25fr" rowGap="0">
-      <h2>Overview</h2>
+      <h2 class="type-regular">Overview</h2>
       <div class="description">
         <h3>What is the comma body?</h3>
         <p>
@@ -239,7 +239,7 @@
     </Grid>
     <hr />
     <Grid rowGap="0" templateColumns="0.5fr 1.25fr">
-      <h2>In the Box</h2>
+      <h2 class="type-regular">In the Box</h2>
       <div>
         <ul>
           <li>comma body kit (base, rails, and hardware)</li>
@@ -253,7 +253,7 @@
     </Grid>
     <hr />
     <Grid rowGap="0" templateColumns="0.5fr 1.25fr">
-      <h2>Tech Specs</h2>
+      <h2 class="type-regular">Tech Specs</h2>
       <div>
         <ul>
           <li>
@@ -285,8 +285,8 @@
     </Grid>
     <hr />
     <Grid rowGap="0" templateColumns="0.5fr 1.25fr">
-      <h2>Fine Print</h2>
-      <div class="fine-print-copy">
+      <h2 class="type-regular">Fine Print</h2>
+      <div class="fine-print-copy type-small">
         <strong>30-Day Return</strong>
         <p>
           If for any reason you are dissatisfied with anything purchased at the comma.ai shop, ship it back within 30 days for a full refund.
@@ -312,22 +312,12 @@
 </section>
 
 <style>
-  p {
-    font-size: 1.25rem;
-  }
-
   hr {
     margin: 3rem 0;
   }
 
   h1 {
-    font-size: 3rem;
-    font-weight: 400;
-    line-height: 1.4;
-
-    @media screen and (max-width: 768px) {
-      font-size:2rem;
-    }
+    line-height: var(--leading-normal); /* type deviation: D6, multi-line statement keeps body leading */
   }
 
   #overview {
@@ -369,10 +359,6 @@
       border-bottom: 1px solid rgba(255, 255, 255, 0.85);
 
       & .label {
-        font-size: 1.2rem;
-        font-family: var(--font-mono);
-        font-weight: 400;
-        text-transform: uppercase;
         padding: 1rem 0;
         display: flex;
         align-items: center;
@@ -384,8 +370,6 @@
 
       & .details {
         max-width: 90%;
-        font-size: 1.2rem;
-        line-height: 1.6;
         margin-bottom: 1rem;
       }
     }
@@ -428,16 +412,8 @@
   }
 
   #description {
-    & h3 {
-      font-weight: 600;
-    }
-
     & h3:first-of-type {
       margin-top: 1rem;
-    }
-
-    & li {
-      font-size: 1.25rem;
     }
 
     @media screen and (max-width: 1024px) {

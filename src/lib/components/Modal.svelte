@@ -16,7 +16,7 @@
   <div class="backdrop">
     <div class="modal-container">
       <div tabindex="-1" class="modal" use:clickOutside on:clickOutside={onClose}>
-        <span>{title}</span>
+        <span class="type-h4">{title}</span>
         <slot />
         {#if showPrimaryButton}
           <Button id={primaryButtonId} on:click={onPrimaryClick} style="accent" fullWidth>{primaryButtonText}</Button>
@@ -71,10 +71,5 @@
       margin: 1.25rem;
       padding: 1rem;
     }
-  }
-
-  span {
-    font-size: 1.5rem;
-    font-weight: 600;
   }
 </style>

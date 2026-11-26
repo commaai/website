@@ -194,7 +194,7 @@
     <div class="two-column-layout meet-grid">
       <div class="comma-four-content">
         <h1>meet comma four</h1>
-        <h2>make driving chill with a hands-off, eyes-on driving experience</h2>
+        <h2 class="type-lead">make driving chill with a hands-off, eyes-on driving experience</h2>
       </div>
 
       <div class="device-gallery">
@@ -241,17 +241,17 @@
             <span class="feature-icon">
               {@html feature.icon}
             </span>
-            <span>{feature.label}</span>
+            <span class="type-lead">{feature.label}</span>
           </div>
         {/each}
       </div>
 
       <div class="buy-stack">
-        <a class="homepage-cta accent-cta" href="/shop/comma-four">
+        <a class="type-lead homepage-cta accent-cta" href="/shop/comma-four">
           <span>buy now for ${FOUR_PRICE}</span>
           <span class="cta-arrow" aria-hidden="true">{@html ArrowRight}</span>
         </a>
-        <div class="finance-line">
+        <div class="finance-line type-small">
           <ShopPayInstallments split inline amount={FOUR_PRICE} onCheckout={() => goto("/shop/comma-four")} />
         </div>
       </div>
@@ -280,7 +280,7 @@
         <FeaturedCarsList />
       </div>
       <div class="setup-cta">
-        <a class="homepage-cta dark-cta" href="/vehicles">
+        <a class="type-lead homepage-cta dark-cta" href="/vehicles">
           <span>see all supported cars</span>
           <span class="cta-arrow" aria-hidden="true">{@html ArrowRight}</span>
         </a>
@@ -322,18 +322,18 @@
       <img class="closing-device" src={DeviceAngledImage} alt="comma four" width="1440" height="960" loading="lazy"/>
       <div class="closing-copy">
         <h1>ready to make driving chill?</h1>
-        <p class="closing-sub">hands free driving for the car you already have</p>
+        <p class="closing-sub type-lead">hands free driving for the car you already have</p>
         <div class="closing-actions">
-          <a class="homepage-cta dark-cta" href="/vehicles">
+          <a class="type-lead homepage-cta dark-cta" href="/vehicles">
             <span>check your car</span>
             <span class="cta-arrow" aria-hidden="true">{@html ArrowRight}</span>
           </a>
           <div class="buy-stack">
-            <a class="homepage-cta accent-cta" href="/shop/comma-four">
+            <a class="type-lead homepage-cta accent-cta" href="/shop/comma-four">
               <span>buy now for ${FOUR_PRICE}</span>
               <span class="cta-arrow" aria-hidden="true">{@html ArrowRight}</span>
             </a>
-            <div class="finance-line">
+            <div class="finance-line type-small">
               <ShopPayInstallments split inline amount={FOUR_PRICE} onCheckout={() => goto("/shop/comma-four")} />
             </div>
           </div>
@@ -345,10 +345,9 @@
 
 <style>
   .finance-line {
-    font-size: 1rem;
+    --installments-rest-font-size: var(--text-sm); /* type deviation: D3, ShopPay's size API into its shadow root */
     margin-top: 0.4rem;
     opacity: 0.75;
-    --installments-rest-font-size: 1rem;
   }
 
   .finance-line :global(.split) {
@@ -458,11 +457,8 @@
     align-items: center;
     box-sizing: border-box;
     display: flex;
-    font-size: 1.5rem;
-    font-weight: 500;
     gap: 0.75rem;
     justify-content: center;
-    letter-spacing: -0.04em;
     min-height: 4.3125rem;
     padding: 0.75rem 1.5rem;
     transition: background-color 0.2s, opacity 0.2s;
@@ -484,16 +480,6 @@
     display: block;
     height: 100%;
     width: 100%;
-  }
-
-  :is(
-    #hero .comma-four-content h1,
-    #compatibility .setup-heading,
-    #openpilot h1,
-    #testimonials h1,
-    #closing-cta h1
-  ) {
-    font-size: clamp(2.3rem, 4vw, 4rem);
   }
 
   .dark-cta {
@@ -542,15 +528,9 @@
     }
 
     .homepage-cta {
-      font-size: 1rem;
       justify-content: space-between;
       min-height: 3.6875rem;
       padding: 0.75rem 1.25rem;
-    }
-
-    .finance-line {
-      font-size: 0.875rem;
-      --installments-rest-font-size: 0.875rem;
     }
   }
 
@@ -571,16 +551,10 @@
     }
 
     & .comma-four-content h1 {
-      letter-spacing: -0.04em;
-      line-height: 1;
       margin-bottom: 1rem;
     }
 
     & .comma-four-content h2 {
-      font-size: clamp(1.125rem, 2vw, 1.5rem);
-      font-weight: 400;
-      letter-spacing: -0.04em;
-      line-height: 1.2;
       margin: 0;
       max-width: 37rem;
       opacity: 0.65;
@@ -613,10 +587,6 @@
 
       & > span:last-child {
         color: white;
-        font-size: clamp(1rem, 2vw, 1.5rem);
-        font-weight: 400;
-        letter-spacing: -0.04em;
-        line-height: 1.1;
         white-space: nowrap;
       }
     }
@@ -740,7 +710,6 @@
 
   #openpilot {
     & .map-headline {
-      letter-spacing: -0.04em;
       margin-bottom: 0;
     }
 
@@ -798,9 +767,6 @@
 
     & .closing-sub {
       color: var(--color-muted);
-      font-size: clamp(1.125rem, 2vw, 1.5rem);
-      letter-spacing: -0.04em;
-      line-height: 1.2;
       margin: 1rem 0 0;
     }
 

@@ -44,7 +44,7 @@
 <div class="overlay" role="presentation" on:click />
 <div class="sidemenu" role="dialog" aria-modal="true">
   <div class="header">
-    <span>Your Cart</span>
+    <span class="type-large">Your Cart</span>
     <button on:click>×</button>
   </div>
   <div class="inventory">
@@ -61,11 +61,11 @@
           />
         {/if}
         <div class="details">
-          <div class="title">
+          <div class="title type-strong">
             {item.node.merchandise.product.title}
           </div>
           {#if item.node.merchandise.title !== "Default Title"}
-            <div class="variant">
+            <div class="variant type-small">
               {item.node.merchandise.title}
             </div>
           {/if}
@@ -91,25 +91,25 @@
         {@const subtotalAmountBeforeDiscount = Number($cartSubtotal.amount)}
         {@const subtotalAmountAfterDiscount = Number($cartSubtotal.amount) - Number($cartDiscount?.amount || 0)}
         {#if $cartBulkDiscountAllocation && !hasReferralDiscount}
-          <div class="price">
+          <div class="price type-caps type-small">
             <span>Bulk Order Discount</span>
             <span>
               -{formatCurrency($cartBulkDiscountAllocation.discountedAmount)}
             </span>
           </div>
         {/if}
-        <div class="price">
+        <div class="price type-caps type-small">
           <span>Subtotal</span>
           <span><s>{formatCurrency({ amount: subtotalAmountBeforeDiscount, currencyCode: $cartSubtotal.currencyCode })}</s> {formatCurrency({ amount: subtotalAmountAfterDiscount, currencyCode: $cartSubtotal.currencyCode })}</span>
         </div>
       {:else}
-        <div class="price">
+        <div class="price type-caps type-small">
           <span>Subtotal</span>
           <span>{formatCurrency($cartSubtotal)}</span>
         </div>
       {/if}
       <ShopPayInstallments amount={installmentsAmount} onCheckout={checkout} />
-      <div class="disclaimer">
+      <div class="disclaimer type-small">
         Customs/duties/taxes are between you and your country.
       </div>
       <Button id="checkout" on:click={checkout} style="accent" fullWidth={true}>
@@ -154,7 +154,6 @@
     padding: 1rem 1.5rem 1rem 1rem;
 
     & span {
-      font-size: 1.25rem;
       color: #000;
     }
 
@@ -162,7 +161,9 @@
       background-color: transparent;
       border: none;
       cursor: pointer;
-      font-size: 2rem;
+      /* type deviation: D7, icon glyph set in text, not a text role */
+      font-size: var(--text-3xl);
+      line-height: var(--leading-none);
     }
   }
 
@@ -191,13 +192,7 @@
         flex: 1;
         margin: 0 0.75rem;
 
-        & .title {
-          font-size: 1rem;
-          font-weight: bold;
-        }
-
         & .variant {
-          font-size: 0.875rem;
           opacity: 0.8;
         }
       }
@@ -213,8 +208,6 @@
     & .price {
       display: flex;
       justify-content: space-between;
-      font-size: 0.875rem;
-      text-transform: uppercase;
 
       & span {
         color: #000;
@@ -226,7 +219,6 @@
     }
 
     & .disclaimer {
-      font-size: 0.75rem;
       text-align: center;
     }
   }

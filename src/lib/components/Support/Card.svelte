@@ -22,9 +22,5 @@
 
   .card :global(:is(h2, h3)) {
     margin: 0;
-    font-size: clamp(20px, 2.4vw, 28px);
-    font-weight: 600;
-    line-height: 1.15;
-    letter-spacing: -.035em;
   }
 </style>

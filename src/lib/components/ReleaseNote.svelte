@@ -9,10 +9,10 @@
     <img src={releaseNote.cover} alt="{releaseNote.title} feature highlights" />
     <div>
       <hgroup>
-        <span>{releaseNote.date}</span>
-        <a class="highlight" href={releaseNote.link}>{releaseNote.title}</a>
+        <span class="type-label">{releaseNote.date}</span>
+        <a class="highlight type-h4 type-regular" href={releaseNote.link}>{releaseNote.title}</a>
       </hgroup>
-      <p>{releaseNote.excerpt}</p>
+      <p class="type-lead">{releaseNote.excerpt}</p>
     </div>
   </Grid>
 </div>
@@ -31,14 +31,10 @@
 
   hgroup {
     & span {
-      text-transform: uppercase;
       margin-bottom: 0.25rem;
-      font-family: var(--font-mono);
-      font-size: 0.875rem;
     }
 
     & a {
-      font-size: 1.5rem;
       display: block !important;
       width: fit-content;
       margin-top: 0.25rem;

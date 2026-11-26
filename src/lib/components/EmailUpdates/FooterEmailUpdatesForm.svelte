@@ -29,8 +29,8 @@
     </div>
   {:else}
     <div class="copy">
-      <strong>Get the latest updates</strong>
-      <span>Products, openpilot releases, car support, events, and more.</span>
+      <strong class="type-caps">Get the latest updates</strong>
+      <span class="type-small">Products, openpilot releases, car support, events, and more.</span>
     </div>
 
     <form id="footer-email-form" on:submit|preventDefault={handleFormSubmit}>
@@ -51,19 +51,19 @@
 
       <div class="options-control">
         <button
-          class="options-button"
+          class="options-button type-small type-strong"
           type="button"
           aria-expanded={showOptions}
           on:click={() => showOptions = !showOptions}
         >
           <span>{showOptions ? 'hide options' : 'choose updates'}</span>
-          <span class="options-icon" aria-hidden="true">{showOptions ? '－' : '＋'}</span>
+          <span class="options-icon type-large type-strong" aria-hidden="true">{showOptions ? '－' : '＋'}</span>
         </button>
 
         {#if showOptions}
           <fieldset>
             {#each EMAIL_CATEGORIES as { key, label }}
-              <label class="preference">
+              <label class="preference type-small type-strong">
                 <input type="checkbox" value={key} bind:group={$selectedCategories}>
                 <span>{label}</span>
               </label>
@@ -73,7 +73,7 @@
       </div>
 
       {#if $status === 'error'}
-        <p class="error" role="alert">{$errorMessage}</p>
+        <p class="error type-small" role="alert">{$errorMessage}</p>
       {/if}
     </form>
   {/if}
@@ -93,8 +93,6 @@
 
   .copy span {
     color: var(--muted);
-    font-size: 0.875rem;
-    line-height: 1.35;
   }
 
   form {
@@ -111,7 +109,6 @@
     box-sizing: border-box;
     padding: 0.75rem;
     color: #fff;
-    font: inherit;
     background: #080808;
     border: 1px solid #777;
     border-right: 0;
@@ -164,9 +161,6 @@
     margin: 0.6rem 0 0;
     padding: 0.65rem 0.75rem;
     color: var(--muted);
-    font: inherit;
-    font-size: 0.875rem;
-    font-weight: 600;
     cursor: pointer;
     background: transparent;
     border: 1px solid #777;
@@ -191,9 +185,7 @@
   }
 
   .options-icon {
-    font-size: 1.2rem;
-    font-weight: 700;
-    line-height: 1;
+    line-height: var(--leading-none); /* type deviation: D7, icon glyph set in text, not a text role */
   }
 
   fieldset {
@@ -216,9 +208,6 @@
     align-items: center;
     width: fit-content;
     touch-action: manipulation;
-    font-size: 0.875rem;
-    font-weight: 700;
-    letter-spacing: 0;
     cursor: pointer;
   }
 
@@ -233,7 +222,6 @@
   .success {
     padding: 2rem 1rem;
     text-align: center;
-    line-height: 1.35;
     background: color-mix(in srgb, var(--color-accent) 10%, transparent);
     border: 1px solid color-mix(in srgb, var(--color-accent) 35%, transparent);
   }
@@ -242,7 +230,6 @@
     margin: 0.5rem 0 0;
     padding: 0.6rem;
     color: #ff8b82;
-    line-height: 1.3;
     background: color-mix(in srgb, var(--color-red) 10%, transparent);
     border: 1px solid var(--color-red);
   }

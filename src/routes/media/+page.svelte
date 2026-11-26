@@ -104,13 +104,13 @@
 <section class="light">
   <div class="container">
     <h1>Press &amp; Media Kit</h1>
-    <p class="copy media-contact">For media inquiries, contact <button class="release-link copy-email" type="button" on:click={copyMediaEmail} aria-label="Copy media@comma.ai to clipboard">media@comma.ai</button>.</p>
+    <p class="copy media-contact type-prose">For media inquiries, contact <button class="release-link copy-email" type="button" on:click={copyMediaEmail} aria-label="Copy media@comma.ai to clipboard">media@comma.ai</button>.</p>
     <a class="asset header-image" href={WindshieldDownload} download="comma-four-windshield.jpg">
       <img src={WindshieldImage} alt="comma four mounted beneath the rearview mirror during a highway drive" fetchpriority="high" />
-      <span class="asset-caption">comma four on the road<span class="asset-action">Download JPG ↓</span></span>
+      <span class="asset-caption">comma four on the road<span class="asset-action type-small">Download JPG ↓</span></span>
     </a>
-    <div class="copy">
-      <h2>We're solving self driving cars while delivering shippable intermediaries.</h2>
+    <div class="copy type-prose">
+      <h2 class="type-h3 type-regular">We're solving self driving cars while delivering shippable intermediaries.</h2>
       <p>We make the <a class="release-link" href="/shop/comma-four">comma four</a> and develop <a class="release-link" href="/openpilot">openpilot</a>, an open source advanced driver assistance system. openpilot upgrades driver assistance in cars on the road today like Hyundais, Toyotas, Fords, and more ({vehicleCountText} supported models).</p>
     </div>
   </div>
@@ -118,47 +118,47 @@
 
 <section class="light">
   <div class="container">
-    <h2>Introducing the comma four</h2>
-    <div class="copy">
+    <h2 class="type-h3 type-regular">Introducing the comma four</h2>
+    <div class="copy type-prose">
       <p>comma four brings the compute, cameras, and functionality of comma 3X into a device one-fifth the size. Its three-camera system fits within the footprint of a 1.9-inch display, with the compute tucked behind the rearview mirror.</p>
       <p>A new mechanical and thermal design, an OLED touchscreen, and a simplified installation make comma four our next generation hardware for openpilot. Designed, manufactured, and assembled on-site in San Diego.</p>
     </div>
-    <a class="release-link" href="https://blog.comma.ai/comma-four/">comma four announcement →</a>
+    <a class="release-link type-prose" href="https://blog.comma.ai/comma-four/">comma four announcement →</a>
   </div>
 </section>
 
 <section class="light">
   <div class="container">
     <div class="media-section">
-      <h3>comma four</h3>
+      <h3 class="type-h4 type-regular">comma four</h3>
       <div class="asset-grid">
         {#each productImages as asset}
           <a class="asset" href={asset.download} download={asset.name}>
             <div class="image-preview"><img src={asset.image} alt="comma four — {asset.title}" loading="lazy" /></div>
-            <span class="asset-caption">{asset.title}<span class="asset-action">Download {asset.format || "PNG"} ↓</span></span>
+            <span class="asset-caption">{asset.title}<span class="asset-action type-small">Download {asset.format || "PNG"} ↓</span></span>
           </a>
         {/each}
       </div>
     </div>
 
     <div class="media-section">
-      <h3>openpilot on the road</h3>
+      <h3 class="type-h4 type-regular">openpilot on the road</h3>
       <div class="video-grid">
         {#each videos as video}
           <div class="asset video-asset">
             <video class:fill-preview={video.fill} controls loop playsinline preload="metadata" aria-label={video.title} src={video.src}></video>
-            <a class="asset-caption" href={video.src} download={video.name}>{video.title}<span class="asset-action">Download MP4 ↓</span></a>
+            <a class="asset-caption" href={video.src} download={video.name}>{video.title}<span class="asset-action type-small">Download MP4 ↓</span></a>
           </div>
         {/each}
         <a class="asset" href={MapDownload} download="openpilot-driving-map.png">
           <div class="map-preview"><img src={MapImage} alt="Map showing openpilot driving activity around the world" loading="lazy" /></div>
-          <span class="asset-caption">openpilot driving around the world<span class="asset-action">Download PNG ↓</span></span>
+          <span class="asset-caption">openpilot driving around the world<span class="asset-action type-small">Download PNG ↓</span></span>
         </a>
       </div>
     </div>
 
     <div class="media-section" id="built-in-america">
-      <h3>Designed &amp; Built in America</h3>
+      <h3 class="type-h4 type-regular">Designed &amp; Built in America</h3>
       <div class="asset video-asset">
         <iframe
           class="manufacturing-video"
@@ -170,18 +170,18 @@
         ></iframe>
         <div class="asset-caption">
           comma four — Built in America
-          <button class="asset-action copy-video-url" type="button" on:click={copyVideoUrl} aria-live="polite">
+          <button class="asset-action copy-video-url type-small" type="button" on:click={copyVideoUrl} aria-live="polite">
             {videoCopyStatus === "copied" ? "Copied!" : "Copy video URL"}
           </button>
         </div>
         {#if videoCopyStatus === "error"}
-          <div class="copy-fallback" role="status">
+          <div class="copy-fallback type-small" role="status">
             Couldn't copy automatically. Select and copy the URL:
             <input aria-label="Video URL" readonly value={manufacturingVideoUrl} on:focus={(event) => event.currentTarget.select()} />
           </div>
         {/if}
       </div>
-      <div class="copy">
+      <div class="copy type-prose">
         <p>We assemble, provision, test, and ship comma four from our San Diego factory. Circuit board assembly happens in-house, on machines we own and operate.</p>
         <p>Our two surface-mount production lines handle solder paste printing, component placement, reflow, and automated 3D inspection. Our Ultimate Provisioning fixture brings software flashing, provisioning, and overnight stress testing together.</p>
       </div>
@@ -189,7 +189,7 @@
         {#each factoryImages as asset}
           <a class="asset" href={asset.download} download={asset.name}>
             <div class="image-preview"><img src={asset.image} alt={asset.title} loading="lazy" /></div>
-            <span class="asset-caption">{asset.title}<span class="asset-action">Download JPG ↓</span></span>
+            <span class="asset-caption">{asset.title}<span class="asset-action type-small">Download JPG ↓</span></span>
           </a>
         {/each}
       </div>
@@ -197,8 +197,8 @@
     </div>
 
     <div class="media-section" id="brand-assets">
-      <h3>Branding</h3>
-      <div class="copy branding-copy">
+      <h3 class="type-h4 type-regular">Branding</h3>
+      <div class="copy branding-copy type-prose">
         <p>“comma” and all comma product names—including openpilot, comma four, and comma connect—are written in a single case, with lowercase used in running text.</p>
       </div>
       <div class="asset-grid">
@@ -207,7 +207,7 @@
             <div class="image-preview brand-preview" class:dark-preview={asset.dark} class:wordmark-preview={asset.wordmark}>
               <img src={asset.src} alt={asset.title} loading="lazy" />
             </div>
-            <span class="asset-caption">{asset.title}<span class="asset-action">Download PNG ↓</span></span>
+            <span class="asset-caption">{asset.title}<span class="asset-action type-small">Download PNG ↓</span></span>
           </a>
         {/each}
       </div>
@@ -219,12 +219,12 @@
   <div class="container" id="download-kit">
     <div class="download-kit">
       <div>
-        <h2>Download the whole kit</h2>
+        <h2 class="type-h4 type-regular">Download the whole kit</h2>
         <p>Product photos, factory images, videos, the openpilot driving map, and brand assets.</p>
       </div>
       <!-- The archive is generated after prerendering, so exclude it from link crawling. -->
       <a class="download-all" href="/comma-media-kit.zip" download="comma-media-kit.zip" rel="external">
-        Download all (ZIP)<span aria-hidden="true">↓</span>
+        Download all (ZIP)<span class="type-large" aria-hidden="true">↓</span>
       </a>
     </div>
   </div>
@@ -246,18 +246,11 @@
     padding-top: 2rem;
   }
 
-  .copy, .copy + .release-link {
-    font-size: 1.125rem;
-    line-height: 1.6;
-  }
-
   .copy-email {
     border: 0;
     padding: 0;
     background: transparent;
     color: inherit;
-    font: inherit;
-    letter-spacing: inherit;
     cursor: pointer;
   }
 
@@ -279,18 +272,11 @@
   }
 
   h2, h3 {
-    font-weight: 400;
-    line-height: 1.25;
     margin: 0 0 1.5rem;
-  }
-
-  h2 {
-    font-size: 2rem;
   }
 
   h3 {
     border-bottom: 1px solid var(--asset-border);
-    font-size: 1.5rem;
     padding-bottom: 1rem;
   }
 
@@ -312,7 +298,6 @@
   }
 
   .download-kit h2 {
-    font-size: 1.5rem;
     margin: 0 0 0.75rem;
   }
 
@@ -330,12 +315,10 @@
     padding: 1rem 1.5rem;
     border: 1px solid #000;
     color: #000;
-    font-weight: 500;
   }
 
   .download-all span {
     color: inherit;
-    font-size: 1.25rem;
   }
 
   .download-all:hover {
@@ -461,16 +444,11 @@
     flex: 1;
     gap: 0.75rem;
     padding: 1rem;
-    font-size: 1rem;
-    line-height: 1.4;
   }
 
   .asset-action {
     flex-shrink: 0;
     margin-left: auto;
-    font: inherit;
-    font-size: 0.875rem;
-    letter-spacing: inherit;
     text-decoration: underline;
     text-underline-offset: 0.2em;
     white-space: nowrap;
@@ -514,7 +492,6 @@
 
   .copy-fallback {
     padding: 0 1rem 1rem;
-    font-size: 0.875rem;
   }
 
   .copy-fallback input {
@@ -526,8 +503,6 @@
     border: 1px solid var(--asset-border);
     color: inherit;
     background: #fff;
-    font: inherit;
-    letter-spacing: inherit;
   }
 
   @media (max-width: 1024px) {
@@ -540,10 +515,6 @@
     section.light {
       --section-gap: 3rem;
       --preview-height: 16.75rem;
-    }
-
-    h2 {
-      font-size: 1.75rem;
     }
 
     .asset-grid, .video-grid {

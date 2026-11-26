@@ -7,7 +7,7 @@
 <aside class="jobs-updates" aria-labelledby="jobs-updates-title">
   <div class="copy">
     <h2 id="jobs-updates-title">Stay in the loop</h2>
-    <p>Interested in comma? Get notified about COMMA_CON, hackathons, other events, and new challenges.</p>
+    <p class="type-large">Interested in comma? Get notified about COMMA_CON, hackathons, other events, and new challenges.</p>
   </div>
 
   <div class="signup">
@@ -41,9 +41,9 @@
           bind:value={$github}
         />
         {#if $status === 'error'}
-          <p class="error" role="alert">{$errorMessage}</p>
+          <p class="error type-small" role="alert">{$errorMessage}</p>
         {/if}
-        <button type="submit" disabled={$status === 'submitting'}>
+        <button class="type-strong" type="submit" disabled={$status === 'submitting'}>
           {$status === 'submitting' ? 'Signing up…' : 'Keep me posted'}
         </button>
       </form>
@@ -65,17 +65,11 @@
 
   h2 {
     margin: 0 0 0.75rem;
-    font-size: clamp(2rem, 3vw, 2.75rem);
-    font-weight: 600;
-    line-height: 1.05;
-    letter-spacing: -0.06em;
   }
 
   .copy p {
     max-width: 32rem;
     margin: 0;
-    font-size: 1.125rem;
-    line-height: 1.35;
   }
 
   form {
@@ -96,8 +90,6 @@
     border-radius: 0;
     background: #fff;
     color: #000;
-    font: inherit;
-    font-size: 1rem;
   }
 
   button {
@@ -105,9 +97,6 @@
     border: 0;
     background: var(--color-accent);
     color: #000;
-    font: inherit;
-    font-size: 1rem;
-    font-weight: 600;
     cursor: pointer;
     white-space: nowrap;
   }
@@ -128,14 +117,11 @@
 
   .success {
     margin: 0;
-    line-height: 1.5;
   }
 
   .error {
     margin: 0.625rem 0 0;
     color: #8a0d05;
-    font-size: 0.875rem;
-    line-height: 1.4;
   }
 
   .sr-only {
