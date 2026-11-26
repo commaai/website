@@ -29,8 +29,11 @@ export async function load({ url, params }) {
 
   // Load custom component if needed
   let descriptionComponent = null;
+  // File to open from the footer's "Edit this page" link
+  let source = 'src/lib/data/products.js';
   if (productInfo.hasCustomComponent) {
     const componentName = slugToComponentName(productId);
+    source = `src/lib/components/ProductDescriptions/${componentName}.svelte`;
     try {
       const module = await import(`$lib/components/ProductDescriptions/${componentName}.svelte`);
       descriptionComponent = module.default;
@@ -60,7 +63,8 @@ export async function load({ url, params }) {
           },
           images: resolvedImages
         },
-        descriptionComponent
+        descriptionComponent,
+        source
       };
     }
     throw error(404, {
