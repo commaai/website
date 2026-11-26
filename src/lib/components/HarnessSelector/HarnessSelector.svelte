@@ -202,13 +202,12 @@
   $: filteredItems = (exactMatch ? exactItems : closeItems.length > 0 ? closeItems : lookalikeItems($harnesses, searchTerms))
     .sort((a, b) => !a.make - !b.make || scores.get(a).score - scores.get(b).score);
 
-  // Cars a third of the search's letters or fewer away from it, e.g. "toyta corola"; nothing for "polestar"
+  // The cars that look most like the search, however far off it is. Ties go to words starting with the same letter ("tyta" is a Toyota, not an Octavia).
   function lookalikeItems(items, terms) {
-    const allowed = Math.floor(terms.join('').length / 3);
-    const distance = item => terms.reduce((total, term) => total + closestDistance(term, scores.get(item).text.words), 0);
+    const termDistance = (term, words) => Math.min(...words.map(word => closestDistance(term, [word]) + (word[0] === term[0] ? 0 : 0.5)));
+    const distance = item => terms.reduce((total, term) => total + termDistance(term, scores.get(item).text.words), 0);
     return items.filter(item => item.make)
       .map(item => [item, distance(item)])
-      .filter(([, d]) => d <= allowed)
       .sort((a, b) => a[1] - b[1])
       .slice(0, MAX_CLOSEST)
       .map(([item]) => item);
