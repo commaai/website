@@ -20,6 +20,11 @@
   import ArrowRight from "$lib/icons/arrow-right.svg?raw";
 </script>
 
+<svelte:head>
+  <title>comma connect — comma.ai</title>
+  <meta name="description" content="comma connect lets you watch your recorded drives online, see where your car is, and manage your openpilot experience." />
+</svelte:head>
+
 <div class="banner">
   <img src={ConnectHeroImage} loading="lazy" alt="comma connect application" />
 </div>

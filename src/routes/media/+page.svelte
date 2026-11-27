@@ -96,7 +96,7 @@
 </script>
 
 <svelte:head>
-  <title>Press &amp; Media Kit — comma.ai</title>
+  <title>press &amp; media kit — comma.ai</title>
   <meta name="description" content="Company background, product images, and videos for press coverage of comma.ai, comma four, and openpilot." />
   <link rel="canonical" href="https://comma.ai/media" />
 </svelte:head>

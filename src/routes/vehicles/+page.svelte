@@ -29,6 +29,11 @@
   let opened = {};
 </script>
 
+<svelte:head>
+  <title>compatibility — comma.ai</title>
+  <meta name="description" content="Check if your car works with comma four and openpilot. {vehicleCountText} supported car models from Toyota, Hyundai, Honda, Ford, and more." />
+</svelte:head>
+
 <div class="vehicles-cover-image"></div>
 
 <section id="vehicles" class="light">

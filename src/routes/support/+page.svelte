@@ -17,7 +17,7 @@
 </script>
 
 <svelte:head>
-  <title>comma Help Center</title>
+  <title>comma support</title>
   <meta name="description" content="Find help with comma hardware, openpilot, connect, and comma prime. Search setup guides and troubleshooting articles." />
 </svelte:head>
 

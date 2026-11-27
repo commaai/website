@@ -52,6 +52,11 @@
   }
 </script>
 
+<svelte:head>
+  <title>setup guide — comma.ai</title>
+  <meta name="description" content="How to install comma four in your car: mount it on the windshield, plug in the car harness, and go." />
+</svelte:head>
+
 <section class="light" id="installation-guide">
   <div class="container">
     <div class="header">
