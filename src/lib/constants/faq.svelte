@@ -425,13 +425,10 @@
           question: 'Will installing a comma device void my warranty?',
           answer: `
             <p>
-              From the FTC website: "Simply using an aftermarket or recycled part does not
+              From the <a href="https://www.consumer.ftc.gov/articles/0138-auto-warranties-routine-maintenance">FTC website</a>: "Simply using an aftermarket or recycled part does not
               void your warranty. The Magnuson-Moss Warranty Act makes it illegal for
               companies to void your warranty or deny coverage under the warranty simply
               because you used an aftermarket or recycled part."
-            </p>
-            <p>
-              <a href="https://www.consumer.ftc.gov/articles/0138-auto-warranties-routine-maintenance">https://www.consumer.ftc.gov/articles/0138-auto-warranties-routine-maintenance</a>
             </p>
           `
         }, {
