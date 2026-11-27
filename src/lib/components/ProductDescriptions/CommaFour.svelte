@@ -310,12 +310,6 @@
   {#if !selectedHarness}
     <p class="disclaimer">You need to select a harness first.</p>
   {:else}
-    {#if additionalProductIds.length === 0}
-      <p class="disclaimer">
-        A car harness is required to connect the comma four to your vehicle.
-        You currently have no car harness selected.
-      </p>
-    {/if}
     <p class="disclaimer">
       The comma four does not ship with any software.
       Once you have the device you will be able to install any software you choose at your own risk.
