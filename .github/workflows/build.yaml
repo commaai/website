@@ -61,7 +61,7 @@ jobs:
         name: Build (development)
         run: bun run build
 
-      - name: Check every sitemap page is in the build
+      - name: Check the sitemap and canonicals match the build
         run: bun scripts/check-sitemap.js
 
       - name: Upload built project

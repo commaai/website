@@ -36,6 +36,9 @@
 
   let loading = false;
 
+  // one URL per page for search engines: apex https host, no trailing slash, no query
+  $: canonical = `https://comma.ai${$page.url.pathname.replace(/\/+$/, '') || '/'}`;
+
   async function openCart() {
     await loadCart();
     showCart.set(true);
@@ -72,6 +75,10 @@
 
 <svelte:head>
   <link rel="stylesheet" href={fontsStylesheet} />
+  {#if !$page.error}
+    <link rel="canonical" href={canonical} />
+    <meta property="og:url" content={canonical} />
+  {/if}
 </svelte:head>
 
 <header class="navbar">
