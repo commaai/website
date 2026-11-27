@@ -1,5 +1,5 @@
 <script>
-  import { onMount, tick } from "svelte";
+  import { tick } from "svelte";
   import LinkButton from "$lib/components/LinkButton.svelte";
   import EmailUpdatesForm from "$lib/components/EmailUpdates/EmailUpdatesForm.svelte";
   import ReleaseNote from "$lib/components/ReleaseNote.svelte";
@@ -9,12 +9,7 @@
   import { playInView, reducedMotion } from "$lib/utils/media.js";
   import DriveDiagram from "./DriveDiagram.svelte";
 
-  // hero options, picked with ?hero=a..e while we decide (a is the default and what gets prerendered)
-  import HeroA from "./heroes/HeroA.svelte";
-  import HeroB from "./heroes/HeroB.svelte";
-  import HeroC from "./heroes/HeroC.svelte";
-  import HeroD from "./heroes/HeroD.svelte";
-  import HeroE from "./heroes/HeroE.svelte";
+  import Hero from "./Hero.svelte";
 
   import DeviceImage from "$lib/images/products/comma-four/four_screen_on.png?w=1600";
   import MapImage from "$lib/images/home/map-activity-2x.png?w=1600";
@@ -136,15 +131,6 @@
 
   let playingVideo = null;
 
-  const heroes = { a: HeroA, b: HeroB, c: HeroC, d: HeroD, e: HeroE };
-  let hero = "a";
-  onMount(() => {
-    const choice = new URLSearchParams(window.location.search).get("hero");
-    if (choice && heroes[choice]) {
-      hero = choice;
-    }
-  });
-
   // featured clips: advance through them in order until someone picks one
   let current = 0;
   let picked = false;
@@ -173,20 +159,16 @@
   <meta name="description" content="openpilot is open source driver assistance that upgrades the car you already have. One end-to-end driving model for steering and speed, learned from human driving." />
 </svelte:head>
 
-<svelte:component this={heroes[hero]} />
+<Hero />
 
-<section class="op dark drives-section" class:joined={hero === "e"}>
+<section class="op dark drives-section">
   <div class="container drives">
-    {#if hero !== "e"}
-      <h2 class="giant">Drives like you do.</h2>
-      <p class="drives-copy">
-        openpilot drives like you do because it learned from you. Steering, gas, and brakes all come from one driving model,
-        learned end-to-end from 10 million minutes of human driving.
-      </p>
-    {/if}
-    {#if hero !== "d"}
-      <DriveDiagram />
-    {/if}
+    <h2 class="giant">Drives like you do.</h2>
+    <p class="drives-copy">
+      openpilot drives like you do because it learned from you. Steering, gas, and brakes all come from one driving model,
+      learned end-to-end from 10 million minutes of human driving.
+    </p>
+    <DriveDiagram />
   </div>
 </section>
 
@@ -524,10 +506,6 @@
   .drives-section {
     padding-bottom: 8rem;
     text-align: center;
-  }
-
-  .drives-section.joined {
-    padding-top: 0;
   }
 
   .giant {

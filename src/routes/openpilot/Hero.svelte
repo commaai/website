@@ -1,5 +1,5 @@
 <script>
-  // A: full-bleed drive. Real footage first, the name and the ask over it.
+  // full-bleed drive: real footage first, the name and the ask over it
   import LinkButton from "$lib/components/LinkButton.svelte";
   import { playInView, reducedMotion } from "$lib/utils/media.js";
 
@@ -12,7 +12,7 @@
   <link rel="preload" as="image" href={CoastPoster} />
 </svelte:head>
 
-<section class="hero-a">
+<section class="hero">
   <video
     src={CoastVideo}
     poster={CoastPoster}
@@ -37,7 +37,7 @@
 </section>
 
 <style>
-  .hero-a {
+  .hero {
     position: relative;
     display: flex;
     align-items: flex-end;
@@ -106,12 +106,12 @@
   }
 
   @media (max-width: 768px) {
-    .hero-a {
+    .hero {
       height: calc(100svh - 10.5rem);
       min-height: 32rem;
     }
 
-    .hero-a video {
+    .hero video {
       object-position: 30% 40%;
     }
 
