@@ -6,19 +6,14 @@
   import Faq from "$lib/components/Faq.svelte";
   import { faq } from "$lib/constants/faq.svelte";
   import { vehicleCountText } from "$lib/constants/vehicles.js";
+  import vehicles from "$lib/vehicles.json";
   import { playInView, reducedMotion } from "$lib/utils/media.js";
   import DriveDiagram from "./DriveDiagram.svelte";
 
   import Hero from "./Hero.svelte";
 
-  import DeviceImage from "$lib/images/products/comma-four/four_screen_on.png?w=1600";
-  import MapImage from "$lib/images/home/map-activity-2x.png?w=1600";
+  import WindshieldImage from "$lib/images/products/comma-four/windshield43.png?w=1200";
   import MonitoringVideo from "$lib/images/products/comma-four/driver-monitoring-demo.mp4";
-
-  import RoadIcon from "$lib/icons/features/road.svg?raw";
-  import SteerIcon from "$lib/icons/features/steer.svg?raw";
-  import CarIcon from "$lib/icons/features/car.svg?raw";
-  import PeopleIcon from "$lib/icons/features/people.svg?raw";
 
   import RedLightVideo from "$lib/videos/openpilot/red-light-corolla.mp4";
   import RedLightPoster from "$lib/videos/openpilot/red-light-corolla.jpg?format=jpg&as=url";
@@ -94,6 +89,12 @@
     ["Something new", "No rule for it, so it does nothing useful or hands control back.", "Still does what a human driver would plausibly do."],
   ];
 
+  // the same make logos and anchors as /vehicles
+  const brandIcons = import.meta.glob("$lib/images/vehicles/brand-icons/*.png", { eager: true, import: "default" });
+  const makes = Object.entries(vehicles)
+    .filter(([make, cars]) => cars.length > 0 && make !== "comma")
+    .map(([make]) => ({ make, logo: brandIcons[`/src/lib/images/vehicles/brand-icons/Logo-${make}.png`] }));
+
   const layers = [
     { name: "You", text: "Step on the brake and openpilot lets go immediately. Press the gas or turn the wheel and you override it." },
     { name: "Your car's safety systems", text: "AEB, blind spot warning, and the car's other safety features keep working." },
@@ -102,16 +103,12 @@
   ];
 
   const stats = [
-    { icon: RoadIcon, value: "400M+", label: "Miles driven" },
-    { icon: SteerIcon, value: "56%", label: "Of miles engaged" },
-    { icon: CarIcon, value: "30,000", label: "Drivers" },
-    { icon: PeopleIcon, value: "750+", label: "Contributors" },
-  ];
-
-  const moreStats = [
-    [vehicleCountText, "cars supported"],
-    ["102", "releases"],
-    ["80+", "countries"],
+    ["750+", "Contributors"],
+    ["102", "Releases"],
+    ["400M+", "Miles driven"],
+    ["56%", "Of miles engaged"],
+    ["30,000", "Drivers"],
+    ["80+", "Countries"],
   ];
 
   const videos = [
@@ -249,7 +246,10 @@
 <section class="op dark clips">
   <div class="container">
     <h2 class="title">Things nobody wrote a rule for.</h2>
-    <p class="intro">Clips from our own drives with openpilot, at real speed.</p>
+    <p class="intro">
+      Because openpilot is end-to-end, none of these needed a rule of its own. It picked them up from human driving, like
+      everything else it does. Clips from our own drives, at real speed.
+    </p>
 
     <div class="featured">
       <div class="player-frame">
@@ -290,15 +290,40 @@
   </div>
 </section>
 
-<section class="op light safety">
+<section class="op light cars">
   <div class="container">
-    <h2 class="title">Built on the car you already have.</h2>
-    <p class="intro">
-      openpilot doesn't replace your car's systems. It builds on the driver assistance your car already has, and fits into
-      its safety hierarchy instead of going around it.
-    </p>
+    <h2 class="title">Works on {vehicleCountText} cars.</h2>
+    <p class="intro">From these brands, with new cars added in each openpilot release.</p>
 
-    <div class="safety-grid">
+    <ul class="makes">
+      {#each makes as { make, logo }}
+        <li>
+          <a href="/vehicles#{make.toLowerCase()}">
+            {#if logo}
+              <img src={logo} alt="" loading="lazy" />
+            {/if}
+            <span>{make}</span>
+          </a>
+        </li>
+      {/each}
+    </ul>
+    <div class="cars-cta">
+      <LinkButton href="/vehicles" style="primary">Check your car</LinkButton>
+    </div>
+
+    <div class="how">
+      <div class="how-copy">
+        <h3>How it works on so many cars</h3>
+        <p>
+          openpilot doesn't replace your car's driver assistance. It builds on it. openpilot sends steering, gas, and brake
+          commands through the manufacturer's own driver assistance interface, the same one the stock system uses, and
+          within the same bounds.
+        </p>
+        <p>
+          So the car's safety hierarchy stays intact, and supporting a new car means teaching openpilot to speak its
+          interface. Unplug the harness and the car is fully back to stock.
+        </p>
+      </div>
       <div>
         <p class="eyebrow">Who's in charge</p>
         <ol class="layers">
@@ -306,34 +331,17 @@
             <li class:openpilot={i === layers.length - 1}>
               <span class="rank">{i + 1}</span>
               <div>
-                <h3>{layer.name}</h3>
+                <h4>{layer.name}</h4>
                 <p>{layer.text}</p>
               </div>
             </li>
           {/each}
         </ol>
       </div>
-
-      <div class="points">
-        <article>
-          <h3>Plugs in. Unplugs.</h3>
-          <p>
-            comma four connects with a harness made for your car, usually at the camera behind the rearview mirror. It speaks
-            your car's language, and when you unplug it, the car is fully back to stock.
-          </p>
-        </article>
-        <article>
-          <h3>The car's own interface</h3>
-          <p>
-            openpilot sends steering, gas, and brake commands through the manufacturer's own driver assistance interface, the
-            same one the stock system uses, and within the same bounds. Your car's safety hierarchy stays intact.
-          </p>
-        </article>
-      </div>
     </div>
 
     <div class="monitoring">
-      <video src={MonitoringVideo} use:playInView={$reducedMotion} muted loop playsinline preload="metadata" aria-label="comma four driver monitoring demonstration"></video>
+      <video src={MonitoringVideo} use:playInView={$reducedMotion} muted loop playsinline preload="metadata" aria-label="openpilot driver monitoring demonstration"></video>
       <div>
         <h3>Hands off. Eyes on.</h3>
         <p>
@@ -341,65 +349,43 @@
           driver monitoring to help you stay attentive while it's engaged. For 96% of supported cars, that's driver monitoring
           the car didn't come with.
         </p>
-        <p>
-          And sleep detection is always on, even when openpilot isn't engaged. comma four's infrared driver camera works day
-          and night.
-        </p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="op dark proof">
-  <div class="container">
-    <h2 class="title">Proven on the road.</h2>
-    <p class="intro">
-      Our 30,000 drivers have driven over 400 million miles with openpilot. Over 56% of those miles were driven by openpilot,
-      with the driver supervising.
-    </p>
-    <div class="stats-panel">
-      <img class="map" src={MapImage} alt="" loading="lazy" />
-      <ul class="stats">
-        {#each stats as stat}
-          <li>
-            <div class="icon">{@html stat.icon}</div>
-            <span class="value">{stat.value}</span>
-            <span class="label">{stat.label}</span>
-          </li>
-        {/each}
-      </ul>
-      <ul class="more-stats">
-        {#each moreStats as [value, label]}
-          <li>
-            <span class="value">{value}</span>
-            <span class="label">{label}</span>
-          </li>
-        {/each}
-      </ul>
-    </div>
-    <div class="open-source">
+<section class="op dark device">
+  <div class="container device-grid">
+    <img src={WindshieldImage} loading="lazy" alt="comma four mounted behind a rearview mirror, its screen showing openpilot" />
+    <div>
+      <h2>It runs on comma four.</h2>
       <p>
-        openpilot is open source, MIT licensed, and developed on GitHub by comma and by users like you. Bug fixes and new car
-        ports are strongly encouraged: check out the
-        <a href="https://github.com/commaai/openpilot/blob/master/docs/CONTRIBUTING.md" target="_blank">contributing docs</a>.
+        comma four is the device we make for openpilot. It mounts behind your rearview mirror, plugs into your car, and gets
+        new openpilot releases over the air.
       </p>
-      <LinkButton href="https://github.com/commaai/openpilot" target="_blank" style="secondary">View on GitHub</LinkButton>
+      <LinkButton href="/shop/comma-four" style="secondary">comma four</LinkButton>
     </div>
   </div>
 </section>
 
-<section class="op light buy">
+<section class="op light open">
   <div class="container">
-    <div class="buy-grid">
-      <img src={DeviceImage} loading="lazy" alt="comma four device" />
-      <div>
-        <h2>Try openpilot on the comma four</h2>
-        <p>Love it or return it. Every comma four comes with a 30-day money back trial.</p>
-        <p class="supported">
-          Works with <a class="highlight" href="/vehicles">{vehicleCountText} supported cars</a>, and growing.
-        </p>
-        <LinkButton href="/shop/comma-four" style="primary">Buy now</LinkButton>
-      </div>
+    <h2 class="title">Developed in public.</h2>
+    <p class="intro">
+      openpilot is MIT licensed and lives on GitHub, where comma and its users build it together. Bug fixes and new car
+      ports are strongly encouraged: start with the
+      <a class="highlight" href="https://github.com/commaai/openpilot/blob/master/docs/CONTRIBUTING.md" target="_blank">contributing docs</a>.
+    </p>
+    <ul class="stats">
+      {#each stats as [value, label]}
+        <li>
+          <span class="value">{value}</span>
+          <span class="label">{label}</span>
+        </li>
+      {/each}
+    </ul>
+    <div class="open-cta">
+      <LinkButton href="https://github.com/commaai/openpilot" target="_blank" style="primary">View on GitHub</LinkButton>
     </div>
   </div>
 </section>
@@ -729,13 +715,85 @@
     }
   }
 
-  /* safety */
+  /* cars */
 
-  .safety-grid {
+  .makes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    max-width: 75rem;
+    margin: 4rem auto 0;
+    padding: 0;
+    list-style: none;
+
+    & li {
+      display: flex;
+      flex: 0 0 7.5rem;
+    }
+
+    & a {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      padding: 1.5rem 0.75rem 1.25rem;
+      border: 1px solid #0000001a;
+      border-radius: 0.25rem;
+      background-color: #fff;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: border-color 0.2s;
+    }
+
+    & a:hover {
+      border-color: #000;
+    }
+
+    & a:focus-visible {
+      outline: 2px solid #000;
+      outline-offset: 2px;
+    }
+
+    & img {
+      display: block;
+      width: 3.5rem;
+      height: 3.5rem;
+      object-fit: contain;
+    }
+  }
+
+  .cars-cta {
+    display: flex;
+    justify-content: center;
+    margin-top: 2.5rem;
+  }
+
+  .how {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 4rem;
-    margin-top: 4rem;
+    margin-top: 6rem;
+    padding-top: 4rem;
+    border-top: 1px solid #00000020;
+  }
+
+  .how-copy {
+    & h3 {
+      margin: 0 0 1.25rem;
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+    }
+
+    & p {
+      margin: 0 0 1.25rem;
+      font-size: 1.2rem;
+      line-height: 1.55;
+    }
   }
 
   .layers {
@@ -760,7 +818,7 @@
       border-color: #000;
     }
 
-    & li:first-child h3,
+    & li:first-child h4,
     & li:first-child .rank {
       color: #fff;
     }
@@ -783,9 +841,9 @@
       line-height: 1.6;
     }
 
-    & h3 {
+    & h4 {
       margin: 0 0 0.3rem;
-      font-size: 1.25rem;
+      font-size: 1.15rem;
       font-weight: 600;
       line-height: 1.3;
     }
@@ -798,33 +856,12 @@
     }
   }
 
-  .points {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 3rem;
-    padding-top: 1.75rem;
-
-    & h3 {
-      margin: 0 0 0.6rem;
-      font-size: 1.6rem;
-      font-weight: 600;
-      line-height: 1.2;
-    }
-
-    & p {
-      margin: 0;
-      font-size: 1.2rem;
-      line-height: 1.5;
-    }
-  }
-
   .monitoring {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 3rem;
     align-items: center;
-    margin-top: 6rem;
+    margin-top: 5rem;
     padding-top: 4rem;
     border-top: 1px solid #00000020;
 
@@ -842,135 +879,15 @@
     }
 
     & p {
-      font-size: 1.15rem;
-      line-height: 1.55;
-    }
-  }
-
-  /* stats */
-
-  .stats-panel {
-    position: relative;
-    margin-top: 4rem;
-    padding: 4rem 3rem 3rem;
-    overflow: hidden;
-    border: 1px solid #262626;
-    border-radius: 0.25rem;
-    background-color: #0a0a0a;
-
-    & .map {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0.35;
-      pointer-events: none;
-    }
-  }
-
-  .stats {
-    position: relative;
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 2rem;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-
-    & li {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      font-size: 1rem;
-    }
-
-    & .icon {
-      width: 2.5rem;
-      color: var(--color-accent);
-    }
-
-    & .value {
-      margin-top: 1rem;
-      font-size: clamp(2.5rem, 4.2vw, 3.75rem);
-      font-weight: 700;
-      letter-spacing: -0.04em;
-      line-height: 1;
-      font-variant-numeric: tabular-nums;
-    }
-
-    & .label {
-      margin-top: 0.6rem;
-      color: #9e9e9e;
-      text-transform: uppercase;
-      font-family: var(--font-mono);
-      font-size: 0.9rem;
-      letter-spacing: 0.06em;
-    }
-  }
-
-  .more-stats {
-    position: relative;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 2rem;
-    margin: 3.5rem 0 0;
-    padding: 1.5rem 0 0;
-    list-style: none;
-    border-top: 1px solid #333;
-
-    & li {
-      display: flex;
-      align-items: baseline;
-      gap: 0.75rem;
-      font-size: 1rem;
-    }
-
-    & .value {
-      font-size: 1.75rem;
-      font-weight: 600;
-      letter-spacing: -0.03em;
-    }
-
-    & .label {
-      color: #9e9e9e;
-      text-transform: uppercase;
-      font-family: var(--font-mono);
-      font-size: 0.85rem;
-      letter-spacing: 0.06em;
-    }
-  }
-
-  .open-source {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
-    margin-top: 3rem;
-
-    & p {
-      max-width: 44rem;
       margin: 0;
-      color: #bdbdbd;
-      font-size: 1.15rem;
-      font-weight: 300;
+      font-size: 1.2rem;
       line-height: 1.55;
-    }
-
-    & a {
-      text-decoration: underline;
-      text-decoration-color: #ffffff66;
-      text-underline-offset: 0.2em;
-    }
-
-    & a:hover {
-      text-decoration-color: var(--color-accent);
     }
   }
 
   /* comma four */
 
-  .buy-grid {
+  .device-grid {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 4rem;
@@ -979,29 +896,68 @@
     & img {
       display: block;
       width: 100%;
-      max-height: 26rem;
-      object-fit: contain;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: 0.25rem;
     }
 
     & h2 {
-      margin-bottom: 1rem;
-      font-size: 2.5rem;
-      font-weight: 600;
-      text-transform: lowercase;
-      line-height: 1.2;
+      margin: 0 0 1.25rem;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
     }
 
     & p {
-      margin: 0 0 1.5rem;
-      font-size: 1.5rem;
-      line-height: 1.4;
+      max-width: 30rem;
+      margin: 0 0 2rem;
+      color: #cfcfcf;
+      font-size: 1.25rem;
+      font-weight: 300;
+      line-height: 1.55;
+    }
+  }
+
+  /* developed in public */
+
+  .open .stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 3rem 2rem;
+    max-width: 60rem;
+    margin: 4rem auto 0;
+    padding: 2rem 0 0;
+    list-style: none;
+    border-top: 1px solid #000;
+
+    & li {
+      display: flex;
+      flex-direction: column;
     }
 
-    & .supported {
-      margin-bottom: 2.5rem;
-      color: #00000099;
-      font-size: 1.2rem;
+    & .value {
+      font-size: clamp(2.25rem, 3.6vw, 3.25rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
     }
+
+    & .label {
+      margin-top: 0.6rem;
+      color: #00000099;
+      text-transform: uppercase;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+    }
+  }
+
+  .open-cta {
+    display: flex;
+    justify-content: center;
+    margin-top: 3.5rem;
   }
 
   /* watch it drive */
@@ -1119,20 +1075,12 @@
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
-    .safety-grid,
+    .how,
     .monitoring {
       grid-template-columns: minmax(0, 1fr);
       gap: 2.5rem;
     }
 
-    .points {
-      padding-top: 0;
-    }
-
-    .stats {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      row-gap: 3rem;
-    }
 
     .video-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1228,45 +1176,63 @@
       padding: 1rem;
     }
 
-    .monitoring {
+    .makes {
+      gap: 0.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .makes li {
+      flex-basis: calc((100% - 1.5rem) / 4);
+    }
+
+    .makes a {
+      gap: 0.5rem;
+      padding: 0.75rem 0.25rem 0.7rem;
+      font-size: 0.75rem;
+    }
+
+    .makes img {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+
+    .how {
       margin-top: 4rem;
       padding-top: 3rem;
     }
 
-    .stats-panel {
-      padding: 2.5rem 1.25rem 2rem;
+    .how-copy h3,
+    .monitoring h3 {
+      font-size: 1.6rem;
     }
 
-    .stats {
-      gap: 2.5rem 1rem;
+    .how-copy p,
+    .monitoring p {
+      font-size: 1.1rem;
     }
 
-    .more-stats {
-      grid-template-columns: minmax(0, 1fr);
-      gap: 0.75rem;
-      margin-top: 2.5rem;
+    .monitoring {
+      margin-top: 3rem;
+      padding-top: 3rem;
     }
 
-    .open-source {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .buy-grid {
+    .device-grid {
       grid-template-columns: minmax(0, 1fr);
       gap: 2rem;
     }
 
-    .buy-grid img {
-      max-height: 16rem;
+    .device-grid p {
+      font-size: 1.1rem;
     }
 
-    .buy-grid h2 {
-      font-size: 2rem;
+    .open .stats {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 2rem 1rem;
+      margin-top: 2.5rem;
     }
 
-    .buy-grid p {
-      font-size: 1.25rem;
+    .open-cta {
+      margin-top: 2.5rem;
     }
 
     .video-grid {
