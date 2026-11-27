@@ -1,6 +1,7 @@
 <script>
   import { page } from '$app/stores';
   import CommaIcon from '$lib/icons/comma.svg?raw';
+  import BrandText from './BrandText.svelte';
 
   const pageRoutes = new Set(
     Object.keys(import.meta.glob('/src/routes/**/+page.svelte'))
@@ -28,7 +29,7 @@
     <a href="/" aria-label="comma home">{@html CommaIcon}</a>
     {#each crumbs as { label, href }}
       <span aria-hidden="true">&gt;</span>
-      {#if href}<a {href}>{label}</a>{:else}<span aria-current="page">{label}</span>{/if}
+      {#if href}<a {href}><BrandText text={label} /></a>{:else}<span aria-current="page"><BrandText text={label} /></span>{/if}
     {/each}
   </nav>
 {/if}

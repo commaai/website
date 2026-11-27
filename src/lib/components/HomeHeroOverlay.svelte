@@ -87,7 +87,7 @@
     <div class="hero-stats">
       <div class="stat">
         <span class="stat-value type-h2 type-regular">30,000+</span>
-        <span class="stat-label">cars on the road with a comma</span>
+        <span class="stat-label">cars on the road with a <span translate="no">comma</span></span>
       </div>
       <div class="stat">
         <span class="stat-value type-h2 type-regular">{milesDriven.toLocaleString("en-US")}</span>

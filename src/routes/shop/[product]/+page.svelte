@@ -1,6 +1,7 @@
 <script>
   import Product from "$lib/components/Product.svelte";
   import NoteCard from "$lib/components/NoteCard.svelte";
+  import { markBrands } from "$lib/utils/brands.js";
 
   export let data;
   $: ({ product, descriptionComponent } = data);
@@ -28,13 +29,13 @@
         <div slot="notes">
           {#each product.notes || [] as note}
             <NoteCard title={note.title}>
-              {@html note.content}
+              {@html markBrands(note.content)}
             </NoteCard>
           {/each}
         </div>
         <div slot="description">
           {#if product.description}
-            {@html product.description}
+            {@html markBrands(product.description)}
           {/if}
         </div>
       </Product>

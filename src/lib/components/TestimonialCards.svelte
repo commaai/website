@@ -1,4 +1,5 @@
 <script>
+  import BrandText from "$lib/components/BrandText.svelte";
   import PlayIcon from "$lib/icons/social/youtube.svg?raw";
   import XIcon from "$lib/icons/social/x.svg?raw";
   import ArrowRight from "$lib/icons/arrow-right.svg?raw";
@@ -71,7 +72,7 @@
                 <span class="source-icon" aria-hidden="true">{@html XIcon}</span>
               {/if}
             </div>
-            <p class="body">{#each segment(post.body) as part}{#if part.handle}<span class="mention type-strong">{part.text}</span>{:else}{part.text}{/if}{/each}</p>
+            <p class="body">{#each segment(post.body) as part}{#if part.handle}<span class="mention type-strong">{part.text}</span>{:else}<BrandText text={part.text} />{/if}{/each}</p>
           </div>
         {/each}
 

@@ -1,5 +1,6 @@
 <script>
   import Grid from '$lib/components/Grid.svelte';
+  import BrandText from '$lib/components/BrandText.svelte';
   import { browser } from '$app/environment';
   import { page } from '$app/stores';
   import { EMAIL_CATEGORIES, createEmailUpdatesForm } from '$lib/email-updates.js';
@@ -29,7 +30,7 @@
     wrapMode="single"
   >
     <div>
-      <h2>{title}</h2>
+      <h2><BrandText text={title} /></h2>
       <div class="updates-subtitle type-large"><slot /></div>
     </div>
 
@@ -69,15 +70,15 @@
           <label>
             <input type="radio" name="email-categories" value={true} bind:group={everything}>
             <span>
-              <strong>All comma updates</strong>
-              <small>New products, openpilot releases, car support, blog posts, events, and challenges</small>
+              <strong>All <span translate="no">comma</span> updates</strong>
+              <small>New products, <span translate="no">openpilot</span> releases, car support, blog posts, events, and challenges</small>
             </span>
           </label>
           <label>
             <input type="radio" name="email-categories" value={false} bind:group={everything}>
             <span>
-              <strong>Only {primaryCategory.label.toLowerCase()}</strong>
-              <small>{primaryCategory.description}</small>
+              <strong>Only <BrandText text={primaryCategory.label.toLowerCase()} /></strong>
+              <small><BrandText text={primaryCategory.description} /></small>
             </span>
           </label>
         </fieldset>

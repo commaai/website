@@ -7,7 +7,7 @@
 <aside class="jobs-updates" aria-labelledby="jobs-updates-title">
   <div class="copy">
     <h2 id="jobs-updates-title">Stay in the loop</h2>
-    <p class="type-large">Interested in comma? Get notified about COMMA_CON, hackathons, other events, and new challenges.</p>
+    <p class="type-large">Interested in <span translate="no">comma</span>? Get notified about COMMA_CON, hackathons, other events, and new challenges.</p>
   </div>
 
   <div class="signup">

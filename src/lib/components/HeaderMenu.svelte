@@ -1,4 +1,5 @@
 <script>
+  import BrandText from "$lib/components/BrandText.svelte";
   import SocialIcons from "$lib/components/SocialIcons.svelte";
   import { page } from '$app/stores';
 </script>
@@ -41,7 +42,7 @@
         <div class="title type-caps type-small">Latest from the blog:</div>
         {#each $page.data.blogPosts as blogPost}
           <div class="entry">
-            <a class="type-lead" href={blogPost.link}>{blogPost.title}</a>
+            <a class="type-lead" href={blogPost.link}><BrandText text={blogPost.title} /></a>
             <div class="type-small">{blogPost.date} - {blogPost.readTime}</div>
           </div>
         {/each}

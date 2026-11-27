@@ -53,7 +53,7 @@
     </Grid>
     <div class="headline">
       <h1 class="type-h2">
-        openpilot is an
+        <span translate="no">openpilot</span> is an
         <a class="highlight" href="https://github.com/commaai/openpilot" target="_blank">open source</a>
         advanced driver assistance system that works on {vehicleCountText} car models of Toyota,
         Hyundai, Honda, and many other brands.
@@ -78,15 +78,15 @@
         <h2>Makes driving chill</h2>
       </hgroup>
       <p class="type-lead">
-        Currently, openpilot performs the functions of Adaptive Cruise Control
-        (ACC) and Automated Lane Centering (ALC). openpilot can accelerate,
+        Currently, <span translate="no">openpilot</span> performs the functions of Adaptive Cruise Control
+        (ACC) and Automated Lane Centering (ALC). <span translate="no">openpilot</span> can accelerate,
         brake automatically for other vehicles, and steer to follow the
         road/lane.
       </p>
       <p class="type-lead">
-        Like other ACC and ALC systems, openpilot requires the driver to be alert,
+        Like other ACC and ALC systems, <span translate="no">openpilot</span> requires the driver to be alert,
         pay attention, and be ready to take over at all times.
-        To assist the driver in maintaining alertness, openpilot includes a driver
+        To assist the driver in maintaining alertness, <span translate="no">openpilot</span> includes a driver
         monitoring system that alerts when it detects driver distraction.
       </p>
       <p />
@@ -101,9 +101,9 @@
         <h2>Connects to your car</h2>
       </hgroup>
       <p class="type-lead">
-        openpilot works by connecting to your car's CAN network. Modern cars
+        <span translate="no">openpilot</span> works by connecting to your car's CAN network. Modern cars
         accept electronic steering, gas, and brake commands to allow for ADAS
-        features. openpilot can use these commands to provide much better ADAS
+        features. <span translate="no">openpilot</span> can use these commands to provide much better ADAS
         features than the car manufacturers can provide.
       </p>
     </article>
@@ -113,10 +113,10 @@
         <h2>Modern machine learning</h2>
       </hgroup>
       <p class="type-lead">
-        openpilot contains a state-of-the-art neural network that understands
+        <span translate="no">openpilot</span> contains a state-of-the-art neural network that understands
         the road scene and predicts where to drive. This neural network has
         learned to drive by watching the millions of miles of driving data
-        openpilot has recorded. This makes openpilot exceptionally good at
+        <span translate="no">openpilot</span> has recorded. This makes <span translate="no">openpilot</span> exceptionally good at
         nuanced situations such as driving in areas with faded lanelines,
         different countries, and more.
       </p>
@@ -127,7 +127,7 @@
         <h2>Open source and community supported</h2>
       </hgroup>
       <p class="type-lead">
-        openpilot is developed by comma and by users like you. We welcome both
+        <span translate="no">openpilot</span> is developed by <span translate="no">comma</span> and by users like you. We welcome both
         pull requests and issues on
         <a class="highlight" href="https://github.com/commaai/openpilot" target="_blank">GitHub</a>.
         Bug fixes and new car ports are strongly encouraged. Check out the
@@ -146,10 +146,10 @@
     <article>
       <hgroup>
         <p class="type-mono type-lead">05</p>
-        <h2>Try openpilot on the comma four</h2>
+        <h2>Try <span translate="no">openpilot</span> on the <span translate="no">comma four</span></h2>
       </hgroup>
       <p class="type-lead">
-        Love it or return it. Every comma four comes with a 30-day money back
+        Love it or return it. Every <span translate="no">comma four</span> comes with a 30-day money back
         trial.
       </p>
       <Grid columns={2} alignItems="center">
@@ -195,7 +195,7 @@
       </hgroup>
       <p class="type-lead">
         Our 20,000+ users have driven over 300 million miles with a device
-        running openpilot. Over 56% of those miles were driven by openpilot,
+        running <span translate="no">openpilot</span>. Over 56% of those miles were driven by <span translate="no">openpilot</span>,
         with the driver supervising.
       </p>
     </article>
@@ -204,7 +204,7 @@
       defaultCategory="releases"
     >
       <p>
-        Get an email when a new version of openpilot is released.
+        Get an email when a new version of <span translate="no">openpilot</span> is released.
       </p>
     </EmailUpdatesForm>
   </div>

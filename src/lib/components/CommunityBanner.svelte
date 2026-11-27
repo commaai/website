@@ -22,7 +22,7 @@
     <span>{@html GitHubIcon}</span>
     <span class="type-h3 type-regular">Developer Resources</span>
     <p class="type-large">
-      Check out the code behind the comma four and openpilot.
+      Check out the code behind the <span translate="no">comma four</span> and <span translate="no">openpilot</span>.
       Review, fork, and contribute to the open source ecosystem.
     </p>
     <LinkButton href="https://github.com/commaai/openpilot" target="_blank" style="secondary" fullWidth>

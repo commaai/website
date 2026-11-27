@@ -4,6 +4,7 @@
   import LinkButton from "$lib/components/LinkButton.svelte";
   import JobsEmailUpdatesForm from "$lib/components/EmailUpdates/JobsEmailUpdatesForm.svelte";
   import { faq } from "$lib/constants/faq.svelte";
+  import { vehicleCountText } from "$lib/constants/vehicles.js";
   import ArrowRightIcon from "$lib/icons/arrow-right.svg?raw";
   import IconChevron from "$lib/icons/icon-chevron.svg?raw";
   import CheckmarkIcon from "$lib/icons/ui/checkmark.svg?raw";
@@ -165,7 +166,7 @@
       team: "openpilot",
       location: "On-site in San Diego, CA",
       description: `
-        As a car interface engineer, you'll own the 250+ cars supported by openpilot.
+        As a car interface engineer, you'll own the ${vehicleCountText} cars supported by openpilot.
         You'll build tools, tests, and infrastructure to expand and improve the quality of the fleet
         alongside our community. You'll also be responsible for evolving our safety model as
         openpilot becomes more capable.

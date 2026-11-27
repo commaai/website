@@ -11,7 +11,7 @@
   <div slot="notes">
     <NoteCard title="Buying a comma?" icon={CarIcon}>
       A free car harness is included with the purchase of
-      <a href="/shop/comma-four" class="highlight">comma four</a>.
+      <a href="/shop/comma-four" class="highlight" translate="no">comma four</a>.
     </NoteCard>
     <NoteCard title="Compatibility">
       Harness compatibility based on the US car market.
@@ -27,12 +27,12 @@
     <strong class="type-h5">Description</strong>
     <p>
       The car harness is our universal interface to your car. Use the car
-      harness to connect your comma device to your vehicle.
+      harness to connect your <span translate="no">comma</span> device to your vehicle.
     </p>
     <p>
       We designed it to be invisible in your car while being easy to install and
       use. Car harness allows seamlessly switching back
-      to the stock system when unplugging your comma device.
+      to the stock system when unplugging your <span translate="no">comma</span> device.
     </p>
     <div class="video-container">
       <iframe
@@ -61,7 +61,7 @@
       kit includes the following:
     </p>
     <ul>
-      <li>comma power</li>
+      <li translate="no">comma power</li>
       <li>harness connector</li>
       <li>harness box</li>
     </ul>
@@ -73,7 +73,7 @@
     </ul>
     <p><strong>Rivian A, Ford Q4, Nissan, and J533</strong></p>
     <ul>
-      <li>comma power</li>
+      <li translate="no">comma power</li>
       <li>harness connector</li>
       <li>harness box</li>
       <li>long OBD-C cable (9.5 ft)</li>

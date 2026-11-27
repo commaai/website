@@ -197,7 +197,7 @@
           Removal method varies by car.
           The durable plastic often requires a strong tug to pop it off on Hondas.
           Toyotas often need a slide outward.
-          If you'd like to see how it's done, find a comma installation guide for your specific make on <a href="https://www.youtube.com/results?search_query=comma+install" class="highlight">YouTube</a>.
+          If you'd like to see how it's done, find a <span translate="no">comma</span> installation guide for your specific make on <a href="https://www.youtube.com/results?search_query=comma+install" class="highlight">YouTube</a>.
         </p>
       </Grid>
     </div>

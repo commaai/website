@@ -5,6 +5,8 @@
   import Accordion from '$lib/components/Accordion.svelte';
   import CommunityBanner from '$lib/components/CommunityBanner.svelte';
   import Faq from '$lib/components/Faq.svelte';
+  import BrandText from '$lib/components/BrandText.svelte';
+  import { markBrands } from '$lib/utils/brands.js';
   import LinkButton from '$lib/components/LinkButton.svelte';
   import NoteCard from '$lib/components/NoteCard.svelte';
   import EmailUpdatesForm from '$lib/components/EmailUpdates/EmailUpdatesForm.svelte';
@@ -54,7 +56,7 @@
               <img src={brand_images[brand_img_path].default} loading="eager" alt="{brand} car brand" />
             {/if}
           </a>
-          <div class="compatibility-make-name type-strong">{brand}</div>
+          <div class="compatibility-make-name type-strong"><BrandText text={brand} /></div>
         </div>
         {/if}
       {/each}
@@ -123,7 +125,7 @@
         {#if brand_images[brand_img_path]}
           <img src={brand_images[brand_img_path].default} alt="{make} car brand" />
         {/if}
-        <h3 class="type-h4">{make} <span class="muted">({cars.length})</span></h3>
+        <h3 class="type-h4"><BrandText text={make} /> <span class="muted">({cars.length})</span></h3>
       </div>
 
       {#each cars as car_info}
@@ -146,7 +148,7 @@
               <div class="car-detail-content-wrapper">
                 <Grid columns={2} rowGap="0" columnGap="2rem" templateColumns="3fr 2fr">
                   <div>
-                    <div class="car-detail-tier type-large">{@html car_info.detail_sentence }</div>
+                    <div class="car-detail-tier type-large">{@html markBrands(car_info.detail_sentence)}</div>
                     <div class="cards">
                       <NoteCard title="Support" icon={CarIcon} style="elevated">
                         {#if car_info.package !== 'All'}
@@ -157,7 +159,7 @@
                       </NoteCard>
                       {#each car_info.footnotes as footnote}
                         <NoteCard title="Note" icon={InfoIcon} style="elevated">
-                          {@html footnote}
+                          {@html markBrands(footnote)}
                         </NoteCard>
                       {/each}
                     </div>
