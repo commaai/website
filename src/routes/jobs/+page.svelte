@@ -346,7 +346,7 @@
 </script>
 
 <svelte:head>
-  <title>Jobs - comma</title>
+  <title>jobs — comma.ai</title>
   <meta
     name="description"
     content="At comma.ai, we are solving self-driving cars while delivering shippable intermediaries."

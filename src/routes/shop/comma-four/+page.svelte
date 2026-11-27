@@ -33,6 +33,10 @@
   export let data;
 </script>
 
+<svelte:head>
+  <meta name="description" content="comma four runs openpilot for hands free driving in the car you already have. Works with {vehicleCountText} car models and installs in minutes." />
+</svelte:head>
+
 <ProductPage {data} />
 
 <section class="light" id="description">

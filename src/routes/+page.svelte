@@ -162,6 +162,8 @@
 </script>
 
 <svelte:head>
+  <title>comma.ai — make driving chill</title>
+  <meta name="description" content="hands free driving for the car you already have" />
   <link rel="preload" as="image" href="{CDN_BASE}/hero-landscape/poster.jpg" media="(min-width: 769px)" />
   <link rel="preload" as="image" href="{CDN_BASE}/hero-portrait/poster.jpg" media="(max-width: 768px)" />
   <link rel="preload" as="image" href="{CDN_BASE}/screen-video/poster.jpg" />

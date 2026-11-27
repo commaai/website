@@ -47,6 +47,11 @@
     .filter(Boolean);
 </script>
 
+<svelte:head>
+  <title>comma shop</title>
+  <meta name="description" content="Shop comma four, chestnut, car harnesses, and accessories. 30-day money-back trial." />
+</svelte:head>
+
 <section class="dark" id="devices">
   <div class="container">
     <article>

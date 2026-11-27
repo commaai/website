@@ -2,6 +2,10 @@
   import Grid from "$lib/components/Grid.svelte";
 </script>
 
+<svelte:head>
+  <title>terms & privacy — comma.ai</title>
+</svelte:head>
+
 <section class="light" id="terms">
   <div class="container">
     <h1>Terms & Privacy</h1>

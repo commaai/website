@@ -27,6 +27,11 @@
   export let data;
 </script>
 
+<svelte:head>
+  <title>openpilot — comma.ai</title>
+  <meta name="description" content="openpilot is open source driver assistance for {vehicleCountText} car models: lane centering, adaptive cruise control, lane change assist, and driver monitoring with no wheel nags." />
+</svelte:head>
+
 <section class="dark" id="about">
   <div class="container">
     <Grid columns={4}>
