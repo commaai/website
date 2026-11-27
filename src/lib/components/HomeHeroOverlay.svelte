@@ -80,8 +80,7 @@
 <div class="hero-overlay">
   <div class="hero-content">
     <h1>
-      hands free driving<span class="desktop-tail">&nbsp;for</span><br />
-      <span class="mobile-prefix">for </span>the car you already have
+      hands free driving<br class="mobile-break" /> for<br class="desktop-break" /> the car you already have
     </h1>
 
     <div class="hero-stats">
@@ -162,7 +161,7 @@
     text-shadow: 0 0 12px rgba(0, 0, 0, 0.8);
   }
 
-  .mobile-prefix {
+  .mobile-break {
     display: none;
   }
 
@@ -368,11 +367,11 @@
       max-width: none;
     }
 
-    .desktop-tail {
+    .desktop-break {
       display: none;
     }
 
-    .mobile-prefix {
+    .mobile-break {
       display: inline;
     }
 
