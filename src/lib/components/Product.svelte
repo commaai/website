@@ -145,7 +145,7 @@
       <div>
         <div class="variant-selector">
           <div class="title-price" class:inline-mobile={inlineMobileTitlePrice}>
-            <h1 class="type-h2">{product?.title}</h1>
+            <h1 class="type-h2" translate="no">{product?.title}</h1>
             <div class="price type-lead">
               {#if previousPrice}
                 <div class="strikethrough-price">${previousPrice}</div>

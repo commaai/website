@@ -38,13 +38,13 @@
 <section class="light" id="description">
   <div class="container">
     <Grid rowGap="0" templateColumns="0.5fr 1.25fr">
-      <h2 class="type-h3">Meet the comma four</h2>
+      <h2 class="type-h3">Meet the <span translate="no">comma four</span></h2>
       <div class="description">
         <p class="type-large">
-          comma four is our next generation hardware. It packs the same compute, sensor suite, and functionality as comma 3X into a package one-fifth the size, making it the ideal form factor for your windshield.
+          <span translate="no">comma four</span> is our next generation hardware. It packs the same compute, sensor suite, and functionality as <span translate="no">comma 3X</span> into a package one-fifth the size, making it the ideal form factor for your windshield.
         </p>
         <p class="type-large">
-          It runs <a class="highlight" href="/openpilot">openpilot</a>, which with the help of an attentive driver can drive for hours without driver intervention.
+          It runs <a class="highlight" href="/openpilot" translate="no">openpilot</a>, which with the help of an attentive driver can drive for hours without driver intervention.
         </p>
       </div>
     </Grid>
@@ -54,7 +54,7 @@
       <div class="box-contents">
         <div>
           <img src={FourImage} loading="lazy" alt="comma four device">
-          <p class="type-large">comma four</p>
+          <p class="type-large" translate="no">comma four</p>
         </div>
         <div>
           <img src={OBDCCableImage} loading="lazy" alt="2ft OBD-C cable">
@@ -70,7 +70,7 @@
     <Grid rowGap="0" templateColumns="0.5fr 1.25fr">
       <h2 class="type-h3">On-device Storage</h2>
       <div>
-        <p class="type-large">comma four includes on-board storage to store your drives.</p>
+        <p class="type-large"><span translate="no">comma four</span> includes on-board storage to store your drives.</p>
         <div class="spec-card">
           <div class="header">
             <div>{@html MemoryIcon}</div>
@@ -85,11 +85,11 @@
           </div>
         </div>
         <p class="type-large">
-          Want your video footage saved for longer? – Sign up for comma prime for 1 year of cloud video storage.
+          Want your video footage saved for longer? – Sign up for <span translate="no">comma prime</span> for 1 year of cloud video storage.
         </p>
         <p class="type-large">
-          comma four includes one free month of comma prime.
-          To claim your free prime trial, log into <a href="https://connect.comma.ai/" target="_blank" class="highlight">comma connect</a>.
+          <span translate="no">comma four</span> includes one free month of <span translate="no">comma prime</span>.
+          To claim your free prime trial, log into <a href="https://connect.comma.ai/" target="_blank" class="highlight" translate="no">comma connect</a>.
           Once paired, you can see your recorded drives, SSH into your device from anywhere, and more.
         </p>
       </div>
@@ -209,28 +209,28 @@
             <img src={DeviceFrameImage} alt="comma four device" class="device-frame" />
             <video loop autoplay muted playsinline class="screen-overlay" src={SettingsVideo}></video>
           </div>
-          <p class="type-large">Configure comma four entirely on the device. No app, subscription, or account required.</p>
+          <p class="type-large">Configure <span translate="no">comma four</span> entirely on the device. No app, subscription, or account required.</p>
         </div>
         <div class="ui-card">
           <div class="device-container">
             <img src={DeviceFrameImage} alt="comma four device" class="device-frame" />
             <video loop autoplay muted playsinline class="screen-overlay" src={EngageDisengageVideo}></video>
           </div>
-          <p class="type-large">comma four wakes up when you engage, and hibernates when you disengage.</p>
+          <p class="type-large"><span translate="no">comma four</span> wakes up when you engage, and hibernates when you disengage.</p>
         </div>
         <div class="ui-card">
           <div class="device-container">
             <img src={DeviceFrameImage} alt="comma four device" class="device-frame" />
             <video loop autoplay muted playsinline class="screen-overlay" src={SteeringArcVideo}></video>
           </div>
-          <p class="type-large">As openpilot approaches its steering limits, the steering arc grows to warn you.</p>
+          <p class="type-large">As <span translate="no">openpilot</span> approaches its steering limits, the steering arc grows to warn you.</p>
         </div>
         <div class="ui-card">
           <div class="device-container">
             <img src={DeviceFrameImage} alt="comma four device" class="device-frame" />
             <video loop autoplay muted playsinline class="screen-overlay" src={ConfidenceBallVideo}></video>
           </div>
-          <p class="type-large">As openpilot's confidence in its ability to understand the scene goes up, the confidence ball rises and turns green.</p>
+          <p class="type-large">As <span translate="no">openpilot</span>'s confidence in its ability to understand the scene goes up, the confidence ball rises and turns green.</p>
         </div>
       </div>
     </Grid>
@@ -252,10 +252,10 @@
         <div>
           <hgroup>
             <span class="type-label">Car harness</span>
-            <h2>comma four is compatible with {vehicleCountText} cars</h2>
+            <h2><span translate="no">comma four</span> is compatible with {vehicleCountText} cars</h2>
           </hgroup>
           <p class="type-large">
-            A supported vehicle is one that just works when you install a comma device.
+            A supported vehicle is one that just works when you install a <span translate="no">comma</span> device.
             All supported cars provide a better experience than any stock system.
           </p>
           <LinkButton href="/vehicles" style="secondary" fullWidth={false}>View all {vehicleCountText} cars</LinkButton>
@@ -269,18 +269,18 @@
         <div>
           <hgroup>
             <span class="type-label">Software</span>
-            <h2>Works with openpilot</h2>
+            <h2>Works with <span translate="no">openpilot</span></h2>
           </hgroup>
           <p class="type-large">
-            comma four ships without software installed, so you need to install software.
-            It is compatible with <a href="/openpilot" class="highlight">openpilot</a> and a wide variety of community forks.
+            <span translate="no">comma four</span> ships without software installed, so you need to install software.
+            It is compatible with <a href="/openpilot" class="highlight" translate="no">openpilot</a> and a wide variety of community forks.
           </p>
-          <LinkButton href="/openpilot" style="secondary" fullWidth={false}>openpilot</LinkButton>
+          <LinkButton href="/openpilot" style="secondary" fullWidth={false}><span translate="no">openpilot</span></LinkButton>
         </div>
       </Grid>
     </div>
     <h2 class="guarantee">
-      Try our 30-day money-back trial and see why 92% of buyers keep their comma four and why Consumer Reports rated us as the
+      Try our 30-day money-back trial and see why 92% of buyers keep their <span translate="no">comma four</span> and why Consumer Reports rated us as the
       <a href="https://data.consumerreports.org/wp-content/uploads/2020/11/consumer-reports-active-driving-assistance-systems-november-16-2020.pdf" class="highlight">top driver assistance system.</a>
     </h2>
   </div>
@@ -298,7 +298,7 @@
           </p>
           <p>
             If you intend to upstream support for a new car model, we may approve an extended return window.
-            Open a ticket request at <a target="_blank" href="https://shop.comma.ai/a/returns" class="highlight">comma.ai/support</a>.
+            Open a ticket request at <a target="_blank" href="/support" class="highlight">comma.ai/support</a>.
           </p>
           <strong>Shipping</strong>
           <p>
@@ -308,13 +308,13 @@
           </p>
           <strong>Warranty</strong>
           <p>
-            1-year limited warranty against hardware defects. Extend it with <a href="/connect#what-is-commacare" class="highlight">commacare</a>. Open and repair the comma four at your own risk.
-            comma is not responsible for damages that may occur while repairing devices.
-            Any damage on arrival must be reported to comma support within 14 days of delivery.
+            1-year limited warranty against hardware defects. Extend it with <a href="/connect#what-is-commacare" class="highlight" translate="no">commacare</a>. Open and repair the <span translate="no">comma four</span> at your own risk.
+            <span translate="no">comma</span> is not responsible for damages that may occur while repairing devices.
+            Any damage on arrival must be reported to <span translate="no">comma</span> support within 14 days of delivery.
           </p>
           <strong>Software</strong>
           <p>
-            The comma four does not ship with software capable of controlling a car.
+            The <span translate="no">comma four</span> does not ship with software capable of controlling a car.
             Open source software can be installed separately.
           </p>
           <strong>Windshield installation</strong>
@@ -323,8 +323,8 @@
             Some state laws prohibit or restrict the placement of objects on the windshield of a motor vehicle.
             IT IS THE USER'S RESPONSIBILITY TO MOUNT THE DEVICE IN COMPLIANCE WITH ALL APPLICABLE LAWS AND ORDINANCES.
             Always mount your device in a location that does not obstruct the driver's view of the road.
-            comma does not assume any responsibility for any fines, penalties, or damages that may be incurred as a result
-            of any state or local law or ordinance relating to the use of your comma device.
+            <span translate="no">comma</span> does not assume any responsibility for any fines, penalties, or damages that may be incurred as a result
+            of any state or local law or ordinance relating to the use of your <span translate="no">comma</span> device.
           </p>
       </div>
     </Grid>
