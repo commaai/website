@@ -744,6 +744,7 @@
               <div class="video-container">
                 <iframe
                   src="https://www.youtube-nocookie.com/embed/t_XSGZyHjM4"
+                  loading="lazy"
                   frameborder="0"
                   allow="autoplay; encrypted-media"
                   allowfullscreen=""

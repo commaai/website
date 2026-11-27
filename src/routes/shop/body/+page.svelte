@@ -27,14 +27,14 @@
 
 <section class="light" id="overview">
   <div class="container">
-    <h1 class="type-h2 type-regular">
+    <h2 class="type-h2 type-regular">
       The body is a robotics dev kit that can run <a href="https://github.com/commaai/openpilot" class="highlight">openpilot</a>,
       open source software with over a million hours of usage in the field.
-    </h1>
+    </h2>
     <img src={CommaBodyHeightImage} loading="lazy" alt="comma body height comparison" width="424px" />
-    <h1 class="type-h2 type-regular">
+    <h2 class="type-h2 type-regular">
       We believe that in order to solve AI, you must be embedded in the real world.
-    </h1>
+    </h2>
     <img src={CommaBodyWinkImage} loading="lazy" alt="comma body screen with winking animation" width="70%" />
   </div>
 </section>
@@ -42,7 +42,7 @@
 <section class="dark" id="features">
   <div class="container">
     <div class="features">
-      <h1 class="type-h2 type-regular">The body is human scale, and has a human usable development environment.</h1>
+      <h2 class="type-h2 type-regular">The body is human scale, and has a human usable development environment.</h2>
       <div class="image-grid">
         <Grid columns={3} alignItems="center">
           <img src={CommaBodyScreenImage} loading="lazy" alt="comma body screen" />
@@ -116,7 +116,7 @@
 <section class="light" id="technical-specs">
   <div class="container">
     <div class="technical-specs">
-      <h1 class="type-h2 type-regular">Technical Specs</h1>
+      <h2 class="type-h2 type-regular">Technical Specs</h2>
       <div class="chart">
         <Grid columns={3}>
           <div class="body-assembly">
@@ -187,7 +187,7 @@
   </div>
 </section>
 
-<ProductPage {data} />
+<ProductPage {data} seo={null} titleTag="h2" />
 
 <section class="light type-large" id="description">
   <div class="container">
@@ -316,7 +316,7 @@
     margin: 3rem 0;
   }
 
-  h1 {
+  h2.type-h2 {
     line-height: var(--leading-normal); /* type deviation: D6, multi-line statement keeps body leading */
   }
 
@@ -334,7 +334,7 @@
   }
 
   .features {
-    & h1 {
+    & > h2 {
       text-align: center;
     }
 
@@ -380,7 +380,7 @@
     margin-bottom: 3rem;
 
     & .technical-specs {
-      & h1 {
+      & > h2 {
         text-align: center;
       }
 

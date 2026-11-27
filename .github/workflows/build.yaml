@@ -61,8 +61,8 @@ jobs:
         name: Build (development)
         run: bun run build
 
-      - name: Check the sitemap and canonicals match the build
-        run: bun scripts/check-sitemap.js
+      - name: Check titles, descriptions, canonicals, share tags, JSON-LD and the sitemap
+        run: bun scripts/check-seo.js
 
       - name: Upload built project
         uses: actions/upload-artifact@v4
@@ -93,3 +93,34 @@ jobs:
           channelId: live
           projectId: comma-web
           firebaseToolsVersion: ${{ env.FIREBASE_TOOLS_VERSION }}
+
+  links:
+    name: Check links (warning only)
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    # broken links are reported in the job summary but never block the merge or the preview
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download built project
+        uses: actions/download-artifact@v4
+        with:
+          name: build-artifacts-${{ github.run_id }}
+          path: ./build
+
+      # internal links are checked offline against build/; see lychee.toml
+      - name: Check links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --config lychee.toml
+            --preprocess scripts/lychee-preprocess.sh
+            --no-progress
+            --root-dir '${{ github.workspace }}/build'
+            --remap '^https://comma\.ai(/[^?#]*)?([?#].*)?$ file://${{ github.workspace }}/build$1'
+            'build/**/*.html'
+          fail: false
+          failIfEmpty: false
+          jobSummary: true

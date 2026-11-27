@@ -1,11 +1,13 @@
 <script>
+  import Seo from "$lib/components/Seo.svelte";
   import Article from '$lib/components/Support/Article.svelte';
   export let data;
 </script>
 
-<svelte:head>
-  <title>{data.article.title} — comma support</title>
-  <meta name="description" content={data.article.description} />
-</svelte:head>
+<Seo
+  title="{data.article.title} — comma support"
+  description={data.article.description}
+  type="article"
+/>
 
 <Article article={data.article} />

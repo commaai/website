@@ -1,4 +1,5 @@
 <script>
+  import Seo from "$lib/components/Seo.svelte";
   import SupportCatchAll from '$lib/components/Support/SupportCatchAll.svelte';
   import SupportFaqs from '$lib/components/Support/SupportFaqs.svelte';
   import SupportProducts from '$lib/components/Support/SupportProducts.svelte';
@@ -16,10 +17,10 @@
   ];
 </script>
 
-<svelte:head>
-  <title>comma support</title>
-  <meta name="description" content="Find help with comma hardware, openpilot, connect, and comma prime. Search setup guides and troubleshooting articles." />
-</svelte:head>
+<Seo
+  title="comma support: help with comma four, openpilot and prime"
+  description="Find help with comma four, openpilot, comma connect, and comma prime: setup guides, troubleshooting, orders, returns, and warranty."
+/>
 
 <SupportHeader title="comma support" description="Need help? Start here." />
 <SupportProducts />

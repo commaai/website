@@ -1,5 +1,7 @@
 <script>
+  import Seo from "$lib/components/Seo.svelte";
   import Badge from "$lib/components/Badge.svelte";
+  import YouTubeEmbed from "$lib/components/YouTubeEmbed.svelte";
   import Grid from "$lib/components/Grid.svelte";
   import LinkButton from "$lib/components/LinkButton.svelte";
   import Faq from "$lib/components/Faq.svelte";
@@ -41,39 +43,32 @@
     selectedVehicle = value;
   }
 
-  function getVideoEmbedSrc(videoLink) {
+  function getVideoId(videoLink) {
     const url = new URL(videoLink);
     if (url.hostname !== "youtu.be" && url.hostname !== "www.youtube.com") {
       console.warn("Video not supported", videoLink);
       return null;
     }
-    const videoId = url.searchParams.get("v") || url.pathname.slice(1);
-    return `https://www.youtube.com/embed/${videoId}?rel=0&controls=1&autoplay=0&mute=0`;
+    return url.searchParams.get("v") || url.pathname.slice(1);
   }
 </script>
 
-<svelte:head>
-  <title>setup guide — comma.ai</title>
-  <meta name="description" content="How to install comma four in your car: mount it on the windshield, plug in the car harness, and go." />
-</svelte:head>
+<Seo
+  title="setup guide: install comma four in 15 minutes — comma.ai"
+  description="Install comma four in 5 steps and about 15 minutes: remove the mirror trim, connect the car harness, mount the device, plug in the OBD-C cable, and go."
+/>
 
 <section class="light" id="installation-guide">
   <div class="container">
     <div class="header">
       <hgroup>
         <span class="type-lead" translate="no">comma four</span>
-        <h2 class="type-h1">Setup Guide</h2>
+        <h1 class="type-h1">Setup Guide</h1>
       </hgroup>
       <Grid columns={2} columnGap="5rem" rowGap="0" templateColumns="1.5fr 0.75fr" alignItems="start" size="large">
         <div class="title">
           <div class="media-container">
-            <iframe
-              src="https://www.youtube.com/embed/Us4FodlaQ74?rel=0&amp;controls=1&amp;autoplay=0&amp;mute=0&amp;start=0"
-              frameborder="0"
-              allow="autoplay; encrypted-media"
-              allowfullscreen=""
-              title="setup video"
-            ></iframe>
+            <YouTubeEmbed id="Us4FodlaQ74" title="comma four setup video" thumbnail="maxresdefault" priority="high" />
           </div>
           <div class="overview">
             <div>
@@ -156,12 +151,9 @@
                 <div>
                   <p class="note-heading type-h5">Setup Video:</p>
                   <div class="media-container">
-                    <iframe
-                      src={getVideoEmbedSrc(selectedVehicle.setupVideo)}
-                      frameborder="0"
-                      allow="autoplay; encrypted-media"
-                      title="{selectedVehicle.car} setup guide"
-                    ></iframe>
+                    {#key selectedVehicle.setupVideo}
+                      <YouTubeEmbed id={getVideoId(selectedVehicle.setupVideo)} title="{selectedVehicle.car} setup guide" />
+                    {/key}
                   </div>
                 </div>
               {/if}
@@ -350,7 +342,7 @@
           margin-bottom: 0.5rem;
         }
 
-        & h2 {
+        & h1 {
           margin: 0.5rem 0 0 0;
         }
       }

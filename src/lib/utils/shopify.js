@@ -180,6 +180,11 @@ export async function getProduct(id) {
             nodes {
               id
               title
+              sku
+              selectedOptions {
+                name
+                value
+              }
               availableForSale
               currentlyNotInStock
               price {

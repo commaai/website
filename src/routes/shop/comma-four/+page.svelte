@@ -1,4 +1,5 @@
 <script>
+  import { visibleVideo } from "$lib/utils/visible-video";
   import ProductPage from "../[product]/+page.svelte";
   import Grid from "$lib/components/Grid.svelte";
   import LinkButton from "$lib/components/LinkButton.svelte";
@@ -29,15 +30,19 @@
   import CableIcon from "$lib/icons/features/cable.svg?raw";
   import LocationIcon from "$lib/icons/features/location.svg?raw";
   import { vehicleCountText } from '$lib/constants/vehicles.js';
+  import { FOUR_PRICE, FOUR_STRIKETHROUGH_PRICE } from '$lib/constants/prices.js';
 
   export let data;
 </script>
 
-<svelte:head>
-  <meta name="description" content="comma four runs openpilot for hands free driving in the car you already have. Works with {vehicleCountText} car models and installs in minutes." />
-</svelte:head>
-
-<ProductPage {data} />
+<ProductPage
+  {data}
+  seo={{
+    description: `comma four runs openpilot for hands free driving in the car you already have. Works with ${vehicleCountText} car models and installs in minutes.`,
+    price: FOUR_PRICE,
+    strikethroughPrice: FOUR_STRIKETHROUGH_PRICE,
+  }}
+/>
 
 <section class="light" id="description">
   <div class="container">
@@ -210,29 +215,29 @@
       <div class="ui-grid">
         <div class="ui-card">
           <div class="device-container">
-            <img src={DeviceFrameImage} alt="comma four device" class="device-frame" />
-            <video loop autoplay muted playsinline class="screen-overlay" src={SettingsVideo}></video>
+            <img src={DeviceFrameImage} loading="lazy" alt="comma four device" class="device-frame" />
+            <video loop muted playsinline preload="none" class="screen-overlay" use:visibleVideo={SettingsVideo}></video>
           </div>
           <p class="type-large">Configure <span translate="no">comma four</span> entirely on the device. No app, subscription, or account required.</p>
         </div>
         <div class="ui-card">
           <div class="device-container">
-            <img src={DeviceFrameImage} alt="comma four device" class="device-frame" />
-            <video loop autoplay muted playsinline class="screen-overlay" src={EngageDisengageVideo}></video>
+            <img src={DeviceFrameImage} loading="lazy" alt="comma four device" class="device-frame" />
+            <video loop muted playsinline preload="none" class="screen-overlay" use:visibleVideo={EngageDisengageVideo}></video>
           </div>
           <p class="type-large"><span translate="no">comma four</span> wakes up when you engage, and hibernates when you disengage.</p>
         </div>
         <div class="ui-card">
           <div class="device-container">
-            <img src={DeviceFrameImage} alt="comma four device" class="device-frame" />
-            <video loop autoplay muted playsinline class="screen-overlay" src={SteeringArcVideo}></video>
+            <img src={DeviceFrameImage} loading="lazy" alt="comma four device" class="device-frame" />
+            <video loop muted playsinline preload="none" class="screen-overlay" use:visibleVideo={SteeringArcVideo}></video>
           </div>
           <p class="type-large">As <span translate="no">openpilot</span> approaches its steering limits, the steering arc grows to warn you.</p>
         </div>
         <div class="ui-card">
           <div class="device-container">
-            <img src={DeviceFrameImage} alt="comma four device" class="device-frame" />
-            <video loop autoplay muted playsinline class="screen-overlay" src={ConfidenceBallVideo}></video>
+            <img src={DeviceFrameImage} loading="lazy" alt="comma four device" class="device-frame" />
+            <video loop muted playsinline preload="none" class="screen-overlay" use:visibleVideo={ConfidenceBallVideo}></video>
           </div>
           <p class="type-large">As <span translate="no">openpilot</span>'s confidence in its ability to understand the scene goes up, the confidence ball rises and turns green.</p>
         </div>

@@ -1,10 +1,12 @@
 <script>
+  import Seo from "$lib/components/Seo.svelte";
   import Grid from "$lib/components/Grid.svelte";
 </script>
 
-<svelte:head>
-  <title>terms & privacy — comma.ai</title>
-</svelte:head>
+<Seo
+  title="openpilot terms, privacy policy and referral terms — comma.ai"
+  description="Read the openpilot terms and conditions, the openpilot privacy policy, and the comma referral terms and conditions, all in one place."
+/>
 
 <section class="light" id="terms">
   <div class="container">
@@ -39,7 +41,7 @@
         <p>
           We collect, use, and share information from and about you and your vehicle in connection with openpilot.
           You consent to comma accessing the systems associated with openpilot, without additional notice or consent, for the purposes of providing openpilot, data collection, software updates, safety and cybersecurity, suspension or removal of your account, and as disclosed in the Privacy Policy
-          (available at <a href="https://comma.ai/privacy" class="highlight">https://comma.ai/privacy</a>).
+          (available at <a href="/terms#privacy" class="highlight">https://comma.ai/terms#privacy</a>).
         </p>
 
         <h3>Safety</h3>

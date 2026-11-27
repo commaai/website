@@ -37,6 +37,7 @@
     <div class="video-container">
       <iframe
         src="https://www.youtube.com/embed/keM6UnpguKo?rel=0&amp;controls=1&amp;autoplay=0&amp;mute=0&amp;start=0"
+        loading="lazy"
         frameborder="0"
         allow="autoplay; encrypted-media"
         allowfullscreen=""

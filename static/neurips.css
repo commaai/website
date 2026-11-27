@@ -37,7 +37,8 @@ body {
   text-align: center;
 }
 
-.title-block h1 {
+.title-block h1,
+.title-block .title-date {
   margin: 0;
   font-weight: bold;
   font-size: 1.7em;           /* ~17pt, matches \LARGE in this context */

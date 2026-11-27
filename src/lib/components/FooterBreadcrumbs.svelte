@@ -2,10 +2,20 @@
   import { page } from '$app/stores';
   import CommaIcon from '$lib/icons/comma.svg?raw';
 
-  const pageRoutes = new Set(
-    Object.keys(import.meta.glob('/src/routes/**/+page.svelte'))
-      .map(path => path.replace(/^\/src\/routes/, '').replace(/\/\+page\.svelte$/, ''))
-  );
+  // Pages an ancestor crumb may link to. A static list on purpose: an import.meta.glob of the
+  // route files made Vite treat every page as a dependency of the layout, so every page shipped
+  // every other page's stylesheet. Add a path here when a new route gets child pages.
+  const pageRoutes = new Set([
+    '/connect',
+    '/jobs',
+    '/media',
+    '/openpilot',
+    '/setup',
+    '/shop',
+    '/support',
+    '/terms',
+    '/vehicles',
+  ]);
 
   const labelFor = segment => decodeURIComponent(segment).replaceAll('-', ' ');
 

@@ -10,8 +10,14 @@
     }
   });
 
+  import Seo from '$lib/components/Seo.svelte';
   import CommaIcon from '$lib/icons/comma.svg?raw';
 </script>
+
+<Seo
+  title={$page.status === 404 ? 'page not found — comma.ai' : 'error — comma.ai'}
+  noindex
+/>
 
 <div class="page light">
   {@html CommaIcon}

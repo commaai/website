@@ -1,4 +1,6 @@
 <script>
+  import Seo from "$lib/components/Seo.svelte";
+  import { breadcrumbJsonLd, productJsonLd } from "$lib/seo/structured-data.js";
   import Product from "$lib/components/Product.svelte";
   import Grid from "$lib/components/Grid.svelte";
   import Accordion from "$lib/components/Accordion.svelte";
@@ -63,6 +65,8 @@
       : tinyChestnutImages;
   }
 
+  const description = "chestnut connects a desktop GPU to comma four so openpilot can run its biggest driving models. Get the ready to drive kit or the eGPU dock only.";
+
   const product = {
     ...data.product,
     variants: {
@@ -75,13 +79,19 @@
   };
 </script>
 
-<svelte:head>
-  <title>chestnut — comma shop</title>
-  <meta
-    name="description"
-    content="chestnut upgrades comma four with desktop GPU compute to run openpilot’s biggest driving models."
-  />
-</svelte:head>
+<Seo
+  title="chestnut: desktop GPU compute for comma four — comma shop"
+  description={description}
+  type="product"
+  jsonLd={[
+    productJsonLd({ product, path: "/shop/chestnut", description, showVariantImages: false }),
+    breadcrumbJsonLd([
+      { name: "comma.ai", path: "/" },
+      { name: "shop", path: "/shop" },
+      { name: product.title, path: "/shop/chestnut" },
+    ]),
+  ]}
+/>
 
 <section class="light" id="product-item">
   <div class="container">

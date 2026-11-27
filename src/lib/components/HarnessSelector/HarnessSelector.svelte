@@ -63,7 +63,8 @@
   function updateQueryParams(selectedHarness) {
     const searchParams = new URLSearchParams($page.url.searchParams);
     if (selectedHarness) {
-      searchParams.set("harness", encodeURIComponent(selectedHarness.car));
+      // URLSearchParams encodes it; encoding here too gave ?harness=Toyota%2520RAV4
+      searchParams.set("harness", selectedHarness.car);
     } else {
       searchParams.delete("harness");
     }

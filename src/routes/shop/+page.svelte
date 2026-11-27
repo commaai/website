@@ -1,4 +1,5 @@
 <script>
+  import Seo from "$lib/components/Seo.svelte";
   import LinkButton from "$lib/components/LinkButton.svelte";
   import Grid from "$lib/components/Grid.svelte";
   import ProductCard from "$lib/components/ProductCard.svelte";
@@ -47,20 +48,21 @@
     .filter(Boolean);
 </script>
 
-<svelte:head>
-  <title>comma shop</title>
-  <meta name="description" content="Shop comma four, chestnut, car harnesses, and accessories. 30-day money-back trial." />
-</svelte:head>
+<Seo
+  title="comma shop: comma four, chestnut, car harnesses and more"
+  description="Shop comma four, chestnut, car harnesses, and accessories, or hire the openpilot team to port your car. Try comma four with a 30-day money-back trial."
+/>
 
 <section class="dark" id="devices">
   <div class="container">
+    <h1 class="sr-only">comma shop</h1>
     <article>
       <div class="product-display gradient-bg">
         <Grid columns={2} alignItems="center" size="large">
           <div class="product-content">
             <Badge style="accent">NEW DEVICE!</Badge>
             <hgroup>
-              <h1 class="type-h2" translate="no">comma four</h1>
+              <h2 class="type-h2" translate="no">comma four</h2>
               <span class="type-lead">
                 {#if FOUR_STRIKETHROUGH_PRICE}
                   <span class="strikethrough-price">${FOUR_STRIKETHROUGH_PRICE}</span>
@@ -81,7 +83,7 @@
             </p>
           </div>
           <div class="mobile-first">
-            <img src={FourImage} loading="lazy" alt="comma four device" />
+            <img src={FourImage} fetchpriority="high" alt="comma four device" />
           </div>
         </Grid>
       </div>
@@ -126,7 +128,7 @@
           <div class="product-content">
             <Badge style="accent">NEW!</Badge>
             <hgroup>
-              <h1 class="type-h2" translate="no">chestnut</h1>
+              <h2 class="type-h2" translate="no">chestnut</h2>
               <span class="type-lead">from $249</span>
               <span class="muted">run <span translate="no">openpilot</span>’s biggest models in your car</span>
             </hgroup>
@@ -184,7 +186,7 @@
 <section class="light" id="accessories">
   <div class="container">
     <hr />
-    <h1>Accessories</h1>
+    <h2 class="type-h1">Accessories</h2>
     <div class="products-list">
       <Grid columns={3} alignItems="stretch">
         {#each accessoryProducts as product}
@@ -198,7 +200,7 @@
 <section class="light" id="services">
   <div class="container">
     <hr />
-    <h1>Services</h1>
+    <h2 class="type-h1">Services</h2>
     <div class="service-item">
       <Accordion style="dark">
         <div class="service-label" slot="label">
@@ -449,13 +451,25 @@
     margin-top: 0rem;
     margin-bottom: 2rem;
 
-    & + h1 {
+    & + h2 {
       margin-bottom: 3rem;
     }
   }
 
   .products-list {
     margin: 2rem 0;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
   }
 
   .service-item {

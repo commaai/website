@@ -1,0 +1,56 @@
+# Link check of the built site (build/), run in CI as a warning only (.github/workflows/build.yaml).
+# Internal links are checked offline against the build: root-relative links resolve through
+# --root-dir, and https://comma.ai/... links are remapped to build/ files. Both are passed on the
+# command line because they need the checkout's absolute path, and so is --preprocess
+# (scripts/lychee-preprocess.sh blanks inline <script> bodies, which otherwise stop lychee's HTML
+# parser mid-page):
+#
+#   lychee --config lychee.toml --preprocess scripts/lychee-preprocess.sh --root-dir "$PWD/build" \
+#     --remap "^https://comma\.ai(/[^?#]*)?([?#].*)?$ file://$PWD/build\$1" 'build/**/*.html'
+
+# cleanUrls in firebase.json: /shop is served from build/shop.html
+fallback_extensions = ["html"]
+
+# "." lets a link to /shop pass when build/shop/ (product pages) sits next to build/shop.html;
+# lychee then accepts the directory without looking for shop.html
+index_files = ["index.html", "."]
+
+# 429: rate-limited, the page is very likely fine
+# 403: bot walls on otherwise working pages
+accept = ["100..=103", "200..=299", "403", "429"]
+
+max_concurrency = 16
+
+max_retries = 2
+
+timeout = 20
+
+user_agent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36"
+
+exclude_all_private = true
+
+exclude = [
+  # social sites that block or rate-limit bots
+  "^https?://(www\\.)?(twitter|x|facebook|instagram|linkedin|reddit|tiktok)\\.com",
+  "^https?://(www\\.)?t\\.co/",
+  "^https?://(www\\.)?discord\\.(gg|com)",
+  "^https?://discord\\.comma\\.ai",
+  "^https?://(www\\.)?medium\\.com",
+
+  # XML / JSON-LD namespaces, not pages
+  "^https?://(www\\.)?w3\\.org",
+  "^https?://purl\\.org",
+  "^https?://schema\\.org",
+
+  # analytics and ad endpoints
+  "^https?://(www\\.)?googletagmanager\\.com",
+  "^https?://plausible\\.io",
+  "^https?://static\\.hotjar\\.com",
+  "^https?://(us\\.)?posthog\\.com",
+  "^https?://p\\.comma\\.ai",
+  "^https?://connect\\.facebook\\.net",
+  "^https?://static\\.ads-twitter\\.com",
+
+  # Firebase redirects (firebase.json) that don't exist as files in build/
+  "^file://.*/build/(bounties|hyundai-guide|nissan-locations|returns|hack|cashback)$",
+]
