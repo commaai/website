@@ -8,6 +8,53 @@
       "**/node_modules/**"
     ],
     "cleanUrls": true,
+    "headers": [
+      {
+        "source": "/_app/immutable/**",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=31536000, immutable"
+          }
+        ]
+      },
+      {
+        "source": "/_app/@(version.json|env.js)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache"
+          }
+        ]
+      },
+      {
+        "regex": "^(?:/|(?:/[^/]+)*/[^/.]+)$",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache"
+          }
+        ]
+      },
+      {
+        "source": "/@(og|images|videos)/**",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=86400, stale-while-revalidate=604800"
+          }
+        ]
+      },
+      {
+        "source": "/*.@(png|jpg|svg|ico|webmanifest|zip)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=86400, stale-while-revalidate=604800"
+          }
+        ]
+      }
+    ],
     "redirects": [
       {
         "source": "/four",
@@ -21,7 +68,7 @@
       },
       {
         "source": "/shop/comma-3x-trade-in",
-        "destination": "/shop/comma-four",
+        "destination": "/shop/comma-four-trade-in",
         "type": 301
       },
       {
@@ -31,12 +78,12 @@
       },
       {
         "source": "/shop/products/eon-dashcam-devkit",
-        "destination": "/shop/comma-3x",
+        "destination": "/shop/comma-four",
         "type": 301
       },
       {
         "source": "/shop/products/two",
-        "destination": "/shop/comma-3x",
+        "destination": "/shop/comma-four",
         "type": 301
       },
       {
@@ -96,12 +143,12 @@
       },
       {
         "source": "/shop/two",
-        "destination": "/shop/comma-3x",
+        "destination": "/shop/comma-four",
         "type": 301
       },
       {
         "source": "/shop/three",
-        "destination": "/shop/comma-3x",
+        "destination": "/shop/comma-four",
         "type": 301
       },
       {
@@ -111,12 +158,12 @@
       },
       {
         "source": "/shop/products/eon-gold-dashcam-devkit",
-        "destination": "/shop/comma-3x",
+        "destination": "/shop/comma-four",
         "type": 301
       },
       {
         "source": "/shop/products/comma-two-devkit",
-        "destination": "/shop/comma-3x",
+        "destination": "/shop/comma-four",
         "type": 301
       },
       {
@@ -141,17 +188,17 @@
       },
       {
         "source": "/compare",
-        "destination": "/shop/comma-3x",
+        "destination": "/shop/comma-four",
         "type": 301
       },
       {
         "source": "/body",
         "destination": "/shop/body",
-        "type": 302
+        "type": 301
       },
       {
         "source": "/shop/products/comma-three-upgrade",
-        "destination": "/shop/comma-3x",
+        "destination": "/shop/comma-four",
         "type": 301
       },
       {
@@ -191,27 +238,37 @@
       },
       {
         "source": "/shop/products/comma-ai-hoodie",
-        "destination": "/shop/comma-hoodie",
+        "destination": "/shop/comma-ai-hoodie",
         "type": 301
       },
       {
         "source": "/shop/products/comma-ai-t-shirt",
-        "destination": "/shop/comma-t-shirt",
+        "destination": "/shop/comma-ai-t-shirt",
+        "type": 301
+      },
+      {
+        "source": "/shop/products/panda",
+        "destination": "/shop/red-panda",
+        "type": 301
+      },
+      {
+        "source": "/shop/products/power-extender",
+        "destination": "/shop/comma-power-extender",
         "type": 301
       },
       {
         "source": "/shop/products/three",
-        "destination": "/shop/comma-3x",
+        "destination": "/shop/comma-four",
         "type": 301
       },
       {
         "source": "/shop/comma-three",
-        "destination": "/shop/comma-3x",
+        "destination": "/shop/comma-four",
         "type": 301
       },
       {
         "source": "/shop/comma-three.html",
-        "destination": "/shop/comma-3x",
+        "destination": "/shop/comma-four",
         "type": 301
       },
       {
@@ -221,7 +278,7 @@
       },
       {
         "source": "/shop/products/comma-three-heatsink",
-        "destination": "/shop/comma-heatsink",
+        "destination": "/shop",
         "type": 301
       },
       {
@@ -247,22 +304,22 @@
       {
         "source": "/cars",
         "destination": "/vehicles",
-        "type": 302
+        "type": 301
       },
       {
         "source": "/prime",
         "destination": "/connect",
-        "type": 302
+        "type": 301
       },
       {
         "source": "/privacy",
-        "destination": "/terms",
-        "type": 302
+        "destination": "/terms#privacy",
+        "type": 301
       },
       {
         "source": "/press",
         "destination": "/media",
-        "type": 302
+        "type": 301
       },
       {
         "source": "/services{,/**}",
@@ -270,69 +327,64 @@
         "type": 302
       },
       {
-        "source": "/services/meetings",
-        "destination": "/shop",
-        "type": 302
-      },
-      {
         "source": "/shop/products/vote",
-        "destination": "/shop#toyota-security",
+        "destination": "/shop",
         "type": 302
       },
       {
         "source": "/SHOP",
         "destination": "/shop",
-        "type": 302
+        "type": 301
       },
       {
         "source": "/SETUP",
         "destination": "/setup",
-        "type": 302
+        "type": 301
       },
       {
         "source": "/BLOG",
-        "destination": "/blog",
+        "destination": "https://blog.comma.ai",
         "type": 302
       },
       {
         "source": "/CONNECT",
         "destination": "/connect",
-        "type": 302
+        "type": 301
       },
       {
         "source": "/PRIME",
-        "destination": "/prime",
-        "type": 302
+        "destination": "/connect",
+        "type": 301
       },
       {
         "source": "/BODY",
-        "destination": "/body",
-        "type": 302
+        "destination": "/shop/body",
+        "type": 301
       },
       {
         "source": "/JOBS",
         "destination": "/jobs",
-        "type": 302
+        "type": 301
       },
       {
         "source": "/TERMS",
         "destination": "/terms",
-        "type": 302
+        "type": 301
       },
       {
         "source": "/SERVICES",
-        "destination": "/services",
+        "destination": "/shop#services",
         "type": 302
       },
       {
         "source": "/PRIVACY",
-        "destination": "/privacy",
-        "type": 302
+        "destination": "/terms#privacy",
+        "type": 301
       },
       {
         "source": "/MEDIA",
         "destination": "/media",
-        "type": 302
+        "type": 301
       },
       {
         "source": "/FAQ",
@@ -341,27 +393,27 @@
       },
       {
         "source": "/PARTS",
-        "destination": "/parts",
+        "destination": "/shop",
         "type": 302
       },
       {
         "source": "/SHIPPING",
-        "destination": "/shipping",
+        "destination": "/support",
         "type": 302
       },
       {
         "source": "/VEHICLES",
         "destination": "/vehicles",
-        "type": 302
+        "type": 301
       },
       {
         "source": "/SUPPORT",
         "destination": "/support",
-        "type": 302
+        "type": 301
       },
       {
         "source": "/shipping",
-        "destination": "/faq",
+        "destination": "/support",
         "type": 302
       },
       {
@@ -403,6 +455,11 @@
         "source": "/setup/comma-3x",
         "destination": "/setup",
         "type": 301
+      },
+      {
+        "source": "/og-image.png",
+        "destination": "/og/home-v1.jpg",
+        "type": 302
       }
     ]
   }

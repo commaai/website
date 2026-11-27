@@ -1,4 +1,5 @@
 <script>
+  import Seo from "$lib/components/Seo.svelte";
   import LinkButton from "$lib/components/LinkButton.svelte";
   import Grid from "$lib/components/Grid.svelte";
   import Space from "$lib/components/Space.svelte";
@@ -27,10 +28,10 @@
   export let data;
 </script>
 
-<svelte:head>
-  <title>openpilot — comma.ai</title>
-  <meta name="description" content="openpilot is open source driver assistance for {vehicleCountText} car models: lane centering, adaptive cruise control, lane change assist, and driver monitoring with no wheel nags." />
-</svelte:head>
+<Seo
+  title="openpilot: open source driver assistance — comma.ai"
+  description="openpilot is open source driver assistance for {vehicleCountText} car models: lane centering, adaptive cruise, lane change assist, and driver monitoring with no wheel nags."
+/>
 
 <section class="dark" id="about">
   <div class="container">

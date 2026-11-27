@@ -25,7 +25,7 @@
 
 <div>
   <div class="header" id={(title ?? topic.title).toLowerCase().replace(/[^\w\s]/g, '').replaceAll(' ', '-')}>
-    <h1 class="type-h2">{title ?? topic.title}</h1>
+    <h2 class="type-h2">{title ?? topic.title}</h2>
     {#if topic.image}<img src={topic.image} loading="eager" alt="{title ?? topic.title} banner" />{/if}
   </div>
   <div class="questions">
@@ -58,7 +58,7 @@
     margin-top: 2rem;
     margin-bottom: 2rem;
 
-    & h1 {
+    & h2 {
       margin: 0;
       max-width: 60%;
       position: relative;
@@ -78,7 +78,7 @@
     }
 
     @media screen and (max-width: 760px) {
-      & h1 {
+      & h2 {
         max-width: 100%;
         overflow-wrap: anywhere;
       }

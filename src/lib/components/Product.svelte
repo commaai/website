@@ -31,6 +31,8 @@
   export let sale = false;
   export let useVariantRadioSelector = false;
   export let variantSelectorSize = "big";
+  // "h2" on a second copy of the buy box (shop/body) so the page keeps one h1
+  export let titleTag = "h1";
 
   export let VariantSelector = null;
   function handleVariantSelection(variant) {
@@ -122,7 +124,8 @@
   <Grid columns={2} rowGap="0" columnGap="6rem" templateColumns="1.25fr 0.75fr" lgTemplateColumns="1fr 1fr" lgColumnGap="2rem">
     <div class="product-gallery">
       <div class="preview">
-        <img src={highlightedImageSrc} alt="{product.title} product preview" />
+        <!-- the page's main image: fetch it before anything else (not the second copy on shop/body) -->
+        <img src={highlightedImageSrc} fetchpriority={titleTag === "h1" ? "high" : "auto"} alt="{product.title} product preview" />
       </div>
       {#if displayImages.length > 1}
         <div class="product-images" class:scrolling={scrollProductImages}>
@@ -135,7 +138,7 @@
               aria-pressed={currentImageIndex === i}
               aria-label={`View ${product.title} image ${i + 1}`}
             >
-              <img src={image} alt="" />
+              <img src={image} loading="lazy" alt="" />
             </button>
           {/each}
         </div>
@@ -145,7 +148,7 @@
       <div>
         <div class="variant-selector">
           <div class="title-price" class:inline-mobile={inlineMobileTitlePrice}>
-            <h1 class="type-h2" translate="no">{product?.title}</h1>
+            <svelte:element this={titleTag} class="type-h2 product-title" translate="no">{product?.title}</svelte:element>
             <div class="price type-lead">
               {#if previousPrice}
                 <div class="strikethrough-price">${previousPrice}</div>
@@ -161,7 +164,7 @@
           {:else}
             {#if variants.length > 1}
               {#if !hideVariantImage}
-                <img src={selectedVariant.image.url} alt="" />
+                <img src={selectedVariant.image.url} loading="lazy" alt="" />
               {/if}
               {#if useVariantRadioSelector}
                 <VariantRadioSelector
@@ -268,7 +271,7 @@
   .variant-selector {
     margin: 1rem 0;
 
-    & h1 {
+    & .product-title {
       margin-bottom: 1rem;
     }
 
@@ -302,7 +305,7 @@
       gap: 0.5rem 1rem;
     }
 
-    .title-price.inline-mobile h1 {
+    .title-price.inline-mobile .product-title {
       margin-right: auto;
     }
 

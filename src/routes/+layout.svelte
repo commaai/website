@@ -2,6 +2,10 @@
   import "../app.css";
 
   import fontsStylesheet from "$lib/fonts/fonts.css?url";
+  // the same files fonts.css points at (vite.config.js keeps fonts as separate files)
+  import interRegularFont from "@fontsource/inter/files/inter-latin-400-normal.woff2?url";
+  import interSemiboldFont from "@fontsource/inter/files/inter-latin-600-normal.woff2?url";
+  import displayFont from "$lib/fonts/MonumentExtended/MonumentExtended-Black.woff2?url";
 
   import { get } from "svelte/store";
 
@@ -35,9 +39,6 @@
   import { page } from "$app/stores";
 
   let loading = false;
-
-  // one URL per page for search engines: apex https host, no trailing slash, no query
-  $: canonical = `https://comma.ai${$page.url.pathname.replace(/\/+$/, '') || '/'}`;
 
   async function openCart() {
     await loadCart();
@@ -74,11 +75,10 @@
 </script>
 
 <svelte:head>
+  <link rel="preload" href={interRegularFont} as="font" type="font/woff2" crossorigin="anonymous" />
+  <link rel="preload" href={interSemiboldFont} as="font" type="font/woff2" crossorigin="anonymous" />
+  <link rel="preload" href={displayFont} as="font" type="font/woff2" crossorigin="anonymous" />
   <link rel="stylesheet" href={fontsStylesheet} />
-  {#if !$page.error}
-    <link rel="canonical" href={canonical} />
-    <meta property="og:url" content={canonical} />
-  {/if}
 </svelte:head>
 
 <header class="navbar">
@@ -148,7 +148,7 @@
           <span>Jobs</span>
           <Badge style="light" display="inline">we're hiring!</Badge>
         </a>
-        <a class="badged" href="/leaderboard.html">
+        <a class="badged" href="/leaderboard" rel="external">
           <span>Leaderboard</span>
           <Badge style="accent" display="inline">New Challenge!</Badge>
         </a>

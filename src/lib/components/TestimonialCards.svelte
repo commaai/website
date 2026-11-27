@@ -1,4 +1,5 @@
 <script>
+  import { visibleVideo } from "$lib/utils/visible-video";
   import PlayIcon from "$lib/icons/social/youtube.svg?raw";
   import XIcon from "$lib/icons/social/x.svg?raw";
   import ArrowRight from "$lib/icons/arrow-right.svg?raw";
@@ -22,8 +23,11 @@
     import: "default",
   });
   const videoFor = (post) => `${post.handle}-${post.id}`;
-  const posterFor = (post) =>
-    posters[`/src/lib/images/tweets/posters/${videoFor(post)}.jpg`]?.img?.src;
+  // webp: a poster attribute has no <picture> fallback, and every browser we support decodes webp
+  const posterFor = (post) => {
+    const poster = posters[`/src/lib/images/tweets/posters/${videoFor(post)}.jpg`];
+    return poster?.sources?.webp?.split(" ")[0] ?? poster?.img?.src;
+  };
 
   const quoted = (text) => text.startsWith("“");
 
@@ -48,9 +52,9 @@
         {#if item[0].video}
           <div class="frame">
             <video
-              src="{VIDEO_BASE}/{videoFor(item[0])}.mp4"
+              use:visibleVideo={`${VIDEO_BASE}/${videoFor(item[0])}.mp4`}
               poster={posterFor(item[0])}
-              autoplay
+              preload="none"
               muted
               loop
               playsinline

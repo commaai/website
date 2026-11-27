@@ -2,7 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%sveltekit.assets%/favicon.png" />
+    <link rel="icon" href="%sveltekit.assets%/favicon.ico" sizes="48x48" />
+    <link rel="icon" href="%sveltekit.assets%/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="%sveltekit.assets%/apple-touch-icon.png" />
+    <link rel="manifest" href="%sveltekit.assets%/manifest.webmanifest" />
+    <meta name="theme-color" content="#f5f5f5" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="facebook-domain-verification" content="cj94tyuh9gwkjtrcinomv1py0bfilc" />
 
@@ -76,45 +80,9 @@
     <script src="//code.tidio.co/9o9hpvuj5fqc7gu1vhialdrpp7buweu2.js" async></script>
     -->
 
-    <!-- Google SEO -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "url": "https://comma.ai",
-      "sameAs": [
-        "https://twitter.com/comma_ai",
-        "https://github.com/commaai"
-      ],
-      "name": "comma.ai",
-      "description": "Hands free driving for the car you already have. Make driving chill."
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "url": "https://comma.ai/",
-      "name": "comma.ai"
-    }
-    </script>
+    <!-- Organization / WebSite JSON-LD: home page (src/lib/seo/structured-data.js) -->
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="comma.ai — make driving chill" />
-    <meta property="og:description" content="Hands free driving for the car you already have" />
-    <meta property="og:image" content="https://comma.ai/og-comma-four.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="628" />
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@comma_ai" />
-    <meta name="twitter:title" content="comma.ai — make driving chill" />
-    <meta name="twitter:description" content="Hands free driving for the car you already have" />
-    <meta name="twitter:image" content="https://comma.ai/og-comma-four.png" />
-    <meta name="twitter:image:alt" content="comma four" />
-
+    <!-- title, description, canonical and share tags: src/lib/components/Seo.svelte -->
     %sveltekit.head%
   </head>
   <body data-sveltekit-preload-data="hover">

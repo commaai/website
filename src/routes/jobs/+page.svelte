@@ -1,4 +1,5 @@
 <script>
+  import Seo from "$lib/components/Seo.svelte";
   import { onMount } from "svelte";
   import Faq from "$lib/components/Faq.svelte";
   import LinkButton from "$lib/components/LinkButton.svelte";
@@ -345,13 +346,10 @@
   }
 </script>
 
-<svelte:head>
-  <title>jobs — comma.ai</title>
-  <meta
-    name="description"
-    content="At comma.ai, we are solving self-driving cars while delivering shippable intermediaries."
-  />
-</svelte:head>
+<Seo
+  title="jobs at comma: come build the future — comma.ai"
+  description="Join comma in San Diego to solve self driving cars while delivering shippable intermediaries. Open roles on openpilot, autonomy, hardware and product."
+/>
 
 <div class="jobs-page light">
   <section class="jobs-hero" aria-labelledby="jobs-title">
@@ -382,6 +380,7 @@
         <iframe
           class="video-frame"
           src={JOBS_VIDEO_EMBED_URL}
+          loading="lazy"
           title="Touring comma HQ + launching the new jobs page comma.ai/jobs"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

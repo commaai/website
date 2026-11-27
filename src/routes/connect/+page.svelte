@@ -1,4 +1,5 @@
 <script>
+  import Seo from "$lib/components/Seo.svelte";
   import Badge from "$lib/components/Badge.svelte";
   import Grid from "$lib/components/Grid.svelte";
   import Faq from '$lib/components/Faq.svelte';
@@ -20,10 +21,10 @@
   import ArrowRight from "$lib/icons/arrow-right.svg?raw";
 </script>
 
-<svelte:head>
-  <title>comma connect — comma.ai</title>
-  <meta name="description" content="comma connect lets you watch your recorded drives online, see where your car is, and manage your openpilot experience." />
-</svelte:head>
+<Seo
+  title="comma connect: see your recorded drives online — comma.ai"
+  description="comma connect lets you watch your recorded drives online and manage your openpilot experience. Drives are kept for 3 days, or 1 year with a subscription."
+/>
 
 <div class="banner">
   <img src={ConnectHeroImage} loading="lazy" alt="comma connect application" />
@@ -62,7 +63,7 @@
 
     <span class="badge-prefix muted type-label">connect</span><Badge style="dark" display="inline">subscription</Badge>
     <Grid rowGap="0" templateColumns="1.25fr 1fr">
-      <h1 class="type-h2">Access premium features with connect subscription.</h1>
+      <h2 class="type-h2">Access premium features with connect subscription.</h2>
       <p class="type-lead">Get a connect subscription for live car tracking and cloud storage of your drives for 1 year.</p>
     </Grid>
 
@@ -181,7 +182,7 @@
   <div class="container">
     <Badge style="dark" display="inline">connect</Badge><Badge style="light" display="inline">subscription</Badge>
     <Grid rowGap="0" templateColumns="1.25fr 1fr">
-      <h1>Real time vehicle connectivity.</h1>
+      <h2 class="type-h1">Real time vehicle connectivity.</h2>
       <ul class="checkmark-list type-lead">
         <li>24/7 connectivity</li>
         <li>Live GPS tracking</li>
@@ -354,7 +355,7 @@
   }
 
   #connect {
-    & h1 {
+    & .type-h2 {
       margin-top: 1rem;
     }
 
@@ -478,7 +479,7 @@
   }
 
   #price {
-    & h1 {
+    & .type-h1 {
       margin-top: 2rem;
     }
 

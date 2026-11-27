@@ -10,6 +10,8 @@
     "prepare": "svelte-kit sync",
     "dev": "vite dev",
     "capture:home": "bun scripts/capture-homepage.js",
+    "og": "bun scripts/og/render.js",
+    "icons": "bun scripts/icons/render.js",
     "build": "vite build",
     "preview": "vite preview",
     "deploy": "bunx firebase deploy"

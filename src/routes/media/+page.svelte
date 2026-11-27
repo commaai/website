@@ -1,4 +1,6 @@
 <script>
+  import Seo from "$lib/components/Seo.svelte";
+  import { preloadWhenVisible } from "$lib/utils/visible-video";
   import CommaMarkBlackPNG from "$lib/images/brand/comma-mark-black.png?format=png&as=url";
   import CommaMarkWhitePNG from "$lib/images/brand/comma-mark-white.png?format=png&as=url";
   import CommaWordmarkBlackPNG from "$lib/images/brand/comma-wordmark-black.png?format=png&as=url";
@@ -95,10 +97,10 @@
   ];
 </script>
 
-<svelte:head>
-  <title>press &amp; media kit — comma.ai</title>
-  <meta name="description" content="Company background, product images, and videos for press coverage of comma.ai, comma four, and openpilot." />
-</svelte:head>
+<Seo
+  title="press & media kit: photos, videos and logos — comma.ai"
+  description="Company background, comma four product photos, factory images, openpilot driving videos, and brand assets for press. Media inquiries: media@comma.ai."
+/>
 
 <section class="light">
   <div class="container">
@@ -145,7 +147,7 @@
       <div class="video-grid">
         {#each videos as video}
           <div class="asset video-asset">
-            <video class:fill-preview={video.fill} controls loop playsinline preload="metadata" aria-label={video.title} src={video.src}></video>
+            <video class:fill-preview={video.fill} controls loop playsinline preload="none" use:preloadWhenVisible aria-label={video.title} src={video.src}></video>
             <a class="asset-caption" href={video.src} download={video.name}>{video.title}<span class="asset-action type-small">Download MP4 ↓</span></a>
           </div>
         {/each}
@@ -162,6 +164,7 @@
         <iframe
           class="manufacturing-video"
           src="https://www.youtube.com/embed/bM_tojv4ZDg?playsinline=1"
+          loading="lazy"
           title="comma four - Built in America"
           referrerpolicy="strict-origin-when-cross-origin"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

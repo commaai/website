@@ -1,6 +1,8 @@
 <script>
+  import Seo from "$lib/components/Seo.svelte";
+  import { organizationJsonLd } from "$lib/seo/structured-data.js";
   import { onMount } from 'svelte';
-  import Hls from 'hls.js/light';
+  import { visibleVideo, whenVisible } from '$lib/utils/visible-video';
   import FeaturedCarsList from "$lib/components/FeaturedCarsList.svelte";
   import TestimonialSection from "$lib/components/TestimonialSection.svelte";
   import HomeHeroOverlay from "$lib/components/HomeHeroOverlay.svelte";
@@ -14,6 +16,7 @@
   import MapActivity from "$lib/images/home/map-activity-2x.png";
   import ArrowRight from "$lib/icons/arrow-right.svg?raw";
   import { FOUR_PRICE } from "$lib/constants/prices.js";
+  import { vehicleCountText } from "$lib/constants/vehicles.js";
   import ShopPayInstallments from "$lib/components/ShopPayInstallments.svelte";
   import { goto } from "$app/navigation";
   import LaneCenteringIcon from "$lib/icons/features/lane-centering.svg?raw";
@@ -70,11 +73,24 @@
   let heroVideoReady = false;
   let screenVideoElement;
   let screenVideoReady = false;
-  let setupVideoElement;
   let selectedDeviceViewIndex = 0;
   $: selectedDeviceView = deviceViews[selectedDeviceViewIndex];
 
+  // hls.js is ~400KB, so it loads after the page is interactive instead of with the page's own
+  // script; the hero poster covers the gap. Returns a cleanup function right away.
   function initializeHLS(videoEl, src, onReady) {
+    let cancelled = false;
+    let destroy = () => {};
+    import('hls.js/light').then(({ default: Hls }) => {
+      if (!cancelled) destroy = attachHLS(Hls, videoEl, src, onReady);
+    });
+    return () => {
+      cancelled = true;
+      destroy();
+    };
+  }
+
+  function attachHLS(Hls, videoEl, src, onReady) {
     if (Hls.isSupported()) {
       const hls = new Hls();
       hls.loadSource(src);
@@ -106,7 +122,7 @@
     const handleScreenPlaying = () => screenVideoReady = true;
     let destroyHeroHLS = () => {};
     let destroyScreenHLS = () => {};
-    let setupVideoTimer;
+    let screenVideoObserver;
 
     const playVideo = (videoEl) => {
       videoEl.play().catch(() => {});
@@ -125,23 +141,14 @@
 
     if (screenVideoElement) {
       screenVideoElement.addEventListener('playing', handleScreenPlaying);
-      destroyScreenHLS = initializeHLS(
-        screenVideoElement,
-        ScreenVideo,
-        () => playVideo(screenVideoElement),
-      );
-    }
-
-    const loadSetupVideo = () => {
-      if (!setupVideoElement) return;
-      setupVideoElement.src = SetupVideo;
-      playVideo(setupVideoElement);
-    };
-
-    if (document.readyState === 'complete') {
-      setupVideoTimer = window.setTimeout(loadSetupVideo, 0);
-    } else {
-      window.addEventListener('load', loadSetupVideo, { once: true });
+      // below the fold on most screens: start streaming once it's about to scroll into view
+      screenVideoObserver = whenVisible(screenVideoElement, () => {
+        destroyScreenHLS = initializeHLS(
+          screenVideoElement,
+          ScreenVideo,
+          () => playVideo(screenVideoElement),
+        );
+      });
     }
 
     return () => {
@@ -149,10 +156,8 @@
       heroVideoElement.removeEventListener('playing', handleHeroPlaying);
       screenVideoElement?.removeEventListener('playing', handleScreenPlaying);
       destroyHeroHLS();
+      screenVideoObserver?.destroy();
       destroyScreenHLS();
-      window.removeEventListener('load', loadSetupVideo);
-      window.clearTimeout(setupVideoTimer);
-      setupVideoElement?.pause();
     };
   });
 
@@ -161,13 +166,14 @@
   }
 </script>
 
-<svelte:head>
-  <title>comma.ai — make driving chill</title>
-  <meta name="description" content="hands free driving for the car you already have" />
-  <link rel="preload" as="image" href="{CDN_BASE}/hero-landscape/poster.jpg" media="(min-width: 769px)" />
-  <link rel="preload" as="image" href="{CDN_BASE}/hero-portrait/poster.jpg" media="(max-width: 768px)" />
-  <link rel="preload" as="image" href="{CDN_BASE}/screen-video/poster.jpg" />
-</svelte:head>
+<Seo
+  title="comma.ai — make driving chill with comma four and openpilot"
+  description="hands free driving for the car you already have. comma four runs openpilot on {vehicleCountText} car models, with 30,000+ cars on the road. Try it risk-free for 30 days."
+  jsonLd={organizationJsonLd()}
+>
+  <link rel="preload" as="image" fetchpriority="high" href="{CDN_BASE}/hero-landscape/poster.jpg" media="(min-width: 769px)" />
+  <link rel="preload" as="image" fetchpriority="high" href="{CDN_BASE}/hero-portrait/poster.jpg" media="(max-width: 768px)" />
+</Seo>
 
 <section
   class="hero-image"
@@ -179,7 +185,6 @@
     <video
       bind:this={heroVideoElement}
       class:ready={heroVideoReady}
-      poster="{CDN_BASE}/hero-landscape/poster.jpg"
       autoplay
       muted
       loop
@@ -195,7 +200,7 @@
   <div class="container">
     <div class="two-column-layout meet-grid">
       <div class="comma-four-content">
-        <h1>meet comma four</h1>
+        <h2 class="type-h1">meet comma four</h2>
         <h2 class="type-lead">make driving chill with a hands-off, eyes-on driving experience</h2>
       </div>
 
@@ -211,7 +216,6 @@
             bind:this={screenVideoElement}
             class:ready={screenVideoReady}
             class:selected={selectedDeviceView.hasLiveScreen}
-            poster="{CDN_BASE}/screen-video/poster.jpg"
             autoplay
             muted
             loop
@@ -264,13 +268,13 @@
 <section class="light" id="compatibility">
   <div class="container">
     <div class="two-column-layout setup-grid">
-      <h1 class="setup-heading">
+      <h2 class="type-h1 setup-heading">
         <span>plug it in & hit the</span>
         <span>road in 15 minutes</span>
-      </h1>
+      </h2>
       <div class="setup-media">
         <video
-          bind:this={setupVideoElement}
+          use:visibleVideo={SetupVideo}
           aria-label="A stop-motion demonstration of installing a comma device"
           muted
           loop
@@ -293,9 +297,9 @@
 
 <section class="dark" id="openpilot">
   <div class="container">
-    <h1 class="map-headline">
+    <h2 class="type-h1 map-headline">
       comma runs <a href="/openpilot" class="highlight">open source software,</a>&nbsp;driving all over the world with no subscription needed
-    </h1>
+    </h2>
     <figure class="activity-map">
       <div class="map-preview">
         <img
@@ -312,7 +316,7 @@
 
 <section class="light" id="testimonials">
   <div class="container">
-    <h1>don't take our word for it</h1>
+    <h2 class="type-h1">don't take our word for it</h2>
     <TestimonialSection />
   </div>
 </section>
@@ -323,7 +327,7 @@
     <div class="closing-grid">
       <img class="closing-device" src={DeviceAngledImage} alt="comma four" width="1440" height="960" loading="lazy"/>
       <div class="closing-copy">
-        <h1>ready to make driving chill?</h1>
+        <h2 class="type-h1">ready to make driving chill?</h2>
         <p class="closing-sub type-lead">hands free driving for the car you already have</p>
         <div class="closing-actions">
           <a class="type-lead homepage-cta dark-cta" href="/vehicles">
@@ -552,11 +556,11 @@
       width: 100%;
     }
 
-    & .comma-four-content h1 {
+    & .comma-four-content .type-h1 {
       margin-bottom: 1rem;
     }
 
-    & .comma-four-content h2 {
+    & .comma-four-content .type-lead {
       margin: 0;
       max-width: 37rem;
       opacity: 0.65;
@@ -763,7 +767,7 @@
       width: 100%;
     }
 
-    & h1 {
+    & .closing-copy h2 {
       margin: 0;
     }
 

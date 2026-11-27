@@ -11,8 +11,9 @@ export default defineConfig({
     // URIs adds ~180KB to the home page HTML and stalls PostHog's DOM snapshot.
     assetsInlineLimit: (filePath) => {
       if (filePath.includes('/icons/home/brands/')) return false;
-      // fonts every page uses; inlined into src/lib/fonts/fonts.css so they're ready for first layout
-      if (/(MonumentExtended-Black|-latin-\d+-normal)\.woff2$/.test(filePath)) return true;
+      // fonts stay separate files: +layout.svelte preloads the ones above the fold, and inlining
+      // them made src/lib/fonts/fonts.css a ~100KB render-blocking download on every first visit
+      if (/\.woff2?$/.test(filePath)) return false;
     },
   },
   plugins: [

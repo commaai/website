@@ -25,7 +25,7 @@ export const products = {
   "comma-four": {
     title: "comma four",
     id: "gid://shopify/Product/7964554231871",
-    route: "/shop/four",
+    route: "/shop/comma-four",
     category: "device",
     price: "$799",
     freeRush: true,
