@@ -61,6 +61,9 @@ jobs:
         name: Build (development)
         run: bun run build
 
+      - name: Check the sitemap and canonicals match the build
+        run: bun scripts/check-sitemap.js
+
       - name: Upload built project
         uses: actions/upload-artifact@v4
         with:
