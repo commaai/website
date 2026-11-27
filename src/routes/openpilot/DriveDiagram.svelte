@@ -12,8 +12,6 @@
   import DrivePoster from "$lib/videos/openpilot/drive-ramp.jpg?format=jpg&as=url";
   import drive from "$lib/videos/openpilot/drive-ramp.json";
 
-  // stacked: one column at every width, for the side of a split layout
-  export let stacked = false;
 
   // the outputs follow the video frame by frame, interpolated between logged frames
   let driveVideo;
@@ -61,7 +59,7 @@
   $: accelWidth = Math.min(Math.abs(accel) / 1.5, 1) * 50;
 </script>
 
-<figure class="e2e" class:stacked>
+<figure class="e2e">
   <div class="label label-in">
     <span class="word">end</span>
     <span class="sub">Video in</span>
@@ -88,11 +86,7 @@
     <span class="sub">One neural network</span>
   </div>
   <div class="cell cell-model">
-    {#if stacked}
-      <div class="model">openpilot's end-to-end driving model</div>
-    {:else}
-      <div class="model">openpilot's<br />end-to-end<br />driving model</div>
-    {/if}
+    <div class="model">openpilot's<br />end-to-end<br />driving model</div>
   </div>
   <span class="arrow arrow-2" aria-hidden="true"></span>
   <div class="label label-out">
@@ -367,94 +361,6 @@
     }
   }
 
-  /* stacked, for a split layout: video on top, then the model, then the outputs in a row */
-
-  .e2e.stacked {
-    grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: none;
-    row-gap: 0.75rem;
-    width: auto;
-    margin: 0;
-    transform: none;
-
-    & .label,
-    & .cell,
-    & .arrow,
-    & figcaption {
-      grid-row: auto;
-      grid-column: 1;
-    }
-
-    & .label {
-      flex-direction: row;
-      align-items: baseline;
-      gap: 0.75rem;
-    }
-
-    & .label .word {
-      font-size: 2.25rem;
-    }
-
-    & .label-model {
-      justify-content: flex-start;
-      text-align: left;
-    }
-
-    & .label-model,
-    & .label-out {
-      margin-top: 0.25rem;
-    }
-
-    & .arrow {
-      display: none;
-    }
-
-    & .model {
-      padding: 1rem;
-    }
-
-    & .cell-out {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-    }
-
-    & .outputs {
-      display: flex;
-      flex: 1;
-      gap: 1.5rem;
-      border-top: 0;
-    }
-
-    & .output {
-      flex: 1;
-      gap: 0.9rem;
-      padding: 0;
-      border-bottom: 0;
-    }
-
-    & .output dt {
-      font-size: 1.05rem;
-    }
-
-    & .wheel,
-    & .accel {
-      width: 3.25rem;
-      height: 3.25rem;
-    }
-
-    & .speed {
-      flex: none;
-      margin: 0;
-    }
-
-    & figcaption {
-      max-width: none;
-      margin: 0.75rem 0 0;
-      text-align: left;
-      font-size: 0.85rem;
-    }
-  }
 
   @media (max-width: 1024px) {
     .e2e {
@@ -526,20 +432,6 @@
 
     .speed {
       text-align: center;
-    }
-
-    .e2e.stacked .cell-out {
-      flex-direction: column;
-      align-items: stretch;
-    }
-
-    .e2e.stacked .outputs {
-      max-width: none;
-      margin: 0;
-    }
-
-    .e2e.stacked .speed {
-      text-align: left;
     }
   }
 </style>
