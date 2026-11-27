@@ -4,7 +4,7 @@ export const products = {
     id: "gid://shopify/Product/8304058433599",
     route: "/shop/chestnut",
     category: "device",
-    price: "from $250",
+    price: "from $249",
     images: [
       "/src/lib/images/products/chestnut/bnut_34.png",
       "/src/lib/images/products/chestnut/bnut_front.png",
