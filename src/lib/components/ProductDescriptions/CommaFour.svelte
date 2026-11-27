@@ -14,7 +14,7 @@
   import CloseIcon from "$lib/icons/ui/close.svg?raw";
 
   import { FOUR_PRICE, FOUR_SALE, FOUR_STRIKETHROUGH_PRICE, FOUR_TRADE_IN_CREDIT, NO_HARNESS_DISCOUNT } from '$lib/constants/prices.js';
-  import { NO_HARNESS_OPTION } from '$lib/constants/vehicles.js';
+  import { NO_HARNESS_OPTION, vehicleCountText } from '$lib/constants/vehicles.js';
 </script>
 
 <script>
@@ -204,11 +204,11 @@
 
     <hr />
 
-    <strong>Select a harness to connect the comma four to your car.</strong>
+    <strong>Select a harness to connect the <span translate="no">comma four</span> to your car.</strong>
     <HarnessSelector
       bind:this={harnessSelectorRef}
       label="Find your car"
-      sublabel="325+ cars · harness included"
+      sublabel="{vehicleCountText} cars · harness included"
       prominent
       onChange={handleHarnessSelection}
       showNoHarnessOption={true}
@@ -235,10 +235,10 @@
       {#if referralCode}
         Trade in credit is <b>not available</b> when using a referral code.
       {:else if FOUR_SALE}
-        Trade in any comma device, in any condition, and pay ${FOUR_PRICE - FOUR_TRADE_IN_CREDIT}. That's the usual ${FOUR_TRADE_IN_CREDIT + FOUR_STRIKETHROUGH_PRICE - FOUR_PRICE} off ${FOUR_STRIKETHROUGH_PRICE}; it doesn't stack with the sale price.
+        Trade in any <span translate="no">comma</span> device, in any condition, and pay ${FOUR_PRICE - FOUR_TRADE_IN_CREDIT}. That's the usual ${FOUR_TRADE_IN_CREDIT + FOUR_STRIKETHROUGH_PRICE - FOUR_PRICE} off ${FOUR_STRIKETHROUGH_PRICE}; it doesn't stack with the sale price.
         <a href="/shop/comma-four-trade-in">Instructions and Terms</a>
       {:else}
-        Get ${FOUR_TRADE_IN_CREDIT} credit when you trade in your old comma device. Any comma device, in any condition.
+        Get ${FOUR_TRADE_IN_CREDIT} credit when you trade in your old <span translate="no">comma</span> device. Any <span translate="no">comma</span> device, in any condition.
         <a href="/shop/comma-four-trade-in">Instructions and Terms</a>
       {/if}
     </CheckboxCard>
@@ -291,7 +291,7 @@
           <span>1-year hardware warranty</span>
         </div>
         <div class="details" slot="content">
-          1-year limited warranty against hardware defects. Extend it with <a href="/connect#what-is-commacare">commacare</a>.
+          1-year limited warranty against hardware defects. Extend it with <a href="/connect#what-is-commacare" translate="no">commacare</a>.
         </div>
       </Accordion>
     </div>
@@ -311,7 +311,7 @@
     <p class="disclaimer">You need to select a harness first.</p>
   {:else}
     <p class="disclaimer">
-      The comma four does not ship with any software.
+      The <span translate="no">comma four</span> does not ship with any software.
       Once you have the device you will be able to install any software you choose at your own risk.
     </p>
     <p class="disclaimer">

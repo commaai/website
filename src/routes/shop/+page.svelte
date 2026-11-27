@@ -55,14 +55,14 @@
           <div class="product-content">
             <Badge style="accent">NEW DEVICE!</Badge>
             <hgroup>
-              <h1 class="type-h2">comma four</h1>
+              <h1 class="type-h2" translate="no">comma four</h1>
               <span class="type-lead">
                 {#if FOUR_STRIKETHROUGH_PRICE}
                   <span class="strikethrough-price">${FOUR_STRIKETHROUGH_PRICE}</span>
                 {/if}
                 <span class:sale-price={FOUR_SALE} class:type-strong={FOUR_SALE}>${FOUR_PRICE}</span>
               </span>
-              <span class="muted">or ${FOUR_PRICE - FOUR_TRADE_IN_CREDIT - NO_HARNESS_DISCOUNT} after trade-in of any comma device</span>
+              <span class="muted">or ${FOUR_PRICE - FOUR_TRADE_IN_CREDIT - NO_HARNESS_DISCOUNT} after trade-in of any <span translate="no">comma</span> device</span>
               <div class="muted installments">
                 <ShopPayInstallments split inline amount={FOUR_PRICE} onCheckout={() => goto("/shop/comma-four")} />
               </div>
@@ -121,16 +121,16 @@
           <div class="product-content">
             <Badge style="accent">NEW!</Badge>
             <hgroup>
-              <h1 class="type-h2">chestnut</h1>
+              <h1 class="type-h2" translate="no">chestnut</h1>
               <span class="type-lead">from $249</span>
-              <span class="muted">run openpilot’s biggest models in your car</span>
+              <span class="muted">run <span translate="no">openpilot</span>’s biggest models in your car</span>
             </hgroup>
             <LinkButton href="/shop/chestnut" style="secondary" fullWidth>
               Buy now
             </LinkButton>
             <p class="type-large muted">
-              chestnut turns USB into PCIe, so you can connect a full desktop
-              GPU to a <a class="highlight muted" href="/shop/comma-four">comma four</a>
+              <span translate="no">chestnut</span> turns USB into PCIe, so you can connect a full desktop
+              GPU to a <a class="highlight muted" href="/shop/comma-four" translate="no">comma four</a>
               or your computer.
             </p>
           </div>
@@ -147,7 +147,7 @@
               <h2 class="type-caps type-small">Ready to drive</h2>
               <div>
                 Comes with everything you need to add desktop-class GPU compute
-                to your comma four.
+                to your <span translate="no">comma four</span>.
               </div>
             </hgroup>
           </div>
@@ -156,7 +156,7 @@
             <hgroup>
               <h2 class="type-caps type-small">Bring your own GPU</h2>
               <div>
-                Use tiny chestnut with your own GPU and power supply.
+                Use tiny <span translate="no">chestnut</span> with your own GPU and power supply.
               </div>
             </hgroup>
           </div>
@@ -200,7 +200,7 @@
           <hgroup>
             <h2 class="type-h3">Custom car ports</h2>
             <p class="type-large">
-              Hire the openpilot team to add support for additional car brands
+              Hire the <span translate="no">openpilot</span> team to add support for additional car brands
               and models.
             </p>
             <span class="type-large type-strong">See pricing</span>
@@ -211,22 +211,22 @@
             <div>
               <h3>Overview</h3>
               <p>
-                comma openpilot is an open source driver-assistance system.
-                Currently, openpilot performs the functions of Adaptive Cruise
+                <span translate="no">comma openpilot</span> is an open source driver-assistance system.
+                Currently, <span translate="no">openpilot</span> performs the functions of Adaptive Cruise
                 Control (ACC) and Automated Lane Centering (ALC) and Lane Change
                 Assist for <a class="highlight" href="/vehicles" tabindex="0">compatible vehicles</a>.
                 It performs similarly to Tesla Autopilot and GM Super Cruise.
-                openpilot can steer, accelerate, and brake automatically for other vehicles within its lane.
+                <span translate="no">openpilot</span> can steer, accelerate, and brake automatically for other vehicles within its lane.
               </p>
               <p>
-                Hire the comma openpilot team to add dedicated support for a new
+                Hire the <span translate="no">comma openpilot</span> team to add dedicated support for a new
                 make or model vehicle that has electronically controllable gas,
                 brake, and steering. We will work until the port is upstreamed,
                 or on a branch for non production cars.<br />
               </p>
               <p>
-                A car must be provided to comma prior to beginning the project.
-                The porting fee includes an installed working comma four when the
+                A car must be provided to <span translate="no">comma</span> prior to beginning the project.
+                The porting fee includes an installed working <span translate="no">comma four</span> when the
                 car is returned and open sourcing of the required interface
                 hardware.<br />
               </p>
@@ -237,8 +237,8 @@
               </p>
               <strong>Included</strong>
               <ul>
-                <li>Fully working port for openpilot</li>
-                <li>comma four installed in returned car</li>
+                <li>Fully working port for <span translate="no">openpilot</span></li>
+                <li><span translate="no">comma four</span> installed in returned car</li>
                 <li>Completed in 12 weeks</li>
               </ul>
               <strong>Pricing</strong>
@@ -284,7 +284,7 @@
                 {@html ImmediateIcon}
                 <hgroup>
                   <h4>Completed in 12 Weeks</h4>
-                  <p>Get the fully working port for openpilot upstreamed.</p>
+                  <p>Get the fully working port for <span translate="no">openpilot</span> upstreamed.</p>
                 </hgroup>
               </div>
             </div>

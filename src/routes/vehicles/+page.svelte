@@ -35,10 +35,10 @@
   <div class="container">
     <Grid columnGap="4rem" rowGap="2rem" templateColumns="1.25fr 1fr">
       <div class="title type-display type-h3">
-        openpilot supports {vehicleCountText} vehicles
+        <span translate="no">openpilot</span> supports {vehicleCountText} vehicles
       </div>
       <div class="description type-large">
-        A supported vehicle is one that just works when you install a comma four.
+        A supported vehicle is one that just works when you install a <span translate="no">comma four</span>.
         All supported cars provide a better experience than any stock system.
         Supported vehicles reference the US market unless otherwise specified.
       </div>
@@ -66,7 +66,7 @@
       askForCar
     >
       <p>
-        New cars are added with each openpilot release. Get an email when compatibility changes.
+        New cars are added with each <span translate="no">openpilot</span> release. Get an email when compatibility changes.
       </p>
       <p>
         If you have a modern car and some programming skills, you can likely add support for your car.
@@ -78,7 +78,7 @@
 
     <div class="recommended-cars">
       <hgroup>
-        <h2>Our favorite openpilot cars</h2>
+        <h2>Our favorite <span translate="no">openpilot</span> cars</h2>
       </hgroup>
       <div class="recommended-car-columns">
         <Grid columns="4" size="large" wrapMode="single">
@@ -150,9 +150,9 @@
                     <div class="cards">
                       <NoteCard title="Support" icon={CarIcon} style="elevated">
                         {#if car_info.package !== 'All'}
-                          openpilot requires the car to come equipped with <b>{car_info.package}</b>.
+                          <span translate="no">openpilot</span> requires the car to come equipped with <b>{car_info.package}</b>.
                         {:else}
-                          openpilot will work with <b>all packages and trims</b> of this car.
+                          <span translate="no">openpilot</span> will work with <b>all packages and trims</b> of this car.
                         {/if}
                       </NoteCard>
                       {#each car_info.footnotes as footnote}
@@ -166,7 +166,7 @@
                     <div class="product-wrapper">
                       <img src={CommaFourImage} loading="lazy" alt="comma four device" />
                       <hgroup>
-                        <strong>comma four</strong>
+                        <strong translate="no">comma four</strong>
                         {#if FOUR_SALE}
                           <div style="display: flex; align-items: center;">
                             {#if FOUR_STRIKETHROUGH_PRICE}

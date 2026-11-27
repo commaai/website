@@ -61,7 +61,7 @@
           />
         {/if}
         <div class="details">
-          <div class="title type-strong">
+          <div class="title type-strong" translate="no">
             {item.node.merchandise.product.title}
           </div>
           {#if item.node.merchandise.title !== "Default Title"}

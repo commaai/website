@@ -39,7 +39,7 @@ export const products = {
     description: `
       <strong class="type-h5">Description</strong>
       <p>
-        comma four is the next generation comma hardware designed to live in your car. It works on 325+ car models and adds the best driver assistance in the world to your existing car.
+        comma four is the next generation comma hardware designed to live in your car. It works on 350+ car models and adds the best driver assistance in the world to your existing car.
       </p>
       <p>
         It runs <a href="https://github.com/commaai/openpilot" target="_blank">openpilot</a>, which can drive for hours without driver intervention.

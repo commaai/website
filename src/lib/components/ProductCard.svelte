@@ -6,7 +6,7 @@
   <img src={product.images[0]} loading="lazy" alt="{product.title} product" />
   <div>
     <hgroup>
-      <h2 class="type-h5">{product.title}</h2>
+      <h2 class="type-h5" translate="no">{product.title}</h2>
       <span>{product.price ?? 0}</span>
     </hgroup>
     <span class="type-caps">Buy</span>
