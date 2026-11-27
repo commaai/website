@@ -26,8 +26,8 @@
   >
     <div class="section-links type-h2 type-regular">
       <a href="/">home</a>
-      <a href="/openpilot" translate="no">openpilot</a>
-      <a href="/shop/comma-four" translate="no">comma four</a>
+      <a href="/openpilot">openpilot</a>
+      <a href="/shop/comma-four">comma four</a>
       <a href="/shop">shop</a>
       <a href="/connect">connect</a>
       <a href="/vehicles">compatibility</a>

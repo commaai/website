@@ -61,6 +61,9 @@ jobs:
         name: Build (development)
         run: bun run build
 
+      - name: Check brand names are kept out of browser translate
+        run: bun scripts/check-brands.js
+
       - name: Upload built project
         uses: actions/upload-artifact@v4
         with:

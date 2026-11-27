@@ -2,6 +2,26 @@ html {
   scroll-padding-top: 6rem;
 }
 
+/*
+  The translate="no" wrapper around brand names (src/lib/utils/brands.js)
+  makes no box, so it can't split a flex or grid container's text into
+  separate items or pick up any element styles
+*/
+brand-name {
+  display: contents;
+}
+
+/*
+  Browser translate drops the spaces at the edges of the text it translates,
+  gluing it to the untranslated brand names (src/lib/utils/brands.js). Chrome
+  marks translated pages, so put the spaces back there; they collapse into
+  any space that's left.
+*/
+html:is(.translated-ltr, .translated-rtl) [translate="no"]::before,
+html:is(.translated-ltr, .translated-rtl) [translate="no"]::after {
+  content: " ";
+}
+
 /* Stretch the main page content to fill 100% of the viewport height */
 body {
   & > div {
