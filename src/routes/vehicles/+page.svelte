@@ -5,8 +5,6 @@
   import Accordion from '$lib/components/Accordion.svelte';
   import CommunityBanner from '$lib/components/CommunityBanner.svelte';
   import Faq from '$lib/components/Faq.svelte';
-  import BrandText from '$lib/components/BrandText.svelte';
-  import { markBrands } from '$lib/utils/brands.js';
   import LinkButton from '$lib/components/LinkButton.svelte';
   import NoteCard from '$lib/components/NoteCard.svelte';
   import EmailUpdatesForm from '$lib/components/EmailUpdates/EmailUpdatesForm.svelte';
@@ -37,10 +35,10 @@
   <div class="container">
     <Grid columnGap="4rem" rowGap="2rem" templateColumns="1.25fr 1fr">
       <div class="title type-display type-h3">
-        <span translate="no">openpilot</span> supports {vehicleCountText} vehicles
+        openpilot supports {vehicleCountText} vehicles
       </div>
       <div class="description type-large">
-        A supported vehicle is one that just works when you install a <span translate="no">comma four</span>.
+        A supported vehicle is one that just works when you install a comma four.
         All supported cars provide a better experience than any stock system.
         Supported vehicles reference the US market unless otherwise specified.
       </div>
@@ -56,7 +54,7 @@
               <img src={brand_images[brand_img_path].default} loading="eager" alt="{brand} car brand" />
             {/if}
           </a>
-          <div class="compatibility-make-name type-strong"><BrandText text={brand} /></div>
+          <div class="compatibility-make-name type-strong">{brand}</div>
         </div>
         {/if}
       {/each}
@@ -68,7 +66,7 @@
       askForCar
     >
       <p>
-        New cars are added with each <span translate="no">openpilot</span> release. Get an email when compatibility changes.
+        New cars are added with each openpilot release. Get an email when compatibility changes.
       </p>
       <p>
         If you have a modern car and some programming skills, you can likely add support for your car.
@@ -80,7 +78,7 @@
 
     <div class="recommended-cars">
       <hgroup>
-        <h2>Our favorite <span translate="no">openpilot</span> cars</h2>
+        <h2>Our favorite openpilot cars</h2>
       </hgroup>
       <div class="recommended-car-columns">
         <Grid columns="4" size="large" wrapMode="single">
@@ -125,7 +123,7 @@
         {#if brand_images[brand_img_path]}
           <img src={brand_images[brand_img_path].default} alt="{make} car brand" />
         {/if}
-        <h3 class="type-h4"><BrandText text={make} /> <span class="muted">({cars.length})</span></h3>
+        <h3 class="type-h4">{make} <span class="muted">({cars.length})</span></h3>
       </div>
 
       {#each cars as car_info}
@@ -148,18 +146,18 @@
               <div class="car-detail-content-wrapper">
                 <Grid columns={2} rowGap="0" columnGap="2rem" templateColumns="3fr 2fr">
                   <div>
-                    <div class="car-detail-tier type-large">{@html markBrands(car_info.detail_sentence)}</div>
+                    <div class="car-detail-tier type-large">{@html car_info.detail_sentence }</div>
                     <div class="cards">
                       <NoteCard title="Support" icon={CarIcon} style="elevated">
                         {#if car_info.package !== 'All'}
-                          <span translate="no">openpilot</span> requires the car to come equipped with <b>{car_info.package}</b>.
+                          openpilot requires the car to come equipped with <b>{car_info.package}</b>.
                         {:else}
-                          <span translate="no">openpilot</span> will work with <b>all packages and trims</b> of this car.
+                          openpilot will work with <b>all packages and trims</b> of this car.
                         {/if}
                       </NoteCard>
                       {#each car_info.footnotes as footnote}
                         <NoteCard title="Note" icon={InfoIcon} style="elevated">
-                          {@html markBrands(footnote)}
+                          {@html footnote}
                         </NoteCard>
                       {/each}
                     </div>
@@ -168,7 +166,7 @@
                     <div class="product-wrapper">
                       <img src={CommaFourImage} loading="lazy" alt="comma four device" />
                       <hgroup>
-                        <strong translate="no">comma four</strong>
+                        <strong>comma four</strong>
                         {#if FOUR_SALE}
                           <div style="display: flex; align-items: center;">
                             {#if FOUR_STRIKETHROUGH_PRICE}

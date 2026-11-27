@@ -1,5 +1,4 @@
 <script>
-  import BrandText from "$lib/components/BrandText.svelte";
   import Grid from "$lib/components/Grid.svelte";
 
   export let releaseNote;
@@ -11,9 +10,9 @@
     <div>
       <hgroup>
         <span class="type-label">{releaseNote.date}</span>
-        <a class="highlight type-h4 type-regular" href={releaseNote.link}><BrandText text={releaseNote.title} /></a>
+        <a class="highlight type-h4 type-regular" href={releaseNote.link}>{releaseNote.title}</a>
       </hgroup>
-      <p class="type-lead"><BrandText text={releaseNote.excerpt} /></p>
+      <p class="type-lead">{releaseNote.excerpt}</p>
     </div>
   </Grid>
 </div>

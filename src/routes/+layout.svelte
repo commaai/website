@@ -77,15 +77,15 @@
 <header class="navbar">
   <div class="navbar-container">
     <div class="navbar-section-logo">
-      <a class="title type-display type-large" href="/" translate="no">comma</a>
+      <a class="title type-display type-large" href="/">comma</a>
       <div class="menu-container">
         <HeaderMenu />
       </div>
     </div>
     <nav class="navbar-section-links type-large">
       <a href="/" class:active={$page.url.pathname === '/'}>home</a>
-      <a href="/openpilot" class:active={$page.url.pathname.startsWith('/openpilot')} translate="no">openpilot</a>
-      <a href="/shop/comma-four" class:active={$page.url.pathname.startsWith('/shop/comma-four')} translate="no">comma four</a>
+      <a href="/openpilot" class:active={$page.url.pathname.startsWith('/openpilot')}>openpilot</a>
+      <a href="/shop/comma-four" class:active={$page.url.pathname.startsWith('/shop/comma-four')}>comma four</a>
       <a href="/vehicles" class:active={$page.url.pathname.startsWith('/vehicles')}>compatibility</a>
       <a href="/jobs" class:active={$page.url.pathname.startsWith('/jobs')}>jobs</a>
     </nav>
@@ -124,9 +124,9 @@
     <Grid columns={4} wrapMode="single" alignItems="start" size="large">
       <div class="footer-links type-large">
         <strong class="type-body type-caps">Product</strong>
-        <a href="/openpilot" translate="no">openpilot</a>
+        <a href="/openpilot">openpilot</a>
         <a class="badged" href="/shop/comma-four">
-          <span translate="no">comma four</span>
+          <span>comma four</span>
           <Badge style="light" display="inline">new</Badge>
         </a>
         <a href="/connect">connect</a>

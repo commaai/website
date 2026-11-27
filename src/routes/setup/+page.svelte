@@ -56,7 +56,7 @@
   <div class="container">
     <div class="header">
       <hgroup>
-        <span class="type-lead" translate="no">comma four</span>
+        <span class="type-lead">comma four</span>
         <h2 class="type-h1">Setup Guide</h2>
       </hgroup>
       <Grid columns={2} columnGap="5rem" rowGap="0" templateColumns="1.5fr 0.75fr" alignItems="start" size="large">
@@ -90,7 +90,7 @@
                 <Grid rowGap={0} columnGap="1rem" alignItems="center" size="small">
                   <div class="content-header">
                     <img src={CommaFourDeviceImage} loading="lazy" alt="comma four" />
-                    <span><a href="/shop/comma-four" target="_blank" class="highlight" translate="no">comma four</a></span>
+                    <span><a href="/shop/comma-four" target="_blank" class="highlight">comma four</a></span>
                   </div>
                   {#if FOUR_SALE}
                     <div class="price-group">
@@ -105,7 +105,7 @@
                 </Grid>
               </div>
               <ul>
-                <li translate="no">comma four</li>
+                <li>comma four</li>
                 <li>OBD-C cable (1.5 ft)</li>
                 <li>2 mounts</li>
               </ul>
@@ -119,7 +119,7 @@
               </div>
               <ul>
                 <li>car harness (harness box & connector)</li>
-                <li translate="no">comma power</li>
+                <li>comma power</li>
               </ul>
             </div>
           </div>
@@ -197,7 +197,7 @@
           Removal method varies by car.
           The durable plastic often requires a strong tug to pop it off on Hondas.
           Toyotas often need a slide outward.
-          If you'd like to see how it's done, find a <span translate="no">comma</span> installation guide for your specific make on <a href="https://www.youtube.com/results?search_query=comma+install" class="highlight">YouTube</a>.
+          If you'd like to see how it's done, find a comma installation guide for your specific make on <a href="https://www.youtube.com/results?search_query=comma+install" class="highlight">YouTube</a>.
         </p>
       </Grid>
     </div>
@@ -256,7 +256,7 @@
         </div>
         <ul class="type-lead">
           <li>Plug the OBD-C cable into the harness box – Ensure the cable is fully seated.</li>
-          <li>Plug the OBD-C cable into the <span translate="no">comma four</span>. Make sure the cable is all the way in.</li>
+          <li>Plug the OBD-C cable into the comma four. Make sure the cable is all the way in.</li>
           <li>Mount the device – Ensure the device is fully seated into the mount.</li>
         </ul>
       </Grid>
@@ -282,18 +282,18 @@
     <hr />
     <div class="step">
       <Badge style="dark">OPTIONAL STEP</Badge>
-      <h2 class="type-regular">Pair your device with <span translate="no">comma connect</span></h2>
+      <h2 class="type-regular">Pair your device with comma connect</h2>
       <Grid templateColumns="0.875fr 0.75fr">
         <div>
           <img src={StepSixImage} loading="lazy" alt="comma connect application logo" />
         </div>
         <div>
           <p class="type-lead">
-            Pair your <span translate="no">comma four</span> with <a href="https://connect.comma.ai/" target="_blank" class="highlight">connect.comma.ai</a> on your phone to see your recorded drives.
+            Pair your comma four with <a href="https://connect.comma.ai/" target="_blank" class="highlight">connect.comma.ai</a> on your phone to see your recorded drives.
           </p>
           <br />
           <LinkButton href="https://connect.comma.ai/" target="_blank" style="primary" fullWidth={true}>
-            <span class="brand-name" translate="no">comma connect</span>
+            <span class="brand-name">comma connect</span>
           </LinkButton>
         </div>
       </Grid>
@@ -302,23 +302,23 @@
     <hr />
     <div class="step">
       <Badge style="dark">OPTIONAL STEP</Badge>
-      <h2 class="type-regular">Add the <span translate="no">comma power</span></h2>
+      <h2 class="type-regular">Add the comma power</h2>
       <Grid templateColumns="0.875fr 0.75fr">
         <div>
           <img src={CommaPowerImage} loading="lazy" alt="comma power" />
         </div>
         <div>
           <p class="type-lead">
-            Installing the <span translate="no">comma power</span> is entirely optional and can be done at any time.
+            Installing the comma power is entirely optional and can be done at any time.
             Simply connect one end to your car's OBD-II port and the other to the harness box.
           </p>
           <p class="type-lead">
-            With a <span translate="no">comma power</span>:
+            With a comma power:
           </p>
           <ul class="type-lead">
             <li>The start and end of every drive are recorded.</li>
-            <li>Your <span translate="no">comma four</span> remains powered and online while the car is off.</li>
-            <li>Your <span translate="no">comma four</span> downloads updates while the car is off.</li>
+            <li>Your comma four remains powered and online while the car is off.</li>
+            <li>Your comma four downloads updates while the car is off.</li>
           </ul>
         </div>
       </Grid>

@@ -3,8 +3,6 @@
   import { page } from '$app/stores';
   import { replaceState } from '$app/navigation';
   import Accordion from './Accordion.svelte';
-  import BrandText from './BrandText.svelte';
-  import { markBrands } from '$lib/utils/brands.js';
 
   export let topic;
   export let title = null;
@@ -27,7 +25,7 @@
 
 <div>
   <div class="header" id={(title ?? topic.title).toLowerCase().replace(/[^\w\s]/g, '').replaceAll(' ', '-')}>
-    <h1 class="type-h2"><BrandText text={title ?? topic.title} /></h1>
+    <h1 class="type-h2">{title ?? topic.title}</h1>
     {#if topic.image}<img src={topic.image} loading="eager" alt="{title ?? topic.title} banner" />{/if}
   </div>
   <div class="questions">
@@ -35,10 +33,10 @@
       {@const id = entry.question.toLowerCase().replace(/[^\w\s]/g, '').replaceAll(' ', '-')}
       <Accordion checked={id === openId} {id} on:click={() => toggle(id)}>
         <div slot="label" class="label type-h5">
-          <span><BrandText text={entry.question} /></span>
+          <span>{entry.question}</span>
         </div>
         <div class="details type-large" slot="content">
-          {@html markBrands(entry.answer)}
+          {@html entry.answer}
         </div>
       </Accordion>
       <hr />

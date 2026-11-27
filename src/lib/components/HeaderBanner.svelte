@@ -6,7 +6,7 @@
   <div class="wrapper">
     <a href="/shop/comma-four" class="headline type-display type-h4">
       <strong>BLACK FRIDAY SALE!</strong>
-      <span><span class="discount">${FOUR_STRIKETHROUGH_PRICE - FOUR_PRICE}&nbsp;OFF</span> <span translate="no">COMMA&nbsp;FOUR</span></span>
+      <span><span class="discount">${FOUR_STRIKETHROUGH_PRICE - FOUR_PRICE}&nbsp;OFF</span> COMMA&nbsp;FOUR</span>
     </a>
   </div>
 </div>

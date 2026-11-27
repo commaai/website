@@ -324,8 +324,8 @@
 {#if selection && selection.package && !hideSupportNoteCard}
   <NoteCard title="Support" icon={CarIcon}>
     {@html selection.package === 'All' ?
-      '<span translate="no">openpilot</span> will work with <strong>all packages and trims</strong> of this car.' :
-      `<span translate="no">openpilot</span> requires <strong>${selection.car}</strong> to come equipped with <strong>${selection.package}</strong>.`
+      'openpilot will work with <strong>all packages and trims</strong> of this car.' :
+      `openpilot requires <strong>${selection.car}</strong> to come equipped with <strong>${selection.package}</strong>.`
     }
   </NoteCard>
 {/if}

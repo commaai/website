@@ -16,7 +16,7 @@
 <Grid alignItems="center" size="large">
   <div class="installation-guide">
     <hgroup>
-      <span class="type-lead" translate="no">{productName}</span>
+      <span class="type-lead">{productName}</span>
       <h2 class="type-h3">{title}</h2>
     </hgroup>
     <div class="overview">

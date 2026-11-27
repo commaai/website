@@ -30,7 +30,7 @@
   {:else}
     <div class="copy">
       <strong class="type-caps">Get the latest updates</strong>
-      <span class="type-small">Products, <span translate="no">openpilot</span> releases, car support, events, and more.</span>
+      <span class="type-small">Products, openpilot releases, car support, events, and more.</span>
     </div>
 
     <form id="footer-email-form" on:submit|preventDefault={handleFormSubmit}>

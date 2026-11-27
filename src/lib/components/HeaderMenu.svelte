@@ -1,5 +1,4 @@
 <script>
-  import BrandText from "$lib/components/BrandText.svelte";
   import SocialIcons from "$lib/components/SocialIcons.svelte";
   import { page } from '$app/stores';
 </script>
@@ -27,8 +26,8 @@
   >
     <div class="section-links type-h2 type-regular">
       <a href="/">home</a>
-      <a href="/openpilot" translate="no">openpilot</a>
-      <a href="/shop/comma-four" translate="no">comma four</a>
+      <a href="/openpilot">openpilot</a>
+      <a href="/shop/comma-four">comma four</a>
       <a href="/shop">shop</a>
       <a href="/connect">connect</a>
       <a href="/vehicles">compatibility</a>
@@ -42,7 +41,7 @@
         <div class="title type-caps type-small">Latest from the blog:</div>
         {#each $page.data.blogPosts as blogPost}
           <div class="entry">
-            <a class="type-lead" href={blogPost.link}><BrandText text={blogPost.title} /></a>
+            <a class="type-lead" href={blogPost.link}>{blogPost.title}</a>
             <div class="type-small">{blogPost.date} - {blogPost.readTime}</div>
           </div>
         {/each}
